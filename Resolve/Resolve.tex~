@@ -37,11 +37,16 @@
 
 \tableofcontents
 
-
+\newpage
 \section{The Team}
 
 \subsection{Antonia Michael}
-**************PHOTO GOES HERE
+
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.85\textwidth]{t} 
+\end{figure}
 
 \subsubsection{Interests}
 My interests include working with people, helping people, reading, tennis, greek dancing. 
