@@ -22,11 +22,11 @@
 \contentsline {subsubsection}{\numberline {1.4.1}Interests}{6}{subsubsection.1.4.1}
 \contentsline {subsubsection}{\numberline {1.4.2}Technical Skills}{6}{subsubsection.1.4.2}
 \contentsline {subsubsection}{\numberline {1.4.3}Past experiences relevant for project}{6}{subsubsection.1.4.3}
-\contentsline {subsubsection}{\numberline {1.4.4}None technical strengths}{6}{subsubsection.1.4.4}
-\contentsline {subsubsection}{\numberline {1.4.5}What makes you want to do the project}{6}{subsubsection.1.4.5}
-\contentsline {subsection}{\numberline {1.5}Isabel Nel}{6}{subsection.1.5}
-\contentsline {subsubsection}{\numberline {1.5.1}Interests}{6}{subsubsection.1.5.1}
+\contentsline {subsubsection}{\numberline {1.4.4}Non technical strengths}{7}{subsubsection.1.4.4}
+\contentsline {subsubsection}{\numberline {1.4.5}What makes you want to do the project}{7}{subsubsection.1.4.5}
+\contentsline {subsection}{\numberline {1.5}Isabel Nel}{7}{subsection.1.5}
+\contentsline {subsubsection}{\numberline {1.5.1}Interests}{7}{subsubsection.1.5.1}
 \contentsline {subsubsection}{\numberline {1.5.2}Technical Skills}{7}{subsubsection.1.5.2}
 \contentsline {subsubsection}{\numberline {1.5.3}Past experiences relevant for project}{7}{subsubsection.1.5.3}
-\contentsline {subsubsection}{\numberline {1.5.4}None technical strengths}{7}{subsubsection.1.5.4}
+\contentsline {subsubsection}{\numberline {1.5.4}None technical strengths}{8}{subsubsection.1.5.4}
 \contentsline {subsubsection}{\numberline {1.5.5}What makes you want to do the project}{8}{subsubsection.1.5.5}
