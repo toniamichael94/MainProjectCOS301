@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.3.11)  2 MAY 2015 12:41
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.3.11)  4 MAY 2015 08:37
 entering extended mode
 **C:/Users/Lana/Documents/UP/COS*301/Main*Project/GIT/MainProjectCOS301/Resolve
 /Resolve.tex
@@ -454,4 +454,143 @@ LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
 LaTeX Font Info:    ... okay on input line 8.
 LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
 LaTeX Font Info:    ... okay on input line 8.
-LaTeX Fon
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+\AtBeginShipoutBox=\box26
+Package hyperref Info: Link coloring OFF on input line 8.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
+Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
+Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
+)
+\c@section@level=\count100
+)
+LaTeX Info: Redefining \ref on input line 8.
+LaTeX Info: Redefining \pageref on input line 8.
+LaTeX Info: Redefining \nameref on input line 8.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count101
+\scratchdimen=\dimen110
+\scratchbox=\box27
+\nofMPsegments=\count102
+\nofMParguments=\count103
+\everyMPshowfont=\toks17
+\MPscratchCnt=\count104
+\MPscratchDim=\dimen111
+\MPnumerator=\count105
+\makeMPintoPDFobject=\count106
+\everyMPtoPDFconversion=\toks18
+)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 34.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 34.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 34.
+ [1
+
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
+("C:\Users\Lana\Documents\UP\COS 301\Main Project\GIT\MainProjectCOS301\Resolve
+\Resolve.toc")
+\tf@toc=\write3
+ [2
+
+] <t.jpg, id=16, 177.66376pt x 288.07625pt>
+File: t.jpg Graphic file (type jpg)
+ <use t.jpg>
+Package pdftex.def Info: t.jpg used on input line 47.
+(pdftex.def)             Requested size: 331.50238pt x 537.53937pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (8.99171pt too wide) in paragraph at lines 53--54
+\OT1/cmr/m/n/12 My tech-ni-cal skills in-clude: Java, C++, Html5, css, php, Boo
+t-strap, Javascript,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--59
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--65
+
+ []
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 67--68
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 76--80
+
+ []
+
+[4]
+Overfull \hbox (15.52228pt too wide) in paragraph at lines 91--97
+\OT1/cmr/m/n/12 I es-pe-cially en-joyed the two mod-ules, Net-cen-tric com-pute
+r sys-tems and Database
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 91--97
+
+ []
+
+[5]
+Overfull \hbox (1.59315pt too wide) in paragraph at lines 106--107
+\OT1/cmr/m/n/12 My non-technical strengths in-clude team-work and com-mu-ni-ca-
+tion skills which
+ []
+
+[6] [7] <Semaka.jpg, id=56, 2746.26pt x 3661.68pt>
+File: Semaka.jpg Graphic file (type jpg)
+ <use Semaka.jpg>
+Package pdftex.def Info: Semaka.jpg used on input line 127.
+(pdftex.def)             Requested size: 331.50238pt x 441.95279pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[8] <IsabelNel.jpg, id=67, 889.3225pt x 1645.14626pt>
+File: IsabelNel.jpg Graphic file (type jpg)
+ <use IsabelNel.jpg>
+Package pdftex.def Info: IsabelNel.jpg used on input line 162.
+(pdftex.def)             Requested size: 142.26378pt x 263.15347pt.
+
+Overfull \hbox (0.58072pt too wide) in paragraph at lines 172--174
+\OT1/cmr/m/n/12 My thec-ni-cal skills in-clude: C++, Java, CSS, PHP, JavaScript
+, XML, HTML,
+ []
+
+[9] [10]
+! You can't use `macro parameter character #' in horizontal mode.
+l.238 -Xamarin - uses c #
+                          backend for the front end, runs natively on all pl...
+
+? 
+! Emergency stop.
+l.238 -Xamarin - uses c #
+                          backend for the front end, runs natively on all pl...
+End of file on the terminal!
+
+ 
+Here is how much of TeX's memory you used:
+ 5794 strings out of 493921
+ 84983 string characters out of 3144879
+ 165548 words of memory out of 3000000
+ 8990 multiletter control sequences out of 15000+200000
+ 8193 words of font info for 29 fonts, out of 3000000 for 9000
+ 841 hyphenation exceptions out of 8191
+ 35i,5n,30p,893b,331s stack positions out of 5000i,500n,10000p,200000b,50000s
+!  ==> Fatal error occurred, no output PDF file produced!
