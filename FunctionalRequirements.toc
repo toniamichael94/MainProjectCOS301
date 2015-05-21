@@ -1,0 +1,20 @@
+\contentsline {section}{\numberline {1}Introduction}{3}
+\contentsline {section}{\numberline {2}Vision}{3}
+\contentsline {section}{\numberline {3}Background}{3}
+\contentsline {section}{\numberline {4}Architecture Requirementss}{4}
+\contentsline {subsection}{\numberline {4.1}Access Channel Requirements}{4}
+\contentsline {paragraph}{Super User\\}{4}
+\contentsline {paragraph}{ Cafeteria Manager\\}{4}
+\contentsline {paragraph}{ Casher\\}{5}
+\contentsline {paragraph}{ Normal User\\}{5}
+\contentsline {paragraph}{ Resolve Admin\\}{5}
+\contentsline {subsection}{\numberline {4.2}Quality Requirements}{6}
+\contentsline {subsection}{\numberline {4.3}Integrationl Requirements}{6}
+\contentsline {subsection}{\numberline {4.4}Architecture constraints}{6}
+\contentsline {section}{\numberline {5}Functiona Requirements and Aplication Design}{6}
+\contentsline {subsection}{\numberline {5.1}Use Case Prioritization}{6}
+\contentsline {subsection}{\numberline {5.2}Use Case/Service Contracts}{6}
+\contentsline {subsection}{\numberline {5.3}Required Functionality}{6}
+\contentsline {subsection}{\numberline {5.4}Process Spesification}{6}
+\contentsline {subsection}{\numberline {5.5}Domain Model}{6}
+\contentsline {section}{\numberline {6}Open Issues}{6}
