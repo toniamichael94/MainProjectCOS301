@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.2.26)  21 MAY 2015 14:32
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.2.26)  21 MAY 2015 14:50
 entering extended mode
 **C:/Users/Bella/Desktop/MainProject/FunctionalRequirements.tex
 (C:/Users/Bella/Desktop/MainProject/FunctionalRequirements.tex
@@ -75,26 +75,35 @@ Underfull \hbox (badness 10000) in paragraph at lines 54--55
  []
 
 [4] [5] [6]
-Overfull \hbox (6.55782pt too wide) in paragraph at lines 116--116
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 116.
+
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 116.
+ [7]
+Overfull \hbox (6.55782pt too wide) in paragraph at lines 133--133
 []\OT1/cmr/bx/n/17.28 Functiona Re-quire-ments and Apli-ca-tion De-
  []
 
-[7] [8] (C:\Users\Bella\Desktop\MainProject\FunctionalRequirements.aux) ) 
+[8] (C:\Users\Bella\Desktop\MainProject\FunctionalRequirements.aux) ) 
 Here is how much of TeX's memory you used:
- 240 strings out of 493921
- 3024 string characters out of 3147282
+ 257 strings out of 493921
+ 3312 string characters out of 3147282
  53031 words of memory out of 3000000
- 3606 multiletter control sequences out of 15000+200000
+ 3620 multiletter control sequences out of 15000+200000
  9107 words of font info for 32 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  22i,9n,19p,825b,199s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on FunctionalRequirements.pdf (8 pages, 64301 bytes).
+<C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmsy10.pfb>
+Output written on FunctionalRequirements.pdf (8 pages, 73491 bytes).
 PDF statistics:
- 41 PDF objects out of 1000 (max. 8388607)
+ 45 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
