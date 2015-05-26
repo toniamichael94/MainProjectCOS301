@@ -51,7 +51,12 @@ requirements, and architectural constraints. These points will be thouroughly di
 
 %% ---------- ACCESS CHANNEL REQUIREMENTS ------------
 \subsection{Access Channel Requirements}
-The Cafeteria Management System would be accessed by different users via  the online web page or through the mobile application that will be suited for different platforms. Different services will be available to different users. There are five types of users: Super User, Cafeteria Manager, Casher, Normal User, and Resolve Admin. \\
+In this section we will discuss the requirements for the different channels through which the system can be accessed by people (users - client side) and systems (server-side), we will also discuss the integration channels which will be suported by the system.
+
+
+%%--------HUMAN ACCESS CHANNELS------
+\subsubsection{Human Access Channels}
+The Cafeteria Management System would be accessed by different users via  the online web page (thus it willbe a web interface) or through the mobile application that will be suited for different platforms. The web interface will be accesable through all the standard-complient web browsers for example Morzilla Firefox, Google Chrome, Safari and Microsoft Internet Explorer. The mobile application will be available to access on multiple platforms including the standard iSO/Anroid platforms.   Different services will be available to different users. There are five types of users: Super User, Cafeteria Manager, Casher, Normal User, and Resolve Admin: \\
 
 \paragraph{Super User\\}
 The super user will be the only administrative user that will have global access to all the functionality of the Cafeteria Management System, in particular the Super User will have access to the branding of the Cafeteria Management system (changing the logo and so forth) . The super user will also have access to all the functionality of all the other users listed below.
@@ -68,13 +73,29 @@ The normal user will typically be a resolve employee registered on the Cafeteria
 \paragraph{ Resolve Admin\\}
 The resolve admin user will only be able to view all the registered users and their total balance outstanding, this is for administrative and financial usage purposes requested by the resolve team.
 
+%%--------SYSTEM ACCESS CHANNELS -------
+\subsubsection{System Access Channels}
+The differant thecnologies we will be using will use appropriate access channels that will be supported by the thecnologies we will be using. For example we will be using NodeJs running on an Express server and the server needs to be connected to the database we will be using getting informations and transfering it from the server to the respective node modules and so forth. 
+The integration channels will also be accessable by the mobile applications, since Phone Gap which is the program we will be using to help us convert our web interface into a mobile application will give the user the illusion that they are working on an application but it will run in the background as a web interface. 
+
+%%-------INTEGRATION CHANNELS--------
+\subsubsection{Integration Access channels}
+
+\begin{itemize}
+
+\item The system will have to integrate with the database getting information of the employees - such as contact information to notify the user that an order is ready, get inventory or stock and so forth. 
+
+\item The system will also have to integrate with the server to pass information to and from the database.
+\end{itemize}
+
+
 
 
 %% ---------  QUILITY REQUIREMENTS -----------------------
 \subsection{Quality Requirements}
 
 \paragraph{ Preformance\\}
-The Performance of a software system will be measured in the run time efficiency.  In the Cafeteria Management System we will be implementing technologies such as AngularJS wich will ensure for fast interactive services on the client side, giving the user a fast and effective way to order their meals from the Cafeteria without wasting voluble work time of the company.  Although the performance is also influenced by the architectural design we will ensure that processes on the server side are also fast and efficient to work smoothly with the client side. 
+The Performance of a software system will be measured in the run time efficiency.  In the Cafeteria Management System we will be implementing technologies such as AngularJS wich will ensure for fast interactive services on the client side, giving the user a fast and effective way to order their meals from the Cafeteria without wasting voluble work time of the company.  Although the performance is also influenced by the architectural design we will ensure that processes on the server side are also fast and efficient to work smoothly with the client side. Ideally Reporting queries should not take longer that +/- 6 seconds and non reporting queries should take less than +/- 0.4 seconds. 
 
 \paragraph{ Reliability\\}
 When creating a software system it is not possible at the first run to create a system that is completely 'bug free', but a certain level of debugging and reliability of a system is needed to have it fully functional. Thus in the case of reliability unit testing is of upmost importance, if all pieces of code that gets added into the working system if fully tested for every possible scenario your system is more likely to have a very higher reliability than systems where only a few unit tests were conducted. When creating a system for a client it is important to make it as reliable as possible to promote good and satisfactory services as promised.
@@ -83,21 +104,27 @@ When creating a software system it is not possible at the first run to create a 
 Scalability refers to a software system's ability to handle increased workloads. The Cafeteria Management System will be scalable if it can handle more than the currently registered employees, or even twice or three times  as many users.  
 
 \paragraph{Security\\}
-Security is considered as an important quality requirement in any online software system. For the Cafeteria Management System no user will be able to log into the system without being registered to the system. On registration all personal details, such as the employees e-mail address, will be verified to ensure all registered users can contacted if needed.
+Security is considered as an important quality requirement in any online software system. For the Cafeteria Management System no user will be able to log into the system without being registered to the system. On registration all personal details, such as the employees e-mail address, will be verified to ensure all registered users can contacted if needed. 
 
 \paragraph{Flexability\\}
 In the creation of the Cafeteria Management System it is important to keep the software as technology neutral as possible, this is why in the creation of an application of our online system the application will be able to work on multiple platforms facilitating a wide variety of users and the online facility will be able to open on all standard browsers. 
 
 \paragraph{Maintainability\\}
-Maintainability refers to the design of the system that needs to allow for the addition of new requirements without the risk of introducing new errors. In the process of implementing the Cafeteria Management System it is important to remember that the owner of the system might  want to add some functionality to the existing software at a later stage. It is thus important to implement coding standards to keep the software neat and readable. It will ensure that when the software is altered there will not be any trouble reading it or discovering bugs that were not for. Maintainability thus also refers to the testability of a software system - it is important to ensure that the software system is adequately tested at all levels.
+Maintainability refers to the design of the system that needs to allow for the addition of new requirements without the risk of introducing new errors. In the process of implementing the Cafeteria Management System it is important to remember that the owner of the system might  want to add some functionality to the existing software at a later stage. It is thus important to implement coding standards to keep the software neat and readable since future developers should be able to easily understand the system. It will ensure that when the software is altered there will not be any trouble reading it or discovering bug. Maintainability thus also refers to the testability of a software system - it is important to ensure that the software system is adequately tested at all levels.\\
+The other important factor for maintainability is to use thechnologies that will be around for a long time. 
+
+\paragraph{Testability\\}
+Testing the software system is of upmost importance and thus unit testing will take place, unit testing using mock objects isolating components , integration testing will also take place - where the components will now be tested in an actual enviroment not wilt mock objects - thus all pre-conditions needs to be met and all post conditions needs to be true indicating that the services stated by the service contracts has been provided. Testing should also include scalibility testing, usability testing and preformance testing. 
 
 \paragraph{Integrability\\}
 Integrability  refers to the testing of separately developed components to ensure that they work together. As we make our different  modules using angular we will make sure each module when needed to interact with another model can do so efficiently. This will be achieved through unit testing and integration testing of the different modules as we build our system. This also means that if a module is removed from the system, the system will be able to run smoothly, it will not disrupt the whole system. If we thus modify one of the modules it won't disrupt the rest of the system. 
+Therefore the system should also be able to address future integration requirements by providing access to its services using widly adopted public standards.
 
 \paragraph{Usability\\}
 Usability can be considered as a core quality requirement . \\
 Usability involves measuring the user's performance with regard to the software system.  It is important to have a usable and pluggable system that the staff members of Resolve can use with ease; this implies that the site does not break down every time you click a link for example. \\
-Usability of the Cafeteria Management System will be ensured by unit testing, all aspects of each module of our system will be thoroughly  tested before it will get passed on to be implemented in the working system .
+Usability of the Cafeteria Management System will be ensured by unit testing, all aspects of each module of our system will be thoroughly  tested before it will get passed on to be implemented in the working system - thus firstly the system will be fully functional.\\
+Secondly the system needs to be simple and easy to use without any guidance or ducumentation thus it needs to be user friendly. 
 
 
 
@@ -111,15 +138,15 @@ Technologies we will be using in the creation of the Cafeteria Management System
 \begin{itemize}
   \item HTML - The Software system will be mainly web-based.
 
-  \item JavaScript together with AngularJS - this will enable us to add extra functionality to our web page and modulirise the 	 	system thus also helping us to implement dependancy injection.
+  \item JavaScript together with AngularJS  and NodeJS - this will enable us to add extra functionality to our web page and modulirise the system thus also helping us to implement dependancy injection. For creating reports we can also import ReportingJS to create visually pleasing reports that is logically structured
 
  \item CSS together with BootStrap - which will allow us to style our page and also make it interactive.
 
- \item PHP togerther with mySQL - this will be used to handle the database on the server side.
+ \item Mongo DB for our database which goes extreemly well with NodeJS. 
 
- \item Apatche Server - we will be hosting our data base on an Apatche server which is open scource
+ \item Express server will be set up as our server that will host the system.
 
- \item Phone gap will be used to convert our web page into a usable application which will then look like the online webpage but canwill be acceessable from multiple platforms.
+ \item Phone gap will be used to convert our web page into a usable application which will then look like the online webpage that will run like a web interface in the background but  will seem like a mobile application to the user that will be acceessable from multiple platforms.
 
 \end{itemize}
 The above mentioned thecnologies will be our basis we will create our system on, but as we are busy building the Cafeteria Management System we will add other thechnologies as needed. 
@@ -127,6 +154,20 @@ The above mentioned thecnologies will be our basis we will create our system on,
 
 %%--------------------------------------- FUNCTIONAL REQUIREMENTS--------------------------------
 \section{Functiona Requirements and Aplication Design}
+In this section we will discuss the application functionality required by users and other stakeholders. \\
+T-RISE have decided t use the Agile management approach in designing the Cafeteria Management System. The method involves an interactive and incremental method of managing and designing the system. In the agile method we will submit deliverables in stages, as they are completed, thus we will complete small portions of the deliverables in each delivery cycle. 
+For this reason we will create the needed daigrams and planning for each stage, add these to our documentation and then implemet the respective modules. After implimentation we will do thourough unit testing as descussed under the 'testing' heading. If all the tests passed for the respective components it will be added to our working system, thus the working system will be fully functional at all times. 
+
+%% ---------------USE CASES -------------------
+\subsection{Use Cases }
+Below is a list of all the use cases we have identified:
+
+\begin{itemize}
+
+\item 
+
+\end{itemize}
+
 
 %% ---------------USE CASE PRIORITIZATION -------------------
 \subsection{Use Case Prioritization}
@@ -139,6 +180,9 @@ The above mentioned thecnologies will be our basis we will create our system on,
 
 %% --------------PROSESS SPESIFICATION ------------------------
 \subsection{Process Spesification}
+
+%%-------------TESTING--------------------------------------
+\subsection{Testing}
 
 %%--------------- DOMAIN MODEL ---------------------------------
 \subsection{Domain Model}
