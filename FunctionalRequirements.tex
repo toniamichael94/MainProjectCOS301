@@ -30,7 +30,7 @@
 
 %%---------------------------------  INTRODUCTION -------------------------------------------
 \section{Introduction}
-This document contains the functional requirements specification, architecture requirements and testing for the Resolve Cafeteria Management System that will be created for Software Engineering (COS 301) at the University of Pretoria 2015, by the group T-RISE. In this document we will thoroughly discuss and layout the project's architectural requirements , functional requirements, application design and testing to provide a clear view of the system as a whole. An agile approach is being followed, hence the main use cases that this document will be focussing on are placing orders and managing a user profile. These will be explored in quite some detail. Screenshots of a few of the unit tests are included in the document, however, the actual javascript files with all the unit tests for the above mentioned use cases can be located on the github repository via the url provided above. 
+This document contains the functional requirements specification, architecture requirements and testing for the Resolve Cafeteria Management System that will be created for Software Engineering (COS 301) at the University of Pretoria 2015, by the group T-RISE. In this document we will thoroughly discuss and layout the project's architectural requirements , functional requirements, application design and testing to provide a clear view of the system as a whole. An agile approach is being followed, hence the main use cases that this document will be focussing on are placing orders and managing a user profile. These will be explored in quite some detail. Screenshots of a few of the unit tests are included in the document, however, the actual javascript files with all the unit tests for the above mentioned use cases can be located on the github repository via the url provided above. The user manual required can be found in the Read Me file situated in the github repository.
 
 %% ------------------------------ VISION ------------------------------------------------------
 \section{Vision}
@@ -217,6 +217,18 @@ This use case will be considered as important, users can print a billing report 
 
 %%-------------TESTING--------------------------------------
 \subsection{Testing}
+
+Testing for the two main use cases discussed in this document has been done using Mocha for unit testing. We have tested the various functions identified for the two different use cases. For placing an order, the functions that are to be created are checkProductAvailability, checkLimits, isLoggedIn and generateBill. 
+
+\\Once the user has selected items to be purchased, the system needs to check that the user has logged in, so that using the employeeId the system will know which user's profile needs to be edited. The system has to then check whether the products are in stock and whether the total price of the items selected stays within the user's set limit. The bill is then generated, stating the items purchased and the cost.
+
+\\These functions will return strings indicating whether the desired operation associated with them was successfully carried out or not. Mock Json objects consisting of the different parameters required for each function have been passed to the function in the tests. If the functions in the placeOrder.js file pass all these tests, the file will be able to be integrated into the rest of the system. 
+\\
+Due to the fact that an agile approach is being used, these unit tests might need to be edited if the functional requirements are edited along the way. Screenshots of some of the unit tests that have been created are displayed below. The entire unit test file can be found in the github repository in the unit test folder.  
+\\
+The second use case is manage profile, and the functions that have thus far been identified for this use case are editProfile, changePassword, changeEmail, setLimit, editRecipients, displayBill, viewHistory and generateFavourites. 
+\\
+The system must hence allow
 
 %%--------------- DOMAIN MODEL ---------------------------------
 \subsection{Domain Model}
