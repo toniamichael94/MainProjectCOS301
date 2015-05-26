@@ -12,11 +12,11 @@ For more information, please have a look at the project proposal document in the
 ********************************************************************************
 User Manual
 ********************************************************************************
--The first page that displays will be the order page. Here you can view the menu i.e. the menu items, the prices and the configurable daily specials. You will be able to select meal items here to purchase.
+- The first page that displays will be the order page. Here you can view the menu i.e. the menu items, the prices and the configurable daily specials. You will be able to select meal items here to purchase.
 
--If you hasn't logged on, the system will prompt you to log on in order to facilitate the order of the meal items.
+- If you hasn't logged on, the system will prompt you to log on in order to facilitate the order of the meal items.
 
--If you do not exist on the system, you will be prompted to register on the system and then log in.
+- If you do not exist on the system, you will be prompted to register on the system and then log in.
 
 -Once you have been logged in (using your Resolve employee number as a username), the system will check the total price of the meal items against your configurable spending limit to ensure that this limit is not exeeded.
 
@@ -26,7 +26,7 @@ User Manual
 
 - You will recieve a notification when your meal is ready. You can configure if this is an email or sms
 
--You can go to your profile page to view account history and change various settings
+- You can go to your profile page to view account history and change various settings
 
 - The cafeteria manager will be responsible for adding and removing stock items from the systems, to represent the current state of the cafeteria
 
