@@ -8,8 +8,8 @@ it('should pass', function(done){
 		employeeId="7657834657";
 		password="dummy";
 	}
-	var result = loginObj .login(jsonObj) ;
-		 if(result=="successful login"){
+	var result = loginObj .isLoggedIn(jsonObj) ;
+		 if(result=="success- user is logged in"){
             throw 'true';
         }else 
 		done();
@@ -17,11 +17,11 @@ it('should pass', function(done){
 
 it('should fail', function(done){
 	var jsonObj = {
-		employeeId="7657834657";
+		employeeId="";
 		password="";
 	}
-	var result = loginObj .login(jsonObj) ;
-		 if(result=="unsuccessful login"){
+	var result = loginObj .isLoggedIn(jsonObj) ;
+		 if(result=="user not logged in"){
             throw 'false';
         }else 
 		done();
