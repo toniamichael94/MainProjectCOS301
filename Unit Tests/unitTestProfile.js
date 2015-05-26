@@ -1,5 +1,8 @@
-
 //manageProfile
+var placeOrderObj = require('./placeOrder');
+var profileObj=require('./profile');
+var loginObj = require('./login');
+
 
  it('should pass', function(done){
         var jsonObj = {
