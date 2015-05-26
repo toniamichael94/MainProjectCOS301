@@ -9,9 +9,12 @@
 	Elana Kuun (12029522) \\
 	Semaka Malapane (13081129) \\
 	Antonia Michael (13014171) \\
-	Isabel Nel (13070305)}
+	Isabel Nel (13070305)
 
 \date{\today}
+
+	\subsection{GitHub Repository}
+			\url{https://github.com/toniamichael94/MainProjectCOS301}
 
 \documentclass[12pt]{article}
 
@@ -27,22 +30,20 @@
 
 %%---------------------------------  INTRODUCTION -------------------------------------------
 \section{Introduction}
-This document contains the functional requirements specification for the Resolve Cafeteria Management System that will be created for Software Engineering (COS 301) at the University of Pretoria 2015, by the group T-RISE. In this document we will thoroughly discuss and layout the project's architecture requirements , functional requirements and application design to provide a clear view of the system as a whole. 
+This document contains the functional requirements specification, architecture requirements and testing for the Resolve Cafeteria Management System that will be created for Software Engineering (COS 301) at the University of Pretoria 2015, by the group T-RISE. In this document we will thoroughly discuss and layout the project's architectural requirements , functional requirements, application design and testing to provide a clear view of the system as a whole. An agile approach is being followed, hence the main use cases that this document will be focussing on are placing orders and managing a user profile. These will be explored in quite some detail. Screenshots of a few of the unit tests are included in the document, however, the actual javascript files with all the unit tests for the above mentioned use cases can be located on the github repository via the url provided above. 
 
 %% ------------------------------ VISION ------------------------------------------------------
 \section{Vision}
-The vision of this project is to implement a flexible, pluggable, fully functional software application that will be maintainable, with detailed supporting documentation and an instruction manual for the Cafeteria Management System. This system will then assist in the collection of payments for the cafeteria, manage inventory/stock, facilitate payments for access cards (or the use of unique access card numbers), and facilitate ordering from the cafeteria. The system will allow the cafeteria to use the system that they are currently using as it is with combination of a user friendly application and online facility to place orders and check stock and make predictions of needed stock for the following week.
+The vision of this project is to implement a flexible, pluggable, fully functional software application that will be maintainable, with detailed supporting documentation and an instruction manual for the Cafeteria Management System. This system will assist in managing the cafeteria's inventory/stock, executing orders from the cafeteria, generating bills and sending these to the appropriate parties and facilitating payments for access cards (or the use of unique access card numbers). 
 
 %%---------------------------------- BACKGROUND -----------------------------------------
 \section{Background}
-As specified in the tender proposal document from Resolve - the cafeteria is currently cash only and does not accept bank cards or electronic payments. This makes it difficult for employees as they have to carry cash if they want to purchase anything from the cafeteria. In this case the employee might as well go to an outside food provider and
-pay with their preferred method of payment. This problem wastes fuel for the employees, time for the company, and does not bring in the maximum amount of income to the cafeteria, hindering its growth and improvement.\\
+As specified in the project proposal document from Resolve - the cafeteria is currently cash only and does not accept bank cards or electronic payments. This makes it inconvenient for employees as they have to carry around cash if they want to purchase anything from the cafeteria. Hence, this is equivalent to purchasing from an external food outlet where they can also pay with their preferred method of payment. The employees have to hence use up fuel and time and lastly this does not bring in the maximum amount of income to the cafeteria, hindering its growth and improvement.\\
 
-Resolve is looking for a way to accept payments from employees for the canteen
-using their employee access cards with an amount being deducted from their salary at the end of the month.\\
+Resolve is therefore looking for a means to accept payments from employees for the canteen using their employee access cards or access card numbers, with an amount being deducted from their salary at the end of the month.\\
 
 Resolve proposed the Cafeteria Management System to assist with this problem.
-At our first meeting with Resolve they have also brought under our attention that at times the cafeteria does not have enough stock to make some of the menu items, thus the reporting of inventory or stock will also be part of the system. The system will predict what inventory/stock needs to be bought for the next week.
+After our first meeting with the client, they brought to our attention that at times the cafeteria does not even have enough stock to provide some of the menu items, thus the managing of inventory or stock will also be part of the system. The system will also predict what inventory/stock needs to be bought for the next week in order to avoid such a problem. At the end of each month, the bill for the month will be sent to either payroll or to the employee. This option is configurable from the user's profile. The employee can also set a spending limit for each month for control purposes. The system will have its own maximum, such that users cannot set a limit that exeeds this. 
 
 %% --------------------------------- ARCHITECTURE REQUIREMENTS ---------------------------------
 \section{Architecture Requirementss}
@@ -51,39 +52,39 @@ requirements, and architectural constraints. These points will be thouroughly di
 
 %% ---------- ACCESS CHANNEL REQUIREMENTS ------------
 \subsection{Access Channel Requirements}
-In this section we will discuss the requirements for the different channels through which the system can be accessed by people (users - client side) and systems (server-side), we will also discuss the integration channels which will be suported by the system.
+In this section we will discuss the requirements for the different channels through which the system can be accessed by firstly, people (users - client side) and systems (server-side). We will also discuss the integration channels which will be suported by the system.
 
 
 %%--------HUMAN ACCESS CHANNELS------
 \subsubsection{Human Access Channels}
-The Cafeteria Management System would be accessed by different users via  the online web page (thus it willbe a web interface) or through the mobile application that will be suited for different platforms. The web interface will be accesable through all the standard-complient web browsers for example Morzilla Firefox, Google Chrome, Safari and Microsoft Internet Explorer. The mobile application will be available to access on multiple platforms including the standard iSO/Anroid platforms.   Different services will be available to different users. There are five types of users: Super User, Cafeteria Manager, Casher, Normal User, and Resolve Admin: \\
+The Cafeteria Management System will be accessed by the different users via the online web page (web interface) or through the mobile application (if one is developed). The web interface will be accessible through all the standard web browsers such as Mozilla Firefox, Google Chrome and Microsoft Internet Explorer. The mobile application will be accessible on multiple platforms including the standard ISO/Anroid platforms. Different services will be available to different users. There are five types of users: Super User, Cafeteria Manager, Casher, Normal User, and Resolve Admin. These will be discussed below. \\
 
 \paragraph{Super User\\}
-The super user will be the only administrative user that will have global access to all the functionality of the Cafeteria Management System, in particular the Super User will have access to the branding of the Cafeteria Management system (changing the logo and so forth) . The super user will also have access to all the functionality of all the other users listed below.
+The super user will be the only administrative user that will have global access to all the functionality of the Cafeteria Management System, in particular the Super User will have access to the branding of the Cafeteria Management system (changing the logo and so forth) . The super user will hence have access to all the functionality of all the other users listed below.
 
 \paragraph{ Cafeteria Manager\\}
-The cafeteria manager will have the ability to view his/her own profile, edit his/her profile, and place orders as normal users can. This user will also be able to add and edit menu items, view the orders placed and the inventory or stock, and add or remove inventory or stock. 
+The cafeteria manager will have the ability to view his/her own profile, edit his/her profile, and place orders. This user will also be able to add and edit menu items, view the orders placed by the users of the system, view the inventory, and add or remove inventory. 
 
 \paragraph{ Cashier\\}
-The cashier will be able to view his/her profile, edit his/her profile, view the orders placed, and tick off those orders that are done and collected. The cashier will also be able to make a purchase and check inventory or stock and add or remove inventory or stock, since some stock could have gotten old or rotten and needs to be removed from the available stock list. 
+The cashier will be able to view his/her profile, edit his/her profile, view the orders placed, and mark off finished orders that are finished and have been collected. The cashier will also be able to make purchases, check inventory and add or remove inventory. Removal of inventory will be done in situations where stock has expired or depleted.
 
 \paragraph{ Normal User\\}
-The normal user will typically be a resolve employee registered on the Cafeteria Management System.  A normal user will only be able to view his/her profile, edit his/her profile, place orders, check if their order is ready, and print their balance reports.
+The normal user will be a Resolve employee registered on the Cafeteria Management System.  A normal user will only be able to view his/her profile, edit his/her profile, place orders, check if their order is ready, and view/print their balance reports and account history.
 
 \paragraph{ Resolve Admin\\}
-The resolve admin user will only be able to view all the registered users and their total balance outstanding, this is for administrative and financial usage purposes requested by the resolve team.
+The resolve admin user will be able to view all the registered users, their account history and their outsanding balances. This is for administrative and financial purposes . This role has been requested by the Resolve team.
 
 %%--------SYSTEM ACCESS CHANNELS -------
 \subsubsection{System Access Channels}
-The differant thecnologies we will be using will use appropriate access channels that will be supported by the thecnologies we will be using. For example we will be using NodeJs running on an Express server and the server needs to be connected to the database we will be using getting informations and transfering it from the server to the respective node modules and so forth. 
-The integration channels will also be accessable by the mobile applications, since Phone Gap which is the program we will be using to help us convert our web interface into a mobile application will give the user the illusion that they are working on an application but it will run in the background as a web interface. 
+The different technologies selected will be used to support the access channels effectively. We will be using NodeJs running on an Express server and the server needs to be connected to the Mongo database on which various data will be stored and retrieved. This data will be transfered from the server to the respective node modules and so forth. 
+The integration channels will also be accessable by the mobile applications, since Phone Gap which is the program we will be using to help us convert our web interface into a mobile application and will appear to the user that the user is working on an application where in reality the user will be using the web interface. 
 
 %%-------INTEGRATION CHANNELS--------
 \subsubsection{Integration Access channels}
 
 \begin{itemize}
 
-\item The system will have to integrate with the database getting information of the employees - such as contact information to notify the user that an order is ready, get inventory or stock and so forth. 
+\item The system will have to integrate with the Mongo database, retrieving information of the employees - such as contact information to notify the user that an order is ready, get inventory or stock and so forth. 
 
 \item The system will also have to integrate with the server to pass information to and from the database.
 \end{itemize}
@@ -212,7 +213,7 @@ This use case will be considered as important, users can print a billing report 
 \subsection{Required Functionality}
 
 %% --------------PROSESS SPESIFICATION ------------------------
-\subsection{Process Spesification}
+\subsection{Process Specification}
 
 %%-------------TESTING--------------------------------------
 \subsection{Testing}
