@@ -9,12 +9,11 @@
 	Elana Kuun (12029522) \\
 	Semaka Malapane (13081129) \\
 	Antonia Michael (13014171) \\
-	Isabel Nel (13070305)
-
+	Isabel Nel (13070305)}
+\\
+\url{https://github.com/toniamichael94/MainProjectCOS301}
+\\
 \date{\today}
-
-	\subsection{GitHub Repository}
-			\url{https://github.com/toniamichael94/MainProjectCOS301}
 
 \documentclass[12pt]{article}
 
@@ -212,7 +211,7 @@ This use case will be considered as important, users can print a billing report 
 %% -------------- REQUIRED FUNCTIONALITY --------------------
 \subsection{Required Functionality}
 
-%% --------------PROSESS SPESIFICATION ------------------------
+%% --------------PROSESS SPECIFICATION ------------------------
 \subsection{Process Specification}
 
 %%-------------TESTING--------------------------------------
@@ -225,10 +224,28 @@ Testing for the two main use cases discussed in this document has been done usin
 \\These functions will return strings indicating whether the desired operation associated with them was successfully carried out or not. Mock Json objects consisting of the different parameters required for each function have been passed to the function in the tests. If the functions in the placeOrder.js file pass all these tests, the file will be able to be integrated into the rest of the system. 
 \\
 Due to the fact that an agile approach is being used, these unit tests might need to be edited if the functional requirements are edited along the way. Screenshots of some of the unit tests that have been created are displayed below. The entire unit test file can be found in the github repository in the unit test folder.  
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.85\textwidth]{placeOrderPic} 
+\end{figure}
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.85\textwidth]{placeOrder2} 
+\end{figure}
 \\
 The second use case is manage profile, and the functions that have thus far been identified for this use case are editProfile, changePassword, changeEmail, setLimit, editRecipients, displayBill, viewHistory and generateFavourites. 
 \\
-The system must hence allow
+The system must hence allow the logged in user to change their various settings, as well as allow the user to view the day's bill as well as the account history.
+\\
+A sample of the code from the unit testing file is displayed below.
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.85\textwidth]{profilePic} 
+\end{figure}
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.85\textwidth]{profile2} 
+\end{figure}
 
 %%--------------- DOMAIN MODEL ---------------------------------
 \subsection{Domain Model}
