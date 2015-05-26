@@ -18,9 +18,9 @@ User Manual
 
 - If you do not exist on the system, you will be prompted to register on the system and then log in.
 
--Once you have been logged in (using your Resolve employee number as a username), the system will check the total price of the meal items against your configurable spending limit to ensure that this limit is not exeeded.
+- Once you have been logged in (using your Resolve employee number as a username), the system will check the total price of the meal items against your configurable spending limit to ensure that this limit is not exeeded.
 
--The system will also verify that the items that you have selected are in stock. 
+- The system will also verify that the items that you have selected are in stock. 
 
 - The system will then process your order
 
