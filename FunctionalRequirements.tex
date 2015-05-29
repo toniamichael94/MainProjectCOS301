@@ -34,19 +34,18 @@
 
 %%---------------------------------  INTRODUCTION -------------------------------------------
 \section{Introduction}
-This document contains the functional requirements specification, architecture requirements and testing for the Resolve Cafeteria Management System that will be created for Software Engineering (COS 301) at the University of Pretoria 2015, by the group T-RISE. In this document we will thoroughly discuss and layout the project's functional requirements to provide a clear view of the system as a whole. An agile approach is being followed, hence the main use cases that this document will be focussing on are placing orders and managing a user profile. These will be explored in quite some detail.  The agile method involves an interactive and incremental method of managing and designing the system. 
+This document contains the functional requirements specification, architecture requirements and testing for the Resolve Cafeteria Management System that will be created for Software Engineering (COS 301) at the University of Pretoria 2015, by the group T-RISE. In this document we will thoroughly discuss and layout the project's functional requirements to provide a clear view of the system as a whole. An agile approach is being followed, hence the main use cases that this document will be focussing on are placing orders and managing a user profile. These will be explored in quite some detail.  The agile method involves an interactive and incremential method of managing and designing the system. 
 %% ------------------------------ VISION ------------------------------------------------------
 \section{Vision}
-The vision of this project is to implement a flexible, pluggable, fully functional software application that will be maintainable, with detailed supporting documentation and an instruction manual for the Cafeteria Management System. This system will assist in managing the cafeteria's inventory/stock, executing orders from the cafeteria, generating bills and sending these to the appropriate parties and facilitating payments for access cards (or the use of unique access card numbers). 
+The vision of this project is to implement a flexible, pluggable, fully functional software application that will be maintainable, with detailed supporting documentation and an instruction manual for the Cafeteria Management System. This system will assist in managing the cafeteria's inventory/stock, placing orders made by employees, generating bills, and sending the appropriate information to the right parties.  
 
 %%---------------------------------- BACKGROUND -----------------------------------------
 \section{Background}
-As specified in the project proposal document from Resolve - the cafeteria is currently cash only and does not accept bank cards or electronic payments. This makes it inconvenient for employees as they have to carry around cash if they want to purchase anything from the cafeteria. Hence, this is equivalent to purchasing from an external food outlet where they can also pay with their preferred method of payment. The employees have to hence use up fuel and time and lastly this does not bring in the maximum amount of income to the cafeteria, hindering its growth and improvement.\\
+As specified in the project proposal document from Resolve, the cafeteria is currently cash only and does not accept bank cards or electronic payments. This makes it inconvenient for employees as they have to have cash on hand if they want to purchase anything from the cafeteria. Employees might choose to buy somewhere else where they can use another form of payment. The employees have to use fuel and time, and this does not bring in the maximum amount of income to the cafeteria, hindering its growth and improvement.\\
 
-Resolve is therefore looking for a means to accept payments from employees for the canteen using their employee access cards or access card numbers, with an amount being deducted from their salary at the end of the month.\\
+Resolve is therefore looking for a means to accept payments from employees for the canteen using their employee access cards or access card numbers. The amount spent at the cafeteria can then be deducted from their salary at the end of the month.\\
 
-Resolve proposed the Cafeteria Management System to assist with this problem.
-After our first meeting with the client, they brought to our attention that at times the cafeteria does not even have enough stock to provide some of the menu items, thus the managing of inventory or stock will also be part of the system. The system will also predict what inventory/stock needs to be bought for the next week in order to avoid such a problem. At the end of each month, the bill for the month will be sent to either payroll or to the employee. This option is configurable from the user's profile. The employee can also set a spending limit for each month for control purposes. The system will have its own maximum, such that users cannot set a limit that exeeds this. 
+After our first meeting with the client, they brought to our attention that at times the cafeteria does not have enough stock to provide some of the menu items, therefore the managing of inventory and stock will also be part of the system. The system will also predict what inventory/stock needs to be bought for the next week in order to avoid shortcomings. At the end of each month, the bill for that month will be sent to either payroll or to the employee. This option is configurable from the user's profile. The employee can also set a spending limit for each month. The system will also have a maximum limit that users cannot exceed.
  
 %%--------------------------------------- FUNCTIONAL REQUIREMENTS--------------------------------
 \section{Functional Requirements and Application Design}
@@ -58,7 +57,7 @@ Below is a list of all the use cases we have identified:
 
 \begin{itemize}
 
-\item  Login
+\item Authentication
 \item Register
 \item Manage Profile
 \item Place Order
@@ -76,28 +75,28 @@ Below the use cases mentioned above will be catagorized as critical, important o
 \begin{itemize}
 
 \subsubsection{Critical}
-\item Login \\
+\item Authentication \\
 This is a critical use case due to the fact that you cannot send through any order if you are not logged in. In such a case you will only be able to view the menu. 
  
 \item Register \\
-This is a critical use case because you can not log into the system if you have not been registered on the system. Furthermore, if you are not logged in , you can not place orders.
+This is a critical use case because you can not log into the system if you have not been registered on the system. Furthermore, if you are not logged in, you can not place orders.
 
 \item Place Order\\
 This is critical due to the fact that the main functionality of the system revolves around the ability to place orders at the cafeteria as well as other activities relating to that. 
 
 \subsubsection{Important}
 \item Manage Profile \\
-This use case is considered important because the user must be able edit their profile by resetting their personal spending limits and changing their email and passwords. The user must also be able to view his/her account history and current bill. It is crucial that the user is able to configure spending limits according to own preferences as well as keep track of monthly purchases.
+This use case is considered important because the user must be able edit their profile by resetting their personal spending limits and changing their email and passwords. The user must also be able to view his/her account history and current bill. It is crucial that the user is able to configure spending limits according to their own preferences as well as keep track of monthly purchases.
 
 \item Manage Inventory \\
-This use case is considered important since this deals with incrementing stock that has been added and decrementing stock when it is purchased or expired. It also deals with the cafeteria manager marking orders as completed.
+This use case is considered important, because it deals with incrementing stock that has been added and decrementing stock when it is purchased or expired. It also deals with the cafeteria manager marking orders as completed.
 
 \item Reporting \\ 
-This use case is considered important because users must be able to print a billing report and users must be able to send billing reports to Pay-Roll to have the amount spent per month deducted from their salaries. A history of all the orders that have taken place on the system can also be printed. 
+This use case is considered important because users must be able to print a billing report. They should also have the option of sending their montlhly bill to payroll where it will be deducted from their salaries. A history of all the orders that have taken place on the system can also be printed. 
 
 \subsubsection{Nice to have}
 \item Notify \\
-This is classified as nice to have as it includes notifying a user when their order is ready for collection as well as other notifications such as notifying the casher or cafeteria manager that they are low on certain inventory.  The system is not dependant on this functionality.
+This is classified as nice to have as it includes notifying a user when their order is ready for collection, as well as other notifications, such as notifying the cashier or cafeteria manager that they are low on certain inventory.  The system is not dependant on this functionality.
 
 \end{itemize}
 
@@ -120,14 +119,14 @@ The main functionality the system serves to provide, is  to allow the user to us
     \includegraphics[width=1.0\textwidth]{images/placeOrder.png}
     \caption{The use case for placing an order} 
 \end{figure}
-
+ 
 % % % % %generate bill activity diagram % % % % % % % % %
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1.0\textwidth]{images/generateBillSC.jpg}
 	\caption{The service contract for generating a bill}
 \end{figure}
-
+ 
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{images/checkProductAvailability.png}
