@@ -104,7 +104,7 @@ This is classified as nice to have as it includes notifying a user when their or
 \section{Modular System}
 The system will be built using a modular approach to allow more modules to be added at a later stage. This will also provide for pluggability and integratibility of the system.
 
-\subsubsection{High level use case diagram of the CMS}
+\subsection{High level use case diagram of the CMS}
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{images/CMSUseCase.png}
@@ -112,26 +112,30 @@ The system will be built using a modular approach to allow more modules to be ad
 \end{figure}
 The core of the system is a cafeteria management system that will provide functionality such as allowing users to place orders once they have registered and logged on to the system. Different types of users will have different privileges. 
 
-\subsubsection{The CMS-Place Orders}
-The main functionality the system serves to provide, is  to allow the user to use their access card number to purchase food items from the cafeteria via the system.
+\subsection{Place Orders Module}
+The main functionality the system serves to provide, is  to allow the user to use their access card number to purchase food items from the cafeteria via the system. This use case diagram indicates the functionality around placing orders, such as CheckProductAvailability and checkLimits, which are the use cases of this module.
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{images/placeOrder.png}
     \caption{The use case for placing an order} 
 \end{figure}
  
+\subsubsection{CheckProductAvailability}
+The service contract and activity diagram for CheckProductAvailability follow. CheckProductAvailability falls under the use case for Place Orders (refer to page ..... to view this use case diagram). The system will check whether the product that the user has selected to purchase is currently in stock.
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{images/checkProductAvailability.png}
     \caption{The activity diagram for checking product availibilty } 
 \end{figure}
-
+ 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1.0\textwidth]{images/checkProductAvailabilitySC.jpg}
 	\caption{The service contract for checking product availabilty}
 \end{figure}
 
+\subsubsection{checkLimit}
+The service contract and activity diagram for checkLimit follow. checkLimit falls under the use case for Place Orders (refer to page ..... to view this use case diagram). The system will be able to view the user's personal limit to make sure that the total of the bill is not larger than the users spending limit. 
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{images/checkLimit.png}
@@ -144,23 +148,31 @@ The main functionality the system serves to provide, is  to allow the user to us
 	\caption{The service contract for checking limits}
 \end{figure}
 
+\subsection{Manage Profile Module}
+ The user will be allowed to customize various settings such as resetting his/her personal limit, changing password and email, displaying the bill and viewing favourites. The following use case diagram indicates the above mentioned functionality around managing the profile. Hence, it has the use cases generateFavourite and edit profile.
+
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{images/manageProfile.png}
     \caption{The use case diagram for managing profile} 
 \end{figure}
 
+\subsubsection{generateFavourite}
+The service contract and activity diagram for generateFavourite follow. generateFavourite falls under the use case for Manage Profile (refer to page ..... to view this use case diagram). The user will be able to view their most popular purchases and these will be based on the most recurring item in the user's account history.
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{images/generateFavourite.png}
-    \caption{The activity diagram for viewing favourites} 
+    \caption{The activity diagram for generating favourites} 
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1.0\textwidth]{images/viewFavouritesSC.jpg}
-	\caption{The service contract for viewing favourites}
+	\caption{The service contract for generating favourites}
 \end{figure}
+
+\subsection{editProfile}
+Edit profile includes the user changing his/her password and email address as well as changing his/her spending limit. Hence, the following use cases, changePassword, changeEmail and setLimit, are used in the following use case diagram. To view where this use case fits into the system, refer to figure .... 
 
 \begin{figure}[H]
   \centering
@@ -168,6 +180,9 @@ The main functionality the system serves to provide, is  to allow the user to us
     \caption{The use case diagram for editing profile} 
 \end{figure}
 
+
+\subsubsection{changePassword}
+The service contract and activity diagram for changePassword follow. changePassword falls under the use case for Edit Profile (refer to page ..... to view this use case diagram). The user will be able to edit their password.
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{images/changePassword.png}
@@ -180,6 +195,8 @@ The main functionality the system serves to provide, is  to allow the user to us
 	\caption{The service contract for changing password}
 \end{figure}
 
+\subsubsection{changeEmail}
+The service contract and activity diagram for changeEmail follow. changeEmail falls under the use case for Edit Profile (refer to page ..... to view this use case diagram). The user will be able to edit their email address.
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{images/changeEmail.png} 
@@ -192,6 +209,8 @@ The main functionality the system serves to provide, is  to allow the user to us
 	\caption{The service contract for changing email address}
 \end{figure}
 
+\subsubsection{changeLimit}
+The service contract and activity diagram for changeLimit follow. changeLimit falls under the use case for Edit Profile (refer to page ..... to view this use case diagram). The user will be able to change their personal spending limit on their profile, however, this must not exeed the system's limit.
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{images/changeLimit.png}
@@ -204,6 +223,8 @@ The main functionality the system serves to provide, is  to allow the user to us
 	\caption{The service contract for setting limit}
 \end{figure}
  
+\section{Comment}
+Due to the fact that an agile approach was followed, the main two modules of the system were explored in this document. As time progresses, the rest of the diagrams will be added and the existing ones will be subject to change.
 
 
 
