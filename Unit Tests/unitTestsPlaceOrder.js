@@ -1,32 +1,8 @@
 //Place order
 var placeOrderObj = require('./placeOrder');
 var profileObj=require('./profile');
-var loginObj = require('./login');
-
-it('should pass', function(done){
-	var jsonObj = {
-		employeeId="7657834657";
-		password="dummy";
-	}
-	var result = loginObj .isLoggedIn(jsonObj) ;
-		 if(result=="success- user is logged in"){
-            throw 'true';
-        }else 
-		done();
- });
-
-it('should fail', function(done){
-	var jsonObj = {
-		employeeId="";
-		password="";
-	}
-	var result = loginObj .isLoggedIn(jsonObj) ;
-		 if(result=="user not logged in"){
-            throw 'false';
-        }else 
-		done();
- });
-  
+ 
+ 
  it('should pass', function(done){
         var jsonObj = {
 		productName="sandwich";
