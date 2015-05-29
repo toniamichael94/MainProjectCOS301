@@ -1,0 +1,14 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Vision}{}% 2
+\BOOKMARK [1][-]{section.3}{Background}{}% 3
+\BOOKMARK [1][-]{section.4}{Functional Requirements and Aplication Design}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{Use Cases }{section.4}% 5
+\BOOKMARK [2][-]{subsection.4.2}{Use Case Prioritization}{section.4}% 6
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Critical}{subsection.4.2}% 7
+\BOOKMARK [3][-]{subsubsection.4.2.2}{Important}{subsection.4.2}% 8
+\BOOKMARK [3][-]{subsubsection.4.2.3}{Nice to have}{subsection.4.2}% 9
+\BOOKMARK [2][-]{subsection.4.3}{Use Case/Service Contracts}{section.4}% 10
+\BOOKMARK [2][-]{subsection.4.4}{Required Functionality}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.5}{Process Specification}{section.4}% 12
+\BOOKMARK [2][-]{subsection.4.6}{Domain Model}{section.4}% 13
+\BOOKMARK [1][-]{section.5}{Open Issues}{}% 14
