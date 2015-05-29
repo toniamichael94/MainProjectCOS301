@@ -1,14 +1,21 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
 \BOOKMARK [1][-]{section.2}{Vision}{}% 2
 \BOOKMARK [1][-]{section.3}{Background}{}% 3
-\BOOKMARK [1][-]{section.4}{Functional Requirements and Aplication Design}{}% 4
+\BOOKMARK [1][-]{section.4}{Functional Requirements and Application Design}{}% 4
 \BOOKMARK [2][-]{subsection.4.1}{Use Cases }{section.4}% 5
 \BOOKMARK [2][-]{subsection.4.2}{Use Case Prioritization}{section.4}% 6
 \BOOKMARK [3][-]{subsubsection.4.2.1}{Critical}{subsection.4.2}% 7
 \BOOKMARK [3][-]{subsubsection.4.2.2}{Important}{subsection.4.2}% 8
 \BOOKMARK [3][-]{subsubsection.4.2.3}{Nice to have}{subsection.4.2}% 9
-\BOOKMARK [2][-]{subsection.4.3}{Use Case/Service Contracts}{section.4}% 10
-\BOOKMARK [2][-]{subsection.4.4}{Required Functionality}{section.4}% 11
-\BOOKMARK [2][-]{subsection.4.5}{Process Specification}{section.4}% 12
-\BOOKMARK [2][-]{subsection.4.6}{Domain Model}{section.4}% 13
-\BOOKMARK [1][-]{section.5}{Open Issues}{}% 14
+\BOOKMARK [1][-]{section.5}{Modular System}{}% 10
+\BOOKMARK [2][-]{subsection.5.1}{High level use case diagram of the CMS}{section.5}% 11
+\BOOKMARK [2][-]{subsection.5.2}{Place Orders Module}{section.5}% 12
+\BOOKMARK [3][-]{subsubsection.5.2.1}{CheckProductAvailability}{subsection.5.2}% 13
+\BOOKMARK [3][-]{subsubsection.5.2.2}{checkLimit}{subsection.5.2}% 14
+\BOOKMARK [2][-]{subsection.5.3}{Manage Profile Module}{section.5}% 15
+\BOOKMARK [3][-]{subsubsection.5.3.1}{generateFavourite}{subsection.5.3}% 16
+\BOOKMARK [2][-]{subsection.5.4}{editProfile}{section.5}% 17
+\BOOKMARK [3][-]{subsubsection.5.4.1}{changePassword}{subsection.5.4}% 18
+\BOOKMARK [3][-]{subsubsection.5.4.2}{changeEmail}{subsection.5.4}% 19
+\BOOKMARK [3][-]{subsubsection.5.4.3}{changeLimit}{subsection.5.4}% 20
+\BOOKMARK [1][-]{section.6}{Comment}{}% 21
