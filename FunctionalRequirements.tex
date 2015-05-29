@@ -5,6 +5,7 @@
 \usepackage{caption}
 
 %% Title Page 
+
 \title{\Huge Functional Requirements Document Specification \\ 
 	 Project: \\ 
 	Cafeteria Management System: Resolve}
@@ -48,7 +49,7 @@ Resolve proposed the Cafeteria Management System to assist with this problem.
 After our first meeting with the client, they brought to our attention that at times the cafeteria does not even have enough stock to provide some of the menu items, thus the managing of inventory or stock will also be part of the system. The system will also predict what inventory/stock needs to be bought for the next week in order to avoid such a problem. At the end of each month, the bill for the month will be sent to either payroll or to the employee. This option is configurable from the user's profile. The employee can also set a spending limit for each month for control purposes. The system will have its own maximum, such that users cannot set a limit that exeeds this. 
  
 %%--------------------------------------- FUNCTIONAL REQUIREMENTS--------------------------------
-\section{Functional Requirements and Aplication Design}
+\section{Functional Requirements and Application Design}
 In this section we will discuss the functional requirements. \\
 
 %% ---------------USE CASES -------------------
@@ -101,123 +102,116 @@ This is classified as nice to have as it includes notifying a user when their or
 \end{itemize}
 
 %%--------------- USE CASE/SERVICE CONTRACTS --------------
-\subsection{Use Case/Service Contracts}
+\section{Modular System}
+The system will be built using a modular approach to allow more modules to be added at a later stage. This will also provide for pluggability and integratibility of the system.
 
+\subsubsection{High level use case diagram of the CMS}
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{images/CMSUseCase.png}
     \caption{Cafeteria Management System Use Case} 
 \end{figure}
+The core of the system is a cafeteria management system that will provide functionality such as allowing users to place orders once they have registered and logged on to the system. Different types of users will have different privileges. 
 
+\subsubsection{The CMS-Place Orders}
+The main functionality the system serves to provide, is  to allow the user to use their access card number to purchase food items from the cafeteria via the system.
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{images/placeOrder.png}
-    \caption{Place Order Use Case} 
+    \caption{The use case for placing an order} 
 \end{figure}
 
 % % % % %generate bill activity diagram % % % % % % % % %
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1.0\textwidth]{images/generateBillSC.jpg}
-	\caption{generateBill service contract}
+	\caption{The service contract for generating a bill}
 \end{figure}
 
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{images/checkProductAvailability.png}
-    \caption{checkProductAvailability activity diagram} 
+    \caption{The activity diagram for checking product availibilty } 
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1.0\textwidth]{images/checkProductAvailabilitySC.jpg}
-	\caption{checkProductAvailability service contract}
+	\caption{The service contract for checking product availabilty}
 \end{figure}
 
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{images/checkLimit.png}
-    \caption{checkLimit activity diagram} 
+    \caption{The activity diagram for checking limits} 
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1.0\textwidth]{images/checkLimitsSC.jpg}
-	\caption{checkLimit service contract}
+	\caption{The service contract for checking limits}
 \end{figure}
 
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{images/manageProfile.png}
-    \caption{manage profile use case} 
+    \caption{The use case diagram for managing profile} 
 \end{figure}
 
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{images/generateFavourite.png}
-    \caption{viewFavourite activity diagram} 
+    \caption{The activity diagram for viewing favourites} 
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1.0\textwidth]{images/viewFavouritesSC.jpg}
-	\caption{viewFavourite service contract}
+	\caption{The service contract for viewing favourites}
 \end{figure}
 
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{images/editProfile.png}
-    \caption{edit profile Use Case} 
+    \caption{The use case diagram for editing profile} 
 \end{figure}
 
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{images/changePassword.png}
-    \caption{changePassword activity diagram} 
+    \caption{The activity diagram for changing password } 
 \end{figure}
 	
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1.0\textwidth]{images/changePasswordSC.jpg}
-	\caption{changePassword service contract}
+	\caption{The service contract for changing password}
 \end{figure}
 
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{images/changeEmail.png} 
-    \caption{changeEmail activity diagram}
+    \caption{The activity diagram for changing email address}
 \end{figure}
 	
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1.0\textwidth]{images/changeEmailSC.jpg}
-	\caption{changeEmail service contract}
+	\caption{The service contract for changing email address}
 \end{figure}
 
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{images/changeLimit.png}
-    \caption{setLimit activity diagram} 
+    \caption{The activity diagram for setting limit} 
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1.0\textwidth]{images/setLimitsSC.jpg}
-	\caption{setLimit service contract}
+	\caption{The service contract for setting limit}
 \end{figure}
-
-%% -------------- REQUIRED FUNCTIONALITY --------------------
-\subsection{Required Functionality}
-
-%% --------------PROSESS SPECIFICATION ------------------------
-\subsection{Process Specification}
  
-%%--------------- DOMAIN MODEL ---------------------------------
-\subsection{Domain Model}
-
-
-\section{Open Issues}
-
 
 
 
