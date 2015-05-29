@@ -1,20 +1,25 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+
 %% Title Page 
 \title{\Huge Functional Requirements Document Specification \\ 
 	 Project: \\ 
-	Cafeteria Management System: Reslove} 
+	Cafeteria Management System: Resolve}
 \author{
          \underline{T-RISE}\\
           Rendani Dau (13381467) \\
-	  Elana Kuun (12029522) \\
-	  Semaka Malapane (13081129) \\
-	  Antonia Michael (13014171) \\
-	  Isabel Nel (13070305)}
-\\
-\url{https://github.com/toniamichael94/MainProjectCOS301}
-\\
-\date{\today}
+	Elana Kuun (12029522) \\
+	Semaka Malapane (13081129) \\
+	Antonia Michael (13014171) \\
+	Isabel Nel (13070305)\\ \\
+	https://github.com/toniamichael94/MainProjectCOS301}
 
-\documentclass[12pt]{article}
+\date{\today}
+ 
+%\documentclass[12pt]{article}
 
 \begin{document}
 \maketitle
@@ -98,80 +103,108 @@ This is classified as nice to have as it includes notifying a user when their or
 %%--------------- USE CASE/SERVICE CONTRACTS --------------
 \subsection{Use Case/Service Contracts}
 
-\item Cafeteria Management System Use Case\\
-\begin{figure}[h!]
+\begin{figure}[H]
   \centering
-    \includegraphics[width=0.85\textwidth]{CMSUseCase} 
+    \includegraphics[width=1.0\textwidth]{images/CMSUseCase.png}
+    \caption{Cafeteria Management System Use Case} 
 \end{figure}
 
-\item Place Order Use Case\\
-\begin{figure}[h!]
+\begin{figure}[H]
   \centering
-    \includegraphics[width=0.85\textwidth]{placeOrder} 
+    \includegraphics[width=1.0\textwidth]{images/placeOrder.png}
+    \caption{Place Order Use Case} 
 \end{figure}
 
-\item Check product availability activity diagram\\
-\begin{figure}[h!]
-  \centering
-    \includegraphics[width=0.85\textwidth]{checkProductAvailability} 
+% % % % %generate bill activity diagram % % % % % % % % %
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{images/generateBillSC.jpg}
+	\caption{generateBill service contract}
 \end{figure}
 
-\item Check product availability service contract\\
-
-\item Check limit activity diagram\\
-\begin{figure}[h!]
+\begin{figure}[H]
   \centering
-    \includegraphics[width=0.85\textwidth]{checkLimit} 
+    \includegraphics[width=1.0\textwidth]{images/checkProductAvailability.png}
+    \caption{checkProductAvailability activity diagram} 
 \end{figure}
 
-\item Check limit service contract \\
-
-\item Manage profile use case\\
-\begin{figure}[h!]
-  \centering
-    \includegraphics[width=0.85\textwidth]{manageProfile} 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{images/checkProductAvailabilitySC.jpg}
+	\caption{checkProductAvailability service contract}
 \end{figure}
 
-\item Generate favourites activity diagram\\
-\begin{figure}[h!]
+\begin{figure}[H]
   \centering
-    \includegraphics[width=0.85\textwidth]{generateFavourites} 
+    \includegraphics[width=1.0\textwidth]{images/checkLimit.png}
+    \caption{checkLimit activity diagram} 
 \end{figure}
 
-\item Edit profile use case\\
-\begin{figure}[h!]
-  \centering
-    \includegraphics[width=0.85\textwidth]{editProfile} 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{images/checkLimitsSC.jpg}
+	\caption{checkLimit service contract}
 \end{figure}
 
-\item Change password activity diagram\\
-\begin{figure}[h!]
+\begin{figure}[H]
   \centering
-    \includegraphics[width=0.85\textwidth]{changePassword} 
+    \includegraphics[width=1.0\textwidth]{images/manageProfile.png}
+    \caption{manage profile use case} 
 \end{figure}
 
-\item Change password service contract\\
-
-\item Change e-mail address activity diagram\\
-\begin{figure}[h!]
+\begin{figure}[H]
   \centering
-    \includegraphics[width=0.85\textwidth]{changeEmail} 
+    \includegraphics[width=1.0\textwidth]{images/generateFavourite.png}
+    \caption{viewFavourite activity diagram} 
 \end{figure}
 
-\item Change e-mail address service contract\\
-
-\item Set limit activity diagram\\
-\begin{figure}[h!]
-  \centering
-    \includegraphics[width=0.85\textwidth]{changeLimit} 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{images/viewFavouritesSC.jpg}
+	\caption{viewFavourite service contract}
 \end{figure}
 
-\item Set limit service contract\\
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{images/editProfile.png}
+    \caption{edit profile Use Case} 
+\end{figure}
 
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{images/changePassword.png}
+    \caption{changePassword activity diagram} 
+\end{figure}
+	
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{images/changePasswordSC.jpg}
+	\caption{changePassword service contract}
+\end{figure}
 
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{images/changeEmail.png} 
+    \caption{changeEmail activity diagram}
+\end{figure}
+	
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{images/changeEmailSC.jpg}
+	\caption{changeEmail service contract}
+\end{figure}
 
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{images/changeLimit.png}
+    \caption{setLimit activity diagram} 
+\end{figure}
 
-
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{images/setLimitsSC.jpg}
+	\caption{setLimit service contract}
+\end{figure}
 
 %% -------------- REQUIRED FUNCTIONALITY --------------------
 \subsection{Required Functionality}
