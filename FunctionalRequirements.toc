@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 \contentsline {section}{\numberline {1}Introduction}{3}{section.1}
 \contentsline {section}{\numberline {2}Vision}{3}{section.2}
 \contentsline {section}{\numberline {3}Background}{3}{section.3}
@@ -21,4 +19,3 @@
 \contentsline {subsubsection}{\numberline {5.4.2}changeEmail}{15}{subsubsection.5.4.2}
 \contentsline {subsubsection}{\numberline {5.4.3}changeLimit}{16}{subsubsection.5.4.3}
 \contentsline {section}{\numberline {6}Comment}{18}{section.6}
->>>>>>> 985d8ad78aa9067bb80b34ceea6577e5a8694d20
