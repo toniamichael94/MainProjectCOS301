@@ -43,7 +43,7 @@ After our first meeting with the client, they brought to our attention that at t
 
 \section{Architecture Requirementss}
 The software architecture requirements include the access and integration requirements, quality
-requirements, and architectural constraints. These points will be thouroughly discussed below under.
+requirements, and architectural constraints. These points will be thouroughly discussed below.
 
 %%---------------------------------- ARCHITECTURAL RESPONSIBILITIES----------------------------
 \section{Architectural Responsibilities}
@@ -131,7 +131,6 @@ that alters the system in any way.
 	    the system where to experience a system failure, crash or corruption of data due
 	    to a security breach.
 	\end{itemize}
-\item To ensure monitorability, post metadata, to document user involvement, should be saved. Also, post ranking system to document user quality in discussions.
  \end{itemize}
  \subsubsection{Patterns to achieve these strategies}
  \begin{itemize}
@@ -172,12 +171,12 @@ We chose this pattern here due to the concurrency of the system, meaning that a 
 \section{Integration Requirements}
 %% ---------- ACCESS CHANNEL REQUIREMENTS ------------
 \subsection{Access Channel Requirements}
-In this section we will discuss the requirements for the different channels through which the system can be accessed by firstly, people (users - client side) and systems (server-side). We will also discuss the integration channels which will be suported by the system.
+In this section we will discuss the requirements for the different channels through which the system can be accessed by firstly, people (users - client side) and systems (server-side).
 
 
 %%--------HUMAN ACCESS CHANNELS------
 \subsubsection{Human Access Channels}
-The Cafeteria Management System will be accessed by the different users via the online web page (web interface) or through the mobile application (if one is developed). The web interface will be accessible through all the standard web browsers such as Mozilla Firefox, Google Chrome and Microsoft Internet Explorer. The mobile application will be accessible on multiple platforms including the standard ISO/Anroid platforms. Different services will be available to different users. There are five types of users: Super User, Cafeteria Manager, Casher, Normal User, and Resolve Admin. These will be discussed below. \\
+The Cafeteria Management System will be accessed by the different users via the online web page (web interface) or through the mobile application (if one is developed). The web interface will be accessible through all the standard web browsers such as Mozilla Firefox, Google Chrome and Microsoft Internet Explorer. The mobile application will be accessible on multiple platforms including the standard IOS/Anroid platforms. Different services will be available to different users. There are five types of users: Super User, Cafeteria Manager, Casher, Normal User, and Resolve Admin. These will be discussed below. \\
 
 \paragraph{Super User\\}
 The super user will be the only administrative user that will have global access to all the functionality of the Cafeteria Management System, in particular the Super User will have access to the branding of the Cafeteria Management system (changing the logo and so forth) . The super user will hence have access to all the functionality of all the other users listed below.
@@ -245,9 +244,9 @@ Technologies we will be using in the creation of the Cafeteria Management System
 The above mentioned tecnologies will be our basis we will create our system on, but as we are busy building the Cafeteria Management System we will add other technologies as needed. 
 
 \subsubsection{Operating Systems}
-The Cafeteria Management System will be designed to run on a Linux-based operating system. Linux-based operating systems are free, open-source and provide a stable base for the system. (Beal, n.d.).\\
+The server side of the Cafeteria Management System will be designed to run on a Linux-based operating system. Linux-based operating systems are free, open-source and provide a stable base for the system. (Beal, n.d.).\\
 \\
-The Cafeteria Management System will be able to run on almost all operating systems that can run a modern web browser such as Mozilla Firefox, Google Chrome or Internet Explorer (for example, Microsoft Windows, Apple Mac OSX or any distribution of Linux or BSD).
+The client side of the Cafeteria Management System will be able to run on almost all operating systems that can run a modern web browser such as Mozilla Firefox, Google Chrome or Internet Explorer (for example, Microsoft Windows, Apple Mac OSX or any distribution of Linux or BSD).
 
 \section{Architectural Patterns}
 		For the design of The Cafeteria Management System, two patterns are considered: the \textbf{MVC (Model-View-Controller) pattern} and the \textbf{Layering architectural pattern}. For concurrency, the \textbf{Master-Slave pattern} is used.\\
@@ -267,7 +266,7 @@ The Cafeteria Management System will be able to run on almost all operating syst
 			\item Improved testability (which will allow for easier debugging). (Solms, 2014)
 			\item Improved reuse and maintainability of the source code, because all the layers are individual and separate from one another. (Solms, 2014)
 		\end{itemize}
-		However, it should be mentioned that Layering has a performance overhead associated with it, as well as higher maintenance costs associated with the lower layers, because they impact the higher levels. (Solms, 2014). Given the benefits, however, the authors feel the reduced performance and maintenance costs is a good compromise for reduced complexity and testability.\\
+		However, it should be mentioned that Layering has a performance overhead associated with it, as well as higher maintenance costs associated with the lower layers, because they impact the higher levels. (Solms, 2014). Given the benefits, however, the authors feel that the reduced performance and maintenance costs are a good compromise for reduced complexity and testability.\\
 		\\
 		For concurrency, the Master-Slave architectural pattern (Solms, 2014) is considered, because the system needs to accommodate a large number of users at a time.
 
