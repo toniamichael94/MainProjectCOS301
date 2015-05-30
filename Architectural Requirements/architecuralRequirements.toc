@@ -15,7 +15,7 @@
 \contentsline {subsubsection}{\numberline {6.3.3}Patterns to achieve these strategies}{8}
 \contentsline {subsection}{\numberline {6.4}Auditability}{8}
 \contentsline {subsubsection}{\numberline {6.4.1}Reasons for quality requirements}{8}
-\contentsline {subsubsection}{\numberline {6.4.2}Strategies to achieve this quality requirement}{9}
+\contentsline {subsubsection}{\numberline {6.4.2}Strategies to achieve this quality requirement}{8}
 \contentsline {subsubsection}{\numberline {6.4.3}Patterns to achieve these strategies}{9}
 \contentsline {subsection}{\numberline {6.5}Scalability}{10}
 \contentsline {subsubsection}{\numberline {6.5.1}Reasons for quality requirement}{10}
@@ -31,5 +31,12 @@
 \contentsline {paragraph}{ Normal User\\}{12}
 \contentsline {paragraph}{ Resolve Admin\\}{12}
 \contentsline {subsubsection}{\numberline {7.1.2}System Access Channels}{12}
-\contentsline {subsection}{\numberline {7.2}Architecture Constraints}{13}
-\contentsline {section}{\numberline {8}Bibliography}{13}
+\contentsline {subsection}{\numberline {7.2}Protocols}{13}
+\contentsline {subsubsection}{\numberline {7.2.1}HTTP - Hypertext Transfer Protocol}{13}
+\contentsline {subsubsection}{\numberline {7.2.2}TCP - Transmission Control Protocol}{13}
+\contentsline {subsubsection}{\numberline {7.2.3}SMTP - Simple Mail Transfer Protocol}{13}
+\contentsline {subsection}{\numberline {7.3}Architecture Constraints}{14}
+\contentsline {subsubsection}{\numberline {7.3.1}Technologies}{14}
+\contentsline {subsubsection}{\numberline {7.3.2}Operating Systems}{14}
+\contentsline {section}{\numberline {8}Architectural Patterns}{15}
+\contentsline {section}{\numberline {9}Bibliography}{16}

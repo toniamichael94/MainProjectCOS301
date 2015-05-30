@@ -206,26 +206,70 @@ The integration channels will also be accessable by the mobile applications, sin
 \item The system will also have to integrate with the server to pass information to and from the database.
 \end{itemize}
 
+\subsection{Protocols}
+\subsubsection{HTTP - Hypertext Transfer Protocol}
+Integration with this protocol will occur at a high level and typically be handled by libraries or browser-clients etc.
+\textbf{To be used for:	}
+	\begin{itemize}
+	\item{All data transferred between users and the server on which the system is hosted.}
+	\item{Transfer of miscellaneous data such as HTTP error codes to ensure both servers and clients are aware of the state of data transfers and its results}
+	\end{itemize}
+	
+\subsubsection{TCP - Transmission Control Protocol}
+ For establishing network connections between the user computers and the system server. Streams of data can then be exchanged between the connected hosts. Error detection, faulty transmission of data, resending of data etc. will all be done using TCP (Davids). Integration with this protocol will occur at a high level and will typically be handled by libraries or operating system functions.
+ 
+\subsubsection{SMTP - Simple Mail Transfer Protocol}
+This protocol will be used to handle e-mail communication, specifically notifications to users when their orders are ready, as well as the sending of bills to both users and payroll. It addresses Security as a quality requirement since it incorporates SMTP-Authentication defined by RFC 2554 (Meyers, 1999) which enhances the security of the protocol.
+
 %% ----------ARCHITECTURE CONSTRAINTS----------------
 \subsection{Architecture Constraints}
+\subsubsection{Technologies}
 Technologies we will be using in the creation of the Cafeteria Management System includes the following: 
 
 \begin{itemize}
-  \item HTML - The Software system will be mainly web-based.
+  \item \textbf{HTML}: The Software system will be mainly web-based.
 
-  \item JavaScript together with AngularJS  and NodeJS - this will enable us to add extra functionality to our web page and modulirise the system thus also helping us to implement dependancy injection. For creating reports we can also import ReportingJS to create visually pleasing reports that is logically structured
+  \item \textbf{JavaScript together with AngularJS  and NodeJS}: this will enable us to add extra functionality to our web page and modularise the system thus also helping us to implement dependency injection. For creating reports we can also import ReportingJS to create visually pleasing reports that is logically structured
 
- \item CSS together with BootStrap - which will allow us to style our page and also make it interactive.
+ \item \textbf{CSS together with BootStrap}: which will allow us to style our page and also make it interactive.
 
- \item Mongo DB for our database which goes extreemly well with NodeJS. 
+ \item \textbf{Mongo DB}: MongoDB for our database which goes extremely well with NodeJS. 
 
- \item Express server will be set up as our server that will host the system.
+ \item \textbf{Express server}: will be set up as our server that will host the system.
 
- \item Phone gap will be used to convert our web page into a usable application which will then look like the online webpage that will run like a web interface in the background but  will seem like a mobile application to the user that will be acceessable from multiple platforms.
+ \item \textbf{Phone gap}: Phone gap will be used to convert our web page into a usable application which will then look like the online webpage that will run like a web interface in the background but  will seem like a mobile application to the user that will be accessible from multiple platforms.
+
+\item \textbf{Git and GitHub}: A version control software and a repository website that will be used to host the source code of the Cafeteria Management System. Reasons for the use of Git is its ease of use and because it is free and open source. (http://git-scm.com/).
 
 \end{itemize}
-The above mentioned thecnologies will be our basis we will create our system on, but as we are busy building the Cafeteria Management System we will add other thechnologies as needed. 
+The above mentioned tecnologies will be our basis we will create our system on, but as we are busy building the Cafeteria Management System we will add other technologies as needed. 
 
+\subsubsection{Operating Systems}
+The Cafeteria Management System will be designed to run on a Linux-based operating system. Linux-based operating systems are free, open-source and provide a stable base for the system. (Beal, n.d.).\\
+\\
+The Cafeteria Management System will be able to run on almost all operating systems that can run a modern web browser such as Mozilla Firefox, Google Chrome or Internet Explorer (for example, Microsoft Windows, Apple Mac OSX or any distribution of Linux or BSD).
+
+\section{Architectural Patterns}
+		For the design of The Cafeteria Management System, two patterns are considered: the \textbf{MVC (Model-View-Controller) pattern} and the \textbf{Layering architectural pattern}. For concurrency, the \textbf{Master-Slave pattern} is used.\\
+		The top layers of the Model and the Controller are interfaces for the MVC architecture and the layers below provide the functionality.\\
+		MVC is considered because:
+		\begin{itemize}
+			\item It provides modularity (i.e. the system's concerns are separated, thus easier to implement). (Solms, 2014)
+			\item It allows for better maintainability (one can maintain the Model, View and Controller separately). (Solms, 2014)
+			\item Testability (it is easier to test because of separated concerns, so the source of any problems are easy to identify). (Solms, 2014)
+			\item Reuse (it is possible to take any component and reuse it where necessary). (Solms, 2014)
+		\end{itemize} 
+		Layering allows the Cafeteria Management System to have pluggable layers, which will allow the developers to replace layers as needed.
+		This pattern allows for: 
+		\begin{itemize}
+			\item Improved cohesion. (Solms, 2014)
+			\item Reduced complexity of the system. (Solms, 2014)
+			\item Improved testability (which will allow for easier debugging). (Solms, 2014)
+			\item Improved reuse and maintainability of the source code, because all the layers are individual and separate from one another. (Solms, 2014)
+		\end{itemize}
+		However, it should be mentioned that Layering has a performance overhead associated with it, as well as higher maintenance costs associated with the lower layers, because they impact the higher levels. (Solms, 2014). Given the benefits, however, the authors feel the reduced performance and maintenance costs is a good compromise for reduced complexity and testability.\\
+		\\
+		For concurrency, the Master-Slave architectural pattern (Solms, 2014) is considered, because the system needs to accommodate a large number of users at a time.
 \section{Bibliography}
 		\begin{itemize}
 			\item \textit{Basic MVC Architecture}. [Online]. Available: <http://www.tutorialspoint.com/struts\_2/basic\\\_mvc\_architecture.htm> [Accessed 5 March 2015].
