@@ -1,0 +1,3 @@
+The user manual will be presented in a pdf format and will be eddited as we are busy implementing the Cafeteria Management System
+Since we are using an Agile approach when implementing this system, it will be eddited until the complete and final version of the 
+Cafeteria Management System has been relesed. 
