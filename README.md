@@ -10,6 +10,10 @@ Resolve proposed the Cafeteria Management System to assist with this problem. Af
 For more information, please have a look at the project proposal document in the root folder named resolve_cafeteriaManagementSystem.pdf.
 
 ********************************************************************************
+Instalation Manual
+********************************************************************************
+- Under construction ;-) 
+********************************************************************************
 User Manual
 ********************************************************************************
 - The first page that displays will be the order page. Here you can view the menu i.e. the menu items, the prices and the configurable daily specials. You will be able to select meal items here to purchase.
