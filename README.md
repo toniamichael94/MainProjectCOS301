@@ -16,12 +16,18 @@ Instalation Manual
 To install and run the Cafeteria Management System please follow the following steps:
  
 1) Install NodeJS on computer - it can be found at: https://nodejs.org/download/
+
 2) Clone the above repository to your computer.
+
 3) In the NodeJS command prompt in the same directory as the repository you cloned do the following:
+
 	- on a Windows computer type 'set DEBUG=Cafeteria_Managemet_System & npm start'
 	- on a Linux computer type 'DEBUG=Cafeteria_Management_System npm start'
+
    followed by enter - that will start the Express server.
+
 4) Open a browser and type 'localhost:3000' - that will then open the Cafeteria Management System web application.
+
 5) Refer to the User Manual below to navigate through the application.
 
 ********************************************************************************
