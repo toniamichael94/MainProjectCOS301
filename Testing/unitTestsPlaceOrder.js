@@ -2,12 +2,22 @@
 var placeOrderObj = require('./placeOrder');
 var profileObj=require('./profile');
  
- 
+ var assertPO=placeOrderObj.assert;
+var assertP=profileObj.assert;
+/*
+Alternative tests
+///test 1
+  var jsonObj = {
+		productName="sandwich";
+        }
+assertPO.equal(checkProductAvailability(jsonObj),"success");
+
+*/
  it('should pass', function(done){
         var jsonObj = {
 		productName="sandwich";
         }
-        var result = checkProductAvailability()(jsonObj);
+        var result = checkProductAvailability(jsonObj);
         if(result=="is available"){
             throw 'true';
         }else done();
@@ -19,7 +29,7 @@ var profileObj=require('./profile');
         var jsonObj = {
 		productName="Greek salad";
         }
-        var result = checkProductAvailabilit(jsonObj);
+        var result = checkProductAvailability(jsonObj);
         if(result=="is not available"){
             throw 'true';
         }else done();
