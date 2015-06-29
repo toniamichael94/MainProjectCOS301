@@ -14,6 +14,9 @@ var app = express();
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
+//redirecting scripts from node_module folders
+app.use("/scripts",express.static(path.join(__dirname, '/node_module/bootstrap/dist/')));
+
 // view engine setup
 //app.set('views', path.join(__dirname, 'views'));
 //app.set('view engine', 'jade');
