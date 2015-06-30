@@ -4,11 +4,46 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
+//creating angular application and pull in ngRoute and ngAnimate
+var animateApp = angular.module('animateApp', ['ngRoute']);
+animateApp.controller('AppCtr', function($scope){
+
+});
+
+//Routing - each route will pull  differant controller:
+animateApp.config(function($routeProvider){
+  $routeProvider
+
+      //for the home page
+      .when('/', {
+        templateUrl: 'views/index.html',
+        controller: 'mainController'
+      })
+
+      //for the login page
+      .when('/login', {
+        templateUrl: 'views/Login/login.html',
+        controller: 'loginController'
+      })
+
+})
+
+//Controllers:
+// Home page controller:
+animateApp.Controller('mainController', function($scope){
+  $scope.pageClass = 'index';
+})
+
+//LoginPageController
+animateApp.Controller('loginController', function($scope){
+  $scope.pageClass = 'login';
+})
+
 
 //using html engine
 app.engine('html', require('ejs').renderFile);
