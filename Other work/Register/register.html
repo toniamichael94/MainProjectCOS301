@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en"  ng-app='register'>
+<head>
+ <meta charset="utf-8"/> 
+ <meta name="viewport" content="width=device-width, initial-scale=1"/>
+ 
+ <link href = "bootstrap/css/bootstrap.min.css" rel = "stylesheet"/>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ <script src = "bootstrap/js/bootstrap.min.js"></script>
+ 
+ <script src="angular.min.js"></script>
+  
+ <script src = "javascript/register.js"></script>
+ 
+ <link rel="stylesheet" type="text/css" href="stylesheets/register.css"/>
+	 
+
+</head>
+
+<body>
+
+    <div class="container">
+      <form name ="registerForm" class="form-signin" ng-controller = "SubmitController as submitCtrl" ng-submit = "registerForm.$valid && submitCtrl.sumbitDetails()" novalidate>
+        <h2 class="form-signin-heading">Register</h2>
+		
+		<label for="inputID" class="sr-only">ID</label>
+        <input type="text" id="registerID" class="form-control" placeholder="ID" value = "122" ng-model = "submitCtrl.details.id" required autofocus/>
+		
+		<label for="inputFirstName" class="sr-only">First Name</label>
+        <input type="text" id="registerFirstName" class="form-control" placeholder="First Name" value = "Jane" ng-model = "submitCtrl.details.firstName" required autofocus/>
+		
+		<label for="inputLastName" class="sr-only">Last Name</label>
+        <input type="text" id="registerLastName" class="form-control" placeholder="Last Name" value = "Murray" ng-model = "submitCtrl.details.lastName" required autofocus/>
+		
+		<label for="inputEmail" class="sr-only">Email address</label>
+        <input name ="email" id = "inputEmail" type="email" class="form-control" ng-model = "submitCtrl.details.email" placeholder = "Email address" required/>
+		
+		<label for="intpuLimit" class="sr-only">Limit</label>
+        <input type="number" min = 0 id="inputEmail" class="form-control" placeholder="Limit" value = 200 ng-model = "submitCtrl.details.limit" required autofocus/>
+		
+		
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" value = "Password" ng-model = "submitCtrl.details.password" required/>
+		
+		<label for="inputConfirmPassword" class="sr-only">Confirm Password</label>
+        <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm Password" value = "Password"  ng-model = "submitCtrl.details.cpassword" required />
+      
+	  <div> registerForm is {{registerForm.$valid}} </div>
+	  <input type = "submit"/>
+      
+        <!--<button class="btn btn-lg btn-primary btn-block" type="submit" id="submitButton">Register</button>-->
+      </form>
+
+    </div> <!-- /container -->
+
+  </body>
+</html>
