@@ -24,16 +24,29 @@
   <link rel="stylesheet" type="text/css" href="/stylesheets/index.css">
 
   <!-- Adding Angular to our project -->
-  <script src="/angular/angular.min.js"></script>
+<!--  <script src="/angular/angular.min.js"></script>
+  <script src="/angular/angular.js"></script> -->
+  <script src="http://code.angularjs.org/1.2.13/angular.js"></script>
+<!--  <script src="/angular/angular-route.js"></script>
+  <script src="/angular/angular-animate.js"></script> -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-route.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-animate.js"></script>
+
+  <script src="../app.js"></<script type="text/javascript"></script>
+
   <script type="text/javascript" src="./javascripts/main-controller.js"></script>
 
 
 
 
-</head>
-<body ng-controller='main-controller' ng-app='main'>
 
-<!-- Heading -->
+</head>
+<body ng-app='animateApp' ng-controller='AppCtr'>
+
+  <ng-view></ng-view>
+  <div class="page {{ pageClass }}" ng-view>
+
+<!-0- Heading -->
 <br> <br> <br>
 <div class="container">
   <div class="jumbotron">
@@ -57,7 +70,7 @@
       <ul class="nav navbar-nav">
 
         <li>
-          <a href="#" >  <span class="glyphicon glyphicon-lock"></span> Login</a>
+          <a href="#login" class="btn btn-success btl-lg" >  <span class="glyphicon glyphicon-lock"></span> Login</a>
         </li>
 				<li class="dropdown">
 	        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-user"></span> Profile <b class="caret"></b></a>
@@ -83,6 +96,6 @@
   </div>
 </header>
 <!-- Navigation bar ended -->
-
+ </div>
 </body>
 </html>
