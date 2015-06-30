@@ -1,25 +1,79 @@
 <!DOCTYPE html>
+<!--
+*   Login Page
+*   - This is the login page of the Cafeteria Management System.
+*
+*   Authors: T-RISE (COS 301 team 2015)
+                Antonia Michael (13014171)
+                Isabel Nel (13070305)
+		Elana Kuun (12029522)
+				Rendani Dau (13381467)
+				Semaka Malapane (13081129)
+*
+-->
 <html lang="en">
 <head>
   <title>Login</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../index.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
 
 <!-- Heading -->
+<br> <br> <br>
 <div class="container">
-  <div class="jumbotron">
-    <h1>Login</h1>      
-  </div>
- 
- 
+    <div class="jumbotron">
+        <h1>Branding goes here....</h1>
+    </div>
 </div>
+<!-- Heading ended -->
 
 <!-- Navigation bar -->
+<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+            <ul class="nav navbar-nav">
+
+                <li>
+                    <a href="#" >  <span class="glyphicon glyphicon-home"></span> Home </a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-user"></span> Profile <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li><a href="#">Separated link</a></li>
+                        <li><a href="#">One more separated link </a></li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"> <span class="glyphicon glyphicon-cutlery"></span> Menu </a>
+                </li>
+
+            </ul>
+        </nav>
+        <!-- testing dynamic binding hahaha
+        <input ng-model="name"></input>
+        <input ng-model="name"></input>
+        {{name}}-->
+    </div>
+</header>
+
+<!-- Navigation bar
  <nav class="navbar navbar-default">
   <div class="container-fluid">
     
@@ -33,6 +87,21 @@
     </div>
   </div>
 </nav>
-
+-->
+    <div class="container">
+        <div class ="loginForm">
+            <form class="form-login">
+                <h1 class="form-heading"> Login </h1>
+                Employee ID: <input type="emplID" style="width:200px" id="inputID" class="loginForm" placeholder="Employee ID" required autofocus> <br> <br>
+                Password: <input type="password" style="width:200px" id="inputPassword" class="loginForm" placeholder="Password" required> <br> <br>
+                <!--div class="checkbox">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                </div -->
+                <button type ="button" class="btn btn-default" aria-haspopup="true" aria-expanded="false"> Submit </button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
