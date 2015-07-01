@@ -19,6 +19,10 @@
 					<label for="username">Username</label>
 					<input type="text" id="username" name="username" class="form-control" data-ng-model="user.username" placeholder="Username">
 				</div>
+				<div class="form-group">
+					<label for="limit">Limit</label>
+					<input type="number" id="limit" name="limit" class="form-control" data-ng-model="user.limit" min = 0>
+				</div>
 				<div class="text-center form-group">
 					<button type="submit" class="btn btn-large btn-primary">Save Profile</button>
 				</div>
