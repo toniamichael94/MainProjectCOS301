@@ -12,3 +12,34 @@
 	right: 10px;
 	position: absolute;
 }
+
+/*Button*/
+
+.btn {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+
+.btn-primary {
+    background: #FF9100;
+    color: #ffffff;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #787878;
+}
+.btn-primary:active, .btn-primary.active {
+    background: #FF9100;
+    box-shadow: none;
+}
+
+.btn-lg.round {
+    border-radius: 15px;
+}
+
+/*Button end*/
