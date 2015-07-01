@@ -1,14 +1,21 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2015.4.23)  1 JUL 2015 14:14
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.2.26)  29 MAY 2015 23:10
 entering extended mode
- restricted \write18 enabled.
- %&-line parsing enabled.
 **FunctionalRequirements.tex
-(./FunctionalRequirements.tex
+(K:\cos301\MainProjectCOS301\FunctionalRequirements.tex
 LaTeX2e <2011/06/27>
-Babel <3.9h> and hyphenation patterns for 2 languages loaded.
-(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2013-05-26, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
+ lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
+german-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
+ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
+an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
+ishmax, welsh, loaded.
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
-(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\size12.clo"
 File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -23,16 +30,16 @@ File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty"
 Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
 
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
-Package: hobsub-hyperref 2012/05/28 v1.13 Bundle oberdiek, subset hyperref (HO)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-hyperref.sty"
+Package: hobsub-hyperref 2012/04/25 v1.12 Bundle oberdiek, subset hyperref (HO)
 
 
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
-Package: hobsub-generic 2012/05/28 v1.13 Bundle oberdiek, subset generic (HO)
-Package: hobsub 2012/05/28 v1.13 Construct package bundles (HO)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-generic.sty"
+Package: hobsub-generic 2012/04/25 v1.12 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2012/04/25 v1.12 Construct package bundles (HO)
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
@@ -41,7 +48,7 @@ Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
 Package: intcalc 2007/09/27 v1.1 Expandable calculations with integers (HO)
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in PDF mode is not detected.
+Package ifpdf Info: pdfTeX in PDF mode is detected.
 Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
 Package etexcmds Info: Could not find \expanded.
 (etexcmds)             That can mean that you are not using pdfTeX 1.50 or
@@ -54,7 +61,7 @@ Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode is ignored in DVI mode.
+Package pdftexcmds Info: \pdfdraftmode found.
 Package: pdfescape 2011/11/25 v1.13 Implements pdfTeX's escape features (HO)
 Package: bigintcalc 2012/04/08 v1.3 Expandable calculations on big integers (HO
 )
@@ -63,7 +70,7 @@ Package: uniquecounter 2011/01/30 v1.2 Provide unlimited unique counter (HO)
 )
 Package hobsub Info: Skipping package `hobsub' (already loaded).
 Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
-Package: hopatch 2012/05/28 v1.2 Wrapper for package hooks (HO)
+Package: hopatch 2011/06/24 v1.1 Wrapper for package hooks (HO)
 Package: xcolor-patch 2011/01/30 xcolor patch
 Package: atveryend 2011/06/30 v1.8 Hooks at the very end of document (HO)
 Package atveryend Info: \enddocument detected (standard20110627).
@@ -71,29 +78,29 @@ Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
 Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
 Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
 )
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+("C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\auxhook.sty"
 Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
 )
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
 Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 )
 \@linkdim=\dimen103
 \Hy@linkcounter=\count87
 \Hy@pagecounter=\count88
 
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def"
 File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
 )
 \Hy@SavedSpaceFactor=\count89
 
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg"
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
 Package hyperref Info: Hyper figures OFF on input line 4443.
@@ -105,7 +112,7 @@ Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4688.
 \c@Hy@tempcnt=\count90
 
-(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\url\url.sty"
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
@@ -128,60 +135,53 @@ LaTeX Info: Redefining \pageref on input line 6369.
 \c@Hfootnote=\count94
 )
 
-Package hyperref Message: Driver (default): hdvips.
+Package hyperref Message: Driver (autodetected): hpdftex.
 
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hdvips.def
-File: hdvips.def 2012/11/06 v6.83m Hyperref driver for dvips
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def"
+File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
+\Fld@listcount=\count95
+\c@bookmark@seq@number=\count96
 
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pdfmark.def
-File: pdfmark.def 2012/11/06 v6.83m Hyperref definitions for pdfmark specials
-\pdf@docset=\toks15
-\pdf@box=\box26
-\pdf@toks=\toks16
-\pdf@defaulttoks=\toks17
-\HyField@AnnotCount=\count95
-\Fld@listcount=\count96
-\c@bookmark@seq@number=\count97
-
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty"
 Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 )
 \Hy@SectionHShift=\skip43
-))
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
-File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
-Package graphics Info: Driver file: dvips.def on input line 91.
+Package graphics Info: Driver file: pdftex.def on input line 91.
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/dvips.def
-File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+\Gread@gobject=\count97
 ))
 \Gin@req@height=\dimen107
 \Gin@req@width=\dimen108
 )
-(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count98
-\float@exts=\toks18
-\float@box=\box27
-\@float@everytoks=\toks19
-\@floatcapt=\box28
+\float@exts=\toks15
+\float@box=\box26
+\@float@everytoks=\toks16
+\@floatcapt=\box27
 )
-(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty"
 Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
 
-(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty"
 Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 57.
 \captionmargin=\dimen109
@@ -196,9 +196,7 @@ Package caption3 Info: TeX engine: e-TeX on input line 57.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 )
-(./FunctionalRequirements.aux)
-\openout1 = `FunctionalRequirements.aux'.
-
+(K:\cos301\MainProjectCOS301\FunctionalRequirements.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
 LaTeX Font Info:    ... okay on input line 8.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
@@ -213,13 +211,13 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
 LaTeX Font Info:    ... okay on input line 8.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 8.
 LaTeX Font Info:    ... okay on input line 8.
-\AtBeginShipoutBox=\box29
+\AtBeginShipoutBox=\box28
 Package hyperref Info: Link coloring OFF on input line 8.
 
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count100
@@ -228,23 +226,34 @@ LaTeX Info: Redefining \ref on input line 8.
 LaTeX Info: Redefining \pageref on input line 8.
 LaTeX Info: Redefining \nameref on input line 8.
 
-(./FunctionalRequirements.out) (./FunctionalRequirements.out)
+(K:\cos301\MainProjectCOS301\FunctionalRequirements.out)
+(K:\cos301\MainProjectCOS301\FunctionalRequirements.out)
 \@outlinefile=\write3
-\openout3 = `FunctionalRequirements.out'.
 
-
-
-Package hyperref Warning: Rerun to get /PageLabels entry.
-
+("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count101
+\scratchdimen=\dimen116
+\scratchbox=\box29
+\nofMPsegments=\count102
+\nofMParguments=\count103
+\everyMPshowfont=\toks17
+\MPscratchCnt=\count104
+\MPscratchDim=\dimen117
+\MPnumerator=\count105
+\makeMPintoPDFobject=\count106
+\everyMPtoPDFconversion=\toks18
+)
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <14.4> on input line 27.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 27.
-[1
+ [1
 
-] (./FunctionalRequirements.toc
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
+(K:\cos301\MainProjectCOS301\FunctionalRequirements.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 5.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -253,75 +262,185 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 5.
 )
 \tf@toc=\write4
-\openout4 = `FunctionalRequirements.toc'.
-
  [2]
-Underfull \hbox (badness 10000) in paragraph at lines 57--58
+Underfull \hbox (badness 10000) in paragraph at lines 44--45
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 59--60
+Underfull \hbox (badness 10000) in paragraph at lines 46--47
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 65--66
+Underfull \hbox (badness 10000) in paragraph at lines 52--53
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 73.
-(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 60.
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 73.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 60.
  [4] [5]
+<images/CMSUseCase.png, id=134, 801.99625pt x 502.87875pt>
+File: images/CMSUseCase.png Graphic file (type png)
 
-LaTeX Warning: File `images/CMSUseCase.png' not found on input line 123.
+<use images/CMSUseCase.png>
+Package pdftex.def Info: images/CMSUseCase.png used on input line 110.
+(pdftex.def)             Requested size: 390.0pt x 244.54813pt.
 
+<images/placeOrder.png, id=135, 839.135pt x 499.8675pt>
+File: images/placeOrder.png Graphic file (type png)
 
-! LaTeX Error: File `images/CMSUseCase.png' not found.
+<use images/placeOrder.png>
+Package pdftex.def Info: images/placeOrder.png used on input line 119.
+(pdftex.def)             Requested size: 390.0pt x 232.32156pt.
+ [6 <K:/cos301/MainProjectCOS301/images/CMSUseCase.png>] <images/checkProductAv
+ailability.png, id=141, 839.135pt x 499.8675pt>
+File: images/checkProductAvailability.png Graphic file (type png)
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.123 ...dth=1.0\textwidth]{images/CMSUseCase.png}
-                                                  
-? 
-! Interruption.
-\GenericError  ...                                
-                                                  \endgroup 
-l.123 ...dth=1.0\textwidth]{images/CMSUseCase.png}
-                                                  
-? 
+<use images/checkProductAvailability.png>
+Package pdftex.def Info: images/checkProductAvailability.png used on input line
+ 127.
+(pdftex.def)             Requested size: 390.0pt x 232.32156pt.
+ [7 <K:/cos301/MainProjectCOS301/images/placeOrder.png (PNG copy)>]
+<images/checkProductAvailabilitySC.jpg, id=148, 975.645pt x 557.08125pt>
+File: images/checkProductAvailabilitySC.jpg Graphic file (type jpg)
 
-! LaTeX Error: Cannot determine size of graphic in images/CMSUseCase.png (no Bo
-undingBox).
+<use images/checkProductAvailabilitySC.jpg>
+Package pdftex.def Info: images/checkProductAvailabilitySC.jpg used on input li
+ne 133.
+(pdftex.def)             Requested size: 390.0pt x 222.68405pt.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.123 ...dth=1.0\textwidth]{images/CMSUseCase.png}
-                                                  
-? 
-! Emergency stop.
- ...                                              
-                                                  
-l.123 ...dth=1.0\textwidth]{images/CMSUseCase.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+<images/checkLimit.png, id=149, 839.135pt x 499.8675pt>
+File: images/checkLimit.png Graphic file (type png)
 
- 
+<use images/checkLimit.png>
+Package pdftex.def Info: images/checkLimit.png used on input line 141.
+(pdftex.def)             Requested size: 390.0pt x 232.32156pt.
+ [8 <K:/cos301/MainProjectCOS301/images/checkProductAvailability.png (PNG copy)
+> <K:/cos301/MainProjectCOS301/images/checkProductAvailabilitySC.jpg>]
+<images/checkLimitsSC.jpg, id=156, 854.19125pt x 557.08125pt>
+File: images/checkLimitsSC.jpg Graphic file (type jpg)
+
+<use images/checkLimitsSC.jpg>
+Package pdftex.def Info: images/checkLimitsSC.jpg used on input line 147.
+(pdftex.def)             Requested size: 390.0pt x 254.3479pt.
+ [9 <K:/cos301/MainProjectCOS301/images/checkLimit.png (PNG copy)>] <images/man
+ageProfile.png, id=162, 849.1725pt x 531.9875pt>
+File: images/manageProfile.png Graphic file (type png)
+
+<use images/manageProfile.png>
+Package pdftex.def Info: images/manageProfile.png used on input line 156.
+(pdftex.def)             Requested size: 390.0pt x 244.32758pt.
+ [10 <K:/cos301/MainProjectCOS301/images/checkLimitsSC.jpg>] <images/generateFa
+vourite.png, id=168, 839.135pt x 499.8675pt>
+File: images/generateFavourite.png Graphic file (type png)
+
+<use images/generateFavourite.png>
+Package pdftex.def Info: images/generateFavourite.png used on input line 164.
+(pdftex.def)             Requested size: 390.0pt x 232.32156pt.
+ [11 <K:/cos301/MainProjectCOS301/images/manageProfile.png (PNG copy)>]
+<images/viewFavouritesSC.jpg, id=174, 916.42375pt x 557.08125pt>
+File: images/viewFavouritesSC.jpg Graphic file (type jpg)
+
+<use images/viewFavouritesSC.jpg>
+Package pdftex.def Info: images/viewFavouritesSC.jpg used on input line 170.
+(pdftex.def)             Requested size: 390.0pt x 237.07516pt.
+ [12 <K:/cos301/MainProjectCOS301/images/generateFavourite.png (PNG copy)> <K:/
+cos301/MainProjectCOS301/images/viewFavouritesSC.jpg>] <images/editProfile.png,
+ id=181, 839.135pt x 499.8675pt>
+File: images/editProfile.png Graphic file (type png)
+
+<use images/editProfile.png>
+Package pdftex.def Info: images/editProfile.png used on input line 179.
+(pdftex.def)             Requested size: 390.0pt x 232.32156pt.
+
+<images/changePassword.png, id=182, 839.135pt x 499.8675pt>
+File: images/changePassword.png Graphic file (type png)
+
+<use images/changePassword.png>
+Package pdftex.def Info: images/changePassword.png used on input line 188.
+(pdftex.def)             Requested size: 390.0pt x 232.32156pt.
+
+Overfull \hbox (23.74387pt too wide) in paragraph at lines 185--190
+\OT1/cmr/m/n/12 The ser-vice con-tract and ac-tiv-ity di-a-gram for changePass-
+word fol-low. changePass-
+ []
+
+[13 <K:/cos301/MainProjectCOS301/images/editProfile.png (PNG copy)>]
+<images/changePasswordSC.jpg, id=189, 896.34875pt x 557.08125pt>
+File: images/changePasswordSC.jpg Graphic file (type jpg)
+
+<use images/changePasswordSC.jpg>
+Package pdftex.def Info: images/changePasswordSC.jpg used on input line 194.
+(pdftex.def)             Requested size: 390.0pt x 242.3794pt.
+
+<images/changeEmail.png, id=190, 839.135pt x 499.8675pt>
+File: images/changeEmail.png Graphic file (type png)
+
+<use images/changeEmail.png>
+Package pdftex.def Info: images/changeEmail.png used on input line 202.
+(pdftex.def)             Requested size: 390.0pt x 232.32156pt.
+
+Overfull \hbox (9.44818pt too wide) in paragraph at lines 199--204
+\OT1/cmr/m/n/12 The ser-vice con-tract and ac-tiv-ity di-a-gram for changeEmail
+ fol-low. changeEmail
+ []
+
+[14 <K:/cos301/MainProjectCOS301/images/changePassword.png (PNG copy)> <K:/cos3
+01/MainProjectCOS301/images/changePasswordSC.jpg>]
+<images/changeEmailSC.jpg, id=197, 854.19125pt x 557.08125pt>
+File: images/changeEmailSC.jpg Graphic file (type jpg)
+
+<use images/changeEmailSC.jpg>
+Package pdftex.def Info: images/changeEmailSC.jpg used on input line 208.
+(pdftex.def)             Requested size: 390.0pt x 254.3479pt.
+ [15 <K:/cos301/MainProjectCOS301/images/changeEmail.png (PNG copy)>] <images/c
+hangeLimit.png, id=203, 839.135pt x 499.8675pt>
+File: images/changeLimit.png Graphic file (type png)
+
+<use images/changeLimit.png>
+Package pdftex.def Info: images/changeLimit.png used on input line 216.
+(pdftex.def)             Requested size: 390.0pt x 232.32156pt.
+ [16 <K:/cos301/MainProjectCOS301/images/changeEmailSC.jpg>] <images/setLimitsS
+C.jpg, id=209, 857.2025pt x 557.08125pt>
+File: images/setLimitsSC.jpg Graphic file (type jpg)
+
+<use images/setLimitsSC.jpg>
+Package pdftex.def Info: images/setLimitsSC.jpg used on input line 222.
+(pdftex.def)             Requested size: 390.0pt x 253.45537pt.
+ [17 <K:/cos301/MainProjectCOS301/images/changeLimit.png (PNG copy)> <K:/cos301
+/MainProjectCOS301/images/setLimitsSC.jpg>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 235.
+
+[18]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 235.
+ (K:\cos301\MainProjectCOS301\FunctionalRequirements.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 235.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 235.
+Package rerunfilecheck Info: File `FunctionalRequirements.out' has not changed.
+
+(rerunfilecheck)             Checksum: 0ACF5214F25E5ACFE25C3DEC263F4AF6;1401.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 235.
+ ) 
 Here is how much of TeX's memory you used:
- 5667 strings out of 495029
- 88053 string characters out of 6181523
- 174500 words of memory out of 5000000
- 8867 multiletter control sequences out of 15000+600000
- 9107 words of font info for 32 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
- 36i,9n,38p,732b,405s stack positions out of 5000i,500n,10000p,200000b,80000s
-Output written on FunctionalRequirements.dvi (5 pages, 23012 bytes).
+ 6185 strings out of 493921
+ 96060 string characters out of 3147279
+ 176049 words of memory out of 3000000
+ 9390 multiletter control sequences out of 15000+200000
+ 9107 words of font info for 32 fonts, out of 3000000 for 9000
+ 841 hyphenation exceptions out of 8191
+ 36i,9n,38p,733b,409s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on FunctionalRequirements.pdf (18 pages, 741177 bytes).
+PDF statistics:
+ 249 PDF objects out of 1000 (max. 8388607)
+ 57 named destinations out of 1000 (max. 500000)
+ 249 words of extra memory for PDF output out of 10000 (max. 10000000)
+
