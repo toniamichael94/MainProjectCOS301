@@ -1,0 +1,3 @@
+The instalation guide will guide you through installing the software needed for the Cafeteria Management System and
+will be eddited as the implimentation of the project goes along. The final instalation guide will be releded with the 
+final version of the Cafateria aManagement System.
