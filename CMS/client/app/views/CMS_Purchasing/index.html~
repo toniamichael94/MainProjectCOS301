@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html >
+    <head>
+ 	<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Cafeteria Management System</title>
+  
+	</head>
+ 
+	<body>
+		<h2>Welcome Miss Tonia Michael... </h2>
+		<form action="">
+		<input type="checkbox" name="x" value="b">Sandwich R20,00<br>
+		<input type="checkbox" name="x" value="c">Tramezini R30,00<br>
+		<input type="checkbox" name="x" value="d">Salad R10,00<br>
+		<input type="checkbox" name="x" value="e">Pasta R30,00<br>
+		<input type="submit" value="Submit">
+		</form>
+	</body>
+</html>
