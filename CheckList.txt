@@ -1,0 +1,10 @@
+This document contains the checklist that needs to be done for each phase or Iteration of our Agile process. 
+
+- Create and implement desired module.
+	- create the front end for the module.
+	- create the backend of the module.
+- Create the unit tests for the module to test all the functionality .
+- Update Instalation Manual if needed .
+- Update documentation for the module - this includes all the diagarams service contracts and so forth. 
+- Merge branch with master branch 
+- Create a new reliese for the added modle that is now fully functional.
