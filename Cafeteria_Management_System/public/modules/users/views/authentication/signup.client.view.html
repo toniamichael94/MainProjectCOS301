@@ -37,6 +37,12 @@
 					<label for="username">Username</label>
 					<input type="text" id="username" name="username" class="form-control" data-ng-model="credentials.username" placeholder="Username">
 				</div>
+				
+				<div class="form-group">
+					<label for="limit">Limit</label>
+					<input type="number" id="limit" name="limit" class="form-control" data-ng-model="credentials.limit" min = 0 placeholder="500">
+				</div>
+				
 				<div class="form-group">
 					<label for="password">Password</label>
 					<input type="password" id="password" name="password" class="form-control" data-ng-model="credentials.password" placeholder="Password">
