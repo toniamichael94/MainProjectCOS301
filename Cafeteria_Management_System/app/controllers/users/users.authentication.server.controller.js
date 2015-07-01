@@ -26,23 +26,30 @@ exports.signup = function(req, res) {
 
 	// Then save the user 
 	user.save(function(err) {
-		if (err) {
-			return res.status(400).send({
-				message: errorHandler.getErrorMessage(err)
-			});
-		} else {
-			// Remove sensitive data before login
-			user.password = undefined;
-			user.salt = undefined;
 
-			req.login(user, function(err) {
-				if (err) {
-					res.status(400).send(err);
-				} else {
-					res.json(user);
-				}
-			});
-		}
+            if (err) {
+                return res.status(400).send({
+                    message: errorHandler.getErrorMessage(err)
+                });
+            } else {
+                if (user.password === user.confirmPassword) {
+                    // Remove sensitive data before login
+                    user.password = undefined;
+                    user.salt = undefined;
+
+                    req.login(user, function(err) {
+                        if (err) {
+                            res.status(400).send(err);
+                        } else {
+                            res.json(user);
+                        }
+                    });
+            }else {
+                    return res.status(400).send({
+                        message: 'Passwords do not match'
+                    });
+                }
+        }
 	});
 };
 
