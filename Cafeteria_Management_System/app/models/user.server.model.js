@@ -92,7 +92,7 @@ var UserSchema = new Schema({
 	},
 	resetPasswordExpires: {
 		type: Date
-	}
+	},
 	// for editig profile
 	recipientEmailAddress: {
 		type: String,
@@ -100,7 +100,7 @@ var UserSchema = new Schema({
 		default: '',
 		validate: [validateLocalStrategyProperty, 'Please fill in your email for notifications'],
 		match: [/.+\@.+\..+/, 'Please fill a valid email address']
-	},
+	}
 });
 
 /**
