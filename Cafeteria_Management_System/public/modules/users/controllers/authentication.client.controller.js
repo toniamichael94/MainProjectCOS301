@@ -33,7 +33,18 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 				$scope.authentication.user = response;
 
 				// And redirect to the index page
-				$location.path('/');
+                if(roles[0]==='user') {
+                    $location.path('/');
+                }
+                else if(roles[0]==='superuser'){
+                    $location.path('/superuser.html');
+                }
+                else if(roles[0]==='cafeteriaManager'){
+                    $location.path('/cafeteriaManager.html');
+                }
+                else if(roles[0]==='cashier'){
+                    $location.path('/cashier.html');
+                }
 			}).error(function(response) {
 				$scope.error = response.message;
 			});
