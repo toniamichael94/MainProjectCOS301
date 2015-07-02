@@ -41,5 +41,9 @@ angular.module('users').config(['$stateProvider',
 			url: '/password/reset/:token',
 			templateUrl: 'modules/users/views/password/reset-password.client.view.html'
 		});
+        /*state('superuser', {
+            url: '/superuser',
+            templateUrl: 'modules/users/views/settings/edit-profile-superuser.html'
+        });*/
 	}
 ]);

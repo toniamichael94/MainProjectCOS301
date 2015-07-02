@@ -23,7 +23,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 				});
 			}
 			else {
-					$scope.error = "Passwords do not match!"
+					$scope.error = 'Passwords do not match!';
 			}
 		};
 
@@ -33,21 +33,21 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 				$scope.authentication.user = response;
 
 				// And redirect to the index page
-                if(roles[0]==='user') {
+               /// if(roles[0]==='user') {
                     $location.path('/');
-                }
+              /*  }
                 else if(roles[0]==='superuser'){
-                    $location.path('/superuser.html');
+                    $location.path('/superuser');
                 }
                 else if(roles[0]==='cafeteriaManager'){
-                    $location.path('/cafeteriaManager.html');
+                    $location.path('/cafeteriaManager');
                 }
                 else if(roles[0]==='cashier'){
-                    $location.path('/cashier.html');
+                    $location.path('/cashier');
                 }
                 else if(roles[0]==='finance'){
-                    $location.path('/finance.html');
-                }
+                    $location.path('/finance');
+                }*/
 			}).error(function(response) {
 				$scope.error = response.message;
 			});
