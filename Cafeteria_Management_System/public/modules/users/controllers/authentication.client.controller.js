@@ -45,6 +45,9 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
                 else if(roles[0]==='cashier'){
                     $location.path('/cashier.html');
                 }
+                else if(roles[0]==='finance'){
+                    $location.path('/finance.html');
+                }
 			}).error(function(response) {
 				$scope.error = response.message;
 			});
