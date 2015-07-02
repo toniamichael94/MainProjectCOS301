@@ -45,7 +45,10 @@
 					<label for="email">Email</label>
 					<input type="email" id="email" name="email" class="form-control" data-ng-model="credentials.email" placeholder="Email">
 				</div>
-
+                <div class="form-group">
+                    <label for="recipientEmailAddress">Send monthly bill to:</label>
+                    <input type="email" id="recipientEmailAddress" name="recipientEmailAddress" class="form-control" data-ng-model="credentials.recipientEmailAddress" placeholder="recipientEmailAddress">
+                </div>
 				<div class="form-group">
 					<label for="limit">Limit</label>
 					<input type="number" id="limit" name="limit" class="form-control" data-ng-model="credentials.limit" min = 0>
