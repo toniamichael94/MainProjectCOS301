@@ -44,6 +44,18 @@ angular.module('users').config(['$stateProvider',
         state('superuser', {
             url: '/superuser',
             templateUrl: 'modules/users/views/settings/edit-profile-superuser.html'
+        }).
+        state('cafeteriaManager', {
+            url: '/cafeteriaManager',
+            templateUrl: 'modules/users/views/settings/edit-profile-cafeteriaManager.html'
+        }).
+        state('cashier', {
+            url: '/cashier',
+            templateUrl: 'modules/users/views/settings/edit-profile-cashier.html'
+        }).
+        state('finance', {
+            url: '/finance',
+            templateUrl: 'modules/users/views/settings/edit-profile-finance.html'
         });
 	}
 ]);
