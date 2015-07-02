@@ -55,6 +55,23 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 			}
 		};
 
+		// view user profile
+		$scope.viewUserProfile = function(isValid) {
+			if (isValid) {
+				$scope.success = $scope.error = null;
+				var user = new Users($scope.user);
+
+				user.$update(function(response) {
+					$scope.success = true;
+					Authentication.user = response;
+				}, function(response) {
+					$scope.error = response.data.message;
+				});
+			} else {
+				$scope.submitted = true;
+			}
+		};
+
 		// Change user password
 		$scope.changeUserPassword = function() {
 			$scope.success = $scope.error = null;
