@@ -8,7 +8,7 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 		if (!$scope.user) $location.path('/');
 
 		// Check if there are additional accounts
-		$scope.hasConnectedAdditionalSocialAccounts = function(provider) {
+	/*	$scope.hasConnectedAdditionalSocialAccounts = function(provider) {
 			for (var i in $scope.user.additionalProvidersData) {
 				return true;
 			}
@@ -36,7 +36,7 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 			}).error(function(response) {
 				$scope.error = response.message;
 			});
-		};
+		};*/
 
 		// Update a user profile
 		$scope.updateUserProfile = function(isValid) {
