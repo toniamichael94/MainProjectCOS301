@@ -32,7 +32,7 @@ exports.signup = function(req, res) {
                     message: errorHandler.getErrorMessage(err)
                 });
             } else {
-                if (user.password === user.confirmPassword) {
+               // if (user.password === user.confirmPassword) {
                     // Remove sensitive data before login
                     user.password = undefined;
                     user.salt = undefined;
@@ -44,11 +44,11 @@ exports.signup = function(req, res) {
                             res.json(user);
                         }
                     });
-            }else {
+            /*}else {
                     return res.status(400).send({
                         message: 'Passwords do not match'
                     });
-                }
+                }*/
         }
 	});
 };
