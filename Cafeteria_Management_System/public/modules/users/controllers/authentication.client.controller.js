@@ -34,7 +34,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 
 				// And redirect to the index page
                /// if(roles[0]==='user') {
-                    $location.path('/superuser');
+                    $location.path('/');
               /*  }
                 else if(roles[0]==='superuser'){
                     $location.path('/superuser');
