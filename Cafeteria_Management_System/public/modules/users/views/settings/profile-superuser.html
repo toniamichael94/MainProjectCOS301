@@ -21,7 +21,7 @@
 		<br>
 		<div class="row">
 			<p class="lead">
-				<h1> Edit profile SUPERUSER </h1>
+				<h1> Assign Roles </h1>
 			</p>
 		</div>
 	</div>
@@ -30,28 +30,12 @@
 		<form name="userForm" data-ng-submit="updateUserProfile(userForm.$valid)" class="signin form-horizontal" autocomplete="off">
 			<fieldset>
 				<div class="form-group">
-					<label for="firstName">First Name</label>
-					<input type="text" id="firstName" name="firstName" class="form-control" data-ng-model="user.firstName" placeholder="First Name">
+					<label for="username">Employee Id</label>
+					<input type="text" id="username" name="username" class="form-control" data-ng-model="user.firstName" placeholder="First Name">
 				</div>
 				<div class="form-group">
-					<label for="lastName">Last Name</label>
-					<input type="text" id="lastName" name="lastName" class="form-control" data-ng-model="user.lastName" placeholder="Last Name">
-				</div>
-				<div class="form-group">
-					<label for="email">Email</label>
-					<input type="email" id="email" name="email" class="form-control" data-ng-model="user.email" placeholder="Email">
-				</div>
-				<div class="form-group">
-					<label for="username">Username</label>
-					<input type="text" id="username" name="username" class="form-control" data-ng-model="user.username" placeholder="Username">
-				</div>
-                <div class="form-group">
-                    <label for="recipientEmailAddress">Send monthly bill to:</label>
-                    <input type="text" id="recipientEmailAddress" name="recipientEmailAddress" class="form-control" data-ng-model="user.recipient@EmailAddress" placeholder="recipientEmailAddress">
-                </div>
-				<div class="form-group">
-					<label for="limit">Limit</label>
-					<input type="number" id="limit" name="limit" class="form-control" data-ng-model="user.limit" min = 0>
+					<label for="role">Assign Roles</label>
+					<input type="text" id="role" name="role" class="form-control" data-ng-model="user.role" placeholder="Assign role">
 				</div>
 				<div class="text-center form-group">
 					<button type="submit" class="btn btn-large btn-primary">Save Profile</button>
