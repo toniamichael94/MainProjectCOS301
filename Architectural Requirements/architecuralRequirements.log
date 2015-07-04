@@ -1,0 +1,222 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.5.1)  4 JUL 2015 21:51
+entering extended mode
+**architecuralRequirements.tex
+
+("C:\Users\Rendani\Documents\MainProjectCOS301\Architectural Requirements\archi
+tecuralRequirements.tex"
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2013-05-26, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
+ lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
+german-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
+ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
+an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
+ishmax, welsh, loaded.
+(C:\MikTex\tex\latex\base\article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(C:\MikTex\tex\latex\base\size12.clo
+File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+("C:\Users\Rendani\Documents\MainProjectCOS301\Architectural Requirements\archi
+tecuralRequirements.aux")
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 18.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 18.
+ [1
+
+{C:/Users/Rendani/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+("C:\Users\Rendani\Documents\MainProjectCOS301\Architectural Requirements\archi
+tecuralRequirements.toc"
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 7.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 7.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 7.
+ [2])
+\tf@toc=\write3
+ [3]
+Underfull \hbox (badness 10000) in paragraph at lines 37--38
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--40
+
+ []
+
+[4]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 51.
+ (C:\MikTex\tex\latex\base\omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 51.
+ [5] [6] [7] [8] [9] [10]
+Underfull \hbox (badness 10000) in paragraph at lines 179--180
+
+ []
+
+[11] [12] [13]
+Underfull \hbox (badness 10000) in paragraph at lines 247--250
+
+ []
+
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 269--272
+
+ []
+
+[15] [16]
+Overfull \hbox (114.47237pt too wide) in paragraph at lines 276--277
+[]\OT1/cmr/m/it/12 Basic MVC Ar-chi-tec-ture\OT1/cmr/m/n/12 . [On-line]. Avail-
+able: <http://www.tutorialspoint.com/struts[]2/basic 
+ []
+
+
+Overfull \hbox (121.68439pt too wide) in paragraph at lines 278--279
+[]\OT1/cmr/m/n/12 Beal, V. n.d. \OT1/cmr/m/it/12 Linux Server\OT1/cmr/m/n/12 . 
+[On-line]. Avail-able: <http://www.webopedia.com/TERM/L/linux[] 
+ []
+
+
+Overfull \hbox (37.60107pt too wide) in paragraph at lines 280--281
+\OT1/cmr/m/it/12 How To Con-vince Your Man-age-ment\OT1/cmr/m/n/12 . [On-line].
+ Avail-able: <http://www.adam-
+ []
+
+
+Overfull \hbox (10.92834pt too wide) in paragraph at lines 284--286
+\OT1/cmr/m/it/12 sums for er-ror de-tec-tion \OT1/cmr/m/n/12 [On-line]. Avail-a
+ble: <http://noahdavids.org/self-
+ []
+
+
+Overfull \hbox (30.25624pt too wide) in paragraph at lines 287--288
+[]\OT1/cmr/m/it/12 Git --loval-branding-on-the-cheap\OT1/cmr/m/n/12 . [On-line]
+. Avail-able: <http://git-scm.com/>
+ []
+
+
+Overfull \hbox (236.49825pt too wide) in paragraph at lines 289--290
+[]\OT1/cmr/m/it/12 JavaServer Faces Tech-nol-ogy\OT1/cmr/m/n/12 . [On-line]. Av
+ail-able: <http://www.oracle.com/technetwork/java/javaee/javaserverfaces-
+ []
+
+
+Overfull \hbox (1.51955pt too wide) in paragraph at lines 292--293
+\OT1/cmr/m/n/12 Avail-able: <http://tools.ietf.org/html/rfc2554> [Ac-cessed 9 M
+arch 2015] 
+ []
+
+
+Overfull \hbox (26.24667pt too wide) in paragraph at lines 294--295
+[]\OT1/cmr/m/it/12 Securing FTP us-ing SSH \OT1/cmr/m/n/12 [On-line]. Avail-abl
+e: <http://nurdletech.com/linux-
+ []
+
+
+Overfull \hbox (35.3744pt too wide) in paragraph at lines 296--297
+[]\OT1/cmr/m/it/12 PostgreSQL: About\OT1/cmr/m/n/12 . [On-line]. Avail-able: <h
+ttp://www.postgresql.org/about/>
+ []
+
+
+Overfull \hbox (84.7852pt too wide) in paragraph at lines 298--299
+[]\OT1/cmr/m/it/12 Software En-gi-neer-ing\OT1/cmr/m/n/12 . [On-line]. Avail-ab
+le: <http://sesolution.blogspot.com/p/software-
+ []
+
+
+Overfull \hbox (139.86766pt too wide) in paragraph at lines 300--301
+\OT1/cmr/m/n/12 Pre-to-ria: Pre-to-ria. Avail-able: <http://www.cs.up.ac.za/mod
+ules/courses/download.php?id=8565>
+ []
+
+[17]
+Overfull \hbox (139.86766pt too wide) in paragraph at lines 302--303
+\OT1/cmr/m/n/12 Pre-to-ria: Pre-to-ria. Avail-able: <http://www.cs.up.ac.za/mod
+ules/courses/download.php?id=8640>
+ []
+
+
+Overfull \hbox (95.61394pt too wide) in paragraph at lines 304--305
+\OT1/cmr/m/n/12 [On-line]. Avail-able: <http://blogs.msdn.com/b/sqlexpress/arch
+ive/2010/04/21/database-
+ []
+
+
+Overfull \hbox (10.73195pt too wide) in paragraph at lines 304--305
+\OT1/cmr/m/n/12 size-limit-increased-to-10gb-in-sql-server-2008-r2-express.aspx
+> [Ac-cessed
+ []
+
+
+Overfull \hbox (57.60278pt too wide) in paragraph at lines 306--307
+[]\OT1/cmr/m/it/12 Usability Eval-u-a-tion Ba-sics\OT1/cmr/m/n/12 . [On-line]. 
+Avail-able: <http://www.usability.gov/what-
+ []
+
+Missing character: There is no Ã in font cmr12!
+Missing character: There is no ¤ in font cmr12!
+
+Overfull \hbox (3.22925pt too wide) in paragraph at lines 308--309
+\OT1/cmr/m/n/12 ee-jee-and-not-j2ee-instead-of-spring-in-new-enterprise-java-pr
+ojects-in-
+ []
+
+
+Overfull \hbox (29.40155pt too wide) in paragraph at lines 310--311
+[]\OT1/cmr/m/it/12 Welcome to Apache Maven\OT1/cmr/m/n/12 . [On-line]. Avail-ab
+le: <http://maven.apache.org/>
+ []
+
+[18]
+("C:\Users\Rendani\Documents\MainProjectCOS301\Architectural Requirements\archi
+tecuralRequirements.aux") ) 
+Here is how much of TeX's memory you used:
+ 260 strings out of 493921
+ 3600 string characters out of 3154495
+ 55031 words of memory out of 3000000
+ 3622 multiletter control sequences out of 15000+200000
+ 9454 words of font info for 33 fonts, out of 3000000 for 9000
+ 841 hyphenation exceptions out of 8191
+ 22i,9n,19p,716b,199s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/MikTex/fonts/type1/public/amsfonts/cm/cmbx12.pfb
+><C:/MikTex/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/MikTex/fonts/type1/pub
+lic/amsfonts/cm/cmr17.pfb><C:/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+<C:/MikTex/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on architecuralRequirements.pdf (18 pages, 113988 bytes).
+PDF statistics:
+ 80 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
