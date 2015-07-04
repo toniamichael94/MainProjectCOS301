@@ -24,6 +24,7 @@ exports.signup = function(req, res) {
 	user.provider = 'local';
 	user.displayName = user.firstName + ' ' + user.lastName;
 	user.displayEmail = user.email;
+	user.displayUserName = user.username;
 
 	// Then save the user
 	user.save(function(err) {
@@ -142,6 +143,7 @@ exports.saveOAuthUserProfile = function(req, providerUserProfile, done) {
 							username: availableUsername,
 							displayName: providerUserProfile.displayName,
 							displayEmail: providerUserProfile.displayEmail,
+							displayUserName: providerUserProfile.displayUserName,
 							email: providerUserProfile.email,
 							provider: providerUserProfile.provider,
 							providerData: providerUserProfile.providerData

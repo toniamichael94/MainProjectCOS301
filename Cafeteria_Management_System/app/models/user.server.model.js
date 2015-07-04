@@ -45,6 +45,10 @@ var UserSchema = new Schema({
 		type: String,
 		trim: true
 	},
+	displayUserName: {
+		type: String,
+		trim: true
+	},
 	email: {
 		type: String,
 		trim: true,

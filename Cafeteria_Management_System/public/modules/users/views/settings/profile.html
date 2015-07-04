@@ -27,51 +27,34 @@
 	</div>
 
 
-
-<div class="container" data-ng-controller="HeaderController">
-  <h1 align="left"> <span data-ng-bind="authentication.user.displayName"></span> </h1>
-  <h2 align="left"> <span data-ng-bind="authentication.user.displayEmail"></span> </h2>
-
+<!-- Displaying the user information -->
+<div class="list-group" data-ng-controller="HeaderController">
+	<a href="#" class="list-group-item disabled">
+    Profile Information
+  </a>
+	<!-- First name and Last name -->
+	<div class="list-group-item">
+  <h1 align="left"> <span data-ng-bind="authentication.user.displayName"></span> </h1> <br>
 </div>
-
-
-	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
-		<form name="userForm" data-ng-submit="updateUserProfile(userForm.$valid)" class="signin form-horizontal" autocomplete="off">
-			<fieldset>
-				<div class="form-group">
-					<label for="firstName">First Name</label>
-					<input type="text" id="firstName" name="firstName" class="form-control" data-ng-model="user.firstName" placeholder="First Name">
-				</div>
-				<div class="form-group">
-					<label for="lastName">Last Name</label>
-					<input type="text" id="lastName" name="lastName" class="form-control" data-ng-model="user.lastName" placeholder="Last Name">
-				</div>
-				<div class="form-group">
-					<label for="email">Email</label>
-					<input type="email" id="email" name="email" class="form-control" data-ng-model="user.email" placeholder="Email">
-				</div>
-				<div class="form-group">
-					<label for="username">Username</label>
-					<input type="text" id="username" name="username" class="form-control" data-ng-model="user.username" placeholder="Username">
-				</div>
-                <div class="form-group">
-                    <label for="recipientEmailAddress">Send monthly bill to:</label>
-                    <input type="text" id="recipientEmailAddress" name="recipientEmailAddress" class="form-control" data-ng-model="user.recipientEmailAddress" placeholder="recipientEmailAddress">
-                </div>
-				<div class="form-group">
-					<label for="limit">Limit</label>
-					<input type="number" id="limit" name="limit" class="form-control" data-ng-model="user.limit" min = 0>
-				</div>
-				<div class="text-center form-group">
-					<button type="submit" class="btn btn-large btn-primary">Save Profile</button>
-				</div>
-				<div data-ng-show="success" class="text-center text-success">
-					<strong>Profile Saved Successfully</strong>
-				</div>
-				<div data-ng-show="error" class="text-center text-danger">
-					<strong data-ng-bind="error"></strong>
-				</div>
-			</fieldset>
-		</form>
+	<!-- user name -->
+	<div class="list-group-item">
+	<h3> User name: <h3> <h5 align="left"> <span data-ng-bind="authentication.user.username"></span> </h5><br>
 	</div>
+	<!-- e-mail adderss: -->
+	<div class="list-group-item">
+	<h3> E-mail address: <h3> <h5 align="left"> <span data-ng-bind="authentication.user.displayEmail"></span> </h5><br>
+  </div>
+	<!-- monthly bill e-mail adderss: -->
+	<div class="list-group-item">
+	<h3> Monthly bill will go to: <h3> <h5 align="left"> <span data-ng-bind="authentication.user.recipientEmailAddress"></span> </h5><br>
+	</div>
+	<!-- Limit: -->
+	<div class="list-group-item">
+	<h3> Limit per month: <h3> <h5 align="left"> R <span data-ng-bind="authentication.user.limit"></span> </h5><br>
+	</div>
+	
+ </div>
+
+
+
 </section>
