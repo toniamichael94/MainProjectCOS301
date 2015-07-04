@@ -55,6 +55,41 @@ exports.signup = function(req, res) {
 	});
 };
 
+exports.checkSuperUser = function(){
+	console.log('serverside');
+
+	User.find({roles : 'superuser'}, function(error, model) {
+  //put code to process the results here
+	console.log('models');
+
+	var v = model;
+	console.log(v);
+	if(model.length < 1){
+		console.log('NO USER FOUND - create default super user ');
+		var superUser = new User({
+			firstName : 'SuperUser',
+			lastName : 'SuperUser',
+			username : 'SuperUser',
+			password : 'SuperUser',
+			email : 'email@adderss.com',
+			recipientEmailAddress : 'email@address.com',
+			roles : 'superuser',
+			provider : 'local',
+			limit : '500'
+
+		});
+		superUser.save(function(err, superUser) {
+  		if (err) return console.error(err);
+  			console.dir(superUser);
+});
+	}else {
+		console.log('USER FOUND ');
+	}
+
+});
+
+};
+
 /**
  * Signin after passport authentication
  */
