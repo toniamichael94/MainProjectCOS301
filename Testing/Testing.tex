@@ -1,8 +1,14 @@
-
+\documentclass[a4paper,12pt]{article}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{array}
+\usepackage{tabu}
 %% Title Page 
 \title{\Huge Testing Spec\\ 
 	 Project: \\ 
-	Cafeteria Management System: Reslove}
+	Cafeteria Management System: Resolve}
 \author{
          \underline{T-RISE}\\
           Rendani Dau (13381467) \\
@@ -13,7 +19,7 @@
 
 \date{\today}
 
-\documentclass[12pt]{article}
+%\documentclass[12pt]{article}
 
 \begin{document}
 \maketitle
@@ -25,9 +31,35 @@
 
 %%now begin document
 
+ \begin{tabu} to 0.8\textwidth { | X[l] | X[l] | }
+ \hline
+ \textbf{Document Title} & Testing Documentation \\
+ \hline
+ \textbf{Document Identification}  & Document 0.0.1  \\
+ \hline
+ \textbf{Author}  & Rendani Dau, Isabel Nel, Elana Kuun, Semaka Malapane, Antonia Michael \\
+ \hline
+ \textbf{Version} & 0.0.1 \\
+ \hline
+ \textbf{Document Status} & First Version - contains testing requirements  \\
+ \hline
+ \end{tabu}
+
+\begin{table}[h!]
+\centering
+ \begin{tabular}{||c c c c||} 
+ \hline
+ \textbf{Version} & \textbf{Date} & \textbf{Summary} & \textbf{Authors} \\ [0.5ex] 
+ \hline\hline
+ 0.0.1 & 29 May 2015 & First draft contains testing for first two use cases & Rendani Dau, \\ & & & Isabel Nel, \\ & & & Elana Kuun, \\ & & & Semaka Malapane, \\ & & & Antonia Michael \\   [1ex] 
+ \hline
+ \end{tabular}
+\end{table}
+
+\pagebreak
 %%---------------------------------  INTRODUCTION -------------------------------------------
 \section{Introduction}
-This document contains the functional requirements specification, architecture requirements and testing for the Resolve Cafeteria Management System that will be created for Software Engineering (COS 301) at the University of Pretoria 2015, by the group T-RISE. In this document we will thoroughly discuss and layout the project's testing to provide a clear view of the system as a whole. An agile approach is being followed, hence the main use cases that this document will be focussing on are placing orders and managing a user profile.  
+This document contains the   testing for the Resolve Cafeteria Management System that will be created for Software Engineering (COS 301) at the University of Pretoria 2015, by the group T-RISE. In this document we will thoroughly discuss and layout the project's testing to provide a clear view of the system as a whole. An agile approach is being followed, hence the main use cases that this document will be focussing on are placing orders and managing a user profile.  
 
 %% ------------------------------ VISION ------------------------------------------------------
 \section{Vision}
@@ -63,3 +95,5 @@ A sample of the code from the unit testing file is displayed below.
 %\centering
 %	 \includegraphics[width=1\textwidth]{./Unit Tests/unitTestScreenShots/profilePic.jpg}
 %\end{figure}
+ 
+\end{document}
