@@ -46,8 +46,8 @@ angular.module('users').config(['$stateProvider',
 			templateUrl: 'modules/users/views/password/reset-password.client.view.html'
 		}).
         state('superuser', {
-            url: '/superuser',
-            templateUrl: 'modules/users/views/settings/profile-superuser.html'
+            url: '/settings/assignRoles',
+            templateUrl: 'modules/users/views/settings/assignRoles.html'
         }).
         state('cafeteriaManager', {
             url: '/cafeteriaManager',
