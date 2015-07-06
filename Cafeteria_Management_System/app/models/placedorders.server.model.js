@@ -24,4 +24,4 @@ var PlacedOrdersSchema = new Schema({
 	}
 });
 
-mongoose.model('Inventory', InventorySchema);
+mongoose.model('PlacedOrders', PlacedOrdersSchema);
