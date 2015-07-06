@@ -51,7 +51,7 @@ angular.module('users').config(['$stateProvider',
         }).
         state('cafeteriaManager', {
             url: '/cafeteriaManager',
-            templateUrl: 'modules/users/views/settings/profile-cafeteria-manager.html'
+            templateUrl: 'modules/users/views/settings/manageInventory-cafeteria-manager.html'
         }).
         state('cashier', {
             url: '/cashier',
