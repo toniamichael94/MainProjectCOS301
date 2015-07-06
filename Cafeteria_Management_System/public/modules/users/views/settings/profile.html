@@ -61,24 +61,24 @@
 		-->
 
 			<!-- Normal user -->
-			<div data-ng-show="authentication.user.roles[0] === 'user'" class="list-group-item">
-			<h3> Profile type: <h3> <h5 align="left">Employee (user) </h5><br>
+			<div data-ng-hide="authentication.user.roles[0] === 'user'" class="list-group-item">
+			<h3> Profile type: </h3> <h5 align="left">Employee (user) </h5><br>
 			</div>
 			<!-- Super User -->
 			<div data-ng-show="authentication.user.roles[0] === 'superuser'" class="list-group-item">
-			<h3> Profile type: <h3> <h5 align="left">Administrative (Super User) </h5><br>
+			<h3> Profile type: </h3> <h5 align="left">Administrative (Super User) </h5><br>
 			</div>
 			<!--finance user -->
 			<div data-ng-show="authentication.user.roles[0] === 'finance'" class="list-group-item">
-			<h3> Profile type: <h3> <h5 align="left">Finance Department (finance) </h5><br>
+			<h3> Profile type: </h3> <h5 align="left">Finance Department (finance) </h5><br>
 			</div>
 			<!--Cafeteria Manager user -->
 			<div data-ng-show="authentication.user.roles[0] === 'cafeteriaManager'" class="list-group-item">
-			<h3> Profile type: <h3> <h5 align="left">Cafeteria Manager (Cafeteria Manager) </h5><br>
+			<h3> Profile type: </h3> <h5 align="left">Cafeteria Manager (Cafeteria Manager) </h5><br>
 			</div>
 			<!--Casheir -->
 			<div data-ng-show="authentication.user.roles[0] === 'cashier'" class="list-group-item">
-			<h3> Profile type: <h3> <h5 align="left">Cafeteria Employee (cashier) </h5><br>
+			<h3> Profile type: </h3> <h5 align="left">Cafeteria Employee (cashier) </h5><br>
 			</div>
 
 
