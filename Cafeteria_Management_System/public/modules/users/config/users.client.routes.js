@@ -51,15 +51,15 @@ angular.module('users').config(['$stateProvider',
         }).
         state('cafeteriaManager', {
             url: '/cafeteriaManager',
-            templateUrl: 'modules/users/views/settings/manageInventory-cafeteria-manager.html'
+            templateUrl: 'modules/users/views/settings/cafeteriaManager.html'
         }).
         state('cashier', {
             url: '/cashier',
-            templateUrl: 'modules/users/views/settings/profile-cashier.html'
+            templateUrl: 'modules/users/views/settings/cashier.html'
         }).
         state('finance', {
             url: '/finance',
-            templateUrl: 'modules/users/views/settings/profile-finance.html'
+            templateUrl: 'modules/users/views/settings/finance.html'
         });
 	}
 ]);
