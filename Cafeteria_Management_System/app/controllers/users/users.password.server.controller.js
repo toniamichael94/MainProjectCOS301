@@ -130,14 +130,14 @@ exports.reset = function(req, res, next) {
 						user.save(function(err) {
 							if (err) {
 								return res.status(400).send({
-									message: errorHandler.getErrorMessage(err)
+									message: errorHandler.getErrorMessage(err);
 								});
 							} else {
 								req.login(user, function(err) {
 									if (err) {
 										res.status(400).send(err);
 									} else {
-										// Return authenticated user 
+										// Return authenticated user
 										res.json(user);
 
 										done(err, user);
