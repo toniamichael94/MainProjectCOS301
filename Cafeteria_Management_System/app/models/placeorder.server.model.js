@@ -7,23 +7,23 @@ var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
 /**
- * Placeorder Schema
+ * Inventory Schema
  */
-var PlaceorderSchema = new Schema({
+var InventorySchema = new Schema({
 	name: {
 		type: String,
 		default: '',
-		required: 'Please fill Placeorder name',
+		required: 'Please enter product name',
 		trim: true
 	},
 	created: {
 		type: Date,
 		default: Date.now
-	},
-	user: {
-		type: Schema.ObjectId,
-		ref: 'User'
+	},	
+	price: {
+	type: Number,
+	default: 0
 	}
 });
 
-mongoose.model('Placeorder', PlaceorderSchema);
+mongoose.model('Inventory', InventorySchema);
