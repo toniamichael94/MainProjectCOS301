@@ -63,7 +63,7 @@ var UserSchema = new Schema({
 	username: {
 		type: String,
 		unique: 'testing error message',
-		required: 'Please fill in a username',
+		required: 'Please fill in your employe ID',
 		trim: true
 	},
 	password: {
