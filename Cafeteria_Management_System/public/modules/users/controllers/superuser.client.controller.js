@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('users').controller('SettingsController', ['$scope', '$http', '$location', 'Users', 'Authentication',
+angular.module('users').controller('superuserController', ['$scope', '$http', '$location', 'Users', 'Authentication',
 	function($scope, $http, $location, Users, Authentication) {
 		$scope.user = Authentication.user;
 
@@ -9,6 +9,7 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 
     // Assign a role to user
     $scope.assignRoles = function(isValid) {
+			console.log('hey!');
       if (isValid) {
         $scope.success = $scope.error = null;
         var reqObj = {userID: $scope.emp_id, role: $scope.role};
