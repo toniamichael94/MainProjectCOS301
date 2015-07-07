@@ -72,7 +72,7 @@ exports.setCanteenName = function(req, res){
 
 				config.save(function(err){
 					if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
-					res.status(200).send({message: 'Canteen name has been successfully changed.'})
+					res.status(200).send({message: 'Canteen name has been successfully changed.'});
 				})
 			}
 			else {
