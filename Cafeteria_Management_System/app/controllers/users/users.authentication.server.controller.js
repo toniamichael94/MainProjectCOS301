@@ -19,6 +19,7 @@ exports.signup = function(req, res) {
 	// Init Variables
 	var user = new User(req.body);
 	var message = null;
+	var config = new Config(req.body);
 
 	// Add missing user fields
 	user.provider = 'local';
@@ -197,6 +198,7 @@ exports.saveOAuthUserProfile = function(req, providerUserProfile, done) {
 	} else {
 		// User is already logged in, join the provider data to the existing user
 		var user = req.user;
+		var  config = req.config;
 
 		// Check if user exists, is not signed in using this provider, and doesn't have that provider data already configured
 		if (user.provider !== providerUserProfile.provider && (!user.additionalProvidersData || !user.additionalProvidersData[providerUserProfile.provider])) {
@@ -222,6 +224,7 @@ exports.saveOAuthUserProfile = function(req, providerUserProfile, done) {
  */
 exports.removeOAuthProvider = function(req, res, next) {
 	var user = req.user;
+	var config = req.config;
 	var provider = req.param('provider');
 
 	if (user && provider) {
