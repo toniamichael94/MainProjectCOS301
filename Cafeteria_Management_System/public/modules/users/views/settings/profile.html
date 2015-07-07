@@ -61,7 +61,7 @@
 		-->
 
 			<!-- Normal user -->
-			<div data-ng-hide="authentication.user.roles[0] === 'user'" class="list-group-item">
+			<div data-ng-show="authentication.user.roles[0] === 'user'" class="list-group-item">
 			<h3> Profile type: </h3> <h5 align="left">Employee</h5><br>
 			</div>
 			<!-- Super User -->
