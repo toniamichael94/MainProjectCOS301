@@ -47,7 +47,7 @@ angular.module('users').config(['$stateProvider',
 		}).
         state('superuser', {
             url: '/settings/assignRoles',
-            templateUrl: 'modules/users/views/settings/assignRoles.html'
+            templateUrl: 'modules/users/views/settings/adminSettings.html'
         }).
         state('cafeteriaManager', {
             url: '/inventory',
