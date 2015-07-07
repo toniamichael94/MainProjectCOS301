@@ -12,7 +12,7 @@ angular.module('users').controller('PasswordController', ['$scope', '$stateParam
 			$scope.success = $scope.error = $scope.loading = null;
 
 			//display please wait when loading password reset status
-			$scope.loading = "Please wait..."
+			$scope.loading = 'Please wait...';
 			/*****************************************************/
 
 			$http.post('/auth/forgot', $scope.credentials).success(function(response) {
