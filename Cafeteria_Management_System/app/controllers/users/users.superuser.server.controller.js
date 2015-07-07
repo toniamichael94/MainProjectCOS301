@@ -67,7 +67,7 @@ exports.setCanteenName = function(req, res){
 			if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
 			if(!model){
 				var config = new Config();
-				config.name = "Canteen name";
+				config.name = 'Canteen name';
 				config.value = req.body.value;
 
 				config.save(function(err){
