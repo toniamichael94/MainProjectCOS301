@@ -4,7 +4,7 @@ module.exports = function(app) {
 	var users = require('../../app/controllers/users.server.controller');
 	var placeorders = require('../../app/controllers/placeorders.server.controller');
 
-	// Placeorders Routes
+	// placeorders Routes
 	app.route('/placeorders')
 		.get(placeorders.list)
 		.post(users.requiresLogin, placeorders.create);
@@ -14,6 +14,6 @@ module.exports = function(app) {
 		.put(users.requiresLogin, placeorders.hasAuthorization, placeorders.update)
 		.delete(users.requiresLogin, placeorders.hasAuthorization, placeorders.delete);
 
-	// Finish by binding the Placeorder middleware
+	// Finish by binding the placeorder middleware
 	app.param('placeorderId', placeorders.placeorderByID);
 };
