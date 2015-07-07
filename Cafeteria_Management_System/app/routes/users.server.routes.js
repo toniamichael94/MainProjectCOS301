@@ -11,6 +11,8 @@ module.exports = function(app) {
 
 	//Setting up superuser api {Rendani Dau}
 	app.route('/users/superuserAssignRoles').post(users.assignRoles);
+  app.route('/users/superuserSetSystemWideLimit').post(users.setSystemWideLimit);
+	app.route('/users/superuserSetCanteenName').post(users.setCanteenName);
 
 	// Setting up the users profile api
 	app.route('/users/me').get(users.me);
