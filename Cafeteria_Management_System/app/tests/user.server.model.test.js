@@ -98,7 +98,7 @@ describe('User Model Unit Tests:', function() {
             });
         });
 
-        it('should show an error when the email does not contain an @ sign', function(done) {
+        it('should show an error when the email does not contain an @ sign and the email is in correct format', function(done) {
             user.email = 'you.com';
             return user.save(function(err) {
                 should.exist(err);
