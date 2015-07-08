@@ -48,6 +48,8 @@
 
 		it('$scope.signin() should login with a correct user and password', function() {
 			// Test expected GET request
+		  $httpBackend.when('POST',	'/auth/checkSuperUser').respond();
+
 			$httpBackend.when('POST', '/auth/signin').respond(200, 'Fred');
 
 			scope.signin();
@@ -60,6 +62,7 @@
 
 		it('$scope.signin() should fail to log in with nothing', function() {
 			// Test expected POST request
+      $httpBackend.expectPOST('/auth/checkSuperUser').respond();
 			$httpBackend.expectPOST('/auth/signin').respond(400, {
 				'message': 'Missing credentials'
 			});
@@ -68,6 +71,7 @@
 			$httpBackend.flush();
 
 			// Test scope value
+			$httpBackend.expectPOST('/auth/checkSuperUser').respond();
 			expect(scope.error).toEqual('Missing credentials');
 		});
 
@@ -77,6 +81,7 @@
 			scope.credentials = 'Bar';
 
 			// Test expected POST request
+			$httpBackend.expectPOST('/auth/checkSuperUser').respond();
 			$httpBackend.expectPOST('/auth/signin').respond(400, {
 				'message': 'Unknown user'
 			});
