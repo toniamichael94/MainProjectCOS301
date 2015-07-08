@@ -1,0 +1,9 @@
+Cafeteria_Management_System/.DS_Store
+Cafeteria_Management_System/.nodemonignore
+Cafeteria_Management_System/.sass-cache/
+Cafeteria_Management_System/npm-debug.log
+Cafeteria_Management_System/node_modules/
+Cafeteria_Management_System/public/lib
+Cafeteria_Management_System/app/tests/coverage/
+Cafeteria_Management_System/.bower-*/
+Cafeteria_Management_System/.idea/

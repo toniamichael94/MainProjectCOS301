@@ -13,7 +13,18 @@ For more information, please have a look at the project proposal document in the
 Instalation Manual
 ********************************************************************************
 
-- Under construction ;-) 
+To run the Cafeteria Management System please follow the following instructions:
+
+1) Download this repository.
+
+2) In the directory Cafeteria_Management_System run npm install (this will install all the dependancies needed to run    this application. 
+
+3) Start your local mongoose database. 
+
+4) Run the 'grunt' command in your terminal.
+
+5) Open a browser and type 'localhost:3000' in the search bar and it will direct you to the home page of the CMS  
+   application
 
 ********************************************************************************
 User Manual

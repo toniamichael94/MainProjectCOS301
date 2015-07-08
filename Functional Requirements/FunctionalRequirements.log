@@ -1,7 +1,9 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.2.26)  29 MAY 2015 23:10
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.2.26)  7 JUL 2015 10:43
 entering extended mode
 **FunctionalRequirements.tex
-(K:\cos301\MainProjectCOS301\FunctionalRequirements.tex
+
+("C:\Users\Lesedi\MainProjectCOS301\Functional Requirements\FunctionalRequireme
+nts.tex"
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -196,64 +198,107 @@ Package caption3 Info: TeX engine: e-TeX on input line 57.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 )
-(K:\cos301\MainProjectCOS301\FunctionalRequirements.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-\AtBeginShipoutBox=\box28
-Package hyperref Info: Link coloring OFF on input line 8.
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen116
+\extrarowheight=\dimen117
+\NC@list=\toks17
+\extratabsurround=\skip44
+\backup@length=\skip45
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tabu\tabu.sty"
+Package: tabu 2011/02/26 v2.8 - flexible LaTeX tabulars (FC)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\ltxmisc\varwidth.sty"
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box28
+\sift@deathcycles=\count100
+\@vwid@loff=\dimen118
+\@vwid@roff=\dimen119
+)
+\c@taburow=\count101
+\tabu@nbcols=\count102
+\tabu@cnt=\count103
+\tabu@Xcol=\count104
+\tabu@alloc=\count105
+\tabu@nested=\count106
+\tabu@target=\dimen120
+\tabu@spreadtarget=\dimen121
+\tabu@naturalX=\dimen122
+\tabucolX=\dimen123
+\tabu@Xsum=\dimen124
+\extrarowdepth=\dimen125
+\abovetabulinesep=\dimen126
+\belowtabulinesep=\dimen127
+\tabustrutrule=\dimen128
+\tabu@thebody=\toks18
+\tabu@footnotes=\toks19
+\tabu@box=\box29
+\tabu@arstrutbox=\box30
+\tabu@hleads=\box31
+\tabu@vleads=\box32
+\tabu@cellskip=\skip46
+)
+("C:\Users\Lesedi\MainProjectCOS301\Functional Requirements\FunctionalRequireme
+nts.aux")
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+\AtBeginShipoutBox=\box33
+Package hyperref Info: Link coloring OFF on input line 10.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count100
+\c@section@level=\count107
 )
-LaTeX Info: Redefining \ref on input line 8.
-LaTeX Info: Redefining \pageref on input line 8.
-LaTeX Info: Redefining \nameref on input line 8.
+LaTeX Info: Redefining \ref on input line 10.
+LaTeX Info: Redefining \pageref on input line 10.
+LaTeX Info: Redefining \nameref on input line 10.
 
-(K:\cos301\MainProjectCOS301\FunctionalRequirements.out)
-(K:\cos301\MainProjectCOS301\FunctionalRequirements.out)
+("C:\Users\Lesedi\MainProjectCOS301\Functional Requirements\FunctionalRequireme
+nts.out")
+("C:\Users\Lesedi\MainProjectCOS301\Functional Requirements\FunctionalRequireme
+nts.out")
 \@outlinefile=\write3
-
-("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+ ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count101
-\scratchdimen=\dimen116
-\scratchbox=\box29
-\nofMPsegments=\count102
-\nofMParguments=\count103
-\everyMPshowfont=\toks17
-\MPscratchCnt=\count104
-\MPscratchDim=\dimen117
-\MPnumerator=\count105
-\makeMPintoPDFobject=\count106
-\everyMPtoPDFconversion=\toks18
+\scratchcounter=\count108
+\scratchdimen=\dimen129
+\scratchbox=\box34
+\nofMPsegments=\count109
+\nofMParguments=\count110
+\everyMPshowfont=\toks20
+\MPscratchCnt=\count111
+\MPscratchDim=\dimen130
+\MPnumerator=\count112
+\makeMPintoPDFobject=\count113
+\everyMPtoPDFconversion=\toks21
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 27.
+(Font)              <14.4> on input line 29.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 27.
+(Font)              <7> on input line 29.
  [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-(K:\cos301\MainProjectCOS301\FunctionalRequirements.toc
+("C:\Users\Lesedi\MainProjectCOS301\Functional Requirements\FunctionalRequireme
+nts.toc"
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 5.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -263,184 +308,378 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 )
 \tf@toc=\write4
  [2]
-Underfull \hbox (badness 10000) in paragraph at lines 44--45
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 46--47
-
+Overfull \hbox (65.27823pt too wide) in paragraph at lines 51--61
+ [][] 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 52--53
+Underfull \hbox (badness 10000) in paragraph at lines 78--79
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 60.
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--81
+
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 86--87
+
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 94.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 60.
- [4] [5]
-<images/CMSUseCase.png, id=134, 801.99625pt x 502.87875pt>
-File: images/CMSUseCase.png Graphic file (type png)
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 94.
+ [5] [6]
+<../images/CMSUseCase.png, id=179, 801.99625pt x 502.87875pt>
+File: ../images/CMSUseCase.png Graphic file (type png)
 
-<use images/CMSUseCase.png>
-Package pdftex.def Info: images/CMSUseCase.png used on input line 110.
+<use ../images/CMSUseCase.png>
+Package pdftex.def Info: ../images/CMSUseCase.png used on input line 144.
 (pdftex.def)             Requested size: 390.0pt x 244.54813pt.
 
-<images/placeOrder.png, id=135, 839.135pt x 499.8675pt>
-File: images/placeOrder.png Graphic file (type png)
+<../diagrams/Register/registerUseCase.png, id=180, 822.07124pt x 498.86375pt>
+File: ../diagrams/Register/registerUseCase.png Graphic file (type png)
 
-<use images/placeOrder.png>
-Package pdftex.def Info: images/placeOrder.png used on input line 119.
+<use ../diagrams/Register/registerUseCase.png>
+Package pdftex.def Info: ../diagrams/Register/registerUseCase.png used on input
+ line 153.
+(pdftex.def)             Requested size: 390.0pt x 236.66588pt.
+ [7 <C:/Users/Lesedi/MainProjectCOS301/images/CMSUseCase.png>]
+<../diagrams/Register/ActivityDiagrams/setEmail1.png, id=187, 822.07124pt x 498
+.86375pt>
+File: ../diagrams/Register/ActivityDiagrams/setEmail1.png Graphic file (type pn
+g)
+ <use ../diagrams/Register/ActivityDiagrams/setEmail1.png>
+Package pdftex.def Info: ../diagrams/Register/ActivityDiagrams/setEmail1.png us
+ed on input line 160.
+(pdftex.def)             Requested size: 390.0pt x 236.66588pt.
+
+<../diagrams/Register/ServiceContractsRegister/setEmailServiceContract.png, id=
+188, 822.07124pt x 565.11125pt>
+File: ../diagrams/Register/ServiceContractsRegister/setEmailServiceContract.png
+ Graphic file (type png)
+
+<use ../diagrams/Register/ServiceContractsRegister/setEmailServiceContract.png>
+Package pdftex.def Info: ../diagrams/Register/ServiceContractsRegister/setEmail
+ServiceContract.png used on input line 165.
+(pdftex.def)             Requested size: 390.0pt x 268.09433pt.
+[8 <C:/Users/Lesedi/MainProjectCOS301/diagrams/Register/registerUseCase.png (PN
+G copy)>]
+<../diagrams/Register/ActivityDiagrams/setPassword1.png, id=194, 836.12375pt x 
+498.86375pt>
+File: ../diagrams/Register/ActivityDiagrams/setPassword1.png Graphic file (type
+ png)
+ <use ../diagrams/Register/ActivityDiagrams/setPassword1.png>
+Package pdftex.def Info: ../diagrams/Register/ActivityDiagrams/setPassword1.png
+ used on input line 173.
+(pdftex.def)             Requested size: 390.0pt x 232.69238pt.
+
+[9 <C:/Users/Lesedi/MainProjectCOS301/diagrams/Register/ActivityDiagrams/setEma
+il1.png (PNG copy)> <C:/Users/Lesedi/MainProjectCOS301/diagrams/Register/Servic
+eContractsRegister/setEmailServiceContract.png (PNG copy)>]
+<../diagrams/Register/ServiceContractsRegister/changePasswordServiceContract.pn
+g, id=201, 955.57pt x 514.92375pt>
+File: ../diagrams/Register/ServiceContractsRegister/changePasswordServiceContra
+ct.png Graphic file (type png)
+
+<use ../diagrams/Register/ServiceContractsRegister/changePasswordServiceContrac
+t.png>
+Package pdftex.def Info: ../diagrams/Register/ServiceContractsRegister/changePa
+sswordServiceContract.png used on input line 178.
+(pdftex.def)             Requested size: 390.0pt x 210.15367pt.
+ [10 <C:/Users/Lesedi/MainProjectCOS301/diagrams/Register/ActivityDiagrams/setP
+assword1.png (PNG copy)>]
+<../diagrams/Register/ActivityDiagrams/setLimit.png, id=207, 822.07124pt x 498.
+86375pt>
+File: ../diagrams/Register/ActivityDiagrams/setLimit.png Graphic file (type png
+)
+ <use ../diagrams/Register/ActivityDiagrams/setLimit.png>
+Package pdftex.def Info: ../diagrams/Register/ActivityDiagrams/setLimit.png use
+d on input line 186.
+(pdftex.def)             Requested size: 390.0pt x 236.66588pt.
+
+<../diagrams/Register/ServiceContractsRegister/setLimit.png, id=208, 955.57pt x
+ 514.92375pt>
+File: ../diagrams/Register/ServiceContractsRegister/setLimit.png Graphic file (
+type png)
+ <use ../diagrams/Register/ServiceContractsRegister/setLimit.png>
+Package pdftex.def Info: ../diagrams/Register/ServiceContractsRegister/setLimit
+.png used on input line 191.
+(pdftex.def)             Requested size: 390.0pt x 210.15367pt.
+
+[11 <C:/Users/Lesedi/MainProjectCOS301/diagrams/Register/ServiceContractsRegist
+er/changePasswordServiceContract.png (PNG copy)> <C:/Users/Lesedi/MainProjectCO
+S301/diagrams/Register/ActivityDiagrams/setLimit.png (PNG copy)>]
+<../diagrams/Register/ActivityDiagrams/setEmployeeID1.png, id=215, 822.07124pt 
+x 498.86375pt>
+File: ../diagrams/Register/ActivityDiagrams/setEmployeeID1.png Graphic file (ty
+pe png)
+ <use ../diagrams/Register/ActivityDiagrams/setEmployeeID1.png>
+Package pdftex.def Info: ../diagrams/Register/ActivityDiagrams/setEmployeeID1.p
+ng used on input line 199.
+(pdftex.def)             Requested size: 390.0pt x 236.66588pt.
+
+<../diagrams/Register/ServiceContractsRegister/setEmployeeIDServiceContract.png
+, id=216, 955.57pt x 514.92375pt>
+File: ../diagrams/Register/ServiceContractsRegister/setEmployeeIDServiceContrac
+t.png Graphic file (type png)
+
+<use ../diagrams/Register/ServiceContractsRegister/setEmployeeIDServiceContract
+.png>
+Package pdftex.def Info: ../diagrams/Register/ServiceContractsRegister/setEmplo
+yeeIDServiceContract.png used on input line 204.
+(pdftex.def)             Requested size: 390.0pt x 210.15367pt.
+ [12 <C:/Users/Lesedi/MainProjectCOS301/diagrams/Register/ServiceContractsRegis
+ter/setLimit.png (PNG copy)>]
+<../diagrams/Register/ActivityDiagrams/setFinancialPreferences1.png, id=222, 82
+2.07124pt x 498.86375pt>
+File: ../diagrams/Register/ActivityDiagrams/setFinancialPreferences1.png Graphi
+c file (type png)
+
+<use ../diagrams/Register/ActivityDiagrams/setFinancialPreferences1.png>
+Package pdftex.def Info: ../diagrams/Register/ActivityDiagrams/setFinancialPref
+erences1.png used on input line 212.
+(pdftex.def)             Requested size: 390.0pt x 236.66588pt.
+
+[13 <C:/Users/Lesedi/MainProjectCOS301/diagrams/Register/ActivityDiagrams/setEm
+ployeeID1.png (PNG copy)> <C:/Users/Lesedi/MainProjectCOS301/diagrams/Register/
+ServiceContractsRegister/setEmployeeIDServiceContract.png (PNG copy)>]
+<../diagrams/Register/ServiceContractsRegister/setFinancialPreferencesServiceCo
+ntract.png, id=230, 918.43124pt x 514.92375pt>
+File: ../diagrams/Register/ServiceContractsRegister/setFinancialPreferencesServ
+iceContract.png Graphic file (type png)
+
+<use ../diagrams/Register/ServiceContractsRegister/setFinancialPreferencesServi
+ceContract.png>
+Package pdftex.def Info: ../diagrams/Register/ServiceContractsRegister/setFinan
+cialPreferencesServiceContract.png used on input line 217.
+(pdftex.def)             Requested size: 390.0pt x 218.65504pt.
+
+<../images/AuthenticationUseCaseDiagram.png, id=231, 985.6825pt x 738.76pt>
+File: ../images/AuthenticationUseCaseDiagram.png Graphic file (type png)
+
+<use ../images/AuthenticationUseCaseDiagram.png>
+Package pdftex.def Info: ../images/AuthenticationUseCaseDiagram.png used on inp
+ut line 225.
+(pdftex.def)             Requested size: 390.0pt x 292.29735pt.
+ [14 <C:/Users/Lesedi/MainProjectCOS301/diagrams/Register/ActivityDiagrams/setF
+inancialPreferences1.png (PNG copy)> <C:/Users/Lesedi/MainProjectCOS301/diagram
+s/Register/ServiceContractsRegister/setFinancialPreferencesServiceContract.png 
+(PNG copy)>]
+<../images/ForgotPassword.jpg, id=238, 539.01375pt x 520.94624pt>
+File: ../images/ForgotPassword.jpg Graphic file (type jpg)
+
+<use ../images/ForgotPassword.jpg>
+Package pdftex.def Info: ../images/ForgotPassword.jpg used on input line 233.
+(pdftex.def)             Requested size: 390.0pt x 376.93312pt.
+
+<../images/ForgotPassword.png, id=239, 985.6825pt x 738.76pt>
+File: ../images/ForgotPassword.png Graphic file (type png)
+
+<use ../images/ForgotPassword.png>
+Package pdftex.def Info: ../images/ForgotPassword.png used on input line 238.
+(pdftex.def)             Requested size: 390.0pt x 292.29735pt.
+ [15 <C:/Users/Lesedi/MainProjectCOS301/images/AuthenticationUseCaseDiagram.png
+ (PNG copy)>] [16 <C:/Users/Lesedi/MainProjectCOS301/images/ForgotPassword.jpg>
+]
+<../images/ValidateUserPass.jpg, id=250, 550.055pt x 553.06625pt>
+File: ../images/ValidateUserPass.jpg Graphic file (type jpg)
+
+<use ../images/ValidateUserPass.jpg>
+Package pdftex.def Info: ../images/ValidateUserPass.jpg used on input line 246.
+
+(pdftex.def)             Requested size: 390.0pt x 392.14812pt.
+
+<../images/validateUserCredentials.png, id=251, 1009.7725pt x 710.655pt>
+File: ../images/validateUserCredentials.png Graphic file (type png)
+
+<use ../images/validateUserCredentials.png>
+Package pdftex.def Info: ../images/validateUserCredentials.png used on input li
+ne 251.
+(pdftex.def)             Requested size: 390.0pt x 274.47594pt.
+ [17 <C:/Users/Lesedi/MainProjectCOS301/images/ForgotPassword.png (PNG copy)>] 
+[18 <C:/Users/Lesedi/MainProjectCOS301/images/ValidateUserPass.jpg>]
+<../images/placeOrder.png, id=262, 839.135pt x 499.8675pt>
+File: ../images/placeOrder.png Graphic file (type png)
+
+<use ../images/placeOrder.png>
+Package pdftex.def Info: ../images/placeOrder.png used on input line 259.
 (pdftex.def)             Requested size: 390.0pt x 232.32156pt.
- [6 <K:/cos301/MainProjectCOS301/images/CMSUseCase.png>] <images/checkProductAv
-ailability.png, id=141, 839.135pt x 499.8675pt>
-File: images/checkProductAvailability.png Graphic file (type png)
+ [19 <C:/Users/Lesedi/MainProjectCOS301/images/validateUserCredentials.png (PNG
+ copy)>]
+<../images/checkProductAvailability.png, id=269, 839.135pt x 499.8675pt>
+File: ../images/checkProductAvailability.png Graphic file (type png)
 
-<use images/checkProductAvailability.png>
-Package pdftex.def Info: images/checkProductAvailability.png used on input line
- 127.
+<use ../images/checkProductAvailability.png>
+Package pdftex.def Info: ../images/checkProductAvailability.png used on input l
+ine 267.
 (pdftex.def)             Requested size: 390.0pt x 232.32156pt.
- [7 <K:/cos301/MainProjectCOS301/images/placeOrder.png (PNG copy)>]
-<images/checkProductAvailabilitySC.jpg, id=148, 975.645pt x 557.08125pt>
-File: images/checkProductAvailabilitySC.jpg Graphic file (type jpg)
+ [20 <C:/Users/Lesedi/MainProjectCOS301/images/placeOrder.png (PNG copy)>]
+<../images/checkProductAvailabilitySC.jpg, id=275, 975.645pt x 557.08125pt>
+File: ../images/checkProductAvailabilitySC.jpg Graphic file (type jpg)
 
-<use images/checkProductAvailabilitySC.jpg>
-Package pdftex.def Info: images/checkProductAvailabilitySC.jpg used on input li
-ne 133.
+<use ../images/checkProductAvailabilitySC.jpg>
+Package pdftex.def Info: ../images/checkProductAvailabilitySC.jpg used on input
+ line 273.
 (pdftex.def)             Requested size: 390.0pt x 222.68405pt.
 
-<images/checkLimit.png, id=149, 839.135pt x 499.8675pt>
-File: images/checkLimit.png Graphic file (type png)
+<../images/checkLimit.png, id=276, 839.135pt x 499.8675pt>
+File: ../images/checkLimit.png Graphic file (type png)
 
-<use images/checkLimit.png>
-Package pdftex.def Info: images/checkLimit.png used on input line 141.
+<use ../images/checkLimit.png>
+Package pdftex.def Info: ../images/checkLimit.png used on input line 281.
 (pdftex.def)             Requested size: 390.0pt x 232.32156pt.
- [8 <K:/cos301/MainProjectCOS301/images/checkProductAvailability.png (PNG copy)
-> <K:/cos301/MainProjectCOS301/images/checkProductAvailabilitySC.jpg>]
-<images/checkLimitsSC.jpg, id=156, 854.19125pt x 557.08125pt>
-File: images/checkLimitsSC.jpg Graphic file (type jpg)
+ [21 <C:/Users/Lesedi/MainProjectCOS301/images/checkProductAvailability.png (PN
+G copy)> <C:/Users/Lesedi/MainProjectCOS301/images/checkProductAvailabilitySC.j
+pg>]
+<../images/checkLimitsSC.jpg, id=283, 854.19125pt x 557.08125pt>
+File: ../images/checkLimitsSC.jpg Graphic file (type jpg)
 
-<use images/checkLimitsSC.jpg>
-Package pdftex.def Info: images/checkLimitsSC.jpg used on input line 147.
+<use ../images/checkLimitsSC.jpg>
+Package pdftex.def Info: ../images/checkLimitsSC.jpg used on input line 287.
 (pdftex.def)             Requested size: 390.0pt x 254.3479pt.
- [9 <K:/cos301/MainProjectCOS301/images/checkLimit.png (PNG copy)>] <images/man
-ageProfile.png, id=162, 849.1725pt x 531.9875pt>
-File: images/manageProfile.png Graphic file (type png)
+ [22 <C:/Users/Lesedi/MainProjectCOS301/images/checkLimit.png (PNG copy)>]
+<../images/manageProfile.png, id=289, 849.1725pt x 531.9875pt>
+File: ../images/manageProfile.png Graphic file (type png)
 
-<use images/manageProfile.png>
-Package pdftex.def Info: images/manageProfile.png used on input line 156.
+<use ../images/manageProfile.png>
+Package pdftex.def Info: ../images/manageProfile.png used on input line 296.
 (pdftex.def)             Requested size: 390.0pt x 244.32758pt.
- [10 <K:/cos301/MainProjectCOS301/images/checkLimitsSC.jpg>] <images/generateFa
-vourite.png, id=168, 839.135pt x 499.8675pt>
-File: images/generateFavourite.png Graphic file (type png)
+ [23 <C:/Users/Lesedi/MainProjectCOS301/images/checkLimitsSC.jpg>]
+<../Diagrams/ManageProfile/ActivityDiagrams/setFinancialPreferences1.png, id=29
+5, 822.07124pt x 498.86375pt>
+File: ../Diagrams/ManageProfile/ActivityDiagrams/setFinancialPreferences1.png G
+raphic file (type png)
 
-<use images/generateFavourite.png>
-Package pdftex.def Info: images/generateFavourite.png used on input line 164.
-(pdftex.def)             Requested size: 390.0pt x 232.32156pt.
- [11 <K:/cos301/MainProjectCOS301/images/manageProfile.png (PNG copy)>]
-<images/viewFavouritesSC.jpg, id=174, 916.42375pt x 557.08125pt>
-File: images/viewFavouritesSC.jpg Graphic file (type jpg)
+<use ../Diagrams/ManageProfile/ActivityDiagrams/setFinancialPreferences1.png>
+Package pdftex.def Info: ../Diagrams/ManageProfile/ActivityDiagrams/setFinancia
+lPreferences1.png used on input line 304.
+(pdftex.def)             Requested size: 390.0pt x 236.66588pt.
 
-<use images/viewFavouritesSC.jpg>
-Package pdftex.def Info: images/viewFavouritesSC.jpg used on input line 170.
-(pdftex.def)             Requested size: 390.0pt x 237.07516pt.
- [12 <K:/cos301/MainProjectCOS301/images/generateFavourite.png (PNG copy)> <K:/
-cos301/MainProjectCOS301/images/viewFavouritesSC.jpg>] <images/editProfile.png,
- id=181, 839.135pt x 499.8675pt>
-File: images/editProfile.png Graphic file (type png)
+[24 <C:/Users/Lesedi/MainProjectCOS301/images/manageProfile.png (PNG copy)>]
+<../Diagrams/ManageProfile/serviceContracts/changeFinancialPreferencesServiceCo
+ntract.png, id=301, 955.57pt x 514.92375pt>
+File: ../Diagrams/ManageProfile/serviceContracts/changeFinancialPreferencesServ
+iceContract.png Graphic file (type png)
 
-<use images/editProfile.png>
-Package pdftex.def Info: images/editProfile.png used on input line 179.
-(pdftex.def)             Requested size: 390.0pt x 232.32156pt.
+<use ../Diagrams/ManageProfile/serviceContracts/changeFinancialPreferencesServi
+ceContract.png>
+Package pdftex.def Info: ../Diagrams/ManageProfile/serviceContracts/changeFinan
+cialPreferencesServiceContract.png used on input line 310.
+(pdftex.def)             Requested size: 390.0pt x 210.15367pt.
 
-<images/changePassword.png, id=182, 839.135pt x 499.8675pt>
-File: images/changePassword.png Graphic file (type png)
+<../Diagrams/ManageProfile/ActivityDiagrams/setPassword1.png, id=302, 836.12375
+pt x 498.86375pt>
+File: ../Diagrams/ManageProfile/ActivityDiagrams/setPassword1.png Graphic file 
+(type png)
 
-<use images/changePassword.png>
-Package pdftex.def Info: images/changePassword.png used on input line 188.
-(pdftex.def)             Requested size: 390.0pt x 232.32156pt.
+<use ../Diagrams/ManageProfile/ActivityDiagrams/setPassword1.png>
+Package pdftex.def Info: ../Diagrams/ManageProfile/ActivityDiagrams/setPassword
+1.png used on input line 318.
+(pdftex.def)             Requested size: 390.0pt x 232.69238pt.
 
-Overfull \hbox (23.74387pt too wide) in paragraph at lines 185--190
+Overfull \hbox (23.74387pt too wide) in paragraph at lines 315--320
 \OT1/cmr/m/n/12 The ser-vice con-tract and ac-tiv-ity di-a-gram for changePass-
 word fol-low. changePass-
  []
 
-[13 <K:/cos301/MainProjectCOS301/images/editProfile.png (PNG copy)>]
-<images/changePasswordSC.jpg, id=189, 896.34875pt x 557.08125pt>
-File: images/changePasswordSC.jpg Graphic file (type jpg)
+[25 <C:/Users/Lesedi/MainProjectCOS301/Diagrams/ManageProfile/ActivityDiagrams/
+setFinancialPreferences1.png (PNG copy)> <C:/Users/Lesedi/MainProjectCOS301/Dia
+grams/ManageProfile/serviceContracts/changeFinancialPreferencesServiceContract.
+png (PNG copy)>]
+<../Diagrams/ManageProfile/serviceContracts/changePasswordServiceContract.png, 
+id=310, 955.57pt x 514.92375pt>
+File: ../Diagrams/ManageProfile/serviceContracts/changePasswordServiceContract.
+png Graphic file (type png)
 
-<use images/changePasswordSC.jpg>
-Package pdftex.def Info: images/changePasswordSC.jpg used on input line 194.
-(pdftex.def)             Requested size: 390.0pt x 242.3794pt.
+<use ../Diagrams/ManageProfile/serviceContracts/changePasswordServiceContract.p
+ng>
+Package pdftex.def Info: ../Diagrams/ManageProfile/serviceContracts/changePassw
+ordServiceContract.png used on input line 324.
+(pdftex.def)             Requested size: 390.0pt x 210.15367pt.
 
-<images/changeEmail.png, id=190, 839.135pt x 499.8675pt>
-File: images/changeEmail.png Graphic file (type png)
+<../Diagrams/ManageProfile/ActivityDiagrams/setEmail1.png, id=311, 822.07124pt 
+x 498.86375pt>
+File: ../Diagrams/ManageProfile/ActivityDiagrams/setEmail1.png Graphic file (ty
+pe png)
+ <use ../Diagrams/ManageProfile/ActivityDiagrams/setEmail1.png>
+Package pdftex.def Info: ../Diagrams/ManageProfile/ActivityDiagrams/setEmail1.p
+ng used on input line 332.
+(pdftex.def)             Requested size: 390.0pt x 236.66588pt.
 
-<use images/changeEmail.png>
-Package pdftex.def Info: images/changeEmail.png used on input line 202.
-(pdftex.def)             Requested size: 390.0pt x 232.32156pt.
-
-Overfull \hbox (9.44818pt too wide) in paragraph at lines 199--204
+Overfull \hbox (9.44818pt too wide) in paragraph at lines 329--334
 \OT1/cmr/m/n/12 The ser-vice con-tract and ac-tiv-ity di-a-gram for changeEmail
  fol-low. changeEmail
  []
 
-[14 <K:/cos301/MainProjectCOS301/images/changePassword.png (PNG copy)> <K:/cos3
-01/MainProjectCOS301/images/changePasswordSC.jpg>]
-<images/changeEmailSC.jpg, id=197, 854.19125pt x 557.08125pt>
-File: images/changeEmailSC.jpg Graphic file (type jpg)
+[26 <C:/Users/Lesedi/MainProjectCOS301/Diagrams/ManageProfile/ActivityDiagrams/
+setPassword1.png (PNG copy)> <C:/Users/Lesedi/MainProjectCOS301/Diagrams/Manage
+Profile/serviceContracts/changePasswordServiceContract.png (PNG copy)>]
+<../Diagrams/ManageProfile/serviceContracts/changeEmailServiceContract.png, id=
+318, 918.43124pt x 514.92375pt>
+File: ../Diagrams/ManageProfile/serviceContracts/changeEmailServiceContract.png
+ Graphic file (type png)
 
-<use images/changeEmailSC.jpg>
-Package pdftex.def Info: images/changeEmailSC.jpg used on input line 208.
-(pdftex.def)             Requested size: 390.0pt x 254.3479pt.
- [15 <K:/cos301/MainProjectCOS301/images/changeEmail.png (PNG copy)>] <images/c
-hangeLimit.png, id=203, 839.135pt x 499.8675pt>
-File: images/changeLimit.png Graphic file (type png)
+<use ../Diagrams/ManageProfile/serviceContracts/changeEmailServiceContract.png>
+Package pdftex.def Info: ../Diagrams/ManageProfile/serviceContracts/changeEmail
+ServiceContract.png used on input line 338.
+(pdftex.def)             Requested size: 390.0pt x 218.65504pt.
+[27 <C:/Users/Lesedi/MainProjectCOS301/Diagrams/ManageProfile/ActivityDiagrams/
+setEmail1.png (PNG copy)>]
+<../Diagrams/ManageProfile/ActivityDiagrams/setLimit.png, id=324, 822.07124pt x
+ 498.86375pt>
+File: ../Diagrams/ManageProfile/ActivityDiagrams/setLimit.png Graphic file (typ
+e png)
+ <use ../Diagrams/ManageProfile/ActivityDiagrams/setLimit.png>
+Package pdftex.def Info: ../Diagrams/ManageProfile/ActivityDiagrams/setLimit.pn
+g used on input line 346.
+(pdftex.def)             Requested size: 390.0pt x 236.66588pt.
 
-<use images/changeLimit.png>
-Package pdftex.def Info: images/changeLimit.png used on input line 216.
-(pdftex.def)             Requested size: 390.0pt x 232.32156pt.
- [16 <K:/cos301/MainProjectCOS301/images/changeEmailSC.jpg>] <images/setLimitsS
-C.jpg, id=209, 857.2025pt x 557.08125pt>
-File: images/setLimitsSC.jpg Graphic file (type jpg)
+[28 <C:/Users/Lesedi/MainProjectCOS301/Diagrams/ManageProfile/serviceContracts/
+changeEmailServiceContract.png (PNG copy)>]
+<../Diagrams/ManageProfile/serviceContracts/changeLimitServiceContract.png, id=
+330, 955.57pt x 514.92375pt>
+File: ../Diagrams/ManageProfile/serviceContracts/changeLimitServiceContract.png
+ Graphic file (type png)
 
-<use images/setLimitsSC.jpg>
-Package pdftex.def Info: images/setLimitsSC.jpg used on input line 222.
-(pdftex.def)             Requested size: 390.0pt x 253.45537pt.
- [17 <K:/cos301/MainProjectCOS301/images/changeLimit.png (PNG copy)> <K:/cos301
-/MainProjectCOS301/images/setLimitsSC.jpg>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 235.
+<use ../Diagrams/ManageProfile/serviceContracts/changeLimitServiceContract.png>
+Package pdftex.def Info: ../Diagrams/ManageProfile/serviceContracts/changeLimit
+ServiceContract.png used on input line 352.
+(pdftex.def)             Requested size: 390.0pt x 210.15367pt.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 359.
+[29 <C:/Users/Lesedi/MainProjectCOS301/Diagrams/ManageProfile/ActivityDiagrams/
+setLimit.png (PNG copy)> <C:/Users/Lesedi/MainProjectCOS301/Diagrams/ManageProf
+ile/serviceContracts/changeLimitServiceContract.png (PNG copy)>] [30]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 359.
 
-[18]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 235.
- (K:\cos301\MainProjectCOS301\FunctionalRequirements.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 235.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 235.
+("C:\Users\Lesedi\MainProjectCOS301\Functional Requirements\FunctionalRequireme
+nts.aux")
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 359.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 359.
 Package rerunfilecheck Info: File `FunctionalRequirements.out' has not changed.
 
-(rerunfilecheck)             Checksum: 0ACF5214F25E5ACFE25C3DEC263F4AF6;1401.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 235.
+(rerunfilecheck)             Checksum: 56D01E9550D81E647974546B1EC99692;2024.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 359.
  ) 
 Here is how much of TeX's memory you used:
- 6185 strings out of 493921
- 96060 string characters out of 3147279
- 176049 words of memory out of 3000000
- 9390 multiletter control sequences out of 15000+200000
+ 7074 strings out of 493921
+ 113602 string characters out of 3147279
+ 188060 words of memory out of 3000000
+ 10219 multiletter control sequences out of 15000+200000
  9107 words of font info for 32 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 36i,9n,38p,733b,409s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,13n,38p,669b,407s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Fil
 es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX
  2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on FunctionalRequirements.pdf (18 pages, 741177 bytes).
+Output written on FunctionalRequirements.pdf (30 pages, 975591 bytes).
 PDF statistics:
- 249 PDF objects out of 1000 (max. 8388607)
- 57 named destinations out of 1000 (max. 500000)
- 249 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 377 PDF objects out of 1000 (max. 8388607)
+ 93 named destinations out of 1000 (max. 500000)
+ 388 words of extra memory for PDF output out of 10000 (max. 10000000)
 
