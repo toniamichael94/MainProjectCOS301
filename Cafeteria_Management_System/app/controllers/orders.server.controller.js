@@ -6,6 +6,7 @@
  * Module dependencies.
  */
 
+'use strict';
 var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
 	Order = mongoose.model('Order'),
@@ -82,7 +83,7 @@ exports.delete = function(req, res) {
  * List of Orders
  */
 
-exports.list = function(req, res) { 
+exports.list = function(req, res) {
 	Order.find().sort('-created').populate('user', 'displayName').exec(function(err, orders) {
 		if (err) {
 			return res.status(400).send({
@@ -99,7 +100,7 @@ exports.list = function(req, res) {
  * Order middleware
  */
 
-exports.orderByID = function(req, res, next, id) { 
+exports.orderByID = function(req, res, next, id) {
 	Order.findById(id).populate('user', 'displayName').exec(function(err, order) {
 		if (err) return next(err);
 		if (! order) return next(new Error('Failed to load Order ' + id));
@@ -119,4 +120,3 @@ exports.hasAuthorization = function(req, res, next) {
 	}
 	next();
 };
-
