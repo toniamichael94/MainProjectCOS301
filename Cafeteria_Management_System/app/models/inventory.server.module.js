@@ -20,10 +20,10 @@ var InventorySchema = new Schema({
 		type: Date,
 		default: Date.now
 	},
-	user: {
+	/*user: {
 		type: Schema.ObjectId,
 		ref: 'User'
-	},
+	},*/
 	unit: {
 		type: String,
 		default: '',
