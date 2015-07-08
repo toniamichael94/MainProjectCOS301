@@ -1,121 +1,106 @@
-/*
 'use strict';
 
-*/
 /**
  * Module dependencies.
  */
-
-'use strict';
 var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
-	Order = mongoose.model('Order'),
+	Inventory = mongoose.model('Inventory'),
 	_ = require('lodash');
 
-
 /**
- * Create a Order
+ * Create an inventory item
  */
-
 exports.create = function(req, res) {
-	var order = new Order(req.body);
-	order.user = req.user;
+	var inventoryItem = new Inventory(req.body);
+	inventoryItem.user = req.user;
 
-	order.save(function(err) {
+	inventoryItem.save(function(err) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			res.jsonp(order);
+			res.jsonp(inventoryItem);
 		}
 	});
 };
 
 /**
- * Show the current Order
+ * Show the current inventory item
  */
-
 exports.read = function(req, res) {
-	res.jsonp(req.order);
+	res.jsonp(req.inventoryItem);
 };
 
 /**
- * Update a Order
+ * Update an inventory item
  */
-
 exports.update = function(req, res) {
-	var order = req.order ;
+	var inventoryItem = req.inventoryItem ;
 
-	order = _.extend(order , req.body);
+	inventoryItem _.extend(inventoryItem , req.body);
 
-	order.save(function(err) {
+	inventoryItem.save(function(err) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			res.jsonp(order);
+			res.jsonp(inventoryItem);
 		}
 	});
 };
 
-
 /**
- * Delete an Order
+ * Delete an inventory Item
  */
 exports.delete = function(req, res) {
-	var order = req.order ;
+	var inventoryItem = req.inventoryItem ;
 
-	order.remove(function(err) {
+	inventoryItem.remove(function(err) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			res.jsonp(order);
+			res.jsonp(inventoryItem);
 		}
 	});
 };
-
 
 /**
- * List of Orders
+ * List of inventoryItems
  */
-
-exports.list = function(req, res) {
-	Order.find().sort('-created').populate('user', 'displayName').exec(function(err, orders) {
+exports.list = function(req, res) { 
+	Inventory.find().sort('-created').populate('user', 'displayName').exec(function(err, inventory) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			res.jsonp(orders);
+			res.jsonp(inventory);
 		}
 	});
 };
-
 
 /**
  * Order middleware
  */
-
-exports.orderByID = function(req, res, next, id) {
-	Order.findById(id).populate('user', 'displayName').exec(function(err, order) {
+exports.orderByID = function(req, res, next, id) { 
+	Inventory.findById(id).populate('user', 'displayName').exec(function(err, inventoryItem) {
 		if (err) return next(err);
-		if (! order) return next(new Error('Failed to load Order ' + id));
-		req.order = order ;
+		if (! inventoryItem) return next(new Error('Failed to load Order ' + id));
+		req.inventoryItem = inventoryItem ;
 		next();
 	});
 };
 
-
 /**
  * Order authorization middleware
  */
-
 exports.hasAuthorization = function(req, res, next) {
-	if (req.order.user.id !== req.user.id) {
+	if (req.inventoryItem.user.id !== req.user.id) {
 		return res.status(403).send('User is not authorized');
 	}
 	next();
