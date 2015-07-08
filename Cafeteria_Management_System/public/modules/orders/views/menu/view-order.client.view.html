@@ -1,6 +1,7 @@
 <section data-ng-controller="OrdersController" data-ng-init="findOne()">
 	<div class="page-header">
 		<h1 data-ng-bind="order.name"></h1>
+		<h2>hello</h2>
 	</div>
 	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == order.user._id))">
 		<a class="btn btn-primary" href="/#!/orders/{{order._id}}/edit">

@@ -7,19 +7,20 @@ angular.module('orders').config(['$stateProvider',
 		$stateProvider.
 		state('listOrders', {
 			url: '/orders',
-			templateUrl: 'modules/orders/views/list-orders.client.view.html'
+			templateUrl: 'modules/orders/views/menu/list-orders.client.view.html'
 		}).
 		state('createOrder', {
 			url: '/orders/create',
-			templateUrl: 'modules/orders/views/create-order.client.view.html'
+			templateUrl: 'modules/orders/views/menu/create-order.client.view.html'
 		}).
 		state('viewOrder', {
 			url: '/orders/:orderId',
-			templateUrl: 'modules/orders/views/view-order.client.view.html'
+
+			templateUrl: 'modules/orders/views/menu/create-order.client.view.html'
 		}).
 		state('editOrder', {
 			url: '/orders/:orderId/edit',
-			templateUrl: 'modules/orders/views/edit-order.client.view.html'
+			templateUrl: 'modules/orders/views/menu/edit-order.client.view.html'
 		});
 	}
 ]);

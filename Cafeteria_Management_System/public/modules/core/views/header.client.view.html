@@ -22,18 +22,14 @@
 		<a href="/#!/" class="navbar-brand"><span class="glyphicon glyphicon-home"></span> Home</a>
 	</div>
 	<nav class="collapse navbar-collapse navbar-right" collapse="!isCollapsed" role="navigation">
-		<ul class="nav navbar-nav ">
-			<li data-ng-repeat="item in menu.items | orderBy: 'position'"  ng-switch="item.menuItemType" ui-route="{{item.uiRoute}}" class="{{item.menuItemClass}}" ng-class="{active: ($uiRoute)}" dropdown="item.menuItemType === 'dropdown'">
-				<a ng-switch-when="dropdown" class="dropdown-toggle">
-					<span data-ng-bind="item.title"></span>
+
+
+		<ul class="nav navbar-nav">
+			<li >
+				<a href="/#!/orders/menu">
+					<span>Menu</span>
 					<b class="caret"></b>
 				</a>
-				<ul ng-switch-when="dropdown" class="dropdown-menu">
-					<li data-ng-repeat="subitem in item.items | orderBy: 'position'" ui-route="{{subitem.uiRoute}}" ng-class="{active: $uiRoute}">
-						<a href="/#!/{{subitem.link}}" data-ng-bind="subitem.title"></a>
-					</li>
-				</ul>
-				<a ng-switch-default href="/#!/{{item.link}}" data-ng-bind="item.title"></a>
 			</li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right" data-ng-hide="authentication.user">
@@ -61,7 +57,7 @@
                         <a href="/#!/settings/assignRoles"> Administrative settings</a>
                     </li>
                     <li data-ng-show="authentication.user.roles[0] === 'cafeteriaManager'">
-                        <a href="/#!/inventory"> Manage Cafeteria </a>
+                        <a href="/#!/manageInventory"> Manage Cafeteria </a>
                     </li>
                     <li data-ng-show="authentication.user.roles[0] === 'cashier'">
                         <a href="/#!/cashier"> Cashier </a>

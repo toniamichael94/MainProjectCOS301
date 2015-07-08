@@ -65,13 +65,46 @@ describe('User Model Unit Tests:', function() {
 			});
 		});
 
-		it('should be able to show an error when try to save without first name', function(done) {
+		it('should be able to show an error when trying to save without first name', function(done) {
 			user.firstName = '';
 			return user.save(function(err) {
 				should.exist(err);
 				done();
 			});
 		});
+
+        it('should be able to show an error when trying to save without last name', function(done) {
+            user.lastName = '';
+            return user.save(function(err) {
+                should.exist(err);
+                done();
+            });
+        });
+
+        it('should be able to show an error when the password is too short', function(done) {
+            user.password = 'pass';
+            return user.save(function(err) {
+                should.exist(err);
+                done();
+            });
+        });
+
+        it('should be able to show an error when the passwords do not match', function(done) {
+            user.password = 'password';
+            user.confirmPassword = 'password1';
+            return user.save(function(err) {
+                should.exist(err);
+                done();
+            });
+        });
+
+        it('should show an error when the email does not contain an @ sign and the email is in correct format', function(done) {
+            user.email = 'you.com';
+            return user.save(function(err) {
+                should.exist(err);
+                done();
+            });
+        });
 	});
 
 	after(function(done) {
