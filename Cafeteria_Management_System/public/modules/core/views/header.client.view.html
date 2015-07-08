@@ -25,7 +25,7 @@
 		<ul class="nav navbar-nav">
 			<li data-ng-repeat="item in menu.items | orderBy: 'position'"  ng-switch="item.menuItemType" ui-route="{{item.uiRoute}}" class="{{item.menuItemClass}}" ng-class="{active: ($uiRoute)}" dropdown="item.menuItemType === 'dropdown'">
 				<a ng-switch-when="dropdown" class="dropdown-toggle">
-					<span data-ng-bind="item.title"></span>
+					<span>Menu</span>
 					<b class="caret"></b>
 				</a>
 				<ul ng-switch-when="dropdown" class="dropdown-menu">
