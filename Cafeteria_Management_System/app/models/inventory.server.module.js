@@ -1,19 +1,14 @@
-/*
 'use strict';
 
-*/
 /**
  * Module dependencies.
- *//*
-
+ */
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
-*/
 /**
  * Inventory Schema
- *//*
-
+ */
 var InventorySchema = new Schema({
 	productName: {
 		type: String,
@@ -25,12 +20,10 @@ var InventorySchema = new Schema({
 		type: Date,
 		default: Date.now
 	},
-	*/
-/*user: {
+	/*user: {
 		type: Schema.ObjectId,
 		ref: 'User'
-	},*//*
-
+	},*/
 	unit: {
 		type: String,
 		default: '',
@@ -38,4 +31,4 @@ var InventorySchema = new Schema({
 	}
 });
 
-mongoose.model('Inventory', InventorySchema);*/
+mongoose.model('Inventory', InventorySchema);

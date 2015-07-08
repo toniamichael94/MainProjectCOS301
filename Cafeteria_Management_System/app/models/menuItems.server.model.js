@@ -1,19 +1,14 @@
-/*
 'use strict';
 
-*/
 /**
  * Module dependencies.
- *//*
-
+ */
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
-*/
 /**
  * Order Schema
- *//*
-
+ */
 var MenuItemsSchema = new Schema({
 	name: {
 		type: String,
@@ -36,4 +31,4 @@ var MenuItemsSchema = new Schema({
 	}
 });
 
-mongoose.model('MenuItems', MenuItemsSchema);*/
+mongoose.model('MenuItems', MenuItemsSchema);
