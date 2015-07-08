@@ -14,17 +14,18 @@
 <section class="row" data-ng-controller="superuserController">
 	<h3> Administrative settings </h3>
 	<br>
-			
+
 
 <!--Display assign roles section -->
 <div class="list-group" data-ng-controller="HeaderController">
 	<a href="#" class="list-group-item disabled">
     Admin settings
   </a>
-</div>
-	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
-	<form name="userForm" data-ng-submit="assignRoles(userForm.$valid)" class="signin form-horizontal" autocomplete="off">
-		<fieldset>
+
+	<div class="list-group-item clearfix">
+		<h4> Assign Roles </h4>
+	<form name="userForm" data-ng-submit="assignRoles(userForm.$valid)" class="form-group  col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2" autocomplete="off">
+		<fieldset >
 			<div class="form-group">
 				<label for="emp_id">Employee ID</label>
 				<input type="text" id="emp_id" name="emp_id" class="form-control" data-ng-model="emp_id" placeholder="Employee ID">
@@ -50,6 +51,8 @@
 	</form>
 </div>
 <!-- Display set limit section  -->
+<div class="list-group-item clearfix">
+	<h4> Set System Wide Limit </h4>
 	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 		<form name="setLimitForm" data-ng-submit="setSystemWideLimit(userForm.$valid)" class="signin form-horizontal" autocomplete="off">
 			<fieldset>
@@ -69,7 +72,10 @@
 	</fieldset>
 	</form>
  </div>
-<!-- Display set limit section  -->
+</div>
+<!-- Display Set canteen name section  -->
+<div class="list-group-item clearfix">
+	<h4> Set Canteen Name </h4>
 	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 		<form name="setCanteenNameForm" data-ng-submit="setCanteenName(userForm.$valid)" class="signin form-horizontal" autocomplete="off">
 			<fieldset>
@@ -90,6 +96,7 @@
 	</form>
  </div>
 </div>
+</div>
 
-
+</div>
 </section>

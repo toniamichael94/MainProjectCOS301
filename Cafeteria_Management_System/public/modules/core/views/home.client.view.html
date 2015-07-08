@@ -12,11 +12,13 @@
 -->
 
 <section data-ng-controller="HomeController">
-	<br><br>
+	<h3>Home</h3>
+	<br>
+
 	<div class="jumbotron text-center">
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
-				<h1>  Welcome!  </h1><br>
+				<h1><small>  Welcome	<span data-ng-bind="authentication.user.displayName"></span> ! </small></h1><br>
 				<img alt="MEAN.JS" class="img-responsive text-center" src="modules/core/img/brand/logo.png" />
 			</div>
 		</div>
@@ -26,7 +28,7 @@
 				<h2> Canteen Name </h2>
 			</p>
 		</div>
-		<h1> Daily Specials: </h1>
+		<h1><small> Daily Specials: </small></h1>
 		<!--
 		<div class="row">
 			<p>
