@@ -11,25 +11,15 @@
 *
 -->
 
-<section class="row" data-ng-controller="AuthenticationController"> <br> <br>
+<section class="row" data-ng-controller="AuthenticationController">
 
-	<div class="jumbotron text-center">
-		<div class="row">
-			<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
-			</div>
-		</div>
-		<br>
-		<div class="row">
-			<p class="lead">
-				<h1>  Sign up </h1>
-			</p>
-		</div>
-	</div>
+	<h3> Sign Up </h3>
+	<br>
 
 	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 		<form name="userForm" data-ng-submit="signup()" class="signin form-horizontal" novalidate autocomplete="off">
 			<fieldset>
-				<div class="form-group">			
+				<div class="form-group">
 					<label for="username">Employee ID</label>
 					<input type="text" id="username" name="username" class="form-control" data-ng-model="credentials.username" placeholder="Employee ID">
 				</div>
@@ -70,7 +60,7 @@
 					<button type="submit" class="btn btn-large btn-primary">Sign up</button>&nbsp; or&nbsp;
 					<a href="/#!/signin" class="show-signup">Sign in</a>
 				</div>
-				
+
 			</fieldset>
 		</form>
 	</div>

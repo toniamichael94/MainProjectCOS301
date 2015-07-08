@@ -11,7 +11,7 @@
 *
 -->
 
-<div class="container" data-ng-controller="HeaderController">
+<div class="container " data-ng-controller="HeaderController">
 	<div class="navbar-header">
 		<button class="navbar-toggle" type="button" data-ng-click="toggleCollapsibleMenu()">
 			<span class="sr-only">Toggle navigation</span>
@@ -22,7 +22,7 @@
 		<a href="/#!/" class="navbar-brand"><span class="glyphicon glyphicon-home"></span> Home</a>
 	</div>
 	<nav class="collapse navbar-collapse navbar-right" collapse="!isCollapsed" role="navigation">
-		<ul class="nav navbar-nav">
+		<ul class="nav navbar-nav ">
 			<li data-ng-repeat="item in menu.items | orderBy: 'position'"  ng-switch="item.menuItemType" ui-route="{{item.uiRoute}}" class="{{item.menuItemClass}}" ng-class="{active: ($uiRoute)}" dropdown="item.menuItemType === 'dropdown'">
 				<a ng-switch-when="dropdown" class="dropdown-toggle">
 					<span data-ng-bind="item.title"></span>
@@ -50,7 +50,7 @@
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 				<span class="glyphicon glyphicon-user"></span>	<span data-ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
 				</a>
-				<ul class="dropdown-menu">
+				<ul class="dropdown-menu" >
 					<li data-ng-show="authentication.user.provider === 'local'">
 						<a href="/#!/settings/profileView">View Profile</a>
 					</li>

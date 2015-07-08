@@ -15,7 +15,7 @@ var _ = require('lodash'),
 exports.signup = function(req, res) {
 	// For security measurement we remove the roles from the req.body object
 	delete req.body.roles;
- 
+
 	if(req.body.password === req.body.confirmPassword){
 	// Init Variables
 	var user = new User(req.body);
@@ -61,14 +61,14 @@ else {
 };
 
 exports.checkSuperUser = function(){
-	console.log('serverside');
+//	console.log('serverside');
 
 	User.find({roles : 'superuser'}, function(error, model) {
   //put code to process the results here
-	console.log('models');
+//	console.log('models');
 
 	var v = model;
-	console.log(v);
+//	console.log(v);
 	if(model.length < 1){
 		console.log('NO USER FOUND - create default super user ');
 		var superUser = new User({
