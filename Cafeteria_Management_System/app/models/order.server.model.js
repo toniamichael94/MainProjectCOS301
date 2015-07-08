@@ -1,14 +1,19 @@
+/*
 'use strict';
 
+*/
 /**
  * Module dependencies.
- */
+ *//*
+
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
+*/
 /**
  * Order Schema
- */
+ *//*
+
 var OrderSchema = new Schema({
 	name: {
 		type: String,
@@ -26,4 +31,4 @@ var OrderSchema = new Schema({
 	}
 });
 
-mongoose.model('Order', OrderSchema);
+mongoose.model('Order', OrderSchema);*/
