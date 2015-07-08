@@ -1,42 +1,42 @@
-\contentsline {section}{\numberline {1}Introduction}{5}{section.1}
-\contentsline {section}{\numberline {2}Vision}{5}{section.2}
-\contentsline {section}{\numberline {3}Background}{5}{section.3}
-\contentsline {section}{\numberline {4}Architecture Requirementss}{6}{section.4}
-\contentsline {section}{\numberline {5}Architectural Responsibilities}{6}{section.5}
-\contentsline {section}{\numberline {6}Quality Requirements}{6}{section.6}
-\contentsline {subsection}{\numberline {6.1}Security}{6}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Usability}{6}{subsection.6.2}
-\contentsline {subsubsection}{\numberline {6.2.1}Reasons for quality requirements}{6}{subsubsection.6.2.1}
-\contentsline {subsubsection}{\numberline {6.2.2}Strategies to achieve this quality requirement}{7}{subsubsection.6.2.2}
-\contentsline {subsubsection}{\numberline {6.2.3}Patterns to achieve these strategies}{7}{subsubsection.6.2.3}
-\contentsline {subsection}{\numberline {6.3}Reliability}{8}{subsection.6.3}
-\contentsline {subsubsection}{\numberline {6.3.1}Reasons for quality requirement}{8}{subsubsection.6.3.1}
-\contentsline {subsubsection}{\numberline {6.3.2}Strategies to achieve this quality requirement}{8}{subsubsection.6.3.2}
-\contentsline {subsubsection}{\numberline {6.3.3}Patterns to achieve these strategies}{9}{subsubsection.6.3.3}
-\contentsline {subsection}{\numberline {6.4}Auditability}{9}{subsection.6.4}
-\contentsline {subsubsection}{\numberline {6.4.1}Reasons for quality requirements}{9}{subsubsection.6.4.1}
-\contentsline {subsubsection}{\numberline {6.4.2}Strategies to achieve this quality requirement}{9}{subsubsection.6.4.2}
-\contentsline {subsubsection}{\numberline {6.4.3}Patterns to achieve these strategies}{10}{subsubsection.6.4.3}
-\contentsline {subsection}{\numberline {6.5}Scalability}{10}{subsection.6.5}
-\contentsline {subsubsection}{\numberline {6.5.1}Reasons for quality requirement}{10}{subsubsection.6.5.1}
-\contentsline {subsubsection}{\numberline {6.5.2}Strategies to achieve this quality requirement}{10}{subsubsection.6.5.2}
-\contentsline {subsubsection}{\numberline {6.5.3}Patterns to achieve these strategies}{11}{subsubsection.6.5.3}
-\contentsline {subsection}{\numberline {6.6}Nice-To-Have}{11}{subsection.6.6}
-\contentsline {section}{\numberline {7}Integration Requirements}{11}{section.7}
-\contentsline {subsection}{\numberline {7.1}Access Channel Requirements}{11}{subsection.7.1}
-\contentsline {subsubsection}{\numberline {7.1.1}Human Access Channels}{11}{subsubsection.7.1.1}
-\contentsline {paragraph}{Super User\\}{12}{section*.3}
-\contentsline {paragraph}{ Cafeteria Manager\\}{12}{section*.4}
-\contentsline {paragraph}{ Cashier\\}{12}{section*.5}
-\contentsline {paragraph}{ Normal User\\}{12}{section*.6}
-\contentsline {paragraph}{ Resolve Admin\\}{12}{section*.7}
-\contentsline {subsubsection}{\numberline {7.1.2}System Access Channels}{12}{subsubsection.7.1.2}
-\contentsline {subsection}{\numberline {7.2}Protocols}{13}{subsection.7.2}
-\contentsline {subsubsection}{\numberline {7.2.1}HTTP - Hypertext Transfer Protocol}{13}{subsubsection.7.2.1}
-\contentsline {subsubsection}{\numberline {7.2.2}TCP - Transmission Control Protocol}{13}{subsubsection.7.2.2}
-\contentsline {subsubsection}{\numberline {7.2.3}SMTP - Simple Mail Transfer Protocol}{13}{subsubsection.7.2.3}
-\contentsline {subsection}{\numberline {7.3}Architecture Constraints}{14}{subsection.7.3}
-\contentsline {subsubsection}{\numberline {7.3.1}Technologies}{14}{subsubsection.7.3.1}
-\contentsline {subsubsection}{\numberline {7.3.2}Operating Systems}{14}{subsubsection.7.3.2}
-\contentsline {section}{\numberline {8}Architectural Patterns}{15}{section.8}
-\contentsline {section}{\numberline {9}Bibliography}{17}{section.9}
+\contentsline {section}{\numberline {1}Introduction}{4}
+\contentsline {section}{\numberline {2}Vision}{4}
+\contentsline {section}{\numberline {3}Background}{4}
+\contentsline {section}{\numberline {4}Architecture Requirementss}{5}
+\contentsline {section}{\numberline {5}Architectural Responsibilities}{5}
+\contentsline {section}{\numberline {6}Quality Requirements}{6}
+\contentsline {subsection}{\numberline {6.1}Security}{6}
+\contentsline {subsection}{\numberline {6.2}Usability}{6}
+\contentsline {subsubsection}{\numberline {6.2.1}Reasons for quality requirements}{6}
+\contentsline {subsubsection}{\numberline {6.2.2}Strategies to achieve this quality requirement}{6}
+\contentsline {subsubsection}{\numberline {6.2.3}Patterns to achieve these strategies}{7}
+\contentsline {subsection}{\numberline {6.3}Reliability}{7}
+\contentsline {subsubsection}{\numberline {6.3.1}Reasons for quality requirement}{7}
+\contentsline {subsubsection}{\numberline {6.3.2}Strategies to achieve this quality requirement}{8}
+\contentsline {subsubsection}{\numberline {6.3.3}Patterns to achieve these strategies}{8}
+\contentsline {subsection}{\numberline {6.4}Auditability}{8}
+\contentsline {subsubsection}{\numberline {6.4.1}Reasons for quality requirements}{8}
+\contentsline {subsubsection}{\numberline {6.4.2}Strategies to achieve this quality requirement}{8}
+\contentsline {subsubsection}{\numberline {6.4.3}Patterns to achieve these strategies}{9}
+\contentsline {subsection}{\numberline {6.5}Scalability}{9}
+\contentsline {subsubsection}{\numberline {6.5.1}Reasons for quality requirement}{9}
+\contentsline {subsubsection}{\numberline {6.5.2}Strategies to achieve this quality requirement}{10}
+\contentsline {subsubsection}{\numberline {6.5.3}Patterns to achieve these strategies}{10}
+\contentsline {subsection}{\numberline {6.6}Nice-To-Have}{10}
+\contentsline {section}{\numberline {7}Integration Requirements}{11}
+\contentsline {subsection}{\numberline {7.1}Access Channel Requirements}{11}
+\contentsline {subsubsection}{\numberline {7.1.1}Human Access Channels}{11}
+\contentsline {paragraph}{Super User\\}{11}
+\contentsline {paragraph}{ Cafeteria Manager\\}{11}
+\contentsline {paragraph}{ Cashier\\}{12}
+\contentsline {paragraph}{ Normal User\\}{12}
+\contentsline {paragraph}{ Resolve Admin\\}{12}
+\contentsline {subsubsection}{\numberline {7.1.2}System Access Channels}{12}
+\contentsline {subsection}{\numberline {7.2}Protocols}{13}
+\contentsline {subsubsection}{\numberline {7.2.1}HTTP - Hypertext Transfer Protocol}{13}
+\contentsline {subsubsection}{\numberline {7.2.2}TCP - Transmission Control Protocol}{13}
+\contentsline {subsubsection}{\numberline {7.2.3}SMTP - Simple Mail Transfer Protocol}{13}
+\contentsline {subsection}{\numberline {7.3}Architecture Constraints}{13}
+\contentsline {subsubsection}{\numberline {7.3.1}Technologies}{13}
+\contentsline {subsubsection}{\numberline {7.3.2}Operating Systems}{14}
+\contentsline {section}{\numberline {8}Architectural Patterns}{15}
+\contentsline {section}{\numberline {9}Bibliography}{17}

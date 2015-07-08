@@ -1,15 +1,7 @@
-\documentclass[a4paper,12pt]{article}
-\usepackage[hidelinks]{hyperref}
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage{caption}
-\usepackage{array}
-\usepackage{tabu}
-
 %% Title Page 
 \title{\Huge Architectural Requirements Document Specification \\ 
 	 Project: \\ 
-	Cafeteria Management System: Resolve}
+	Cafeteria Management System: Reslove}
 \author{
          \underline{T-RISE}\\
           Rendani Dau (13381467) \\
@@ -20,7 +12,7 @@
 
 \date{\today}
 
-%\documentclass[12pt]{article}
+\documentclass[12pt]{article}
 
 \begin{document}
 \maketitle
@@ -30,38 +22,11 @@
 \tableofcontents
 \break
 
- \begin{tabu} to 0.8\textwidth { | X[l] | X[l] | }
- \hline
- \textbf{Document Title} & Architectural Specification Document \\
- \hline
- \textbf{Document Identification}  & Document 0.0.1  \\
- \hline
- \textbf{Author}  & Rendani Dau, Isabel Nel, Elana Kuun, Semaka Malapane, Antonia Michael \\
- \hline
- \textbf{Version} & 0.0.1 \\
- \hline
- \textbf{Document Status} & First Version - contains architectural requirements  \\
- \hline
- \end{tabu}
-
-\begin{table}[h!]
-\centering
- \begin{tabular}{||c c c c||} 
- \hline
- \textbf{Version} & \textbf{Date} & \textbf{Summary} & \textbf{Authors} \\ [0.5ex] 
- \hline\hline
- 0.0.1 & 29 May 2015 & First draft contains architectural requirements & Rendani Dau, \\ & & & Isabel Nel, \\ & & & Elana Kuun, \\ & & & Semaka Malapane, \\ & & & Antonia Michael \\   [1ex] 
- \hline
- \end{tabular}
-\end{table}
-
-\pagebreak
-
 %%now begin document
 
 %%---------------------------------  INTRODUCTION -------------------------------------------
 \section{Introduction}
-This document contains the architectural requirements for the Resolve Cafeteria Management System that will be created for Software Engineering (COS 301) at the University of Pretoria 2015, by the group T-RISE. In this document we will thoroughly discuss and layout the project's architectural requirements to provide a clear view of the system as a whole.  
+This document contains the functional requirements specification, architecture requirements and testing for the Resolve Cafeteria Management System that will be created for Software Engineering (COS 301) at the University of Pretoria 2015, by the group T-RISE. In this document we will thoroughly discuss and layout the project's architectural requirements to provide a clear view of the system as a whole.  
 
 %% ------------------------------ VISION ------------------------------------------------------
 \section{Vision}
@@ -276,10 +241,10 @@ Technologies we will be using in the creation of the Cafeteria Management System
 \item \textbf{Git and GitHub}: A version control software and a repository website that will be used to host the source code of the Cafeteria Management System. Reasons for the use of Git is its ease of use and because it is free and open source. (http://git-scm.com/).
 
 \end{itemize}
-The above mentioned technologies will be our basis we will create our system on, but as we are busy building the Cafeteria Management System we will add other technologies as needed. 
+The above mentioned tecnologies will be our basis we will create our system on, but as we are busy building the Cafeteria Management System we will add other technologies as needed. 
 
 \subsubsection{Operating Systems}
-Since server side of the Cafeteria Management System will be an Express server which is based on JavaScript, the CMS server will be able to run on both Windows and Unix platforms, given that they both support JavaScript and NodeJS.\\
+The server side of the Cafeteria Management System will be designed to run on a Linux-based operating system. Linux-based operating systems are free, open-source and provide a stable base for the system. (Beal, n.d.).\\
 \\
 The client side of the Cafeteria Management System will be able to run on almost all operating systems that can run a modern web browser such as Mozilla Firefox, Google Chrome or Internet Explorer (for example, Microsoft Windows, Apple Mac OSX or any distribution of Linux or BSD).
 
