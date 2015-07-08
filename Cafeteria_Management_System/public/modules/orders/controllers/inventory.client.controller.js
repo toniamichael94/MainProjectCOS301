@@ -6,7 +6,7 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$state
 		$scope.authentication = Authentication;
 
 		// Create new Inventory Item
-		$scope.createInventoryItem = function() {
+		$scope.create = function() {
 			// Create new InventoryItem object
 			var inventoryItem = new Inventory ({
 				name: this.name
