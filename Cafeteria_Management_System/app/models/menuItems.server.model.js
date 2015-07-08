@@ -7,9 +7,9 @@ var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
 /**
- * MenuItem Schema
+ * Order Schema
  */
-var MenuItemSchema = new Schema({
+var MenuItemsSchema = new Schema({
 	name: {
 		type: String,
 		default: '',
@@ -31,4 +31,4 @@ var MenuItemSchema = new Schema({
 	}
 });
 
-mongoose.model('MenuItem', MenuItemSchema);
+mongoose.model('MenuItems', MenuItemsSchema);

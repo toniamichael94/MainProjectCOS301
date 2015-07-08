@@ -15,7 +15,7 @@ angular.module('orders').config(['$stateProvider',
 		}).
 		state('viewOrder', {
 			url: '/orders/:orderId',
-			templateUrl: 'modules/orders/views/menu/placeOrder.html'
+			templateUrl: 'modules/orders/views/menu/create-order.client.view.html'
 		}).
 		state('editOrder', {
 			url: '/orders/:orderId/edit',
