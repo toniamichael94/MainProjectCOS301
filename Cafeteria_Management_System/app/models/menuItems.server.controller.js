@@ -88,7 +88,7 @@ exports.list = function(req, res) {
  * Menuitem middleware
  */
 exports.orderByID = function(req, res, next, id) { 
-	MenuItem.findById(id).populate('user', 'displayName').exec(function(err, menuitems) {
+	MenuItem.findById(id).populate('user', 'displayName').exec(function(err, menuitem) {
 		if (err) return next(err);
 		if (! menuitem) return next(new Error('Failed to load menuitem ' + id));
 		req.menuitem = menuitem ;
