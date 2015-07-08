@@ -15,7 +15,8 @@ var _ = require('lodash'),
 exports.signup = function(req, res) {
 	// For security measurement we remove the roles from the req.body object
 	delete req.body.roles;
-
+ 
+	if(req.body.password === req.body.confirmPassword){
 	// Init Variables
 	var user = new User(req.body);
 	var message = null;
@@ -53,6 +54,10 @@ exports.signup = function(req, res) {
                 }*/
         }
 	});
+}
+else {
+	return res.status(400).send({message: 'Passwords do not match.'});
+}
 };
 
 exports.checkSuperUser = function(){
