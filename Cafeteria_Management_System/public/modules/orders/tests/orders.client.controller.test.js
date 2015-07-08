@@ -1,3 +1,4 @@
+/*
 'use strict';
 
 (function() {
@@ -160,4 +161,4 @@
 			expect(scope.orders.length).toBe(0);
 		}));
 	});
-}());
+}());*/
