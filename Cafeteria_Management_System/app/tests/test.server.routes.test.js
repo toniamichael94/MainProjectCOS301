@@ -32,7 +32,10 @@ describe('Test CRUD tests', function() {
 			email: 'test@test.com',
 			username: credentials.username,
 			password: credentials.password,
-			provider: 'local'
+			provider: 'local',
+			role: 'user',
+			limit: '500',
+			recipientEmailAddress: 'test@test.com'
 		});
 
 		// Save a user to the test db and create new Test
@@ -115,7 +118,7 @@ describe('Test CRUD tests', function() {
 					.end(function(testSaveErr, testSaveRes) {
 						// Set message assertion
 						(testSaveRes.body.message).should.match('Please fill Test name');
-						
+
 						// Handle Test save error
 						done(testSaveErr);
 					});
@@ -238,7 +241,7 @@ describe('Test CRUD tests', function() {
 	});
 
 	it('should not be able to delete Test instance if not signed in', function(done) {
-		// Set Test user 
+		// Set Test user
 		test.user = user;
 
 		// Create new Test model instance

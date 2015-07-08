@@ -24,7 +24,10 @@ describe('User Model Unit Tests:', function() {
 			email: 'test@test.com',
 			username: 'username',
 			password: 'password',
-			provider: 'local'
+			provider: 'local',
+			role: 'user',
+			limit: '500',
+			recipientEmailAddress: 'test@test.com'
 		});
 		user2 = new User({
 			firstName: 'Full',
@@ -33,7 +36,10 @@ describe('User Model Unit Tests:', function() {
 			email: 'test@test.com',
 			username: 'username',
 			password: 'password',
-			provider: 'local'
+			provider: 'local',
+			role: 'user',
+			limit: '500',
+			recipientEmailAddress: 'test@test.com'
 		});
 
 		done();
