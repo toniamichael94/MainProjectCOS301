@@ -50,8 +50,8 @@ angular.module('users').config(['$stateProvider',
             templateUrl: 'modules/users/views/settings/adminSettings.html'
         }).
         state('cafeteriaManager', {
-            url: '/inventory',
-            templateUrl: 'modules/users/views/settings/inventory.html'
+            url: '/manageInventory',
+            templateUrl: 'modules/orders/views/inventory/manageInventory.html'
         }).
         state('cashier', {
             url: '/cashier',
