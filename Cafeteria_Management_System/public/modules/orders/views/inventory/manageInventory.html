@@ -1,6 +1,6 @@
 <section class="row" data-ng-controller="InventoryController">
 
-	<h3>Inventory</h3>
+	<h3>Manage Inventory</h3>
 	<br>
 	<div class="jumbotron text-center">
 		<div class="row">
@@ -12,11 +12,11 @@
 				<div class = "form-group">
 					<input type="text" id="itemNameSearch" name ="itemNameSearch" class = "form-control" data-ng-model="inventory.itemNameS" placeholder="Item Name">
 				</div>
-		
+
 				<div class = "text-center form-group">
 					<button type = "submit" class = "btn btn-large btn-primary" ng-submit="inventory.findOne()" >Search</button>
 				</div>
-		
+
 				<!--Error/Success message-->
 				<div data-ng-show="success" class="text-center text-success">
 					<strong>Action completed successfully.</strong>
@@ -34,47 +34,47 @@
 							<label for="itemName">Item Name</label>
 							<input type="text" id="itemAddName" name="itemAddName" class="form-control" data-ng-model="inventory.itemName" placeholder="Item Name">
 						</div>
-				
+
 						<div class="form-group">
 							<label for="quantity">Quantity</label>
 							<input type="number" min = 0 id="itemQuantity" name="itemQuantity" class="form-control" data-ng-model="inventory.quantity" placeholder="Quantity">
 						</div>
-				
+
 						<div class="form-group">
 							<label for="unit">Unit</label>
 							<input type="text" id="itemUnit" name="itemUnit" class="form-control" data-ng-model="inventory.unit" placeholder="Unit">
 						</div>
-				
+
 						<div class="text-center form-group">
 							<button type="submit" class="btn btn-large btn-primary">Add</button>
 						</div>
-				
+
 						<!--Error/Success message-->
 						<div data-ng-show="success" class="text-center text-success">
 							<strong>Action completed successfully.</strong>
 						</div>
 						<div data-ng-show="error" class="text-center text-danger">
 							<strong data-ng-bind="error"></strong>
-						</div>				
+						</div>
 					</fieldset>
 				</form>
-	
-			</div>	
+
+			</div>
 		</div>
 	</div>
 
     <div class="jumbotron text-center">
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
-		
+
 		<br>
 		<form name="manageInventoryForm" data-ng-submit="inventory.manageInventory()" class="signin form-horizontal" autocomplete="off">
             <fieldset>
-                <div class="form-group"><h4>Manage Inventory</h4>		
+                <div class="form-group"><h4>Manage Inventory</h4>
 					<div class="text-center form-group">
                     <button type="submit" class="btn btn-large btn-primary">Save</button>
                 </div>
-				
+
 				<div data-ng-show="success" class="text-center text-success">
                     <strong>Action completed successfully.</strong>
                 </div>
@@ -82,7 +82,7 @@
                     <strong data-ng-bind="error"></strong>
                 </div>
                     <h4>
-				
+
                         <label>
                             <input type="number" class="form-control" min = 0> Cheese
                         </label> <br><br>
