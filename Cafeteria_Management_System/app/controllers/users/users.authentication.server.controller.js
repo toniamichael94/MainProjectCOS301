@@ -60,6 +60,9 @@ else {
 }
 };
 
+//load the canteen name
+
+
 exports.checkSuperUser = function(){
 //	console.log('serverside');
 

@@ -15,12 +15,12 @@ angular.module('core').controller('HeaderController', ['$scope', '$http', 'Authe
 			$http.get('/loadCanteenInfo').success(function(response) {
 				// If successful show success message and clear form
 			$scope.canteenName = response.message.value;
-			console.log(response.message.value);
+			//console.log(response.message.value);
 
 			}).error(function(response) {
 				$scope.canteenName = 'Canteen Name (undifined)';
 			});
-			console.log($scope.canteenName);
+			//console.log($scope.canteenName);
 		};
 
 
