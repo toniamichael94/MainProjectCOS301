@@ -10,7 +10,7 @@ var mongoose = require('mongoose'),
  * Order Schema
  */
 var MenuItemSchema = new Schema({
-	name: {
+	itemName: {
 		type: String,
 		default: '',
 		required: 'Please fill in the name of the menu item',
@@ -19,6 +19,10 @@ var MenuItemSchema = new Schema({
 	created: {
 		type: Date,
 		default: Date.now
+	},
+	price: {
+		type: Number,
+		required: 'Please fill in the price of the menu item.'
 	},
 	description: {
 		type: String,

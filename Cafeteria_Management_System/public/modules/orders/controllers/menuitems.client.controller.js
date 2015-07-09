@@ -6,30 +6,10 @@ angular.module('menuitems').controller('MenuItemsController', ['$scope', '$http'
 		$scope.authentication = Authentication;
 
 		// Create new Inventory Item
-		/*$scope.create = function() {
-			// Create new InventoryItem object
-			var inventoryItem = new Inventory ({
-				name: this.name
-			});
-
-			// Redirect after save
-			inventoryItem.$save(function(response) {
-				$location.path('inventory/' + response._id);
-
-				// Clear form fields
-				$scope.name = '';
-			}, function(errorResponse) {
-				$scope.error = errorResponse.data.message;
-			});
-		};*/
-		
-		//create new inventory item
 		$scope.create = function(isValid) {
       if (isValid) {
         $scope.success = $scope.error = null;
-        var reqObj = {menuItemName: $scope.menuitem.itemName, description: $scope.menuitem.description, price:$scope.menuitem.price};
-//        reqObj.userID = $scope.userID;
-//        reqObj.role = $scope.role;
+        var reqObj = {itemName: $scope.menuitem.itemName, description: $scope.menuitem.description, price:$scope.menuitem.price};
 
         $http.post('/orders/create', reqObj).success(function(response) {
           // If successful show success message and clear form
