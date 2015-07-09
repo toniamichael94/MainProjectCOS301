@@ -37,7 +37,7 @@ angular.module('menuItems').controller('MenuItemsController', ['$scope', '$http'
 			}
 		};
 
-		// Update existing Inventory item
+		// Update existing menu item
 		$scope.update = function() {
 			var menuItem = $scope.menuItem;
 
@@ -48,14 +48,14 @@ angular.module('menuItems').controller('MenuItemsController', ['$scope', '$http'
 			});
 		};
 
-		// Find a list of Inventory items
+		// Find a list of menu items
 		$scope.find = function() {
 			$scope.menuItem = MenuItems.query();
 		};
 
-		// Find existing Inventory item
+		// Find existing menu item
 		$scope.findOne = function() {
-			$scope.menuItem = MenuItems.get({
+			$scope.menuItem.itemNameSearch = MenuItems.get({
 				menuItemId: $stateParams.menuItemId
 			});
 		};
