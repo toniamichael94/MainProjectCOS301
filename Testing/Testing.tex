@@ -35,13 +35,13 @@
  \hline
  \textbf{Document Title} & Testing Documentation \\
  \hline
- \textbf{Document Identification}  & Document 0.0.1  \\
+ \textbf{Document Identification}  & Document 0.0.2  \\
  \hline
  \textbf{Author}  & Rendani Dau, Isabel Nel, Elana Kuun, Semaka Malapane, Antonia Michael \\
  \hline
- \textbf{Version} & 0.0.1 \\
+ \textbf{Version} & 0.0.2 \\
  \hline
- \textbf{Document Status} & First Version - contains testing requirements  \\
+ \textbf{Document Status} & Second Version - contains tests for settings, password, superuser, and authentication controller, and models  \\
  \hline
  \end{tabu}
 
@@ -51,7 +51,10 @@
  \hline
  \textbf{Version} & \textbf{Date} & \textbf{Summary} & \textbf{Authors} \\ [0.5ex] 
  \hline\hline
- 0.0.1 & 29 May 2015 & First draft contains testing for first two use cases & Rendani Dau, \\ & & & Isabel Nel, \\ & & & Elana Kuun, \\ & & & Semaka Malapane, \\ & & & Antonia Michael \\   [1ex] 
+ 0.0.1 & 29 May 2015 &  First draft contains first two use cases  & Rendani Dau, \\ & & & Elana Kuun, \\ & & & Semaka Malapane, \\ & & & Antonia Michael \\ & & & Isabel Nel, \\ & & & \\
+ \hline 
+ & & & \\
+ 0.0.2 & 9 July 2015 &  Second draft adding Testing for  & Rendani Dau, \\ & & models and controllers & Elana Kuun, \\ & & for settings, password, superuser and authentication & Semaka Malapane, \\ & & &  Antonia Michael \\ & & & Isabel Nel \\   [1ex] 
  \hline
  \end{tabular}
 \end{table}
@@ -59,7 +62,7 @@
 \pagebreak
 %%---------------------------------  INTRODUCTION -------------------------------------------
 \section{Introduction}
-This document contains the   testing for the Resolve Cafeteria Management System that will be created for Software Engineering (COS 301) at the University of Pretoria 2015, by the group T-RISE. In this document we will thoroughly discuss and layout the project's testing to provide a clear view of the system as a whole. An agile approach is being followed, hence the main use cases that this document will be focussing on are placing orders and managing a user profile.  
+This document contains the   testing for the Resolve Cafeteria Management System that will be created for Software Engineering (COS 301) at the University of Pretoria 2015, by the group T-RISE. In this document we will thoroughly discuss and layout the project's testing to provide a clear view of the system as a whole. An agile approach is being followed which involves an interactive and incremential method of managing and designing the system. 
 
 %% ------------------------------ VISION ------------------------------------------------------
 \section{Vision}
@@ -76,7 +79,84 @@ After our first meeting with the client, they brought to our attention that at t
 
 
 %%-------------TESTING--------------------------------------
-\subsection{Testing}
+\subsection{Test Plan}
+
+\subsubsection{Introduction}
+The scope of the testing: This document will be used be the Team t-rise to elaborate and substantiate the unit tests conducted for the various use cases/ modules of the Resolve Cafeteria Management System. Unit tests using mocks and Integration tests using actual data from the system have been conducted and will be explained in the document below. Tests for the server side functionality as well as the client side functionality were executed.
+
+\subsubsection{Technologies used for testing}
+Testing was done during the construction of the various functions to ensure that the code is working at all times, and that only fully working functions are used in other functions going forward. PhantomJS was used to run the Mocha, Karma and Jasmine tests automatically, hence the tests for the different files could be run consecutively without being manually executed seperately. The reason the testing frameworks were used was due to the simple set up that it required and due to its compatibility with PhantomJs. In addition the syntax of these was simple and intuitive.  Karma in particular is the official Angular Js test runner, hence it was used. Mocha, is based on node.js and hence was used for this reason. 
+\\
+\subsubsection{How to run the unit tests}
+To execute the tests one must first ensure that the Mongo database is running. After this, one opens a seperate terminal inside the Cafeteria Management System. Then sudo npm tes is run which executes PhantomJs to run the tests automatically.  The output will indicate whether the tests are passing or failing as well as the different descriptions for each test. Server side and client side tests are executed.
+
+\subsection{Testing approach}
+The unit tests written for the Authentication module were done to test the functions inside authentication.client.controller.js and the superuser.client.controller.js file.  The Register/ Sign up functionality for the register module resides in the authentication.client.controller.js file. The unit tests written for the Manage Profile module were done to test the settings.client.controller.js and the password.client.controller.js files, which contained the code to implement the manage profile module.
+
+The functions tested for the Authentication module include signin(), located in the authentication.client.controller.js file, assignRoles(), setSystemWideLimit(), and setCanteenName() located in the  superuser.client.controller.js file.
+
+The function signup() was tested for the Register module module, located in the authentication.client.controller.js file.
+
+The functions changeUserPassword() from the settings.client.controller.js and askForPasswordReset() from password.client.controller.js were tested. resetUserPassword() was not tested due to the fact that each time a user clicks Forgot Password, an email is sent to the user 
+ 
+\subsection{Tests conducted/ Test coverage}
+Test for the controllers:
+\subsubsection{Register Module}
+1.) Sign up: \\
+Pre condtions: User entered valid credentials, Username/ Employee Id does not exist on the system
+\\ Post conditions: User is signed up to use the system \\
+Test Case 1 - the function should register user with correct data: Pass \\
+Test Case 2 - should fail to register with duplicate Username: Pass
+
+\subsubsection{Profile Module}
+1.) Change Password
+Pre condtions: Valid password entered
+\\Post conditions: Password has changed
+\\ Test Case 1: should let user change their password if a valid one was entered: Pass
+\\ Test Case 2: should send an error message if new password is too short : Pass
+\\ Test Case 3: should send an error message if the current password is incorrect: Pass
+\\ Test Case 4: should send an error message if the passwords do not match: Pass
+ 
+\subsubsection{Authentication Module}
+1.) Sign in : \\
+Pre condtions: Valid credentials have been entered, the user exists on the system
+\\ Post conditions: User has been signed in
+\\  Test Case 1: should login with a correct user and password: Pass
+\\ Test Case 2: should fail to log user in if nothing has been entered: Pass
+\\ Test Case 3: should fail to log user in with wrong credentials: Pass
+
+2.) Assign Roles - \\
+Pre conditions: User id entered by superuser exists in the system \\
+Post conditions: Role has been assigned to user by superuser \\
+Test Case 1:  should let superuser assign roles because the user id entered exists on the system: Pass
+\\ Test Case 2:  should not let superuser assign roles because user id entered does not exist on the system: Pass
+ 
+3.) Set system wide limit - \\
+Pre conditions: Limit is valid \\
+Post conditions: Limit has been set \\
+Test Case 1: should allow superuser to set limit: Pass
+
+4.) Set canteen name-
+Pre conditions: N/a \\
+Post conditions: Canteen name set successfully \\
+Test Case 1: should let user set canteen name: Pass
+
+
+ \subsection{Test Case Description}
+\subsubsection{Test Items}
+\subsubsection{Input Specification}
+\subsubsection{Output Specification}
+\subsubsection{Environmental Needs}
+\subsubsection{Special procedural requirements/rules}
+\subsubsection{Intercase dependancies}
+
+\subsection{Test Summary Report}
+\subsubsection{Summary}
+\subsubsection{Variances}
+\subsubsection{Comprehensive assessment}
+\subsubsection{Summary of results}
+\subsubsection{Evaluation}
+\subsubsection{Summary of activities}
 
 Testing for the two main use cases discussed in this document has been done using Mocha for unit testing. We have tested the various functions identified for the two different use cases. For placing an order, the functions that are to be created are checkProductAvailability, checkLimits, isLoggedIn and generateBill. 
 
@@ -91,9 +171,7 @@ The second use case is manage profile, and the functions that have thus far been
 The system must hence allow the logged in user to change their various settings, as well as allow the user to view the day's bill as well as the account history.
 \\
 A sample of the code from the unit testing file is displayed below.
-%\begin{figure}[h!]
-%\centering
-%	 \includegraphics[width=1\textwidth]{./Unit Tests/unitTestScreenShots/profilePic.jpg}
-%\end{figure}
+
+ 
  
 \end{document}
