@@ -1,29 +1,12 @@
-<section data-ng-controller="OrdersController" data-ng-init="find()"><!--Needs to be changed to MenuItemController-->
+<section data-ng-controller="MenuItemsController" data-ng-init="find()">
     <div class="page-header">
         <h1>Menu</h1>
     </div>
-	<div class="row">
-		<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
-		<h4>Search for a menu item</h4>
-				<div class="form-group">                   
-					<input type="text" class="form-control" class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2" id="itemName" name="itemName" class="form-control"  placeholder=Item>
-				</div>
-				<div class="text-center form-group">
-					<button type="submit" ng-submit="" class="btn btn-large btn-primary">Search</button>
-				</div>
-				<div data-ng-show="success" class="text-center text-success">
-					<strong>Found item.</strong>
-				</div>
-				<div data-ng-show="error" class="text-center text-danger">
-					<strong data-ng-bind="error"></strong>
-				</div>
-		</div>
-	</div>
 	
 	<!-- Show all the items on the menu list, description, and price-->
-			<form name="chooseOrderForm" data-ng-submit="" class="signin form-horizontal" autocomplete="off">
-				<div data-ng-repeat="order in orders" data-ng-href="#!/orders/{{order._id}}" class="list-group-item">		
-					<h4 class="list-group-item-heading" data-ng-bind="order.name"> </h4>
+	<form name="chooseOrderForm" class="signin form-horizontal" autocomplete="off">
+				<div data-ng-repeat="menuItem in menuItems" data-ng-href="#!/orders/{{menuItem._id}}" class="list-group-item">		
+					<h4 class="list-group-item-heading" data-ng-bind="menuItem.itemName"> </h4>
 					<input type = "checkbox">
 					<input type="number" min = 0>   
 				</div>
@@ -39,7 +22,31 @@
 				<div data-ng-show="error" class="text-center text-danger">
 					<strong data-ng-bind="error"></strong>
 				</div>
-			</form>
+	</form>
+	
+	<!--Search for a menu product-->
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
+				<h4>Search for a menu item</h4>
+					<div class="form-group">                   
+						<input type="text" data-ng-model="menuItem.searchItemName" class="form-control" class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2" id="itemName" name="itemName" class="form-control"  placeholder="Item name">
+					</div>
+					<div class="text-center form-group">
+						<button ng-submit="" class="btn btn-large btn-primary">Search</button>
+					</div>
+					
+					<!--Success/Error message-->
+					<div data-ng-show="success" class="text-center text-success">
+						<strong>Found item.</strong>
+					</div>
+					<div data-ng-show="error" class="text-center text-danger">
+						<strong data-ng-bind="error"></strong>
+					</div>
+			</div>
+		</div>
+	
+	
+	
 	
 </section>
 
