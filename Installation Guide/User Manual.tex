@@ -13,7 +13,7 @@
 \date{\today}
 
 \documentclass[12pt]{article}
-
+\usepackage{hyperref}
 \begin{document}
 \maketitle
 \break
@@ -32,27 +32,50 @@ The system requires a Windows/Unix based host to run the server. This host must 
 End users will only require a PC equipped with a web browser and an active internet connection.
 
 \section{Installation}
-\subsection{Required Software}
+\subsection{Prerequisites}
 The Cafeteria Management System requires NodeJS and MongoDB to run. These are free and open source software and can be obtained from the following sites:\\
-http://www.nodejs.com/download \\
-http://www.mongodb.com/download \\
-The applications are available for both Windows and Unix environments and include setup guides on their respective sites.
+\url{https://nodejs.org/download/} \\
+\url{https://www.mongodb.org/downloads} \\
+The applications are available for both Windows and Unix environments and include setup guides on their respective sites.\\
+
+Once installed, NodeJS includes a package manager called NPM. This package manager will be available from the terminal and will be used to install all dependencies. The following dependencies have to be installed first:
+\begin{verbatim}
+$npm install -g bower
+$npm install -g grunt-cli
+\end{verbatim}
+
 \subsection{Setting up CMS}
-Once installed, NodeJS includes a package manager called NPM. This package manager will be available from the terminal and will be used to install all dependencies. In a terminal/command prompt, navigate to the CMS directory and execute the 'npm install' command. This will install all the packages required to run the system. Then the following commands should be executed:
+Before starting the system, an email account has to be set up to facilitate communication between the system and end users. The details of this account can be configured in the following config file:
+\begin{verbatim}
+	~/Cafeteria Management System/config/env/production.js
+\end{verbatim} 
+Under the section 'Mailer', the following fields should be specified:\\
 \begin{itemize}
-\item npm install bower
-\item npm install grunt-cli
-\item npm install mongodb
-\item bower install
-\item npm update
+\item MAIELR\textunderscore FROM: A name indicating the sender of mail.
+\item MAILER\textunderscore SERVICE\textunderscore PROVIDER: The service provider of the email account
+\item MAILER\textunderscore EMAIL\textunderscore ID: The email ID of the account set up for CMS
+\item MAILER\textunderscore PASSWORD: The password of the account set up for CMS
 \end{itemize}
 
-If all dependencies were installed successfully, then MongoDB can be started with the following command:\\
-mongod --dbpath "directory"\\
+
+In a terminal/command prompt, navigate to the CMS directory and execute the 'npm install' command. This will install all the packages required to run the system:
+\begin{verbatim}
+~/Cafeteria Management System$ npm install
+\end{verbatim}
+
+If all dependencies were installed successfully, then MongoDB can be started with the following command:
+\begin{verbatim}
+~$mongod --dbpath "directory"
+\end{verbatim}
+
 Where directory is a path to the folder which Mongo will use as a working directory.\\
-Note that this command has to be executed in a separate terminal.\\
+{\em Note that this command has to be executed in a separate terminal.}\\
 Once mongo has been started, then the CMS server can be started with the following command:\\
-grunt
+
+\begin{verbatim}
+~/Cafeteria Management System$ grunt
+\end{verbatim}
+
 
 \section{Getting Started}
 Access to the Cafeteria Management System is through a standard web browser. Different types of users have access to different facets of the system. The system has a default Superuser account which can assign different roles (cafeteria manager, cashier, etc.) to the users. These users can then sign in to access the facet of the system they are authorised to.\\
