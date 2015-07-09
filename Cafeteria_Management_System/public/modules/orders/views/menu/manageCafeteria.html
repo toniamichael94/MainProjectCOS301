@@ -7,7 +7,7 @@
 		<div class="row">
 			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 			<!--<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">-->
-			<form>
+			<form name="searchItemForm" data-ng-submit="findOne()" class="signin form-horizontal" autocomplete="off">
 				<!--Search for a menu item-->
 				<h4>Search an item</h4>
 				<div class = "form-group">
@@ -15,7 +15,7 @@
 				</div>
 
 				<div class = "text-center form-group">
-					<button type = "submit" class = "btn btn-large btn-primary" ng-submit="menuItem.findOne()" >Search</button>
+					<button type = "submit" class = "btn btn-large btn-primary">Search</button>
 				</div>
 
 				<!--Error/Success message-->
@@ -42,8 +42,23 @@
 						</div>
 
 						<div class="form-group">
-							<label for="unit">Price</label>
-							<input type="number" min = 0 id="itemPrice" name="itemPrice" class="form-control" data-ng-model="menuItem.itemPrice" placeholder="Unit">
+							<label for="price">Price</label>
+							<input type="number" min = 0 id="itemPrice" name="itemPrice" class="form-control" data-ng-model="menuItem.itemPrice" placeholder="Price">
+						</div>
+						
+						<div class="form-group">
+							<label for="price">Category</label>
+							<input type="text" min = 0 id="itemPrice" name="itemPrice" class="form-control" data-ng-model="menuItem.itemCategory" placeholder="Category">
+						</div>
+						
+						<!--Add ingredients, only show ingredients available in databas-->
+						<div class="form-group">
+							<label>Ingredients</label>
+							<input type="number" min = 0 id="itemPrice" name="itemPrice" class="form-control" placeholder="Ingredient">		
+							<br>
+							<input type="number" min = 0 id="itemPrice" name="itemPrice" class="form-control" placeholder="quantity">
+							<br>
+							<button class="btn">Add more ingredients</button><!--make more boxes to add ingredients-->		
 						</div>
 
 						<div class="text-center form-group">

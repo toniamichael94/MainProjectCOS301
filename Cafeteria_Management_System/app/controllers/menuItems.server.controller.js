@@ -6,6 +6,7 @@
 var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
 	MenuItem = mongoose.model('MenuItem'),
+	OrderItem = mongoose.model('Order'),
 	_ = require('lodash');
 
 /**
@@ -59,6 +60,24 @@ exports.delete = function(req, res) {
 	var menuitem = req.menuitem ;
 
 	menuitem.remove(function(err) {
+		if (err) {
+			return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
+			});
+		} else {
+			res.jsonp(menuitem);
+		}
+	});
+};
+
+/**
+ * Create a Menu item
+ */
+exports.createMenuItem = function(req, res) {
+	var menuitem = new MenuItem(req.body);
+	menuitem.user = req.user;
+
+	menuitem.save(function(err) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)

@@ -29,6 +29,13 @@ var MenuItemSchema = new Schema({
 		default:'',
 		requried: 'Please provide a description of the menu item.'
 	},
+	category: {
+		type: [{
+			type: String,
+			enum: ['drinks', 'meals','snacks', 'dessert']
+		}],
+		default: ['units']
+	},
 	user: {
 		type: Schema.ObjectId,
 		ref: 'User'
