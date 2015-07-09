@@ -12,6 +12,7 @@ var mongoose = require('mongoose'),
  * Create an inventory item
  */
 exports.create = function(req, res) {
+	console.log('here');
 	var inventoryItem = new Inventory(req.body);
 	inventoryItem.user = req.user;
 
@@ -39,7 +40,7 @@ exports.read = function(req, res) {
 exports.update = function(req, res) {
 	var inventoryItem = req.inventoryItem ;
 
-	inventoryItem _.extend(inventoryItem , req.body);
+	inventoryItem = _.extend(inventoryItem , req.body);
 
 	inventoryItem.save(function(err) {
 		if (err) {

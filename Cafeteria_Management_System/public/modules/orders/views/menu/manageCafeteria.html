@@ -1,16 +1,17 @@
+
 <section class="row" data-ng-controller="InventoryController">
 
-	<h3>Inventory</h3>
+	<h3>Manage Cafeteria</h3>
 	<br>
 	<div class="jumbotron text-center">
 		<div class="row">
 			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 			<!--<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">-->
-				<form>
+	
 				<!--Search for a menu item-->
 				<h4>Search an item</h4>
 				<div class = "form-group">
-					<input type="text" id="itemNameSearch" name ="itemNameSearch" class = "form-control" data-ng-model="inventory.itemNameS" placeholder="Item Name">
+					<input type="text" id="itemNameSearch" name ="itemNameSearch" class = "form-control" data-ng-model="inventory.itemName" placeholder="Item Name">
 				</div>
 		
 				<div class = "text-center form-group">
@@ -25,10 +26,9 @@
 					<strong data-ng-bind="error"></strong>
 				</div>
 				<br>
-				</form>
 				<!--Add a menu item-->
 				<h4>Add an item</h4>
-				<form name="addInventoryItemForm" data-ng-submit="create(addInventoryItemForm.$valid)" class="signin form-horizontal" autocomplete="off">
+				<form name="addInventoryItemForm" data-ng-submit="create(userForm.$valid)" class="signin form-horizontal" autocomplete="off">
 					<fieldset>
 						<div class="form-group">
 							<label for="itemName">Item Name</label>
