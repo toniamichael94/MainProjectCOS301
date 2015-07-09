@@ -1,11 +1,11 @@
 <section data-ng-controller="OrdersController" data-ng-init="find()"><!--Needs to be changed to MenuItemController-->
-    <div class="page-header">
-        <h1>Menu</h1>
-    </div>
+
+        <h3>Menu</h3>
+        <hr>
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
 		<h4>Search for a menu item</h4>
-				<div class="form-group">                   
+				<div class="form-group">
 					<input type="text" class="form-control" class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2" id="itemName" name="itemName" class="form-control"  placeholder=Item>
 				</div>
 				<div class="text-center form-group">
@@ -19,19 +19,19 @@
 				</div>
 		</div>
 	</div>
-	
+
 	<!-- Show all the items on the menu list, description, and price-->
 			<form name="chooseOrderForm" data-ng-submit="" class="signin form-horizontal" autocomplete="off">
-				<div data-ng-repeat="order in orders" data-ng-href="#!/orders/{{order._id}}" class="list-group-item">		
+				<div data-ng-repeat="order in orders" data-ng-href="#!/orders/{{order._id}}" class="list-group-item">
 					<h4 class="list-group-item-heading" data-ng-bind="order.name"> </h4>
 					<input type = "checkbox">
-					<input type="number" min = 0>   
+					<input type="number" min = 0>
 				</div>
 					<br>
 				<div class="text-center form-group">
 					<button type="submit" class="btn">Add to plate</button>
 				</div>
-		
+
 				<!--Success/error message-->
 				<div data-ng-show="success" class="text-center text-success">
 					<strong>Action completed successfully.</strong>
@@ -40,6 +40,5 @@
 					<strong data-ng-bind="error"></strong>
 				</div>
 			</form>
-	
-</section>
 
+</section>
