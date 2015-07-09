@@ -49,30 +49,6 @@
             });
         }));
 
-        /*  ******
-         it('$scope.updateUserProfile() should update profile if valid info entered', function() {
-         // Test expected GET request
-         //$httpBackend.when('POST',	'/').respond();
-
-         scope.updateUserProfile();
-         $httpBackend.flush();
-
-         // Test scope value
-         expect(scope.success).toEqual(true);
-         //expect($location.url()).toEqual('/');
-         });
-
-         it('$scope.updateUserProfile() should allow user to view profile', function() {
-         // Test expected GET request
-         //  $httpBackend.when('POST',	'/settings/profileView').respond();
-
-         scope.viewUserProfile();
-         // $httpBackend.flush();
-
-         // Test scope value
-         expect(scope.success).toEqual(true);
-         //expect($location.url()).toEqual('/');
-         });*/
 
         it('$scope.askForPasswordReset() should let valid user get email with instructions to change password', function() {
             // Test expected GET request
@@ -83,8 +59,6 @@
 
             // Test scope value
             expect(scope.credentials).toEqual(null);
-            //expect(scope.success).toEqual(true);
-            //expect($location.url()).toEqual('/');
         });
 
         it('$scope.askForPasswordReset() should fail with error message stating that no account with that username has been found', function() {
@@ -100,12 +74,8 @@
             expect(scope.error).toEqual('No account with that username has been found');
         });
 
-/*
+/* Can't test due to random string generated for each session
          it('$scope.resetUserPassword() should allow user to reset password', function() {
-            // Test expected GET request
-          //  $httpBackend.when('POST',	'/auth/reset').respond(200,'toniamichael, toniamichael');
-          //   scope.authentication.user = 'Foo';
-          //   scope.credentials = 'Bar';
              $httpBackend.expectPOST('/auth/reset').respond(200, 'thgjukjkiu');
 
             scope.resetUserPassword();
@@ -113,12 +83,10 @@
 
             // Test scope value
             expect(scope.passwordDetails).toEqual(null);
-            // expect(scope.success).toEqual(false);
-            //expect(scope.error).toEqual('Password should be at least 7 characters long.');
              expect($location.url()).toEqual('/password/reset/success');
         });
-
 */
+
 
     });
 }());
