@@ -83,7 +83,7 @@
 			// Test expected POST request
 			$httpBackend.expectPOST('/auth/checkSuperUser').respond();
 			$httpBackend.expectPOST('/auth/signin').respond(400, {
-				'message': 'Unknown user'
+				'message': 'Unknown ufser'
 			});
 
 			scope.signin();
