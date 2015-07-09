@@ -39,7 +39,7 @@ exports.read = function(req, res) {
 exports.update = function(req, res) {
 	var inventoryItem = req.inventoryItem ;
 
-	inventoryItem _.extend(inventoryItem , req.body);
+	inventoryItem = _.extend(inventoryItem , req.body);
 
 	inventoryItem.save(function(err) {
 		if (err) {
