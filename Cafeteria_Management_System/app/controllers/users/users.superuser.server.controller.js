@@ -37,7 +37,6 @@ exports.setSystemWideLimit = function(req, res){
 			message: errorHandler.getErrorMessage(err)
 		});
 		else if (numAffected < 1){
-			console.log(req.body);
 			var config = new Config();
 			config.name = 'System wide limit';
 			config.value = req.body.value;
@@ -63,7 +62,6 @@ exports.setCanteenName = function(req, res){
 			message: errorHandler.getErrorMessage(err)
 		});
 		else if (numAffected < 1){
-			console.log(req.body);
 			var config = new Config();
 			config.name = 'Canteen name';
 			config.value = req.body.value;
