@@ -49,91 +49,47 @@
             });
         }));
 
-        /*  ******
-         it('$scope.updateUserProfile() should update profile if valid info entered', function() {
-         // Test expected GET request
-         //$httpBackend.when('POST',	'/').respond();
 
-         scope.updateUserProfile();
-         $httpBackend.flush();
-
-         // Test scope value
-         expect(scope.success).toEqual(true);
-         //expect($location.url()).toEqual('/');
-         });
-
-         it('$scope.updateUserProfile() should allow user to view profile', function() {
-         // Test expected GET request
-         //  $httpBackend.when('POST',	'/settings/profileView').respond();
-
-         scope.viewUserProfile();
-         // $httpBackend.flush();
-
-         // Test scope value
-         expect(scope.success).toEqual(true);
-         //expect($location.url()).toEqual('/');
-         });*/
 
         it('$scope.assignRoles() should let superuser assign roles', function() {
             // Test expected GET request
-            $httpBackend.when('POST',	'/users/superuserAssignRoles').respond(200,'password');
+             $httpBackend.expectPOST('/users/superuserAssignRoles').respond(200, {'message': 'Role has been successfully assigned'});
+            scope.assignRoles(true);
+           $httpBackend.flush();
 
-            scope.assignRoles();
+            expect(scope.success).toEqual('Role has been successfully assigned');
+        });
+
+        it('$scope.assignRoles() should not let superuser assign roles', function() {
+            // Test expected GET request
+            $httpBackend.expectPOST('/users/superuserAssignRoles').respond(400, {'message': 'No such user'});
+            scope.assignRoles(true);
             $httpBackend.flush();
 
-            // Test scope value
-            //expect(scope.passwordDetails).toEqual(null);
-            expect(scope.success).toEqual(null);
-            //expect($location.url()).toEqual('/');
+            expect(scope.error).toEqual('No such user');
         });
 
         it('$scope.setSystemWideLimit() should let superuser set limit', function() {
             // Test expected GET request
-            $httpBackend.when('POST',	'users/superuserSetSystemWideLimit').respond(200, '2000');
+            $httpBackend.when('POST',	'users/superuserSetSystemWideLimit').respond(200, {'message': 'Limit has been successfully changed.'});
 
-            scope.setSystemWideLimit();
-            $httpBackend.flush();
+            scope.setSystemWideLimit(true);
+           $httpBackend.flush();
 
-            // Test scope value
-            // expect(scope.passwordDetails).toEqual(null);
-             expect(scope.success).toEqual(null);
-            expect(scope.successTwo).toEqual(null);
-           // expect(scope.error).toEqual('Password should be at least 7 characters long.');
-            //expect($location.url()).toEqual('/');
+            expect(scope.successTwo).toEqual('Limit has been successfully changed.');
         });
 
-      /*  it('$scope.setCanteenName() should change canteen name', function() {
+         it('$scope.setCanteenName() should change canteen name', function() {
             // Test expected GET request
-            $httpBackend.when('POST',	'users/superuserSetCanteenName').respond(200, 'YumYum'
+            $httpBackend.when('POST',	'users/superuserSetCanteenName').respond(200, {'message': 'Canteen name has been successfully changed.'}
              );
 
-            scope.setCanteenName();
+            scope.setCanteenName(true);
             $httpBackend.flush();
 
-            // Test scope value
-            //expect(scope.passwordDetails).toEqual(null);
-              expect(scope.successThree).toEqual('YumYum');
-            // expect(scope.error).toEqual('Missing credentials');
-            expect(scope.error).toEqual('Current password is incorrect');
-            //expect($location.url()).toEqual('/');
-        });*/
-
-        it('$scope.changeUserPassword() should send an error message if the passwords do not match', function() {
-            // Test expected GET request
-            $httpBackend.when('POST',	'/users/password').respond(400, {
-                'message': 'Passwords do not match'
-            });
-
-            scope.changeUserPassword();
-            $httpBackend.flush();
-
-            // Test scope value
-            //expect(scope.passwordDetails).toEqual(null);
-            // expect(scope.success).toEqual(false);
-            // expect(scope.error).toEqual('Missing credentials');
-            expect(scope.error).toEqual('Passwords do not match');
-            //expect($location.url()).toEqual('/');
+              expect(scope.successThree).toEqual('Canteen name has been successfully changed.');
         });
+
 
     });
 }());
