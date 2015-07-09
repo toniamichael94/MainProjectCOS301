@@ -56,8 +56,13 @@
                     <li data-ng-show="authentication.user.roles[0] === 'superuser'">
                         <a href="/#!/settings/assignRoles"> Administrative settings</a>
                     </li>
+					<!--Edit, add, or remove menu items-->
                     <li data-ng-show="authentication.user.roles[0] === 'cafeteriaManager'">
                         <a href="/#!/manageInventory"> Manage Cafeteria </a>
+                    </li>
+					<!--Edit, add, or remove inventory items-->
+					<li data-ng-show="authentication.user.roles[0] === 'cafeteriaManager'">
+                        <a href="/#!/manageInventory"> Manage Inventory </a>
                     </li>
                     <li data-ng-show="authentication.user.roles[0] === 'cashier'">
                         <a href="/#!/cashier"> Cashier </a>
