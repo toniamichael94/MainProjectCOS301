@@ -1,15 +1,15 @@
 'use strict';
 
-// Inventory controller
+// MenuItem controller
 angular.module('menuItems').controller('MenuItemsController', ['$scope', '$http', '$stateParams', '$location', 'Authentication', 'MenuItems',
 	function($scope, $http, $stateParams, $location, Authentication, MenuItems) {
 		$scope.authentication = Authentication;
 
-		// Create new Inventory Item
+		// Create new Menu Item
 		$scope.createMenuItem = function(isValid) {
       if (isValid) {
         $scope.success = $scope.error = null;
-        var reqObj = {itemName: $scope.menuItem.itemNameAdd, description: $scope.menuItem.itemDescription, price:$scope.menuItem.itemPrice};
+        var reqObj = {itemName: $scope.menuItem.itemNameAdd, description: $scope.menuItem.itemDescription, price:$scope.menuItem.itemPrice, category:$scope.menuItem.itemCategory};
 
         $http.post('/orders/createMenuItem', reqObj).success(function(response) {
           // If successful show success message and clear form
@@ -20,7 +20,7 @@ angular.module('menuItems').controller('MenuItemsController', ['$scope', '$http'
         }
       };
 
-		// Remove existing inventory item
+		// Remove existing menu item
 		$scope.remove = function(menuItem) {
 			if ( menuItem ) {
 				menuItem.$remove();
