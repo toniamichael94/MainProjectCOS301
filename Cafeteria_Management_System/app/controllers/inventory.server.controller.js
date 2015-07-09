@@ -86,7 +86,7 @@ exports.list = function(req, res) {
 };
 
 /**
- * Order middleware
+ * Inventory middleware
  */
 exports.orderByID = function(req, res, next, id) {
 	Inventory.findById(id).populate('user', 'displayName').exec(function(err, inventoryItem) {
@@ -98,7 +98,7 @@ exports.orderByID = function(req, res, next, id) {
 };
 
 /**
- * Order authorization middleware
+ * Inventory authorization middleware
  */
 exports.hasAuthorization = function(req, res, next) {
 	if (req.inventoryItem.user.id !== req.user.id) {
