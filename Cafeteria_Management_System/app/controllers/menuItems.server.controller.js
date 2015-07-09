@@ -11,7 +11,7 @@ var mongoose = require('mongoose'),
 /**
  * Create a Menu item
  */
-exports.create = function(req, res) {
+exports.createMenuItem = function(req, res) {
 	var menuitem = new MenuItem(req.body);
 	menuitem.user = req.user;
 

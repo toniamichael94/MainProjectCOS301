@@ -1,17 +1,17 @@
 'use strict';
 
 // Inventory controller
-angular.module('menuitems').controller('MenuItemsController', ['$scope', '$http', '$stateParams', '$location', 'Authentication', 'MenuItems',
+angular.module('menuItems').controller('MenuItemsController', ['$scope', '$http', '$stateParams', '$location', 'Authentication', 'MenuItems',
 	function($scope, $http, $stateParams, $location, Authentication, MenuItems) {
 		$scope.authentication = Authentication;
 
 		// Create new Inventory Item
-		$scope.create = function(isValid) {
+		$scope.createMenuItem = function(isValid) {
       if (isValid) {
         $scope.success = $scope.error = null;
-        var reqObj = {itemName: $scope.menuitem.itemName, description: $scope.menuitem.description, price:$scope.menuitem.price};
+        var reqObj = {itemName: $scope.menuItem.itemNameAdd, description: $scope.menuItem.itemDescription, price:$scope.menuItem.itemPrice};
 
-        $http.post('/orders/create', reqObj).success(function(response) {
+        $http.post('/orders/createMenuItem', reqObj).success(function(response) {
           // If successful show success message and clear form
         $scope.success = response.message;
         }).error(function(response) {

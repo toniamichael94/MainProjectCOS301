@@ -28,7 +28,7 @@
 			</form>
 				<!--Add a menu item-->
 				<h4>Add an item</h4>
-				<form name="addMenuItemForm" data-ng-submit="create(addMenuItemForm.$valid)" class="signin form-horizontal" autocomplete="off">
+				<form name="addMenuItemForm" data-ng-submit="createMenuItem(addMenuItemForm.$valid)" class="signin form-horizontal" autocomplete="off">
 					<fieldset>
 						<div class="form-group">
 							<label for="itemName">Item Name</label>
@@ -42,7 +42,7 @@
 				
 						<div class="form-group">
 							<label for="unit">Price</label>
-							<input type="number" min = 0 id="itemPrice" name="itemPrice" class="form-control" data-ng-model="menuItem.price" placeholder="Unit">
+							<input type="number" min = 0 id="itemPrice" name="itemPrice" class="form-control" data-ng-model="menuItem.itemPrice" placeholder="Unit">
 						</div>
 				
 						<div class="text-center form-group">
@@ -63,12 +63,12 @@
 		</div>
 	</div>
 
-    <div class="jumbotron text-center">
+    <!--<div class="jumbotron text-center">
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
 		
 		<br>
-		<form name="manageInventoryForm" data-ng-submit="inventory.manageInventory()" class="signin form-horizontal" autocomplete="off">
+		<form name="manageInventoryForm" data-ng-submit="menuItem.manageInventory()" class="signin form-horizontal" autocomplete="off">
             <fieldset>
                 <div class="form-group"><h4>Manage Inventory</h4>		
 					<div class="text-center form-group">
@@ -104,6 +104,6 @@
 			</form>
         </div>
 </div>
-</div>
+</div>-->
 
 </section>
