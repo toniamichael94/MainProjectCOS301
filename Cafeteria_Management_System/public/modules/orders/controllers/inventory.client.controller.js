@@ -1,12 +1,12 @@
 'use strict';
 
 // Inventory controller
-angular.module('inventory').controller('InventoryController', ['$scope', '$stateParams', '$location', 'Authentication', 'Inventory',
-	function($scope, $stateParams, $location, Authentication, Inventory) {
+angular.module('inventory').controller('InventoryController', ['$scope', '$http', '$stateParams', '$location', 'Authentication', 'Inventory',
+	function($scope, $http, $stateParams, $location, Authentication, Inventory) {
 		$scope.authentication = Authentication;
 
 		// Create new Inventory Item
-		$scope.create = function() {
+		/*$scope.create = function() {
 			// Create new InventoryItem object
 			var inventoryItem = new Inventory ({
 				name: this.name
@@ -21,7 +21,24 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$state
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
-		};
+		};*/
+		
+		//create new inventory item
+		$scope.create = function(isValid) {
+      if (isValid) {
+        $scope.success = $scope.error = null;
+        var reqObj = {productName: $scope.inventory.itemName, unit: $scope.inventory.unit, quantity:$scope.inventory.quantity};
+//        reqObj.userID = $scope.userID;
+//        reqObj.role = $scope.role;
+
+        $http.post('/orders/create', reqObj).success(function(response) {
+          // If successful show success message and clear form
+        $scope.success = response.message;
+        }).error(function(response) {
+          $scope.error = response.message;
+        });
+        }
+      };
 
 		// Remove existing inventory item
 		$scope.remove = function(inventoryItem) {

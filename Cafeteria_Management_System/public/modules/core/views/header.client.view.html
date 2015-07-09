@@ -19,7 +19,7 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</button>
-		<a href="/#!/" class="navbar-brand"><span class="glyphicon glyphicon-home"></span> Home</a>
+		<a href="/#!/" class="navbar-brand" ><span class="glyphicon glyphicon-home"></span> Home</a>
 	</div>
 	<nav class="collapse navbar-collapse navbar-right" collapse="!isCollapsed" role="navigation">
 
@@ -28,7 +28,7 @@
 			<li >
 				<a href="/#!/orders/menu">
 					<span>Menu</span>
-					
+
 				</a>
 			</li>
 		</ul>
@@ -56,8 +56,13 @@
                     <li data-ng-show="authentication.user.roles[0] === 'superuser'">
                         <a href="/#!/settings/assignRoles"> Administrative settings</a>
                     </li>
+					<!--Edit, add, or remove menu items-->
                     <li data-ng-show="authentication.user.roles[0] === 'cafeteriaManager'">
                         <a href="/#!/manageInventory"> Manage Cafeteria </a>
+                    </li>
+					<!--Edit, add, or remove inventory items-->
+					<li data-ng-show="authentication.user.roles[0] === 'cafeteriaManager'">
+                        <a href="/#!/manageInventory"> Manage Inventory </a>
                     </li>
                     <li data-ng-show="authentication.user.roles[0] === 'cashier'">
                         <a href="/#!/cashier"> Cashier </a>
