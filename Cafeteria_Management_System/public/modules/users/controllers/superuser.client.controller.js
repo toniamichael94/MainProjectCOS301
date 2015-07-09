@@ -9,12 +9,9 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 
     // Assign a role to user
     $scope.assignRoles = function(isValid) {
-			console.log('hey!');
       if (isValid) {
         $scope.success = $scope.error = null;
         var reqObj = {userID: $scope.emp_id, role: $scope.role};
-//        reqObj.userID = $scope.userID;
-//        reqObj.role = $scope.role;
 
         $http.post('/users/superuserAssignRoles', reqObj).success(function(response) {
           // If successful show success message and clear form
@@ -32,7 +29,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 					$scope.successTwo = $scope.errorTwo = null;
 
 					var reqObj = {name: 'System wide limit', value: $scope.limit};
-					console.log($scope.limit);
+					//console.log($scope.limit);
 					$http.post('users/superuserSetSystemWideLimit', reqObj).success(function(response){
 						$scope.successTwo = response.message;
 					}).error(function(response){
@@ -48,7 +45,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 					$scope.successTwo = $scope.errorTwo = null;
 
 					var reqObj = {name: 'Canteen name', value: $scope.canteenName};
-					console.log($scope.canteenName);
+					//console.log($scope.canteenName);
 					$http.post('users/superuserSetCanteenName', reqObj).success(function(response){
 						$scope.successThree = response.message;
 					}).error(function(response){
