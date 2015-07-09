@@ -20,18 +20,16 @@ var InventorySchema = new Schema({
 		type: Date,
 		default: Date.now
 	},
-	/*user: {
-		type: Schema.ObjectId,
-		ref: 'User'
-	},*/
+	unit: {
+		type: [{
+			type: String,
+			enum: ['g', 'mg', 'kg','ml', 'l','units']
+		}],
+		default: ['units']
+	},
 	quantity: {
 		type: Number,
 		required: 'Please fill in the quantity.'
-	},
-	unit: {
-		type: String,
-		default: '',
-		required: 'Please fill in the unit type, for example grams, litre etc.'
 	}
 });
 
