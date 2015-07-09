@@ -25,7 +25,7 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$state
 
 		// Remove existing inventory item
 		$scope.remove = function(inventoryItem) {
-			if ( inventoryItem ) { 
+			if ( inventoryItem ) {
 				inventoryItem.$remove();
 
 				for (var i in $scope.inventory) {
@@ -58,7 +58,7 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$state
 
 		// Find existing Inventory item
 		$scope.findOne = function() {
-			$scope.inventoryItem = Inventory.get({ 
+			$scope.inventoryItem = Inventory.get({
 				inventoryItemId: $stateParams.inventoryItemId
 			});
 		};

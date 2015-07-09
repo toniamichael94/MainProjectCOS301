@@ -72,7 +72,7 @@ exports.delete = function(req, res) {
 /**
  * List of inventoryItems
  */
-exports.list = function(req, res) { 
+exports.list = function(req, res) {
 	Inventory.find().sort('-created').populate('user', 'displayName').exec(function(err, inventory) {
 		if (err) {
 			return res.status(400).send({
@@ -87,7 +87,7 @@ exports.list = function(req, res) {
 /**
  * Order middleware
  */
-exports.orderByID = function(req, res, next, id) { 
+exports.orderByID = function(req, res, next, id) {
 	Inventory.findById(id).populate('user', 'displayName').exec(function(err, inventoryItem) {
 		if (err) return next(err);
 		if (! inventoryItem) return next(new Error('Failed to load Order ' + id));
