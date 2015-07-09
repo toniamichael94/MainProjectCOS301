@@ -1,15 +1,4 @@
-<<<<<<< HEAD
 <section data-ng-controller="MenuItemsController" data-ng-init="find()">
-    <div class="page-header">
-        <h1>Menu</h1>
-    </div>
-	
-	<!-- Show all the items on the menu list, description, and price-->
-	<form name="chooseOrderForm" class="signin form-horizontal" autocomplete="off">
-				<div data-ng-repeat="menuItem in menuItems" data-ng-href="#!/orders/{{menuItem._id}}" class="list-group-item">		
-					<h4 class="list-group-item-heading" data-ng-bind="menuItem.itemName"> </h4>
-=======
-<section data-ng-controller="OrdersController" data-ng-init="find()"><!--Needs to be changed to MenuItemController-->
 
         <h3>Menu</h3>
         <hr>
@@ -35,7 +24,6 @@
 			<form name="chooseOrderForm" data-ng-submit="" class="signin form-horizontal" autocomplete="off">
 				<div data-ng-repeat="order in orders" data-ng-href="#!/orders/{{order._id}}" class="list-group-item">
 					<h4 class="list-group-item-heading" data-ng-bind="order.name"> </h4>
->>>>>>> origin/phase2
 					<input type = "checkbox">
 					<input type="number" min = 0>
 				</div>
@@ -51,7 +39,7 @@
 				<div data-ng-show="error" class="text-center text-danger">
 					<strong data-ng-bind="error"></strong>
 				</div>
-<<<<<<< HEAD
+
 	</form>
 	
 	<!--Search for a menu product-->
@@ -73,14 +61,9 @@
 						<strong data-ng-bind="error"></strong>
 					</div>
 			</div>
-		</div>
-	
-	
-	
-	
+		</div>	
 </section>
-=======
-			</form>
->>>>>>> origin/phase2
 
-</section>
+			
+
+
