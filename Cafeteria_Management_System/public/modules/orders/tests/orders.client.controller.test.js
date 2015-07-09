@@ -1,6 +1,6 @@
 'use strict';
 
-(function() {
+/*(function() {
 	// Orders Controller Spec
 	describe('Orders Controller Tests', function() {
 		// Initialize global variables
@@ -160,4 +160,8 @@
 			expect(scope.orders.length).toBe(0);
 		}));
 	});
+<<<<<<< HEAD
 }());
+=======
+}());*/
+>>>>>>> 598711595b9f93acbc6603cc70607f01161ea3fe
