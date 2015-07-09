@@ -1,5 +1,4 @@
-
-<section class="row" data-ng-controller="InventoryController">
+<section class="row" data-ng-controller="MenuItemsController">
 
 	<h3>Manage Cafeteria</h3>
 	<br>
@@ -7,17 +6,17 @@
 		<div class="row">
 			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 			<!--<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">-->
-	
+			<form>
 				<!--Search for a menu item-->
 				<h4>Search an item</h4>
 				<div class = "form-group">
-					<input type="text" id="itemNameSearch" name ="itemNameSearch" class = "form-control" data-ng-model="inventory.itemName" placeholder="Item Name">
+					<input type="text" id="menuItemNameSearch" name ="menuItemNameSearch" class = "form-control" data-ng-model="menuItem.itemNameSearch" placeholder="Item Name">
 				</div>
 		
 				<div class = "text-center form-group">
-					<button type = "submit" class = "btn btn-large btn-primary" ng-submit="inventory.findOne()" >Search</button>
+					<button type = "submit" class = "btn btn-large btn-primary" ng-submit="menuItem.findOne()" >Search</button>
 				</div>
-		
+			
 				<!--Error/Success message-->
 				<div data-ng-show="success" class="text-center text-success">
 					<strong>Action completed successfully.</strong>
@@ -26,23 +25,24 @@
 					<strong data-ng-bind="error"></strong>
 				</div>
 				<br>
+			</form>
 				<!--Add a menu item-->
 				<h4>Add an item</h4>
-				<form name="addInventoryItemForm" data-ng-submit="create(userForm.$valid)" class="signin form-horizontal" autocomplete="off">
+				<form name="addMenuItemForm" data-ng-submit="create(addMenuItemForm.$valid)" class="signin form-horizontal" autocomplete="off">
 					<fieldset>
 						<div class="form-group">
 							<label for="itemName">Item Name</label>
-							<input type="text" id="itemAddName" name="itemAddName" class="form-control" data-ng-model="inventory.itemName" placeholder="Item Name">
+							<input type="text" id="menuItemAdd" name="menuItemAdd" class="form-control" data-ng-model="menuItem.itemNameAdd" placeholder="Item Name">
 						</div>
 				
 						<div class="form-group">
-							<label for="quantity">Quantity</label>
-							<input type="number" min = 0 id="itemQuantity" name="itemQuantity" class="form-control" data-ng-model="inventory.quantity" placeholder="Quantity">
+							<label for="quantity">Description</label>
+							<input type="text" min = 0 id="itemDescription" name="itemDescription" class="form-control" data-ng-model="menuItem.itemDescription" placeholder="Description">
 						</div>
 				
 						<div class="form-group">
-							<label for="unit">Unit</label>
-							<input type="text" id="itemUnit" name="itemUnit" class="form-control" data-ng-model="inventory.unit" placeholder="Unit">
+							<label for="unit">Price</label>
+							<input type="number" min = 0 id="itemPrice" name="itemPrice" class="form-control" data-ng-model="menuItem.price" placeholder="Unit">
 						</div>
 				
 						<div class="text-center form-group">
