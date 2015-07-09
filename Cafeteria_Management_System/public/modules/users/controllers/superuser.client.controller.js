@@ -9,7 +9,6 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 
     // Assign a role to user
     $scope.assignRoles = function(isValid) {
-			console.log('hey!');
       if (isValid) {
         $scope.success = $scope.error = null;
         var reqObj = {userID: $scope.emp_id, role: $scope.role};

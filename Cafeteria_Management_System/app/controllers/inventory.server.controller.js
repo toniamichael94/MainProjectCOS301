@@ -12,6 +12,7 @@ var mongoose = require('mongoose'),
  * Create an inventory item
  */
 exports.create = function(req, res) {
+	console.log('here');
 	var inventoryItem = new Inventory(req.body);
 	inventoryItem.user = req.user;
 

@@ -24,6 +24,10 @@ var InventorySchema = new Schema({
 		type: Schema.ObjectId,
 		ref: 'User'
 	},*/
+	quantity: {
+		type: Number,
+		required: 'Please fill in the quantity.'
+	},
 	unit: {
 		type: String,
 		default: '',
