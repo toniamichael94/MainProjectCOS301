@@ -46,20 +46,20 @@
             });
         }));
 
-    /*  ******
+/* Commented out for now - will need to check it
       it('$scope.updateUserProfile() should update profile if valid info entered', function() {
             // Test expected GET request
             //$httpBackend.when('POST',	'/').respond();
 
             scope.updateUserProfile();
-            $httpBackend.flush();
+           // $httpBackend.flush();
 
             // Test scope value
             expect(scope.success).toEqual(true);
             //expect($location.url()).toEqual('/');
         });
 
-        it('$scope.updateUserProfile() should allow user to view profile', function() {
+        it('$scope.viewUserProfile() should allow user to view profile', function() {
             // Test expected GET request
           //  $httpBackend.when('POST',	'/settings/profileView').respond();
 
@@ -69,8 +69,8 @@
             // Test scope value
             expect(scope.success).toEqual(true);
             //expect($location.url()).toEqual('/');
-        });*/
-
+        });
+*/
         it('$scope.changeUserPassword() should let user change their password if a valid one was entered', function() {
             // Test expected GET request
             $httpBackend.when('POST',	'/users/password').respond(200,'password');
@@ -93,11 +93,7 @@
             scope.changeUserPassword();
             $httpBackend.flush();
 
-            // Test scope value
-           // expect(scope.passwordDetails).toEqual(null);
-           // expect(scope.success).toEqual(false);
             expect(scope.error).toEqual('Password should be at least 7 characters long.');
-            //expect($location.url()).toEqual('/');
         });
 
         it('$scope.changeUserPassword() should send an error message if the current password is incorrect', function() {
@@ -109,12 +105,7 @@
             scope.changeUserPassword();
             $httpBackend.flush();
 
-            // Test scope value
-            //expect(scope.passwordDetails).toEqual(null);
-           // expect(scope.success).toEqual(false);
-           // expect(scope.error).toEqual('Missing credentials');
             expect(scope.error).toEqual('Current password is incorrect');
-            //expect($location.url()).toEqual('/');
         });
 
         it('$scope.changeUserPassword() should send an error message if the passwords do not match', function() {
@@ -126,13 +117,9 @@
             scope.changeUserPassword();
             $httpBackend.flush();
 
-            // Test scope value
-            //expect(scope.passwordDetails).toEqual(null);
-            // expect(scope.success).toEqual(false);
-            // expect(scope.error).toEqual('Missing credentials');
             expect(scope.error).toEqual('Passwords do not match');
-            //expect($location.url()).toEqual('/');
         });
+
 
     });
 }());
