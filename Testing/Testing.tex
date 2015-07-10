@@ -158,6 +158,8 @@ Test Case 1: should let user set canteen name: Pass
 \subsubsection{Evaluation}
 \subsubsection{Summary of activities}
 
+////////////commented out for now 
+
 Testing for the two main use cases discussed in this document has been done using Mocha for unit testing. We have tested the various functions identified for the two different use cases. For placing an order, the functions that are to be created are checkProductAvailability, checkLimits, isLoggedIn and generateBill. 
 
 Once the user has selected items to be purchased, the system needs to check that the user has logged in, so that using the employeeId the system will know which user's profile needs to be edited. The system has to then check whether the products are in stock and whether the total price of the items selected stays within the user's set limit. The bill is then generated, stating the items purchased and the cost.
