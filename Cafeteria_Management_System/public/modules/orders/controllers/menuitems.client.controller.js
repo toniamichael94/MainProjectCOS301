@@ -49,7 +49,7 @@ angular.module('menuItems').controller('MenuItemsController', ['$scope', '$http'
 
         $http.post('/orders/createMenuItem', reqObj).success(function(response) {
           // If successful show success message and clear form
-        $scope.success = response.message;
+        $scope.success = true;//response.message;
         }).error(function(response) {
           $scope.error = response.message;
         });
