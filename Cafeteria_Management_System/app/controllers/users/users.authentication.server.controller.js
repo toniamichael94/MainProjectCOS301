@@ -26,11 +26,11 @@ exports.signup = function(req, res) {
 	user.displayName = user.firstName + ' ' + user.lastName;
 	user.displayEmail = user.email;
 	user.displayUserName = user.username;
-    if(user.recipientEmailAddress1 ==true){
-        user.displayRecipientEmailOption = "Send to finance";
+    if(user.recipientEmailAddress1 === true){
+        user.displayRecipientEmailOption = 'Send to finance';
     }
-    if(user.recipientEmailAddress2 ==true){
-        user.displayRecipientEmailOption = "Send to personal email account";
+    if(user.recipientEmailAddress2 === true){
+        user.displayRecipientEmailOption = 'Send to personal email account';
     }
 
 
