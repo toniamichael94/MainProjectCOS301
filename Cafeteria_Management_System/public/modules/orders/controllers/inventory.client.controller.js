@@ -33,7 +33,8 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 
         $http.post('/orders/create', reqObj).success(function(response) {
           // If successful show success message and clear form
-        $scope.success = true;//response.message;
+        $scope.success = true;
+		$scope.inventory = null;
         }).error(function(response) {
           $scope.error = response.message;
         });

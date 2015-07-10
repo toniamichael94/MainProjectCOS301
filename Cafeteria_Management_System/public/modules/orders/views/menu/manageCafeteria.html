@@ -7,7 +7,7 @@
 		<div class="list-group-item clearfix">
 			<h3>  </h3>
 			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2"  data-ng-controller="MenuItemsController">
-				<form name="addMenuItemForm" data-ng-submit="createMenuItem(addMenuItemForm.$valid)" class="signin form-horizontal" novalidate autocomplete="off">
+				<form name="addMenuItemForm" data-ng-submit="createMenuItem(addMenuItemForm.$valid)" class="signin form-horizontal" autocomplete="off">
 					<fieldset>
 						<div class="form-group">
 							<label for="itemName">Item Name</label>
@@ -25,6 +25,7 @@
 						</div>
 						
 						<div class = "form-group">
+						<label for="category">Category</label>
 							<select id ="itemCategory" name ="itemCategory" class = "form-control" data-ng-model ="menuItem.itemCategory">
 								<option value = 'Toasted Sandwiches'>Toasted Sandwiches</option>
 								<option value = 'Tramezzinis'>Tramezzinis</option>
