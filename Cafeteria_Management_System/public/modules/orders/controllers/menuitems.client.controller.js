@@ -5,6 +5,24 @@ angular.module('menuItems').controller('MenuItemsController', ['$scope', '$http'
 	function($scope, $http, $stateParams, $location, Authentication, MenuItems) {
 		$scope.authentication = Authentication;
 
+		 // Create new Menu Item
+		$scope.createMenuItem = function(isValid) {
+      if (isValid) {
+        $scope.success = $scope.error = null;
+        var reqObj = {itemName: $scope.menuItem.itemNameAdd, description: $scope.menuItem.itemDescription, price:$scope.menuItem.itemPrice, category:$scope.menuItem.itemCategory};
+
+        $http.post('/orders/createMenuItem', reqObj).success(function(response) {
+          // If successful show success message and clear form
+        $scope.success = true;//response.message;
+		$scope.menuItem = null;
+		
+        }).error(function(response) {
+          $scope.error = response.message;
+        });
+        }
+      };
+		
+		
 		//Filter Menu items - meals
 		$scope.meals = function (row) {
         return (angular.lowercase(row.category).indexOf('Meals') !== -1);
@@ -15,9 +33,7 @@ angular.module('menuItems').controller('MenuItemsController', ['$scope', '$http'
         return (angular.lowercase(row.category).indexOf('Snacks') !== -1);
     };
 	
-
-
-		//get menu items from database on the server side
+			//get menu items from database on the server side
 		$scope.loadMenuItems = function(){
 			$http.get('/loadMenuItems').success(function(response) {
 				// If successful show success message and clear form
@@ -41,23 +57,6 @@ angular.module('menuItems').controller('MenuItemsController', ['$scope', '$http'
 			//console.log($scope.menuItems);
 		};
 		
-	 // Create new Menu Item
-		$scope.createMenuItem = function(isValid) {
-      if (isValid) {
-        $scope.success = $scope.error = null;
-        var reqObj = {itemName: $scope.menuItem.itemNameAdd, description: $scope.menuItem.itemDescription, price:$scope.menuItem.itemPrice, category:$scope.menuItem.itemCategory};
-
-        $http.post('/orders/createMenuItem', reqObj).success(function(response) {
-          // If successful show success message and clear form
-        $scope.success = true;//response.message;
-		$scope.menuItem = null;
-		
-        }).error(function(response) {
-          $scope.error = response.message;
-        });
-        }
-      };
-
 		// Remove existing menu item
 		$scope.remove = function(menuItem) {
 			if ( menuItem ) {
