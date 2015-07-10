@@ -12,34 +12,61 @@ var mongoose = require('mongoose'),
 var MenuItemSchema = new Schema({
 	itemName: {
 		type: String,
-		default: '',
-		required: 'Please fill in the name of the menu item',
+		unique: true,
+		required: 'Please fill in the item name',
 		trim: true
 	},
 	created: {
 		type: Date,
 		default: Date.now
 	},
-	price: {
-		type: Number,
-		required: 'Please fill in the price of the menu item.'
-	},
 	description: {
 		type: String,
 		default:'',
-		requried: 'Please provide a description of the menu item.'
+		required: 'Please provide a description of the menu item.'
+	},
+	price: {
+		type: Number,
+		required: 'Please fill in the price of the menu item.',
+		min:0
 	},
 	category: {
 		type: [{
 			type: String,
 			enum: ['drinks', 'meals','snacks', 'dessert']
 		}],
-		default: ['units']
+		required: 'Please provide a category for the menu item.'
 	},
+	/*ingredients:{
+		ingredient:String,
+		quantity:Number	//add reference to inventory
+	},*/
 	user: {
 		type: Schema.ObjectId,
 		ref: 'User'
 	}
 });
+
+/**
+ * Find possible not used 
+ */
+MenuItemSchema.statics.findUniqueItemName = function(itemName, suffix, callback) {
+	var _this = this;
+	var possibleItemName = itemName + (suffix || '');
+
+	_this.findOne({
+		itemName: possibleItemName
+	}, function(err, user) {
+		if (!err) {
+			if (!user) {
+				callback(possibleItemName);
+			} else {
+				return _this.findUniqueItemName(itemName, (suffix || 0) + 1, callback);
+			}
+		} else {
+			callback(null);
+		}
+	});
+};
 
 mongoose.model('MenuItem', MenuItemSchema);
