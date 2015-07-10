@@ -14,40 +14,20 @@ var mongoose = require('mongoose'),
 */
 exports.loadMenuItems = function(req, res) {
 
-console.log('IN DISPLAY MENU ITEMS');
-
 MenuItem.find({}, function(err, items) {
 	 var itemMap = {};
 
 	 items.forEach(function(item) {
 		 itemMap[item._id] = item;
 	 });
-	 console.log(itemMap);
+	// console.log(itemMap); // testing 
 	// res.send(itemMap);
 	if(err || !itemMap) return res.status(400).send({message: 'Menu Items not found' });
 	else {
-
 		res.status(200).send({message: itemMap});
-	//	var v = canteenName; // testing
-	//	console.log(v); // testing
-	/*response.writeHead(200, {"Content-Type": "text/html"});
-  response.write("<h1>Hello!</h1><p>You asked for <code>" +
-                 request.url + "</code></p>");
-  response.end();*/
 	}
+ });
 
-  });
-	/*Config.findOne({name: 'Canteen name' }, function(err, canteenName){
-		if(err || !canteenName) return res.status(400).send({message: 'canteen name not found' });
-		else {
-			res.status(200).send({message: canteenName});
-		//	var v = canteenName; // testing
-		//	console.log(v); // testing
-		}
-
-	});
-*/
-	//console.log(canteenName);
 };
 
 /**
