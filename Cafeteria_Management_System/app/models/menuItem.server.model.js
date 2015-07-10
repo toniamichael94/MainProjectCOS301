@@ -12,9 +12,8 @@ var mongoose = require('mongoose'),
 var MenuItemSchema = new Schema({
 	itemName: {
 		type: String,
-		default: '',
-		unique: 'testing error message',
-		required: 'Please fill in the name of the menu item',
+		unique: true,
+		required: 'Please fill in the item name',
 		trim: true
 	},
 	created: {
@@ -38,10 +37,10 @@ var MenuItemSchema = new Schema({
 		}],
 		required: 'Please provide a category for the menu item.'
 	},
-	ingredients:{
+	/*ingredients:{
 		ingredient:String,
 		quantity:Number	//add reference to inventory
-	},
+	},*/
 	user: {
 		type: Schema.ObjectId,
 		ref: 'User'

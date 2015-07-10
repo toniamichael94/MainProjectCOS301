@@ -7,7 +7,7 @@
 		<div class="list-group-item clearfix">
 			<h3> Add Item </h3>
 			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
-				<form name="addMenuItemForm" data-ng-submit="createMenuItem(addMenuItemForm.$valid)" class="signin form-horizontal" autocomplete="off">
+				<form name="addMenuItemForm" data-ng-submit="createMenuItem(addMenuItemForm.$valid)" class="signin form-horizontal" novalidate autocomplete="off">
 					<fieldset>
 						<div class="form-group">
 							<label for="itemName">Item Name</label>
@@ -16,7 +16,7 @@
 
 						<div class="form-group">
 							<label for="quantity">Description</label>
-							<input type="text" min = 0 id="itemDescription" name="itemDescription" class="form-control" data-ng-model="menuItem.itemDescription" placeholder="Description">
+							<input type="text" id="itemDescription" name="itemDescription" class="form-control" data-ng-model="menuItem.itemDescription" placeholder="Description">
 						</div>
 
 						<div class="form-group">
@@ -26,7 +26,7 @@
 						
 						<div class="form-group">
 							<label for="price">Category</label>
-							<input type="text" min = 0 id="itemPrice" name="itemPrice" class="form-control" data-ng-model="menuItem.itemCategory" placeholder="Category">
+							<input type="text" id="itemPrice" name="itemPrice" class="form-control" data-ng-model="menuItem.itemCategory" placeholder="Category">
 						</div>
 						
 						<!--Add ingredients, only show ingredients available in databas-->
