@@ -3,6 +3,8 @@
         <h3>Menu</h3>
         <hr>
 	<div class="row">
+	
+	<!--Search for a menu product-->
 		<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
 		<h4>Search for a menu item</h4>
 				<div class="form-group">
@@ -22,8 +24,8 @@
 
 	<!-- Show all the items on the menu list, description, and price-->
 			<form name="chooseOrderForm" data-ng-submit="" class="signin form-horizontal" autocomplete="off">
-				<div data-ng-repeat="order in orders" data-ng-href="#!/orders/{{order._id}}" class="list-group-item">
-					<h4 class="list-group-item-heading" data-ng-bind="order.name"> </h4>
+				<div data-ng-repeat="menuItem in menuItems" data-ng-href="#!/orders/{{order._id}}" class="list-group-item">
+					<h4 class="list-group-item-heading" data-ng-bind="menuItem.name"> </h4>
 					<input type = "checkbox">
 					<input type="number" min = 0>
 				</div>
@@ -42,7 +44,7 @@
 
 	</form>
 	
-	<!--Search for a menu product-->
+	
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
 				<h4>Search for a menu item</h4>

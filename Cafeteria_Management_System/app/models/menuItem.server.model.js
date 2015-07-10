@@ -22,7 +22,8 @@ var MenuItemSchema = new Schema({
 	},
 	price: {
 		type: Number,
-		required: 'Please fill in the price of the menu item.'
+		required: 'Please fill in the price of the menu item.',
+		min:0
 	},
 	description: {
 		type: String,
@@ -35,6 +36,10 @@ var MenuItemSchema = new Schema({
 			enum: ['drinks', 'meals','snacks', 'dessert']
 		}],
 		default: ['units']
+	},
+	ingredients:{
+		ingredient:String,
+		quantity:Number	//add reference to inventory
 	},
 	user: {
 		type: Schema.ObjectId,
