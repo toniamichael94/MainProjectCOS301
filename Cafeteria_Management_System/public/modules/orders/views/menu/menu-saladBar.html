@@ -1,36 +1,37 @@
 <section data-ng-controller="MenuItemsController" data-ng-init="find()">
 
-        <h3>Menu / Toasted Sandwiches</h3>
+        <h3>Menu / Salad Bar</h3>
         <hr>
 
       <!-- Display all the meals -->
       <!-- nav- breadcrum for menu page-->
       <ol class="breadcrumb">
         <li><a  href="/#!/menu">All Menu Items</a></li>
-        <li class="active">Toasted Sandwiches</li>
+        <li><a href="/#!/menu/toastedSandwiches">Toasted Sandwiches</a></li>
         <li><a href="/#!/menu/tramazini">Tramezzinis</a></li>
         <li><a href="/#!/menu/burgerBar">Burger Bar</a></li>
         <li><a href="/#!/menu/dailyLunch">Daily Lunches</a></li>
-        <li><a href="/#!/menu/saladBar">Salad Bar</a></li>
+        <li class="active">Salad Bar</li>
         <li><a href="/#!/menu/sweetTreats">Sweet Treats</a></li>
         <li><a href="/#!/menu/resaleItems">Resale Items</a></li>
         <li><a href="/#!/menu/onTheSide">On The Side</a></li>
         <li><a href="/#!/menu/extra">Extra's</a></li>
       </ol>
 
-      <!-- Display Toasted Sandwiches -->
-        <div class="list-group clearfix">
-          <a href="#" class="list-group-item disabled">
-           <h4> Toasted Sandwiches </h4>
-         </a>
+      <div class="list-group clearfix">
+        <a href="#" class="list-group-item disabled">
+         <h4>Salad Bar</h4>
+       </a>
 
-       <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:toastedSandwiches"><h3>{{item.itemName}}  <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}}
-            <form>
-              <input type="checkbox" name={{item.itemName}}  value={{item.itemName}} >
-            </form>
-        </h5>
+
+      <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:salidBar"><h3>{{item.itemName}}  <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}}
+          <form>
+            <input type="checkbox" name={{item.itemName}}  value={{item.itemName}} >
+          </form>
+      </h5>
       </div>
       </div>
+
 
 </div>
 	<div class="row">
