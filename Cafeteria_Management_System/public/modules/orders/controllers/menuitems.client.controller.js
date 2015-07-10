@@ -5,16 +5,53 @@ angular.module('menuItems').controller('MenuItemsController', ['$scope', '$http'
 	function($scope, $http, $stateParams, $location, Authentication, MenuItems) {
 		$scope.authentication = Authentication;
 
-		//Filter Menu items - meals
-		$scope.meals = function (row) {
-        return (angular.lowercase(row.category).indexOf('Meals') !== -1);
+		//Filter Menu items - Toasted Sandwiches
+		$scope.toastedSandwiches = function (row) {
+        return (angular.lowercase(row.category).indexOf('Toasted Sandwiches') !== -1);
     };
 
-		//Filter Menu items for snacks
-		$scope.snacks = function (row) {
-        return (angular.lowercase(row.category).indexOf('Snacks') !== -1);
+		//Filter Menu items for Tramezzinis
+		$scope.tramizini = function (row) {
+        return (angular.lowercase(row.category).indexOf('Tramezzinis') !== -1);
     };
-	
+
+		//Filter Menu items for Burger Bar
+		$scope.burgerBar = function (row) {
+				return (angular.lowercase(row.category).indexOf('Burger Bar') !== -1);
+		};
+
+		//Filter Menu items for Daily Lunches
+		$scope.dailyLunch = function (row) {
+				return (angular.lowercase(row.category).indexOf('Daily Lunches') !== -1);
+		};
+
+		//Filter Menu items for Salad Bar
+		$scope.salidBar = function (row) {
+				return (angular.lowercase(row.category).indexOf('Salad Bar') !== -1);
+		};
+
+		//Filter Menu items for Sweet Treats
+		$scope.sweetTreat = function (row) {
+				return (angular.lowercase(row.category).indexOf('Sweet Treats') !== -1);
+		};
+
+		//Filter Menu items for Resale Items
+		$scope.resaleItem = function (row) {
+				return (angular.lowercase(row.category).indexOf('Resale Items') !== -1);
+		};
+
+		//Filter Menu items for On The Side
+		$scope.onSide = function (row) {
+				return (angular.lowercase(row.category).indexOf('On The Side') !== -1);
+		};
+
+
+		//Filter Menu items for Extra's
+		$scope.extra = function (row) {
+				return (angular.lowercase(row.category).indexOf('Extra) !== -1);
+		};
+
+
 
 
 		//get menu items from database on the server side
@@ -28,7 +65,7 @@ angular.module('menuItems').controller('MenuItemsController', ['$scope', '$http'
 
 			for(var itemName in response.message){
 				//console.log(itemName + " = " + response.message[itemName].itemName);// testing
-				itemsArray[counter] = response.message[itemName]
+				itemsArray[counter] = response.message[itemName];
 			  counter++;
 			}
 
@@ -40,7 +77,7 @@ angular.module('menuItems').controller('MenuItemsController', ['$scope', '$http'
 			});
 			//console.log($scope.menuItems);
 		};
-		
+
 		$scope.addCategories = function()
 		{
 			console.log('here');
