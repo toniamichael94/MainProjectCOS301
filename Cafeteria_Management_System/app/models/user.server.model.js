@@ -49,7 +49,11 @@ var UserSchema = new Schema({
 		type: String,
 		trim: true
 	},
-	email: {
+    displayRecipientEmailOption:{
+        type:String,
+        trim: true
+    },
+    email: {
 		type: String,
 		trim: true,
 		default: '',
@@ -63,7 +67,7 @@ var UserSchema = new Schema({
 	username: {
 		type: String,
 		unique: 'testing error message',
-		required: 'Please fill in your employe ID',
+		required: 'Please fill in your employee ID',
 		trim: true
 	},
 	password: {
@@ -101,14 +105,25 @@ var UserSchema = new Schema({
 	resetPasswordExpires: {
 		type: Date
 	},
-	// for editig profile
+	// for editing profile
 	recipientEmailAddress: {
-		type: String,
-		trim: true,
-		default: '',
-		validate: [validateLocalStrategyProperty, 'Please fill in your email for notifications'],
-		match: [/.+\@.+\..+/, 'Please fill a valid email address']
-	}
+        type: Boolean,
+        default: false,
+        required: 'Select a checkbox option',
+        validate: [validateLocalStrategyProperty, 'Please select a checkbox option for recipient email address']
+
+    },
+    recipientEmailAddress1: {
+        type: Boolean,
+        default: false,
+        required: 'Select a checkbox option',
+    },
+    recipientEmailAddress2: {
+        type: Boolean,
+        default: false,
+        required: 'Select a checkbox option'
+
+    }
 });
 
 /**
