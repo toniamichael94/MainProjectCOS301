@@ -47,26 +47,4 @@ var MenuItemSchema = new Schema({
 	}
 });
 
-/**
- * Find possible not used 
- */
-MenuItemSchema.statics.findUniqueItemName = function(itemName, suffix, callback) {
-	var _this = this;
-	var possibleItemName = itemName + (suffix || '');
-
-	_this.findOne({
-		itemName: possibleItemName
-	}, function(err, user) {
-		if (!err) {
-			if (!user) {
-				callback(possibleItemName);
-			} else {
-				return _this.findUniqueItemName(itemName, (suffix || 0) + 1, callback);
-			}
-		} else {
-			callback(null);
-		}
-	});
-};
-
 mongoose.model('MenuItem', MenuItemSchema);
