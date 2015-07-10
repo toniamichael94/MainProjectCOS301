@@ -3,6 +3,9 @@
 module.exports = function(app) {
 	var users = require('../../app/controllers/users.server.controller');
 	var menuItems = require('../../app/controllers/menuItems.server.controller');
+
+	//Display Menu Items
+	app.route('/loadMenuItems').get(menuItems.loadMenuItems);
 	
 	//create order
 	app.route('/orders/createMenuItem').post(menuItems.createMenuItem);

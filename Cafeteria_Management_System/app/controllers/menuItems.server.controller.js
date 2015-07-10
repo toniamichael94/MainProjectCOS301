@@ -10,6 +10,47 @@ var mongoose = require('mongoose'),
 	_ = require('lodash');
 
 /**
+* Display menu items - function getting menu items from database
+*/
+exports.loadMenuItems = function(req, res) {
+
+console.log('IN DISPLAY MENU ITEMS');
+
+MenuItem.find({}, function(err, items) {
+	 var itemMap = {};
+
+	 items.forEach(function(item) {
+		 itemMap[item._id] = item;
+	 });
+	 console.log(itemMap);
+	// res.send(itemMap);
+	if(err || !itemMap) return res.status(400).send({message: 'Menu Items not found' });
+	else {
+
+		res.status(200).send({message: itemMap});
+	//	var v = canteenName; // testing
+	//	console.log(v); // testing
+	/*response.writeHead(200, {"Content-Type": "text/html"});
+  response.write("<h1>Hello!</h1><p>You asked for <code>" +
+                 request.url + "</code></p>");
+  response.end();*/
+	}
+
+  });
+	/*Config.findOne({name: 'Canteen name' }, function(err, canteenName){
+		if(err || !canteenName) return res.status(400).send({message: 'canteen name not found' });
+		else {
+			res.status(200).send({message: canteenName});
+		//	var v = canteenName; // testing
+		//	console.log(v); // testing
+		}
+
+	});
+*/
+	//console.log(canteenName);
+};
+
+/**
  * Create a Menu item
  */
 exports.createMenuItem = function(req, res) {
@@ -91,7 +132,7 @@ exports.createMenuItem = function(req, res) {
 /**
  * List of Menu items
  */
-exports.list = function(req, res) { 
+exports.list = function(req, res) {
 	MenuItem.find().sort('-created').populate('user', 'displayName').exec(function(err, menuitems) {
 		if (err) {
 			return res.status(400).send({
@@ -106,7 +147,7 @@ exports.list = function(req, res) {
 /**
  * Menuitem middleware
  */
-exports.orderByID = function(req, res, next, id) { 
+exports.orderByID = function(req, res, next, id) {
 	MenuItem.findById(id).populate('user', 'displayName').exec(function(err, menuitem) {
 		if (err) return next(err);
 		if (! menuitem) return next(new Error('Failed to load menuitem ' + id));
