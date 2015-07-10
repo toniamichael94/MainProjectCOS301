@@ -36,8 +36,15 @@
 					<input type="email" id="email" name="email" class="form-control" data-ng-model="credentials.email" placeholder="Email">
 				</div>
                 <div class="form-group">
-                    <label for="recipientEmailAddress">Send monthly bill to:</label>
-                    <input type="email" id="recipientEmailAddress" name="recipientEmailAddress" class="form-control" data-ng-model="credentials.recipientEmailAddress" placeholder="recipientEmailAddress">
+                    <label>Send monthly bill to:</label>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="recipientEmailAddress1" name="recipientEmailAddress"  > Finance
+                        </label>
+                        <label>
+                            <input type="checkbox" id="recipientEmailAddress2" name="recipientEmailAddress"  > My email address
+                        </label>
+                    </div>
                 </div>
 				<div class="form-group">
 					<label for="limit">Limit</label>

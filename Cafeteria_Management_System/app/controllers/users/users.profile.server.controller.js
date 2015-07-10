@@ -27,6 +27,21 @@ exports.update = function(req, res) {
 		user.displayName = user.firstName + ' ' + user.lastName;
 		user.displayEmail = user.email;
 		user.displayUserName = user.username;
+        console.log("reci : "+ user.recipientEmailAddress);
+
+        if((user.recipientEmailAddress1 ==true)&&(user.recipientEmailAddress2 ==false)){
+            user.displayRecipientEmailOption = 'Finance';
+            console.log("display: "+user.displayRecipientEmailOption);
+        }
+        if((user.recipientEmailAddress2 ==true)&&(user.recipientEmailAddress1 ==false)){
+            user.displayRecipientEmailOption = 'Email account provided';
+            console.log("display: "+user.displayRecipientEmailOption);
+        }
+        if((user.recipientEmailAddress2 ==true)&&(user.recipientEmailAddress1 ==true)){
+            user.displayRecipientEmailOption = 'Finance and email account provided';
+            console.log("display: "+user.displayRecipientEmailOption);
+        }
+
 
 		user.save(function(err) {
 			if (err) {

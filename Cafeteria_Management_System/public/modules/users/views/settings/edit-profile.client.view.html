@@ -33,8 +33,15 @@
 					<input type="email" id="email" name="email" class="form-control" data-ng-model="user.email" placeholder="Email">
 				</div>
                 <div class="form-group">
-                    <label for="recipientEmailAddress">Send monthly bill to:</label>
-                    <input type="text" id="recipientEmailAddress" name="recipientEmailAddress" class="form-control" data-ng-model="user.recipientEmailAddress" placeholder="recipientEmailAddress">
+                    <label>Send monthly bill to:</label>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" id="recipientEmailAddress1" name="recipientEmailAddress"  data-ng-model="user.recipientEmailAddress1"> Finance
+                    </label>
+                    <label>
+                        <input type="checkbox" id="recipientEmailAddress2" name="recipientEmailAddress"  data-ng-model="user.recipientEmailAddress2"> My email address
+                    </label>
+                </div>
                 </div>
 				<div class="form-group">
 					<label for="limit">Limit</label>

@@ -26,8 +26,15 @@ exports.signup = function(req, res) {
 	user.displayName = user.firstName + ' ' + user.lastName;
 	user.displayEmail = user.email;
 	user.displayUserName = user.username;
+    if(user.recipientEmailAddress1 ==true){
+        user.displayRecipientEmailOption = "Send to finance";
+    }
+    if(user.recipientEmailAddress2 ==true){
+        user.displayRecipientEmailOption = "Send to personal email account";
+    }
 
-	// Then save the user
+
+        // Then save the user
 	user.save(function(err) {
 
             if (err) {
@@ -187,6 +194,7 @@ exports.saveOAuthUserProfile = function(req, providerUserProfile, done) {
 							displayName: providerUserProfile.displayName,
 							displayEmail: providerUserProfile.displayEmail,
 							displayUserName: providerUserProfile.displayUserName,
+                            displayRecipientEmailOption: providerUserProfile.displayRecipientEmailOption,
 							email: providerUserProfile.email,
 							provider: providerUserProfile.provider,
 							providerData: providerUserProfile.providerData
