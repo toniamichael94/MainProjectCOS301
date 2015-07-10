@@ -3,8 +3,13 @@
         <h3>Menu</h3>
         <hr>
 
+        <div class="list-group clearfix">
+          <a href="#" class="list-group-item disabled">
+            Menu Items
+          </a>
+        </div>
     <ul>
-       <li ng-repeat="item in menuItems">{{item}}</li>
+       <li ng-repeat="item in menuItems">{{item.itemName}}</li>
    </ul>
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">

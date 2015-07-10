@@ -19,7 +19,7 @@ angular.module('menuItems').controller('MenuItemsController', ['$scope', '$http'
 
 			for(var itemName in response.message){
 				console.log(itemName + " = " + response.message[itemName].itemName);
-				itemsArray[counter] = response.message[itemName].itemName
+				itemsArray[counter].itemName = response.message[itemName].itemName
 			  counter++;
 			}
 			$scope.menuItems = itemsArray;//itemsArray; "order.created | date:'medium'"
