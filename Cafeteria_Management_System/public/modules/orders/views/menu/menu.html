@@ -9,8 +9,13 @@
       		 <h4> Meals </h4>
       	 </a>
 
-       <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:meals"><h3>{{item.itemName}}  <span style="float:right;" > R {{item.price}}<span> </h3> <br>
-                                                                                          <h5> {{item.description}} </h5></div>
+       <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:meals"><h3>{{item.itemName}}  <span style="float:right;" > R {{item.price}}</span> </h3> <br>
+                                                                                          <h5> {{item.description}}
+                                                                                            <form><input type="checkbox" name={{item.itemName}}  value={{item.itemName}} ></form>
+
+
+        </h5>
+      </div>
      </div>
        <!-- Display all the Snacks -->
          <div class="list-group clearfix">
@@ -18,7 +23,8 @@
        		 <h4> Snacks </h4>
        	 </a>
 
-        <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:snacks"><h3>{{item.itemName}}</h3> <br><h5> {{item.description}} </h5></div>
+        <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:snacks"><h3>{{item.itemName}}  <span style="float:right;" > R {{item.price}}</span></h3> <br>
+                                                                                            <h5> {{item.description}} </h5></div>
       </div>
 
 
