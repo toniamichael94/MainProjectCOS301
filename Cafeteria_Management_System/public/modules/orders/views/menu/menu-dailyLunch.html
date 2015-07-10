@@ -1,0 +1,96 @@
+<section data-ng-controller="MenuItemsController" data-ng-init="find()">
+
+        <h3>Menu / Daily Lunches</h3>
+        <hr>
+
+      <!-- Display all the meals -->
+      <!-- nav- breadcrum for menu page-->
+      <ol class="breadcrumb">
+        <li><a  href="/#!/menu">All Menu Items</a></li>
+        <li><a href="/#!/menu/toastedSandwiches">Toasted Sandwiches</a></li>
+        <li><a href="/#!/menu/tramazini">Tramezzinis</a></li>
+        <li><a href="/#!/menu/burgerBar">Burger Bar</a></li>
+        <li class="active">Daily Lunches</li>
+        <li><a href="#">Salad Bar</a></li>
+        <li><a href="#">Sweet Treats</a></li>
+        <li><a href="#">Resale Items</a></li>
+        <li><a href="#">On The Side</a></li>
+        <li><a href="#">Extra's</a></li>
+      </ol>
+
+      <!-- Display Daily Lunches -->
+      <div class="list-group clearfix">
+        <a href="#" class="list-group-item disabled">
+         <h4>Daily Lunches</h4>
+       </a>
+
+
+     <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:dailyLunch"><h3>{{item.itemName}}  <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}}
+          <form>
+            <input type="checkbox" name={{item.itemName}}  value={{item.itemName}} >
+          </form>
+      </h5>
+     </div>
+     </div>
+</div>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
+		<h4>Search for a menu item</h4>
+				<div class="form-group">
+					<input type="text" class="form-control" class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2" id="itemName" name="itemName" class="form-control"  placeholder=Item>
+				</div>
+				<div class="text-center form-group">
+					<button type="submit" ng-submit="" class="btn btn-large btn-primary">Search</button>
+				</div>
+				<div data-ng-show="success" class="text-center text-success">
+					<strong>Found item.</strong>
+				</div>
+				<div data-ng-show="error" class="text-center text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+		</div>
+	</div>
+
+	<!-- Show all the items on the menu list, description, and price-->
+			<form name="chooseOrderForm" data-ng-submit="" class="signin form-horizontal" autocomplete="off" data-ng-init="loadMenuItems()">
+				<div data-ng-repeat="order in orders" data-ng-href="#!/orders/{{order._id}}" class="list-group-item">
+					<h4 class="list-group-item-heading" data-ng-bind="order.name"> </h4>
+					<input type = "checkbox">
+					<input type="number" min = 0>
+				</div>
+					<br>
+				<div class="text-center form-group">
+					<button type="submit" class="btn">Add to plate</button>
+				</div>
+
+				<!--Success/error message-->
+				<div data-ng-show="success" class="text-center text-success">
+					<strong>Action completed successfully.</strong>
+				</div>
+				<div data-ng-show="error" class="text-center text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+
+	</form>
+
+	<!--Search for a menu product-->
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
+				<h4>Search for a menu item</h4>
+					<div class="form-group">
+						<input type="text" data-ng-model="menuItem.searchItemName" class="form-control" class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2" id="itemName" name="itemName" class="form-control"  placeholder="Item name">
+					</div>
+					<div class="text-center form-group">
+						<button ng-submit="" class="btn btn-large btn-primary">Search</button>
+					</div>
+
+					<!--Success/Error message-->
+					<div data-ng-show="success" class="text-center text-success">
+						<strong>Found item.</strong>
+					</div>
+					<div data-ng-show="error" class="text-center text-danger">
+						<strong data-ng-bind="error"></strong>
+					</div>
+			</div>
+		</div>
+</section>
