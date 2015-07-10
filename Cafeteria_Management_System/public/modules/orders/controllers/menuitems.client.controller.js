@@ -40,6 +40,12 @@ angular.module('menuItems').controller('MenuItemsController', ['$scope', '$http'
 			});
 			//console.log($scope.menuItems);
 		};
+		
+		$scope.addCategories = function()
+		{
+			console.log('here');
+			$scope.categories = {'Snacks','Lunch'};
+		};
 
 		// Create new Menu Item
 		$scope.createMenuItem = function(isValid) {

@@ -28,7 +28,25 @@
 							<label for="price">Category</label>
 							<input type="text" id="itemPrice" name="itemPrice" class="form-control" data-ng-model="menuItem.itemCategory" placeholder="Category">
 						</div>
-
+						
+						<div class = "form-group">
+							<select id ="itemCategory" name ="itemCategory" class = "form-control" data-ng-model ="menuItem.itemCategory">
+								<option value = 'Toasted Sandwiches'>Toasted Sandwiches</option>
+								<option value = 'Tramezzinis'>Tramezzinis</option>
+								<option value = 'Burger Bar'>Burger Bar</option>
+								<option value = 'Daily Lunches'>Daily Lunches</option>								
+								<option value = 'Salad Bar'>Salad Bar</option>
+								<option value = 'Sweet Treats'>Sweet Treats</option>
+								<option value = 'Resale Items'>Resale Items</option>					
+								<option value = 'On The Side'>On The Side</option>
+								<option value = 'Extra'>Extra</option>
+								
+							</select>
+						</div>
+						
+						<!--Lana: Still working on this part, don't remove it-->
+						<!--track by item._id-->
+						<!--<select data-ng-model = "menuItem.itemCategory" ng-options="category as menuItem.category for category in categories"></select>-->
 						<!--Add ingredients, only show ingredients available in databas-->
 						<div class="form-group">
 							<label>Ingredients</label>
