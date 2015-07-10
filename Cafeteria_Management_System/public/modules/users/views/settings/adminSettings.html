@@ -27,7 +27,7 @@
 <div class="list-group-item clearfix">
 	<h3> Assign Roles </h3>
 	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
-	<form name="userForm" data-ng-submit="assignRoles(userForm.$valid)" class="signin form-horizontal" autocomplete="off">
+	<form name="userForm" data-ng-submit="assignRoles(userForm.$valid)" class="signin form-horizontal" autocomplete="on">
 		<fieldset>
 			<div class="form-group">
 				<label for="emp_id">Employee ID</label>
@@ -39,6 +39,8 @@
 					<option value='cafeteriaManager'>Cafeteria Manager</option>
 					<option value='cashier'>Cashier</option>
 					<option value='finance'>Finance</option>
+                    <option value='superuser'>SuperUser</option>
+                    <option value='user'>User</option>
 				</select>
 			</div>
 			<div class="text-center form-group">
@@ -113,7 +115,7 @@
 	<h3>Upload image for branding  </h3>
 
 	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
-		<form name="uploadImageForm" data-ng-submit="setCanteenName(userForm.$valid)" class="signin form-horizontal" autocomplete="off">
+		<form name="uploadImageForm" data-ng-submit="uploadFileArticleCallback(userForm.$valid)" class="signin form-horizontal" autocomplete="off">
 			<fieldset>
 				<input type="file" name="image">
 				<div class="text-center form-group"><br>
@@ -124,6 +126,18 @@
 	</form>
  </div>
 </div>
+
+     <div class="form-group">
+         <label class="control-label">Images</label>
+         <mean-upload file-dest="'/packages/photos/'" upload-file-callback="uploadFileArticleCallback(file)"></mean-upload>
+         <br>
+         <ul class="list-group">
+             <li ng-repeat="image in article.images" class="list-group-item">
+                 {{image.name}}
+                 <span class="glyphicon glyphicon-remove-circle pull-right" ng-click="deletePhoto(image)"></span>
+             </li>
+         </ul>
+     </div>
 </div>
 
 

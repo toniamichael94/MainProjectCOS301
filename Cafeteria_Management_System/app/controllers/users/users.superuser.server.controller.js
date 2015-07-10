@@ -11,18 +11,27 @@ var _ = require('lodash'),
 	Config = mongoose.model('Config');
   /*
    * Assign Roles
-   * Last Edited by {Rendani Dau}
+   * Last Edited by {Semaka Malapane}
 	 */
 exports.assignRoles = function(req, res) {
 		User.update({username: req.body.userID}, {roles: [req.body.role]}, function(err, numAffected){
+            console.log('USERNAME' + req.body.employeeID);
+            console.log('ROLE' + req.body.role);
 			if(err) return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
 			else if (numAffected < 1){
 				res.status(400).send({message: 'No such user!'});
 			}
+            /*else if(req.body.role === 'superuser'){
+                console.log('HEEEEEEEEEEEEEEEELLLLLLLLLLLLLLLLLLLLLLLLLLLLLOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO');
+                console.log('USERNAME2' + req.body.employeeID);
+                User.update({username: req.body.employeeID}, {roles: 'user'});
+                res.status(200).send({message: 'Role has been successfully assigned.'});
+                //req.body.homePath;
+            }*/
 			else{
-				res.status(200).send({message: 'Role has been succesfully assigned.'});
+				res.status(200).send({message: 'Role has been successfully assigned.'});
 			}
 		});
 };
