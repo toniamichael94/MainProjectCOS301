@@ -1,7 +1,7 @@
 'use strict';
 
 // MenuItem controller
-angular.module('menuItems').controller('MenuItemsController', ['$scope', '$http', '$stateParams', '$location', 'Authentication', 'MenuItems',
+var menuItems = angular.module('menuItems').controller('MenuItemsController', ['$scope', '$http', '$stateParams', '$location', 'Authentication', 'MenuItems',
 	function($scope, $http, $stateParams, $location, Authentication, MenuItems) {
 		$scope.authentication = Authentication;
 
@@ -23,8 +23,9 @@ angular.module('menuItems').controller('MenuItemsController', ['$scope', '$http'
         });
         }
       };
-
-
+	  
+	  /*Adding buttons*/
+	  $scope.count = 0;
 
 		//Filter Menu items - Toasted Sandwiches
 		$scope.toastedSandwiches = function (row) {
@@ -140,3 +141,24 @@ angular.module('menuItems').controller('MenuItemsController', ['$scope', '$http'
 		};
 	}
 ]);
+
+/*Add ingredients button*/
+
+//Directive that returns an element which adds input boxes
+menuItems.directive("addbuttonsbutton", function(){
+	return {
+		restrict: "E",
+		template: "<button addbuttons class='btn btn-large btn-primary'>Add more ingredients</button>"
+	}
+});
+
+//Directive for adding input boxes on click
+menuItems.directive("addbuttons", function($compile){
+	return function(scope, element, attrs){
+		element.bind("click", function(){
+			scope.count++;
+			angular.element(document.getElementById('space-for-more-ingredients')).append($compile("<label>Ingredient</label><input type='text' id='itemIngredient' name='itemIngredient' class='form-control' placeholder='Ingredient'><br><label>Quantity</label><input type ='number' class = 'form-control' min = 0 id='itemQuantity' placeholder = 'quantity' name ='itemQuantity'><br></div>")(scope));
+		});
+	};
+});
+
