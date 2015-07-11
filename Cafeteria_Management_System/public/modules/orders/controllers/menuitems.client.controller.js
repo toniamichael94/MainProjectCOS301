@@ -9,8 +9,10 @@ angular.module('menuItems').controller('MenuItemsController', ['$scope', '$http'
 		$scope.createMenuItem = function(isValid) {
       if (isValid) {
         $scope.success = $scope.error = null;
-        var reqObj = {itemName: $scope.menuItem.itemNameAdd, description: $scope.menuItem.itemDescription, price:$scope.menuItem.itemPrice, category:$scope.menuItem.itemCategory};
-
+		var ingredients1 = [{'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}, {'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}];
+		console.log(ingredients1.ingredient);
+        var reqObj = {itemName: $scope.menuItem.itemNameAdd, description: $scope.menuItem.itemDescription, price:$scope.menuItem.itemPrice, 
+		category:$scope.menuItem.itemCategory, ingredients:ingredients1};
         $http.post('/orders/createMenuItem', reqObj).success(function(response) {
           // If successful show success message and clear form
         $scope.success = true;//response.message;

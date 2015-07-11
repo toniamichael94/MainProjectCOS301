@@ -41,6 +41,14 @@ var MenuItemSchema = new Schema({
 		ingredient:String,
 		quantity:Number	//add reference to inventory
 	},*/
+	/*ingredients:{
+					type:[{ingredient:String, quantity:Number}]
+				},*/
+	/*ingredients:[
+	{ingredient:String, quantity:Number}
+	],*/
+	ingredients:{type:Object,default:[], required:'Please provide ingredients'
+	},
 	user: {
 		type: Schema.ObjectId,
 		ref: 'User'
