@@ -1,7 +1,7 @@
 'use strict';
 
 // MenuItem controller
-var menuItems = angular.module('menuItems').controller('MenuItemsController', ['$scope', '$http', '$stateParams', '$location', 'Authentication', 'MenuItems',
+var menuItemsModule = angular.module('menuItems').controller('MenuItemsController', ['$scope', '$http', '$stateParams', '$location', 'Authentication', 'MenuItems',
 	function($scope, $http, $stateParams, $location, Authentication, MenuItems) {
 		$scope.authentication = Authentication;
 
@@ -145,7 +145,7 @@ var menuItems = angular.module('menuItems').controller('MenuItemsController', ['
 /*Add ingredients button*/
 
 //Directive that returns an element which adds input boxes
-menuItems.directive("addbuttonsbutton", function(){
+menuItemsModule.directive("addbuttonsbutton", function(){
 	return {
 		restrict: "E",
 		template: "<button addbuttons class='btn btn-large btn-primary'>Add more ingredients</button>"
@@ -153,7 +153,7 @@ menuItems.directive("addbuttonsbutton", function(){
 });
 
 //Directive for adding input boxes on click
-menuItems.directive("addbuttons", function($compile){
+menuItemsModule.directive("addbuttons", function($compile){
 	return function(scope, element, attrs){
 		element.bind("click", function(){
 			scope.count++;
