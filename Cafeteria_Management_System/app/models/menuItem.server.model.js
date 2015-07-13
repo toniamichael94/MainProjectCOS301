@@ -37,16 +37,6 @@ var MenuItemSchema = new Schema({
 		}],
 		required: 'Please provide a category for the menu item.'
 	},
-	/*ingredients:{
-		ingredient:String,
-		quantity:Number	//add reference to inventory
-	},*/
-	/*ingredients:{
-					type:[{ingredient:String, quantity:Number}]
-				},*/
-	/*ingredients:[
-	{ingredient:String, quantity:Number}
-	],*/
 	ingredients:{type:Object,default:[], required:'Please provide ingredients'
 	},
 	user: {
