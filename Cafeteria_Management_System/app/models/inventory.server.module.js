@@ -12,6 +12,7 @@ var mongoose = require('mongoose'),
 var InventorySchema = new Schema({
 	productName: {
 		type: String,
+		unique:true,
 		default: '',
 		required: 'Please fill inventory name',
 		trim: true

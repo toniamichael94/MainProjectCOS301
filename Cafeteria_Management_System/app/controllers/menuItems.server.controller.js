@@ -10,6 +10,27 @@ var mongoose = require('mongoose'),
 	_ = require('lodash');
 
 /**
+* Display menu items - function getting menu items from database
+*/
+exports.loadMenuItems = function(req, res) {
+
+MenuItem.find({}, function(err, items) {
+	 var itemMap = {};
+
+	 items.forEach(function(item) {
+		 itemMap[item._id] = item;
+	 });
+	// console.log(itemMap); // testing 
+	// res.send(itemMap);
+	if(err || !itemMap) return res.status(400).send({message: 'Menu Items not found' });
+	else {
+		res.status(200).send({message: itemMap});
+	}
+ });
+
+};
+
+/**
  * Create a Menu item
  */
 exports.createMenuItem = function(req, res) {
@@ -91,7 +112,7 @@ exports.createMenuItem = function(req, res) {
 /**
  * List of Menu items
  */
-exports.list = function(req, res) { 
+exports.list = function(req, res) {
 	MenuItem.find().sort('-created').populate('user', 'displayName').exec(function(err, menuitems) {
 		if (err) {
 			return res.status(400).send({
@@ -106,7 +127,7 @@ exports.list = function(req, res) {
 /**
  * Menuitem middleware
  */
-exports.orderByID = function(req, res, next, id) { 
+exports.orderByID = function(req, res, next, id) {
 	MenuItem.findById(id).populate('user', 'displayName').exec(function(err, menuitem) {
 		if (err) return next(err);
 		if (! menuitem) return next(new Error('Failed to load menuitem ' + id));

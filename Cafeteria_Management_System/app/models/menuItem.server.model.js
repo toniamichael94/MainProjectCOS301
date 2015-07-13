@@ -41,32 +41,18 @@ var MenuItemSchema = new Schema({
 		ingredient:String,
 		quantity:Number	//add reference to inventory
 	},*/
+	/*ingredients:{
+					type:[{ingredient:String, quantity:Number}]
+				},*/
+	/*ingredients:[
+	{ingredient:String, quantity:Number}
+	],*/
+	ingredients:{type:Object,default:[], required:'Please provide ingredients'
+	},
 	user: {
 		type: Schema.ObjectId,
 		ref: 'User'
 	}
 });
-
-/**
- * Find possible not used 
- */
-MenuItemSchema.statics.findUniqueItemName = function(itemName, suffix, callback) {
-	var _this = this;
-	var possibleItemName = itemName + (suffix || '');
-
-	_this.findOne({
-		itemName: possibleItemName
-	}, function(err, user) {
-		if (!err) {
-			if (!user) {
-				callback(possibleItemName);
-			} else {
-				return _this.findUniqueItemName(itemName, (suffix || 0) + 1, callback);
-			}
-		} else {
-			callback(null);
-		}
-	});
-};
 
 mongoose.model('MenuItem', MenuItemSchema);

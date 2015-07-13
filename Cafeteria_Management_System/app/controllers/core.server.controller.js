@@ -23,8 +23,8 @@ exports.loadCanteenInfo = function(req, res) {
 		if(err || !canteenName) return res.status(400).send({message: 'canteen name not found' });
 		else {
 			res.status(200).send({message: canteenName});
-			var v = canteenName;
-			console.log(v);
+		//	var v = canteenName; // testing
+		//	console.log(v); // testing 
 		}
 
 	});

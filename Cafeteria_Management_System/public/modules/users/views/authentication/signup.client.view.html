@@ -15,7 +15,7 @@
 
 	<h3> Sign Up </h3>
   <hr>
-	
+
 	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 		<form name="userForm" data-ng-submit="signup()" class="signin form-horizontal" novalidate autocomplete="off">
 			<fieldset>
@@ -39,10 +39,10 @@
                     <label>Send monthly bill to:</label>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" id="recipientEmailAddress1" name="recipientEmailAddress"  > Finance
+                            <input type="checkbox" id="recipientEmailAddress1" name="recipientEmailAddress" data-ng-model="credentials.recipientEmailAddress1"> Finance
                         </label>
                         <label>
-                            <input type="checkbox" id="recipientEmailAddress2" name="recipientEmailAddress"  > My email address
+                            <input type="checkbox" id="recipientEmailAddress2" name="recipientEmailAddress"  data-ng-model="credentials.recipientEmailAddress2" > My email address
                         </label>
                     </div>
                 </div>

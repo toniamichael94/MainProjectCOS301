@@ -11,7 +11,7 @@ angular.module('core').controller('HeaderController', ['$scope', '$http', 'Authe
 		};
 
 		$scope.loadCanteenInfo = function(){
-			console.log('in load canteen info...');
+			//console.log('in load canteen info...');
 			$http.get('/loadCanteenInfo').success(function(response) {
 				// If successful show success message and clear form
 			$scope.canteenName = response.message.value;

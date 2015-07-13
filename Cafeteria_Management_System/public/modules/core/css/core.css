@@ -40,3 +40,12 @@
 /*for cashier page*/
 .floatLeft{float:left;}
 .floatCenter{align:center;}
+
+/* for icons on navigation bar*/
+.glyphicon {
+    font-family: inherit;
+}
+
+.glyphicon:before{
+    font-family:'Glyphicons Halflings';
+}

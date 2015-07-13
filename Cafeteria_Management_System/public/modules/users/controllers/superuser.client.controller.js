@@ -12,6 +12,8 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
       if (isValid) {
         $scope.success = $scope.error = null;
         var reqObj = {userID: $scope.emp_id, role: $scope.role};
+       /* var employeeID = $scope.user.username;
+        var homePath = $location.path('/');*/
 
         $http.post('/users/superuserAssignRoles', reqObj).success(function(response) {
           // If successful show success message and clear form
@@ -38,7 +40,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 				}
 			};
 
-			//Set system limit
+			//Set canteen name
 			$scope.setCanteenName = function(isValid){
 				if(isValid){
 					$scope.success = $scope.error = null;
@@ -53,5 +55,21 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 					});
 				}
 			};
+
+            //Set image
+            $scope.setImage = function(isValid){
+                if(isValid){
+                    $scope.success = $scope.error = null;
+                    $scope.successTwo = $scope.errorTwo = null;
+
+                    var reqObj = {name: 'Canteen name', value: $scope.image};
+                    //console.log($scope.canteenName);
+                    $http.post('users/superuserSetCanteenName', reqObj).success(function(response){
+                        $scope.successThree = response.message;
+                    }).error(function(response){
+                        $scope.errorThree = response.message;
+                    });
+                }
+            };
     }
 ]);
