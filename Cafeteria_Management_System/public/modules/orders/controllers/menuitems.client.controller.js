@@ -100,10 +100,15 @@ console.log(reqObj);
 			$scope.menuItems = response.message;
 			var itemsArray    = new Array();
 			var counter = 0;
+			var inStockArray = new Array();
+			var stockVariable = 'Not in stock';
 
 			for(var itemName in response.message){
 				//console.log(itemName + " = " + response.message[itemName].itemName);// testing
 				itemsArray[counter] = response.message[itemName];
+
+				// now check if items are indeed available in the inventory
+				itemsArray[counter].stock = stockVariable;
 			  counter++;
 			}
 
@@ -145,8 +150,6 @@ console.log(reqObj);
 				$scope.error = errorResponse.data.message;
 			});
 		};
-		
-		//$scope.show
 
 		// Find a list of menu items
 		$scope.find = function() {
