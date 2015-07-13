@@ -3,7 +3,9 @@
 module.exports = function(app) {
 	var users = require('../../app/controllers/users.server.controller');
 	var inventory = require('../../app/controllers/inventory.server.controller');
-	
+
+	//loadinginventory items from db
+	app.route('/loadInventoryItems').get(inventory.loadInventoryItems);
 	//create order
 	app.route('/orders/create').post(inventory.create);
 

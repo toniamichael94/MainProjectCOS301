@@ -11,7 +11,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
         $scope.success = $scope.error = null;
 		var ingredients1 = [{'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}, {'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}];
 		console.log(ingredients1.ingredient);
-        var reqObj = {itemName: $scope.menuItem.itemNameAdd, description: $scope.menuItem.itemDescription, price:$scope.menuItem.itemPrice, 
+        var reqObj = {itemName: $scope.menuItem.itemNameAdd, description: $scope.menuItem.itemDescription, price:$scope.menuItem.itemPrice,
 		category:$scope.menuItem.itemCategory, ingredients:ingredients1};
         $http.post('/orders/createMenuItem', reqObj).success(function(response) {
           // If successful show success message and clear form
@@ -23,7 +23,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
         });
         }
       };
-	  
+
 	  /*Adding buttons*/
 	  $scope.count = 0;
 
@@ -99,7 +99,9 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 			});
 			//console.log($scope.menuItems);
 		};
-    
+
+	
+
 	// Remove existing menu item
 		$scope.remove = function(menuItem) {
 			if ( menuItem ) {
@@ -161,4 +163,3 @@ menuItemsModule.directive("addbuttons", function($compile){
 		});
 	};
 });
-
