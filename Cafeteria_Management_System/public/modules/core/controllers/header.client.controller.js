@@ -18,7 +18,7 @@ angular.module('core').controller('HeaderController', ['$scope', '$http', 'Authe
 			//console.log(response.message.value);
 
 			}).error(function(response) {
-				$scope.canteenName = 'Canteen Name (undifined)';
+				$scope.canteenName = 'Canteen Name';
 			});
 			//console.log($scope.canteenName);
 		};

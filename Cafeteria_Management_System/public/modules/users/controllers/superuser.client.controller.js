@@ -12,8 +12,6 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
       if (isValid) {
         $scope.success = $scope.error = null;
         var reqObj = {userID: $scope.emp_id, role: $scope.role};
-       /* var employeeID = $scope.user.username;
-        var homePath = $location.path('/');*/
 
         $http.post('/users/superuserAssignRoles', reqObj).success(function(response) {
           // If successful show success message and clear form
