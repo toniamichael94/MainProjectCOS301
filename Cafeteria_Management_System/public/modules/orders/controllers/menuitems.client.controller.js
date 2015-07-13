@@ -9,21 +9,11 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		$scope.createMenuItem = function(isValid) {
       if (isValid) {
         $scope.success = $scope.error = null;
-<<<<<<< HEAD
-		//var ingredients1 = [{'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}, {'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}];
-		//console.log(ingredients1.ingredient);
 
-		var value = $scope.addMenuItemForm['itemIngredientV'].value;
-
-		console.log('here'+value);
-        var reqObj = {itemName: $scope.menuItem.itemNameAdd, description: $scope.menuItem.itemDescription, price:$scope.menuItem.itemPrice, 
-		category:$scope.menuItem.itemCategory, ingredients:[{'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}, {'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}]};
-=======
 		var ingredients1 = [{'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}, {'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}];
 		console.log(ingredients1.ingredient);
         var reqObj = {itemName: $scope.menuItem.itemNameAdd, description: $scope.menuItem.itemDescription, price:$scope.menuItem.itemPrice,
 		category:$scope.menuItem.itemCategory, ingredients:ingredients1};
->>>>>>> 4fa413d465d7d596ef95b55f07fb115304c9557c
         $http.post('/orders/createMenuItem', reqObj).success(function(response) {
           // If successful show success message and clear form
         $scope.success = true;//response.message;
@@ -140,7 +130,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 				$scope.error = errorResponse.data.message;
 			});
 		};
-		
+
 		$scope.show
 
 		// Find a list of menu items
