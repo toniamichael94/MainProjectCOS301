@@ -21,6 +21,7 @@
         <form name="userForm" data-ng-submit="viewUserProfile(userForm.$valid)" class="signin form-horizontal" autocomplete="off">
             <fieldset>
                 <div class="form-group">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                     <label for="employeeID">Employee Id</label>
                     <input type="text" id="employeeID" name="employeeID" class="form-control" data-ng-model="user.employeeID" placeholder=EmployeeID>
                 </div>
@@ -33,6 +34,7 @@
                 <div data-ng-show="error" class="text-center text-danger">
                     <strong data-ng-bind="error"></strong>
                 </div>
+
             </fieldset>
         </form>
     </div>
