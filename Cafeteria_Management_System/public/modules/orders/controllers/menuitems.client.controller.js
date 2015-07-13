@@ -5,12 +5,19 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 	function($scope, $http, $stateParams, $location, Authentication, MenuItems) {
 		$scope.authentication = Authentication;
 		
-		$scope.ingredients = { fields: [] };
-        $scope.quantities = { fields: [] };
+		//$scope.ingredients = { fields: [] };
+        //$scope.quantities = { fields: [] };
+		
+		$scope.ingredients = {ingredients:[],quantities:[]};
 
   $scope.addFormField = function() {
-    $scope.ingredients.fields.push('');
-    $scope.quantities.fields.push('');
+    //$scope.ingredients.fields.push('');
+    //$scope.quantities.fields.push('');
+	
+	 $scope.ingredients.ingredients.push('');
+	 $scope.ingredients.quantities.push('');
+
+	
   }
   
 
@@ -20,14 +27,10 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
       if (isValid) {
 		  
 
-		var addedIngredients = $scope.ingredients;
-		var addedQuantities = $scope.quantities;
         $scope.success = $scope.error = null;
-		//var ingredients1 = [{'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}, {'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}];
-		//console.log(ingredients1.ingredient);
         var reqObj = {itemName: $scope.menuItem.itemNameAdd, description: $scope.menuItem.itemDescription, price:$scope.menuItem.itemPrice,
-		//category:$scope.menuItem.itemCategory, ingredients:[{'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}, {'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}]};
-	  category:$scope.menuItem.itemCategory, ingredients:{'ingredients':addedIngredients, 'quantity':addedQuantities}};
+	  	  category:$scope.menuItem.itemCategory, ingredients:$scope.ingredients};
+
 
 		$http.post('/orders/createMenuItem', reqObj).success(function(response) {
           // If successful show success message and clear form
