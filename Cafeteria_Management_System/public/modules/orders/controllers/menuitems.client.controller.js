@@ -129,6 +129,8 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 				$scope.error = errorResponse.data.message;
 			});
 		};
+		
+		$scope.show
 
 		// Find a list of menu items
 		$scope.find = function() {
