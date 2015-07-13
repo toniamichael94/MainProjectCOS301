@@ -8,6 +8,25 @@ var mongoose = require('mongoose'),
 	Inventory = mongoose.model('Inventory'),
 	_ = require('lodash');
 
+
+/*
+* Loading the inventory items from the database
+*/
+exports.loadInventoryItems = function(req, res){
+
+	Inventory.find({}, function(err, items) {
+		 var itemMap = {};
+
+		 items.forEach(function(item) {
+			 itemMap[item._id] = item;
+		 });
+		if(err || !itemMap) return res.status(400).send({message: 'Menu Items not found' });
+		else {
+			res.status(200).send({message: itemMap});
+		}
+	 });
+
+};
 /**
  * Create an inventory item
  */

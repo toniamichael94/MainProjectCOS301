@@ -11,9 +11,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
         $scope.success = $scope.error = null;
 		//var ingredients1 = [{'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}, {'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}];
 		//console.log(ingredients1.ingredient);
-		var value = $scope.addMenuItemForm['itemIngredientV'].value;
-		console.log('here'+value);
-        var reqObj = {itemName: $scope.menuItem.itemNameAdd, description: $scope.menuItem.itemDescription, price:$scope.menuItem.itemPrice, 
+        var reqObj = {itemName: $scope.menuItem.itemNameAdd, description: $scope.menuItem.itemDescription, price:$scope.menuItem.itemPrice,
 		category:$scope.menuItem.itemCategory, ingredients:[{'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}, {'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}]};
         $http.post('/orders/createMenuItem', reqObj).success(function(response) {
           // If successful show success message and clear form
@@ -25,7 +23,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
         });
         }
       };
-	  
+
 	  /*Adding buttons*/
 	  $scope.count = 0;
 
@@ -81,7 +79,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		//get menu items from database on the server side
 		$scope.loadMenuItems = function(){
 			$http.get('/loadMenuItems').success(function(response) {
-				// If successful show success message and clear form
+
 		  //console.log('responce = ' + response.message); // testing
 			$scope.menuItems = response.message;
 			var itemsArray    = new Array();
@@ -101,7 +99,9 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 			});
 			//console.log($scope.menuItems);
 		};
-    
+
+
+
 	// Remove existing menu item
 		$scope.remove = function(menuItem) {
 			if ( menuItem ) {
@@ -130,6 +130,8 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 			});
 		};
 
+	//	$scope.show
+
 		// Find a list of menu items
 		$scope.find = function() {
 			$scope.menuItem = MenuItems.query();
@@ -147,20 +149,21 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 /*Add ingredients button*/
 
 //Directive that returns an element which adds input boxes
-menuItemsModule.directive("addbuttonsbutton", function(){
+menuItemsModule.directive('addmoreingredients', function(){
 	return {
-		restrict: "E",
-		template: "<button addbuttons class='btn btn-large btn-primary'>Add more ingredients</button>"
+		restrict: 'E',
+		template: '<button addbuttons class="btn btn-large btn-primary">Add more ingredients</button>'
 	}
 });
 
 //Directive for adding input boxes on click
-menuItemsModule.directive("addbuttons", function($compile){
+menuItemsModule.directive('addbuttons', function($compile){
 	return function(scope, element, attrs){
-		element.bind("click", function(){
+		element.bind('click', function(){
 			scope.count++;
-			angular.element(document.getElementById('space-for-more-ingredients')).append($compile("<label>Ingredient</label><input type='text' id='itemIngredient' name='itemIngredient3' class='form-control' placeholder='Ingredient'><br><label>Quantity</label><input type ='number' class = 'form-control' min = 0 id='itemQuantity' placeholder = 'quantity' name ='itemQuantity'><br></div>")(scope));
+
+			angular.element(document.getElementById('space-for-more-ingredients')).append($compile('<div ng-init="loadInventoryItems()" data-ng-controller="InventoryController"><label>Ingredient</label><select id ="itemCategory" name ="itemCategory" class = "form-control" data-ng-model ="menuItem.itemCategory"><option  ng-repeat="item in inventoryItems" value = "Toasted Sandwiches">{{item.productName}} {{item.unit[0]}}</option></select><br><label>Quantity</label><input type ="number" class = "form-control" min = 0 id="itemQuantity" placeholder = "quantity" name ="itemQuantity"></div></div>')(scope));
+
 		});
 	};
 });
-

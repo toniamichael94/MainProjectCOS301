@@ -26,12 +26,20 @@ exports.signup = function(req, res) {
 	user.displayName = user.firstName + ' ' + user.lastName;
 	user.displayEmail = user.email;
 	user.displayUserName = user.username;
-    if(user.recipientEmailAddress1 === true){
-        user.displayRecipientEmailOption = 'Send to finance';
-    }
-    if(user.recipientEmailAddress2 === true){
-        user.displayRecipientEmailOption = 'Send to personal email account';
-    }
+
+
+        if((user.recipientEmailAddress1 === true)&&(user.recipientEmailAddress2 === false)){
+            user.displayRecipientEmailOption = 'Finance';
+        }
+        if((user.recipientEmailAddress2 === true)&&(user.recipientEmailAddress1 === false)){
+            user.displayRecipientEmailOption = 'Email account provided';
+        }
+        if((user.recipientEmailAddress2 === true)&&(user.recipientEmailAddress1 === true)){
+            user.displayRecipientEmailOption = 'Finance and email account provided';
+        }
+        if((user.recipientEmailAddress2 === false)&&(user.recipientEmailAddress1 === false)){
+            user.displayRecipientEmailOption = 'Default: email account provided';
+        }
 
 
         // Then save the user
@@ -86,7 +94,7 @@ exports.checkSuperUser = function(){
 			lastName : 'SuperUser',
 			username : 'SuperUser',
 			password : 'SuperUser',
-			email : 'email@adderss.com',
+			email : 'email@address.com',
 			recipientEmailAddress : 'email@address.com',
 			roles : 'superuser',
 			provider : 'local',
