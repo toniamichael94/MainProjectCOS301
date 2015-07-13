@@ -11,7 +11,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
         $scope.success = $scope.error = null;
 		//var ingredients1 = [{'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}, {'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}];
 		//console.log(ingredients1.ingredient);
-		var value = $scope.addMenuItemForm['itemIngredientV'].value;
+		var value = $scope.addMenuItemForm['itemIngredient'].value;
 		console.log('here'+value);
         var reqObj = {itemName: $scope.menuItem.itemNameAdd, description: $scope.menuItem.itemDescription, price:$scope.menuItem.itemPrice, 
 		category:$scope.menuItem.itemCategory, ingredients:[{'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}, {'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}]};

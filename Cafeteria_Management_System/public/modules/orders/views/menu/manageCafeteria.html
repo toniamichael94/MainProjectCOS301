@@ -45,11 +45,12 @@
 						<!--Add ingredients, only show ingredients available in databas-->
 						<div class="form-group">
 							<label>Ingredients</label>
-							<input type="text" id="itemIngredient" name="itemIngredientV" data-ng-model="menuItem.ingredient" class="form-control" placeholder="Ingredient">
+							<input type="text" id="itemIngredient" name="itemIngredient" data-ng-model="menuItem.ingredient" class="form-control" placeholder="Ingredient">
 							<br>
 							<input type="number" min = 0 id="itemQuantity" name="itemQuantity" data-ng-model="menuItem.quantity" class="form-control" placeholder="quantity">
 							<br>
 							
+							<section id="space-for-more-ingredients"></section>
 							
 							
 						</div>
@@ -70,9 +71,9 @@
 						</div>
 					</fieldset>
 				</form>
+				<addbuttonsbutton></addbuttonsbutton>
 				
-					<section id="space-for-more-ingredients"></section>
-							<addbuttonsbutton></addbuttonsbutton>
+					
 			</div>
 		</div>
 	</div>
