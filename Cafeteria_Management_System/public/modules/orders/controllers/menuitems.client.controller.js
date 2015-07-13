@@ -165,7 +165,9 @@ menuItemsModule.directive("addbuttons", function($compile){
 	return function(scope, element, attrs){
 		element.bind("click", function(){
 			scope.count++;
-			angular.element(document.getElementById('space-for-more-ingredients')).append($compile("<label>Ingredient</label><input type='text' id='itemIngredient' name='itemIngredient' class='form-control' placeholder='Ingredient'><br><label>Quantity</label><input type ='number' class = 'form-control' min = 0 id='itemQuantity' placeholder = 'quantity' name ='itemQuantity'><br></div>")(scope));
+			
+			angular.element(document.getElementById('space-for-more-ingredients')).append($compile('<div ng-init="loadInventoryItems()" data-ng-controller="InventoryController"><label>Ingredient</label><select id ="itemCategory" name ="itemCategory" class = "form-control" data-ng-model ="menuItem.itemCategory"><option  ng-repeat="item in inventoryItems" value = "Toasted Sandwiches">{{item.productName}} {{item.unit[0]}}</option></select><br><label>Quantity</label><input type ="number" class = "form-control" min = 0 id="itemQuantity" placeholder = "quantity" name ="itemQuantity"></div></div>')(scope));
+			
 		});
 	};
 });
