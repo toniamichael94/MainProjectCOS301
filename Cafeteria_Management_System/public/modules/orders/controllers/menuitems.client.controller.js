@@ -9,11 +9,10 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		$scope.createMenuItem = function(isValid) {
       if (isValid) {
         $scope.success = $scope.error = null;
-
-		var ingredients1 = [{'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}, {'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}];
-		console.log(ingredients1.ingredient);
+		//var ingredients1 = [{'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}, {'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}];
+		//console.log(ingredients1.ingredient);
         var reqObj = {itemName: $scope.menuItem.itemNameAdd, description: $scope.menuItem.itemDescription, price:$scope.menuItem.itemPrice,
-		category:$scope.menuItem.itemCategory, ingredients:ingredients1};
+		category:$scope.menuItem.itemCategory, ingredients:[{'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}, {'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}]};
         $http.post('/orders/createMenuItem', reqObj).success(function(response) {
           // If successful show success message and clear form
         $scope.success = true;//response.message;
@@ -130,7 +129,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 				$scope.error = errorResponse.data.message;
 			});
 		};
-
+		
 		$scope.show
 
 		// Find a list of menu items
@@ -150,20 +149,17 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 /*Add ingredients button*/
 
 //Directive that returns an element which adds input boxes
-
-menuItemsModule.directive("addbuttonsbutton", function(){
+menuItemsModule.directive('addmoreingredients', function(){
 	return {
-
 		restrict: 'E',
 		template: '<button addbuttons class="btn btn-large btn-primary">Add more ingredients</button>'
 	}
 });
 
 //Directive for adding input boxes on click
-
-menuItemsModule.directive("addbuttons", function($compile){
+menuItemsModule.directive('addbuttons', function($compile){
 	return function(scope, element, attrs){
-		element.bind("click", function(){
+		element.bind('click', function(){
 			scope.count++;
 			
 			angular.element(document.getElementById('space-for-more-ingredients')).append($compile('<div ng-init="loadInventoryItems()" data-ng-controller="InventoryController"><label>Ingredient</label><select id ="itemCategory" name ="itemCategory" class = "form-control" data-ng-model ="menuItem.itemCategory"><option  ng-repeat="item in inventoryItems" value = "Toasted Sandwiches">{{item.productName}} {{item.unit[0]}}</option></select><br><label>Quantity</label><input type ="number" class = "form-control" min = 0 id="itemQuantity" placeholder = "quantity" name ="itemQuantity"></div></div>')(scope));
