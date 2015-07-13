@@ -9,10 +9,12 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		$scope.createMenuItem = function(isValid) {
       if (isValid) {
         $scope.success = $scope.error = null;
-		var ingredients1 = [{'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}, {'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}];
-		console.log(ingredients1.ingredient);
+		//var ingredients1 = [{'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}, {'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}];
+		//console.log(ingredients1.ingredient);
+		var value = $scope.addMenuItemForm['itemIngredientV'].value;
+		console.log('here'+value);
         var reqObj = {itemName: $scope.menuItem.itemNameAdd, description: $scope.menuItem.itemDescription, price:$scope.menuItem.itemPrice, 
-		category:$scope.menuItem.itemCategory, ingredients:ingredients1};
+		category:$scope.menuItem.itemCategory, ingredients:[{'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}, {'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}]};
         $http.post('/orders/createMenuItem', reqObj).success(function(response) {
           // If successful show success message and clear form
         $scope.success = true;//response.message;
@@ -157,7 +159,7 @@ menuItemsModule.directive("addbuttons", function($compile){
 	return function(scope, element, attrs){
 		element.bind("click", function(){
 			scope.count++;
-			angular.element(document.getElementById('space-for-more-ingredients')).append($compile("<label>Ingredient</label><input type='text' id='itemIngredient' name='itemIngredient' class='form-control' placeholder='Ingredient'><br><label>Quantity</label><input type ='number' class = 'form-control' min = 0 id='itemQuantity' placeholder = 'quantity' name ='itemQuantity'><br></div>")(scope));
+			angular.element(document.getElementById('space-for-more-ingredients')).append($compile("<label>Ingredient</label><input type='text' id='itemIngredient' name='itemIngredient3' class='form-control' placeholder='Ingredient'><br><label>Quantity</label><input type ='number' class = 'form-control' min = 0 id='itemQuantity' placeholder = 'quantity' name ='itemQuantity'><br></div>")(scope));
 		});
 	};
 });
