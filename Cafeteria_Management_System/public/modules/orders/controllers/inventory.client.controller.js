@@ -22,7 +22,31 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 				$scope.error = errorResponse.data.message;
 			});
 		};*/
-		
+
+		// Loading the items from the inventory to display in the add ingrediants of the menu items being added
+		$scope.loadInventoryItems = function(){
+			console.log("load inventory items...");
+			$http.get('/loadInventoryItems').success(function(response) {
+				console.log("in inventory items again mwhahah");
+
+			//console.log('responce = ' + response.message); // testing
+			$scope.inventoryItems = response.message;
+			var itemsArray    = new Array();
+			var counter = 0;
+
+			for(var itemName in response.message){
+			//	console.log(itemName + " = " + response.message[itemName].productName);// testing
+				itemsArray[counter] = response.message[itemName];
+				counter++;
+			}
+
+			$scope.inventoryItems = itemsArray;
+			//	console.log('array size = ' + itemsArray.length);// testing
+
+				}).error(function(response) {
+				$scope.inventoryItems = 'Error loading inventory Items';
+			});
+		};
 		//create new inventory item
 		$scope.create = function(isValid) {
       if (isValid) {

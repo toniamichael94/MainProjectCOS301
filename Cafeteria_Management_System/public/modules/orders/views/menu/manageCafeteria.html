@@ -22,42 +22,46 @@
 							<label for="price">Price</label>
 							<input type="number" min = 0 id="itemPrice" name="itemPrice" class="form-control" data-ng-model="menuItem.itemPrice" placeholder="Price">
 						</div>
-						
+
 						<div class = "form-group">
 						<label for="category">Category</label>
-							<select id ="itemCategory" name ="itemCategory" class = "form-control" data-ng-model ="menuItem.itemCategory">
+							<select id ="itemCategory" name ="itemCategory" class = "form-control" data-ng-model ="menuItem.itemCategory" >
 								<option value = 'Toasted Sandwiches'>Toasted Sandwiches</option>
 								<option value = 'Tramezzinis'>Tramezzinis</option>
 								<option value = 'Burger Bar'>Burger Bar</option>
-								<option value = 'Daily Lunches'>Daily Lunches</option>								
+								<option value = 'Daily Lunches'>Daily Lunches</option>
 								<option value = 'Salad Bar'>Salad Bar</option>
 								<option value = 'Sweet Treats'>Sweet Treats</option>
-								<option value = 'Resale Items'>Resale Items</option>					
+								<option value = 'Resale Items'>Resale Items</option>
 								<option value = 'On The Side'>On The Side</option>
 								<option value = 'Extra'>Extra</option>
-								
+
 							</select>
 						</div>
-						
+
 						<!--Lana: Still working on this part, don't remove it-->
 						<!--track by item._id-->
 						<!--<select data-ng-model = "menuItem.itemCategory" ng-options="category as menuItem.category for category in categories"></select>-->
 						<!--Add ingredients, only show ingredients available in databas-->
-						<div class="form-group">
+						<div class="form-group" ng-init="loadInventoryItems()" data-ng-controller="InventoryController">
 							<label>Ingredients</label>
-							<input type="text" id="itemIngredient" name="itemIngredient" data-ng-model="menuItem.ingredient" class="form-control" placeholder="Ingredient">
+							<select id ="itemCategory" name ="itemCategory" class = "form-control" data-ng-model ="menuItem.itemCategory">
+								<option  ng-repeat="item in inventoryItems" value = 'Toasted Sandwiches'>{{item.productName}} {{item.unit[0]}}</option>
+							</select>
+						<!--	<input type="text" id="itemIngredient" name="itemIngredient" data-ng-model="menuItem.ingredient" class="form-control" placeholder="Ingredient"> -->
 							<br>
 							<input type="number" min = 0 id="itemQuantity" name="itemQuantity" data-ng-model="menuItem.quantity" class="form-control" placeholder="quantity">
 							<br>
-							
+
+
 							<section id="space-for-more-ingredients"></section>
-							
-							
+
+
 						</div>
 
-						
-					
-						
+
+
+
 						<div class="text-center form-group">
 							<button type="submit" class="btn btn-large btn-primary">Add</button>
 						</div>
@@ -72,8 +76,7 @@
 					</fieldset>
 				</form>
 				<addmoreingredients></addmoreingredients>
-				<button ng-click ="showStuff()">show</button>
-					
+
 			</div>
 		</div>
 	</div>
