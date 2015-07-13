@@ -27,6 +27,7 @@ exports.signup = function(req, res) {
 	user.displayEmail = user.email;
 	user.displayUserName = user.username;
 
+
         if((user.recipientEmailAddress1 === true)&&(user.recipientEmailAddress2 === false)){
             user.displayRecipientEmailOption = 'Finance';
         }

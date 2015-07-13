@@ -115,6 +115,7 @@ var UserSchema = new Schema({
     },
     recipientEmailAddress1: {
         type: Boolean,
+
         default: false,
         required: 'Select a checkbox option'
     },

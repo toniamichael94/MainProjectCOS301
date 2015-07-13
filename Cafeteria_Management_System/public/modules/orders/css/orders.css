@@ -43,16 +43,3 @@
 }
 
 /*Button end*/
-
-.jumbotron {
-    padding: 0.15em 0.15em;
-    h1 {
-        font-size: 0.2em;
-    }
-    p {
-        font-size: 0.5em;
-        .btn {
-            padding: 0.4em;
-        }
-    }
-}
