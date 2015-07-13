@@ -79,7 +79,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		//get menu items from database on the server side
 		$scope.loadMenuItems = function(){
 			$http.get('/loadMenuItems').success(function(response) {
-				// If successful show success message and clear form
+
 		  //console.log('responce = ' + response.message); // testing
 			$scope.menuItems = response.message;
 			var itemsArray    = new Array();
@@ -100,7 +100,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 			//console.log($scope.menuItems);
 		};
 
-	
+
 
 	// Remove existing menu item
 		$scope.remove = function(menuItem) {
@@ -147,10 +147,10 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 /*Add ingredients button*/
 
 //Directive that returns an element which adds input boxes
-menuItemsModule.directive("addbuttonsbutton", function(){
+menuItemsModule.directive('addmoreingredients', function(){
 	return {
-		restrict: "E",
-		template: "<button addbuttons class='btn btn-large btn-primary'>Add more ingredients</button>"
+		restrict: 'E',
+		template: '<button addbuttons class="btn btn-large btn-primary">Add more ingredients</button>'
 	}
 });
 
