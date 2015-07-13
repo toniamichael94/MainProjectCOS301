@@ -13,7 +13,6 @@ var mongoose = require('mongoose'),
 * Loading the inventory items from the database
 */
 exports.loadInventoryItems = function(req, res){
-	console.log('***********************in the inventory serverside');
 
 	Inventory.find({}, function(err, items) {
 		 var itemMap = {};
@@ -21,8 +20,6 @@ exports.loadInventoryItems = function(req, res){
 		 items.forEach(function(item) {
 			 itemMap[item._id] = item;
 		 });
-		// console.log(itemMap); // testing
-		// res.send(itemMap);
 		if(err || !itemMap) return res.status(400).send({message: 'Menu Items not found' });
 		else {
 			res.status(200).send({message: itemMap});
