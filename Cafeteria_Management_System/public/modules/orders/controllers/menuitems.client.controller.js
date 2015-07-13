@@ -147,7 +147,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 /*Add ingredients button*/
 
 //Directive that returns an element which adds input boxes
-menuItemsModule.directive("addbuttonsbutton", function(){
+menuItemsModule.directive('addmoreingredients', function(){
 	return {
 		restrict: 'E',
 		//template: "<button addbuttons class=''btn btn-large btn-primary'>Add more ingredients</button>"
