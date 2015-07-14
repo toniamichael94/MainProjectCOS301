@@ -75,9 +75,9 @@ exports.me = function(req, res) {
  * Get system wide limit
  * Last edited by {Rendani Dau}
  */
-exports.getSystemLimit = function(req, res){
+exports.getSystemLimit = function(req, res) {
     console.log('getting system limit');
-    Config.findOne({name: 'System wide limit'}, function(err, row){
+    Config.findOne({name: 'System wide limit'}, function (err, row) {
         if (err) {
             return res.status(400).send({
                 message: errorHandler.getErrorMessage(err)
@@ -86,4 +86,31 @@ exports.getSystemLimit = function(req, res){
             res.status(200).json({val: row.value});
         }
     });
+};
+/**
+ * Get the employee from the database
+ * Last edited by {Semaka Malapane and Antonia Michael}
+ */
+exports.searchEmployee=function(req,res){
+        if (req.body.username) {
+            User.findOne({
+                username: req.body.username
+            }, function (err, user) {
+                if (!user) {
+                    return res.status(400).send({
+                        message: 'No account with that username has been found'
+
+                    });
+                }   else if(user){
+                    return res.status(200).send({
+                        message: 'This user has been found'
+                    });
+                }
+            });
+        }
+        else {
+            return res.status(400).send({
+                message: 'Username field must not be blank'
+            });
+        }
 };
