@@ -1,8 +1,23 @@
 <section data-ng-controller="OrdersController" >
 
-        <h3>On My plate </h3>
+	<h3>On My plate </h3>
         <hr>
+		
+	<div class="list-group clearfix">
+		<a href="#" class="list-group-item disabled">Review and confirm your order</a>
+		<div class="list-group-item clearfix">
+			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2"  data-ng-controller="MenuItemsController">
+				<p> Placed order </p> <input class = "form-control" type = number min = 0> <input type = "checkbox" checked = true>
+				<br>
+				<button class = "btn btn-large btn-primary"> Confirm </button>
+			</div>
+		</div>
+	</div>
 
+		
+		
+		
+		
 
 
 </section>
