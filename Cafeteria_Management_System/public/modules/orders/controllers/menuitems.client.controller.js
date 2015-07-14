@@ -20,6 +20,14 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 
   }
 
+        /*
+		Add product to favourites
+		*/
+		$scope.favourite = function(itemName)
+		{
+			console.log('item'+itemName);
+			
+		};
 
 
 		 // Create new Menu Item
