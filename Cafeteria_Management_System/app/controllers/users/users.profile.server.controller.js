@@ -78,10 +78,10 @@ exports.searchEmployee=function(req,res){
         User.findOne({
             username: req.body.username
         }, function (err, user) {
-            console.log('users.profile.server.controller' + req.body.username);
             if (!user) {
                 return res.status(400).send({
                     message: 'No account with that username has been found'
+
                 });
             }   else if(user){
                 return res.status(400).send({
