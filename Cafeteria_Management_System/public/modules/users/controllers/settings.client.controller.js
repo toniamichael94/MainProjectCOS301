@@ -54,5 +54,14 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 				$scope.error = response.message;
 			});
 		};
+
+        //Get system wide limit
+        $scope.getSystemLimit = function(){
+            $http.get('/users/getSystemLimit').success(function(response){
+                angular.element(document.querySelector('#limit')).attr('max', parseInt(response.val));
+            }).error(function(response){
+                console.log(response.message);
+            });
+        };
 	}
 ]);
