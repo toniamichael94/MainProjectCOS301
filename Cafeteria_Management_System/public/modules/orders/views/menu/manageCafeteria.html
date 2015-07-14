@@ -45,12 +45,12 @@
 						</div>
 						
 						 <!-- Dynamically add ingredients -->
-						<select ng-init="loadInventoryItems()" data-ng-controller="InventoryController" ng-repeat = "ingredient in ingredients.ingredients track by $index" ng-model = 'ingredients.ingredients[$index]'/>
-								<option  ng-repeat="item in inventoryItems" >{{item.productName}} {{item.unit[0]}}</option>
+						<select class = "form-control" ng-init="loadInventoryItems()" data-ng-controller="InventoryController" ng-repeat = "ingredient in ingredients.ingredients track by $index" ng-model = 'ingredients.ingredients[$index]'/>
+								<option value="Ingredients"  ng-repeat="item in inventoryItems" >{{item.productName}} {{item.unit[0]}}</option>
 						</select> 
 						
-                       <input placeholder ="Quantity" ng-repeat = "quantity in ingredients.quantities track by $index" type = "number" min =0 ng-model = 'ingredients.quantities[$index]'/>
- 
+                       <input class = "form-control" placeholder ="Quantity" ng-repeat = "quantity in ingredients.quantities track by $index" type = "number" min =0 ng-model = 'ingredients.quantities[$index]'/>
+						
 						<!--<p>Ingredient</p>
 						<pre>{{ ingredients | json }}</pre>-->
 
