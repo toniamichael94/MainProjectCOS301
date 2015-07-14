@@ -120,6 +120,17 @@
             expect(scope.error).toEqual('Passwords do not match');
         });
 
+        it('$scope.searchEmployee() should send an error message if the employee does not exist in the database', function() {
+            // Test expected GET request
+            $httpBackend.when('POST',	'/users/password').respond(400, {
+                'message': 'Passwords do not match'
+            });
+
+            scope.changeUserPassword();
+            $httpBackend.flush();
+
+            expect(scope.error).toEqual('Passwords do not match');
+        });
 
     });
 }());

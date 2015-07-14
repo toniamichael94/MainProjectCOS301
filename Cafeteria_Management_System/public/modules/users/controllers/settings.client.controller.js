@@ -55,18 +55,13 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 			});
 		};
 
-        // Search a user profile
-        $scope.searchEmployee = function(isValid) {
-            if(isValid){
-                $scope.success = $scope.error = null;
-
-                var reqObj = {username: $scope.username};
-                $http.post('users/search', reqObj).success(function(response){
-                    $scope.success = response.message;
-                }).error(function(response){
-                    $scope.error = response.message;
-                });
-            }
+        //Get system wide limit
+        $scope.getSystemLimit = function(){
+            $http.get('/users/getSystemLimit').success(function(response){
+                angular.element(document.querySelector('#limit')).attr('max', parseInt(response.val));
+            }).error(function(response){
+                console.log(response.message);
+            });
         };
 	}
 ]);
