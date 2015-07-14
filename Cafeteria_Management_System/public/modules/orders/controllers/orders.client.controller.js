@@ -5,6 +5,7 @@ angular.module('orders').controller('OrdersController', ['$scope', '$stateParams
 	function($scope, $stateParams, $location, Authentication, Orders) {
 		$scope.authentication = Authentication;
 
+
 		// Create new Order
 		$scope.create = function() {
 			// Create new Order object
@@ -25,7 +26,7 @@ angular.module('orders').controller('OrdersController', ['$scope', '$stateParams
 
 		// Remove existing Order
 		$scope.remove = function(order) {
-			if ( order ) { 
+			if ( order ) {
 				order.$remove();
 
 				for (var i in $scope.orders) {
@@ -58,7 +59,7 @@ angular.module('orders').controller('OrdersController', ['$scope', '$stateParams
 
 		// Find existing Order
 		$scope.findOne = function() {
-			$scope.order = Orders.get({ 
+			$scope.order = Orders.get({
 				orderId: $stateParams.orderId
 			});
 		};

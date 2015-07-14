@@ -51,9 +51,14 @@ angular.module('orders').config(['$stateProvider',
 			templateUrl: 'modules/orders/views/menu/menu-extra.html'
 		}).
 		//-----------------end of menu page routes
+		// view Orders page / on my plate page
 		state('createOrder', {
 			url: '/orders/create',
 			templateUrl: 'modules/orders/views/menu/create-order.client.view.html'
+		}).
+		state('viewOrders', {
+			url: '/placeOrder/viewOrders',
+			templateUrl: 'modules/orders/views/placedorders/viewOrders.html'
 		}).
 		state('viewOrder', {
 			url: '/orders/:orderId',
