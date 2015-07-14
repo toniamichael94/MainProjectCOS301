@@ -16,20 +16,26 @@
 	<h3> View Balance </h3>
 	<hr>
       <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
+
+          <!-- Use of this code assumes agreement with the Google Custom Search Terms of Service. -->
+          <!-- The terms of service are available at http://www.google.com//cse/docs/tos.html -->
+          <form name="cse" id="searchbox_demo" action="https://www.google.com/cse">
+              <input type="hidden" name="cref" value="" />
+              <input type="hidden" name="ie" value="utf-8" />
+              <input type="hidden" name="hl" value="" />
+              <input name="q" type="number" size="40" />
+              <input type="submit" name="sa" value="Search" />
+          </form>
+          <script type="text/javascript" src="https%3A%2F%2Fcse.google.com%2Fcse/tools/onthefly?form=searchbox_demo&lang="></script>
+
+
         <form name="userForm" data-ng-submit="viewUserProfile(userForm.$valid)" class="signin form-horizontal" autocomplete="on">
             <fieldset>
+
                 <div class="form-group">
                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                     <label for="employeeID">Employee Id</label>
-                    <input type="text" id="employeeID" name="employeeID" class="form-control" data-ng-model="find" placeholder=EmployeeID>
-                    // get all the users
-               <script>
-                   users.find({username: }, function(err, users) {
-                   if (err) throw err;
-
-                   // object of all the users
-                   console.log(users);
-               });</script>
+                    <input type="text" id="employeeID" name="employeeID" class="form-control" data-ng-init="find()" placeholder=EmployeeID>
                 </div>
                 <div class="text-center form-group">
                     <button type="submit" class="btn btn-large btn-primary">Display Bill</button>
