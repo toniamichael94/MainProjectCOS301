@@ -7,7 +7,16 @@ var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
 	MenuItem = mongoose.model('MenuItem'),
 	OrderItem = mongoose.model('Order'),
+
 	_ = require('lodash');
+
+exports.inventoryItem = function(req, res) {
+
+	console.log('****** in the server ready to check inventory ' + req.body);
+	
+
+};
+
 
 /**
 * Display menu items - function getting menu items from database
@@ -20,7 +29,7 @@ MenuItem.find({}, function(err, items) {
 	 items.forEach(function(item) {
 		 itemMap[item._id] = item;
 	 });
-	// console.log(itemMap); // testing 
+	// console.log(itemMap); // testing
 	// res.send(itemMap);
 	if(err || !itemMap) return res.status(400).send({message: 'Menu Items not found' });
 	else {
