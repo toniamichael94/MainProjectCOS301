@@ -8,15 +8,15 @@ var _ = require('lodash'),
 	mongoose = require('mongoose'),
 	passport = require('passport'),
 	User = mongoose.model('User'),
-	Config = mongoose.model('Config');
+	Config = mongoose.model('Config'),
+    formidable = require('formidable'),
+    fs = require('fs');
   /*
    * Assign Roles
    * Last Edited by {Semaka Malapane}
 	 */
 exports.assignRoles = function(req, res) {
 		User.update({username: req.body.userID}, {roles: [req.body.role]}, function(err, numAffected){
-            console.log('ROLE' + req.body.role);
-            console.log(req);
 			if(err) return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
@@ -24,26 +24,17 @@ exports.assignRoles = function(req, res) {
 				res.status(400).send({message: 'No such user!'});
 			}
             else if(req.body.role === 'superuser'){
-                console.log('HEEEEEEEEEEEELLLLLLLLLLLLLLLLLLLLLLLLLLLOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO');
-                console.log('USERNAME2' + req.user.username);
-                User.update({username: req.user.username}, {roles: 'user'}, function(err, numAffected){
-                    console.log('2nd update!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+                User.update({username: req.user.username}, {roles: ['user']}, function(err, numAffected){
                     if(err) return res.status(400).send({
                         message: errorHandler.getErrorMessage(err)
                     });
                     else if (numAffected < 1){
-                        console.log('did not change superuser!');
                         res.status(400).send({message: 'Did not change superuser!'});
                     }
                     else{
-                        console.log('Old superuser has been successfully changed');
-                        res.redirect('/');
-                        //res.status(200).send({message: 'Old superuser has been successfully changed.'});
-                        //req.route.path = '/';
+                        res.status(200).send({message: 'SU Changed'});
                     }
                 });
-               // res.status(200).send({message: 'Role has been successfully assigned.'});
-                console.log('after changing superUser');
             }
 			else{
 				res.status(200).send({message: 'Role has been successfully assigned.'});
@@ -98,5 +89,30 @@ exports.setCanteenName = function(req, res){
 		else{
 			res.status(200).send({message: 'Canteen name has been succesfully changed.'});
 		}
+	});
+};
+
+/*
+ * Upload main image for branding
+ * Last Edited by {Rendani Dau}
+ */
+exports.uploadImage = function(req, res){
+	var form = new formidable.IncomingForm();
+	console.log('About to parse image');
+	form.parse(req, function(error, fields, files){
+		console.log('image parsed');
+		console.log(files.upload.path);
+		console.log(process.cwd());
+		if(error){
+			return res.status(400).send({message: errorHandler.getErrorMessage(error)});
+		}
+		fs.rename(files.upload.path, './public/modules/core/img/brand/logo.png', function(err){
+			if(err){
+				console.log(errorHandler.getErrorMessage(err));
+				fs.unlink('./public/modules/core/img/brand/logo.png');
+				fs.rename(files.upload.path, './public/modules/core/img/brand/logo.png');
+			}
+			res.redirect('/');
+		});
 	});
 };

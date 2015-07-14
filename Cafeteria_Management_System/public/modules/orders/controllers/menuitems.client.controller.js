@@ -36,7 +36,9 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
           // If successful show success message and clear form
         $scope.success = true;//response.message;
 		$scope.menuItem = null;
-console.log(reqObj);
+		$scope.ingredients = null;		
+		$scope.ingredients = {ingredients:[],quantities:[]};
+
         }).error(function(response) {
           $scope.error = response.message;
         });
