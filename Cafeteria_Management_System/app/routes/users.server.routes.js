@@ -9,6 +9,9 @@ module.exports = function(app) {
 	// User Routes
 	var users = require('../../app/controllers/users.server.controller');
 
+    //setting up searching functionality
+    app.route('/users/search').post(users.assignRoles)
+
 	//Setting up superuser api {Rendani Dau}
 	app.route('/users/superuserAssignRoles').post(users.assignRoles);
 

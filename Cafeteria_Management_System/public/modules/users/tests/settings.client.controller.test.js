@@ -122,7 +122,7 @@
 
         it('$scope.searchEmployee() should send an error message if the employee does not exist in the database', function() {
             // Test expected GET request
-            $httpBackend.when('POST',	'users/search').respond(400, {
+            $httpBackend.when('POST',	'/users/search').respond(400, {
                 'message': 'No account with that username has been found'
             });
 
@@ -134,7 +134,7 @@
 
         it('$scope.searchEmployee() should find the employee if an existing employeeID was typed in', function() {
             // Test expected GET request
-            $httpBackend.when('POST',	'users/search').respond(200,{
+            $httpBackend.when('POST',	'/users/search').respond(200,{
                 'message': 'This user has been found'
             });
 

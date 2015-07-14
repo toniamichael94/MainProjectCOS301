@@ -70,7 +70,7 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
                 $scope.success = $scope.error = null;
 
                 var reqObj = {username: $scope.username};
-                $http.post('users/search', reqObj).success(function(response){
+                $http.post('/users/search', reqObj).success(function(response){
                     $scope.success = response.message;
                 }).error(function(response){
                     $scope.error = response.message;
