@@ -4,28 +4,28 @@
 var menuItemsModule = angular.module('menuItems').controller('MenuItemsController', ['$scope', '$http', '$stateParams', '$location', 'Authentication', 'MenuItems',
 	function($scope, $http, $stateParams, $location, Authentication, MenuItems) {
 		$scope.authentication = Authentication;
-		
+
 		//$scope.ingredients = { fields: [] };
         //$scope.quantities = { fields: [] };
-		
+
 		$scope.ingredients = {ingredients:[],quantities:[]};
 
   $scope.addFormField = function() {
     //$scope.ingredients.fields.push('');
     //$scope.quantities.fields.push('');
-	
+
 	 $scope.ingredients.ingredients.push('');
 	 $scope.ingredients.quantities.push('');
 
-	
+
   }
-  
+
 
 
 		 // Create new Menu Item
 		$scope.createMenuItem = function(isValid) {
       if (isValid) {
-		  
+
 
         $scope.success = $scope.error = null;
         var reqObj = {itemName: $scope.menuItem.itemNameAdd, description: $scope.menuItem.itemDescription, price:$scope.menuItem.itemPrice,
@@ -104,7 +104,7 @@ console.log(reqObj);
 			var itemsArray    = new Array();
 			var counter = 0;
 			var inStockArray = new Array();
-			var stockVariable = 'Not in stock';
+			var stockVariable = 'In stock';
 
 			for(var itemName in response.message){
 				//console.log(itemName + " = " + response.message[itemName].itemName);// testing
@@ -183,9 +183,9 @@ menuItemsModule.directive('addbuttons', function($compile){
 	return function(scope, element, attrs){
 		element.bind('click', function(){
 			scope.count++;
-			
+
 			angular.element(document.getElementById('space-for-more-ingredients')).append($compile('<div ng-init="loadInventoryItems()" data-ng-controller="InventoryController"><label>Ingredient</label><select id ="itemCategory" name ="itemCategory" class = "form-control" data-ng-model ="menuItem.itemCategory"><option  ng-repeat="item in inventoryItems" value = "Toasted Sandwiches">{{item.productName}} {{item.unit[0]}}</option></select><br><label>Quantity</label><input type ="number" class = "form-control" min = 0 id="addedQuantity" placeholder = "quantity" name ="addedQuantity"></div></div>')(scope));
-			
+
 		});
 	};
 });
