@@ -8,7 +8,9 @@ var _ = require('lodash'),
 	mongoose = require('mongoose'),
 	passport = require('passport'),
 	User = mongoose.model('User'),
-	Config = mongoose.model('Config');
+	Config = mongoose.model('Config'),
+    formidable = require('formidable'),
+    fs = require('fs');
   /*
    * Assign Roles
    * Last Edited by {Semaka Malapane}
@@ -87,5 +89,30 @@ exports.setCanteenName = function(req, res){
 		else{
 			res.status(200).send({message: 'Canteen name has been succesfully changed.'});
 		}
+	});
+};
+
+/*
+ * Upload main image for branding
+ * Last Edited by {Rendani Dau}
+ */
+exports.uploadImage = function(req, res){
+	var form = new formidable.IncomingForm();
+	console.log('About to parse image');
+	form.parse(req, function(error, fields, files){
+		console.log('image parsed');
+		console.log(files.upload.path);
+		console.log(process.cwd());
+		if(error){
+			return res.status(400).send({message: errorHandler.getErrorMessage(error)});
+		}
+		fs.rename(files.upload.path, './public/modules/core/img/brand/logo.png', function(err){
+			if(err){
+				console.log(errorHandler.getErrorMessage(err));
+				fs.unlink('./public/modules/core/img/brand/logo.png');
+				fs.rename(files.upload.path, './public/modules/core/img/brand/logo.png');
+			}
+			res.redirect('/');
+		});
 	});
 };

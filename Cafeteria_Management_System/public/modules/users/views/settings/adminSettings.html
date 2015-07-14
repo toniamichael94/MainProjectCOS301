@@ -108,35 +108,24 @@
 </form>
 </div>
 </div>
-<!-- upload branding image -->
-<div class="list-group-item clearfix">
+	<!-- upload branding image -->
+	<div class="list-group-item clearfix">
 	<h3>Upload image for branding  </h3>
 
 	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
-		<form name="uploadImageForm" data-ng-submit="uploadFileArticleCallback(userForm.$valid)" class="signin form-horizontal" autocomplete="off">
+		<form name="uploadImageForm" action="/users/superuserUploadImage" enctype="multipart/form-data" method="post" class="signin form-horizontal" autocomplete="off">
 			<fieldset>
-				<input type="file" name="image">
+				<input type="file" id="upload" name="upload" data-ng-model="upload" class="form-control"/>
 				<div class="text-center form-group"><br>
 					<button type="submit" class="btn btn-large btn-primary">Upload Image</button>
 				</div>
-
-	  </fieldset>
-	</form>
- </div>
-</div>
-
-     <div class="form-group">
-         <label class="control-label">Images</label>
-         <mean-upload file-dest="'/packages/photos/'" upload-file-callback="uploadFileArticleCallback(file)"></mean-upload>
-         <br>
-         <ul class="list-group">
-             <li ng-repeat="image in article.images" class="list-group-item">
-                 {{image.name}}
-                 <span class="glyphicon glyphicon-remove-circle pull-right" ng-click="deletePhoto(image)"></span>
-             </li>
-         </ul>
-     </div>
-</div>
-
-
+			</fieldset>
+			<div data-ng-show="successFour" class="text-center text-success">
+			<strong>{{successFour}}</strong>
+			</div>
+			<div data-ng-show="errorFour" class="text-center text-danger">
+				<strong data-ng-bind="errorFour">{{errorFour}}</strong>
+			</div>
+		</form>
+	</div>
 </section>
