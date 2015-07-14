@@ -69,3 +69,30 @@ exports.update = function(req, res) {
 exports.me = function(req, res) {
 	res.json(req.user || null);
 };
+
+/**
+ * Search
+ */
+exports.searchEmployee=function(req,res){
+    if (req.body.username) {
+        User.findOne({
+            username: req.body.username
+        }, function (err, user) {
+            console.log('users.profile.server.controller' + req.body.username);
+            if (!user) {
+                return res.status(400).send({
+                    message: 'No account with that username has been found'
+                });
+            }   else if(user){
+                return res.status(400).send({
+                    message: 'This user has been found'
+                });
+            }
+        });
+    }
+    else {
+        return res.status(400).send({
+            message: 'Username field must not be blank'
+        });
+    }
+};

@@ -54,5 +54,21 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 				$scope.error = response.message;
 			});
 		};
+
+        // Search a user profile
+        $scope.searchEmployee = function(isValid) {
+            if(isValid){
+                $scope.success = $scope.error = null;
+                $scope.successTwo = $scope.errorTwo = null;
+
+                var reqObj = {username: $scope.username};
+                console.log('Here: '+ $scope.username);
+                $http.post('users/search', reqObj).success(function(response){
+                    $scope.successTwo = response.message;
+                }).error(function(response){
+                    $scope.errorTwo = response.message;
+                });
+            }
+        };
 	}
 ]);
