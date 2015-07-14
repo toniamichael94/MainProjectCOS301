@@ -55,6 +55,35 @@
 	</form>
 </div>
 </div>
+
+<!-- change employee ID-->
+<div class="list-group-item clearfix">
+    <h3> Change employee ID </h3>
+    <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
+        <form name="userForm" data-ng-submit="changeEmployeeID(userForm.$valid)" class="signin form-horizontal" autocomplete="on">
+            <fieldset>
+                <div class="form-group">
+                    <label for="currentEmp_id">Current Employee ID</label>
+                    <input type="text" id="currentEmp_id" name="currentEmp_id" class="form-control" data-ng-model="currentEmp_id" placeholder="Current Employee ID">
+                </div>
+                <div class="form-group">
+                    <label for="newEmp_id">New Employee ID</label>
+                    <input type="text" id="newEmp_id" name="newEmp_id" class="form-control" data-ng-model="newEmp_id" placeholder="New Employee ID">
+                </div>
+                <div class="text-center form-group">
+                    <button type="submit" class="btn btn-large btn-primary">Change Employee ID</button>
+                </div>
+                <div data-ng-show="successOne" class="text-center text-success">
+                    <strong>{{successOne}}</strong>
+                </div>
+                <div data-ng-show="errorOne" class="text-center text-danger">
+                    <strong data-ng-bind="errorOne">{{errorOne}}</strong>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
 <!-- Display set limit section  -->
 <div class="list-group-item clearfix">
 	<h3> Set system wide limit </h3>
