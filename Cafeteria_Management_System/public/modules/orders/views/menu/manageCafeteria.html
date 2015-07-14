@@ -38,20 +38,22 @@
 
 							</select>
 						</div>
-					
+
 
 						<div class="text-center form-group">
 							<button type="submit" class="btn btn-large btn-primary">Add</button>
 						</div>
-						
-						 <!-- Dynamically add ingredients -->
-						<select class = "form-control" ng-init="loadInventoryItems()" data-ng-controller="InventoryController" ng-repeat = "ingredient in ingredients.ingredients track by $index" ng-model = 'ingredients.ingredients[$index]'/>
-								<option value="Ingredients"  ng-repeat="item in inventoryItems" >{{item.productName}} {{item.unit[0]}}</option>
-						</select> 
-						
-                       <input class = "form-control" placeholder ="Quantity" ng-repeat = "quantity in ingredients.quantities track by $index" type = "number" min =0 ng-model = 'ingredients.quantities[$index]'/>
-						
-						<!--<p>Ingredient</p>
+
+				<!-- Dynamically add ingredients -->
+					<div   ng-init="loadInventoryItems()" data-ng-controller="InventoryController" ng-repeat = "ingredient in ingredients.ingredients track by $index" >
+						<select  class="form-control" ng-model = 'ingredients.ingredients[$index]'/>
+								<option  ng-repeat="item in inventoryItems" >{{item.productName}} {{item.unit[0]}}</option>
+						</select><br>
+						<input class="form-control" placeholder ="Quantity"  type = "number" min =0 ng-model = 'ingredients.quantities[$index]'/>
+						<br>
+					</div>
+										<!--<p>Ingredient</p>
+
 						<pre>{{ ingredients | json }}</pre>-->
 
 						<!--Error/Success message-->
@@ -61,16 +63,16 @@
 						<div data-ng-show="error" class="text-center text-danger">
 							<strong data-ng-bind="error"></strong>
 						</div>
-						
-						
+
+
 					</fieldset>
 				</form>
-				
+
 				<!--Dynamically add ingredients button-->
 				<button ng-click="addFormField()" class = "btn btn-large btn-primary">Add more ingredients</button>
 <div>
-      
-      
+
+
     </div>
 			</div>
 		</div>
