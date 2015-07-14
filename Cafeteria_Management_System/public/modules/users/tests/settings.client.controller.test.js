@@ -122,14 +122,27 @@
 
         it('$scope.searchEmployee() should send an error message if the employee does not exist in the database', function() {
             // Test expected GET request
-            $httpBackend.when('POST',	'/users/password').respond(400, {
-                'message': 'Passwords do not match'
+            $httpBackend.when('POST',	'/users/search').respond(400, {
+                'message': 'No account with that username has been found'
             });
 
-            scope.changeUserPassword();
+            scope.searchEmployee();
             $httpBackend.flush();
 
-            expect(scope.error).toEqual('Passwords do not match');
+            expect(scope.error).toEqual('No account with that username has been found');
+        });
+
+        it('$scope.searchEmployee() should find the employee if an existing employeeID was typed in', function() {
+            // Test expected GET request
+            $httpBackend.when('POST',	'/users/search').respond(200,{
+                'message': 'This user has been found'
+            });
+
+            scope.searchEmployee();
+            $httpBackend.flush();
+
+            // Test scope value
+            expect(scope.success).toEqual(true);
         });
 
     });
