@@ -10,6 +10,7 @@
 								Semaka Malapane (13081129)
 *
 -->
+<meta http-equiv="refresh" content="10">
 
 <section class="row" data-ng-controller="superuserController">
 	<h3> Administrative settings </h3>
@@ -95,10 +96,9 @@
 		<div class="form-group">
 			<label for="limit">Set Canteen name</label>
 			<input type="text" id="canteenName" name="canteenName" data-ng-model="canteenName" class="form-control" min = 0>
-			<p>NOTE: <br>Refresh site to view changes <br> *hint press 'F5'.
 		</div>
 		<div class="text-center form-group">
-			<button type="submit" class="btn btn-large btn-primary">Set Canteen Name</button>
+			<button type="submit" class="btn btn-large btn-primary" onclick= "location.reload(true)">Set Canteen Name</button>
 		</div>
 		<div data-ng-show="successThree" class="text-center text-success">
 			<strong>{{successThree}}</strong>

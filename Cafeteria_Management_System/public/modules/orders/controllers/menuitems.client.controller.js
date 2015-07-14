@@ -5,19 +5,38 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 	function($scope, $http, $stateParams, $location, Authentication, MenuItems) {
 		$scope.authentication = Authentication;
 
+		//$scope.ingredients = { fields: [] };
+        //$scope.quantities = { fields: [] };
+
+		$scope.ingredients = {ingredients:[],quantities:[]};
+
+  $scope.addFormField = function() {
+    //$scope.ingredients.fields.push('');
+    //$scope.quantities.fields.push('');
+
+	 $scope.ingredients.ingredients.push('');
+	 $scope.ingredients.quantities.push('');
+
+
+  }
+
+
+
 		 // Create new Menu Item
 		$scope.createMenuItem = function(isValid) {
       if (isValid) {
+
+
         $scope.success = $scope.error = null;
-		//var ingredients1 = [{'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}, {'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}];
-		//console.log(ingredients1.ingredient);
         var reqObj = {itemName: $scope.menuItem.itemNameAdd, description: $scope.menuItem.itemDescription, price:$scope.menuItem.itemPrice,
-		category:$scope.menuItem.itemCategory, ingredients:[{'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}, {'ingredient':$scope.menuItem.ingredient,'quantity':$scope.menuItem.quantity}]};
-        $http.post('/orders/createMenuItem', reqObj).success(function(response) {
+	  	  category:$scope.menuItem.itemCategory, ingredients:$scope.ingredients};
+
+
+		$http.post('/orders/createMenuItem', reqObj).success(function(response) {
           // If successful show success message and clear form
         $scope.success = true;//response.message;
 		$scope.menuItem = null;
-
+console.log(reqObj);
         }).error(function(response) {
           $scope.error = response.message;
         });
@@ -84,10 +103,15 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 			$scope.menuItems = response.message;
 			var itemsArray    = new Array();
 			var counter = 0;
+			var inStockArray = new Array();
+			var stockVariable = 'In stock';
 
 			for(var itemName in response.message){
 				//console.log(itemName + " = " + response.message[itemName].itemName);// testing
 				itemsArray[counter] = response.message[itemName];
+
+				// now check if items are indeed available in the inventory
+				itemsArray[counter].stock = stockVariable;
 			  counter++;
 			}
 
@@ -130,8 +154,6 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 			});
 		};
 
-	//	$scope.show
-
 		// Find a list of menu items
 		$scope.find = function() {
 			$scope.menuItem = MenuItems.query();
@@ -162,7 +184,7 @@ menuItemsModule.directive('addbuttons', function($compile){
 		element.bind('click', function(){
 			scope.count++;
 
-			angular.element(document.getElementById('space-for-more-ingredients')).append($compile('<div ng-init="loadInventoryItems()" data-ng-controller="InventoryController"><label>Ingredient</label><select id ="itemCategory" name ="itemCategory" class = "form-control" data-ng-model ="menuItem.itemCategory"><option  ng-repeat="item in inventoryItems" value = "Toasted Sandwiches">{{item.productName}} {{item.unit[0]}}</option></select><br><label>Quantity</label><input type ="number" class = "form-control" min = 0 id="itemQuantity" placeholder = "quantity" name ="itemQuantity"></div></div>')(scope));
+			angular.element(document.getElementById('space-for-more-ingredients')).append($compile('<div ng-init="loadInventoryItems()" data-ng-controller="InventoryController"><label>Ingredient</label><select id ="itemCategory" name ="itemCategory" class = "form-control" data-ng-model ="menuItem.itemCategory"><option  ng-repeat="item in inventoryItems" value = "Toasted Sandwiches">{{item.productName}} {{item.unit[0]}}</option></select><br><label>Quantity</label><input type ="number" class = "form-control" min = 0 id="addedQuantity" placeholder = "quantity" name ="addedQuantity"></div></div>')(scope));
 
 		});
 	};
