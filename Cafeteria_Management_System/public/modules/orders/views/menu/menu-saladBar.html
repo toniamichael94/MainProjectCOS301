@@ -48,10 +48,11 @@
        </a>
 
 
-      <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:salidBar"><h3>{{item.itemName}}  <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}}
+      <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:salidBar"><h3>
+          <span data-ng-show="item.stock"><input type="checkbox" name='{{item.itemName}}'  value='{{item.itemName}}' > </span>
+          {{item.itemName}}  <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}}
           <form>
             <span data-ng-show="item.stock === 'Not in stock'" style="color:red"><h3> {{item.stock}} </h3></span>
-            <span data-ng-show="item.stock === 'In stock'"><input type="checkbox" name={{item.itemName}}  value={{item.itemName}} > </span>
           </form>
       </h5>
       </div>
