@@ -10,6 +10,7 @@ module.exports = function(app) {
 	// check inventory items:
 	app.route('/inventoryItems').get(menuItems.inventoryItems);
 	app.route('/inventoryItems').post(menuItems.inventoryItems);
+    app.route('/menu/search').post(menuItems.searchMenu);
 
 
 
