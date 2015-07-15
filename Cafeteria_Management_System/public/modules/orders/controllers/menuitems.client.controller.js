@@ -109,78 +109,55 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 
 
 		//get menu items from database on the server side
+
 		$scope.loadMenuItems = function(){
 			$http.get('/loadMenuItems').success(function(response) {
 
-		  //console.log('responce = ' + response.message); // testing
+		  console.log(response.message); // testing
 			$scope.menuItems = response.message;
-			var itemsArray    = new Array();
-			var counter = 0;
-			var inStockArray = new Array();
-			var stockVariable1 = 'In stock';
-			var stockVariable2 = 'Not in stock';
+
+			var inStock = true;
+			//var notInStock = 'Not in stock';
 
 			for(var itemName in response.message){
-				//console.log(itemName + " = " + response.message[itemName].itemName);// testing
-				itemsArray[counter] = response.message[itemName];
-
-				console.log('******** ' + response.message[itemName].itemInStock);
-				// now check if items are indeed available in the inventory
-				if(response.message[itemName].itemInStock == false){ // then item is marked as out of stock by cafeteria manager for reasons other than inventory
-						itemsArray[counter].stock = stockVariable2;
+				$scope.menuItems[itemName].stock = true;
+				// now check if the inventory items are indeed available
+				if(response.message[itemName].itemInStock === false){ // then item is marked as out of stock by cafeteria manager for reasons other than inventory
+							$scope.menuItems[itemName].stock = false;
 				}else{ // check the inventory if all items are available
-						var enoughInventory = true;
-						var countAvailableInventory = 0;
-						var countIngredients = 0;
+
 						for(var inventoryItem in response.message[itemName].ingredients.ingredients){
 							var name = response.message[itemName].ingredients.ingredients[inventoryItem]; // name of ingredient
 							var quantity = response.message[itemName].ingredients.quantities[inventoryItem];
-							countIngredients++;
 							// now check that the amount in the inventory is more than the amount needed for this menu item
-
 								console.log('name = ' +name + ' amount = ' + quantity);
 								var ingredient = {
 									ingredientName: name,
 									ingredientQuantity: quantity
 								}
-								var a = quantity;
-								console.log(quantity + ' pppppppp');
+
 								$http.post('/inventoryItems', ingredient).success(function(response2) {
-									console.log(quantity);
-									console.log('******1 '+response2.message[0].quantity );
-									console.log('******2 '+ a );
-									console.log(response2.message[0].quantity >= a);
-										if(response2.message[0].quantity >= quantity){
-											console.log('++++++++++++');
-											countAvailableInventory++; // since enough of an item item is indeed available to use
+							if(response2.message[0][0].quantity >= response2.message[1]){
+									if($scope.menuItems[itemName].stock != false){
+												$scope.menuItems[itemName].stock = true;
+											}
 										}else {
-											enoughInventory = false;
+												$scope.menuItems[itemName].stock = false;
 										}
 									}).error(function(response2) {
 						          $scope.error = response2.message;
 						      });
-									console.log(enoughInventory + '......') ;
-									if(countIngredients === countAvailableInventory){
-										itemsArray[counter].stock = stockVariable1;
-									}else{
-										itemsArray[counter].stock = stockVariable2;
-									}
-								/*	if(enoughInventory === false){
-										itemsArray[counter].stock = stockVariable2;
-									}
-									if(enoughInventory === true){
-										itemsArray[counter].stock = stockVariable1;
-									}*/
+
+
+
 						}
-						console.log('ingrediants = ' + countAvailableInventory);
 
 
 				}
 				//itemsArray[counter].stock = stockVariable1;
-			  counter++;
 			}
 
-			$scope.menuItems = itemsArray;
+		//	$scope.menuItems = itemsArray;
 		  //	console.log('array size = ' + itemsArray.length);// testing
 
 				}).error(function(response) {
