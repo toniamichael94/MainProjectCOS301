@@ -16,14 +16,6 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 			$scope.ingredients.quantities.push('');
 		};
 
-        /*
-		Add product to favourites
-		*/
-		$scope.favourite = function(itemName)
-		{
-			console.log('item'+itemName);
-			
-		};
 
 
 		 // Create new Menu Item
@@ -39,9 +31,9 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		$http.post('/orders/createMenuItem', reqObj).success(function(response) {
           // If successful show success message and clear form
         $scope.success = true;//response.message;
-				$scope.menuItem = null;
-				$scope.ingredients = null;
-				$scope.ingredients = {ingredients:[],quantities:[]};
+		$scope.menuItem = null;
+		$scope.ingredients = null;		
+		$scope.ingredients = {ingredients:[],quantities:[]};
 
         }).error(function(response) {
           $scope.error = response.message;
@@ -107,14 +99,15 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 
 		  //console.log('responce = ' + response.message); // testing
 			$scope.menuItems = response.message;
-			var itemsArray    = new Array(); // this array will store all the menu items
+			var itemsArray    = new Array();
 			var counter = 0;
-			var inStockArray = new Array(); // this array will store all the variables saying if an item is in stock or not
-			var stockVariable1 = 'In stock';
-			var stockVariable2 = 'Not in stock';
+			var inStockArray = new Array();
+			var stockVariable = 'In stock';
 
 			for(var itemName in response.message){
+				//console.log(itemName + " = " + response.message[itemName].itemName);// testing
 				itemsArray[counter] = response.message[itemName];
+
 				console.log('******** ' + response.message[itemName].itemInStock);
 				// now check if items are indeed available in the inventory
 				if(response.message[itemName].itemInStock == false){ // then item is marked as out of stock by cafeteria manager for reasons other than inventory
@@ -128,13 +121,9 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 
 							// now check that the amount in the inventory is more than the amount needed for this menu item
 
-								console.log('name = ' +name + ' amount = ' + quantity);
-								//$http.post('/inventoryItem', name).success(function(response){} );
 
-						}
-
-				}
-				itemsArray[counter].stock = stockVariable1;
+				// now check if items are indeed available in the inventory
+				itemsArray[counter].stock = stockVariable;
 			  counter++;
 			}
 
@@ -207,7 +196,7 @@ menuItemsModule.directive('addbuttons', function($compile){
 		element.bind('click', function(){
 			scope.count++;
 
-			angular.element(document.getElementById('space-for-more-ingredients')).append($compile('<div ng-init="loadInventoryItems()" data-ng-controller="InventoryController"><label>Ingredient</label><select id ="itemCategory" name ="itemCategory" class = "form-control" data-ng-model ="menuItem.itemCategory"><option  ng-repeat="item in inventoryItems" value = "Toasted Sandwiches">{{item.productName}}</option></select><br><label>Quantity</label><input type ="number" class = "form-control" min = 0 id="addedQuantity" placeholder = "quantity" name ="addedQuantity"></div></div>')(scope));
+			angular.element(document.getElementById('space-for-more-ingredients')).append($compile('<div ng-init="loadInventoryItems()" data-ng-controller="InventoryController"><label>Ingredient</label><select id ="itemCategory" name ="itemCategory" class = "form-control" data-ng-model ="menuItem.itemCategory"><option  ng-repeat="item in inventoryItems" value = "Toasted Sandwiches">{{item.productName}} {{item.unit[0]}}</option></select><br><label>Quantity</label><input type ="number" class = "form-control" min = 0 id="addedQuantity" placeholder = "quantity" name ="addedQuantity"></div></div>')(scope));
 
 		});
 	};

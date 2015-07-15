@@ -6,11 +6,7 @@ module.exports = function(app) {
 
 	//Display Menu Items
 	app.route('/loadMenuItems').get(menuItems.loadMenuItems);
-
-	// check inventory items:
-	app.route('/inventoryItem').get(menuItems.loadMenuItems);
-
-
+	
 	//create order
 	app.route('/orders/createMenuItem').post(menuItems.createMenuItem);
 

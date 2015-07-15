@@ -69,6 +69,24 @@
             expect(scope.error).toEqual('No such user');
         });
 
+        it('$scope.changeEmployeeID() should not change employeeID if the user is not in the database', function() {
+            // Test expected GET request
+            $httpBackend.expectPOST('/users/superuserAssignRoles').respond(400, {'message': 'No such user'});
+            scope.assignRoles(true);
+            $httpBackend.flush();
+
+            expect(scope.error).toEqual('No such user');
+        });
+
+        it('$scope.assignRoles() should not let superuser assign roles', function() {
+            // Test expected GET request
+            $httpBackend.expectPOST('/users/superuserAssignRoles').respond(400, {'message': 'No such user'});
+            scope.assignRoles(true);
+            $httpBackend.flush();
+
+            expect(scope.error).toEqual('No such user');
+        });
+
         it('$scope.setSystemWideLimit() should let superuser set limit', function() {
             // Test expected GET request
             $httpBackend.when('POST',	'users/superuserSetSystemWideLimit').respond(200, {'message': 'Limit has been successfully changed.'});

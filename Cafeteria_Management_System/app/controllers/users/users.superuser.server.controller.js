@@ -43,6 +43,26 @@ exports.assignRoles = function(req, res) {
 };
 
 /*
+ * Change Employee ID
+ * Last Edited by {Semaka Malapane and Tonia Michael}
+ */
+exports.changeEmployeeID = function(req, res) {
+    User.update({username: req.body.currentUserID}, {username: [req.body.newUserID]}, function(err, numAffected){
+        console.log('current user id ' + req.body.currentUserID);
+        console.log('new user id ' + req.body.newUserID);
+        if(err) return res.status(400).send({
+            message: errorHandler.getErrorMessage(err)
+        });
+        else if (numAffected < 1){
+            res.status(400).send({message: 'No such user!'});
+        }
+        else{
+            res.status(200).send({message: 'Employee ID has been successfully changed.'});
+        }
+    });
+};
+
+/*
 * Set System Wide Limit
 * Last Edited by {Rendani Dau}
 */
@@ -99,10 +119,9 @@ exports.setCanteenName = function(req, res){
 exports.uploadImage = function(req, res){
 	var form = new formidable.IncomingForm();
 	console.log('About to parse image');
+    console.log(req);
 	form.parse(req, function(error, fields, files){
 		console.log('image parsed');
-		console.log(files.upload.path);
-		console.log(process.cwd());
 		if(error){
 			return res.status(400).send({message: errorHandler.getErrorMessage(error)});
 		}

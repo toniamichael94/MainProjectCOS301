@@ -7,72 +7,91 @@ var _ = require('lodash'),
 	errorHandler = require('../errors.server.controller'),
 	mongoose = require('mongoose'),
 	passport = require('passport'),
-	User = mongoose.model('User');
+	User = mongoose.model('User'),
+    Config = mongoose.model('Config');
 
 /**
  * Signup
+ * Last edited by {Rendani Dau}
+ * added check to see if limit is less than system wide limit
  */
 exports.signup = function(req, res) {
 	// For security measurement we remove the roles from the req.body object
 	delete req.body.roles;
 
-	if(req.body.password === req.body.confirmPassword){
-	// Init Variables
-	var user = new User(req.body);
-	var message = null;
+    Config.findOne({name: 'System wide limit'}, function(err, row){
+        if(!err && row){
+            if(req.body.limit > row.value){
+                return res.status(400).send({message: 'Limit cannot exceed ' + row.value});
+            }
+            else{
+                if(req.body.password === req.body.confirmPassword){
+                    // Init Variables
+                    var user = new User(req.body);
+                    var message = null;
 
-	// Add missing user fields
-	user.provider = 'local';
-	user.displayName = user.firstName + ' ' + user.lastName;
-	user.displayEmail = user.email;
-	user.displayUserName = user.username;
-
-
-        if((user.recipientEmailAddress1 === true)&&(user.recipientEmailAddress2 === false)){
-            user.displayRecipientEmailOption = 'Finance';
-        }
-        if((user.recipientEmailAddress2 === true)&&(user.recipientEmailAddress1 === false)){
-            user.displayRecipientEmailOption = 'Email account provided';
-        }
-        if((user.recipientEmailAddress2 === true)&&(user.recipientEmailAddress1 === true)){
-            user.displayRecipientEmailOption = 'Finance and email account provided';
-        }
-        if((user.recipientEmailAddress2 === false)&&(user.recipientEmailAddress1 === false)){
-            user.displayRecipientEmailOption = 'Default: email account provided';
-        }
+                    // Add missing user fields
+                    user.provider = 'local';
+                    user.displayName = user.firstName + ' ' + user.lastName;
+                    user.displayEmail = user.email;
+                    user.displayUserName = user.username;
 
 
-        // Then save the user
-	user.save(function(err) {
+                    if((user.recipientEmailAddress1 === true)&&(user.recipientEmailAddress2 === false)){
+                        user.displayRecipientEmailOption = 'Finance';
+                    }
+                    if((user.recipientEmailAddress2 === true)&&(user.recipientEmailAddress1 === false)){
+                        user.displayRecipientEmailOption = 'Email account provided';
+                    }
+                    if((user.recipientEmailAddress2 === true)&&(user.recipientEmailAddress1 === true)){
+                        user.displayRecipientEmailOption = 'Finance and email account provided';
+                    }
+                    if((user.recipientEmailAddress2 === false)&&(user.recipientEmailAddress1 === false)){
+                        user.displayRecipientEmailOption = 'Default: email account provided';
+                    }
 
-            if (err) {
-                return res.status(400).send({
-                    message: errorHandler.getErrorMessage(err)
-                });
-            } else {
-               // if (user.password === user.confirmPassword) {
-                    // Remove sensitive data before login
-                    user.password = undefined;
-                    user.salt = undefined;
 
-                    req.login(user, function(err) {
+                    // Then save the user
+                    user.save(function(err) {
+
                         if (err) {
-                            res.status(400).send(err);
+                            return res.status(400).send({
+                                message: errorHandler.getErrorMessage(err)
+                            });
                         } else {
-                            res.json(user);
+                            // if (user.password === user.confirmPassword) {
+                            // Remove sensitive data before login
+                            user.password = undefined;
+                            user.salt = undefined;
+
+                            req.login(user, function(err) {
+                                if (err) {
+                                    res.status(400).send(err);
+                                } else {
+                                    res.json(user);
+                                }
+                            });
+                            /*}else {
+                             return res.status(400).send({
+                             message: 'Passwords do not match'
+                             });
+                             }*/
                         }
                     });
-            /*}else {
-                    return res.status(400).send({
-                        message: 'Passwords do not match'
-                    });
-                }*/
+                }
+                else {
+                    return res.status(400).send({message: 'Passwords do not match.'});
+                }
+            }
         }
-	});
-}
-else {
-	return res.status(400).send({message: 'Passwords do not match.'});
-}
+        else{
+            return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+        }
+    });
+
+
 };
 
 //load the canteen name
