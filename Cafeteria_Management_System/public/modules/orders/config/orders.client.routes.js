@@ -16,7 +16,7 @@ angular.module('orders').config(['$stateProvider',
 		}).
 		state('menuTramazini', {
 			url: '/menu/tramezzinis',
-			templateUrl: 'modules/orders/views/menu/menu-tramizini.html'
+			templateUrl: 'modules/orders/views/menu/menu-Tramezzinis.html'
 		}).
 		state('menuToastedSandwiches', {
 			url: '/menu/toastedSandwiches',
