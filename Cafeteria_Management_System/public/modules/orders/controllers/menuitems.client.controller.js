@@ -31,7 +31,20 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 
 		};
 
+//search for item
+        $scope.searchMenu = function(isValid) {
+            if(isValid){
+                $scope.successOne = $scope.errorOne = null;
+                console.log("Menu item searched for issssss: "+$scope.menuNameSearch.toLowerCase());
 
+                var reqObj = {itemName: $scope.menuNameSearch.toLowerCase()};
+                $http.post('/menu/search', reqObj).success(function(response){
+                    $scope.successOne = response.message;
+                }).error(function(response){
+                    $scope.errorOne = response.message;
+                });
+            }
+        };
 
 		 // Create new Menu Item
 		$scope.createMenuItem = function(isValid) {
