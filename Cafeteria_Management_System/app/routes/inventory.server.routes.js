@@ -9,6 +9,12 @@ module.exports = function(app) {
 	//create order
 	app.route('/orders/create').post(inventory.create);
 
+    //search route
+    app.route('/orders/search').post(inventory.searchInventory);
+
+    //update route
+    app.route('/orders/update').post(inventory.updateInventory);
+
 	// Inventory Routes
 	app.route('/orders')
 		.get(inventory.list)
@@ -20,6 +26,7 @@ module.exports = function(app) {
 		.delete(users.requiresLogin, inventory.hasAuthorization, inventory.delete);
 
 	// Finish by binding the Order middleware
-	app.param('invnetoryId', inventory.orderByID);
+	app.param('inventoryId', inventory.orderByID);
+
 
 };

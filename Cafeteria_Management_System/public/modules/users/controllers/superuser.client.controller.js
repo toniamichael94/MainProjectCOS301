@@ -28,6 +28,22 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 			}
 		  };
 
+        //Change user's employee ID
+        $scope.changeEmployeeID = function(isValid) {
+            if (isValid) {
+                $scope.successOne = $scope.errorOne = null;
+                var reqObj = {currentUserID: $scope.currentEmp_id, newUserID: $scope.newEmp_id};
+
+                $http.post('/users/superuserChangeEmployeeID', reqObj).success(function(response) {
+                    // If successful show success message and clear form
+                    $scope.successOne = response.message;
+                    $scope.currentEmp_id = $scope.newEmp_id = null;
+                }).error(function(response) {
+                    $scope.errorOne = response.message;
+                });
+            }
+        };
+
 		//Set system limit
 		$scope.setSystemWideLimit = function(isValid){
 			if(isValid){
@@ -51,22 +67,6 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 				$scope.successTwo = $scope.errorTwo = null;
 
 				var reqObj = {name: 'Canteen name', value: $scope.canteenName};
-				//console.log($scope.canteenName);
-				$http.post('users/superuserSetCanteenName', reqObj).success(function(response){
-					$scope.successThree = response.message;
-				}).error(function(response){
-					$scope.errorThree = response.message;
-				});
-			}
-		};
-
-		//Set image
-		$scope.setImage = function(isValid){
-			if(isValid){
-				$scope.success = $scope.error = null;
-				$scope.successTwo = $scope.errorTwo = null;
-
-				var reqObj = {name: 'Canteen name', value: $scope.image};
 				//console.log($scope.canteenName);
 				$http.post('users/superuserSetCanteenName', reqObj).success(function(response){
 					$scope.successThree = response.message;

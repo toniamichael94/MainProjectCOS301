@@ -22,8 +22,10 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 				$scope.error = errorResponse.data.message;
 			});
 		};*/
+		
+		
 
-		// Loading the items from the inventory to display in the add ingrediants of the menu items being added
+		// Loading the items from the inventory to display in the add ingredients of the menu items being added
 		$scope.loadInventoryItems = function(){
 			$http.get('/loadInventoryItems').success(function(response) {
 			$scope.inventoryItems = response.message;
@@ -99,5 +101,32 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 				inventoryItemId: $stateParams.inventoryItemId
 			});
 		};
+
+        // Search inventory
+        $scope.searchInventory = function(isValid) {
+            if(isValid){
+                $scope.successOne = $scope.errorOne = null;
+                var reqObj = {productName: $scope.itemNameSearch};
+                $http.post('/orders/search', reqObj).success(function(response){
+                    $scope.successOne = response.message;
+                }).error(function(response){
+                    $scope.errorOne = response.message;
+                });
+            }
+        };
+
+        // Update inventory
+        $scope.updateInventory = function(isValid) {
+            console.log('client side');
+            if(isValid){
+                $scope.successTwo = $scope.errorTwo = null;
+                var reqObj = {prodName: $scope.itemName, unit: $scope.unit, quantity:$scope.quantity};
+                $http.post('/orders/update', reqObj).success(function(response){
+                    $scope.successTwo = response.message;
+                }).error(function(response){
+                    $scope.errorTwo = response.message;
+                });
+            }
+        };
 	}
 ]);

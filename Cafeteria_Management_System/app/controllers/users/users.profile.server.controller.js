@@ -7,7 +7,8 @@ var _ = require('lodash'),
 	errorHandler = require('../errors.server.controller.js'),
 	mongoose = require('mongoose'),
 	passport = require('passport'),
-	User = mongoose.model('User');
+	User = mongoose.model('User'),
+    Config = mongoose.model('Config');
 
 /**
  * Update user details
@@ -71,28 +72,45 @@ exports.me = function(req, res) {
 };
 
 /**
- * Search
+ * Get system wide limit
+ * Last edited by {Rendani Dau}
+ */
+exports.getSystemLimit = function(req, res) {
+    console.log('getting system limit');
+    Config.findOne({name: 'System wide limit'}, function (err, row) {
+        if (err) {
+            return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+        } else {
+            res.status(200).json({val: row.value});
+        }
+    });
+};
+/**
+ * Get the employee from the database
+ * Last edited by {Semaka Malapane and Antonia Michael}
  */
 exports.searchEmployee=function(req,res){
-    if (req.body.username) {
-        User.findOne({
-            username: req.body.username
-        }, function (err, user) {
-            if (!user) {
-                return res.status(400).send({
-                    message: 'No account with that username has been found'
+        if (req.body.username) {
+            User.findOne({
+                username: req.body.username
+            }, function (err, user) {
+                if (!user) {
+                    return res.status(400).send({
+                        message: 'No account with that username has been found'
 
-                });
-            }   else if(user){
-                return res.status(400).send({
-                    message: 'This user has been found'
-                });
-            }
-        });
-    }
-    else {
-        return res.status(400).send({
-            message: 'Username field must not be blank'
-        });
-    }
+                    });
+                }   else if(user){
+                    return res.status(200).send({
+                        message: 'This user has been found'
+                    });
+                }
+            });
+        }
+        else {
+            return res.status(400).send({
+                message: 'Username field must not be blank'
+            });
+        }
 };

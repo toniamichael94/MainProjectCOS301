@@ -125,3 +125,50 @@ exports.hasAuthorization = function(req, res, next) {
 	}
 	next();
 };
+
+exports.searchInventory=function(req,res){
+    if (req.body.productName) {
+        Inventory.findOne({
+            productName: req.body.productName
+        }, function (err, inventory) {
+            if (!inventory) {
+                return res.status(400).send({
+                    message: 'Inventory item not found'
+                });
+            }   else if(inventory){
+                return res.status(200).send({
+                    message: 'This inventory item has been found'
+                });
+            }
+        });
+    }
+    else {
+        return res.status(400).send({
+            message: 'The inventory item field must not be blank'
+        });
+    }
+};
+
+exports.updateInventory=function(req,res){
+    console.log('updateInventory'+ req.body.prodName);
+    if (req.body.prodName) {
+        Inventory.findOne({
+            productName: req.body.prodName
+        }, function (err, inventory) {
+            if (!inventory) {
+                return res.status(400).send({
+                    message: 'Inventory item not found'
+                });
+            }   else if(inventory){
+                return res.status(200).send({
+                    message: 'This inventory item has been found'
+                });
+            }
+        });
+    }
+    else {
+        return res.status(400).send({
+            message: 'The inventory item field must not be blank'
+        });
+    }
+};

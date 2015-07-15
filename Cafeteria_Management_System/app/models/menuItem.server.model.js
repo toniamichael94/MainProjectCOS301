@@ -16,10 +16,6 @@ var MenuItemSchema = new Schema({
 		required: 'Please fill in the item name',
 		trim: true
 	},
-	itemInStock: {
-		type: Boolean,
-		default:true
-	},
 	created: {
 		type: Date,
 		default: Date.now

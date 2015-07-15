@@ -27,6 +27,7 @@ exports.inventoryItems = function(req, res) {
 };
 
 
+
 /**
 * Display menu items - function getting menu items from database
 */

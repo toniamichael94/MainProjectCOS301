@@ -1,7 +1,7 @@
 <section class="row">
 	<h3> Inventory </h3>
 	<hr>
-
+	
 		<div class="list-group clearfix" data-ng-controller="InventoryController">
 		<a href="#" class="list-group-item disabled">Add Item</a>
 		<div class="list-group-item clearfix">
@@ -11,19 +11,18 @@
 				<form name="addInventoryItemForm" data-ng-submit="create(addInventoryItemForm.$valid)" class="signin form-horizontal" autocomplete="off">
 					<fieldset>
 						<div class="form-group">
-							<label for="itemName">Item Name</label>
+							<label for="itemAddName">Item Name</label>
 							<input type="text" id="itemAddName" name="itemAddName" class="form-control" data-ng-model="inventory.itemName" placeholder="Item Name">
 						</div>
 
 						<div class="form-group">
-							<label for="quantity">Quantity</label>
+							<label for="itemQuantity">Quantity</label>
 							<input type="number" min = 0 id="itemQuantity" name="itemQuantity" class="form-control" data-ng-model="inventory.quantity" placeholder="Quantity">
 						</div>
 
 						<div class="form-group">
-							<label for="unit">Unit</label>
+							<label for="itemUnit">Unit</label>
 							<input type="text" id="itemUnit" name="itemUnit" class="form-control" data-ng-model="inventory.unit" placeholder="Unit">
-							<p> example: slices, grams, etc. </p>
 						</div>
 
 						<div class="text-center form-group">
@@ -42,44 +41,74 @@
 			</div>
 		</div>
 	</div>
-
-
-
+	
 	<div class="list-group clearfix" data-ng-controller="InventoryController">
 		<a href="#" class="list-group-item disabled">Search Item</a>
 		<div class="list-group-item clearfix">
 			<h3> Search Item </h3>
 			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
-				<form name="searchInventoryForm" class="signin form-horizontal" autocomplete="off">
+				<form name="searchInventoryForm" data-ng-submit="searchInventory(searchInventoryForm.$valid)" class="signin form-horizontal" autocomplete="off">
 					<!--Search for a menu item-->
 					<h4>Search an item</h4>
 					<div class = "form-group">
-						<input type="text" id="itemNameSearch" name ="itemNameSearch" class = "form-control" data-ng-model="inventory.itemNameS" placeholder="Item Name">
+						<input type="text" id="itemNameSearch" name ="itemNameSearch" class = "form-control" data-ng-model="itemNameSearch" placeholder="Item Name">
 					</div>
 
 					<div class = "text-center form-group">
-						<button type = "submit" class = "btn btn-large btn-primary" ng-submit="inventory.findOne()" >Search</button>
+						<button type = "submit" class = "btn btn-large btn-primary"><!--ng-submit="inventory.findOne()"--> Search</button>
 					</div>
+                </form>
 
-					<!--Error/Success message-->
-					<div data-ng-show="success" class="text-center text-success">
-						<strong>Action completed successfully.</strong>
+					<!--Success: ability to update the item -->
+					<div data-ng-show="successOne" class="text-center text-success">
+						<!--strong data-ng-bind="successOne"></strong-->
+                        <form name="updateInventoryForm" data-ng-hide="successTwo" data-ng-hide="errorTwo" data-ng-submit="updateInventory(updateInventoryForm.$valid)" class="signin form-horizontal" autocomplete="off">
+                            <!--Update an inventory item-->
+                            <h4>Update item</h4>
+                            <div class="form-group">
+                                <label for="itemName">Item Name</label>
+                                <input type="text" id="itemName" name="itemName" class="form-control" data-ng-model="itemName" placeholder={{itemNameSearch}}>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Quantity">Quantity</label>
+                                <input type="number" min =0 id="Quantity" name="Quantity" class="form-control" data-ng-model="quantity" placeholder="Quantity">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Unit">Unit</label>
+                                <input type="text" id="Unit" name="Unit" class="form-control" data-ng-model="unit" placeholder="Unit">
+                            </div>
+
+                            <div class = "text-center form-group">
+                                <button type = "submit" class = "btn btn-large btn-primary"><!--ng-submit="inventory.findOne()"--> Update</button>
+                            </div>
+                        </form>
+
+                        <!--Error message-->
+                        <div data-ng-show="errorTwo" class="text-center text-danger">
+                            <strong data-ng-bind="errorTwo"></strong>
+                        </div>
+                        <!--success message-->
+                        <div data-ng-show="successTwo" class="text-center text-danger">
+                            <strong data-ng-bind="successTwo"></strong>
+                        </div>
 					</div>
-					<div data-ng-show="error" class="text-center text-danger">
-						<strong data-ng-bind="error"></strong>
+                    <!--Error message-->
+					<div data-ng-show="errorOne" class="text-center text-danger">
+						<strong data-ng-bind="errorOne"></strong>
 					</div>
 					<br>
-				</form>
 			</div>
 		</div>
 	</div>
-
+	
 	<div class="list-group clearfix" data-ng-controller="InventoryController">
 		<a href="#" class="list-group-item disabled">Inventory Quantity</a>
 		<div class="list-group-item clearfix">
 			<h3> Edit quantity of items </h3>
 			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
-				<form name="manageInventoryForm" data-ng-submit="inventory.manageInventory()" class="signin form-horizontal" autocomplete="off">
+				<form name="manageInventoryForm" data-ng-submit="inventory.manageInventoryQuantities()" class="signin form-horizontal" autocomplete="off">
 					<fieldset>
 						<div class="form-group">
 							<div class="text-center form-group">
@@ -91,23 +120,15 @@
 							<div data-ng-show="error" class="text-center text-danger">
 								<strong data-ng-bind="error"></strong>
 							</div>
-							<h4>
-							<label>
-								<input type="number" class="form-control" min = 0> Cheese
-							</label> <br><br>
-							<label>
-								<input type="number" class="form-control" min = 0> Cheese
-							</label> <br><br>
-							<label>
-								<input type="number" class="form-control" min = 0> Cheese
-							</label> <br><br>
-							<label>
-								<input type="number" class="form-control" min = 0> Cheese
-							</label> <br><br>
-							<label>
-								<input type="number" class="form-control" min = 0> Cheese
-							</label> <br><br>
-							</h4>
+							
+							<div ng-init="loadInventoryItems()" data-ng-controller="InventoryController" >	
+								<div ng-repeat="item in inventoryItems|orderBy:'productName'">
+									<p>{{item.productName}}</p>
+									<input type = "number" value = {{item.quantity}}>
+									<br><br>									
+								</div>
+							</div>
+							
 						</div>
 					</fieldset>
 				</form>
