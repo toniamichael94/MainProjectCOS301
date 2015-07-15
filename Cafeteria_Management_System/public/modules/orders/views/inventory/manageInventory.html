@@ -55,18 +55,50 @@
 					</div>
 
 					<div class = "text-center form-group">
-						<button type = "submit" class = "btn btn-large btn-primary" ng-submit="inventory.findOne()" >Search</button>
+						<button type = "submit" class = "btn btn-large btn-primary"><!--ng-submit="inventory.findOne()"--> Search</button>
 					</div>
+                </form>
 
-					<!--Error/Success message-->
+					<!--Success: ability to update the item -->
 					<div data-ng-show="successOne" class="text-center text-success">
-						<strong data-ng-bind="successOne"></strong>
+						<!--strong data-ng-bind="successOne"></strong-->
+                        <form name="updateInventoryForm" data-ng-hide="successTwo" data-ng-hide="errorTwo" data-ng-submit="updateInventory(updateInventoryForm.$valid)" class="signin form-horizontal" autocomplete="off">
+                            <!--Update an inventory item-->
+                            <h4>Update item</h4>
+                            <div class="form-group">
+                                <label for="itemName">Item Name</label>
+                                <input type="text" id="itemName" name="itemName" class="form-control" data-ng-model="itemName" placeholder={{itemNameSearch}}>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Quantity">Quantity</label>
+                                <input type="number" min =0 id="Quantity" name="Quantity" class="form-control" data-ng-model="quantity" placeholder="Quantity">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Unit">Unit</label>
+                                <input type="text" id="Unit" name="Unit" class="form-control" data-ng-model="unit" placeholder="Unit">
+                            </div>
+
+                            <div class = "text-center form-group">
+                                <button type = "submit" class = "btn btn-large btn-primary"><!--ng-submit="inventory.findOne()"--> Update</button>
+                            </div>
+                        </form>
+
+                        <!--Error message-->
+                        <div data-ng-show="errorTwo" class="text-center text-danger">
+                            <strong data-ng-bind="errorTwo"></strong>
+                        </div>
+                        <!--success message-->
+                        <div data-ng-show="successTwo" class="text-center text-danger">
+                            <strong data-ng-bind="successTwo"></strong>
+                        </div>
 					</div>
+                    <!--Error message-->
 					<div data-ng-show="errorOne" class="text-center text-danger">
 						<strong data-ng-bind="errorOne"></strong>
 					</div>
 					<br>
-				</form>
 			</div>
 		</div>
 	</div>
