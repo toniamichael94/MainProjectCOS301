@@ -99,5 +99,18 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 				inventoryItemId: $stateParams.inventoryItemId
 			});
 		};
+
+        // Search inventory
+        $scope.searchInventory = function(isValid) {
+            if(isValid){
+                $scope.successOne = $scope.errorOne = null;
+                var reqObj = {productName: $scope.itemNameSearch};
+                $http.post('/orders/search', reqObj).success(function(response){
+                    $scope.successOne = response.message;
+                }).error(function(response){
+                    $scope.errorOne = response.message;
+                });
+            }
+        };
 	}
 ]);
