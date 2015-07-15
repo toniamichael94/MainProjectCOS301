@@ -172,3 +172,32 @@ exports.hasAuthorization = function(req, res, next) {
 	}
 	next();
 };
+/*
+ * search menu item
+ */
+
+exports.searchMenu=function(req,res){
+    console.log('searchMenu'+ req.body.itemName);
+    if (req.body.itemName) {
+        MenuItem.findOne({
+            itemName: req.body.itemName
+        }, function (err,menuitem ) {
+            if (!menuitem) {
+               // console.log('notttt searchMenu'+ req.body.itemName);
+                return res.status(400).send({
+                    message: 'Menu item not found'
+                });
+            }   else if(menuitem){
+               // console.log('yesssss searchMenu'+ req.body.itemName);
+                return res.status(200).send({
+                    message: 'This menu item has been found'
+                });
+            }
+        });
+    }
+    else {
+        return res.status(400).send({
+            message: 'The menu item field must not be blank'
+        });
+    }
+};
