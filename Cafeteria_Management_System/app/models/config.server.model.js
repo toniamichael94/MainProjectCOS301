@@ -9,12 +9,11 @@ var mongoose = require('mongoose'),
   var ConfigSchema = new Schema({
       name: {
         type: String,
-        default: '',
+        unique: 'Config type exists',
         required: 'Please fill config name'
       },
       value: {
         type: String,
-        default: '',
         required: 'Please fill config value'
       }
   });
