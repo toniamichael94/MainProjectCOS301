@@ -8,7 +8,8 @@ module.exports = function(app) {
 	app.route('/loadMenuItems').get(menuItems.loadMenuItems);
 
 	// check inventory items:
-	app.route('/inventoryItem').get(menuItems.loadMenuItems);
+	app.route('/inventoryItems').get(menuItems.inventoryItems);
+	app.route('/inventoryItems').post(menuItems.inventoryItems);
 
 
 	//create order

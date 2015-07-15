@@ -20,13 +20,13 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 
   }
 
-        /*
+        /**
 		Add product to favourites
 		*/
 		$scope.favourite = function(itemName)
 		{
 			console.log('item'+itemName);
-			
+
 		};
 
 
@@ -125,20 +125,53 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 						itemsArray[counter].stock = stockVariable2;
 				}else{ // check the inventory if all items are available
 						var enoughInventory = true;
-
+						var countAvailableInventory = 0;
+						var countIngredients = 0;
 						for(var inventoryItem in response.message[itemName].ingredients.ingredients){
 							var name = response.message[itemName].ingredients.ingredients[inventoryItem]; // name of ingredient
 							var quantity = response.message[itemName].ingredients.quantities[inventoryItem];
-
+							countIngredients++;
 							// now check that the amount in the inventory is more than the amount needed for this menu item
 
 								console.log('name = ' +name + ' amount = ' + quantity);
-								//$http.post('/inventoryItem', name).success(function(response){} );
-
+								var ingredient = {
+									ingredientName: name,
+									ingredientQuantity: quantity
+								}
+								var a = quantity;
+								console.log(quantity + ' pppppppp');
+								$http.post('/inventoryItems', ingredient).success(function(response2) {
+									console.log(quantity);
+									console.log('******1 '+response2.message[0].quantity );
+									console.log('******2 '+ a );
+									console.log(response2.message[0].quantity >= a);
+										if(response2.message[0].quantity >= quantity){
+											console.log('++++++++++++');
+											countAvailableInventory++; // since enough of an item item is indeed available to use
+										}else {
+											enoughInventory = false;
+										}
+									}).error(function(response2) {
+						          $scope.error = response2.message;
+						      });
+									console.log(enoughInventory + '......') ;
+									if(countIngredients === countAvailableInventory){
+										itemsArray[counter].stock = stockVariable1;
+									}else{
+										itemsArray[counter].stock = stockVariable2;
+									}
+								/*	if(enoughInventory === false){
+										itemsArray[counter].stock = stockVariable2;
+									}
+									if(enoughInventory === true){
+										itemsArray[counter].stock = stockVariable1;
+									}*/
 						}
+						console.log('ingrediants = ' + countAvailableInventory);
+
 
 				}
-				itemsArray[counter].stock = stockVariable1;
+				//itemsArray[counter].stock = stockVariable1;
 			  counter++;
 			}
 

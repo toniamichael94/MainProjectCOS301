@@ -7,14 +7,23 @@ var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
 	MenuItem = mongoose.model('MenuItem'),
 	OrderItem = mongoose.model('Order'),
+	InventoryItem = mongoose.model('Inventory'),
 
 	_ = require('lodash');
 
-exports.inventoryItem = function(req, res) {
+exports.inventoryItems = function(req, res) {
+	var menuItem = req.body;
+	console.log('****** in the server ready to check inventory ' + req.body.ingredientName);
+	InventoryItem.find({productName: req.body.ingredientName}, function(err, items) {
 
-	console.log('****** in the server ready to check inventory ' + req.body);
-	
-
+		console.log('************** ' + items);
+		items.amount = req.body.ingredientQuantity;
+		console.log(items.amount);
+	if(err || !items) return res.status(400).send({message: 'Menu Items not found' });
+	else {
+			res.status(200).send({message: items});
+		}
+	});
 };
 
 
