@@ -5,20 +5,16 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 	function($scope, $http, $stateParams, $location, Authentication, MenuItems) {
 		$scope.authentication = Authentication;
 
-		//$scope.ingredients = { fields: [] };
-        //$scope.quantities = { fields: [] };
-
+		
+		/*
+			Dynamically add fields to the menu itmes page to add ingredients for a menu item.
+		*/
 		$scope.ingredients = {ingredients:[],quantities:[]};
 
-  $scope.addFormField = function() {
-    //$scope.ingredients.fields.push('');
-    //$scope.quantities.fields.push('');
-
-	 $scope.ingredients.ingredients.push('');
-	 $scope.ingredients.quantities.push('');
-
-
-  }
+		$scope.addFormField = function() {
+			$scope.ingredients.ingredients.push('');
+			$scope.ingredients.quantities.push('');
+		};
 
         /*
 		Add product to favourites
@@ -121,7 +117,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 				itemsArray[counter] = response.message[itemName];
 				console.log('******** ' + response.message[itemName].itemInStock);
 				// now check if items are indeed available in the inventory
-				if(response.message[itemName].itemInStock == false){ // then item is marked as out of stock by cafeteria anager for reasons other than inventory
+				if(response.message[itemName].itemInStock == false){ // then item is marked as out of stock by cafeteria manager for reasons other than inventory
 						itemsArray[counter].stock = stockVariable2;
 				}else{ // check the inventory if all items are available
 						var enoughInventory = true;

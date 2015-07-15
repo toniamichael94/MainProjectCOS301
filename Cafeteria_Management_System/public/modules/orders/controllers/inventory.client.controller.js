@@ -22,8 +22,10 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 				$scope.error = errorResponse.data.message;
 			});
 		};*/
+		
+		
 
-		// Loading the items from the inventory to display in the add ingrediants of the menu items being added
+		// Loading the items from the inventory to display in the add ingredients of the menu items being added
 		$scope.loadInventoryItems = function(){
 			$http.get('/loadInventoryItems').success(function(response) {
 			$scope.inventoryItems = response.message;
