@@ -52,7 +52,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 
 
         $scope.success = $scope.error = null;
-        var reqObj = {itemName: $scope.menuItem.itemNameAdd, description: $scope.menuItem.itemDescription, price:$scope.menuItem.itemPrice,
+        var reqObj = {itemName: $scope.menuItem.itemNameAdd.toLowerCase(), description: $scope.menuItem.itemDescription, price:$scope.menuItem.itemPrice,
 	  	  category:$scope.menuItem.itemCategory, ingredients:$scope.ingredients};
 
 
