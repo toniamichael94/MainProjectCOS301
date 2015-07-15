@@ -78,11 +78,11 @@ exports.setSystemWideLimit = function(req, res){
 
 			config.save(function(err){
 				if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
-				res.status(200).send({message: 'Limit has been succesfully changed.'});
+				res.status(200).send({message: 'Limit has been successfully changed.'});
 			});
 		}
 		else{
-			res.status(200).send({message: 'Limit has been succesfully changed.'});
+			res.status(200).send({message: 'Limit has been successfully changed.'});
 		}
 	});
 };
@@ -103,11 +103,11 @@ exports.setCanteenName = function(req, res){
 
 			config.save(function(err){
 				if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
-				res.status(200).send({message: 'Canteen name has been succesfully changed.'});
+				res.status(200).send({message: 'Canteen name has been successfully changed.'});
 			});
 		}
 		else{
-			res.status(200).send({message: 'Canteen name has been succesfully changed.'});
+			res.status(200).send({message: 'Canteen name has been successfully changed.'});
 		}
 	});
 };
