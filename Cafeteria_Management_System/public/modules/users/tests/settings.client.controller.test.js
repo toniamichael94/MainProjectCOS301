@@ -144,6 +144,35 @@
             // Test scope value
             expect(scope.success).toEqual('This user has been found');
         });
+		
+		
+		/* Last edited by {Rendani Dau}
+		 * To be revisited
+		it('$scope.getSystemLimit() retrieve the system limit', function() {
+            // Test expected GET request
+            $httpBackend.when('POST',	'/users/search').respond(200,{
+                'message': 'This user has been found'
+            });
 
+            scope.searchEmployee(true);
+            $httpBackend.flush();
+
+            // Test scope value
+            expect(scope.success).toEqual('This user has been found');
+        });
+		
+		it('$scope.getSystemLimit() retrieve the system limit', function() {
+            // Test expected GET request
+            $httpBackend.when('POST',	'/users/search').respond(200,{
+                'message': 'This user has been found'
+            });
+
+            scope.searchEmployee(true);
+            $httpBackend.flush();
+
+            // Test scope value
+            expect(scope.success).toEqual('This user has been found');
+        });
+		*/
     });
 }());

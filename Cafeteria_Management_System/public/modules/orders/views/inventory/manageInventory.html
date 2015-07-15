@@ -124,7 +124,7 @@
 							<div ng-init="loadInventoryItems()" data-ng-controller="InventoryController" >	
 								<div ng-repeat="item in inventoryItems|orderBy:'productName'">
 									<p>{{item.productName}}</p>
-									<input type = "number">
+									<input type = "number" value = {{item.quantity}}>
 									<br><br>									
 								</div>
 							</div>
