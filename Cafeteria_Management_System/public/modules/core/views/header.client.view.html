@@ -61,7 +61,10 @@
 						<a href="/#!/settings/profile"> Edit Profile</a>
 					</li>
                     <li data-ng-show="authentication.user.roles[0] === 'superuser'">
-                        <a href="/#!/settings/assignRoles"> Administrative settings</a>
+                        <a href="/#!/settings/adminSettings"> Administrative settings</a>
+                    </li>
+                    <li data-ng-show="authentication.user.roles[0] === 'superuser'">
+                        <a href="/#!/settings/brandingSettings"> Branding settings</a>
                     </li>
 					<!--Edit, add, or remove menu items-->
                     <li data-ng-show="authentication.user.roles[0] === 'cafeteriaManager'">
