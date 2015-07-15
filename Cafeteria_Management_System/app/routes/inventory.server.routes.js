@@ -8,6 +8,8 @@ module.exports = function(app) {
 	app.route('/loadInventoryItems').get(inventory.loadInventoryItems);
 	//create order
 	app.route('/orders/create').post(inventory.create);
+    //search route
+    app.route('/orders/search').post(inventory.searchInventory);
 
 	// Inventory Routes
 	app.route('/orders')
@@ -21,5 +23,6 @@ module.exports = function(app) {
 
 	// Finish by binding the Order middleware
 	app.param('invnetoryId', inventory.orderByID);
+
 
 };
