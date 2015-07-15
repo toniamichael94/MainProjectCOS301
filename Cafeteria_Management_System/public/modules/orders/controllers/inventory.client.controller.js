@@ -114,5 +114,19 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
                 });
             }
         };
+
+        // Update inventory
+        $scope.updateInventory = function(isValid) {
+            console.log('client side');
+            if(isValid){
+                $scope.successTwo = $scope.errorTwo = null;
+                var reqObj = {prodName: $scope.itemName, unit: $scope.unit, quantity:$scope.quantity};
+                $http.post('/orders/update', reqObj).success(function(response){
+                    $scope.successTwo = response.message;
+                }).error(function(response){
+                    $scope.errorTwo = response.message;
+                });
+            }
+        };
 	}
 ]);
