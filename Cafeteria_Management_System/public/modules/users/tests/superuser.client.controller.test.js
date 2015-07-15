@@ -86,6 +86,15 @@
 
             expect(scope.error).toEqual('No such user');
         });
+		
+		it('$scope.assignRoles() should redirect if superuser role is assigned', function() {
+            // Test expected GET request
+            $httpBackend.expectPOST('/users/superuserAssignRoles').respond(200, {'message': 'SU changed'});
+            scope.assignRoles(true);
+            $httpBackend.flush();
+
+            expect($location.url()).toBe('/');
+        });
 
         it('$scope.setSystemWideLimit() should let superuser set limit', function() {
             // Test expected GET request

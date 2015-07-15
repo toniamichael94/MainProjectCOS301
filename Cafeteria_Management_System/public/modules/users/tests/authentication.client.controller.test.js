@@ -119,5 +119,35 @@
 			// Test scope value
 			expect(scope.error).toBe('Username already exists');
 		});
+		
+		/*
+		 * Last edited by {Rendani Dau}
+		 * tests for signing up
+		 */
+		it('$scope.signup() should fail to register if passwords do not match', function() {
+			// Test expected POST request
+			$httpBackend.when('POST', '/auth/signup').respond(400, {
+				'message': 'Passwords do not match.'
+			});
+
+			scope.signup();
+			$httpBackend.flush();
+
+			// Test scope value
+			expect(scope.error).toBe('Passwords do not match.');
+		});
+		
+		it('$scope.signup() should fail to register if limit is greater than system limit', function() {
+			// Test expected POST request
+			$httpBackend.when('POST', '/auth/signup').respond(400, {
+				'message': 'Limit cannot exceed 3000'
+			});
+
+			scope.signup();
+			$httpBackend.flush();
+
+			// Test scope value
+			expect(scope.error).toBe('Limit cannot exceed 3000');
+		});
 	});
 }());
