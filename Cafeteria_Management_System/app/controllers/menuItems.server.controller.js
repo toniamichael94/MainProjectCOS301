@@ -177,7 +177,7 @@ exports.hasAuthorization = function(req, res, next) {
  */
 
 exports.searchMenu=function(req,res){
-    console.log('searchMenu'+ req.body.itemName);
+    console.log('searchMenu'+ req.body.itemName );
     if (req.body.itemName) {
         MenuItem.findOne({
             itemName: req.body.itemName
