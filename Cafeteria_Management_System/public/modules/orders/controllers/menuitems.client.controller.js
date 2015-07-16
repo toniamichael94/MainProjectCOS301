@@ -64,6 +64,13 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 	}
   };
   
+		$scope.removeIngredient = function(index)
+		{
+			console.log('here');
+			console.log('Here, index:'+ index+ ' ' + $scope.loadedIngredients.ingredients[index]);
+
+		};
+  
         /**
 		Add product to favourites
 		*/
