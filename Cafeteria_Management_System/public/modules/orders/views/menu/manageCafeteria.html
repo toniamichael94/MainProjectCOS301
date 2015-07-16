@@ -72,11 +72,6 @@
 
 					</fieldset>
 				</form>
-
-
-				<!--Dynamically add ingredients button-->
-				<button ng-click="addFormField()" class = "btn btn-large btn-primary">Add ingredients</button>
-
 <div>
 
 
@@ -135,11 +130,12 @@
 								</select>
                             </div>
 							
-							<div>
-								<label ng-init= "loadIngredients()" for ="ingredients">Ingredients</label>
-								<div ng-repeat = "ingredient in ingredients.ingredients track by $index" >
-									<label ng-bind = 'ingredients.ingredients[$index]'>{{ingredients.ingredients}}</label>					
-									<input class="form-control" type = "number" min =0 ng-model = 'ingredients.quantities[$index]'/>
+							<div ng-init= "loadIngredients()">
+								<label for ="ingredients">Ingredients</label>
+								<div ng-repeat = "ingredient in loadedIngredients.ingredients track by $index" >
+									<label ng-bind = 'loadedIngredients.ingredients[$index]'>{{loadedIngredients.ingredients}}</label>					
+									<input class="form-control" type = "number" min =0 ng-model = 'loadedIngredients.quantities[$index]'/>
+									<a class = "btn bnt-promary" ng-click = "removeIngredient($index)" >Remove</a>
 									<br>
 								</div>
 							</div>
