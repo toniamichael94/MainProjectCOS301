@@ -35,7 +35,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
         $scope.searchMenu = function(isValid) {
             if(isValid){
                 $scope.successOne = $scope.errorOne = null;
-                console.log("Menu item searched for issssss: "+$scope.menuNameSearch.toLowerCase());
+                //console.log("Menu item searched for issssss: "+$scope.menuNameSearch.toLowerCase());
 
                 var reqObj = {itemName: $scope.menuNameSearch.toLowerCase()};
                 $http.post('/menu/search', reqObj).success(function(response){
@@ -78,7 +78,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
     };
 
 		//Filter Menu items for Tramezzinis
-		$scope.tramizini = function (row) {
+		$scope.tramezzinis = function (row) {
         return (angular.lowercase(row.category).indexOf('Tramezzinis') !== -1);
     };
 
@@ -93,7 +93,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		};
 
 		//Filter Menu items for Salad Bar
-		$scope.salidBar = function (row) {
+		$scope.saladBar = function (row) {
 				return (angular.lowercase(row.category).indexOf('Salad Bar') !== -1);
 		};
 
@@ -118,6 +118,13 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 				return (angular.lowercase(row.category).indexOf('Extra') !== -1);
 		};
 
+        //Filter Menu items for search bar
+        $scope.searchBar = function (row) {
+            var itemN = $scope.menuNameSearch.toLowerCase();
+            if ((angular.lowercase(row.itemName)).contains(itemN)) {
+                return (angular.lowercase(row.itemName));
+            }
+        };
 
 
 
