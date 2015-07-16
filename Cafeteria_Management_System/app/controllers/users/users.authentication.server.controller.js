@@ -47,7 +47,7 @@ exports.signup = function(req, res) {
                         user.displayRecipientEmailOption = 'Finance and email account provided';
                     }
                     if((user.recipientEmailAddress2 === false)&&(user.recipientEmailAddress1 === false)){
-                        user.displayRecipientEmailOption = 'Default: email account provided';
+                        user.displayRecipientEmailOption = 'Default: send to finance';
                     }
 
 
