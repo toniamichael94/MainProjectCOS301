@@ -17,6 +17,9 @@ module.exports = function(app) {
 	
 	//update inventory quantity
 	app.route('/orders/updateInventoryQuantity').post(inventory.updateInventoryQuantity);
+	
+	//Delete an inventory item
+	app.route('/orders/deleteInventoryItem').post(inventory.deleteInventoryItem);
 
 	// Inventory Routes
 	app.route('/orders')

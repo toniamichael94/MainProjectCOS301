@@ -26,30 +26,26 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 		
 			
 		/*
-			Dynamically add fields to the menu itmes page to add ingredients for a menu item.
+			Dynamically add fields to the inventory page to update the quantity.
 		*/
 		
 	    $scope.allInventory = {inventoryProduct:[''],inventoryQuantity:['']};
 		$scope.previousQuantity = {prevQuantity:['']};
-		//$scope.inventoryItems = '';
-
-
-  $scope.addFormFieldInventory = function() {
-   
-	 //$scope.allInventory.inventoryProduct.push('');
-	 //$scope.allInventory.inventoryQuantity.push('');
-	 
-	 for(var i = 0; i != $scope.inventoryItems.length; i++)
-	 {
+		
+		$scope.addFormFieldInventory = function() {
+			for(var i = 0; i != $scope.inventoryItems.length; i++)
+			{
+				$scope.allInventory.inventoryProduct.push($scope.inventoryItems[i].productName);
+				$scope.allInventory.inventoryQuantity.push($scope.inventoryItems[i].quantity);
+				$scope.previousQuantity.prevQuantity.push($scope.inventoryItems[i].quantity);
+			}
 		 
-		 $scope.allInventory.inventoryProduct.push($scope.inventoryItems[i].productName);
-		 $scope.allInventory.inventoryQuantity.push($scope.inventoryItems[i].quantity);
-		 $scope.previousQuantity.prevQuantity.push($scope.inventoryItems[i].quantity);
-	 }
-		 
-  };
+		};
 		
 		
+		/*
+		Update the quantity of an inventory item
+		*/
 		$scope.updateInventoryQuantity = function()
 		{
 			console.log('here');
@@ -67,6 +63,18 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 			
 		};
 		
+		/*
+		Delete an inventory item
+		*/
+		$scope.deleteInventoryName = '';
+		
+		$scope.deleteInventoryItem = function(inventoryItemName)
+		{
+			$scope.itemNameSearch=$scope.itemNameSearch.toLowerCase();
+			console.log('Delete:'+$scope.itemNameSearch);
+			var reqObj = {productName:$scope.itemNameSearch};
+			$http.post('/orders/deleteInventoryItem',reqObj);	
+		};
 
 		// Loading the items from the inventory to display in the add ingredients of the menu items being added
 		$scope.loadInventoryItems = function(){
@@ -151,7 +159,7 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
             if(isValid){
                 $scope.successOne = $scope.errorOne = null;
                 var reqObj = {productName: $scope.itemNameSearch.toLowerCase()};
-                $http.post('/orders/search', reqObj).success(function(response){
+                $http.post('/orders/search', reqObj).success(function(response){					
                     $scope.successOne = response.message;
                 }).error(function(response){
                     $scope.errorOne = response.message;

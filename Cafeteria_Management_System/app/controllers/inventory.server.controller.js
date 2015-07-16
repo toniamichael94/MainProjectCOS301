@@ -177,41 +177,34 @@ updateInventoryQuantity
 		console.log(req.body.productName);
 		console.log(req.body.quantity);
 		
-		if(req.body.productName)
-		{
-			Inventory.findOne({
-				productName:req.body.productName
-			}, function (err, inventory){
-				if(!inventory) {
-					return res.status(400).send({
-						message: 'Inventory item '+ productName +'could not be updated.'
-					});
-				} else if(inventory){
-					return res.status(200).send({
-						message: 'Inventory updated'						
-					});
-				}
-			});
-		}
-		
-		/*if (req.body.prodName) {
-			Inventory.findOne({
-				productName: req.body.prodName
-			}, function (err, inventory) {
-				if (!inventory) {
-					return res.status(400).send({
-						message: 'Inventory item not found'
-					});
-				}   else if(inventory){
-					return res.status(200).send({
-						message: 'This inventory item has been found'
-					});
-				}
-			});
-		}
-		else {
-			return res.status(400).send({
-				message: 'The inventory item field must not be blank'
-			});
-		}*/
+		Inventory.update({productName: req.body.productName}, {quantity: req.body.quantity}, function(err, numAffected){
+        if(err) return res.status(400).send({
+            message: errorHandler.getErrorMessage(err)
+        });
+        else if (numAffected < 1){
+            res.status(400).send({message: 'Error updating the product!'});
+        }
+        else{
+            res.status(200).send({message: 'Product information successfully updated.'});
+        }
+    });
+	};
+	
+	/*
+	Delete an inventory item
+	*/
+	exports.deleteInventoryItem=function(req,res)
+	{
+		console.log('Delete:'+req.body.productName);
+		Inventory.remove({productName: req.body.productName}, function(err, numAffected){
+        if(err) return res.status(400).send({
+            message: errorHandler.getErrorMessage(err)
+        });
+        else if (numAffected < 1){
+            res.status(400).send({message: 'Error updating the product!'});
+        }
+        else{
+            res.status(200).send({message: 'Product information successfully updated.'});
+        }
+    });
 	};
