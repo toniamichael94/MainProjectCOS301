@@ -131,11 +131,10 @@
 			<div class="list-group-item clearfix">
 				<h3> Edit quantity of items </h3>
 				<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">	
-					<div data-ng-controller="InventoryController">
-				
+					<div data-ng-controller="InventoryController">				
 						<form  class="signin form-horizontal" autocomplete="off">
 							<fieldset>
-							<button ng-click = "updateInventoryQuantity()" class = "btn btn-large btn-primary">Save</button>
+							<button ng-click = "updateInventoryQuantity()" class = "btn btn-large btn-primary" ng-show="displayed">Save</button>
 								<div  ng-init="loadInventoryItems()"  ng-repeat = "invenProduct in allInventory.inventoryProduct track by $index" >
 									<label ng-bind = 'allInventory.inventoryProduct[$index]'>{{invenProduct.productName}}</label>					
 									<input class="form-control" type = "number" min =0 ng-model = 'allInventory.inventoryQuantity[$index]'/>
@@ -151,8 +150,8 @@
 							</fieldset>
 						</form>
 
-						<!--Dynamically add ingredients button-->
-						<button ng-click="addFormFieldInventory()" class = "btn btn-large btn-primary">Display inventory</button>
+						<!--Dynamically show inventory items to edit quantity-->
+						<button ng-hide="displayed" ng-click="addFormFieldInventory()" class = "btn btn-large btn-primary">Display inventory</button>
 												
 					</div>
 				</div>
