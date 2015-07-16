@@ -44,7 +44,7 @@
 				<!-- Dynamically add ingredients -->
 					<div   ng-init="loadInventoryItems()" data-ng-controller="InventoryController" ng-repeat = "ingredient in ingredients.ingredients track by $index" >
 						<select  class="form-control" ng-model = 'ingredients.ingredients[$index]'/>
-								<option  ng-repeat="item in inventoryItems" >{{item.productName}} {{item.unit[0]}}</option>
+								<option  ng-repeat="item in inventoryItems" >{{item.productName}} ({{item.unit[0]}})</option>
 						</select><br>
 						<input class="form-control" placeholder ="Quantity"  type = "number" min =0 ng-model = 'ingredients.quantities[$index]'/>
 						<br>
@@ -72,6 +72,10 @@
 
 					</fieldset>
 				</form>
+
+
+				<!--Dynamically add ingredients button-->
+				<button ng-click="addFormField()" class = "btn btn-large btn-primary">Add ingredients</button>
 
 <div>
 

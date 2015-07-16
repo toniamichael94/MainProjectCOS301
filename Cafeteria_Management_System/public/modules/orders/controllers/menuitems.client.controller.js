@@ -77,7 +77,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
         $scope.searchMenu = function(isValid) {
             if(isValid){
                 $scope.successOne = $scope.errorOne = null;
-                console.log("Menu item searched for issssss: "+$scope.menuNameSearch.toLowerCase());
+                //console.log("Menu item searched for issssss: "+$scope.menuNameSearch.toLowerCase());
 
                 var reqObj = {itemName: $scope.menuNameSearch.toLowerCase()};
                 $http.post('/menu/search', reqObj).success(function(response){
@@ -120,7 +120,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
     };
 
 		//Filter Menu items for Tramezzinis
-		$scope.tramizini = function (row) {
+		$scope.tramezzinis = function (row) {
         return (angular.lowercase(row.category).indexOf('Tramezzinis') !== -1);
     };
 
@@ -135,7 +135,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		};
 
 		//Filter Menu items for Salad Bar
-		$scope.salidBar = function (row) {
+		$scope.saladBar = function (row) {
 				return (angular.lowercase(row.category).indexOf('Salad Bar') !== -1);
 		};
 
@@ -160,8 +160,107 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 				return (angular.lowercase(row.category).indexOf('Extra') !== -1);
 		};
 
+        //Filter Menu items for search bar
+        $scope.searchBar = function (row) {
+            var itemN = $scope.menuNameSearch.toLowerCase();
+            if ((angular.lowercase(row.itemName)).contains(itemN)) {
+                return (angular.lowercase(row.itemName));
+            }
+        };
 
+        //Filter Menu items for burger bar search bar
+        $scope.searchBurgerBar = function (row) {
+            var itemN = $scope.menuNameSearch.toLowerCase();
+            console.log('row');
+           // console.log('item'+ row.itemName);
+            if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('Burger Bar') !== -1)) {
+               // console.log('IFFFFFFFFFFFFFFFF');
+                return (angular.lowercase(row.itemName));
+            }
+        };
 
+        //Filter Menu items for daily lunch search bar
+        $scope.searchDailyBar = function (row) {
+            var itemN = $scope.menuNameSearch.toLowerCase();
+            console.log('row');
+            // console.log('item'+ row.itemName);
+            if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('Daily Lunches') !== -1)) {
+                // console.log('IFFFFFFFFFFFFFFFF');
+                return (angular.lowercase(row.itemName));
+            }
+        };
+
+        //Filter Menu items for extra's search bar
+        $scope.searchExtraBar = function (row) {
+            var itemN = $scope.menuNameSearch.toLowerCase();
+            console.log('row');
+            // console.log('item'+ row.itemName);
+            if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('Extra') !== -1)) {
+                // console.log('IFFFFFFFFFFFFFFFF');
+                return (angular.lowercase(row.itemName));
+            }
+        };
+        //Filter Menu items for side search bar
+        $scope.searchSideBar = function (row) {
+            var itemN = $scope.menuNameSearch.toLowerCase();
+            console.log('row');
+            // console.log('item'+ row.itemName);
+            if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('On The Side') !== -1)) {
+                // console.log('IFFFFFFFFFFFFFFFF');
+                return (angular.lowercase(row.itemName));
+            }
+        };
+        //Filter Menu items for resale search bar
+        $scope.searchResaleBar = function (row) {
+            var itemN = $scope.menuNameSearch.toLowerCase();
+            console.log('row');
+            // console.log('item'+ row.itemName);
+            if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('Resale Items') !== -1)) {
+                // console.log('IFFFFFFFFFFFFFFFF');
+                return (angular.lowercase(row.itemName));
+            }
+        };
+        //Filter Menu items for salad bar search bar
+        $scope.searchSaladBar = function (row) {
+            var itemN = $scope.menuNameSearch.toLowerCase();
+            console.log('row');
+            // console.log('item'+ row.itemName);
+            if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('Salad Bar') !== -1)) {
+                // console.log('IFFFFFFFFFFFFFFFF');
+                return (angular.lowercase(row.itemName));
+            }
+        };
+        //Filter Menu items for sweet treats search bar
+        $scope.searchSweetBar = function (row) {
+            var itemN = $scope.menuNameSearch.toLowerCase();
+            console.log('row');
+            // console.log('item'+ row.itemName);
+            if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('Sweet Treats') !== -1)) {
+                // console.log('IFFFFFFFFFFFFFFFF');
+                return (angular.lowercase(row.itemName));
+            }
+        };
+        //Filter Menu items for toasted sandwiches search bar
+        $scope.searchToastBar = function (row) {
+            var itemN = $scope.menuNameSearch.toLowerCase();
+            console.log('row');
+            // console.log('item'+ row.itemName);
+            if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('Toasted Sandwiches') !== -1)) {
+                // console.log('IFFFFFFFFFFFFFFFF');
+                return (angular.lowercase(row.itemName));
+            }
+        };
+
+        //Filter Menu items for tramezzini search bar
+        $scope.searchTramBar = function (row) {
+            var itemN = $scope.menuNameSearch.toLowerCase();
+            console.log('row');
+            // console.log('item'+ row.itemName);
+            if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('Tramezzinis') !== -1)) {
+                // console.log('IFFFFFFFFFFFFFFFF');
+                return (angular.lowercase(row.itemName));
+            }
+        };
 
 		//get menu items from database on the server side
 
