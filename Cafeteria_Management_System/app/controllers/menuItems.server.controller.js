@@ -195,9 +195,9 @@ exports.searchMenu=function(req,res){
             }
         });
     }
-    else {
+    /*else {
         return res.status(400).send({
             message: 'The menu item field must not be blank'
         });
-    }
+    }*/
 };
