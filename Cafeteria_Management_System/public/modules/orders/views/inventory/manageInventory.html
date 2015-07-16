@@ -20,13 +20,20 @@
 							<input type="number" min = 0 id="itemQuantity" name="itemQuantity" class="form-control" data-ng-model="inventory.quantity" placeholder="Quantity">
 						</div>
 
-						<div class="form-group">
-							<label for="itemUnit">Unit</label>
-							<input type="text" id="itemUnit" name="itemUnit" class="form-control" data-ng-model="inventory.unit" placeholder="Unit">
-						</div>
+                        <div class="form-group">
+                            <label for="itemUnit">Unit</label>
+                            <select id="itemUnit" name="itemUnit" class="form-control" data-ng-model="inventory.unit">
+                                <option value='g'>grams</option>
+                                <option value='mg'>milligrams</option>
+                                <option value='kg'>kilograms</option>
+                                <option value='ml'>millilitres</option>
+                                <option value='l'>litre</option>
+                                <option value='units'>units</option>
+                            </select>
+                        </div>
 
 						<div class="text-center form-group">
-							<button type="submit" class="btn btn-large btn-primary">Add</button>
+							<button type="submit" class="btn btn-large btn-primary" onclick= "location.reload(true)">Add</button>
 						</div>
 
 						<!--Error/Success message-->
@@ -51,7 +58,7 @@
 			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 				<form name="searchInventoryForm" data-ng-submit="searchInventory(searchInventoryForm.$valid)" class="signin form-horizontal" autocomplete="off">
 					<!--Search for a menu item-->
-					<h4>Search an item</h4>
+					<h4>Search for an item</h4>
 					<div class = "form-group">
 						<input type="text" id="itemNameSearch" name ="itemNameSearch" class = "form-control" data-ng-model="itemNameSearch" placeholder="Item Name">
 					</div>
@@ -64,7 +71,7 @@
 					<!--Success: ability to update the item -->
 					<div data-ng-show="successOne" class="text-center text-success">
 						<!--strong data-ng-bind="successOne"></strong-->
-                        <form name="updateInventoryForm" data-ng-hide="successTwo" data-ng-hide="errorTwo" data-ng-submit="updateInventory(updateInventoryForm.$valid)" class="signin form-horizontal" autocomplete="off">
+                        <form name="updateInventoryForm" data-ng-submit="updateInventory(updateInventoryForm.$valid)" class="signin form-horizontal" autocomplete="off">
                             <!--Update an inventory item-->
                             <h4>Update item</h4>
                             <div class="form-group">
@@ -79,20 +86,27 @@
 
                             <div class="form-group">
                                 <label for="Unit">Unit</label>
-                                <input type="text" id="Unit" name="Unit" class="form-control" data-ng-model="unit" placeholder="Unit">
+                                <select id="Unit" name="Unit" class="form-control" data-ng-model="unit">
+                                    <option value='g'>grams</option>
+                                    <option value='mg'>milligrams</option>
+                                    <option value='kg'>kilograms</option>
+                                    <option value='ml'>millilitres</option>
+                                    <option value='l'>litre</option>
+                                    <option value='units'>units</option>
+                                </select>
                             </div>
 
                             <div class = "text-center form-group">
-                                <button type = "submit" class = "btn btn-large btn-primary"><!--ng-submit="inventory.findOne()"--> Update</button>
+                                <button type = "submit" class = "btn btn-large btn-primary" onclick= "location.reload(true)"> Update</button>
                             </div>
                         </form>
 
                         <!--Error message-->
-                        <div data-ng-show="errorTwo" class="text-center text-danger">
+                        <div data-ng-show="errorTwo" data-ng-hide="successOne" class="text-center text-success">
                             <strong data-ng-bind="errorTwo"></strong>
                         </div>
                         <!--success message-->
-                        <div data-ng-show="successTwo" class="text-center text-danger">
+                        <div data-ng-show="successTwo" data-ng-hide="successOne" class="text-center text-success">
                             <strong data-ng-bind="successTwo"></strong>
                         </div>
 					</div>

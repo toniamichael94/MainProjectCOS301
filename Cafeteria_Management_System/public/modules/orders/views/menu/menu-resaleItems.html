@@ -8,7 +8,7 @@
       <ol class="breadcrumb">
         <li><a  href="/#!/menu">All Menu Items</a></li>
         <li><a href="/#!/menu/toastedSandwiches">Toasted Sandwiches</a></li>
-        <li><a href="/#!/menu/tramazini">Tramezzinis</a></li>
+        <li><a href="/#!/menu/tramezzinis">Tramezzinis</a></li>
         <li><a href="/#!/menu/burgerBar">Burger Bar</a></li>
         <li><a href="/#!/menu/dailyLunch">Daily Lunches</a></li>
         <li><a href="/#!/menu/saladBar">Salad Bar</a></li>
@@ -18,6 +18,31 @@
         <li><a href="/#!/menu/extra">Extra's</a></li>
       </ol>
 
+
+    <!--Search for a menu product-->
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
+            <h3> Search Item </h3>
+            <form name="searchMenuForm" data-ng-submit="searchMenu(searchMenuForm.$valid)" class="signin form-horizontal" autocomplete="off">
+                <div class = "form-group">
+                    <input type="text" id="menuNameSearch" name ="menuNameSearch" class = "form-control" data-ng-model="menuNameSearch" placeholder="Meal Name">
+                </div>
+
+                <div class = "text-center form-group">
+                    <button type = "submit" class = "btn btn-large btn-primary"><!--ng-submit="inventory.findOne()"--> Search</button>
+                </div>
+
+            </form>
+            <!--Success/Error message-->
+            <div data-ng-show="successOne" class="text-center text-success">
+                <strong data-ng-bind="successOne"></strong>
+            </div>
+            <div data-ng-show="errorOne" class="text-center text-danger">
+                <strong data-ng-bind="errorOne"></strong>
+            </div>
+        </div>
+    </div>
+
       <!-- Display Resale Items -->
       <div class="list-group clearfix">
         <a href="#" class="list-group-item disabled">
@@ -25,33 +50,17 @@
        </a>
 
 
-      <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:resaleItem"><h3>{{item.itemName}}  <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}}
+      <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:resaleItem"><h3>
+          <span data-ng-show="item.stock"><input type="checkbox" name='{{item.itemName}}'  value='{{item.itemName}}' > </span>
+          {{item.itemName}}  <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}}
           <form>
             <span data-ng-show="item.stock === 'Not in stock'" style="color:red"><h3> {{item.stock}} </h3></span>
-            <span data-ng-show="item.stock === 'In stock'"><input type="checkbox" name={{item.itemName}}  value={{item.itemName}} > </span>
           </form>
       </h5>
       </div>
       </div>
 
 </div>
-	<div class="row">
-		<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
-		<h4>Search for a menu item</h4>
-				<div class="form-group">
-					<input type="text" class="form-control" class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2" id="itemName" name="itemName" class="form-control"  placeholder=Item>
-				</div>
-				<div class="text-center form-group">
-					<button type="submit" ng-submit="" class="btn btn-large btn-primary">Search</button>
-				</div>
-				<div data-ng-show="success" class="text-center text-success">
-					<strong>Found item.</strong>
-				</div>
-				<div data-ng-show="error" class="text-center text-danger">
-					<strong data-ng-bind="error"></strong>
-				</div>
-		</div>
-	</div>
 
 	<!-- Show all the items on the menu list, description, and price-->
 			<form name="chooseOrderForm" data-ng-submit="" class="signin form-horizontal" autocomplete="off" data-ng-init="loadMenuItems()">
@@ -62,7 +71,7 @@
 				</div>
 					<br>
 				<div class="text-center form-group">
-					<button type="submit" class="btn">Add to plate</button>
+					<button type="submit" class="btn btn-primary">Add to plate</button>
 				</div>
 
 				<!--Success/error message-->
@@ -74,25 +83,4 @@
 				</div>
 
 	</form>
-
-	<!--Search for a menu product-->
-		<div class="row">
-			<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
-				<h4>Search for a menu item</h4>
-					<div class="form-group">
-						<input type="text" data-ng-model="menuItem.searchItemName" class="form-control" class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2" id="itemName" name="itemName" class="form-control"  placeholder="Item name">
-					</div>
-					<div class="text-center form-group">
-						<button ng-submit="" class="btn btn-large btn-primary">Search</button>
-					</div>
-
-					<!--Success/Error message-->
-					<div data-ng-show="success" class="text-center text-success">
-						<strong>Found item.</strong>
-					</div>
-					<div data-ng-show="error" class="text-center text-danger">
-						<strong data-ng-bind="error"></strong>
-					</div>
-			</div>
-		</div>
 </section>

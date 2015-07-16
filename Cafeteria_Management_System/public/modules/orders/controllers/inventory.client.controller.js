@@ -22,6 +22,7 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 				$scope.error = errorResponse.data.message;
 			});
 		};*/
+
 		
 			
 		/*
@@ -91,7 +92,7 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 		$scope.create = function(isValid) {
       if (isValid) {
         $scope.success = $scope.error = null;
-        var reqObj = {productName: $scope.inventory.itemName, unit: $scope.inventory.unit, quantity:$scope.inventory.quantity};
+        var reqObj = {productName: $scope.inventory.itemName.toLowerCase(), unit: $scope.inventory.unit, quantity:$scope.inventory.quantity};
 //        reqObj.userID = $scope.userID;
 //        reqObj.role = $scope.role;
 
@@ -149,7 +150,7 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
         $scope.searchInventory = function(isValid) {
             if(isValid){
                 $scope.successOne = $scope.errorOne = null;
-                var reqObj = {productName: $scope.itemNameSearch};
+                var reqObj = {productName: $scope.itemNameSearch.toLowerCase()};
                 $http.post('/orders/search', reqObj).success(function(response){
                     $scope.successOne = response.message;
                 }).error(function(response){
@@ -158,15 +159,17 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
             }
         };
 
-        // Update inventory
+        //Update inventory {Antonia Michael and Semaka Malapane}
         $scope.updateInventory = function(isValid) {
-            console.log('client side');
-            if(isValid){
+            if (isValid) {
                 $scope.successTwo = $scope.errorTwo = null;
-                var reqObj = {prodName: $scope.itemName, unit: $scope.unit, quantity:$scope.quantity};
-                $http.post('/orders/update', reqObj).success(function(response){
+                var reqObj = {oldProdName: $scope.itemNameSearch.toLowerCase(), newProdName: $scope.itemName.toLowerCase(), unit: $scope.unit, quantity:$scope.quantity};
+
+                $http.post('/orders/update', reqObj).success(function(response) {
+                    // If successful show success message and clear form
                     $scope.successTwo = response.message;
-                }).error(function(response){
+                    $scope.itemNameSearch = $scope.itemName = $scope.unit = $scope.quantity = null;
+                }).error(function(response) {
                     $scope.errorTwo = response.message;
                 });
             }

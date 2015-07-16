@@ -127,6 +127,7 @@ exports.hasAuthorization = function(req, res, next) {
 };
 
 exports.searchInventory=function(req,res){
+    console.log('searchInventory'+ req.body.productName);
     if (req.body.productName) {
         Inventory.findOne({
             productName: req.body.productName
@@ -149,31 +150,22 @@ exports.searchInventory=function(req,res){
     }
 };
 
-/*
-update
-*/
-exports.updateInventory=function(req,res){
-    console.log('updateInventory'+ req.body.prodName);
-    if (req.body.prodName) {
-        Inventory.findOne({
-            productName: req.body.prodName
-        }, function (err, inventory) {
-            if (!inventory) {
-                return res.status(400).send({
-                    message: 'Inventory item not found'
-                });
-            }   else if(inventory){
-                return res.status(200).send({
-                    message: 'This inventory item has been found'
-                });
-            }
+
+ /* Update inventory
+ * Last Edited by {Semaka Malapane and Tonia Michael}
+ */
+exports.updateInventory = function(req, res) {
+    Inventory.update({productName: req.body.oldProdName}, {productName: req.body.newProdName, quantity: req.body.quantity, unit: req.body.unit}, function(err, numAffected){
+        if(err) return res.status(400).send({
+            message: errorHandler.getErrorMessage(err)
         });
-    }
-    else {
-        return res.status(400).send({
-            message: 'The inventory item field must not be blank'
-        });
-    }
+        else if (numAffected < 1){
+            res.status(400).send({message: 'Error updating the product!'});
+        }
+        else{
+            res.status(200).send({message: 'Product information successfully updated.'});
+        }
+    });
 };
 
 /*

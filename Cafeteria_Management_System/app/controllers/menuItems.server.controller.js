@@ -13,15 +13,22 @@ var mongoose = require('mongoose'),
 
 exports.inventoryItems = function(req, res) {
 	var menuItem = req.body;
-	console.log('****** in the server ready to check inventory ' + req.body.ingredientName);
+	//console.log('****** in the server ready to check inventory ' + req.body.ingredientName);
 	InventoryItem.find({productName: req.body.ingredientName}, function(err, items) {
 
-		console.log('************** ' + items);
+	//	console.log('************** ' + items);
 		items.amount = req.body.ingredientQuantity;
-		console.log(items.amount);
+	//	var temp = Object;
+	//	temp.items = items;
+		//temp.amount = req.body.ingredientQuantity;
+		var items2 = new Array();
+		items2[0] = items;
+		//console.log('quantiy = ' + items2[0]);
+		items2[1] = items.amount;
+	//	console.log(items);
 	if(err || !items) return res.status(400).send({message: 'Menu Items not found' });
 	else {
-			res.status(200).send({message: items});
+			res.status(200).send({message: items2});
 		}
 	});
 };
@@ -34,6 +41,7 @@ exports.inventoryItems = function(req, res) {
 exports.loadMenuItems = function(req, res) {
 
 MenuItem.find({}, function(err, items) {
+	console.log(items);
 	 var itemMap = {};
 
 	 items.forEach(function(item) {
@@ -43,7 +51,7 @@ MenuItem.find({}, function(err, items) {
 	// res.send(itemMap);
 	if(err || !itemMap) return res.status(400).send({message: 'Menu Items not found' });
 	else {
-		res.status(200).send({message: itemMap});
+		res.status(200).send({message: items});
 	}
  });
 
@@ -163,4 +171,33 @@ exports.hasAuthorization = function(req, res, next) {
 		return res.status(403).send('User is not authorized');
 	}
 	next();
+};
+/*
+ * search menu item
+ */
+
+exports.searchMenu=function(req,res){
+    console.log('searchMenu'+ req.body.itemName );
+    if (req.body.itemName) {
+        MenuItem.findOne({
+            itemName: req.body.itemName
+        }, function (err,menuitem ) {
+            if (!menuitem) {
+               // console.log('notttt searchMenu'+ req.body.itemName);
+                return res.status(400).send({
+                    message: 'Menu item not found'
+                });
+            }   else if(menuitem){
+               // console.log('yesssss searchMenu'+ req.body.itemName);
+                return res.status(200).send({
+                    message: 'This menu item has been found'
+                });
+            }
+        });
+    }
+    else {
+        return res.status(400).send({
+            message: 'The menu item field must not be blank'
+        });
+    }
 };
