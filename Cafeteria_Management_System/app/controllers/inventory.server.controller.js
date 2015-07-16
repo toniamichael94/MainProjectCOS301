@@ -150,8 +150,8 @@ exports.searchInventory=function(req,res){
     }
 };
 
-/*
- * Update inventory
+
+ /* Update inventory
  * Last Edited by {Semaka Malapane and Tonia Michael}
  */
 exports.updateInventory = function(req, res) {
@@ -167,3 +167,44 @@ exports.updateInventory = function(req, res) {
         }
     });
 };
+
+/*
+updateInventoryQuantity
+*/
+
+	exports.updateInventoryQuantity=function(req,res){
+		console.log('updateInventoryQuantity');
+		console.log(req.body.productName);
+		console.log(req.body.quantity);
+		
+		Inventory.update({productName: req.body.productName}, {quantity: req.body.quantity}, function(err, numAffected){
+        if(err) return res.status(400).send({
+            message: errorHandler.getErrorMessage(err)
+        });
+        else if (numAffected < 1){
+            res.status(400).send({message: 'Error updating the product!'});
+        }
+        else{
+            res.status(200).send({message: 'Product information successfully updated.'});
+        }
+    });
+	};
+	
+	/*
+	Delete an inventory item
+	*/
+	exports.deleteInventoryItem=function(req,res)
+	{
+		console.log('Delete:'+req.body.productName);
+		Inventory.remove({productName: req.body.productName}, function(err, numAffected){
+        if(err) return res.status(400).send({
+            message: errorHandler.getErrorMessage(err)
+        });
+        else if (numAffected < 1){
+            res.status(400).send({message: 'Error updating the product!'});
+        }
+        else{
+            res.status(200).send({message: 'Product information successfully updated.'});
+        }
+    });
+	};
