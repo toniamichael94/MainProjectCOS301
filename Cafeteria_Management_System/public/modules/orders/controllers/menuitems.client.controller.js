@@ -126,7 +126,99 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
             }
         };
 
+        //Filter Menu items for burger bar search bar
+        $scope.searchBurgerBar = function (row) {
+            var itemN = $scope.menuNameSearch.toLowerCase();
+            console.log('row');
+           // console.log('item'+ row.itemName);
+            if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('Burger Bar') !== -1)) {
+               // console.log('IFFFFFFFFFFFFFFFF');
+                return (angular.lowercase(row.itemName));
+            }
+        };
 
+        //Filter Menu items for daily lunch search bar
+        $scope.searchDailyBar = function (row) {
+            var itemN = $scope.menuNameSearch.toLowerCase();
+            console.log('row');
+            // console.log('item'+ row.itemName);
+            if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('Daily Lunches') !== -1)) {
+                // console.log('IFFFFFFFFFFFFFFFF');
+                return (angular.lowercase(row.itemName));
+            }
+        };
+
+        //Filter Menu items for extra's search bar
+        $scope.searchExtraBar = function (row) {
+            var itemN = $scope.menuNameSearch.toLowerCase();
+            console.log('row');
+            // console.log('item'+ row.itemName);
+            if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('Extra') !== -1)) {
+                // console.log('IFFFFFFFFFFFFFFFF');
+                return (angular.lowercase(row.itemName));
+            }
+        };
+        //Filter Menu items for side search bar
+        $scope.searchSideBar = function (row) {
+            var itemN = $scope.menuNameSearch.toLowerCase();
+            console.log('row');
+            // console.log('item'+ row.itemName);
+            if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('On The Side') !== -1)) {
+                // console.log('IFFFFFFFFFFFFFFFF');
+                return (angular.lowercase(row.itemName));
+            }
+        };
+        //Filter Menu items for resale search bar
+        $scope.searchResaleBar = function (row) {
+            var itemN = $scope.menuNameSearch.toLowerCase();
+            console.log('row');
+            // console.log('item'+ row.itemName);
+            if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('Resale Items') !== -1)) {
+                // console.log('IFFFFFFFFFFFFFFFF');
+                return (angular.lowercase(row.itemName));
+            }
+        };
+        //Filter Menu items for salad bar search bar
+        $scope.searchSaladBar = function (row) {
+            var itemN = $scope.menuNameSearch.toLowerCase();
+            console.log('row');
+            // console.log('item'+ row.itemName);
+            if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('Salad Bar') !== -1)) {
+                // console.log('IFFFFFFFFFFFFFFFF');
+                return (angular.lowercase(row.itemName));
+            }
+        };
+        //Filter Menu items for sweet treats search bar
+        $scope.searchSweetBar = function (row) {
+            var itemN = $scope.menuNameSearch.toLowerCase();
+            console.log('row');
+            // console.log('item'+ row.itemName);
+            if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('Sweet Treats') !== -1)) {
+                // console.log('IFFFFFFFFFFFFFFFF');
+                return (angular.lowercase(row.itemName));
+            }
+        };
+        //Filter Menu items for toasted sandwiches search bar
+        $scope.searchToastBar = function (row) {
+            var itemN = $scope.menuNameSearch.toLowerCase();
+            console.log('row');
+            // console.log('item'+ row.itemName);
+            if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('Toasted Sandwiches') !== -1)) {
+                // console.log('IFFFFFFFFFFFFFFFF');
+                return (angular.lowercase(row.itemName));
+            }
+        };
+
+        //Filter Menu items for tramezzini search bar
+        $scope.searchTramBar = function (row) {
+            var itemN = $scope.menuNameSearch.toLowerCase();
+            console.log('row');
+            // console.log('item'+ row.itemName);
+            if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('Tramezzinis') !== -1)) {
+                // console.log('IFFFFFFFFFFFFFFFF');
+                return (angular.lowercase(row.itemName));
+            }
+        };
 
 		//get menu items from database on the server side
 
