@@ -23,6 +23,48 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 			});
 		};*/
 		
+			
+		/*
+			Dynamically add fields to the menu itmes page to add ingredients for a menu item.
+		*/
+		
+	    $scope.allInventory = {inventoryProduct:[''],inventoryQuantity:['']};
+		$scope.previousQuantity = {prevQuantity:['']};
+		//$scope.inventoryItems = '';
+
+
+  $scope.addFormFieldInventory = function() {
+   
+	 //$scope.allInventory.inventoryProduct.push('');
+	 //$scope.allInventory.inventoryQuantity.push('');
+	 
+	 for(var i = 0; i != $scope.inventoryItems.length; i++)
+	 {
+		 
+		 $scope.allInventory.inventoryProduct.push($scope.inventoryItems[i].productName);
+		 $scope.allInventory.inventoryQuantity.push($scope.inventoryItems[i].quantity);
+		 $scope.previousQuantity.prevQuantity.push($scope.inventoryItems[i].quantity);
+	 }
+		 
+  };
+		
+		
+		$scope.updateInventoryQuantity = function()
+		{
+			console.log('here');
+			
+			for(var i = 0; i != $scope.allInventory.inventoryProduct.length; i++)
+			{
+				console.log(i);
+				if(!($scope.allInventory.inventoryQuantity[i] === $scope.previousQuantity.prevQuantity[i]))
+				{
+					console.log($scope.allInventory.inventoryProduct[i] + ' changed');
+					var reqObj = {productName:$scope.allInventory.inventoryProduct[i], quantity:$scope.allInventory.inventoryQuantity[i]};
+					$http.post('/orders/updateInventoryQuantity',reqObj);	
+				}
+			}
+			
+		};
 		
 
 		// Loading the items from the inventory to display in the add ingredients of the menu items being added
@@ -36,6 +78,7 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 				itemsArray[counter] = response.message[itemName];
 				counter++;
 			}
+			
 
 			$scope.inventoryItems = itemsArray;
 
