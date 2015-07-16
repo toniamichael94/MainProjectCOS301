@@ -23,7 +23,7 @@ var InventorySchema = new Schema({
 	},
 	unit: {
 		type: [{
-			type: String,
+			type: String,			
 			enum: ['g', 'mg', 'kg','ml', 'l','units']
 		}],
 		default: ['units']

@@ -10,16 +10,58 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 			Dynamically add fields to the menu itmes page to add ingredients for a menu item.
 		*/
 		$scope.ingredients = {ingredients:[],quantities:[]};
+				//Function to add fields
+		$scope.addFormField = function() {
+			$scope.ingredients.ingredients.push('');
+			$scope.ingredients.quantities.push('');
+		}
+  
+  /*
+  Load all the ingredients for updating the ingredients of a menu item
+  */
+	$scope.loadedIngredients = {ingredients:[''],quantities:['']};
+	$scope.loaded = false;
+	
+	$scope.loadIngredients = function() {
+    
+	console.log('In load ingredients');
+	
+		//Load all the menuitems
+		$http.get('/loadMenuItems').success(function(response) {
 
-  $scope.addFormField = function() {
-    //$scope.ingredients.fields.push('');
-    //$scope.quantities.fields.push('');
+		  console.log(response.message); // testing
+			$scope.menuItems = response.message;
 
-	 $scope.ingredients.ingredients.push('');
-	 $scope.ingredients.quantities.push('');
+			for(var itemName in response.message)
+			{
+				for(var ingredient in response.message[itemName].ingredients.ingredients)
+				{
+					//Cut off units from ingredient
+					var lastSpace = response.message[itemName].ingredients.ingredients[ingredient].lastIndexOf(" ");					
+					var ingredientString = response.message[itemName].ingredients.ingredients[ingredient].substring(0,lastSpace);
+					$scope.loadedIngredients.ingredients.push(ingredientString);
+				}
+				
+				for(var quantity in response.message[itemName].ingredients.quantities)
+				{
+				$scope.loadedIngredients.quantities.push(response.message[itemName].ingredients.quantities[quantity]);
 
+				}
+			}
+			console.log('A loaded ingredient:'+$scope.loadedIngredients.ingredients[1]);
+			console.log('A loaded ingredient quantity:'+$scope.loadedIngredients.quantities[1]);
+				
 
-  }
+				}).error(function(response) {
+				$scope.menuItems = 'Error loading menu Items';
+			});
+			
+			
+
+	
+	
+  };
+  
 
         /**
 		Add product to favourites
