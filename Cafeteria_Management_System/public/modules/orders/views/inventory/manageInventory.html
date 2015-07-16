@@ -22,7 +22,7 @@
 
                         <div class="form-group">
                             <label for="itemUnit">Unit</label>
-                            <select id="itemUnit" name="itemUnit" class="form-control" data-ng-model="inventory.unit">
+                            <select id="itemUnit" placeholder = "units" name="itemUnit" class="form-control" data-ng-model="inventory.unit">
                                 <option value='g'>grams</option>
                                 <option value='mg'>milligrams</option>
                                 <option value='kg'>kilograms</option>
@@ -68,8 +68,14 @@
 					</div>
                 </form>
 
+				<div data-ng-show="successOne">
+					<button class = "btn btn-large btn-primary"  ng-click="showme=true" data-ng-hide="showme">Update</button>
+					<br>
+					<br>
+					<button class = "btn btn-large btn-primary" data-ng-hide="showme" ng-click = "deleteInventoryItem()">Delete</button>	
+				</div
 					<!--Success: ability to update the item -->
-					<div data-ng-show="successOne" class="text-center text-success">
+					<div ng-show="showme" class="text-center text-success">
 						<!--strong data-ng-bind="successOne"></strong-->
                         <form name="updateInventoryForm" data-ng-submit="updateInventory(updateInventoryForm.$valid)" class="signin form-horizontal" autocomplete="off">
                             <!--Update an inventory item-->
@@ -118,7 +124,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 		<!---Edit quantity of items-->
 	<div class="list-group clearfix" data-ng-controller="InventoryController">
 		<a href="#" class="list-group-item disabled">Inventory Quantity</a>
@@ -129,24 +135,25 @@
 				
 						<form  class="signin form-horizontal" autocomplete="off">
 							<fieldset>
+							<button ng-click = "updateInventoryQuantity()" class = "btn btn-large btn-primary">Save</button>
 								<div  ng-init="loadInventoryItems()"  ng-repeat = "invenProduct in allInventory.inventoryProduct track by $index" >
 									<label ng-bind = 'allInventory.inventoryProduct[$index]'>{{invenProduct.productName}}</label>					
 									<input class="form-control" type = "number" min =0 ng-model = 'allInventory.inventoryQuantity[$index]'/>
 									<br>
 								</div>
 			
-								<p>allInventory</p>
+								<!--<p>allInventory</p>
 								<pre>{{ allInventory | json }}</pre>
 								
 								<p>PQuantity</p>
-								<pre>{{ previousQuantity | json }}</pre>
+								<pre>{{ previousQuantity | json }}</pre>-->
 
 							</fieldset>
 						</form>
 
 						<!--Dynamically add ingredients button-->
 						<button ng-click="addFormFieldInventory()" class = "btn btn-large btn-primary">Display inventory</button>
-						<button ng-click = "updateInventoryQuantity()">Save try</button>						
+												
 					</div>
 				</div>
 			</div>
