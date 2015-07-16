@@ -22,10 +22,16 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 	$scope.loadedIngredients = {ingredients:[''],quantities:['']};
 	$scope.loaded = false;
 	
+	/*
+	Load all the ingredients and their quantities into the arrays
+	*/
+	$scope.displayedMenuItems = false;
 	$scope.loadIngredients = function() {
     
 	console.log('In load ingredients');
-	
+	if(!$scope.displayedMenuItems)
+	{
+		$scope.displayedMenuItems = true;
 		//Load all the menuitems
 		$http.get('/loadMenuItems').success(function(response) {
 
@@ -55,14 +61,9 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 				}).error(function(response) {
 				$scope.menuItems = 'Error loading menu Items';
 			});
-			
-			
-
-	
-	
+	}
   };
   
-
         /**
 		Add product to favourites
 		*/
