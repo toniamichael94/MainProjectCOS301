@@ -64,7 +64,21 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 	}
   };
   
-		$scope.removeIngredient = function(index)
+  /*
+  Add more ingredients to the menu item being updated
+  */
+   $scope.addedUpdateIngredients = {ingredients:[],quantities:[]};
+   
+	$scope.addMoreIngredientsUpadte = function()
+	{
+		
+			$scope.addedUpdateIngredients.ingredients.push('');
+			$scope.addedUpdateIngredients.quantities.push('');
+		
+	};
+	
+	/*Remove an ingredient from the item being updated*/
+	$scope.removeIngredient = function(index)
 		{
 			console.log('here');
 			console.log('Here, index:'+ index+ ' ' + $scope.loadedIngredients.ingredients[index]);

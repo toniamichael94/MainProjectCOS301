@@ -138,8 +138,21 @@
 									<a class = "btn bnt-promary" ng-click = "removeIngredient($index)" >Remove</a>
 									<br>
 								</div>
-							</div>
+							</div>							
+						
+						<!--Add more ingredients to item-->
+						<div ng-init="loadInventoryItems()" data-ng-controller="InventoryController" ng-repeat = "ingredient in addedUpdateIngredients.ingredients track by $index" >
+							<label ng-bind = 'addedUpdateIngredients.ingredients[$index]'>{{addedUpdateIngredients.ingredients}}</label>
+							<select  class="form-control" ng-model = 'addedUpdateIngredients.ingredients[$index]'/>
+									<option  ng-repeat="item in inventoryItems" >{{item.productName}} ({{item.unit[0]}})</option>
+							</select><br>
+							<input class="form-control" placeholder ="Quantity"  type = "number" min =0 ng-model = 'addedUpdateIngredients.quantities[$index]'/>
+							<br>
+						</div>
+						
+						<a ng-click="addMoreIngredientsUpadte()" class = "btn btn-large btn-primary">Add more ingredients</a>
 
+						<br>			
                             <div class = "text-center form-group">
                                 <button type = "submit" class = "btn btn-large btn-primary" onclick= "location.reload(true)"> Update</button>
                             </div>
