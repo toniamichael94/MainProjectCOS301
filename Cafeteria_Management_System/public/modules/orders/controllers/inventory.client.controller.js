@@ -52,11 +52,9 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 		*/
 		$scope.updateInventoryQuantity = function()
 		{
-			console.log('here');
-			
+				
 			for(var i = 0; i != $scope.allInventory.inventoryProduct.length; i++)
 			{
-				console.log(i);
 				if(!($scope.allInventory.inventoryQuantity[i] === $scope.previousQuantity.prevQuantity[i]))
 				{
 					console.log($scope.allInventory.inventoryProduct[i] + ' changed');
@@ -164,7 +162,7 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
                 $scope.successOne = $scope.errorOne = null;
                 var reqObj = {productName: $scope.itemNameSearch.toLowerCase()};
                 $http.post('/orders/search', reqObj).success(function(response){					
-                    $scope.successOne = response.message;
+                    $scope.successOne = response.message;					
                 }).error(function(response){
                     $scope.errorOne = response.message;
                 });

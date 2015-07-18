@@ -42,7 +42,7 @@
 	
 
 				<!-- Dynamically add ingredients -->
-					<div   ng-init="loadInventoryItems()" data-ng-controller="InventoryController" ng-repeat = "ingredient in ingredients.ingredients track by $index" >
+					<div ng-init="loadInventoryItems()" data-ng-controller="InventoryController" ng-repeat = "ingredient in ingredients.ingredients track by $index" >
 						<select  class="form-control" ng-model = 'ingredients.ingredients[$index]'/>
 								<option  ng-repeat="item in inventoryItems" >{{item.productName}} ({{item.unit[0]}})</option>
 						</select><br>
@@ -99,7 +99,7 @@
 					</form>
 					
 					<div data-ng-show="successOne">
-						<button class = "btn btn-large btn-primary"  ng-click="showme=true" data-ng-hide="showme">Update</button>
+						<button class = "btn btn-large btn-primary"  ng-click="showme=true; loadIngredients()" data-ng-hide="showme">Update</button>
 						<br>
 						<br>
 						<button class = "btn btn-large btn-primary" data-ng-hide="showme" ng-click = "deleteMenuItem()">Delete</button>	
@@ -112,12 +112,22 @@
                             <h4>Update item</h4>
                             <div class="form-group">
                                 <label for="itemName">Item Name</label>
-                                <input type="text" id="itemName" name="itemName" class="form-control" data-ng-model="itemName" placeholder={{menuNameSearch}}>
-                            </div>                    
+                                <input type="text" id="itemName" name="itemName" class="form-control" data-ng-model="updateItemName">
+                            </div>            
+
+							<div class="form-group">
+                                <label for="itemUpdatePrice">Price</label>
+                                <input type="text" id="itemUpdatePrice" name="itemUpdatePrice" class="form-control" data-ng-model="updateItemPrice">
+                            </div>
+							
+							<div class="form-group">
+                                <label for="itemUpdateDes">Description</label>
+                                <input type="text" id="itemUpdateDescription" name="itemUpdateDescription" class="form-control" data-ng-model="updateItemDescription">
+                            </div>
 
                             <div class="form-group">
 								<label for="category">Category</label>
-								<select id ="itemCategory" name ="itemCategory" class = "form-control" data-ng-model ="menuItem.itemCategory" >
+								<select id ="itemCategory" name ="itemCategory" class = "form-control" data-ng-model ="updateItemCategory">
 									<option value = 'Toasted Sandwiches'>Toasted Sandwiches</option>
 									<option value = 'Tramezzinis'>Tramezzinis</option>
 									<option value = 'Burger Bar'>Burger Bar</option>
@@ -130,12 +140,16 @@
 								</select>
                             </div>
 							
-							<div ng-init= "loadIngredients()">
+							<div>
 								<label for ="ingredients">Ingredients</label>
 								<div ng-repeat = "ingredient in loadedIngredients.ingredients track by $index" >
 									<label ng-bind = 'loadedIngredients.ingredients[$index]'>{{loadedIngredients.ingredients}}</label>					
 									<input class="form-control" type = "number" min =0 ng-model = 'loadedIngredients.quantities[$index]'/>
-									<a class = "btn bnt-promary" ng-click = "removeIngredient($index)" >Remove</a>
+									
+									<a class = "btn" ng-click = "removeIngredient($index); removed = true" ng-hide="removed" ng-show="!removed">Remove</a>
+									<!--<p ng-show ="removed">Removed</p>-->
+									<a class = "btn" ng-click = "undoRemoveIngredient($index); removed=false" ng-show="removed">Undo remove</a>
+									
 									<br>
 								</div>
 							</div>							
@@ -154,8 +168,10 @@
 
 						<br>			
                             <div class = "text-center form-group">
-                                <button type = "submit" class = "btn btn-large btn-primary" onclick= "location.reload(true)"> Update</button>
-                            </div>
+                                <!--<button type = "submit" class = "btn btn-large btn-primary" onclick= "location.reload(true)" ng-click = "upadateMenuItem()"> Update</button>-->
+                                <button type = "submit" class = "btn btn-large btn-primary" ng-click = "upadateMenuItem()"> Update</button>
+
+							</div>
                         </form>
 
                         <!--Error message-->

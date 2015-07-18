@@ -84,6 +84,26 @@ exports.read = function(req, res) {
 	res.jsonp(req.menuitem);
 };
 
+
+/* Update menu item*/
+exports.updateMenuItem = function(req,res){
+	console.log('updateMenuItem here!!!');
+		console.log(req.body.itemName);
+		console.log(req.body.category);
+		
+		MenuItem.update({itemName: req.body.itemName}, {itemName: req.body.updateItemName, prie:req.body.price, description: req.body.description, category:req.body.category, ingredients: req.body.ingredients},  function(err, numAffected){
+        if(err) return res.status(400).send({
+            message: errorHandler.getErrorMessage(err)
+        });
+        else if (numAffected < 1){
+            res.status(400).send({message: 'Error updating the product!'});
+        }
+        else{
+            res.status(200).send({message: 'Product information successfully updated.'});
+        }
+    });
+	};
+
 /**
  * Update a menuitem
  */
@@ -102,6 +122,28 @@ exports.update = function(req, res) {
 		}
 	});
 };
+
+
+	
+	
+	/*
+	Delete a menu item
+	*/
+	exports.deleteMenuItem=function(req,res)
+	{
+		console.log('Delete:'+req.body.itemName);
+		MenuItem.remove({itemName: req.body.itemName}, function(err, numAffected){
+        if(err) return res.status(400).send({
+            message: errorHandler.getErrorMessage(err)
+        });
+        else if (numAffected < 1){
+            res.status(400).send({message: 'Error deleting the menu item.'});
+        }
+        else{
+            res.status(200).send({message: 'Menu item successfully deleted.'});
+        }
+    });
+	};
 
 /**
  * Delete an menuitem
@@ -183,16 +225,18 @@ exports.searchMenu=function(req,res){
     if (req.body.itemName) {
         MenuItem.findOne({
             itemName: req.body.itemName
-        }, function (err,menuitem ) {
+        }, function (err,menuitem ) {			
             if (!menuitem) {
                // console.log('notttt searchMenu'+ req.body.itemName);
                 return res.status(400).send({
                     message: 'Menu item not found'
                 });
             }   else if(menuitem){
+				console.log('menuitemSEARCHED JUST NOW:'+menuitem);
                // console.log('yesssss searchMenu'+ req.body.itemName);
                 return res.status(200).send({
-                    message: 'This menu item has been found'
+					 message: 'This menu item has been found',
+					 menuItem: menuitem
                 });
             }
         });

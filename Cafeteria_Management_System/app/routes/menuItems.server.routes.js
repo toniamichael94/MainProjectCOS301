@@ -11,9 +11,15 @@ module.exports = function(app) {
 	app.route('/inventoryItems').get(menuItems.inventoryItems);
 	app.route('/inventoryItems').post(menuItems.inventoryItems);
     app.route('/menu/search').post(menuItems.searchMenu);
+ 
+     //Update
+	app.route('/orders/updateMenuItem').post(menuItems.updateMenuItem);
+	
+	//Delete
+	app.route('/orders/deleteMenuItem').post(menuItems.deleteMenuItem);
 
-
-
+     
+	
 	//create order
 	app.route('/orders/createMenuItem').post(menuItems.createMenuItem);
 

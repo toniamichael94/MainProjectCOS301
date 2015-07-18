@@ -16,84 +16,122 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 			$scope.ingredients.quantities.push('');
 		}
   
+  /*==Update functions ==*/
+  
   /*
-  Load all the ingredients for updating the ingredients of a menu item
+	Load all the ingredients of the searched menu item into loadedIngredients
+	@founditem: the menu item that was searched and found.
   */
-	$scope.loadedIngredients = {ingredients:[''],quantities:['']};
-	$scope.loaded = false;
-	
-	/*
-	Load all the ingredients and their quantities into the arrays
-	*/
+	$scope.loadedIngredients = {ingredients:[],quantities:[]};
 	$scope.displayedMenuItems = false;
+	
 	$scope.loadIngredients = function() {
-    
-	console.log('In load ingredients');
 	if(!$scope.displayedMenuItems)
 	{
 		$scope.displayedMenuItems = true;
-		//Load all the menuitems
-		$http.get('/loadMenuItems').success(function(response) {
 
-		  console.log(response.message); // testing
-			$scope.menuItems = response.message;
-
-			for(var itemName in response.message)
-			{
-				for(var ingredient in response.message[itemName].ingredients.ingredients)
-				{
-					//Cut off units from ingredient
-					var lastSpace = response.message[itemName].ingredients.ingredients[ingredient].lastIndexOf(" ");					
-					var ingredientString = response.message[itemName].ingredients.ingredients[ingredient].substring(0,lastSpace);
-					$scope.loadedIngredients.ingredients.push(ingredientString);
-				}
-				
-				for(var quantity in response.message[itemName].ingredients.quantities)
-				{
-				$scope.loadedIngredients.quantities.push(response.message[itemName].ingredients.quantities[quantity]);
-
-				}
-			}
+		for(var ingredient in $scope.foundItem.ingredients.ingredients)
+		{
+			$scope.loadedIngredients.ingredients.push($scope.foundItem.ingredients.ingredients[ingredient]);
+			$scope.loadedIngredients.quantities.push($scope.foundItem.ingredients.quantities[ingredient]);
+		}
+			
+			console.log('Loaded ingredients:'+$scope.loadedIngredients.ingredients);
+			console.log('A loaded ingredient:'+$scope.loadedIngredients.ingredients[0]);
+			console.log('A loaded ingredient quantity:'+$scope.loadedIngredients.quantities[0]);
 			console.log('A loaded ingredient:'+$scope.loadedIngredients.ingredients[1]);
 			console.log('A loaded ingredient quantity:'+$scope.loadedIngredients.quantities[1]);
-				
+			console.log('End load ingredients');					
 
-				}).error(function(response) {
-				$scope.menuItems = 'Error loading menu Items';
-			});
+				
 	}
   };
   
   /*
-  Add more ingredients to the menu item being updated
+  Add more ingredients to the menu item being updated.
+  Dynamically add fields to add more ingredients.
+  Store the new ingredients that are added in addedUpdateIngredients.
   */
    $scope.addedUpdateIngredients = {ingredients:[],quantities:[]};
    
 	$scope.addMoreIngredientsUpadte = function()
 	{
-		
 			$scope.addedUpdateIngredients.ingredients.push('');
 			$scope.addedUpdateIngredients.quantities.push('');
-		
 	};
-	
+		
 	/*Remove an ingredient from the item being updated*/
+	$scope.removedIngredients =[];
 	$scope.removeIngredient = function(index)
 		{
-			console.log('here');
-			console.log('Here, index:'+ index+ ' ' + $scope.loadedIngredients.ingredients[index]);
-
+			console.log('REMOVE:'+index + ' ' + $scope.loadedIngredients.ingredients[index]);			
+			$scope.removedIngredients.push(index);
 		};
-  
+		
+	/*Undo the remove ingredient function*/
+	$scope.undoRemoveIngredient = function(index)
+		{
+			console.log('UNDOREMOVE:'+index + ' ' + $scope.loadedIngredients.ingredients[index]);
+			console.log('Removed ingredients:'+ $scope.removedIngredients);
+			var found = false;
+			for(var ingredient in $scope.removedIngredients)
+			{
+				if($scope.removedIngredients[ingredient] == index)
+				{
+					$scope.removedIngredients[ingredient] = '';
+					found = true;
+				}
+			}
+			
+			console.log('Removed ingredients:'+ $scope.removedIngredients);
+			
+		};
+		
+		
+		/*Update the menu item*/
+		$scope.updateMenuItem = function()
+		{
+
+		console.log('Update - Loaded ingredients.ingredients:'+$scope.loadedIngredients.ingredients);
+		console.log('Update - Removed ingredients:'+$scope.removedIngredients);
+		console.log('Update - addedUpdateIngreients.ingredients:'+$scope.addedUpdateIngredients.ingredients);
+		
+			for(var removedIngredient in $scope.removedIngredients)
+			{
+				if($scope.removedIngredients[removedIngredient] != '')
+				{
+					$scope.loadedIngredients.ingredients[removedIngredient] = '';
+					$scope.loadedIngredients.quantities[removedIngredient] = '';
+				}
+			}
+			
+			for (var ingredient in $scope.loadedIngredients.ingredients)
+			{
+				if($scope.loadedIngredients.ingredients[ingredient] != '')
+				{
+					$scope.addedUpdateIngredients.ingredients.push($scope.loadedIngredients.ingredients[ingredient]);
+					$scope.addedUpdateIngredients.quantities.push($scope.loadedIngredients.quantities[ingredient]);
+				}
+			}
+			
+			console.log('Ingredients updated:'+$scope.addedUpdateIngredients.ingredients);
+		    console.log('Quantities updated:'+$scope.addedUpdateIngredients.quantities);
+			
+			$scope.updateItemName = $scope.updateItemName.toLowerCase();
+			var reqObj = {itemName:$scope.foundItem.itemName, updateItemName: $scope.updateItemName, price:$scope.updateItemPrice, description:$scope.updateItemDescription, category : $scope.updateItemCategory, ingredients:$scope.addedUpdateIngredients};
+			$http.post('/orders/updateMenuItem',reqObj);				
+		};
+		
+/*==== end of update functions ===*/
+
         /**
 		Add product to favourites
 		*/
 		$scope.favourite = function(itemName)
 		{
 			console.log('item'+itemName);
-
-
 		};
+		
 
 //search for item
         $scope.searchMenu = function(isValid) {
@@ -104,6 +142,15 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
                 var reqObj = {itemName: $scope.menuNameSearch.toLowerCase()};
                 $http.post('/menu/search', reqObj).success(function(response){
                     $scope.successOne = response.message;
+					
+					//Set the values for the item being updated.
+					$scope.foundItem = response.menuItem;
+					$scope.updateItemName = $scope.foundItem.itemName;
+					$scope.updateItemCategory = $scope.foundItem.category;
+					$scope.updateItemPrice = $scope.foundItem.price;
+					$scope.updateItemDescription = $scope.foundItem.description;
+					
+					console.log('Item found:'+$scope.foundItem.ingredients.ingredients);
                 }).error(function(response){
                     $scope.errorOne = response.message;
                 });
@@ -342,8 +389,20 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 			//console.log($scope.menuItems);
 		};
 
-
-
+		/*
+		Delete a menu item
+		*/
+		$scope.deleteMenuItemName = '';
+		
+		$scope.deleteMenuItem = function(menuItemName)
+		{
+			$scope.menuNameSearch=$scope.menuNameSearch.toLowerCase();
+			console.log('Delete:'+$scope.menuNameSearch);
+			var reqObj = {itemName:$scope.menuNameSearch};
+			$http.post('/orders/deleteMenuItem',reqObj);	
+		};
+		
+		/*
 	// Remove existing menu item
 		$scope.remove = function(menuItem) {
 			if ( menuItem ) {
@@ -359,7 +418,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 					$location.path('menuitmes');
 				});
 			}
-		};
+		};*/
 
 		// Update existing menu item
 		$scope.update = function() {
