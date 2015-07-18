@@ -127,7 +127,7 @@
 	</div>
 
 		<!---Edit quantity of items-->
-	<div class="list-group clearfix" data-ng-controller="InventoryController">
+	<div class="list-group clearfix" data-ng-controller="InventoryController" ng-init="loadInventoryItems()">
 		<a href="#" class="list-group-item disabled">Inventory Quantity</a>
 			<div class="list-group-item clearfix">
 				<h3> Edit quantity of items </h3>
@@ -136,7 +136,7 @@
 						<form  class="signin form-horizontal" autocomplete="off">
 							<fieldset>
 							<button ng-click = "updateInventoryQuantity()" class = "btn btn-large btn-primary" ng-show="displayed">Save</button>
-								<div  ng-init="loadInventoryItems()"  ng-repeat = "invenProduct in allInventory.inventoryProduct track by $index" >
+								<div   ng-repeat = "invenProduct in allInventory.inventoryProduct track by $index" >
 									<label ng-bind = 'allInventory.inventoryProduct[$index]'>{{invenProduct.productName}}</label>					
 									<input class="form-control" type = "number" min =0 ng-model = 'allInventory.inventoryQuantity[$index]'/>
 									<br>
@@ -150,7 +150,7 @@
 
 							</fieldset>
 						</form>
-
+                
 						<!--Dynamically show inventory items to edit quantity-->
 						<button ng-hide="displayed" ng-click="addFormFieldInventory()" class = "btn btn-large btn-primary">Display inventory</button>
 												

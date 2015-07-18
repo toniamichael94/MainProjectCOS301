@@ -29,10 +29,11 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 			Dynamically add fields to the inventory page to update the quantity.
 		*/
 		$scope.displayed = false;
-	    $scope.allInventory = {inventoryProduct:[''],inventoryQuantity:['']};
-		$scope.previousQuantity = {prevQuantity:['']};
-		
+	    
+		$scope.previousQuantity = {prevQuantity:[]};
+		$scope.allInventory = {inventoryProduct:[],inventoryQuantity:[]};
 		$scope.addFormFieldInventory = function() {
+			
 			if(!$scope.displayed)
 			{
 				for(var i = 0; i != $scope.inventoryItems.length; i++)
@@ -57,7 +58,7 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 			{
 				if(!($scope.allInventory.inventoryQuantity[i] === $scope.previousQuantity.prevQuantity[i]))
 				{
-					console.log($scope.allInventory.inventoryProduct[i] + ' changed');
+					//console.log($scope.allInventory.inventoryProduct[i] + ' changed');
 					var reqObj = {productName:$scope.allInventory.inventoryProduct[i], quantity:$scope.allInventory.inventoryQuantity[i]};
 					$http.post('/orders/updateInventoryQuantity',reqObj);	
 				}
