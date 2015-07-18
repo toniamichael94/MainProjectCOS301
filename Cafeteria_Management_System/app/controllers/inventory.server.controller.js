@@ -195,7 +195,6 @@ updateInventoryQuantity
 	*/
 	exports.deleteInventoryItem=function(req,res)
 	{
-		console.log('Delete:'+req.body.productName);
 		Inventory.remove({productName: req.body.productName}, function(err, numAffected){
         if(err) return res.status(400).send({
             message: errorHandler.getErrorMessage(err)

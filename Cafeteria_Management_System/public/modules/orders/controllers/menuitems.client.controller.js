@@ -36,12 +36,12 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 			$scope.loadedIngredients.quantities.push($scope.foundItem.ingredients.quantities[ingredient]);
 		}
 			
-			console.log('Loaded ingredients:'+$scope.loadedIngredients.ingredients);
-			console.log('A loaded ingredient:'+$scope.loadedIngredients.ingredients[0]);
-			console.log('A loaded ingredient quantity:'+$scope.loadedIngredients.quantities[0]);
-			console.log('A loaded ingredient:'+$scope.loadedIngredients.ingredients[1]);
-			console.log('A loaded ingredient quantity:'+$scope.loadedIngredients.quantities[1]);
-			console.log('End load ingredients');					
+			//console.log('Loaded ingredients:'+$scope.loadedIngredients.ingredients);
+			//console.log('A loaded ingredient:'+$scope.loadedIngredients.ingredients[0]);
+			//console.log('A loaded ingredient quantity:'+$scope.loadedIngredients.quantities[0]);
+			//console.log('A loaded ingredient:'+$scope.loadedIngredients.ingredients[1]);
+			//console.log('A loaded ingredient quantity:'+$scope.loadedIngredients.quantities[1]);
+			//console.log('End load ingredients');					
 
 				
 	}
@@ -64,15 +64,15 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 	$scope.removedIngredients =[];
 	$scope.removeIngredient = function(index)
 		{
-			console.log('REMOVE:'+index + ' ' + $scope.loadedIngredients.ingredients[index]);			
+			//console.log('REMOVE:'+index + ' ' + $scope.loadedIngredients.ingredients[index]);			
 			$scope.removedIngredients.push(index);
 		};
 		
 	/*Undo the remove ingredient function*/
 	$scope.undoRemoveIngredient = function(index)
 		{
-			console.log('UNDOREMOVE:'+index + ' ' + $scope.loadedIngredients.ingredients[index]);
-			console.log('Removed ingredients:'+ $scope.removedIngredients);
+			//console.log('UNDOREMOVE:'+index + ' ' + $scope.loadedIngredients.ingredients[index]);
+			//console.log('Removed ingredients:'+ $scope.removedIngredients);
 			var found = false;
 			for(var ingredient in $scope.removedIngredients)
 			{
@@ -83,7 +83,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 				}
 			}
 			
-			console.log('Removed ingredients:'+ $scope.removedIngredients);
+			//console.log('Removed ingredients:'+ $scope.removedIngredients);
 			
 		};
 		
@@ -92,9 +92,9 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		$scope.updateMenuItem = function()
 		{
 
-		console.log('Update - Loaded ingredients.ingredients:'+$scope.loadedIngredients.ingredients);
-		console.log('Update - Removed ingredients:'+$scope.removedIngredients);
-		console.log('Update - addedUpdateIngreients.ingredients:'+$scope.addedUpdateIngredients.ingredients);
+		//console.log('Update - Loaded ingredients.ingredients:'+$scope.loadedIngredients.ingredients);
+		//console.log('Update - Removed ingredients:'+$scope.removedIngredients);
+		//console.log('Update - addedUpdateIngreients.ingredients:'+$scope.addedUpdateIngredients.ingredients);
 		
 			for(var removedIngredient in $scope.removedIngredients)
 			{
@@ -114,8 +114,8 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 				}
 			}
 			
-			console.log('Ingredients updated:'+$scope.addedUpdateIngredients.ingredients);
-		    console.log('Quantities updated:'+$scope.addedUpdateIngredients.quantities);
+			//console.log('Ingredients updated:'+$scope.addedUpdateIngredients.ingredients);
+		    //console.log('Quantities updated:'+$scope.addedUpdateIngredients.quantities);
 			
 			$scope.updateItemName = $scope.updateItemName.toLowerCase();
 			var reqObj = {itemName:$scope.foundItem.itemName, updateItemName: $scope.updateItemName, price:$scope.updateItemPrice, description:$scope.updateItemDescription, category : $scope.updateItemCategory, ingredients:$scope.addedUpdateIngredients};
