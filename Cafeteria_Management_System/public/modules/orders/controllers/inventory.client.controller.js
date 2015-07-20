@@ -73,10 +73,17 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 		
 		$scope.deleteInventoryItem = function(inventoryItemName)
 		{
+			$scope.errorDelete = $scope.successDelete = null;
 			$scope.itemNameSearch=$scope.itemNameSearch.toLowerCase();
-			console.log('Delete:'+$scope.itemNameSearch);
 			var reqObj = {productName:$scope.itemNameSearch};
-			$http.post('/orders/deleteInventoryItem',reqObj);	
+			$http.post('/orders/deleteInventoryItem',reqObj).success(function(response){
+				$scope.successDelete = response.message;
+				$scope.itemNameSearch = null;
+				$scope.hide = true;
+			}).error(function(response){
+				$scope.errorDelete = response.message;
+				$scope.hide = true;
+			});
 		};
 
 		// Loading the items from the inventory to display in the add ingredients of the menu items being added
@@ -159,17 +166,19 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 
         // Search inventory
         $scope.searchInventory = function(isValid) {
+			$scope.hide = false;
+			//$scope.error=$scope.success = null;
             if(isValid){
-                $scope.successOne = $scope.errorOne = null;
+                $scope.successFind = $scope.errorFind = null;
                 var reqObj = {productName: $scope.itemNameSearch.toLowerCase()};
                 $http.post('/orders/search', reqObj).success(function(response){					
-                    $scope.successOne = response.message;	
+                    $scope.successFind = response.message;	
 					$scope.itemUpdateName = $scope.itemNameSearch;
 					$scope.updateQuantity = response.foundInventoryItem.quantity;
 					$scope.updateUnit = response.foundInventoryItem.unit;
 					console.log('Unit:'+$scope.updateUnit);
                 }).error(function(response){					
-                    $scope.errorOne = response.message;
+                    $scope.errorFind = response.message;
                 });
             }
         };
@@ -177,15 +186,17 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
         //Update inventory 
         $scope.updateInventory = function(isValid) {
             if (isValid) {
-                $scope.successTwo = $scope.errorTwo = null;
+                $scope.successUpdate = $scope.errorUpdate = null;
                 var reqObj = {oldProdName: $scope.itemNameSearch.toLowerCase(), newProdName: $scope.itemUpdateName, quantity:$scope.updateQuantity, unit: $scope.updateUnit};
 
                 $http.post('/orders/updateInventory', reqObj).success(function(response) {
                     // If successful show success message and clear form
-                    $scope.successTwo = response.message;
+                    $scope.successUpdate = response.message;
+					$scope.hide = true;
                     $scope.itemNameSearch = $scope.itemUpdateName = $scope.updateUnit = $scope.updateQuantity = null;
                 }).error(function(response) {
-                    $scope.errorTwo = response.message;
+                    $scope.errorUpdate = response.message;
+					$scope.hide = true;
                 });
             }
         };
