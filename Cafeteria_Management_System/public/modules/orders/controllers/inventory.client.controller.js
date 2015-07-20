@@ -163,23 +163,27 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
                 $scope.successOne = $scope.errorOne = null;
                 var reqObj = {productName: $scope.itemNameSearch.toLowerCase()};
                 $http.post('/orders/search', reqObj).success(function(response){					
-                    $scope.successOne = response.message;					
-                }).error(function(response){
+                    $scope.successOne = response.message;	
+					$scope.itemUpdateName = $scope.itemNameSearch;
+					$scope.updateQuantity = response.foundInventoryItem.quantity;
+					$scope.updateUnit = response.foundInventoryItem.unit;
+					console.log('Unit:'+$scope.updateUnit);
+                }).error(function(response){					
                     $scope.errorOne = response.message;
                 });
             }
         };
 
-        //Update inventory {Antonia Michael and Semaka Malapane}
+        //Update inventory 
         $scope.updateInventory = function(isValid) {
             if (isValid) {
                 $scope.successTwo = $scope.errorTwo = null;
-                var reqObj = {oldProdName: $scope.itemNameSearch.toLowerCase(), newProdName: $scope.itemName.toLowerCase(), unit: $scope.unit, quantity:$scope.quantity};
+                var reqObj = {oldProdName: $scope.itemNameSearch.toLowerCase(), newProdName: $scope.itemUpdateName, quantity:$scope.updateQuantity, unit: $scope.updateUnit};
 
-                $http.post('/orders/update', reqObj).success(function(response) {
+                $http.post('/orders/updateInventory', reqObj).success(function(response) {
                     // If successful show success message and clear form
                     $scope.successTwo = response.message;
-                    $scope.itemNameSearch = $scope.itemName = $scope.unit = $scope.quantity = null;
+                    $scope.itemNameSearch = $scope.itemUpdateName = $scope.updateUnit = $scope.updateQuantity = null;
                 }).error(function(response) {
                     $scope.errorTwo = response.message;
                 });

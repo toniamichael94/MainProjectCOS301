@@ -126,6 +126,8 @@ exports.hasAuthorization = function(req, res, next) {
 	next();
 };
 
+/*Search the inventory*/
+
 exports.searchInventory=function(req,res){
     console.log('searchInventory'+ req.body.productName);
     if (req.body.productName) {
@@ -134,11 +136,12 @@ exports.searchInventory=function(req,res){
         }, function (err, inventory) {
             if (!inventory) {
                 return res.status(400).send({
-                    message: 'Inventory item not found'
+                    message: 'Inventory item not found'					
                 });
             }   else if(inventory){
                 return res.status(200).send({
-                    message: 'This inventory item has been found'
+                    message: 'This inventory item has been found',
+					foundInventoryItem: inventory
                 });
             }
         });
@@ -155,6 +158,10 @@ exports.searchInventory=function(req,res){
  * Last Edited by {Semaka Malapane and Tonia Michael}
  */
 exports.updateInventory = function(req, res) {
+	console.log('Update'+req.body.oldProdName);
+	console.log('Update'+req.body.newProdName);
+	console.log('Update'+req.body.quantity);
+	console.log('Update'+req.body.unit);
     Inventory.update({productName: req.body.oldProdName}, {productName: req.body.newProdName, quantity: req.body.quantity, unit: req.body.unit}, function(err, numAffected){
         if(err) return res.status(400).send({
             message: errorHandler.getErrorMessage(err)

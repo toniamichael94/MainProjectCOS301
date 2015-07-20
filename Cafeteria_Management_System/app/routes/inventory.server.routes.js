@@ -13,7 +13,7 @@ module.exports = function(app) {
     app.route('/orders/search').post(inventory.searchInventory);
 
     //update route
-    app.route('/orders/update').post(inventory.updateInventory);
+    app.route('/orders/updateInventory').post(inventory.updateInventory);
 	
 	//update inventory quantity
 	app.route('/orders/updateInventoryQuantity').post(inventory.updateInventoryQuantity);

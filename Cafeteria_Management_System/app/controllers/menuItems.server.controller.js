@@ -87,7 +87,7 @@ exports.read = function(req, res) {
 
 /* Update menu item*/
 exports.updateMenuItem = function(req,res){		
-		MenuItem.update({itemName: req.body.itemName}, {itemName: req.body.updateItemName, prie:req.body.price, description: req.body.description, category:req.body.category, ingredients: req.body.ingredients},  function(err, numAffected){
+		MenuItem.update({itemName: req.body.itemName}, {itemName: req.body.updateItemName, price:req.body.price, description: req.body.description, category:req.body.category, ingredients: req.body.ingredients},  function(err, numAffected){
         if(err) return res.status(400).send({
             message: errorHandler.getErrorMessage(err)
         });

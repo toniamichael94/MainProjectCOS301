@@ -7,10 +7,10 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 
 
 		/*
-			Dynamically add fields to the menu itmes page to add ingredients for a menu item.
+			Dynamically add fields to the menu items page to add ingredients for a menu item.
 		*/
 		$scope.ingredients = {ingredients:[],quantities:[]};
-				//Function to add fields
+
 		$scope.addFormField = function() {
 			$scope.ingredients.ingredients.push('');
 			$scope.ingredients.quantities.push('');
@@ -118,7 +118,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		    //console.log('Quantities updated:'+$scope.addedUpdateIngredients.quantities);
 			
 			$scope.updateItemName = $scope.updateItemName.toLowerCase();
-			var reqObj = {itemName:$scope.foundItem.itemName, updateItemName: $scope.updateItemName, price:$scope.updateItemPrice, description:$scope.updateItemDescription, category : $scope.updateItemCategory, ingredients:$scope.addedUpdateIngredients};
+			var reqObj = {itemName:$scope.foundItem.itemName.toLowerCase(), updateItemName: $scope.updateItemName, price:$scope.updateItemPrice, description:$scope.updateItemDescription, category : $scope.updateItemCategory, ingredients:$scope.addedUpdateIngredients};
 			$http.post('/orders/updateMenuItem',reqObj);				
 		};
 		
