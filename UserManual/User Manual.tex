@@ -76,6 +76,7 @@ Once mongo has been started, then the CMS server can be started with the followi
 ~/Cafeteria Management System$ grunt
 \end{verbatim}
 
+Note: Inside the browser one will run localhost:3000 to view the system.
 
 \section{Getting Started}
 Access to the Cafeteria Management System is through a standard web browser. Different types of users have access to different facets of the system. The system has a default Superuser account which can assign different roles (cafeteria manager, cashier, etc.) to the users. These users can then sign in to access the facet of the system they are authorised to.\\
@@ -84,4 +85,51 @@ Once logged in, the superuser can change their password from the profile managem
 To terminate the sever, the user can enter the Ctrl+C command in the terminal. The user can also terminate the MongoDB service by executing the same command (Ctrl+C) in the MongoDB terminal.
 
 \section{Using The System} 
+\subsection{The Navigation pane} 
+On the home page, the name of the canteen is displayed. The user will also see the navigation pane at the top. The actions available with the pane are "Sign in", "Sign up", "Menu" and "On your plate". 
+\\
+The user can not proceed to order food if the user has not signed up and logged in. Hence, the first step a new user should take is signing up/ registering with the system. 
+\\
+If a user has not signed in, the user will still be allowed, however, to view the menu, without ordering anything. However, the user will not be able to add any item to their plate and hence no orders will be displayed on the "On my plate" page.
+\subsubsection{The Navigation pane - once the user has logged on}
+The user will now view a drop down menu with various options displayed on it. The following options will be displayed if the user is a normal user: "Edit Profile", "Profile", "Sign out". These pages will be discussed below.
+\\
+If the user is a superuser the options of "Admin Settings", "Branding Settings". The superuser will hence be in control of assigning roles, changing employee ID's, setting the limit, changing the canteen name and the cover image of the canteen.  
+\\
+If the user is a cafeteria manager, the options "Manage Cafeteria", "Manage Inventory" will be displayed.Manage Inventory is where the stock additions and removals are kept track of. Manage Cafeteria is where the different menu meal items will be logged.
+
+If user is a financial manager, the option "Finance" will be displayed. The financial managed will be able to search for employees and view their bills, to keep track of these.
+
+If the user is a cashier, the options "Placed Orders" will be displayed and it is here where the transactions will occur, such as marking whether orders are ready, and paid for. The cashier will also send notifications to the user, when the food is ready for the user to collect. 
+
+
+\subsection{The "Sign Up" Page} 
+Once the user has clicked the "Sign Up" option on the navigation pane, the user will be directed to the sing up form, where a user should fill in their details. Once completed, the user will click submit and if the form is correctly filled in the user will be notified upon success and will be signed up for the system. The user will hence be redirected to the home page. The user can then use the password created and employee ID to log in to the system. If the information entered is not followed, a thorough error message will be displayed indicating what the problem is so that the user can rectify it.
+\\
+The user must now log in to access the ordering and managing profile functionality.
+
+\subsection{The "Sign In" Page} 
+To log into the system the user should click the Sign In option on the navigation pane. The user will fill in their password and Employee ID in the provided slots and click submit to proceed. If the information entered is valid, the user will be notified upon success and redirected to the home page, logged in on their personal account. If the information entered is not followed, a thorough error message will be displayed indicating what the problem is so that the user can rectify it.
+\\
+There is also an option called "Forgot your password?" which once clicked leads the user to a page where the user must enter their Employee ID. The user will then be notified that an email has been sent to their personal email account with further instructions on how to rectify the situation. The user will be sent a link to a page, in order to set a new password.   
+
+\subsection{The "Edit Profile" Page} 
+The user will be presented with a similar form to that which they signed up with, however, the details that the user entered in the sign up form will be present in these textboxes. The user can proceed to edit these here. Clicking the submit button will indicate whether changes have been saved or if errors have been made and how the user can correct these.
+
+\subsection{The "Profile" Page} 
+This is where the user will be able to view their profile i.e. the details they entered when they signed up/ edited their profile. 
+
+\subsection{The "Change Password" Page} 
+The user is presented with a form where the user will be asked to enter their new and old passwords to change their password. 
+
+\subsection{The "Menu" Page} 
+This is where the user will be able to view the menu of the items and their prices. There are checkboxes next to the meal items that the user can click to select meal options. The user can proceed to click the "Add to plate" button to place their order. Their order can then be viewed on the "On my plate" tab on the navigation pane. 
+\\
+On the menu page there is also a breadcrumb which indicates the different meal categories to make the search more efficient. There is also a search bar on all these pages. 
+
+\subsection{Superuser: The "Administrative Settings" Page} 
+\subsection{Superuser: The "Branding Settings" Page} 
+\subsection{Cashier: The "Process Orders" Page}
 \end{document}
+
+
