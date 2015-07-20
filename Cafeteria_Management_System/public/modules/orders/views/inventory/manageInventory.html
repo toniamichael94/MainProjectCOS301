@@ -68,13 +68,14 @@
 					</div>
                 </form>
 
+				<!--Show if item found-->
 				<div data-ng-show="successOne">
 					<button class = "btn btn-large btn-primary"  ng-click="showme=true" data-ng-hide="showme">Update</button>
 					<br>
 					<br>
 					<button class = "btn btn-large btn-primary" data-ng-hide="showme" ng-click = "deleteInventoryItem()">Delete</button>	
 				</div>
-					<!--Success: ability to update the item -->
+					<!--Update the item -->
 					<div ng-show="showme" class="text-center text-success">
 						<!--strong data-ng-bind="successOne"></strong-->
                         <form name="updateInventoryForm" data-ng-submit="updateInventory(updateInventoryForm.$valid)" class="signin form-horizontal" autocomplete="off">
@@ -82,18 +83,18 @@
                             <h4>Update item</h4>
                             <div class="form-group">
                                 <label for="itemName">Item Name</label>
-                                <input type="text" id="itemName" name="itemName" class="form-control" data-ng-model="itemName" placeholder={{itemNameSearch}}>
+                                <input type="text" id="itemName" name="itemName" class="form-control" data-ng-model="itemUpdateName">
                             </div>							
 			
 
                             <div class="form-group">
                                 <label for="Quantity">Quantity</label>
-                                <input type="number" min =0 id="Quantity" name="Quantity" class="form-control" data-ng-model="quantity" placeholder="Quantity">
+                                <input type="number" min =0 id="Quantity" name="Quantity" class="form-control" data-ng-model="updateQuantity" placeholder="Quantity">
                             </div>
 
                             <div class="form-group">
                                 <label for="Unit">Unit</label>
-                                <select id="Unit" name="Unit" class="form-control" data-ng-model="unit">
+                                <select id="Unit" name="Unit" class="form-control" data-ng-model="updateUnit">
                                     <option value='g'>grams</option>
                                     <option value='mg'>milligrams</option>
                                     <option value='kg'>kilograms</option>
@@ -104,8 +105,8 @@
                             </div>
 
                             <div class = "text-center form-group">
-                                <button type = "submit" class = "btn btn-large btn-primary" onclick= "location.reload(true)"> Update</button>
-                            </div>
+                                <button type = "submit" class = "btn btn-large btn-primary"> Update</button>
+                            </div><!-- onclick= "location.reload(true)"-->
                         </form>
 
                         <!--Error message-->
@@ -132,7 +133,8 @@
 			<div class="list-group-item clearfix">
 				<h3> Edit quantity of items </h3>
 				<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">	
-					<div data-ng-controller="InventoryController">				
+					<div data-ng-controller="InventoryController">	
+						<div ng-hide="hideEdit">
 						<form  class="signin form-horizontal" autocomplete="off">
 							<fieldset>
 							<button ng-click = "updateInventoryQuantity()" class = "btn btn-large btn-primary" ng-show="displayed">Save</button>
@@ -153,7 +155,8 @@
                 
 						<!--Dynamically show inventory items to edit quantity-->
 						<button ng-hide="displayed" ng-click="addFormFieldInventory()" class = "btn btn-large btn-primary">Display inventory</button>
-												
+						
+						</div>						
 					</div>
 				</div>
 			</div>
