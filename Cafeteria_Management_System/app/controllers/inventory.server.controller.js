@@ -179,20 +179,16 @@ exports.updateInventory = function(req, res) {
 updateInventoryQuantity
 */
 
-	exports.updateInventoryQuantity=function(req,res){
-		console.log('updateInventoryQuantity');
-		console.log(req.body.productName);
-		console.log(req.body.quantity);
-		
+	exports.updateInventoryQuantity=function(req,res){		
 		Inventory.update({productName: req.body.productName}, {quantity: req.body.quantity}, function(err, numAffected){
         if(err) return res.status(400).send({
             message: errorHandler.getErrorMessage(err)
         });
         else if (numAffected < 1){
-            res.status(400).send({message: 'Error updating the product!'});
+            res.status(400).send({message: 'Error updating the item.'});
         }
         else{
-            res.status(200).send({message: 'Product information successfully updated.'});
+            res.status(200).send({message: 'Item successfully updated.'});
         }
     });
 	};
@@ -207,10 +203,10 @@ updateInventoryQuantity
             message: errorHandler.getErrorMessage(err)
         });
         else if (numAffected < 1){
-            res.status(400).send({message: 'Error updating the product!'});
+            res.status(400).send({message: 'Error deleting the item ' + req.body.productName});
         }
         else{
-            res.status(200).send({message: 'Product information successfully updated.'});
+            res.status(200).send({message: req.body.productName + ' successfully deleted.'});
         }
     });
 	};

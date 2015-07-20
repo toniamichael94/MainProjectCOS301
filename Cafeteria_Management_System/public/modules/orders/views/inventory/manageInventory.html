@@ -67,26 +67,44 @@
 						<button type = "submit" class = "btn btn-large btn-primary"><!--ng-submit="inventory.findOne()"--> Search</button>
 					</div>
                 </form>
-
-				<!--Show if item found-->
-				<div data-ng-show="successOne">
-					<button class = "btn btn-large btn-primary"  ng-click="showme=true" data-ng-hide="showme">Update</button>
-					<br>
-					<br>
-					<button class = "btn btn-large btn-primary" data-ng-hide="showme" ng-click = "deleteInventoryItem()">Delete</button>	
+       <div id = "deleteOrUpdateMainDiv" >
+				<!--Delete or update if item found-->
+				<div data-ng-show="successFind" id = "delete">
+					<div = "updateShowOrHide" data-ng-hide="hide">
+						<button class = "btn btn-large btn-primary"  ng-click="showme=true" data-ng-hide="showme">Update</button>
+					</div>
 				</div>
-					<!--Update the item -->
-					<div ng-show="showme" class="text-center text-success">
-						<!--strong data-ng-bind="successOne"></strong-->
-                        <form name="updateInventoryForm" data-ng-submit="updateInventory(updateInventoryForm.$valid)" class="signin form-horizontal" autocomplete="off">
-                            <!--Update an inventory item-->
+				<br>
+				
+				<div data-ng-show="successFind" id = "delete">
+				
+					<div id="deleteButtonShowOrHide" data-ng-hide="hide">
+						<button class = "btn btn-large btn-primary" data-ng-hide="showme" ng-click = "deleteInventoryItem()" >Delete</button>
+					</div>	
+					
+						<!--Error/Success message for delete-->
+					<div data-ng-show="errorDelete" class="text-center text-success">
+						<strong data-ng-bind="errorDelete"></strong>
+                    </div>                        
+                    <div data-ng-show="successDelete" class="text-center text-success">
+						<strong data-ng-bind="successDelete"></strong>
+                    </div>	
+				</div>
+			
+				<!--Update the item -->
+				<div ng-show="showme" class="text-center">
+					<div id="updateFormShowOrHide" data-ng-hide="hide">
+					<form name="updateInventoryForm" data-ng-submit="updateInventory(updateInventoryForm.$valid)" class="signin form-horizontal" autocomplete="off">
+                           
                             <h4>Update item</h4>
+							
+							<!--Fields to update-->
+							
                             <div class="form-group">
                                 <label for="itemName">Item Name</label>
                                 <input type="text" id="itemName" name="itemName" class="form-control" data-ng-model="itemUpdateName">
-                            </div>							
-			
-
+                            </div>						
+		
                             <div class="form-group">
                                 <label for="Quantity">Quantity</label>
                                 <input type="number" min =0 id="Quantity" name="Quantity" class="form-control" data-ng-model="updateQuantity" placeholder="Quantity">
@@ -106,21 +124,22 @@
 
                             <div class = "text-center form-group">
                                 <button type = "submit" class = "btn btn-large btn-primary"> Update</button>
-                            </div><!-- onclick= "location.reload(true)"-->
+                            </div>
                         </form>
-
-                        <!--Error message-->
-                        <div data-ng-show="errorTwo" data-ng-hide="successOne" class="text-center text-success">
-                            <strong data-ng-bind="errorTwo"></strong>
-                        </div>
-                        <!--success message-->
-                        <div data-ng-show="successTwo" data-ng-hide="successOne" class="text-center text-success">
-                            <strong data-ng-bind="successTwo"></strong>
+					</div>
+                        <!--Error/Success message for update-->
+                        <div data-ng-show="errorUpdate" class="text-center text-success">
+                            <strong data-ng-bind="errorUpdate"></strong>
+                        </div>                     
+                        <div data-ng-show="successUpdate" class="text-center text-success">
+                            <strong data-ng-bind="successUpdate"></strong>
                         </div>
 					</div>
-                    <!--Error message-->
-					<div data-ng-show="errorOne" class="text-center text-danger">
-						<strong data-ng-bind="errorOne"></strong>
+				</div>
+					
+                    <!--Error message could not find item-->
+					<div data-ng-show="errorFind" class="text-center text-danger">
+						<strong data-ng-bind="errorFind"></strong>
 					</div>
 					<br>
 			</div>
