@@ -64,7 +64,7 @@
             <fieldset>
                 <div class="form-group">
                     <label for="currentEmp_id">Current Employee ID</label>
-                    <input type="text" id="currentEmp_id" name="currentEmp_id" class="form-control" data-ng-model="currentEmp_id" placeholder="Current Employee ID">
+                    <input type="text" id="currentEmp_id" name="currentEmp_id" class="form-control" data-ng-keypress="searchEmployeeID(userForm.$valid)" data-ng-model="currentEmp_id" placeholder="Current Employee ID">
                 </div>
                 <div class="form-group">
                     <label for="newEmp_id">New Employee ID</label>
@@ -84,32 +84,8 @@
     </div>
 </div>
 
-        <!-- Display set limit section  -->
-        <div class="list-group-item clearfix">
-            <h3> Set system wide limit </h3>
-
-            <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
-                <form name="setLimitForm" data-ng-submit="setSystemWideLimit(userForm.$valid)" class="signin form-horizontal" autocomplete="off">
-                    <fieldset>
-                        <div class="form-group">
-                            <label for="limit">Set System wide limit</label>
-                            <input type="number" id="limit" name="limit" data-ng-model="limit" class="form-control" min = 0>
-                        </div>
-                        <div class="text-center form-group">
-                            <button type="submit" class="btn btn-large btn-primary">Set Limit</button>
-                        </div>
-                        <div data-ng-show="successTwo" class="text-center text-success">
-                            <strong>{{successTwo}}</strong>
-                        </div>
-                        <div data-ng-show="errorTwo" class="text-center text-danger">
-                            <strong data-ng-bind="errorTwo">{{errorTwo}}</strong>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
-        </div>
     </div>
- <!--Display set limit section
+ <!--Display set limit section-->
 <div class="list-group-item clearfix">
 	<h3> Set system wide limit </h3>
 
@@ -133,56 +109,6 @@
 	</form>
  </div>
  </div>
- </div>
- <div class="list-group clearfix">
-	 <a href="#" class="list-group-item disabled">
-		 Branding settings
-	 </a>
-&lt;!&ndash; set canteen name &ndash;&gt;
-<div class="list-group-item clearfix">
-	<h3>Set canteen name </h3>
-
-	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
-		<form name="setCanteenNameForm" data-ng-submit="setCanteenName(userForm.$valid)" class="signin form-horizontal" autocomplete="off">
-			<fieldset>
-		<div class="form-group">
-			<label for="limit">Set Canteen name</label>
-			<input type="text" id="canteenName" name="canteenName" data-ng-model="canteenName" class="form-control" min = 0>
-		</div>
-		<div class="text-center form-group">
-			<button type="submit" class="btn btn-large btn-primary" onclick= "location.reload(true)">Set Canteen Name</button>
-		</div>
-		<div data-ng-show="successThree" class="text-center text-success">
-			<strong>{{successThree}}</strong>
-		</div>
-		<div data-ng-show="errorThree" class="text-center text-danger">
-			<strong data-ng-bind="errorThree">{{errorThree}}</strong>
-		</div>
-	</fieldset>
-</form>
-</div>
-</div>
-	&lt;!&ndash; upload branding image &ndash;&gt;
-	<div class="list-group-item clearfix">
-	<h3>Upload image for branding  </h3>
-
-	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
-		<form name="uploadImageForm" action="/users/superuserUploadImage" enctype="multipart/form-data" method="post" class="signin form-horizontal" autocomplete="off">
-			<fieldset>
-				<input type="file" id="upload" name="upload" data-ng-model="upload" class="form-control"/>
-				<div class="text-center form-group"><br>
-					<button type="submit" class="btn btn-large btn-primary">Upload Image</button>
-				</div>
-			</fieldset>
-			<div data-ng-show="successFour" class="text-center text-success">
-			<strong>{{successFour}}</strong>
-			</div>
-			<div data-ng-show="errorFour" class="text-center text-danger">
-				<strong data-ng-bind="errorFour">{{errorFour}}</strong>
-			</div>
-		</form>
-	</div>
-    </div>-->
  </div>
 </section>
 

@@ -44,6 +44,9 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
             }
         };
 
+        $scope.searchEmployeeID = function(isValid) {
+
+        }
 		//Set system limit
 		$scope.setSystemWideLimit = function(isValid){
 			if(isValid){
