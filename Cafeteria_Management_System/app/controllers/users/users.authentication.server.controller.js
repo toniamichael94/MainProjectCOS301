@@ -109,8 +109,8 @@ exports.checkSuperUser = function(){
 	if(model.length < 1){
 		console.log('NO USER FOUND - create default super user ');
 		var superUser = new User({
-			firstName : 'SuperUser',
-			lastName : 'SuperUser',
+			firstName : 'Super',
+			lastName : 'User',
 			username : 'SuperUser',
 			password : 'SuperUser',
 			email : 'email@address.com',
@@ -118,7 +118,6 @@ exports.checkSuperUser = function(){
 			roles : 'superuser',
 			provider : 'local',
 			limit : '500'
-
 		});
 		superUser.save(function(err, superUser) {
   		if (err) return console.error(err);
