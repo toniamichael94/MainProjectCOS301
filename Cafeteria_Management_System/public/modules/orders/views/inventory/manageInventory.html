@@ -165,7 +165,7 @@
                 
 						<!--Dynamically show inventory items to edit quantity-->
 						<button ng-hide="displayed" ng-click="addFormFieldInventory()" class = "btn btn-large btn-primary">Display inventory</button>
-						
+						<button ng-show="displayed" ng-click="addFormFieldInventory()" class = "btn btn-large btn-primary" onclick="location.reload(true)">Refresh</button>
 						</div>						
 					</div>
 				</div>
