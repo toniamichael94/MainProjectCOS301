@@ -30,13 +30,6 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 			$scope.loadedIngredients.ingredients.push($scope.foundItem.ingredients.ingredients[ingredient]);
 			$scope.loadedIngredients.quantities.push($scope.foundItem.ingredients.quantities[ingredient]);
 		}
-
-			//console.log('Loaded ingredients:'+$scope.loadedIngredients.ingredients);
-			//console.log('A loaded ingredient:'+$scope.loadedIngredients.ingredients[0]);
-			//console.log('A loaded ingredient quantity:'+$scope.loadedIngredients.quantities[0]);
-			//console.log('A loaded ingredient:'+$scope.loadedIngredients.ingredients[1]);
-			//console.log('A loaded ingredient quantity:'+$scope.loadedIngredients.quantities[1]);
-			//console.log('End load ingredients');
   };
 
   /*
