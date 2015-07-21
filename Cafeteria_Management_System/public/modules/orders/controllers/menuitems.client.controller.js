@@ -14,52 +14,45 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 			$scope.ingredients.ingredients.push('');
 			$scope.ingredients.quantities.push('');
 		}
-  
+
   /*==Update functions ==*/
-  
+
   /*
 	Load all the ingredients of the searched menu item into loadedIngredients
 	@founditem: the menu item that was searched and found.
   */
 	$scope.loadedIngredients = {ingredients:[],quantities:[]};
 	$scope.displayedMenuItems = false;
-	
+
 	$scope.loadIngredients = function() {
 		for(var ingredient in $scope.foundItem.ingredients.ingredients)
 		{
 			$scope.loadedIngredients.ingredients.push($scope.foundItem.ingredients.ingredients[ingredient]);
 			$scope.loadedIngredients.quantities.push($scope.foundItem.ingredients.quantities[ingredient]);
 		}
-			
-			//console.log('Loaded ingredients:'+$scope.loadedIngredients.ingredients);
-			//console.log('A loaded ingredient:'+$scope.loadedIngredients.ingredients[0]);
-			//console.log('A loaded ingredient quantity:'+$scope.loadedIngredients.quantities[0]);
-			//console.log('A loaded ingredient:'+$scope.loadedIngredients.ingredients[1]);
-			//console.log('A loaded ingredient quantity:'+$scope.loadedIngredients.quantities[1]);
-			//console.log('End load ingredients');				
   };
-  
+
   /*
   Add more ingredients to the menu item being updated.
   Dynamically add fields to add more ingredients.
   Store the new ingredients that are added in addedUpdateIngredients.
   */
    $scope.addedUpdateIngredients = {ingredients:[],quantities:[]};
-   
+
 	$scope.addMoreIngredientsUpdate = function()
 	{
 			$scope.addedUpdateIngredients.ingredients.push('');
 			$scope.addedUpdateIngredients.quantities.push('');
 	};
-		
+
 	/*Remove an ingredient from the item being updated*/
 	$scope.removedIngredients =[];
 	$scope.removeIngredient = function(index)
 		{
-			//console.log('REMOVE:'+index + ' ' + $scope.loadedIngredients.ingredients[index]);			
+			//console.log('REMOVE:'+index + ' ' + $scope.loadedIngredients.ingredients[index]);
 			$scope.removedIngredients.push(index);
 		};
-		
+
 	/*Undo the remove ingredient function*/
 	$scope.undoRemoveIngredient = function(index)
 		{
@@ -74,12 +67,12 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 					found = true;
 				}
 			}
-			
+
 			//console.log('Removed ingredients:'+ $scope.removedIngredients);
-			
+
 		};
-		
-		
+
+
 		/*Update the menu item*/
 		$scope.updateMenuItem = function()
 		{
@@ -87,7 +80,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		//console.log('Update - Loaded ingredients.ingredients:'+$scope.loadedIngredients.ingredients);
 		//console.log('Update - Removed ingredients:'+$scope.removedIngredients);
 		//console.log('Update - addedUpdateIngreients.ingredients:'+$scope.addedUpdateIngredients.ingredients);
-		
+
 			for(var removedIngredient in $scope.removedIngredients)
 			{
 				if($scope.removedIngredients[removedIngredient] != '')
@@ -96,7 +89,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 					$scope.loadedIngredients.quantities[removedIngredient] = '';
 				}
 			}
-			
+
 			for (var ingredient in $scope.loadedIngredients.ingredients)
 			{
 				if($scope.loadedIngredients.ingredients[ingredient] != '')
@@ -105,15 +98,15 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 					$scope.addedUpdateIngredients.quantities.push($scope.loadedIngredients.quantities[ingredient]);
 				}
 			}
-			
+
 			//console.log('Ingredients updated:'+$scope.addedUpdateIngredients.ingredients);
 		    //console.log('Quantities updated:'+$scope.addedUpdateIngredients.quantities);
-			
+
 			$scope.updateItemName = $scope.updateItemName.toLowerCase();
 			$scope.successFind = null;
 			var reqObj = {itemName:$scope.foundItem.itemName.toLowerCase(), updateItemName: $scope.updateItemName, price:$scope.updateItemPrice, description:$scope.updateItemDescription, category : $scope.updateItemCategory, ingredients:$scope.addedUpdateIngredients};
 			$http.post('/orders/updateMenuItem',reqObj).success(function(response){
-				$scope.successMessage = response.message;				
+				$scope.successMessage = response.message;
 				$scope.itemNameSearch = $scope.updateItemName = $scope.updateItemPrice = $scope.updateItemCategory = $scope.updateItemDescription = null;
 			    $scope.addedUpdateIngredients = {ingredients:[],quantities:[]};
 				$scope.removedIngredients =[];
@@ -123,10 +116,10 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 				$scope.addedUpdateIngredients = {ingredients:[],quantities:[]};
 				$scope.removedIngredients =[];
 				$scope.loadedIngredients = {ingredients:[],quantities:[]};
-			});				
+			});
 		};
-		
-		
+
+
 /*==== end of update functions ===*/
 
         /**
@@ -136,27 +129,27 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		{
 			console.log('item'+itemName);
 		};
-		
+
 
 //search for item
         $scope.searchMenu = function(isValid) {
             if(isValid){
-				
+
 				$scope.successFind = $scope.errorFind = null;
 				$scope.successMessage = $scope.errorMessage = null;
-				
-                                
+
+
                 var reqObj = {itemName: $scope.menuNameSearch.toLowerCase()};
                 $http.post('/menu/search', reqObj).success(function(response){
-                    
-					 $scope.successFind = response.message;	
+
+					 $scope.successFind = response.message;
 					//Set the values for the item being updated.
 					$scope.foundItem = response.menuItem;
 					$scope.updateItemName = $scope.foundItem.itemName;
 					$scope.updateItemCategory = $scope.foundItem.category;
 					$scope.updateItemPrice = $scope.foundItem.price;
 					$scope.updateItemDescription = $scope.foundItem.description;
-					
+
 					console.log('Item found:'+$scope.foundItem.ingredients.ingredients);
                 }).error(function(response){
 					$scope.errorFind = response.message;
@@ -340,8 +333,8 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
             }
         };
 
-		//get menu items from database on the server side
 
+		//get menu items from database on the server side
 		$scope.loadMenuItems = function(){
 			$http.get('/loadMenuItems').success(function(response) {
 
@@ -358,28 +351,10 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 							$scope.menuItems[itemName].stock = false;
 				}else{ // check the inventory if all items are available
 
-						for(var inventoryItem in response.message[itemName].ingredients.ingredients) {
-							var name = response.message[itemName].ingredients.ingredients[inventoryItem]; // name of ingredient
-							var quantity = response.message[itemName].ingredients.quantities[inventoryItem];
-							// now check that the amount in the inventory is more than the amount needed for this menu item
-								console.log('name = ' +name + ' amount = ' + quantity);
-								var ingredient = {
-									ingredientName: name,
-									ingredientQuantity: quantity
-								}
+							$scope.menuItems[itemName].stock= $scope.checkStock(response.message[itemName]);
+							console.log(	$scope.menuItems[itemName].stock);
 
-								$http.post('/inventoryItems', ingredient).success(function(response2) {
-							if(response2.message[0][0].quantity >= response2.message[1]){
-									if($scope.menuItems[itemName].stock != false){
-												$scope.menuItems[itemName].stock = true;
-											}
-										}else {
-												$scope.menuItems[itemName].stock = false;
-										}
-									}).error(function(response2) {
-						          $scope.error = response2.message;
-						      });
-						}
+
 				}
 				//itemsArray[counter].stock = stockVariable1;
 			}
@@ -392,19 +367,43 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 			//console.log($scope.menuItems);
 		};
 
-        /**
-         * Check if an ingredient is in stock or not
-         * last updated by Antonia Michael and Semaka Malapane
-         */
-        $scope.checkStock = function(menuItemName){
 
+        /*
+         * Check if an ingredient is in stock or not
+        */
+        $scope.checkStock = function(menuItemName){
+					for(var inventoryItem in menuItemName.ingredients.ingredients) {
+						var name = menuItemName.ingredients.ingredients[inventoryItem]; // name of ingredient
+						var quantity = menuItemName.ingredients.quantities[inventoryItem];
+						// now check that the amount in the inventory is more than the amount needed for this menu item
+							console.log('name = ' +name + ' amount = ' + quantity);
+							var ingredient = {
+								ingredientName: name,
+								ingredientQuantity: quantity
+							}
+
+							$http.post('/inventoryItems', ingredient).success(function(response2) {
+							
+						if(response2.message[0][0].quantity >= response2.message[1]){
+								if(menuItemName.stock != false){
+										menuItemName.stock = true;
+										}
+									}else {
+											menuItemName.stock = false;
+									}
+								}).error(function(response2) {
+										$scope.error = response2.message;
+								});
+					}
+					console.log('item in stock = ' + menuItemName.stock)
+					return menuItemName.stock;
         }
 
 		/*
 		Delete a menu item
 		*/
 		$scope.deleteMenuItemName = '';
-		
+
 		$scope.deleteMenuItem = function(menuItemName)
 		{
 			$scope.successFind = null;
@@ -416,10 +415,10 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 				$scope.itemNameSearch = null;
 			}).error(function(response){
 				$scope.errorMessage = response.message;
-			});	
+			});
 		};
-		
-		
+
+
 		/*
 	// Remove existing menu item
 		$scope.remove = function(menuItem) {
@@ -460,7 +459,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 				menuItemId: $stateParams.menuItemId
 			});
 		};
-		
+
 		//Add to plate
 		$scope.addToPlate = function(){
 			var x = angular.element(document.querySelectorAll('input[name="itemOption"]:checked'));
@@ -487,11 +486,11 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 				//alert($cookies.plate);
 				if($cookies.plate){
 					var existing = JSON.parse($cookies.plate);
-					
+
 					for(var i = 0; i < y.length; i++){
 						existing[existing.length + i] = y[i];
 					}
-				
+
 					$cookies.plate = JSON.stringify(existing);
 				}
 				else
@@ -501,7 +500,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 				//alert('Items have been added to plate: ' + $cookies.plate);
 			}
 		}
-		
+
 		//redirect to view plate
 		$scope.viewPlate = function(){
 			alert(JSON.parse($cookies.plate));

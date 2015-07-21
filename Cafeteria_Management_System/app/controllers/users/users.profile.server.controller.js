@@ -83,7 +83,7 @@ exports.getSystemLimit = function(req, res) {
                 message: errorHandler.getErrorMessage(err)
             });
         } else {
-            res.status(200).json({val: row.value});
+          return  res.status(200).json({val: row.value});
         }
     });
 };

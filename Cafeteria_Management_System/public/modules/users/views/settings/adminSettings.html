@@ -62,8 +62,7 @@
     <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
         <form name="userForm" data-ng-submit="changeEmployeeID(userForm.$valid)" class="signin form-horizontal" autocomplete="on">
             <fieldset>
-                <div class="form-group" ng-repeat="user in users | filter : searchEmployeeID">
-                    <span data-ng-show="user.username"> </span>
+                <div class="form-group" > 
                     <label for="currentEmp_id">Current Employee ID</label>
                     <input type="text" id="currentEmp_id" name="currentEmp_id" class="form-control" data-ng-model="currentEmp_id" placeholder="Current Employee ID">
                 </div>

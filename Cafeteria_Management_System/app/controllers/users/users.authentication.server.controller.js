@@ -8,7 +8,7 @@ var _ = require('lodash'),
 	mongoose = require('mongoose'),
 	passport = require('passport'),
 	User = mongoose.model('User'),
-    Config = mongoose.model('Config');
+	Config = mongoose.model('Config');
 
 /**
  * Signup
@@ -98,8 +98,8 @@ exports.signup = function(req, res) {
 
 
 exports.checkSuperUser = function(){
-//	console.log('serverside');
 
+	console.log('in check super user ***');
 	User.find({roles : 'superuser'}, function(error, model) {
   //put code to process the results here
 //	console.log('models');
@@ -109,8 +109,8 @@ exports.checkSuperUser = function(){
 	if(model.length < 1){
 		console.log('NO USER FOUND - create default super user ');
 		var superUser = new User({
-			firstName : 'SuperUser',
-			lastName : 'SuperUser',
+			firstName : 'Super',
+			lastName : 'User',
 			username : 'SuperUser',
 			password : 'SuperUser',
 			email : 'email@address.com',
@@ -118,6 +118,20 @@ exports.checkSuperUser = function(){
 			roles : 'superuser',
 			provider : 'local',
 			limit : '500'
+
+			// now set default system limit
+			//set default system wyde limit
+
+		});
+
+		Config.update({name: 'System wide limit'}, {value: '5000'}, function(err, numAffected){
+			});
+				var config = new Config();
+				config.name = 'System wide limit';
+				config.value = '5000';
+
+
+				config.save(function(err){
 
 		});
 		superUser.save(function(err, superUser) {
