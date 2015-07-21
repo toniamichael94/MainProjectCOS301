@@ -73,6 +73,7 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 		
 		$scope.deleteInventoryItem = function(inventoryItemName)
 		{
+			$scope.successFind = null;	
 			$scope.errorDelete = $scope.successDelete = null;
 			$scope.itemNameSearch=$scope.itemNameSearch.toLowerCase();
 			var reqObj = {productName:$scope.itemNameSearch};
@@ -186,6 +187,7 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
         //Update inventory 
         $scope.updateInventory = function(isValid) {
             if (isValid) {
+				$scope.successFind = null;				
                 $scope.successUpdate = $scope.errorUpdate = null;
                 var reqObj = {oldProdName: $scope.itemNameSearch.toLowerCase(), newProdName: $scope.itemUpdateName, quantity:$scope.updateQuantity, unit: $scope.updateUnit};
 
