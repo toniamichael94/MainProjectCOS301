@@ -6,8 +6,10 @@ angular.module('core').controller('HeaderController', ['$scope', '$http', '$cook
 		$scope.isCollapsed = false;
 		$scope.menu = Menus.getMenu('topbar');
 		
-		$scope.onMyPlateNum = JSON.parse($cookies.plate).length;
-		
+		$scope.onMyPlateNum = 0;
+		if($cookies.plate)
+			$scope.onMyPlateNum = JSON.parse($cookies.plate).length;
+
 		$scope.toggleCollapsibleMenu = function() {
 			$scope.isCollapsed = !$scope.isCollapsed;
 		};
