@@ -77,5 +77,22 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
                 });
             }
         };
+
+        // Loading the items from the inventory to display in the add ingredients of the menu items being added
+        $scope.loadEmployees = function(){
+            $http.get('/loadEmployees').success(function(response) {
+                $scope.employees = response.message;
+                var empArr = new Array();
+                var counter = 0;
+
+                for(var empID in response.message){
+                    empArr[counter] = response.message[empID];
+                    counter++;
+                }
+                $scope.employees = empArr;
+            }).error(function(response) {
+                $scope.employees = 'Error loading employees';
+            });
+        };
 	}
 ]);

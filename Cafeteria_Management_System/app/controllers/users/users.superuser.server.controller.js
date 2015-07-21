@@ -135,3 +135,24 @@ exports.uploadImage = function(req, res){
 		});
 	});
 };
+
+/*
+ * Loading the employees from the database
+ */
+exports.loadEmployees = function(req, res){
+
+    User.find({}, function(err, employees) {
+        var itemMap = {};
+
+        employees.forEach(function(employees) {
+            itemMap[employees._id] = employees;
+        });
+        if(err || !itemMap) return res.status(400).send({message: 'Employees not found' });
+        else {
+            console.log('LOAD');
+            console.log(employees);
+            res.status(200).send({message: itemMap});
+        }
+    });
+
+};

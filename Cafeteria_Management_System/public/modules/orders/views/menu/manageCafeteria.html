@@ -14,17 +14,17 @@
 						</div>
 
 						<div class="form-group">
-							<label for="quantity">Description</label>
+							<label for="itemDescription">Description</label>
 							<input type="text" id="itemDescription" name="itemDescription" class="form-control" data-ng-model="menuItem.itemDescription" placeholder="Description">
 						</div>
 
 						<div class="form-group">
-							<label for="price">Price</label>
+							<label for="itemPrice">Price</label>
 							<input type="number" min = 0 id="itemPrice" name="itemPrice" class="form-control" data-ng-model="menuItem.itemPrice" placeholder="Price">
 						</div>
 
 						<div class = "form-group">
-						<label for="category">Category</label>
+						<label for="itemCategory">Category</label>
 							<select id ="itemCategory" name ="itemCategory" class = "form-control" data-ng-model ="menuItem.itemCategory" >
 								<option value = 'Toasted Sandwiches'>Toasted Sandwiches</option>
 								<option value = 'Tramezzinis'>Tramezzinis</option>
@@ -123,13 +123,13 @@
                             </div>
 							
 							<div class="form-group">
-                                <label for="itemUpdateDes">Description</label>
+                                <label for="itemUpdateDescription">Description</label>
                                 <input type="text" id="itemUpdateDescription" name="itemUpdateDescription" class="form-control" data-ng-model="updateItemDescription">
                             </div>
 
                             <div class="form-group">
-								<label for="category">Category</label>
-								<select id ="itemCategory" name ="itemCategory" class = "form-control" data-ng-model ="updateItemCategory">
+								<label for="itemCategory2">Category</label>
+								<select id ="itemCategory2" name ="itemCategory2" class = "form-control" data-ng-model ="updateItemCategory">
 									<option value = 'Toasted Sandwiches'>Toasted Sandwiches</option>
 									<option value = 'Tramezzinis'>Tramezzinis</option>
 									<option value = 'Burger Bar'>Burger Bar</option>
@@ -143,7 +143,7 @@
                             </div>
 							
 							<div>
-								<label for ="ingredients">Ingredients</label>
+								<label>Ingredients</label>
 								<div ng-repeat = "ingredient in loadedIngredients.ingredients track by $index" >
 									<label ng-bind = 'loadedIngredients.ingredients[$index]'>{{loadedIngredients.ingredients}}</label>					
 									<input class="form-control" type = "number" min =0 ng-model = 'loadedIngredients.quantities[$index]'/>
