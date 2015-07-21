@@ -42,6 +42,7 @@
 	
 
 				<!-- Dynamically add ingredients -->
+				<label>Ingredients</label>
 					<div ng-init="loadInventoryItems()" data-ng-controller="InventoryController" ng-repeat = "ingredient in ingredients.ingredients track by $index" >
 						<select  class="form-control" ng-model = 'ingredients.ingredients[$index]'/>
 								<option  ng-repeat="item in inventoryItems" >{{item.productName}} ({{item.unit[0]}})</option>
@@ -51,7 +52,7 @@
 					</div>
 					
 					<!--Dynamically add ingredients button-->
-				<a ng-click="addFormField()" class = "btn btn-large btn-primary">Add more ingredients</a>
+				<a ng-click="addFormField()" class = "btn btn-large btn-primary">Add ingredients</a>
 				<br>
 				<br>
 						<div class="text-center form-group">
@@ -98,17 +99,18 @@
 						<br>
 					</form>
 					
-					<div data-ng-show="successOne">
+					<!--Delete or update if item is found-->
+					<div data-ng-show="successFind">
 						<button class = "btn btn-large btn-primary"  ng-click="showme=true; loadIngredients()" data-ng-hide="showme">Update</button>
 						<br>
 						<br>
+					</div>
+					<div data-ng-show="successFind">
 						<button class = "btn btn-large btn-primary" data-ng-hide="showme" ng-click = "deleteMenuItem()">Delete</button>	
 					</div>
-					<!--Success: ability to update the item -->
-					<div ng-show="showme" class="text-center text-success">
-						<!--strong data-ng-bind="successOne"></strong-->
+					<!--Show if update -->
+					<div ng-show="showme" class="text-center text-success">						
                         <form name="updateMenuItemForm" data-ng-submit="updateMenuItem(updateMenuItemForm.$valid)" class="signin form-horizontal" autocomplete="off">
-                            <!--Update an inventory item-->
                             <h4>Update item</h4>
                             <div class="form-group">
                                 <label for="itemName">Item Name</label>
@@ -146,8 +148,7 @@
 									<label ng-bind = 'loadedIngredients.ingredients[$index]'>{{loadedIngredients.ingredients}}</label>					
 									<input class="form-control" type = "number" min =0 ng-model = 'loadedIngredients.quantities[$index]'/>
 									
-									<a class = "btn" ng-click = "removeIngredient($index); removed = true" ng-hide="removed" ng-show="!removed">Remove</a>
-									<!--<p ng-show ="removed">Removed</p>-->
+									<a class = "btn" ng-click = "removeIngredient($index); removed = true" ng-hide="removed" ng-show="!removed">Remove</a>									
 									<a class = "btn" ng-click = "undoRemoveIngredient($index); removed=false" ng-show="removed">Undo remove</a>
 									
 									<br>
@@ -169,20 +170,19 @@
 						<br>			
                             <div class = "text-center form-group">
                                 <!--<button type = "submit" class = "btn btn-large btn-primary" onclick= "location.reload(true)" ng-click = "upadateMenuItem()"> Update</button>-->
-                                <button type = "submit" class = "btn btn-large btn-primary" ng-click = "upadateMenuItem()"> Update</button>
+                                <button type = "submit" class = "btn btn-large btn-primary" ng-click = "upadateMenuItem(); showme=false"> Update</button>
 
 							</div>
-                        </form>
-
-                        <!--Error message-->
-                        <div data-ng-show="errorTwo" data-ng-hide="successOne" class="text-center text-success">
-                            <strong data-ng-bind="errorTwo"></strong>
-                        </div>
-                        <!--success message-->
-                        <div data-ng-show="successTwo" data-ng-hide="successOne" class="text-center text-success">
-                            <strong data-ng-bind="successTwo"></strong>
-                        </div>
+                        </form>						                                  
 					</div>
+					<!--Success or Error message-->
+						 <div data-ng-show="successMessage" class="text-center text-success">
+                            <strong data-ng-bind="successMessage"></strong>
+                        </div>
+                        <div data-ng-show="errorMessage" class="text-center text-success">
+                            <strong data-ng-bind="errorMessage"></strong>
+                        </div>     
+					
 				</div>
 			</div>
 	</div>
