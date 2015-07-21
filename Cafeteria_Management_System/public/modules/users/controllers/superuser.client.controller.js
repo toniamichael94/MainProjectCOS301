@@ -44,9 +44,41 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
             }
         };
 
-        $scope.searchEmployeeID = function(isValid) {
+        /*
+        $scope.loadEmployee = function(){
+                $http.get('/users/loadEmployees').success(function (response) {
 
-        }
+                    console.log(response.message); // testing
+                    $scope.users = response.message;
+                }).error(function (response) {
+                    $scope.users = 'Error loading employees';
+                });
+        };
+*/
+
+            // Search a user profile
+        $scope.searchEmployee = function(isValid) {
+            if(isValid){
+                $scope.success = $scope.error = null;
+
+                var reqObj = {username: $scope.currentEmp_id};
+                $http.post('/users/search', reqObj).success(function(response){
+                    $scope.success = response.message;
+                }).error(function(response){
+                    $scope.error = response.message;
+                });
+            }
+        };
+
+        //filter employee ID
+        $scope.searchEmployeeID = function(row) {
+            //Filter Menu items for search bar
+                var empID = $scope.currentEmp_id.toLowerCase();
+                if ((angular.lowercase(row.username)).contains(empID)) {
+                    return (angular.lowercase(row.username));
+                }
+        };
+
 		//Set system limit
 		$scope.setSystemWideLimit = function(isValid){
 			if(isValid){

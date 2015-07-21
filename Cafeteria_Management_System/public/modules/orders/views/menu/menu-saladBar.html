@@ -47,7 +47,7 @@
             <h4> <b>Search Results:</b>  </h4>
         </a>
         <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:searchSaladBar"><h3>
-            <span data-ng-show="item.stock"><input type="checkbox" name='itemOption'  value='{{item.itemName}}' > </span>
+            <span data-ng-show="item.stock"><input type="checkbox" name='{{item.itemName}}'  value='{{item.itemName}}' > </span>
             {{item.itemName}}  <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}} </h5>
         </div>
     </div>
@@ -59,7 +59,7 @@
 
 
       <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:saladBar"><h3>
-          <span data-ng-show="item.stock"><input type="checkbox" name='itemOption'  value='{{item.itemName}}' > </span>
+          <span data-ng-show="item.stock"><input type="checkbox" name='{{item.itemName}}'  value='{{item.itemName}}' > </span>
           {{item.itemName}}  <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}}
           <form>
             <span data-ng-show="item.stock === 'Not in stock'" style="color:red"><h3> {{item.stock}} </h3></span>

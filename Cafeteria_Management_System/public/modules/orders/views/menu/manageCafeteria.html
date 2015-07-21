@@ -6,7 +6,7 @@
 		<div class="list-group-item clearfix">
 			<h3>  </h3>
 			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2"  data-ng-controller="MenuItemsController">
-				<form ng-init = "addFormField()" name="addMenuItemForm" data-ng-submit="createMenuItem(addMenuItemForm.$valid)" class="signin form-horizontal" autocomplete="off">
+				<form name="addMenuItemForm" data-ng-submit="createMenuItem(addMenuItemForm.$valid)" class="signin form-horizontal" autocomplete="off">
 					<fieldset>
 						<div class="form-group">
 							<label for="itemName">Item Name</label>
@@ -22,45 +22,44 @@
 							<label for="price">Price</label>
 							<input type="number" min = 0 id="itemPrice" name="itemPrice" class="form-control" data-ng-model="menuItem.itemPrice" placeholder="Price">
 						</div>
-
+						
 						<div class = "form-group">
 						<label for="category">Category</label>
-							<select id ="itemCategory" name ="itemCategory" class = "form-control" data-ng-model ="menuItem.itemCategory" >
+							<select id ="itemCategory" name ="itemCategory" class = "form-control" data-ng-model ="menuItem.itemCategory">
 								<option value = 'Toasted Sandwiches'>Toasted Sandwiches</option>
 								<option value = 'Tramezzinis'>Tramezzinis</option>
 								<option value = 'Burger Bar'>Burger Bar</option>
-								<option value = 'Daily Lunches'>Daily Lunches</option>
+								<option value = 'Daily Lunches'>Daily Lunches</option>								
 								<option value = 'Salad Bar'>Salad Bar</option>
 								<option value = 'Sweet Treats'>Sweet Treats</option>
-								<option value = 'Resale Items'>Resale Items</option>
+								<option value = 'Resale Items'>Resale Items</option>					
 								<option value = 'On The Side'>On The Side</option>
 								<option value = 'Extra'>Extra</option>
-
+								
 							</select>
 						</div>
-
-	
-
-				<!-- Dynamically add ingredients -->
-				<label>Ingredients</label>
-					<div ng-init="loadInventoryItems()" data-ng-controller="InventoryController" ng-repeat = "ingredient in ingredients.ingredients track by $index" >
-						<select  class="form-control" ng-model = 'ingredients.ingredients[$index]'/>
-								<option  ng-repeat="item in inventoryItems" >{{item.productName}} ({{item.unit[0]}})</option>
-						</select><br>
-						<input class="form-control" placeholder ="Quantity"  type = "number" min =0 ng-model = 'ingredients.quantities[$index]'/>
-						<br>
-					</div>
-					
-					<!--Dynamically add ingredients button-->
-				<a ng-click="addFormField()" class = "btn btn-large btn-primary">Add ingredients</a>
-				<br>
-				<br>
-						<div class="text-center form-group">
-							<button type="submit" class="btn btn-large btn-primary">Save</button>
+						
+						<!--Lana: Still working on this part, don't remove it-->
+						<!--track by item._id-->
+						<!--<select data-ng-model = "menuItem.itemCategory" ng-options="category as menuItem.category for category in categories"></select>-->
+						<!--Add ingredients, only show ingredients available in databas-->
+						<div class="form-group">
+							<label>Ingredients</label>
+							<input type="text" id="itemIngredient" name="itemIngredientV" data-ng-model="menuItem.ingredient" class="form-control" placeholder="Ingredient">
+							<br>
+							<input type="number" min = 0 id="itemQuantity" name="itemQuantity" data-ng-model="menuItem.quantity" class="form-control" placeholder="quantity">
+							<br>
+							
+							
+							
 						</div>
-										<!--<p>Ingredient</p>
 
-						<pre>{{ ingredients | json }}</pre>-->
+						
+					
+						
+						<div class="text-center form-group">
+							<button type="submit" class="btn btn-large btn-primary">Add</button>
+						</div>
 
 						<!--Error/Success message-->
 						<div data-ng-show="success" class="text-center text-success">
@@ -69,120 +68,39 @@
 						<div data-ng-show="error" class="text-center text-danger">
 							<strong data-ng-bind="error"></strong>
 						</div>
-
-
 					</fieldset>
 				</form>
-<div>
-
-
-    </div>
+				
+					<section id="space-for-more-ingredients"></section>
+							<addbuttonsbutton></addbuttonsbutton>
 			</div>
 		</div>
 	</div>
 
-	<!-- Search, delete, and update menu items -->
 	<div class="list-group clearfix"  data-ng-controller="MenuItemsController">
 		<a href="#" class="list-group-item disabled">Search Item</a>
 			<div class="list-group-item clearfix">
 				<!--<h3> Search Item </h3>-->
 				<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
-					<form name="searchMenuItemsForm" data-ng-submit="searchMenu(searchMenuItemsForm.$valid)" class="signin form-horizontal" autocomplete="off">
+					<form name="searchItemForm" data-ng-submit="findOne()" class="signin form-horizontal" autocomplete="off">
 						<!--Search for a menu item-->
-						<div class = "form-group">
-							<input type="text" id="menuItemNameSearch" name ="menuItemNameSearch" class = "form-control" data-ng-model="menuNameSearch" placeholder="Item name">
-						</div>
+					<div class = "form-group">
+						<input type="text" id="menuItemNameSearch" name ="menuItemNameSearch" class = "form-control" data-ng-model="menuItem.itemNameSearch" placeholder="Item Name">
+					</div>
 
-						<div class = "text-center form-group">
-							<button type = "submit" class = "btn btn-large btn-primary">Search</button>
-						</div>
-						<br>
+					<div class = "text-center form-group">
+						<button type = "submit" class = "btn btn-large btn-primary">Search</button>
+					</div>
+
+					<!--Error/Success message-->
+					<div data-ng-show="success" class="text-center text-success">
+						<strong>Item found</strong>
+					</div>
+					<div data-ng-show="error" class="text-center text-danger">
+						<strong data-ng-bind="error"></strong>
+					</div>
+					<br>
 					</form>
-					
-					<!--Delete or update if item is found-->
-					<div data-ng-show="successFind">
-						<button class = "btn btn-large btn-primary"  ng-click="showme=true; loadIngredients()" data-ng-hide="showme">Update</button>
-						<br>
-						<br>
-					</div>
-					<div data-ng-show="successFind">
-						<button class = "btn btn-large btn-primary" data-ng-hide="showme" ng-click = "deleteMenuItem()">Delete</button>	
-					</div>
-					<!--Show if update -->
-					<div ng-show="showme" class="text-center text-success">						
-                        <form name="updateMenuItemForm" data-ng-submit="updateMenuItem(updateMenuItemForm.$valid)" class="signin form-horizontal" autocomplete="off">
-                            <h4>Update item</h4>
-                            <div class="form-group">
-                                <label for="itemName">Item Name</label>
-                                <input type="text" id="itemName" name="itemName" class="form-control" data-ng-model="updateItemName">
-                            </div>            
-
-							<div class="form-group">
-                                <label for="itemUpdatePrice">Price</label>
-                                <input type="text" id="itemUpdatePrice" name="itemUpdatePrice" class="form-control" data-ng-model="updateItemPrice">
-                            </div>
-							
-							<div class="form-group">
-                                <label for="itemUpdateDes">Description</label>
-                                <input type="text" id="itemUpdateDescription" name="itemUpdateDescription" class="form-control" data-ng-model="updateItemDescription">
-                            </div>
-
-                            <div class="form-group">
-								<label for="category">Category</label>
-								<select id ="itemCategory" name ="itemCategory" class = "form-control" data-ng-model ="updateItemCategory">
-									<option value = 'Toasted Sandwiches'>Toasted Sandwiches</option>
-									<option value = 'Tramezzinis'>Tramezzinis</option>
-									<option value = 'Burger Bar'>Burger Bar</option>
-									<option value = 'Daily Lunches'>Daily Lunches</option>
-									<option value = 'Salad Bar'>Salad Bar</option>
-									<option value = 'Sweet Treats'>Sweet Treats</option>
-									<option value = 'Resale Items'>Resale Items</option>
-									<option value = 'On The Side'>On The Side</option>
-									<option value = 'Extra'>Extra</option>
-								</select>
-                            </div>
-							
-							<div>
-								<label for ="ingredients">Ingredients</label>
-								<div ng-repeat = "ingredient in loadedIngredients.ingredients track by $index" >
-									<label ng-bind = 'loadedIngredients.ingredients[$index]'>{{loadedIngredients.ingredients}}</label>					
-									<input class="form-control" type = "number" min =0 ng-model = 'loadedIngredients.quantities[$index]'/>
-									
-									<a class = "btn" ng-click = "removeIngredient($index); removed = true" ng-hide="removed" ng-show="!removed">Remove</a>									
-									<a class = "btn" ng-click = "undoRemoveIngredient($index); removed=false" ng-show="removed">Undo remove</a>
-									
-									<br>
-								</div>
-							</div>							
-						
-						<!--Add more ingredients to item-->
-						<div ng-init="loadInventoryItems()" data-ng-controller="InventoryController" ng-repeat = "ingredient in addedUpdateIngredients.ingredients track by $index" >
-							<label ng-bind = 'addedUpdateIngredients.ingredients[$index]'>{{addedUpdateIngredients.ingredients}}</label>
-							<select  class="form-control" ng-model = 'addedUpdateIngredients.ingredients[$index]'/>
-									<option  ng-repeat="item in inventoryItems" >{{item.productName}} ({{item.unit[0]}})</option>
-							</select><br>
-							<input class="form-control" placeholder ="Quantity"  type = "number" min =0 ng-model = 'addedUpdateIngredients.quantities[$index]'/>
-							<br>
-						</div>
-						
-						<a ng-click="addMoreIngredientsUpdate()" class = "btn btn-large btn-primary">Add more ingredients</a>
-
-						<br>			
-                            <div class = "text-center form-group">
-                                <!--<button type = "submit" class = "btn btn-large btn-primary" onclick= "location.reload(true)" ng-click = "upadateMenuItem()"> Update</button>-->
-                                <button type = "submit" class = "btn btn-large btn-primary" ng-click = "upadateMenuItem(); showme=false"> Update</button>
-
-							</div>
-                        </form>						                                  
-					</div>
-					<!--Success or Error message-->
-						 <div data-ng-show="successMessage" class="text-center text-success">
-                            <strong data-ng-bind="successMessage"></strong>
-                        </div>
-                        <div data-ng-show="errorMessage" class="text-center text-success">
-                            <strong data-ng-bind="errorMessage"></strong>
-                        </div>     
-					
 				</div>
 			</div>
 	</div>

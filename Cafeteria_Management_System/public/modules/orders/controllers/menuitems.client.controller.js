@@ -504,7 +504,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 				{
 					$cookies.plate = JSON.stringify(y);
 				}
-				alert("Items have been added to plate: " + $cookies.plate);
+				alert('Items have been added to plate: ' + $cookies.plate);
 			}
 		}
 
