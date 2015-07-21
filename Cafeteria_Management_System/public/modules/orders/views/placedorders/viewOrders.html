@@ -6,10 +6,15 @@
 
 		<a href="#" class="list-group-item disabled">Review and confirm your order</a>
 		<div class="list-group-item clearfix">
+			<div class="list-group-item clearfix" ng-repeat="item in plate">
+				{{item.itemName}}  <span> R {{item.price}}</span> 
+				<span> Quantity <input type='number' name='{{item.itemName}}' value=1 min=1 max=5 /></span>
+			</div>
+	  
 			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2"  data-ng-controller="MenuItemsController">				
-				<p> Placed order </p> <input class = "form-control" type = number min = 0> <input type = "checkbox" checked = true>
+				<!--p> Placed order </p> <input class = "form-control" type = number min = 0> <input type = "checkbox" checked = true-->
 				<br>
-				<button class = "btn btn-large btn-primary"> Confirm </button>
+				<button class = "btn btn-large btn-primary" data-ng-click='placeOrder()'> Place order </button>
 			</div>
 		</div>
 	</div>

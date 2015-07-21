@@ -122,7 +122,7 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 		};
 
 		// Update existing Inventory item
-		$scope.update = function() {
+		/*$scope.update = function() {
 			var inventoryItem = $scope.inventoryItem;
 
 			inventoryItem.$update(function() {
@@ -130,7 +130,7 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
-		};
+		};*/
 
 		// Find a list of Inventory items
 		$scope.find = function() {
@@ -145,14 +145,15 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 		};
 
         // Search inventory
-        $scope.searchInventory = function(isValid) {
-			
+        $scope.searchInventory = function(isValid) {			
             if(isValid){
                 $scope.successFind = $scope.errorFind = null;
 				$scope.successMessage = $scope.errorMessage = null;
                 var reqObj = {productName: $scope.itemNameSearch.toLowerCase()};
                 $http.post('/orders/search', reqObj).success(function(response){					
                     $scope.successFind = response.message;	
+					
+					//Fill in the fields for the update function
 					$scope.itemUpdateName = $scope.itemNameSearch;
 					$scope.updateQuantity = response.foundInventoryItem.quantity;
 					$scope.updateUnit = response.foundInventoryItem.unit;
@@ -172,7 +173,7 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
                 var reqObj = {oldProdName: $scope.itemNameSearch.toLowerCase(), newProdName: $scope.itemUpdateName, quantity:$scope.updateQuantity, unit: $scope.updateUnit};
 
                 $http.post('/orders/updateInventory', reqObj).success(function(response) {
-                    // If successful show success message and clear form
+                    
                     $scope.successMessage = response.message;
                     $scope.itemNameSearch = $scope.itemUpdateName = $scope.updateUnit = $scope.updateQuantity = null;
                 }).error(function(response) {

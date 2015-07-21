@@ -1,11 +1,31 @@
 'use strict';
 
 // Orders controller
-angular.module('orders').controller('OrdersController', ['$scope', '$stateParams', '$location', 'Authentication', 'Orders',
-	function($scope, $stateParams, $location, Authentication, Orders) {
+angular.module('orders').controller('OrdersController', ['$scope', '$http', '$stateParams', '$location', '$cookies', 'Authentication', 'Orders',
+	function($scope, $http, $stateParams, $location, $cookies, Authentication, Orders) {
 		$scope.authentication = Authentication;
+		
+		$scope.plate = null;
+		if($cookies.plate)
+			$scope.plate = JSON.parse($cookies.plate);
 
-
+		//place the order
+		$scope.placeOrder = function(){
+			if($scope.plate){
+				
+				console.log('User is: ' + Authentication.user.username);
+				
+				for(var i = 0; i < $scope.plate.length; i++){
+					$scope.plate[i].username = Authentication.user.username;
+				}
+				$http.post('/orders/placeOrder', $scope.plate).success(function(response) {
+					console.log('success');
+				}).error(function(response) {
+					console.log('error');
+				});
+			}
+		};
+		/*
 		// Create new Order
 		$scope.create = function() {
 			// Create new Order object
@@ -62,6 +82,6 @@ angular.module('orders').controller('OrdersController', ['$scope', '$stateParams
 			$scope.order = Orders.get({
 				orderId: $stateParams.orderId
 			});
-		};
+		};*/
 	}
 ]);

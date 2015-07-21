@@ -12,7 +12,19 @@ var mongoose = require('mongoose'),
 	Order = mongoose.model('Order'),
 	_ = require('lodash');
 
+/********************************************
+ *Added by {Rendani Dau}
+ */
+ 
+ exports.placeOrder = function(req, res){
+	console.log(req.body);
+	res.status(200).send();
+ };
 
+/**
+ *END {Rendani Dau}
+ */ 
+ 
 /**
  * Create a Order
  */
