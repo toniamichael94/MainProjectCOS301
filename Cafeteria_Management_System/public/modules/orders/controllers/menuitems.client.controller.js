@@ -54,7 +54,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
   */
    $scope.addedUpdateIngredients = {ingredients:[],quantities:[]};
    
-	$scope.addMoreIngredientsUpadte = function()
+	$scope.addMoreIngredientsUpdate = function()
 	{
 			$scope.addedUpdateIngredients.ingredients.push('');
 			$scope.addedUpdateIngredients.quantities.push('');
@@ -349,7 +349,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 							$scope.menuItems[itemName].stock = false;
 				}else{ // check the inventory if all items are available
 
-						for(var inventoryItem in response.message[itemName].ingredients.ingredients){
+						for(var inventoryItem in response.message[itemName].ingredients.ingredients) {
 							var name = response.message[itemName].ingredients.ingredients[inventoryItem]; // name of ingredient
 							var quantity = response.message[itemName].ingredients.quantities[inventoryItem];
 							// now check that the amount in the inventory is more than the amount needed for this menu item
@@ -370,16 +370,10 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 									}).error(function(response2) {
 						          $scope.error = response2.message;
 						      });
-
-
-
 						}
-
-
 				}
 				//itemsArray[counter].stock = stockVariable1;
 			}
-
 		//	$scope.menuItems = itemsArray;
 		  //	console.log('array size = ' + itemsArray.length);// testing
 
@@ -388,6 +382,14 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 			});
 			//console.log($scope.menuItems);
 		};
+
+        /**
+         * Check if an ingredient is in stock or not
+         * last updated by Antonia Michael and Semaka Malapane
+         */
+        $scope.checkStock = function(menuItemName){
+
+        }
 
 		/*
 		Delete a menu item
