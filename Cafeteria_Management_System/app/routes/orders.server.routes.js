@@ -9,7 +9,7 @@ module.exports = function(app) {
 		.get(orders.list)
 		.post(users.requiresLogin, orders.create);
 	
-	app.route('/placeOrder').post(orders.placeOrder);
+	app.route('/orders/placeOrder').post(orders.placeOrder);
 	
 	app.route('/orders/:orderId')
 		.get(orders.read)

@@ -19,7 +19,7 @@ var OrderSchema = new Schema({
 		type: Date,
 		default: Date.now
 	},
-	item: {
+	itemName: {
 		type: String,
 		required: 'Please fill in item name'
 	},
