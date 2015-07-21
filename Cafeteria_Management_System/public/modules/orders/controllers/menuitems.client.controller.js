@@ -25,10 +25,6 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 	$scope.displayedMenuItems = false;
 	
 	$scope.loadIngredients = function() {
-	if(!$scope.displayedMenuItems)
-	{
-		$scope.displayedMenuItems = true;
-
 		for(var ingredient in $scope.foundItem.ingredients.ingredients)
 		{
 			$scope.loadedIngredients.ingredients.push($scope.foundItem.ingredients.ingredients[ingredient]);
@@ -40,10 +36,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 			//console.log('A loaded ingredient quantity:'+$scope.loadedIngredients.quantities[0]);
 			//console.log('A loaded ingredient:'+$scope.loadedIngredients.ingredients[1]);
 			//console.log('A loaded ingredient quantity:'+$scope.loadedIngredients.quantities[1]);
-			//console.log('End load ingredients');					
-
-				
-	}
+			//console.log('End load ingredients');				
   };
   
   /*
@@ -117,9 +110,22 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		    //console.log('Quantities updated:'+$scope.addedUpdateIngredients.quantities);
 			
 			$scope.updateItemName = $scope.updateItemName.toLowerCase();
+			$scope.successFind = null;
 			var reqObj = {itemName:$scope.foundItem.itemName.toLowerCase(), updateItemName: $scope.updateItemName, price:$scope.updateItemPrice, description:$scope.updateItemDescription, category : $scope.updateItemCategory, ingredients:$scope.addedUpdateIngredients};
-			$http.post('/orders/updateMenuItem',reqObj);				
+			$http.post('/orders/updateMenuItem',reqObj).success(function(response){
+				$scope.successMessage = response.message;				
+				$scope.itemNameSearch = $scope.updateItemName = $scope.updateItemPrice = $scope.updateItemCategory = $scope.updateItemDescription = null;
+			    $scope.addedUpdateIngredients = {ingredients:[],quantities:[]};
+				$scope.removedIngredients =[];
+				$scope.loadedIngredients = {ingredients:[],quantities:[]};
+			}).error(function(response){
+				$scope.errorMessage = response.message;
+				$scope.addedUpdateIngredients = {ingredients:[],quantities:[]};
+				$scope.removedIngredients =[];
+				$scope.loadedIngredients = {ingredients:[],quantities:[]};
+			});				
 		};
+		
 		
 /*==== end of update functions ===*/
 
@@ -135,13 +141,15 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 //search for item
         $scope.searchMenu = function(isValid) {
             if(isValid){
-                $scope.successOne = $scope.errorOne = null;
-                //console.log("Menu item searched for issssss: "+$scope.menuNameSearch.toLowerCase());
-
+				
+				$scope.successFind = $scope.errorFind = null;
+				$scope.successMessage = $scope.errorMessage = null;
+				
+                                
                 var reqObj = {itemName: $scope.menuNameSearch.toLowerCase()};
                 $http.post('/menu/search', reqObj).success(function(response){
-                    $scope.successOne = response.message;
-					
+                    
+					 $scope.successFind = response.message;	
 					//Set the values for the item being updated.
 					$scope.foundItem = response.menuItem;
 					$scope.updateItemName = $scope.foundItem.itemName;
@@ -151,7 +159,9 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 					
 					console.log('Item found:'+$scope.foundItem.ingredients.ingredients);
                 }).error(function(response){
-                    $scope.errorOne = response.message;
+					$scope.errorFind = response.message;
+					$scope.errorMessage=response.message;
+					console.log('here');
                 });
             }
         };
@@ -397,11 +407,18 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		
 		$scope.deleteMenuItem = function(menuItemName)
 		{
+			$scope.successFind = null;
 			$scope.menuNameSearch=$scope.menuNameSearch.toLowerCase();
 			console.log('Delete:'+$scope.menuNameSearch);
 			var reqObj = {itemName:$scope.menuNameSearch};
-			$http.post('/orders/deleteMenuItem',reqObj);	
+			$http.post('/orders/deleteMenuItem',reqObj).success(function(response){
+				$scope.successMessage = response.message;
+				$scope.itemNameSearch = null;
+			}).error(function(response){
+				$scope.errorMessage = response.message;
+			});	
 		};
+		
 		
 		/*
 	// Remove existing menu item
