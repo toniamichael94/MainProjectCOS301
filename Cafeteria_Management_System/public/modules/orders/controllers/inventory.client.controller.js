@@ -170,6 +170,7 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
             if (isValid) {
 				$scope.successFind = null;				
                 $scope.successMessage = $scope.errorMessage = null;
+				$scope.itemUpdateName = $scope.itemUpdateName.toLowerCase();
                 var reqObj = {oldProdName: $scope.itemNameSearch.toLowerCase(), newProdName: $scope.itemUpdateName, quantity:$scope.updateQuantity, unit: $scope.updateUnit};
 
                 $http.post('/orders/updateInventory', reqObj).success(function(response) {
