@@ -14,23 +14,26 @@
     <h3> Branding settings </h3>
     <hr>
 
-
         <!--Display assign roles section -->
         <div data-ng-controller="HeaderController">
+
+        </div>
+
+
 
     <div class="list-group clearfix">
         <a href="#" class="list-group-item disabled">
             Branding settings
         </a>
-        <!-- set canteen name -->
+        <!--&lt;!&ndash; set canteen name &ndash;&gt;-->
         <div class="list-group-item clearfix">
             <h3>Set canteen name </h3>
 
             <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
-                <form name="setCanteenNameForm" data-ng-submit="setCanteenName(userForm.$valid)" class="signin form-horizontal" autocomplete="off">
+                <form name="setCanteenNameForm" data-ng-submit="setCanteenName(setCanteenNameForm.$valid)" class="signin form-horizontal" autocomplete="off">
                     <fieldset>
                         <div class="form-group">
-                            <label for="limit">Set Canteen name</label>
+                            <label for="canteenName">Set Canteen name</label>
                             <input type="text" id="canteenName" name="canteenName" data-ng-model="canteenName" class="form-control" min = 0>
                         </div>
                         <div class="text-center form-group">
@@ -46,7 +49,7 @@
                 </form>
             </div>
         </div>
-        <!-- upload branding image -->
+        <!--&lt;!&ndash; upload branding image &ndash;&gt;-->
         <div class="list-group-item clearfix">
             <h3>Upload image for branding  </h3>
 
@@ -69,3 +72,4 @@
         </div>
     </div>
 </section>
+

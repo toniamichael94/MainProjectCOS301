@@ -64,7 +64,7 @@
             <fieldset>
                 <div class="form-group">
                     <label for="currentEmp_id">Current Employee ID</label>
-                    <input type="text" id="currentEmp_id" name="currentEmp_id" class="form-control" data-ng-model="currentEmp_id" placeholder="Current Employee ID">
+                    <input type="text" id="currentEmp_id" name="currentEmp_id" class="form-control" data-ng-keypress="searchEmployeeID(userForm.$valid)" data-ng-model="currentEmp_id" placeholder="Current Employee ID">
                 </div>
                 <div class="form-group">
                     <label for="newEmp_id">New Employee ID</label>
@@ -84,31 +84,34 @@
     </div>
 </div>
 
-        <!-- Display set limit section  -->
-        <div class="list-group-item clearfix">
-            <h3> Set system wide limit </h3>
-
-            <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
-                <form name="setLimitForm" data-ng-submit="setSystemWideLimit(userForm.$valid)" class="signin form-horizontal" autocomplete="off">
-                    <fieldset>
-                        <div class="form-group">
-                            <label for="limit">Set System wide limit</label>
-                            <input type="number" id="limit" name="limit" data-ng-model="limit" class="form-control" min = 0>
-                        </div>
-                        <div class="text-center form-group">
-                            <button type="submit" class="btn btn-large btn-primary">Set Limit</button>
-                        </div>
-                        <div data-ng-show="successTwo" class="text-center text-success">
-                            <strong>{{successTwo}}</strong>
-                        </div>
-                        <div data-ng-show="errorTwo" class="text-center text-danger">
-                            <strong data-ng-bind="errorTwo">{{errorTwo}}</strong>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
-        </div>
     </div>
+<<<<<<< HEAD
+=======
+ <!--Display set limit section-->
+<div class="list-group-item clearfix">
+	<h3> Set system wide limit </h3>
+
+	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
+		<form name="setLimitForm" data-ng-submit="setSystemWideLimit(userForm.$valid)" class="signin form-horizontal" autocomplete="off">
+			<fieldset>
+		<div class="form-group">
+			<label for="limit">Set System wide limit</label>
+			<input type="number" id="limit" name="limit" data-ng-model="limit" class="form-control" min = 0>
+		</div>
+		<div class="text-center form-group">
+			<button type="submit" class="btn btn-large btn-primary">Set Limit</button>
+		</div>
+		<div data-ng-show="successTwo" class="text-center text-success">
+			<strong>{{successTwo}}</strong>
+		</div>
+		<div data-ng-show="errorTwo" class="text-center text-danger">
+			<strong data-ng-bind="errorTwo">{{errorTwo}}</strong>
+		</div>
+	</fieldset>
+	</form>
+ </div>
+ </div>
+>>>>>>> e6fd03a1817a45275e061ad9c5e9404c1c778b01
  </div>
 </section>
 

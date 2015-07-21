@@ -35,13 +35,13 @@
  \hline
  \textbf{Document Title} & Testing Documentation \\
  \hline
- \textbf{Document Identification}  & Document 0.0.2  \\
+ \textbf{Document Identification}  & Document 0.0.3  \\
  \hline
  \textbf{Author}  & Rendani Dau, Isabel Nel, Elana Kuun, Semaka Malapane, Antonia Michael \\
  \hline
- \textbf{Version} & 0.0.2 \\
+ \textbf{Version} & 0.0.3 \\
  \hline
- \textbf{Document Status} & Second Version - contains tests for settings, password, superuser, and authentication controller, and models  \\
+ \textbf{Document Status} & Third Version - contains tests for  inventory, placedOrders, registration and authentication controller, and models  \\
  \hline
  \end{tabu}
 
@@ -54,7 +54,11 @@
  0.0.1 & 29 May 2015 &  First draft contains first two use cases  & Rendani Dau, \\ & & & Elana Kuun, \\ & & & Semaka Malapane, \\ & & & Antonia Michael \\ & & & Isabel Nel, \\ & & & \\
  \hline 
  & & & \\
- 0.0.2 & 9 July 2015 &  Second draft adding Testing for  & Rendani Dau, \\ & & models and controllers & Elana Kuun, \\ & & for settings, password, superuser & Semaka Malapane, \\ & & and authentication &  Antonia Michael \\ & & & Isabel Nel \\   [1ex] 
+ 0.0.2 & 9 July 2015 &  Second draft adding Testing for  & Rendani Dau, \\ & & client side controllers & Elana Kuun, \\ & & for settings, password, superuser & Semaka Malapane, \\ & & and authentication &  Antonia Michael \\ & & & Isabel Nel \\   [1ex] 
+\ & & & \\
+ \hline 
+ & & & \\
+ 0.0.3 & 20 July 2015 &  Third draft adding Testing for  & Rendani Dau, \\ & & models and controllers & Elana Kuun, \\ & & for inventory, placedOrders & Semaka Malapane, \\ & & register and authentication &  Antonia Michael \\ & & & Isabel Nel \\   [1ex] 
  \hline
  \end{tabular}
 \end{table}
@@ -79,36 +83,40 @@ After our first meeting with the client, they brought to our attention that at t
 
 
 %%-------------TESTING--------------------------------------
-\subsection{Test Plan}
+\section{Test Plan}
 
-\subsubsection{Introduction}
+\subsection{Introduction}
 The scope of the testing: This document will be used be the Team t-rise to elaborate and substantiate the unit tests conducted for the various use cases/ modules of the Resolve Cafeteria Management System. Unit tests using mocks and Integration tests using actual data from the system have been conducted and will be explained in the document below. Tests for the server side functionality as well as the client side functionality were executed.
 
-\subsubsection{Technologies used for testing}
+\subsection{Technologies used for testing}
 Testing was done during the construction of the various functions to ensure that the code is working at all times, and that only fully working functions are used in other functions going forward. PhantomJS was used to run the Mocha, Karma and Jasmine tests automatically, hence the tests for the different files could be run consecutively without being manually executed seperately. The reason the testing frameworks were used was due to the simple set up that it required and due to its compatibility with PhantomJs. In addition the syntax of these was simple and intuitive.  Karma in particular is the official Angular Js test runner, hence it was used. Mocha, is based on node.js and hence was used for this reason. 
 \\
-\subsubsection{How to run the unit tests}
+\subsection{How to run the unit tests}
 To execute the tests one must first ensure that the Mongo database is running. After this, one opens a seperate terminal inside the Cafeteria Management System. Then sudo npm tes is run which executes PhantomJs to run the tests automatically.  The output will indicate whether the tests are passing or failing as well as the different descriptions for each test. Server side and client side tests are executed.
 
-\subsection{Testing approach}
+\subsection{Testing approach - Client Side}
 The unit tests written for the Authentication module were done to test the functions inside authentication.client.controller.js and the superuser.client.controller.js file.  The Register/ Sign up functionality for the register module resides in the authentication.client.controller.js file. The unit tests written for the Manage Profile module were done to test the settings.client.controller.js and the password.client.controller.js files, which contained the code to implement the manage profile module.
-
+ 
 The functions tested for the Authentication module include signin(), located in the authentication.client.controller.js file, assignRoles(), setSystemWideLimit(), and setCanteenName() located in the  superuser.client.controller.js file.
 
 The function signup() was tested for the Register module module, located in the authentication.client.controller.js file.
 
 The functions changeUserPassword() from the settings.client.controller.js and askForPasswordReset() from password.client.controller.js were tested. resetUserPassword() was not tested due to the fact that each time a user clicks Forgot Password, an email is sent to the user 
  
-\subsection{Tests conducted/ Test coverage}
+\subsection{Testing approach - Server Side}
+
+\subsection{Tests conducted/ Test coverage - Client Side}
 Test for the controllers:
-\subsubsection{Register Module}
+\subsubsection{Register Module - authentication.client.controller.js}
+The tests can be found in authentication.client.controller.test.js
 1.) Sign up: \\
 Pre condtions: User entered valid credentials, Username/ Employee Id does not exist on the system
 \\ Post conditions: User is signed up to use the system \\
 Test Case 1 - the function should register user with correct data: Pass \\
 Test Case 2 - should fail to register with duplicate Username: Pass
 
-\subsubsection{Profile Module}
+\subsubsection{Profile Module - settings.client.controller.js}
+The tests can be found in settings.client.controller.test.js
 1.) Change Password
 Pre condtions: Valid password entered
 \\Post conditions: Password has changed
@@ -117,7 +125,8 @@ Pre condtions: Valid password entered
 \\ Test Case 3: should send an error message if the current password is incorrect: Pass
 \\ Test Case 4: should send an error message if the passwords do not match: Pass
  
-\subsubsection{Authentication Module}
+\subsubsection{Authentication Module - authentication.client.controller.js }
+The tests can be found in authentication.client.controller.test.js
 1.) Sign in : \\
 Pre condtions: Valid credentials have been entered, the user exists on the system
 \\ Post conditions: User has been signed in
@@ -141,39 +150,64 @@ Pre conditions: N/a \\
 Post conditions: Canteen name set successfully \\
 Test Case 1: should let user set canteen name: Pass
 
+\subsection{Tests conducted/ Test coverage - Server Side}
+\subsubsection{Register and Authentication Module - user.server.model.js}
+The tests for this file can be found in user.server.model.test.js.
+Pre Conditions: The fields are all filled in with valid credentials, The system starts off with no users \\
+Post Conditions: The user has been saved in the database /  Error message sent\\ 
+Test Case 1: should begin with no users: Pass\\
+Test Case 2: should be able to save without problems: Pass\\
+Test Case 3: should fail to save an existing user again: Pass\\
+Test Case 4: should be able to show an error when trying to save without first name: Pass\\
+Test Case 5: should be able to show an error when trying to save without last name: Pass\\
+Test Case 6: should be able to show an error when the password is too short: Pass\\
+Test Case 7: should be able to show an error when the passwords do not match: Pass\\
+Test Case 8: should show an error when the email does not contain an @ sign and the email is in correct format: Pass\\
 
- \subsection{Test Case Description}
-\subsubsection{Test Items}
-\subsubsection{Input Specification}
-\subsubsection{Output Specification}
-\subsubsection{Environmental Needs}
-\subsubsection{Special procedural requirements/rules}
-\subsubsection{Intercase dependancies}
-
-\subsection{Test Summary Report}
-\subsubsection{Summary}
-\subsubsection{Variances}
-\subsubsection{Comprehensive assessment}
-\subsubsection{Summary of results}
-\subsubsection{Evaluation}
-\subsubsection{Summary of activities}
-
-////////////commented out for now 
-
-Testing for the two main use cases discussed in this document has been done using Mocha for unit testing. We have tested the various functions identified for the two different use cases. For placing an order, the functions that are to be created are checkProductAvailability, checkLimits, isLoggedIn and generateBill. 
-
-Once the user has selected items to be purchased, the system needs to check that the user has logged in, so that using the employeeId the system will know which user's profile needs to be edited. The system has to then check whether the products are in stock and whether the total price of the items selected stays within the user's set limit. The bill is then generated, stating the items purchased and the cost.
-
-These functions will return strings indicating whether the desired operation associated with them was successfully carried out or not. Mock Json objects consisting of the different parameters required for each function have been passed to the function in the tests. If the functions in the placeOrder.js file pass all these tests, the file will be able to be integrated into the rest of the system. 
-\\
-Due to the fact that an agile approach is being used, these unit tests might need to be edited if the functional requirements are edited along the way. Screenshots of some of the unit tests that have been created are displayed below. The entire unit test file can be found in the github repository in the unit test folder.  
-\\
-The second use case is manage profile, and the functions that have thus far been identified for this use case are editProfile, changePassword, changeEmail, setLimit, editRecipients, displayBill, viewHistory and generateFavourites. 
-\\
-The system must hence allow the logged in user to change their various settings, as well as allow the user to view the day's bill as well as the account history.
-\\
-A sample of the code from the unit testing file is displayed below.
-
+ \subsubsection{Inventory Module - inventory.server.model.js}
+ The tests for this file can be found in inventory.server.model.test.js. \\
+Pre Conditions: The inventory item does not exist currently in the database,
+all the fields have been filled in with valid information, the system does not have inventory stored at the start \\
+Post Conditions: The inventory item has been added to the database/  Error message sent\\
+Test Case 1: should begin with no inventory : Pass\\
+Test Case 2: should be able to save without problems : Pass\\
+Test Case 3: should fail to save an existing inventory item again : Pass\\
+Test Case 4: should be able to show an error when trying to save without inventory name : Pass\\
+Test Case 5: should be able to show an error when trying to save without quantity : Pass\\
+Test Case 6: should be able to show an error when trying to save with incorrect unit : Pass\\
  
- 
+  \subsubsection{Place Orders Module - menuItem.server.model.js}
+The tests can be found in menuItem.server.model.test.js.\\
+Pre Conditions: There are no items in the menu database to start off with, All required fields are filled in with valid information\\
+Post Conditions: The menu item has been saved to the database/ Error message sent\\
+Test Case 1: should begin with no menu items: Pass\\
+Test Case 2: should be able to save without problems: Pass\\
+Test Case 3: should fail to save an existing menu item again: Pass\\
+Test Case 4: should be able to show an error when trying to save without menu item name: Pass\\
+Test Case 5: should be able to show an error when trying to save without description: Pass\\
+Test Case 6: should be able to show an error when trying to save without price: Pass\\
+Test Case 7: should be able to show an error when trying to save without category: Pass\\
+Test Case 8: should be able to show an error when trying to save with incorrect category: Pass\\
+Test Case 9: should be able to show an error when trying to save without ingredients: Pass\\
+
+\subsubsection{Database Storage Test - test.server.model.js}
+The tests for this file can be found in test.server.model.test.js.
+Pre Conditions: Name has been filled in\\
+Post Conditions: Item saved to database/ Error message sent: Pass \\
+Test Case 1: should be able to save without problems: Pass\\
+Test Case 2:  should be able to show an error when try to save without name: Pass\\
+
+\subsubsection{ Register and Authentication module- test.server.routes.js}
+The tests for this file can be found in test.server.routes.test.js.
+Pre Conditions: User has logged on, User has signed in\\
+Post Conditions: Test instance added/deleted/updated/ list of items retrieved or Error message sent \\
+Test Case 1: should be able to save Test instance if logged in: Pass\\
+Test Case 2: should not be able to save Test instance if not logged in: Pass\\
+Test Case 3: should not be able to save Test instance if no name is provided: Pass\\
+Test Case 4: should be able to update Test instance if signed in: Pass\\
+Test Case 5: should be able to get a list of Tests if not signed in: Pass\\
+Test Case 6: should be able to get a single Test if not signed in: Pass\\
+Test Case 7: should be able to delete Test instance if signed in: Pass\\
+Test Case 8: should not be able to delete Test instance if not signed in: Pass\\ 
+
 \end{document}

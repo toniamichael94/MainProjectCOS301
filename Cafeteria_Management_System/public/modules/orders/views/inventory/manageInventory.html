@@ -67,26 +67,38 @@
 						<button type = "submit" class = "btn btn-large btn-primary"><!--ng-submit="inventory.findOne()"--> Search</button>
 					</div>
                 </form>
-
-				<!--Show if item found-->
-				<div data-ng-show="successOne">
-					<button class = "btn btn-large btn-primary"  ng-click="showme=true" data-ng-hide="showme">Update</button>
-					<br>
-					<br>
-					<button class = "btn btn-large btn-primary" data-ng-hide="showme" ng-click = "deleteInventoryItem()">Delete</button>	
+      
+				<!--Delete or update if item found-->
+				
+					<div = "updateShowOrHide" data-ng-show="successFind">
+						<button class = "btn btn-large btn-primary"  ng-click="showme=true" data-ng-hide="showme">Update</button>
+					</div>
+				
+				<br>
+				
+				<div data-ng-show="successFind" id = "delete">
+				
+					
+						<button class = "btn btn-large btn-primary" data-ng-hide="showme" ng-click = "deleteInventoryItem()" >Delete</button>
+					
+					
+						
 				</div>
-					<!--Update the item -->
-					<div ng-show="showme" class="text-center text-success">
-						<!--strong data-ng-bind="successOne"></strong-->
-                        <form name="updateInventoryForm" data-ng-submit="updateInventory(updateInventoryForm.$valid)" class="signin form-horizontal" autocomplete="off">
-                            <!--Update an inventory item-->
+			
+				<!--Update the item -->
+				<div ng-show="showme" class="text-center">
+					
+					<form name="updateInventoryForm" data-ng-submit="updateInventory(updateInventoryForm.$valid)" class="signin form-horizontal" autocomplete="off">
+                           
                             <h4>Update item</h4>
+							
+							<!--Fields to update-->
+							
                             <div class="form-group">
                                 <label for="itemName">Item Name</label>
                                 <input type="text" id="itemName" name="itemName" class="form-control" data-ng-model="itemUpdateName">
-                            </div>							
-			
-
+                            </div>						
+		
                             <div class="form-group">
                                 <label for="Quantity">Quantity</label>
                                 <input type="number" min =0 id="Quantity" name="Quantity" class="form-control" data-ng-model="updateQuantity" placeholder="Quantity">
@@ -105,24 +117,22 @@
                             </div>
 
                             <div class = "text-center form-group">
-                                <button type = "submit" class = "btn btn-large btn-primary"> Update</button>
-                            </div><!-- onclick= "location.reload(true)"-->
+                                <button type = "submit" class = "btn btn-large btn-primary" ng-click="showme=false"> Update</button>
+                            </div>
                         </form>
-
-                        <!--Error message-->
-                        <div data-ng-show="errorTwo" data-ng-hide="successOne" class="text-center text-success">
-                            <strong data-ng-bind="errorTwo"></strong>
-                        </div>
-                        <!--success message-->
-                        <div data-ng-show="successTwo" data-ng-hide="successOne" class="text-center text-success">
-                            <strong data-ng-bind="successTwo"></strong>
-                        </div>
 					</div>
-                    <!--Error message-->
-					<div data-ng-show="errorOne" class="text-center text-danger">
-						<strong data-ng-bind="errorOne"></strong>
-					</div>
-					<br>
+                       				
+				
+					
+                    
+					
+					<!--Error/Success message for delete/update-->
+					<div data-ng-show="errorMessage" class="text-center text-success">
+						<strong data-ng-bind="errorMessage"></strong>
+                    </div>                        
+                    <div data-ng-show="successMessage" class="text-center text-success">
+						<strong data-ng-bind="successMessage"></strong>
+                    </div>	
 			</div>
 		</div>
 	</div>
@@ -155,7 +165,7 @@
                 
 						<!--Dynamically show inventory items to edit quantity-->
 						<button ng-hide="displayed" ng-click="addFormFieldInventory()" class = "btn btn-large btn-primary">Display inventory</button>
-						
+						<button ng-show="displayed" ng-click="addFormFieldInventory()" class = "btn btn-large btn-primary" onclick="location.reload(true)">Refresh</button>
 						</div>						
 					</div>
 				</div>
