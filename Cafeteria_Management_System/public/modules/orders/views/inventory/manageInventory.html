@@ -82,13 +82,7 @@
 						<button class = "btn btn-large btn-primary" data-ng-hide="showme" ng-click = "deleteInventoryItem()" >Delete</button>
 					
 					
-						<!--Error/Success message for delete-->
-					<div data-ng-show="errorDelete" class="text-center text-success">
-						<strong data-ng-bind="errorDelete"></strong>
-                    </div>                        
-                    <div data-ng-show="successDelete" class="text-center text-success">
-						<strong data-ng-bind="successDelete"></strong>
-                    </div>	
+						
 				</div>
 			
 				<!--Update the item -->
@@ -127,21 +121,18 @@
                             </div>
                         </form>
 					</div>
-                        <!--Error/Success message for update-->
-                        <div data-ng-show="errorUpdate" class="text-center text-success">
-                            <strong data-ng-bind="errorUpdate"></strong>
-                        </div>                     
-                        <div data-ng-show="successUpdate" class="text-center text-success">
-                            <strong data-ng-bind="successUpdate"></strong>
-                        </div>
-					
+                       				
 				
 					
-                    <!--Error message could not find item-->
-					<div data-ng-show="errorFind" class="text-center text-danger">
-						<strong data-ng-bind="errorFind"></strong>
-					</div>
-					<br>
+                    
+					
+					<!--Error/Success message for delete/update-->
+					<div data-ng-show="errorMessage" class="text-center text-success">
+						<strong data-ng-bind="errorMessage"></strong>
+                    </div>                        
+                    <div data-ng-show="successMessage" class="text-center text-success">
+						<strong data-ng-bind="successMessage"></strong>
+                    </div>	
 			</div>
 		</div>
 	</div>
