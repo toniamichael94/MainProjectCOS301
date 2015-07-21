@@ -10,19 +10,27 @@ var mongoose = require('mongoose'),
  * Order Schema
  */
 var OrderSchema = new Schema({
-	name: {
+	username: {
 		type: String,
-		default: '',
-		required: 'Please fill Order name',
+		required: 'Please fill in employee ID',
 		trim: true
 	},
 	created: {
 		type: Date,
 		default: Date.now
 	},
-	user: {
-		type: Schema.ObjectId,
-		ref: 'User'
+	item: {
+		type: String,
+		required: 'Please fill in item name'
+	},
+	quantity: {
+		type: Number,
+		required: 'Please fill in quantity'
+	},
+	status: {
+		type: String,
+		enum: ['open', 'closed'],
+		default: 'open'
 	}
 });
 

@@ -12,7 +12,25 @@ var mongoose = require('mongoose'),
 	Order = mongoose.model('Order'),
 	_ = require('lodash');
 
+/********************************************
+ *Added by {Rendani Dau}
+ */
+ 
+ exports.placeOrder = function(req, res){
+	var order = new Order(req.body);
+	
+	order.username = req.user.username;
+	
+	order.save(function(err, result){
+		
+	});
+	
+ };
 
+/**
+ *END {Rendani Dau}
+ */ 
+ 
 /**
  * Create a Order
  */

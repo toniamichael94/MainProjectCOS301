@@ -1,10 +1,9 @@
 'use strict';
 
 // MenuItem controller
-var menuItemsModule = angular.module('menuItems').controller('MenuItemsController', ['$scope', '$http', '$stateParams', '$location', 'Authentication', 'MenuItems',
-	function($scope, $http, $stateParams, $location, Authentication, MenuItems) {
+var menuItemsModule = angular.module('menuItems').controller('MenuItemsController', ['$scope', '$http', '$stateParams', '$location', '$cookies', 'Authentication', 'MenuItems',
+	function($scope, $http, $stateParams, $location, $cookies, Authentication, MenuItems) {
 		$scope.authentication = Authentication;
-
 
 		/*
 			Dynamically add fields to the menu items page to add ingredients for a menu item.
@@ -441,6 +440,54 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 			$scope.menuItem.itemNameSearch = MenuItems.get({
 				menuItemId: $stateParams.menuItemId
 			});
+		};
+		
+		//Add to plate
+		$scope.addToPlate = function(){
+			var x = angular.element(document.querySelectorAll('input[name="itemOption"]:checked'));
+			console.log(x.length);
+			if(x.length > 0){
+				var y = [];
+				for(var i = 0; i < x.length; i++)
+				{
+					var _price;
+					for(var j = 0; j < $scope.menuItems.length; j++){
+						if(x[i].value === $scope.menuItems[j].itemName){
+							_price = $scope.menuItems[j].price;
+							break;
+						}
+					}
+					y[i] = {
+						itemName: x[i].value,
+						price: _price
+					}
+					//y[i] = x[i].value;
+				}
+				console.log(y);
+				//$cookies.plate = JSON.stringify(y);
+				//alert($cookies.plate);
+				if($cookies.plate){
+					var existing = JSON.parse($cookies.plate);
+					
+					for(var i = 0; i < y.length; i++){
+						existing[existing.length + i] = y[i];
+					}
+				
+					$cookies.plate = JSON.stringify(existing);
+				}
+				else
+				{
+					$cookies.plate = JSON.stringify(y);
+				}
+				alert("Items have been added to plate: " + $cookies.plate);
+			}
+		}
+		
+		//redirect to view plate
+		$scope.viewPlate = function(){
+			alert(JSON.parse($cookies.plate));
+			//$location.path('/placeOrder/viewOrders');
+			//$window.location.href = '/placeOrder/viewOrders';*/
 		};
 	}
 ]);
