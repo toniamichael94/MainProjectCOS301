@@ -205,6 +205,10 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 			return (angular.lowercase(row.category).indexOf('Daily Lunches') !== -1);
 		};
 
+        //Filter Menu items for Drinks
+        $scope.drinks = function (row) {
+            return (angular.lowercase(row.category).indexOf('Drinks') !== -1);
+        };
 		//Filter Menu items for Salad Bar
 		$scope.saladBar = function (row) {
 				return (angular.lowercase(row.category).indexOf('Salad Bar') !== -1);
@@ -261,6 +265,17 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
             }
         };
 
+
+        //Filter Menu items for drinks search bar
+        $scope.searchDrinks = function (row) {
+            var itemN = $scope.menuNameSearch.toLowerCase();
+            console.log('row');
+            // console.log('item'+ row.itemName);
+            if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('Drinks') !== -1)) {
+                // console.log('IFFFFFFFFFFFFFFFF');
+                return (angular.lowercase(row.itemName));
+            }
+        };
         //Filter Menu items for extra's search bar
         $scope.searchExtraBar = function (row) {
             var itemN = $scope.menuNameSearch.toLowerCase();
