@@ -372,15 +372,17 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 							}
 
 							$http.post('/inventoryItems', ingredient).success(function(response2) {
-
+								if(response2.message[0].length === 0){
+										menuItemName.stock = false;
+								}else{
 								if(response2.message[0][0].quantity >= response2.message[1]){
-									console.log(response2.message[0][0].quantity + ' = ' +  ingredient);
 										if(menuItemName.stock != false){
 												menuItemName.stock = true;
 												}
 											}else {
 													menuItemName.stock = false;
 											}
+								}
 							}).error(function(response2) {
 										$scope.error = response2.message;
 								});
