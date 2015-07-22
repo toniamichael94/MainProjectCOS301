@@ -16,6 +16,13 @@
 				<br>
 				<button class = "btn btn-large btn-primary" data-ng-click='placeOrder()'> Place order </button>
 			</div>
+			
+			<div data-ng-show="success" class="text-center text-success">
+				<strong>{{success}}</strong>
+			</div>
+			<div data-ng-show="error" class="text-center text-danger">
+				<strong data-ng-bind="error">{{error}}</strong>
+			</div>
 		</div>
 	</div>
 

@@ -11,13 +11,11 @@
 *
 -->
 
-<section class="row" data-ng-controller="SettingsController">
+<section class="row" data-ng-controller="cashierController" data-ng-init="getOrders()">
 
 	<h3> Process Orders </h3>
 	<hr>
-
-<br><br>
-	<div class="jumbotron text-center">
+	<!--div class="jumbotron text-center">
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
 			</div>
@@ -28,7 +26,7 @@
 				<h1> Process Orders </h1>
 			</p>
     </div>
-        <form name="userForm" data-ng-submit="viewUserProfile(userForm.$valid)" class="signin form-horizontal" autocomplete="off">
+        <!--form name="userForm" data-ng-submit="" class="signin form-horizontal" autocomplete="off">
             <fieldset>
                 <div class="form-group">
                     <label for="employeeID" >Employee Id</label><br>
@@ -44,27 +42,16 @@
                     <strong data-ng-bind="error"></strong>
                 </div>
             </fieldset>
-        </form>
+        </form-->
     </div>
         <div>
             <fieldset>
                 <div class="floatLeft checkbox"><h3><b>Mark Orders as ready</b></h3>
                     <h4>
-                        <label>
-                            <input type="checkbox" class="floatLeft"> 123452 - MOCK SANDWICH
-                        </label> <br><br>
-                        <label>
-                            <input type="checkbox" class="floatLeft"> 130142 - MOCK COKE
-                        </label> <br><br>
-                        <label>
-                            <input type="checkbox" class="floatLeft"> 120222 - MOCK COKE
-                        </label> <br><br>
-                        <label>
-                            <input type="checkbox" class="floatLeft"> 123122 - MOCK COKE
-                        </label> <br><br>
-                        <label>
-                            <input type="checkbox" class="floatLeft"> 123132 - MOCK COKE
-                        </label> <br><br>
+                        <div class="list-group-item clearfix" ng-repeat="order in orders">
+						{{order.itemName}}  <span> R {{item.price}}</span> 
+						<span> Quantity: {{order.quantity}}</span><span> Employee ID: {{order.username}}</span>
+			</div>
                     </h4>
                 </div>
             </fieldset>
