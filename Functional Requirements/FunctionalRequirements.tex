@@ -40,9 +40,9 @@
 \hline
  \textbf{Author}  & Rendani Dau, Elana Kuun, Semaka Malapane, Antonia Michael, Isabel Nel \\
 \hline
-\textbf{Version} & 0.0.2 \\
+\textbf{Version} & 0.0.3 \\
 \hline
-\textbf{Document Status} & Second Version - added the Register and Authentication use cases and updated profile\\
+\textbf{Document Status} & Third Version - added the Inventory and Menu use cases \\
 \hline
 \end{tabu}
 
@@ -57,6 +57,9 @@
  & & & \\
  0.0.2 & 6 July 2015 &  Second draft adding Register & Rendani Dau, \\ & & and Authentication use & Elana Kuun, \\ & & cases and updated profile & Semaka Malapane, \\ & & &  Antonia Michael \\ & & & Isabel Nel \\   [1ex] 
  \hline
+& & & \\
+ 0.0.3 & 22 July 2015 &  Third draft adding Inventory & Rendani Dau, \\ & & and Menu use & Elana Kuun, \\ & & cases  & Semaka Malapane, \\ & & &  Antonia Michael \\ & & & Isabel Nel \\   [1ex] 
+\hline
  \end{tabular}
 \end{table}
 
@@ -252,6 +255,65 @@ The service contract and activity diagram for validateUserCredentials follow. va
     \caption{The service contract for validateUserCredentials} 
 \end{figure}
 
+\subsection{Menu Module}
+The menu module consists of the functionality of adding and removing meal items from the menu from which the user will place orders. This use case diagram indicates the functionality that this module consists of such as addMenuItem, updateMenuItem, searchMenuItem and deleteMenuItem, which are the use cases of this module.
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/MenuUseCase.jpg}
+    \caption{The use case for menu} 
+\end{figure}
+ \subsubsection{addMenuItem}
+The service contract and activity diagram for addMenuItem follow. addMenuItem falls under the use case for Menu (refer to page   - figure   to view this use case diagram). The system allows the cafeteria manager to add items to the menu via the menu managing page.
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/AddMenuItemActivity.jpg}
+    \caption{The activity diagram for adding a menu item } 
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{../images/AddMenuItemSC.jpg}
+	\caption{The service contract for adding a menu item}
+\end{figure}
+
+ \subsubsection{deleteMenuItem}
+The service contract and activity diagram for deleteMenuItem follow. deleteMenuItem falls under the use case for Menu (refer to page   - figure   to view this use case diagram). The system allows the cafeteria manager to delete items from the menu via the menu managing page.
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/DeleteMenuItemActivity.jpg}
+    \caption{The activity diagram for deleting a menu item } 
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{../images/DeleteMenuItemSC.jpg}
+	\caption{The service contract for deleting a menu item}
+\end{figure}
+
+ \subsubsection{searchMenuItem}
+The service contract and activity diagram for searchMenuItem follow. searchMenuItem falls under the use case for Menu (refer to page   - figure   to view this use case diagram). The system allows the cafeteria manager to search for items from the menu via the menu managing page.
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/SearchMenuItemActivity.jpg}
+    \caption{The activity diagram for searching for a menu item } 
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{../images/SearchMenuItemSC.jpg}
+	\caption{The service contract for searching for a menu item}
+\end{figure}
+
+ \subsubsection{updateMenuItem}
+The service contract and activity diagram for updateMenuItem follow. updateMenuItem falls under the use case for Menu (refer to page   - figure   to view this use case diagram). The system allows the cafeteria manager to update menu items' unit, quantity and name via the menu managing page.
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/UpdateMenuItemActivity.jpg}
+    \caption{The activity diagram for updating a menu item } 
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{../images/UpdateMenuItemSC.jpg}
+	\caption{The service contract for updating a menu item}
+\end{figure}
+
 \subsection{Place Orders Module}
 The main functionality the system serves to provide, is  to allow the user to use their access card number to purchase food items from the cafeteria via the system. This use case diagram indicates the functionality around placing orders, such as CheckProductAvailability and checkLimits, which are the use cases of this module.
 \begin{figure}[H]
@@ -288,6 +350,69 @@ The service contract and activity diagram for checkLimit follow. checkLimit fall
 	\caption{The service contract for checking limits}
 \end{figure}
 
+\subsection{Inventory Module}
+The inventory module is where the cafeteria manager will keep track of stock additions and removals. Different menu items require certain inventory items.This use case diagram indicates the functionality around adding, deleting, searching for and updating inventory.
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/InventoryUseCase.jpg}
+    \caption{The use case for inventory} 
+\end{figure}
+
+\subsubsection{addInventory}
+The service contract and activity diagram for addInventory to follow. addInventory falls under the use case for Inventory (refer to page   figure   to view this use case diagram). The cafeteria manager will be able to manage inventory items via the allocated page.
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/AddActivityDiagram.jpg}
+    \caption{The activity diagram for adding inventory} 
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{../images/AddInventorySC.jpg}
+	\caption{The service contract for adding inventory}
+\end{figure}
+
+\subsubsection{searchInventory}
+The service contract and activity diagram for searchInventory to follow. searchInventory falls under the use case for Inventory (refer to page   figure   to view this use case diagram). The cafeteria manager will be able to search for inventory items via the allocated page and from there be able to delete or update them.
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/SearchActivityDiagram.jpg}
+    \caption{The activity diagram for searching for inventory} 
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{../images/SearchInventorySC.jpg}
+	\caption{The service contract for searching for inventory}
+\end{figure}
+
+\subsubsection{deleteInventory}
+The service contract and activity diagram for deleteInventory to follow. deleteInventory falls under the use case for Inventory (refer to page   figure   to view this use case diagram). The cafeteria manager will be able to delete inventory items via the allocated page.
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/DeleteActivityDiagram.jpg}
+    \caption{The activity diagram for adding inventory} 
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{../images/DeleteInventorySC.jpg}
+	\caption{The service contract for adding inventory}
+\end{figure}
+
+\subsubsection{updateInventory}
+The service contract and activity diagram for updateInventory to follow. updateInventory falls under the use case for Inventory (refer to page   figure   to view this use case diagram). The cafeteria manager will be able to update inventory items via the allocated page.
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/UpdateActivityDiagram.jpg}
+    \caption{The activity diagram for updating inventory} 
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{../images/UpdateInventorySC.jpg}
+	\caption{The service contract for updating inventory}
+\end{figure}
 \subsection{Manage Profile Module}
  The user will be allowed to customize various settings such as resetting his/her personal limit, changing password and email, displaying the bill and viewing favourites. The following use case diagram indicates the above mentioned functionality around managing the profile. Hence, it has the use cases generateFavourite and edit profile.
 
