@@ -33,7 +33,7 @@ var MenuItemSchema = new Schema({
 	category: {
 		type: [{
 			type: String,
-			enum: ['burgerBar', 'dailyLunch','extra', 'onTheSide', 'resaleItems', 'saladBar', 'sweetTreats', 'toastedSandwiches','tramezzinis']
+			enum: ['burgerBar', 'dailyLunch','extra', 'onTheSide', 'resaleItems', 'saladBar', 'sweetTreats', 'toastedSandwiches','tramezzinis', 'drinks', 'specialOfTheDay']
 		}],
 		required: 'Please provide a category for the menu item.'
 	},
