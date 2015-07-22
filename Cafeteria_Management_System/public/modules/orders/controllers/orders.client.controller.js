@@ -12,17 +12,29 @@ angular.module('orders').controller('OrdersController', ['$scope', '$http', '$st
 		//place the order
 		$scope.placeOrder = function(){
 			if($scope.plate){
-				
-				console.log('User is: ' + Authentication.user.username);
-				
-				for(var i = 0; i < $scope.plate.length; i++){
-					$scope.plate[i].username = Authentication.user.username;
+				if(Authentication.user){
+					console.log('User is: ' + Authentication.user.username);
+					
+					for(var i = 0; i < $scope.plate.length; i++){
+						$scope.plate[i].username = Authentication.user.username;
+						var itemName = $scope.plate[i].itemName;
+						var _quantity = angular.element(document.querySelector('input[name="' + itemName + '"]'))[0].value;
+						
+						$scope.plate[i].quantity = _quantity;
+					}
+					$http.post('/orders/placeOrder', $scope.plate).success(function(response) {
+						console.log('success');
+						$scope.plate = [];
+						$cookies.plate = JSON.stringify([]);
+						$scope.success = response.message;
+					}).error(function(response) {
+						console.log('error' + response.message);
+						$scope.error = response.message;
+					});
 				}
-				$http.post('/orders/placeOrder', $scope.plate).success(function(response) {
-					console.log('success');
-				}).error(function(response) {
-					console.log('error');
-				});
+				else{
+					$location.path('/signin');
+				}
 			}
 		};
 		/*
