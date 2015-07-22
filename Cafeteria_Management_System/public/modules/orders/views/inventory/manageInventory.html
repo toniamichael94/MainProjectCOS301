@@ -3,15 +3,15 @@
 	<hr>
 	
 		<div class="list-group clearfix" data-ng-controller="InventoryController">
-		<a href="#" class="list-group-item disabled">Add Item</a>
+		<a href="#" class="list-group-item disabled">Add inventory item</a>
 		<div class="list-group-item clearfix">
-			<h3> Add Item </h3>
+			<h3> Add inventory item</h3>
 			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 				<!--Add an inventory item-->
 				<form name="addInventoryItemForm" data-ng-submit="create(addInventoryItemForm.$valid)" class="signin form-horizontal" autocomplete="off">
 					<fieldset>
 						<div class="form-group">
-							<label for="itemAddName">Item Name</label>
+							<label for="itemAddName">Inventory item name</label>
 							<input type="text" id="itemAddName" name="itemAddName" class="form-control" data-ng-model="inventory.itemName" placeholder="Item Name">
 						</div>
 
@@ -52,13 +52,13 @@
 
 	<!--Search and update inventory item-->
 	<div class="list-group clearfix" data-ng-controller="InventoryController">
-		<a href="#" class="list-group-item disabled">Search Item</a>
+		<a href="#" class="list-group-item disabled">Search inventory item</a>
 		<div class="list-group-item clearfix">
-			<h3> Search Item </h3>
+			<h3> Search inventory item </h3>
 			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 				<form name="searchInventoryForm" data-ng-submit="searchInventory(searchInventoryForm.$valid)" class="signin form-horizontal" autocomplete="off">
 					<!--Search for a menu item-->
-					<h4>Search for an item</h4>
+					
 					<div class = "form-group">
 						<input type="text" id="itemNameSearch" name ="itemNameSearch" class = "form-control" data-ng-model="itemNameSearch" placeholder="Item Name">
 					</div>
@@ -90,12 +90,12 @@
 					
 					<form name="updateInventoryForm" data-ng-submit="updateInventory(updateInventoryForm.$valid)" class="signin form-horizontal" autocomplete="off">
                            
-                            <h4>Update item</h4>
+                            <h4>Update inventory item</h4>
 							
 							<!--Fields to update-->
 							
                             <div class="form-group">
-                                <label for="itemName">Item Name</label>
+                                <label for="itemName">Inventory item name</label>
                                 <input type="text" id="itemName" name="itemName" class="form-control" data-ng-model="itemUpdateName">
                             </div>						
 		

@@ -47,7 +47,7 @@
             <h4> <b>Search Results:</b>  </h4>
         </a>
         <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:searchBar"><h3>
-            <span data-ng-show="item.stock"><input type="checkbox" name='{{item.itemName}}'  value='{{item.itemName}}' > </span>
+            <span data-ng-show="item.stock"><input type="checkbox" name='itemOption'  value='{{item.itemName}}' > </span>
             {{item.itemName}}  <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}} </h5>
         </div>
     </div>
@@ -60,7 +60,7 @@
 
        <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:toastedSandwiches"><h3>
 
-           <span data-ng-show="item.stock"><input type="checkbox" name='{{item.itemName}}'  value='{{item.itemName}}' > </span>
+           <span data-ng-show="item.stock"><input type="checkbox" name='itemOption'  value='{{item.itemName}}' > </span>
            {{item.itemName}}  <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}}
             <form>
               <span data-ng-show="!item.stock" style="color:red"><h3>Not in stock </h3></span>
@@ -77,7 +77,7 @@
       </a>
 
     <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:tramezzinis">
-        <h3> <span data-ng-show="item.stock"><input type="checkbox" name='{{item.itemName}}'  value='{{item.itemName}}' > </span>{{item.itemName}}
+        <h3> <span data-ng-show="item.stock"><input type="checkbox" name='itemOption'  value='{{item.itemName}}' > </span>{{item.itemName}}
         <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}}
         <span data-ng-show="!item.stock" style="color:red"><h3>Not in stock </h3></span>
      </h5>
@@ -92,7 +92,7 @@
    </a>
 
  <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:burgerBar"><h3>
-     <span data-ng-show="item.stock"><input type="checkbox" name='{{item.itemName}}'  value='{{item.itemName}}' > </span>
+     <span data-ng-show="item.stock"><input type="checkbox" name='itemOption'  value='{{item.itemName}}' > </span>
      {{item.itemName}}  <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}}
       <form>
         <span data-ng-show="!item.stock" style="color:red"><h3>Not in stock </h3></span>
@@ -110,7 +110,7 @@
 
 
 <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:dailyLunch"><h3>
-    <span data-ng-show="item.stock"><input type="checkbox" name='{{item.itemName}}'  value='{{item.itemName}}' > </span>
+    <span data-ng-show="item.stock"><input type="checkbox" name='itemOption'  value='{{item.itemName}}' > </span>
     {{item.itemName}}  <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}}
      <form>
        <span data-ng-show="!item.stock" style="color:red"><h3>Not in stock </h3></span>
@@ -127,7 +127,7 @@
 
 
 <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:saladBar"><h3>
-    <span data-ng-show="item.stock"><input type="checkbox" name='{{item.itemName}}'  value='{{item.itemName}}' > </span>
+    <span data-ng-show="item.stock"><input type="checkbox" name='itemOption'  value='{{item.itemName}}' > </span>
     {{item.itemName}}  <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}}
     <form>
       <span data-ng-show="!item.stock" style="color:red"><h3>Not in stock </h3></span>
@@ -144,7 +144,7 @@
 
 
 <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:sweetTreat"><h3>
-    <span data-ng-show="item.stock"><input type="checkbox" name='{{item.itemName}}'  value='{{item.itemName}}' > </span>
+    <span data-ng-show="item.stock"><input type="checkbox" name='itemOption'  value='{{item.itemName}}' > </span>
     {{item.itemName}}  <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}}
     <form>
       <span data-ng-show="!item.stock" style="color:red"><h3>Not in stock </h3></span>
@@ -161,7 +161,7 @@
 
 
 <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:resaleItem"><h3>
-    <span data-ng-show="item.stock"><input type="checkbox" name='{{item.itemName}}'  value='{{item.itemName}}' > </span>
+    <span data-ng-show="item.stock"><input type="checkbox" name='itemOption'  value='{{item.itemName}}' > </span>
     {{item.itemName}}  <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}}
     <form>
       <span data-ng-show="!item.stock" style="color:red"><h3>Not in stock </h3></span>
@@ -178,7 +178,7 @@
 
 
 <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:onSide"><h3>
-    <span data-ng-show="item.stock"><input type="checkbox" name='{{item.itemName}}'  value='{{item.itemName}}' > </span>
+    <span data-ng-show="item.stock"><input type="checkbox" name='itemOption'  value='{{item.itemName}}' > </span>
     {{item.itemName}}  <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}}
     <form>
       <span data-ng-show="!item.stock" style="color:red"><h3>Not in stock </h3></span>
@@ -195,7 +195,7 @@
 
 
 <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:extra"><h3>
-    <span data-ng-show="item.stock"><input type="checkbox" name='{{item.itemName}}'  value='{{item.itemName}}' > </span>
+    <span data-ng-show="item.stock"><input type="checkbox" name='itemOption'  value='{{item.itemName}}' > </span>
     {{item.itemName}}  <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}}
     <form>
       <span data-ng-show="!item.stock" style="color:red"><h3>Not in stock </h3></span>
@@ -205,7 +205,7 @@
 </div>
 
 	<!-- Show all the items on the menu list, description, and price-->
-			<form name="chooseOrderForm" data-ng-submit="" class="signin form-horizontal" autocomplete="off" data-ng-init="loadMenuItems()">
+			<form name="chooseOrderForm" data-ng-submit="addToPlate()" class="signin form-horizontal" autocomplete="off" data-ng-init="loadMenuItems()">
 				<div data-ng-repeat="order in orders" data-ng-href="#!/orders/{{order._id}}" class="list-group-item">
 					<h4 class="list-group-item-heading" data-ng-bind="order.name"> </h4>
 					<input type = "checkbox">
@@ -213,7 +213,7 @@
 				</div>
 					<br>
 				<div class="text-center form-group">
-					<button type="submit" class="btn btn-primary" >Add to plate</button>
+					<button type="submit" class="btn btn-primary" onclick="location.reload(true)" >Add to plate</button>
 				</div>
 
 				<!--Success/error message-->
