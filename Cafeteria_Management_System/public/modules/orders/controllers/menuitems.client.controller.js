@@ -48,29 +48,29 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 	/*Remove an ingredient from the item being updated*/
 	$scope.removedIngredients =[];
 	$scope.removeIngredient = function(index)
-		{
-			//console.log('REMOVE:'+index + ' ' + $scope.loadedIngredients.ingredients[index]);
-			$scope.removedIngredients.push(index);
-		};
+	{
+		//console.log('REMOVE:'+index + ' ' + $scope.loadedIngredients.ingredients[index]);
+		$scope.removedIngredients.push(index);
+	};
 
 	/*Undo the remove ingredient function*/
 	$scope.undoRemoveIngredient = function(index)
+	{
+		//console.log('UNDOREMOVE:'+index + ' ' + $scope.loadedIngredients.ingredients[index]);
+		//console.log('Removed ingredients:'+ $scope.removedIngredients);
+		var found = false;
+		for(var ingredient in $scope.removedIngredients)
 		{
-			//console.log('UNDOREMOVE:'+index + ' ' + $scope.loadedIngredients.ingredients[index]);
-			//console.log('Removed ingredients:'+ $scope.removedIngredients);
-			var found = false;
-			for(var ingredient in $scope.removedIngredients)
+			if($scope.removedIngredients[ingredient] == index)
 			{
-				if($scope.removedIngredients[ingredient] == index)
-				{
-					$scope.removedIngredients[ingredient] = '';
-					found = true;
-				}
+				$scope.removedIngredients[ingredient] = '';
+				found = true;
 			}
+		}
 
-			//console.log('Removed ingredients:'+ $scope.removedIngredients);
+		//console.log('Removed ingredients:'+ $scope.removedIngredients);
 
-		};
+	};
 
 
 		/*Update the menu item*/
@@ -182,27 +182,27 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
         }
       };
 
-	  /*Adding buttons*/
-	  $scope.count = 0;
+		/*Adding buttons*/
+		$scope.count = 0;
 
 		//Filter Menu items - Toasted Sandwiches
 		$scope.toastedSandwiches = function (row) {
-        return (angular.lowercase(row.category).indexOf('Toasted Sandwiches') !== -1);
-    };
+			return (angular.lowercase(row.category).indexOf('Toasted Sandwiches') !== -1);
+		};
 
 		//Filter Menu items for Tramezzinis
 		$scope.tramezzinis = function (row) {
-        return (angular.lowercase(row.category).indexOf('Tramezzinis') !== -1);
-    };
+			return (angular.lowercase(row.category).indexOf('Tramezzinis') !== -1);
+		};
 
 		//Filter Menu items for Burger Bar
 		$scope.burgerBar = function (row) {
-				return (angular.lowercase(row.category).indexOf('Burger Bar') !== -1);
+			return (angular.lowercase(row.category).indexOf('Burger Bar') !== -1);
 		};
 
 		//Filter Menu items for Daily Lunches
 		$scope.dailyLunch = function (row) {
-				return (angular.lowercase(row.category).indexOf('Daily Lunches') !== -1);
+			return (angular.lowercase(row.category).indexOf('Daily Lunches') !== -1);
 		};
 
 		//Filter Menu items for Salad Bar
@@ -212,7 +212,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 
 		//Filter Menu items for Sweet Treats
 		$scope.sweetTreat = function (row) {
-				return (angular.lowercase(row.category).indexOf('Sweet Treats') !== -1);
+			return (angular.lowercase(row.category).indexOf('Sweet Treats') !== -1);
 		};
 
 		//Filter Menu items for Resale Items
@@ -222,13 +222,13 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 
 		//Filter Menu items for On The Side
 		$scope.onSide = function (row) {
-				return (angular.lowercase(row.category).indexOf('On The Side') !== -1);
+			return (angular.lowercase(row.category).indexOf('On The Side') !== -1);
 		};
 
 
 		//Filter Menu items for Extra's
 		$scope.extra = function (row) {
-				return (angular.lowercase(row.category).indexOf('Extra') !== -1);
+			return (angular.lowercase(row.category).indexOf('Extra') !== -1);
 		};
 
         //Filter Menu items for search bar
@@ -397,7 +397,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 					}
 					console.log('item in stock = ' + menuItemName.stock)
 					return menuItemName.stock;
-        }
+        };
 
 		/*
 		Delete a menu item
@@ -459,8 +459,22 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 				menuItemId: $stateParams.menuItemId
 			});
 		};
+		
+		
 
-		//Add to plate
+		/*
+		 * Add to plate. Last edited by {Rendani Dau}
+		 */
+		//Helper function to determine if item is in plate
+		var indexOfItem = function(arr, item){
+			for(var i = 0; i < arr.length; i++){
+				if(arr[i].itemName === item.itemName)
+					return i;
+			}
+			return -1;
+		};
+		
+		//add to plate
 		$scope.addToPlate = function(){
 			var x = angular.element(document.querySelectorAll('input[name="itemOption"]:checked'));
 			console.log(x.length);
@@ -478,7 +492,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 					y[i] = {
 						itemName: x[i].value,
 						price: _price
-					}
+					};
 					//y[i] = x[i].value;
 				}
 				console.log(y);
@@ -486,9 +500,11 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 				//alert($cookies.plate);
 				if($cookies.plate){
 					var existing = JSON.parse($cookies.plate);
-
-					for(var i = 0; i < y.length; i++){
-						existing[existing.length + i] = y[i];
+					
+					var count = existing.length;
+					for(var k = 0; k < y.length; k++){
+						if(indexOfItem(existing, y[k]) === -1)
+							existing[count++] = y[k];
 					}
 
 					$cookies.plate = JSON.stringify(existing);
@@ -499,7 +515,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 				}
 				//alert('Items have been added to plate: ' + $cookies.plate);
 			}
-		}
+		};
 
 		//redirect to view plate
 		$scope.viewPlate = function(){
@@ -517,7 +533,7 @@ menuItemsModule.directive('addmoreingredients', function(){
 	return {
 		restrict: 'E',
 		template: '<button addbuttons class="btn btn-large btn-primary">Add more ingredients</button>'
-	}
+	};
 });
 
 //Directive for adding input boxes on click

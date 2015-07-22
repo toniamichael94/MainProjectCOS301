@@ -13,5 +13,5 @@ module.exports = _.extend(
 	require('./users/users.authorization.server.controller'),
 	require('./users/users.password.server.controller'),
 	require('./users/users.profile.server.controller'),
-	require('./users/users.superuser.server.controller') //{Redani Dau}
+	require('./users/users.superuser.server.controller')
 );

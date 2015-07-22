@@ -17,20 +17,46 @@ var mongoose = require('mongoose'),
  */
  
  exports.placeOrder = function(req, res){
-	console.log(req.body);
-	res.status(200).send();
+	//console.log(req);
+	if(req.body.length > 0){
+		/*for(var i = 0; i < req.body.length; i++){
+			req.body[i].username = req.user.displayUserName;
+		}*/
+		
+		Order.create(req.body, function(err){
+			if(err) return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
+			});
+			res.status(200).send({message: 'Order has been made'});
+		});
+	}
+	else
+	{
+		res.status(400).send({message: 'Order could not be processed'});
+	}
  };
 
+ exports.getOrders = function(req, res){
+	//res.status(400).send({message: 'hello'});
+	console.log('heeeeelloooooooooooooooooooooo');
+	/*Order.find({status: 'open'}, function(err, items){
+		if(err) return res.status(400).send({
+			message: errorHandler.getErrorMessage(err)
+		});
+		
+		res.status(200).send({message: items});
+	});*/
+ };
 /**
  *END {Rendani Dau}
  */ 
  
 /**
  * Create a Order
- */
+ *
 
 exports.create = function(req, res) {
-	var order = new Order(req.body);
+	/*var order = new Order(req.body);
 	order.user = req.user;
 
 	order.save(function(err) {
@@ -46,7 +72,7 @@ exports.create = function(req, res) {
 
 /**
  * Show the current Order
- */
+ *
 
 exports.read = function(req, res) {
 	res.jsonp(req.order);
@@ -54,10 +80,10 @@ exports.read = function(req, res) {
 
 /**
  * Update a Order
- */
+ *
 
 exports.update = function(req, res) {
-	var order = req.order ;
+	/*var order = req.order ;
 
 	order = _.extend(order , req.body);
 
@@ -75,9 +101,9 @@ exports.update = function(req, res) {
 
 /**
  * Delete an Order
- */
+ *
 exports.delete = function(req, res) {
-	var order = req.order ;
+	/*var order = req.order ;
 
 	order.remove(function(err) {
 		if (err) {
@@ -93,10 +119,10 @@ exports.delete = function(req, res) {
 
 /**
  * List of Orders
- */
+ *
 
 exports.list = function(req, res) {
-	Order.find().sort('-created').populate('user', 'displayName').exec(function(err, orders) {
+	/*Order.find().sort('-created').populate('user', 'displayName').exec(function(err, orders) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
@@ -110,10 +136,10 @@ exports.list = function(req, res) {
 
 /**
  * Order middleware
- */
+ *
 
 exports.orderByID = function(req, res, next, id) {
-	Order.findById(id).populate('user', 'displayName').exec(function(err, order) {
+	/*Order.findById(id).populate('user', 'displayName').exec(function(err, order) {
 		if (err) return next(err);
 		if (! order) return next(new Error('Failed to load Order ' + id));
 		req.order = order ;
@@ -124,7 +150,7 @@ exports.orderByID = function(req, res, next, id) {
 
 /**
  * Order authorization middleware
- */
+ *
 
 exports.hasAuthorization = function(req, res, next) {
 	if (req.order.user.id !== req.user.id) {
@@ -132,3 +158,4 @@ exports.hasAuthorization = function(req, res, next) {
 	}
 	next();
 };
+*/

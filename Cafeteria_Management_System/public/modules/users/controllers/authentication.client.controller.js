@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('users').controller('AuthenticationController', ['$scope', '$http', '$location', 'Authentication',
-	function($scope, $http, $location, Authentication) {
+angular.module('users').controller('AuthenticationController', ['$scope', '$http', '$location', '$cookies', 'Authentication',
+	function($scope, $http, $location, $cookies, Authentication) {
 		$scope.authentication = Authentication;
 		// If user is signed in then redirect back home
 		if ($scope.authentication.user) $location.path('/');
@@ -27,9 +27,14 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 
 				$scope.authentication.user = response;
 
-				// And redirect to the index page
-               /// if(roles[0]==='user') {
-                    $location.path('/');
+				//Redirect to the view order page if orders pending
+                if($cookies.plate) {
+					if(JSON.parse($cookies.plate).length > 0){
+						$location.path('/placeOrder/viewOrders');
+					}
+				}
+				else
+					$location.path('/');
               /*  }
                 else if(roles[0]==='superuser'){
                     $location.path('/superuser');

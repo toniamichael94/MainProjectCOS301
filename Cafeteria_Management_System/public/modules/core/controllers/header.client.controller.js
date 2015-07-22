@@ -7,24 +7,22 @@ angular.module('core').controller('HeaderController', ['$scope', '$http', '$cook
 		$scope.menu = Menus.getMenu('topbar');
 		
 		$scope.onMyPlateNum = 0;
-		if($cookies.plate)
+		if($cookies.plate != null){
 			$scope.onMyPlateNum = JSON.parse($cookies.plate).length;
-
+		}
+		
 		$scope.toggleCollapsibleMenu = function() {
 			$scope.isCollapsed = !$scope.isCollapsed;
 		};
 
 		$scope.loadCanteenInfo = function(){
-			//console.log('in load canteen info...');
 			$http.get('/loadCanteenInfo').success(function(response) {
-				// If successful show success message and clear form
+			// If successful show success message and clear form
 			$scope.canteenName = response.message.value;
-			//console.log(response.message.value);
 
 			}).error(function(response) {
 				$scope.canteenName = 'Canteen Name';
 			});
-			//console.log($scope.canteenName);
 		};
 
 

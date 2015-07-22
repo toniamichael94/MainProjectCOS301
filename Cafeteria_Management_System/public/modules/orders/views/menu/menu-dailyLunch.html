@@ -70,7 +70,7 @@
      </div>
 </div>
 	<!-- Show all the items on the menu list, description, and price-->
-			<form name="chooseOrderForm" data-ng-submit="" class="signin form-horizontal" autocomplete="off" data-ng-init="loadMenuItems()">
+			<form name="chooseOrderForm" data-ng-submit="addToPlate()" class="signin form-horizontal" autocomplete="off" data-ng-init="loadMenuItems()">
 				<div data-ng-repeat="order in orders" data-ng-href="#!/orders/{{order._id}}" class="list-group-item">
 					<h4 class="list-group-item-heading" data-ng-bind="order.name"> </h4>
 					<input type = "checkbox">
