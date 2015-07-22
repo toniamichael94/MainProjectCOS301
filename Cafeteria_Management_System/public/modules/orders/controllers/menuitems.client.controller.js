@@ -338,9 +338,8 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		$scope.loadMenuItems = function(){
 			$http.get('/loadMenuItems').success(function(response) {
 
-		  console.log(response.message); // testing
+		  //console.log(response.message); // testing
 			$scope.menuItems = response.message;
-
 			var inStock = true;
 			//var notInStock = 'Not in stock';
 
@@ -350,22 +349,13 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 				if(response.message[itemName].itemInStock === false){ // then item is marked as out of stock by cafeteria manager for reasons other than inventory
 							$scope.menuItems[itemName].stock = false;
 				}else{ // check the inventory if all items are available
-
 							$scope.menuItems[itemName].stock= $scope.checkStock(response.message[itemName]);
-							console.log(	$scope.menuItems[itemName].stock);
-
-
 				}
-				//itemsArray[counter].stock = stockVariable1;
 			}
-		//	$scope.menuItems = itemsArray;
-		  //	console.log('array size = ' + itemsArray.length);// testing
-
-				}).error(function(response) {
-				$scope.menuItems = 'Error loading menu Items';
-			});
-			//console.log($scope.menuItems);
-		};
+		}).error(function(response) {
+			$scope.menuItems = 'Error loading menu Items';
+	});
+};
 
 
         /*
@@ -376,26 +366,25 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 						var name = menuItemName.ingredients.ingredients[inventoryItem]; // name of ingredient
 						var quantity = menuItemName.ingredients.quantities[inventoryItem];
 						// now check that the amount in the inventory is more than the amount needed for this menu item
-							console.log('name = ' +name + ' amount = ' + quantity);
 							var ingredient = {
 								ingredientName: name,
 								ingredientQuantity: quantity
 							}
 
 							$http.post('/inventoryItems', ingredient).success(function(response2) {
-							
-						if(response2.message[0][0].quantity >= response2.message[1]){
-								if(menuItemName.stock != false){
-										menuItemName.stock = true;
-										}
-									}else {
-											menuItemName.stock = false;
-									}
-								}).error(function(response2) {
+
+								if(response2.message[0][0].quantity >= response2.message[1]){
+									console.log(response2.message[0][0].quantity + ' = ' +  ingredient);
+										if(menuItemName.stock != false){
+												menuItemName.stock = true;
+												}
+											}else {
+													menuItemName.stock = false;
+											}
+							}).error(function(response2) {
 										$scope.error = response2.message;
 								});
 					}
-					console.log('item in stock = ' + menuItemName.stock)
 					return menuItemName.stock;
         };
 

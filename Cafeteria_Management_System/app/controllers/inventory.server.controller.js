@@ -136,7 +136,7 @@ exports.searchInventory=function(req,res){
         }, function (err, inventory) {
             if (!inventory) {
                 return res.status(400).send({
-                    message: 'Inventory item not found'					
+                    message: 'Inventory item not found'
                 });
             }   else if(inventory){
                 return res.status(200).send({
@@ -179,7 +179,7 @@ exports.updateInventory = function(req, res) {
 updateInventoryQuantity
 */
 
-	exports.updateInventoryQuantity=function(req,res){		
+	exports.updateInventoryQuantity=function(req,res){
 		Inventory.update({productName: req.body.productName}, {quantity: req.body.quantity}, function(err, numAffected){
         if(err) return res.status(400).send({
             message: errorHandler.getErrorMessage(err)
@@ -192,7 +192,7 @@ updateInventoryQuantity
         }
     });
 	};
-	
+
 	/*
 	Delete an inventory item
 	*/

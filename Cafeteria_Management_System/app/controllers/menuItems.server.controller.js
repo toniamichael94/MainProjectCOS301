@@ -14,19 +14,18 @@ var mongoose = require('mongoose'),
 exports.inventoryItems = function(req, res) {
 	var menuItem = req.body;
 	//console.log('****** in the server ready to check inventory ' + req.body.ingredientName);
-	InventoryItem.find({productName: req.body.ingredientName}, function(err, items) {
+	var index = req.body.ingredientName.indexOf('(');
+	var inventoryProductName = req.body.ingredientName.slice(0, index);
+	inventoryProductName = inventoryProductName.trim();
 
-	//	console.log('************** ' + items);
-		items.amount = req.body.ingredientQuantity;
-	//	var temp = Object;
-	//	temp.items = items;
-		//temp.amount = req.body.ingredientQuantity;
-		var items2 = new Array();
-		items2[0] = items;
-		//console.log('quantiy = ' + items2[0]);
-		items2[1] = items.amount;
-	//	console.log(items);
-	if(err || !items) return res.status(400).send({message: 'Menu Items not found' });
+	InventoryItem.find({productName: inventoryProductName}, function(err, items) {
+	items.amount = req.body.ingredientQuantity;
+
+	var items2 = new Array();
+	items2[0] = items;
+	items2[1] = items.amount;
+	
+	if(err || !items) return res.status(400).send({message: 'Inventory Item not found' });
 	else {
 			res.status(200).send({message: items2});
 		}
@@ -59,6 +58,7 @@ MenuItem.find({}, function(err, items) {
  });
 
 };
+
 
 
 
