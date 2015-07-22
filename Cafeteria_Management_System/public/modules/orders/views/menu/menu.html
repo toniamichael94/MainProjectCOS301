@@ -53,6 +53,21 @@
         </div>
     </div>
 
+    <!-- Display Special of the day -->
+    <div class="list-group clearfix">
+        <a href="#" class="list-group-item disabled">
+            <h4> Special Of The Day </h4>
+        </a>
+        <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:special"><h3>
+            <span data-ng-show="item.stock"><input type="checkbox" name='itemOption'  value='{{item.itemName}}' > </span>
+            {{item.itemName}}  <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}}
+            <form>
+                <span data-ng-show="!item.stock" style="color:red"><h3>Not in stock </h3></span>
+            </form>
+        </h5>
+        </div>
+    </div>
+
       <!-- Display Toasted Sandwiches -->
         <div class="list-group clearfix">
       		<a href="#" class="list-group-item disabled">

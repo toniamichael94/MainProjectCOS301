@@ -185,6 +185,11 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		/*Adding buttons*/
 		$scope.count = 0;
 
+        //Filter Menu items - Special Of The Day
+        $scope.special = function (row) {
+            return (angular.lowercase(row.category).indexOf('Special Of The Day') !== -1);
+        };
+
 		//Filter Menu items - Toasted Sandwiches
 		$scope.toastedSandwiches = function (row) {
 			return (angular.lowercase(row.category).indexOf('Toasted Sandwiches') !== -1);
