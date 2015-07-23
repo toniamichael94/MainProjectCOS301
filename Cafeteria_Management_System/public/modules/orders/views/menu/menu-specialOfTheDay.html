@@ -1,0 +1,36 @@
+<section data-ng-controller="MenuItemsController" >
+
+        <h3>Menu / Daily Specials</h3>
+        <hr>
+
+      <!-- Display all the meals -->
+      <!-- nav- breadcrum for menu page-->
+      <ol class="breadcrumb">
+        <li class="active">All Menu Items</li>
+        <li><a href="/#!/menu/toastedSandwiches">Toasted Sandwiches</a></li>
+        <li><a href="/#!/menu/tramezzinis">Tramezzinis</a></li>
+        <li><a href="/#!/menu/burgerBar">Burger Bar</a></li>
+        <li><a href="/#!/menu/dailyLunch">Daily Lunches</a></li>
+        <li><a href="/#!/menu/saladBar">Salad Bar</a></li>
+        <li><a href="/#!/menu/sweetTreats">Sweet Treats</a></li>
+        <li><a href="/#!/menu/resaleItems">Resale Items</a></li>
+        <li><a href="/#!/menu/onTheSide">On The Side</a></li>
+        <li><a href="/#!/menu/extra">Extras</a></li>
+        <li><a href="/#!/menu/drinks">Drinks</a></li>
+      </ol>
+
+      <!-- disolay Daily specials -->
+      <div class="list-group clearfix">
+          <a href="#" class="list-group-item disabled">
+              <h4> Daily Specials</h4>
+          </a>
+          <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:special"><h3>
+              <span data-ng-show="item.stock"><input type="checkbox" name='itemOption'  value='{{item.itemName}}' > </span>
+              {{item.itemName}}  <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}}
+              <form>
+                  <span data-ng-show="!item.stock" style="color:red"><h3>Not in stock </h3></span>
+              </form>
+          </h5>
+          </div>
+      </div>
+<section>

@@ -55,3 +55,24 @@
     padding-top: 2px;
     font-size: 9px;
 }
+/*end checkboxes inline */
+
+/*breadcrumb */
+.breadcrumb{
+	font-size: 12px;
+}
+
+.nav {
+	font-size: 12px;
+}
+
+.navbar-nav > li{
+  padding-left:0px;
+  padding-right:0px;
+	background-color: inherit;
+
+
+
+}
+
+.heading { background-color: #E8E8E8  ; }

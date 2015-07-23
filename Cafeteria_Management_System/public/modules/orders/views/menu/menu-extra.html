@@ -54,22 +54,23 @@
         </div>
     </div>
 
-      <!-- Display  Extra's -->
-      <div class="list-group clearfix">
-        <a href="#" class="list-group-item disabled">
-         <h4>Extra's</h4>
-       </a>
+    <!-- Display  Extra's -->
+    <div class="list-group clearfix">
+        <a href="/#!/menu/extra" class="list-group-item disabled">
+            <h4>Extra's</h4>
+        </a>
 
 
-      <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:extra"><h3>
-          <span data-ng-show="item.stock"><input type="checkbox" name='itemOption'  value='{{item.itemName}}' > </span>
-          {{item.itemName}}  <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}}
-          <form>
-            <span data-ng-show="item.stock === 'Not in stock'" style="color:red"><h3> {{item.stock}} </h3></span>
-          </form>
-      </h5>
-      </div>
-      </div>
+        <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:extra"><h3>
+            <span data-ng-show="item.stock"><input type="checkbox" name='itemOption'  value='{{item.itemName}}' > </span>
+            {{item.itemName}}  <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}}
+            <form>
+                <span data-ng-show="!item.stock" style="color:red"><h3>Not in stock </h3></span>
+            </form>
+          </h5>
+        </div>
+    </div>
+
 
 </div>
 
