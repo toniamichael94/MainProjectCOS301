@@ -42,7 +42,7 @@
             $stateParams = _$stateParams_;
             $httpBackend = _$httpBackend_;
             $location = _$location_;
-			$cookies = _$cookies_
+			$cookies = _$cookies_;
 
             // Initialize the SettingsController controller
             MenuItemsController = $controller('MenuItemsController', {
@@ -130,6 +130,15 @@
             expect(scope.error).toEqual('Database error!');
         });
 		
+		/*it('$scope.loadMenuItems() should NOT load menu items', function() {
+			 //Test expected GET request
+            $httpBackend.expectGET('/loadMenuItems').respond(400, {'message': 'Error loading menu items'});
+			
+			scope.loadMenuItems();
+
+            expect(scope.menuItems).toEqual('Error loading menu Items');
+        });*/
+		
 		it('$scope.loadMenuItems() should load menu items', function() {
 			 //Test expected GET request
             $httpBackend.expectGET('/loadMenuItems').respond(200, {'message':[{itemName: 'item 1', itemInStock: true},{itemName: 'item 2', itemInStock: false}]});
@@ -138,8 +147,8 @@
 
             expect(scope.menuItems).not.toBe(null);
         });
-		
 		/*
+		
 		it('$scope.loadMenuItems() should NOT load menu items', function() {
 			 //Test expected GET request
             $httpBackend.expectGET('/loadMenuItems').respond(400, {'message': 'Error loading menu items'});
