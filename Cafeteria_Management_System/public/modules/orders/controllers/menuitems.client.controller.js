@@ -502,7 +502,8 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 					}
 					y[i] = {
 						itemName: x[i].value,
-						price: _price
+						price: _price,
+						quantity: 1
 					};
 					//y[i] = x[i].value;
 				}

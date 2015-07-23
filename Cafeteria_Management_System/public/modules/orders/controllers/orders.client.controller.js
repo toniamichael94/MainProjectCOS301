@@ -5,9 +5,20 @@ angular.module('orders').controller('OrdersController', ['$scope', '$http', '$st
 	function($scope, $http, $stateParams, $location, $cookies, Authentication, Orders) {
 		$scope.authentication = Authentication;
 		
-		$scope.plate = null;
+		$scope.plate = [];
 		if($cookies.plate)
 			$scope.plate = JSON.parse($cookies.plate);
+			
+		$scope.subTotal = function(){
+			var total = 0;
+			
+			if($scope.plate.length > 0){
+				for(var i = 0; i < $scope.plate.length; i++){
+					total += $scope.plate[i].price * $scope.plate[i].quantity;
+				}
+			}
+			return total;
+		};
 
 		//place the order
 		$scope.placeOrder = function(){
@@ -35,6 +46,22 @@ angular.module('orders').controller('OrdersController', ['$scope', '$http', '$st
 					$location.path('/signin');
 				}
 			}*/
+		};
+		
+		//Remove from plate
+		$scope.removeFromPlate = function(itemName){
+			if($cookies.plate){
+				var plate = JSON.parse($cookies.plate);
+				
+				for(var i = 0; i < plate.length; i++){
+					if(plate[i].itemName === itemName){
+						plate.splice(i,1);
+						$cookies.plate = JSON.stringify(plate);
+						break;
+					}
+				}
+				location.reload(true);
+			}
 		};
 		/*
 		// Create new Order

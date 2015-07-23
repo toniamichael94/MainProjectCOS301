@@ -8,9 +8,12 @@
 		<div class="list-group-item clearfix">
 			<div class="list-group-item clearfix" ng-repeat="item in plate">
 				{{item.itemName}}  <span> R {{item.price}}</span>
-				<span> Quantity <input type='number' name='{{item.itemName}}' value=1 min=1 max=5 /></span>
+				<span> Quantity <input type='number' name='{{item.itemName}}' value={{item.quantity}} min=1 max=5 /></span>
+				<span style="float: right"><button type="button" data-ng-click="removeFromPlate(item.itemName)"> Remove </button></span>
 			</div>
-	  
+			<div>
+				<span style="float: right">Total: {{subTotal()}} </span>
+			</div>
 			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2"  data-ng-controller="MenuItemsController">
 				<!--p> Placed order </p> <input class = "form-control" type = number min = 0> <input type = "checkbox" checked = true-->
 				<br>
