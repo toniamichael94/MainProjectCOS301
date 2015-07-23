@@ -69,7 +69,7 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 		$scope.loadInventoryItems = function(){
 			$http.get('/loadInventoryItems').success(function(response) {
 			$scope.inventoryItems = response.message;
-			var itemsArray = [];
+			var itemsArray = new Array();
 			var counter = 0;
 
 			for(var itemName in response.message){

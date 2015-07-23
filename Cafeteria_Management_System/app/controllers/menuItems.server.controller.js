@@ -21,7 +21,7 @@ exports.inventoryItems = function(req, res) {
 	InventoryItem.find({productName: inventoryProductName}, function(err, items) {
 	items.amount = req.body.ingredientQuantity;
 
-	var items2 = [];
+	var items2 = new Array();
 	items2[0] = items;
 	items2[1] = items.amount;
 	
