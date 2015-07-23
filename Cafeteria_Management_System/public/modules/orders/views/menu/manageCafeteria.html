@@ -1,10 +1,12 @@
 <section class="row">
-	<h3> Manage Menu </h3>
+
+	<h4> Manage Menu </h4>
 	<hr>
+
 	<div class="list-group clearfix">
 		<a href="#" class="list-group-item disabled">Add product to menu</a>
 		<div class="list-group-item clearfix">
-			<h3> Add menu item </h3>
+			<h4> Add menu item </h4>
 			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2"  data-ng-controller="MenuItemsController">
 				<form ng-init = "addFormField()" name="addMenuItemForm" data-ng-submit="createMenuItem(addMenuItemForm.$valid)" class="signin form-horizontal" autocomplete="off">
 					<fieldset>
@@ -40,7 +42,7 @@
 							</select>
 						</div>
 
-	
+
 
 				<!-- Dynamically add ingredients -->
 				<label>Ingredients</label>
@@ -51,7 +53,7 @@
 						<input class="form-control" placeholder ="Quantity"  type = "number" min =0 ng-model = 'ingredients.quantities[$index]'/>
 						<br>
 					</div>
-					
+
 					<!--Dynamically add ingredients button-->
 				<a ng-click="addFormField()" class = "btn btn-large btn-primary">Add ingredients</a>
 				<br>
@@ -86,7 +88,7 @@
 	<div class="list-group clearfix"  data-ng-controller="MenuItemsController">
 		<a href="#" class="list-group-item disabled">Search menu item</a>
 			<div class="list-group-item clearfix">
-				<h3> Search menu item </h3>
+				<h4> Search menu item </h4>
 				<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 					<form name="searchMenuItemsForm" data-ng-submit="searchMenu(searchMenuItemsForm.$valid)" class="signin form-horizontal" autocomplete="off">
 						<!--Search for a menu item-->
@@ -99,7 +101,7 @@
 						</div>
 						<br>
 					</form>
-					
+
 					<!--Delete or update if item is found-->
 					<div data-ng-show="successFind">
 						<button class = "btn btn-large btn-primary"  ng-click="showme=true; loadIngredients()" data-ng-hide="showme">Update</button>
@@ -107,22 +109,22 @@
 						<br>
 					</div>
 					<div data-ng-show="successFind">
-						<button class = "btn btn-large btn-primary" data-ng-hide="showme" ng-click = "deleteMenuItem()">Delete</button>	
+						<button class = "btn btn-large btn-primary" data-ng-hide="showme" ng-click = "deleteMenuItem()">Delete</button>
 					</div>
 					<!--Show if update -->
-					<div ng-show="showme" class="text-center text-success">						
+					<div ng-show="showme" class="text-center text-success">
                         <form name="updateMenuItemForm" data-ng-submit="updateMenuItem(updateMenuItemForm.$valid)" class="signin form-horizontal" autocomplete="off">
                             <h4>Update item</h4>
                             <div class="form-group">
                                 <label for="itemName">Item Name</label>
                                 <input type="text" id="itemName" name="itemName" class="form-control" data-ng-model="updateItemName">
-                            </div>            
+                            </div>
 
 							<div class="form-group">
                                 <label for="itemUpdatePrice">Price</label>
                                 <input type="text" id="itemUpdatePrice" name="itemUpdatePrice" class="form-control" data-ng-model="updateItemPrice">
                             </div>
-							
+
 							<div class="form-group">
                                 <label for="itemUpdateDescription">Description</label>
                                 <input type="text" id="itemUpdateDescription" name="itemUpdateDescription" class="form-control" data-ng-model="updateItemDescription">
@@ -142,20 +144,20 @@
 									<option value = 'Extra'>Extra</option>
 								</select>
                             </div>
-							
+
 							<div>
 								<label>Ingredients</label>
 								<div ng-repeat = "ingredient in loadedIngredients.ingredients track by $index" >
-									<label ng-bind = 'loadedIngredients.ingredients[$index]'>{{loadedIngredients.ingredients}}</label>					
+									<label ng-bind = 'loadedIngredients.ingredients[$index]'>{{loadedIngredients.ingredients}}</label>
 									<input class="form-control" type = "number" min =0 ng-model = 'loadedIngredients.quantities[$index]'/>
-									
-									<a class = "btn" ng-click = "removeIngredient($index); removed = true" ng-hide="removed" ng-show="!removed">Remove</a>									
+
+									<a class = "btn" ng-click = "removeIngredient($index); removed = true" ng-hide="removed" ng-show="!removed">Remove</a>
 									<a class = "btn" ng-click = "undoRemoveIngredient($index); removed=false" ng-show="removed">Undo remove</a>
-									
+
 									<br>
 								</div>
-							</div>							
-						
+							</div>
+
 						<!--Add more ingredients to item-->
 						<div ng-init="loadInventoryItems()" data-ng-controller="InventoryController" ng-repeat = "ingredient in addedUpdateIngredients.ingredients track by $index" >
 							<label ng-bind = 'addedUpdateIngredients.ingredients[$index]'>{{addedUpdateIngredients.ingredients}}</label>
@@ -165,16 +167,16 @@
 							<input class="form-control" placeholder ="Quantity"  type = "number" min =0 ng-model = 'addedUpdateIngredients.quantities[$index]'/>
 							<br>
 						</div>
-						
+
 						<a ng-click="addMoreIngredientsUpdate()" class = "btn btn-large btn-primary">Add more ingredients</a>
 
-						<br>			
+						<br>
                             <div class = "text-center form-group">
                                 <!--<button type = "submit" class = "btn btn-large btn-primary" onclick= "location.reload(true)" ng-click = "upadateMenuItem()"> Update</button>-->
                                 <button type = "submit" class = "btn btn-large btn-primary" ng-click = "upadateMenuItem(); showme=false"> Update</button>
 
 							</div>
-                        </form>						                                  
+                        </form>
 					</div>
 					<!--Success or Error message-->
 						 <div data-ng-show="successMessage" class="text-center text-success">
@@ -182,8 +184,8 @@
                         </div>
                         <div data-ng-show="errorMessage" class="text-center text-success">
                             <strong data-ng-bind="errorMessage"></strong>
-                        </div>     
-					
+                        </div>
+
 				</div>
 			</div>
 	</div>

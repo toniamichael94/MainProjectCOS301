@@ -50,10 +50,14 @@ angular.module('orders').config(['$stateProvider',
 			url: '/menu/extra',
 			templateUrl: 'modules/orders/views/menu/menu-extra.html'
 		}).
-        state('menuDrinks', {
-            url: '/menu/drinks',
-            templateUrl: 'modules/orders/views/menu/menu-drinks.html'
-        }).
+  	state('menuDrinks', {
+       url: '/menu/drinks',
+       templateUrl: 'modules/orders/views/menu/menu-drinks.html'
+    }).
+		state('dailySpecials', {
+       url: '/menu/daylySpecials',
+       templateUrl: 'modules/orders/views/menu/menu-specialOfTheDay.html'
+    }).
 		//-----------------end of menu page routes
 		// view Orders page / on my plate page
 		state('createOrder', {

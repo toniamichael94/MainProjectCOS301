@@ -13,9 +13,9 @@
 
 <section class="row" data-ng-controller="SettingsController">
 
-	<h3> Profile </h3>
+	<h4> Profile </h4>
 	<hr>
-	
+
 
 
 <!-- Displaying the user information -->
@@ -25,23 +25,23 @@
   </a>
 	<!-- First name and Last name -->
 	<div class="list-group-item">
-  <h3 align="left"> <span data-ng-bind="authentication.user.displayName"></span> </h3> <br>
-</div>
+  	<h4 align="left"> <span data-ng-bind="authentication.user.displayName"></span> </h4> <br>
+	</div>
 	<!-- user name -->
 	<div class="list-group-item">
-	<h3> Employee ID: </h3> <h4 align="left"> <span data-ng-bind="authentication.user.username"></span> </h4><br>
+		<h4> Employee ID: </h4> <h5 align="left"> <span data-ng-bind="authentication.user.username"></span> </h5><br>
 	</div>
 	<!-- e-mail adderss: -->
 	<div class="list-group-item">
-	<h3> E-mail address: </h3> <h4 align="left"> <span data-ng-bind="authentication.user.displayEmail"></span> </h4><br>
+		<h4> E-mail address: </h4> <h5 align="left"> <span data-ng-bind="authentication.user.displayEmail"></span> </h5><br>
   </div>
 	<!-- monthly bill e-mail adderss: -->
 	<div class="list-group-item">
-	<h3> Monthly bill will go to: </h3> <h4 align="left"> <span data-ng-bind="authentication.user.displayRecipientEmailOption"></span> </h4><br>
+		<h4> Monthly bill will go to: </h4> <h5 align="left"> <span data-ng-bind="authentication.user.displayRecipientEmailOption"></span> </h5><br>
 	</div>
 	<!-- Limit: -->
 	<div class="list-group-item">
-	<h3> Limit per month: </h3> <h4 align="left"> R <span data-ng-bind="authentication.user.limit"></span> </h4><br>
+		<h4> Limit per month: </h4> <h5 align="left"> R <span data-ng-bind="authentication.user.limit"></span> </h5><br>
 	</div>
 
 	<!-- Profile type: -->
@@ -50,33 +50,26 @@
 				  in future functionality this could be usefull - if deemed unusefull we can  easily remove it without effecting
 					the functionality of the Profile page
 		-->
-
 			<!-- Normal user -->
 			<div data-ng-show="authentication.user.roles[0] === 'user'" class="list-group-item">
-			<h3> Profile type: </h3> <h4 align="left">Employee</h4><br>
+				<h4> Profile type: </h4> <h5 align="left">Employee</h5><br>
 			</div>
 			<!-- Super User -->
 			<div data-ng-show="authentication.user.roles[0] === 'superuser'" class="list-group-item">
-			<h3> Profile type: </h3> <h4 align="left">Administration</h4><br>
+				<h4> Profile type: </h4> <h5 align="left">Administration</h5><br>
 			</div>
 			<!--finance user -->
 			<div data-ng-show="authentication.user.roles[0] === 'finance'" class="list-group-item">
-			<h3> Profile type: </h3> <h4 align="left">Finance Department</h4><br>
+				<h4> Profile type: </h4> <h5 align="left">Finance Department</h5><br>
 			</div>
 			<!--Cafeteria Manager user -->
 			<div data-ng-show="authentication.user.roles[0] === 'cafeteriaManager'" class="list-group-item">
-			<h3> Profile type: </h3> <h4 align="left">Cafeteria Manager</h4><br>
+				<h4> Profile type: </h4> <h5 align="left">Cafeteria Manager</h5><br>
 			</div>
 			<!--Casheir -->
 			<div data-ng-show="authentication.user.roles[0] === 'cashier'" class="list-group-item">
-			<h3> Profile type: </h3> <h4 align="left">Cashier</h4><br>
+				<h4> Profile type: </h4> <h5 align="left">Cashier</h5><br>
 			</div>
 
-
-
-
  </div>
-
-
-
 </section>
