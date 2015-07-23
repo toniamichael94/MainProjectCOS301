@@ -150,11 +150,11 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 					$scope.updateItemPrice = $scope.foundItem.price;
 					$scope.updateItemDescription = $scope.foundItem.description;
 
-					console.log('Item found:'+$scope.foundItem.ingredients.ingredients);
+					//console.log('Item found:'+$scope.foundItem.ingredients.ingredients);
                 }).error(function(response){
 					$scope.errorFind = response.message;
 					$scope.errorMessage=response.message;
-					console.log('here');
+					//console.log('here');
                 });
             }
         };
@@ -374,8 +374,8 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 			}
 		}).error(function(response) {
 			$scope.menuItems = 'Error loading menu Items';
-	});
-};
+		});
+	};
 
 
         /*
