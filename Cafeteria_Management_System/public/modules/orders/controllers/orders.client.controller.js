@@ -11,7 +11,7 @@ angular.module('orders').controller('OrdersController', ['$scope', '$http', '$st
 
 		//place the order
 		$scope.placeOrder = function(){
-			if($scope.plate){
+			/*if($scope.plate){
 				if(Authentication.user){
 					console.log('User is: ' + Authentication.user.username);
 					
@@ -23,7 +23,6 @@ angular.module('orders').controller('OrdersController', ['$scope', '$http', '$st
 						$scope.plate[i].quantity = _quantity;
 					}
 					$http.post('/orders/placeOrder', $scope.plate).success(function(response) {
-						console.log('success');
 						$scope.plate = [];
 						$cookies.plate = JSON.stringify([]);
 						$scope.success = response.message;
@@ -35,7 +34,7 @@ angular.module('orders').controller('OrdersController', ['$scope', '$http', '$st
 				else{
 					$location.path('/signin');
 				}
-			}
+			}*/
 		};
 		/*
 		// Create new Order

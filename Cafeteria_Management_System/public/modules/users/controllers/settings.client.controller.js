@@ -82,7 +82,7 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
         $scope.loadEmployees = function(){
             $http.get('/loadEmployees').success(function(response) {
                 $scope.employees = response.message;
-                var empArr = new Array();
+                var empArr = [];
                 var counter = 0;
 
                 for(var empID in response.message){

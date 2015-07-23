@@ -13,7 +13,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		$scope.addFormField = function() {
 			$scope.ingredients.ingredients.push('');
 			$scope.ingredients.quantities.push('');
-		}
+		};
 
   /*==Update functions ==*/
 
@@ -61,7 +61,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		var found = false;
 		for(var ingredient in $scope.removedIngredients)
 		{
-			if($scope.removedIngredients[ingredient] == index)
+			if($scope.removedIngredients[ingredient] === index)
 			{
 				$scope.removedIngredients[ingredient] = '';
 				found = true;
@@ -83,7 +83,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 
 			for(var removedIngredient in $scope.removedIngredients)
 			{
-				if($scope.removedIngredients[removedIngredient] != '')
+				if($scope.removedIngredients[removedIngredient] !== '')
 				{
 					$scope.loadedIngredients.ingredients[removedIngredient] = '';
 					$scope.loadedIngredients.quantities[removedIngredient] = '';
@@ -92,7 +92,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 
 			for (var ingredient in $scope.loadedIngredients.ingredients)
 			{
-				if($scope.loadedIngredients.ingredients[ingredient] != '')
+				if($scope.loadedIngredients.ingredients[ingredient] !== '')
 				{
 					$scope.addedUpdateIngredients.ingredients.push($scope.loadedIngredients.ingredients[ingredient]);
 					$scope.addedUpdateIngredients.quantities.push($scope.loadedIngredients.quantities[ingredient]);
@@ -389,14 +389,14 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 							var ingredient = {
 								ingredientName: name,
 								ingredientQuantity: quantity
-							}
+							};
 
 							$http.post('/inventoryItems', ingredient).success(function(response2) {
 								if(response2.message[0].length === 0){
 										menuItemName.stock = false;
 								}else{
 								if(response2.message[0][0].quantity >= response2.message[1]){
-										if(menuItemName.stock != false){
+										if(menuItemName.stock !== false){
 												menuItemName.stock = true;
 												}
 											}else {
@@ -488,7 +488,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		//add to plate
 		$scope.addToPlate = function(){
 			var x = angular.element(document.querySelectorAll('input[name="itemOption"]:checked'));
-			console.log(x.length);
+			//console.log(x.length);
 			if(x.length > 0){
 				var y = [];
 				for(var i = 0; i < x.length; i++)
@@ -524,16 +524,15 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 				{
 					$cookies.plate = JSON.stringify(y);
 				}
-				//alert('Items have been added to plate: ' + $cookies.plate);
 			}
 		};
 
-		//redirect to view plate
+		/*redirect to view plate
 		$scope.viewPlate = function(){
 			alert(JSON.parse($cookies.plate));
 			//$location.path('/placeOrder/viewOrders');
-			//$window.location.href = '/placeOrder/viewOrders';*/
-		};
+			//$window.location.href = '/placeOrder/viewOrders';
+		};*/
 	}
 ]);
 
