@@ -23,7 +23,7 @@
     <!--Search for a menu product-->
     <div class="row">
         <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
-                <h4>Search Item </h4>
+                <h4> Search Item </h4>
                     <form name="searchMenuForm" data-ng-submit="searchMenu(searchMenuForm.$valid)" class="signin form-horizontal" autocomplete="off">
                         <div class = "form-group">
                             <input type="text" id="menuNameSearch" name ="menuNameSearch" class = "form-control" data-ng-model="menuNameSearch" placeholder="Meal Name">
@@ -60,7 +60,9 @@
             <h4> Daily Specials</h4>
         </a>
         <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:special"><h3>
-            <span data-ng-show="item.stock"><input type="checkbox" name='itemOption'  value='{{item.itemName}}' > </span>
+            <span data-ng-show="item.stock">
+              
+              <input type="checkbox" name='itemOption'  value='{{item.itemName}}' > </span>
             {{item.itemName}}  <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}}
             <form>
                 <span data-ng-show="!item.stock" style="color:red"><h3>Not in stock </h3></span>

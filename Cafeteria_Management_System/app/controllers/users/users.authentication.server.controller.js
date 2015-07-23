@@ -99,11 +99,10 @@ exports.signup = function(req, res) {
 
 exports.checkSuperUser = function(){
 
-	console.log('in check super user ***');
+	var error;
 	User.find({roles : 'superuser'}, function(error, model) {
   //put code to process the results here
 //	console.log('models');
-
 	var v = model;
 //	console.log(v);
 	if(model.length < 1){
@@ -135,12 +134,43 @@ exports.checkSuperUser = function(){
 
 		});
 		superUser.save(function(err, superUser) {
-  		if (err) return console.error(err);
+  		if (err) error.superUser = err;//return console.error(err);
   			console.dir(superUser);
 });
 	}else {
 		console.log('USER FOUND ');
 	}
+
+});
+
+User.find({roles : 'admin'}, function(error, model2) {
+var v = model2;
+if(model2.length < 1){
+	console.log('NO USER FOUND - create default admin user');
+	var adminUser = new User({
+		firstName : 'Admin',
+		lastName : 'User',
+		username : 'AdminUser',
+		password : 'AdminUser',
+		email : 'email@address.com',
+		recipientEmailAddress : 'email@address.com',
+		roles : 'admin',
+		provider : 'local',
+		limit : '500'
+
+		// now set default system limit
+		//set default system wyde limit
+
+	});
+
+
+	adminUser.save(function(err, superUser) {
+		if (err) error.superUser = err;//return console.error(err);
+			console.dir(superUser);
+});
+}else {
+	console.log('USER FOUND ');
+}
 
 });
 
