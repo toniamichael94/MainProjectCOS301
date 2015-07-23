@@ -88,7 +88,7 @@
             expect(scope.errorOne).toEqual('No such user');
         });
 
-        it('$scope.assignRoles() should change employee ID', function() {
+        it('$scope.changeEmployeeID() should change employee ID', function() {
             // Test expected GET request
             $httpBackend.expectPOST('/users/superuserChangeEmployeeID').respond(200, {'message': 'Employee ID has been successfully changed.'});
             scope.changeEmployeeID(true);
