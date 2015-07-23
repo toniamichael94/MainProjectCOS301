@@ -36,6 +36,22 @@ angular.module('orders').controller('OrdersController', ['$scope', '$http', '$st
 				}
 			}*/
 		};
+		
+		//Remove from plate
+		$scope.removeFromPlate = function(itemName){
+			if($cookies.plate){
+				var plate = JSON.parse($cookies.plate);
+				
+				for(var i = 0; i < plate.length; i++){
+					if(plate[i].itemName === itemName){
+						plate.splice(i,1);
+						$cookies.plate = JSON.stringify(plate);
+						break;
+					}
+				}
+				location.reload(true);
+			}
+		};
 		/*
 		// Create new Order
 		$scope.create = function() {
