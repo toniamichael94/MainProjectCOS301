@@ -1,4 +1,6 @@
 [![Stories in Ready](https://badge.waffle.io/toniamichael94/MainProjectCOS301.png?label=ready&title=Ready)](https://waffle.io/toniamichael94/MainProjectCOS301)
+
+Burn down charts for Agile methods can be found <a href="http://burndown.io/#toniamichael94/MainProjectCOS301"> here </a>
 # Resolve Cafeteria Management System
 ##COS 301 - Main Project 2015
  
