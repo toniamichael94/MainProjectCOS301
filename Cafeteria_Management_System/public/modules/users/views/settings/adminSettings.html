@@ -65,26 +65,11 @@
                 <div class="form-group" >
                     <label for="currentEmp_id">Current Employee ID</label>
                     <input type="text" id="currentEmp_id" name="currentEmp_id" class="form-control" data-ng-model="currentEmp_id" placeholder="Current Employee ID">
-
-                    <label>Current Emp ID</label>
+                    <!--label>Current Employee ID </label>
                     <div ng-init="loadEmployees()" data-ng-controller="SettingsController" >
-                        <select  class="form-control" ng-model = 'user.username'/>
-                        <option  ng-repeat="employee in employees" >{{employee.username}}</option>
+                        <select id="currentEmp_id" name="currentEmp_id" class="form-control" data-ng-model = 'currentEmp_id'/>
+                        <option ng-repeat="employee in employees" value="employee.username"> {{employee.username}}</option>
                         </select><br>
-                    </div>
-
-                    <!--lodiv ng-init="loadEmployees()" data-ng-controller="SettingsController" >
-                        <select  class="form-control" ng-model = 'user.username'/>
-                        <input type="text" ng-repeat="employee in employees" >{{employee.username}}</option>
-                        </select><br>
-                    </div-->
-
-                    <!--div ng-init="loadInventoryItems()" data-ng-controller="InventoryController" ng-repeat = "ingredient in ingredients.ingredients track by $index" >
-                        <select  class="form-control" ng-model = 'ingredients.ingredients[$index]'/>
-                        <option  ng-repeat="item in inventoryItems" >{{item.productName}} ({{item.unit[0]}})</option>
-                        </select><br>
-                        <input class="form-control" placeholder ="Quantity"  type = "number" min =0 ng-model = 'ingredients.quantities[$index]'/>
-                        <br>
                     </div-->
 
                 </div>

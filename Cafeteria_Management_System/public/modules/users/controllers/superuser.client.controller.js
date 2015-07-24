@@ -33,7 +33,6 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
             if (isValid) {
                 $scope.successOne = $scope.errorOne = null;
                 var reqObj = {currentUserID: $scope.currentEmp_id, newUserID: $scope.newEmp_id};
-
                 $http.post('/users/superuserChangeEmployeeID', reqObj).success(function(response) {
                     // If successful show success message and clear form
                     $scope.successOne = response.message;
@@ -43,18 +42,6 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
                 });
             }
         };
-
-        /*
-        $scope.loadEmployee = function(){
-                $http.get('/users/loadEmployees').success(function (response) {
-
-                    console.log(response.message); // testing
-                    $scope.users = response.message;
-                }).error(function (response) {
-                    $scope.users = 'Error loading employees';
-                });
-        };
-*/
 
             // Search a user profile
         $scope.searchEmployee = function(isValid) {

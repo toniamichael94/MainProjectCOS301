@@ -47,19 +47,25 @@ exports.assignRoles = function(req, res) {
  * Last Edited by {Semaka Malapane and Tonia Michael}
  */
 exports.changeEmployeeID = function(req, res) {
-    User.update({username: req.body.currentUserID}, {username: [req.body.newUserID]}, function(err, numAffected){
-        console.log('current user id ' + req.body.currentUserID);
-        console.log('new user id ' + req.body.newUserID);
-        if(err) return res.status(400).send({
-            message: errorHandler.getErrorMessage(err)
+    if(req.body.newUserID) {
+        User.update({username: [req.body.currentUserID]}, {username: req.body.newUserID}, function (err, numAffected) {
+            console.log('current user id ' + req.body.currentUserID);
+            console.log('new user id ' + req.body.newUserID);
+            if (err) return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+            else if (numAffected < 1) {
+                res.status(400).send({message: 'No such user!'});
+            }
+            else {
+                res.status(200).send({message: 'Employee ID has been successfully changed.'});
+            }
         });
-        else if (numAffected < 1){
-            res.status(400).send({message: 'No such user!'});
-        }
-        else{
-            res.status(200).send({message: 'Employee ID has been successfully changed.'});
-        }
-    });
+    }
+    else
+    {
+        res.status(400).send({message: 'The new employee id field cannot be empty!'});
+    }
 };
 
 /*
@@ -146,11 +152,13 @@ exports.loadEmployees = function(req, res){
 
         employees.forEach(function(employees) {
             itemMap[employees._id] = employees;
+            console.log(employees.username);
+            //console.log(employees.username);
         });
         if(err || !itemMap) return res.status(400).send({message: 'Employees not found' });
         else {
             console.log('LOAD');
-            console.log(employees);
+            //console.log(employees);
             res.status(200).send({message: itemMap});
         }
     });
