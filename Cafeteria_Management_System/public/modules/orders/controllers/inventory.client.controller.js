@@ -16,7 +16,7 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 			
 			if(!$scope.displayed)
 			{
-				for(var i = 0; i != $scope.inventoryItems.length; i++)
+				for(var i = 0; i !== $scope.inventoryItems.length; i++)
 				{
 					$scope.allInventory.inventoryProduct.push($scope.inventoryItems[i].productName +' ' +$scope.inventoryItems[i].unit);
 					$scope.allInventory.inventoryQuantity.push($scope.inventoryItems[i].quantity);
@@ -34,9 +34,9 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 		$scope.updateInventoryQuantity = function()
 		{
 				
-			for(var i = 0; i != $scope.allInventory.inventoryProduct.length; i++)
+			for(var i = 0; i !== $scope.allInventory.inventoryProduct.length; i++)
 			{
-				if(!($scope.allInventory.inventoryQuantity[i] === $scope.previousQuantity.prevQuantity[i]))
+				if($scope.allInventory.inventoryQuantity[i] !== $scope.previousQuantity.prevQuantity[i])
 				{
 					//console.log($scope.allInventory.inventoryProduct[i] + ' changed');
 					var reqObj = {productName:$scope.allInventory.inventoryProduct[i], quantity:$scope.allInventory.inventoryQuantity[i]};

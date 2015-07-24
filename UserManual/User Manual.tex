@@ -32,13 +32,13 @@
  \hline
  \textbf{Document Title} & User Manual \\
  \hline
- \textbf{Document Identification}  & Document 0.0.2  \\
+ \textbf{Document Identification}  & Document 0.0.3  \\
  \hline
  \textbf{Author}  & Rendani Dau, Isabel Nel, Elana Kuun, Semaka Malapane, Antonia Michael \\
  \hline
- \textbf{Version} & 0.0.2 \\
+ \textbf{Version} & 0.0.3 \\
  \hline
- \textbf{Document Status} & Second Version - contains descriptions of different page functionality \\
+ \textbf{Document Status} & Third Version - contains screenshots for different pages \\
  \hline
  \end{tabu}
 
@@ -52,6 +52,9 @@
  \hline 
  & & & \\
  0.0.2 & 20 July 2015 &  Second draft adding page  & Rendani Dau, \\ & & assistance and explanation & Elana Kuun, \\ & & of how to use & Semaka Malapane, \\ & & functionality on page &  Antonia Michael \\ & & & Isabel Nel \\   [1ex]  
+ \hline 
+ & & & \\
+ 0.0.3& 23 July 2015 &  Third draft containing  & Rendani Dau, \\ & & screenshots of the & Elana Kuun, \\ & & of different paged & Semaka Malapane, \\ & & and their functionality &  Antonia Michael \\ & & & Isabel Nel \\   [1ex]  
  \hline
  \end{tabular}
 \end{table}
@@ -143,34 +146,146 @@ If the user is a cashier, the options "Placed Orders" will be displayed and it i
 Once the user has clicked the "Sign Up" option on the navigation pane, the user will be directed to the sing up form, where a user should fill in their details. Once completed, the user will click submit and if the form is correctly filled in the user will be notified upon success and will be signed up for the system. The user will hence be redirected to the home page. The user can then use the password created and employee ID to log in to the system. If the information entered is not followed, a thorough error message will be displayed indicating what the problem is so that the user can rectify it.
 \\
 The user must now log in to access the ordering and managing profile functionality.
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../UserManual/limitExeedSignUp.png}
+    \caption{Sign up sheet - when a user types in a limit value larger than the maximum spending limit per month} 
+\end{figure}
 
 \subsection{The "Sign In" Page} 
 To log into the system the user should click the Sign In option on the navigation pane. The user will fill in their password and Employee ID in the provided slots and click submit to proceed. If the information entered is valid, the user will be notified upon success and redirected to the home page, logged in on their personal account. If the information entered is not followed, a thorough error message will be displayed indicating what the problem is so that the user can rectify it.
 \\
 There is also an option called "Forgot your password?" which once clicked leads the user to a page where the user must enter their Employee ID. The user will then be notified that an email has been sent to their personal email account with further instructions on how to rectify the situation. The user will be sent a link to a page, in order to set a new password.   
 
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../UserManual/signIn.png}
+    \caption{Sign In page - Type the appropriate information in the textboxes and click submit to sign in} 
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../UserManual/ForgotPass.png}
+    \caption{Forgot password page} 
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../UserManual/pleaseWaitForPass.png}
+    \caption{After submitting the form} 
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../UserManual/emailSentForPass.png}
+    \caption{After submitting the form - notified about email sent} 
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../UserManual/emailForPass.png}
+    \caption{The actual email that the system sent - follow the provided url to change password} 
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../UserManual/newPassForPass.png}
+    \caption{The url sent via the email leads to this page - fill in the textboxes and new password is set} 
+\end{figure}
+
 \subsection{The "Menu" Page} 
 This is where the user will be able to view the menu of the items and their prices. There are checkboxes next to the meal items that the user can click to select meal options. The user can proceed to click the "Add to plate" button to place their order. Their order can then be viewed on the "On my plate" tab on the navigation pane. 
 \\
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../UserManual/searchMenu.png}
+    \caption{The menu page from which a user can order food} 
+\end{figure}
 On the menu page there is also a breadcrumb which indicates the different meal categories to make the search more efficient. There is also a search bar on all these pages. 
 
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../UserManual/searchCheese.png}
+    \caption{The menu page - Can be navigated via the search bar as illustrated} 
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../UserManual/catMenu.png}
+    \caption{The menu page - Can be navigated via the category breadcrumb as indicated to view sub menus} 
+\end{figure}
+
 \subsection{The "On my plate" Page} 
-This page serves to indicate the current meal items that the user has ordered, and these can be removed on this page via the appropriately labelled button.
+This page serves to indicate the current meal items that the user has ordered, and these can be removed on this page via the appropriately labelled button. The tab in the navigation bar also indicates an amount which is the amount of meal items ordered.
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../UserManual/tunaAdd.png}
+    \caption{Menu page - Adding a meal to your plate } 
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../UserManual/onPlate.png}
+    \caption{On my plate page - The meal you selected on the menu page is displayed here (Navigate here via the navigation bar)} 
+\end{figure}
 
 \subsection{The "Edit Profile" Page} 
 The user will be presented with a similar form to that which they signed up with, however, the details that the user entered in the sign up form will be present in these textboxes. The user can proceed to edit these here. Clicking the submit button will indicate whether changes have been saved or if errors have been made and how the user can correct these.
 
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../UserManual/editProfile.png}
+    \caption{Edit profile page - Edit profile by typing into the textboxes and submitting for validation message and to save new information } 
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../UserManual/limitExeeds.png}
+    \caption{You must ensure your monthly spending limit is within the bounds of the maximum spending limit of the system, set by the superuser} 
+\end{figure}
+
 \subsection{The "Profile" Page} 
 This is where the user will be able to view their profile i.e. the details they entered when they signed up/ edited their profile. 
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../UserManual/viewProfile.png}
+    \caption{The profile page - where you view your profile (via the orange navigation tab menu indicated)} 
+\end{figure}
 
 \subsection{The "Change Password" Page} 
 The user is presented with a form where the user will be asked to enter their new and old passwords to change their password. 
 
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../UserManual/changePassDontMatch.png}
+    \caption{Can change password on this page - validation message will be displayed indicating if change was successful or not} 
+\end{figure}
+
 \subsection{Superuser: The "Administrative Settings" Page} 
 At the top of the page there is a section labelled assign roles, where different admin roles will be assigned to different users. The superuser simply has to type in an employee ID and select a role from the dropdown menu below. There is a section underneath that where the superuser can change the user ID of an employee. Self explanatory textboxes are provided for the superuser to fill in and the submit button will save the changes, unless an error occurs.  This page also consists of a section labelled "Change system limit" and it is here where the superuser can alter the limit of the system, i.e. the maximum value that a user can set their daily spending limits to. Hence a textbox is provided for the superuser to type the new limit and save it.
 
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../UserManual/assignRoles.png}
+    \caption{The admin page - superuser can assign roles such as cashier to users} 
+\end{figure}
+
 \subsection{Superuser: The "Branding Settings" Page} 
 There are two sections on this page. One where the user can change the canteen name, by merely typing in a new name over the old name in the allocated textbox, and another where the superuser can upload a new cover photo for the system.
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../UserManual/canteenName.png}
+    \caption{The admin settings page - superuser can change the canteen name} 
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../UserManual/coverImage.png}
+    \caption{The admin settings page - superuser can change the cover image} 
+\end{figure}
 
 \subsection{Cashier: The "Process Orders" Page}
 This page is for the use of the cashier. Orders can be marked as ready via the checkboxes and can also be marked as completed or paid and completed. The option "Send notification" is available for the cashier to send an email to the users when their order is ready for collection.

@@ -5,13 +5,24 @@ angular.module('orders').controller('OrdersController', ['$scope', '$http', '$st
 	function($scope, $http, $stateParams, $location, $cookies, Authentication, Orders) {
 		$scope.authentication = Authentication;
 		
-		$scope.plate = null;
+		$scope.plate = [];
 		if($cookies.plate)
 			$scope.plate = JSON.parse($cookies.plate);
+			
+		$scope.subTotal = function(){
+			var total = 0;
+			
+			if($scope.plate.length > 0){
+				for(var i = 0; i < $scope.plate.length; i++){
+					total += $scope.plate[i].price * $scope.plate[i].quantity;
+				}
+			}
+			return total;
+		};
 
 		//place the order
 		$scope.placeOrder = function(){
-			if($scope.plate){
+			/*if($scope.plate){
 				if(Authentication.user){
 					console.log('User is: ' + Authentication.user.username);
 					
@@ -23,7 +34,6 @@ angular.module('orders').controller('OrdersController', ['$scope', '$http', '$st
 						$scope.plate[i].quantity = _quantity;
 					}
 					$http.post('/orders/placeOrder', $scope.plate).success(function(response) {
-						console.log('success');
 						$scope.plate = [];
 						$cookies.plate = JSON.stringify([]);
 						$scope.success = response.message;
@@ -35,6 +45,22 @@ angular.module('orders').controller('OrdersController', ['$scope', '$http', '$st
 				else{
 					$location.path('/signin');
 				}
+			}*/
+		};
+		
+		//Remove from plate
+		$scope.removeFromPlate = function(itemName){
+			if($cookies.plate){
+				var plate = JSON.parse($cookies.plate);
+				
+				for(var i = 0; i < plate.length; i++){
+					if(plate[i].itemName === itemName){
+						plate.splice(i,1);
+						$cookies.plate = JSON.stringify(plate);
+						break;
+					}
+				}
+				location.reload(true);
 			}
 		};
 		/*
