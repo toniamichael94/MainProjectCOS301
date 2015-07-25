@@ -56,7 +56,7 @@
 			</div>
 			<!-- Super User -->
 			<div data-ng-show="authentication.user.roles[0] === 'superuser'" class="list-group-item">
-				<h4> Profile type: </h4> <h5 align="left">Administration</h5><br>
+				<h4> Profile type: </h4> <h5 align="left">Administration (SuperUser)</h5><br>
 			</div>
 			<!--finance user -->
 			<div data-ng-show="authentication.user.roles[0] === 'finance'" class="list-group-item">
@@ -69,6 +69,10 @@
 			<!--Casheir -->
 			<div data-ng-show="authentication.user.roles[0] === 'cashier'" class="list-group-item">
 				<h4> Profile type: </h4> <h5 align="left">Cashier</h5><br>
+			</div>
+			<!--Casheir -->
+			<div data-ng-show="authentication.user.roles[0] === 'admin'" class="list-group-item">
+				<h4> Profile type: </h4> <h5 align="left">Administration (Admin)</h5><br>
 			</div>
 
  </div>
