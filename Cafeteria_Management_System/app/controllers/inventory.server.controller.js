@@ -158,10 +158,6 @@ exports.searchInventory=function(req,res){
  * Last Edited by {Semaka Malapane and Tonia Michael}
  */
 exports.updateInventory = function(req, res) {
-	console.log('Update'+req.body.oldProdName);
-	console.log('Update'+req.body.newProdName);
-	console.log('Update'+req.body.quantity);
-	console.log('Update'+req.body.unit);
     Inventory.update({productName: req.body.oldProdName}, {productName: req.body.newProdName, quantity: req.body.quantity, unit: req.body.unit}, function(err, numAffected){
         if(err) return res.status(400).send({
             message: errorHandler.getErrorMessage(err)
@@ -178,7 +174,6 @@ exports.updateInventory = function(req, res) {
 /*
 updateInventoryQuantity
 */
-
 	exports.updateInventoryQuantity=function(req,res){
 		console.log('Product:'+req.body.productName);
 		console.log('Quantity:'+req.body.quantity);
