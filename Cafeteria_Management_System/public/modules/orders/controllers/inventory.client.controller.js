@@ -34,7 +34,7 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 		$scope.updateInventoryQuantity = function()
 		{
 				var error = false;
-				var message = "";
+				$scope.message = "";
 				
 			for(var i = 0; i !== $scope.allInventory.inventoryProduct.length; i++)
 			{
@@ -49,16 +49,16 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 					$http.post('/orders/updateInventoryQuantity',reqObj).success(function(response){
 						if(!error)
 						{
-							message = response.message;
+							$scope.message = response.message;
 						}
 					}).error(function(response){
-						message = response.message;
+						$scope.message = response.message;
 						error = true;
 					});	
 				}
 			}
 			
-			console.log(message);
+			
 			
 		};
 		
