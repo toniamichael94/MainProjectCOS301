@@ -11,7 +11,7 @@
 *
 -->
 <section class="row" data-ng-controller="superuserController">
-	<h4> Administrative settings </h4>
+	<h4> ADMIN Administrative settings </h4>
 	<hr>
 	<div class="list-group clearfix">
 		<a href="#" class="list-group-item disabled">
@@ -26,7 +26,7 @@
 <div class="list-group-item clearfix">
 	<h4> Assign Roles </h4>
 	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
-	<form name="userForm" data-ng-submit="assignRoles(userForm.$valid)" class="signin form-horizontal" autocomplete="on">
+	<form name="userForm" data-ng-submit="assignRolesAdminRole(userForm.$valid)" class="signin form-horizontal" autocomplete="on">
 		<fieldset>
 			<div class="form-group">
 				<label for="emp_id">Employee ID</label>
@@ -35,12 +35,13 @@
 			<div class="form-group">
 				<label for="role">Role</label>
 				<select id="role" name="role" class="form-control" data-ng-model="role">
-					<option value='admin'>Admin</option>
+          <option value='admin'>Admin</option>
 					<option value='cafeteriaManager'>Cafeteria Manager</option>
 					<option value='cashier'>Cashier</option>
 					<option value='finance'>Finance</option>
           <option value='superuser'>SuperUser</option>
           <option value='user'>User</option>
+
 				</select>
 			</div>
 			<div class="text-center form-group">

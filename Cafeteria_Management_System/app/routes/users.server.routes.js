@@ -9,11 +9,14 @@ module.exports = function(app) {
 	// User Routes
 	var users = require('../../app/controllers/users.server.controller');
 
-    //setting up searching functionality
-    app.route('/users/search').post(users.searchEmployee);
+  //setting up searching functionality
+  app.route('/users/search').post(users.searchEmployee);
 
 	//Setting up superuser api {Rendani Dau}
 	app.route('/users/superuserAssignRoles').post(users.assignRoles);
+
+	app.route('/users/adminUserAssignRoles').post(users.assignRolesAdminRole);
+
 
     app.route('/users/superuserChangeEmployeeID').post(users.changeEmployeeID);
     app.route('/users/superuserSetSystemWideLimit').post(users.setSystemWideLimit);

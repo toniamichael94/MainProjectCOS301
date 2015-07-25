@@ -7,7 +7,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 		// If user is not signed in then redirect back home
 		if (!$scope.user) $location.path('/');
 
-		// Assign a role to user
+		// Assign a role to user - as the super user
 		$scope.assignRoles = function(isValid) {
 		  if (isValid) {
 			$scope.success = $scope.error = null;
@@ -27,6 +27,27 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 			});
 			}
 		  };
+
+			//assign Roles - as an admin user role
+			$scope.assignRolesAdminRole = function(isValid) {
+				if (isValid) {
+				$scope.success = $scope.error = null;
+				var reqObj = {userID: $scope.emp_id, role: $scope.role};
+
+				$http.post('/users/adminUserAssignRoles', reqObj).success(function(response) {
+					if(response.message === 'Admin Changed'){
+						$window.location.href = '/';
+					}
+					else{
+						// If successful show success message and clear form
+						$scope.success = response.message;
+						$scope.emp_id = $scope.role = null;
+					}
+				}).error(function(response) {
+					$scope.error = response.message;
+				});
+				}
+				};
 
         //Change user's employee ID
         $scope.changeEmployeeID = function(isValid) {

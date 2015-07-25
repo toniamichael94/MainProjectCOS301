@@ -11,17 +11,27 @@ var _ = require('lodash'),
 	Config = mongoose.model('Config'),
     formidable = require('formidable'),
     fs = require('fs');
+
   /*
    * Assign Roles
-   * Last Edited by {Semaka Malapane}
 	 */
 exports.assignRoles = function(req, res) {
+
+	if(req.body.role === 'admin'){
+			User.find({roles: 'admin'}, function(err, items) {
+			if(items.length > 0){
+				User.update({username: items[0].username}, {roles: ['user']}, function(err1, numAffected1){
+			});
+		 }
+		});
+	 }
+
 		User.update({username: req.body.userID}, {roles: [req.body.role]}, function(err, numAffected){
 			if(err) return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
 			else if (numAffected < 1){
-				res.status(400).send({message: 'No such user!'});
+				res.status(400).send({message: 'No such employee ID!'});
 			}
             else if(req.body.role === 'superuser'){
                 User.update({username: req.user.username}, {roles: ['user']}, function(err, numAffected){
@@ -42,6 +52,53 @@ exports.assignRoles = function(req, res) {
 		});
 };
 
+
+/*
+* Set roles by the Admin user
+*/
+
+exports.assignRolesAdminRole = function(req, res) {
+	var userName = req.body.userID;
+	var role = req.body.role;
+	var error;
+
+		if(req.body.role === 'superuser'){
+				User.find({roles: 'superuser'}, function(err, items) {
+			  if(items.length > 0){
+					User.update({username: items[0].username}, {roles: ['user']}, function(err1, numAffected1){
+				});
+			 }
+			});
+		 }
+
+		User.update({username: req.body.userID}, {roles: [req.body.role]}, function(err, numAffected){
+			if(err) return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
+			});
+			else if (numAffected < 1){
+				res.status(400).send({message: 'No such Employee ID!'});
+			}
+            else if(req.body.role === 'admin'){
+
+                User.update({username: req.user.username}, {roles: ['user']}, function(err, numAffected){
+                    if(err) return res.status(400).send({
+                        message: errorHandler.getErrorMessage(err)
+                    });
+                    else if (numAffected < 1){
+                        res.status(400).send({message: 'Did not change Admin!'});
+                    }
+                    else{
+                        res.status(200).send({message: 'Admin Changed'});
+                    }
+                });
+            }
+			else{
+				res.status(200).send({message: 'Role has been successfully assigned.'});
+			}
+		});
+};
+
+
 /*
  * Change Employee ID
  * Last Edited by {Semaka Malapane and Tonia Michael}
@@ -55,7 +112,7 @@ exports.changeEmployeeID = function(req, res) {
                 message: errorHandler.getErrorMessage(err)
             });
             else if (numAffected < 1) {
-                res.status(400).send({message: 'No such user!'});
+                res.status(400).send({message: 'No such employee ID!'});
             }
             else {
                 res.status(200).send({message: 'Employee ID has been successfully changed.'});
