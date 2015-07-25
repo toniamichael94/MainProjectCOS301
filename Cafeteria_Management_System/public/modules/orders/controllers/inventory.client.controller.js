@@ -33,16 +33,32 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 		*/
 		$scope.updateInventoryQuantity = function()
 		{
+				var error = false;
+				var message = "";
 				
 			for(var i = 0; i !== $scope.allInventory.inventoryProduct.length; i++)
 			{
+				
 				if($scope.allInventory.inventoryQuantity[i] !== $scope.previousQuantity.prevQuantity[i])
 				{
-					//console.log($scope.allInventory.inventoryProduct[i] + ' changed');
-					var reqObj = {productName:$scope.allInventory.inventoryProduct[i], quantity:$scope.allInventory.inventoryQuantity[i]};
-					$http.post('/orders/updateInventoryQuantity',reqObj);	
+					var space = $scope.allInventory.inventoryProduct[i].lastIndexOf(" ");
+					var name = $scope.allInventory.inventoryProduct[i].substring(0,space);
+					console.log(name);
+					
+					var reqObj = {productName:name, quantity:$scope.allInventory.inventoryQuantity[i]};
+					$http.post('/orders/updateInventoryQuantity',reqObj).success(function(response){
+						if(!error)
+						{
+							message = response.message;
+						}
+					}).error(function(response){
+						message = response.message;
+						error = true;
+					});	
 				}
 			}
+			
+			console.log(message);
 			
 		};
 		

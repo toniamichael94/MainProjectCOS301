@@ -180,6 +180,9 @@ updateInventoryQuantity
 */
 
 	exports.updateInventoryQuantity=function(req,res){
+		console.log('Product:'+req.body.productName);
+		console.log('Quantity:'+req.body.quantity);
+		
 		Inventory.update({productName: req.body.productName}, {quantity: req.body.quantity}, function(err, numAffected){
         if(err) return res.status(400).send({
             message: errorHandler.getErrorMessage(err)
