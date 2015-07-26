@@ -153,7 +153,6 @@ exports.searchInventory=function(req,res){
     }
 };
 
-
  /* Update inventory
  * Last Edited by {Semaka Malapane and Tonia Michael}
  */

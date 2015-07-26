@@ -1,4 +1,4 @@
-<section class="row" data-ng-controller="InventoryController">
+<section class="row" data-ng-controller="InventoryController" ng-init="hideInventory=true">
 
 	<h4> Inventory </h4>
 	<hr>
@@ -71,23 +71,8 @@
 
 				<!--Delete or update if item found-->
 
-					<div data-ng-show="successFind">
-						<button class = "btn btn-large btn-primary"  ng-click="showme=true" data-ng-hide="showme">Update</button>
-					</div>
-
-				<br>
-
-				<div data-ng-show="successFind" id = "delete">
-
-
-						<button class = "btn btn-large btn-primary" data-ng-hide="showme" ng-click = "hideInventory=true; deleteInventoryItem()" >Delete</button>
-
-
-
-				</div>
-
 				<!--Update the item -->
-				<div ng-show="showme" class="text-center">
+				<div ng-show="successFind" class="text-center">
 
 					<form name="updateInventoryForm" data-ng-submit="updateInventory(updateInventoryForm.$valid)" class="signin form-horizontal" autocomplete="off">
 
@@ -121,6 +106,8 @@
                                 <button type = "submit" class = "btn btn-large btn-primary" ng-click="showme=false"> Update</button>
                             </div>
                         </form>
+					   <button class = "btn btn-large btn-primary" data-ng-hide="showme" ng-click = "hideInventory=true; deleteInventoryItem()" >Delete</button>
+
 					</div>
 
 					<!--Error/Success message for delete/update-->
@@ -135,7 +122,7 @@
 	</div>
 
 		<!---Edit quantity of items-->
-	<div class="list-group clearfix" ng-init="loadInventoryItems()">
+	<div class="list-group clearfix">
 		<a href="#" class="list-group-item disabled">Inventory Quantity</a>
 			<div class="list-group-item clearfix">
 				<h4> Edit quantity of items </h4>
@@ -147,7 +134,7 @@
                     </div>
 						<form data-ng-show ="showInventory" ng-hide="hideInventory"  class="signin form-horizontal" autocomplete="off">
 							<fieldset>
-							<button ng-click = "updateInventoryQuantity()" class = "btn btn-large btn-primary" ng-show="displayed">Save</button>
+							<button ng-click = "updateInventoryQuantity()" class = "btn btn-large btn-primary" ng-show="showInventory" data-ng-hide="hideInventory">Save</button>
 								<div   ng-repeat = "invenProduct in allInventory.inventoryProduct track by $index" >
 									<label ng-bind = 'allInventory.inventoryProduct[$index]'>{{invenProduct.productName}}</label>
 									<input class="form-control" type = "number" min =0 ng-model = 'allInventory.inventoryQuantity[$index]'/>

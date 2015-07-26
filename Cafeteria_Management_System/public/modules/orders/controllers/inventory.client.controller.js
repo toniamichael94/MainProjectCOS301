@@ -236,6 +236,7 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
                    
                     $scope.successMessage = response.message;
                     $scope.itemNameSearch = $scope.itemUpdateName = $scope.updateUnit = $scope.updateQuantity = null;
+					$scope.itemNameSearch = '';
                 }).error(function(response) {
                     $scope.errorMessage = response.message;
 					
