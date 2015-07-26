@@ -49,24 +49,28 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 	$scope.removedIngredients =[];
 	$scope.removeIngredient = function(index)
 	{
-		//console.log('REMOVE:'+index + ' ' + $scope.loadedIngredients.ingredients[index]);
-		$scope.removedIngredients.push(index);
+		console.log('REMOVE:'+index + ' ' + $scope.loadedIngredients.ingredients[index]);
+		$scope.removedIngredients[index] = 0;		
+		console.log('Removed ingredients:'+$scope.removedIngredients);
+		
 	};
 
 	/*Undo the remove ingredient function*/
 	$scope.undoRemoveIngredient = function(index)
 	{
-		//console.log('UNDOREMOVE:'+index + ' ' + $scope.loadedIngredients.ingredients[index]);
+		console.log('UNDOREMOVE:'+index + ' ' + $scope.loadedIngredients.ingredients[index]);
+		delete $scope.removedIngredients[index];
+		console.log('Removed ingredients:'+$scope.removedIngredients);
 		//console.log('Removed ingredients:'+ $scope.removedIngredients);
-		var found = false;
-		for(var ingredient in $scope.removedIngredients)
-		{
-			if($scope.removedIngredients[ingredient] === index)
-			{
-				$scope.removedIngredients[ingredient] = '';
-				found = true;
-			}
-		}
+		//var found = false;
+		//for(var ingredient in $scope.removedIngredients)
+		//{
+			//if($scope.removedIngredients[ingredient] === index)
+			//{
+				//$scope.removedIngredients[ingredient] = '';
+				//found = true;
+			//}
+		//}
 
 		//console.log('Removed ingredients:'+ $scope.removedIngredients);
 
@@ -80,15 +84,22 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		//console.log('Update - Loaded ingredients.ingredients:'+$scope.loadedIngredients.ingredients);
 		//console.log('Update - Removed ingredients:'+$scope.removedIngredients);
 		//console.log('Update - addedUpdateIngreients.ingredients:'+$scope.addedUpdateIngredients.ingredients);
+		
+		for(var removedIngredient in $scope.removedIngredients)
+		{
+			if($scope.removedIngredients[removedIngredient] == 0)
+				delete $scope.loadedIngredients.ingredients[removedIngredient];
+				delete $scope.loadedIngredients.quantities[removedIngredient];
+		}
 
-			for(var removedIngredient in $scope.removedIngredients)
+			/*for(var removedIngredient in $scope.removedIngredients)
 			{
 				if($scope.removedIngredients[removedIngredient] !== '')
 				{
 					$scope.loadedIngredients.ingredients[removedIngredient] = '';
 					$scope.loadedIngredients.quantities[removedIngredient] = '';
 				}
-			}
+			}*/
 
 			for (var ingredient in $scope.loadedIngredients.ingredients)
 			{
