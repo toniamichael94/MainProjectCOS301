@@ -88,7 +88,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
                     });
                 }
                 else{
-                    $scope.emp_id = $scope.role = null;
+                    $scope.currentEmp_id = $scope.newEmp_id = null;
                 }
             }
         };
@@ -134,7 +134,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
                     });
                 }
                 else{
-                    $scope.emp_id = $scope.role = null;
+                    $scope.limit = null;
                 }
 			}
 		};
@@ -146,20 +146,13 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 				$scope.successTwo = $scope.errorTwo = null;
 
 				var reqObj = {name: 'Canteen name', value: $scope.canteenName};
-                $scope.r = $window.confirm("Are you sure?");
-
-                if($scope.r === true) {
                     //console.log($scope.canteenName);
                     $http.post('users/superuserSetCanteenName', reqObj).success(function (response) {
                         $scope.successThree = response.message;
                     }).error(function (response) {
                         $scope.errorThree = response.message;
                     });
-                }
-                else{
-                    $scope.emp_id = $scope.role = null;
-                }
-			}
+                } 
 		};
     }
 ]);
