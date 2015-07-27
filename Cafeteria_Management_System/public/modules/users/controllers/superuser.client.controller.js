@@ -152,7 +152,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
                     }).error(function (response) {
                         $scope.errorThree = response.message;
                     });
-                } 
+                }
 		};
     }
 ]);
