@@ -12,24 +12,36 @@
 -->
 
 <section data-ng-controller="HomeController">
-	<h3>Home</h3>
+	<h4>Home</h4>
 	<hr>
-	<br>
 
-	<div class="jumbotron text-center">
+
+	<div>
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
-				<h1><small>  Welcome	<span data-ng-bind="authentication.user.displayName"></span> ! </small></h1><br>
+				<h2 align="center">  Welcome	<span data-ng-bind="authentication.user.displayName"></span> ! </h2><br>
 				<img alt="canteen_logo_image" class="img-responsive text-center" src="modules/core/img/brand/logo.png" />
 			</div>
 		</div>
 		<br>
 		<div class="row" data-ng-controller="HeaderController" data-ng-init="loadCanteenInfo()">
 			<p class="lead">
-				<h1><small><span data-ng-bind="canteenName">{{canteenName}}</span></small></h1>
+				<h2 align="center"><span data-ng-bind="canteenName">{{canteenName}}</span></h2>
 			</p>
 		</div>
-		<h1><small> Daily Specials: </small></h1>
+		<div class="list-group clearfix">
+				<a href="/#!/menu/daylySpecials" class="list-group-item heading">
+						<h4> Daily Specials</h4>
+				</a>
+				<div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:special"><h3>
+						<span data-ng-show="item.stock"><input type="checkbox" name='itemOption'  value='{{item.itemName}}' > </span>
+						{{item.itemName}}  <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}}
+						<form>
+								<span data-ng-show="!item.stock" style="color:red"><h3>Not in stock </h3></span>
+						</form>
+				</h5>
+				</div>
+		</div>
 		<!--
 		<div class="row">
 			<p>
