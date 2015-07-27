@@ -28,27 +28,16 @@
                         <div class = "form-group">
                             <input type="text" id="menuNameSearch" name ="menuNameSearch" class = "form-control" data-ng-model="menuNameSearch" placeholder="Meal Name">
                         </div>
-                        <!--<div class = "text-center form-group">
-                            <button type = "submit" class = "btn btn-large btn-primary">&lt;!&ndash;ng-submit="inventory.findOne()"&ndash;&gt; Search</button>
-                        </div>-->
-
-                    </form><!--
-            &lt;!&ndash;Success/Error message&ndash;&gt;
-            <div data-ng-show="successOne" class="text-center text-success">
-                <strong data-ng-bind="successOne">{{successOne}}</strong>
-            </div>
-            <div data-ng-show="errorOne" class="text-center text-danger">
-                <strong data-ng-bind="errorOne">{{errorOne}}</strong>
-            </div>-->
-        </div>
-    </div>
+                      </form>
+                </div>
+          </div>
 
     <!-- NEW DIV for SEARCH-->
     <div class="list-group clearfix" ng-show ="menuNameSearch" ng-keypress = "(menuNameSearch !== null )">
         <a href="#" class="list-group-item disabled">
             <h4> <b>Search Results:</b>  </h4>
         </a>
-        <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:searchBar"><h3>
+        <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:special"><h3>
             <span data-ng-show="item.stock"><input type="checkbox" name='itemOption'  value='{{item.itemName}}' > </span>
             {{item.itemName}}  <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}} </h5>
         </div>
