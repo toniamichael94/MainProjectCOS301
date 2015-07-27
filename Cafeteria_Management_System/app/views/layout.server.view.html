@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
-<head>
-	<title>{{title}}</title>
+<head data-ng-controller="HeaderController" data-ng-init="loadCanteenInfo()">
+	<title data-ng-bind="canteenName">{{canteenName}}</title>
 
 	<!-- General META -->
 	<meta charset="utf-8">
@@ -57,7 +57,7 @@
 	</script>
 
 	<!--Application JavaScript Files-->
-	{% for jsFile in jsFiles %}<script type="text/javascript" src="{{jsFile}}"></script>{% endfor %} 
+	{% for jsFile in jsFiles %}<script type="text/javascript" src="{{jsFile}}"></script>{% endfor %}
 
 	{% if process.env.NODE_ENV === 'development' %}
 	<!--Livereload script rendered -->
