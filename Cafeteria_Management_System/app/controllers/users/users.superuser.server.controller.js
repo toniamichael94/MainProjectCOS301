@@ -10,21 +10,24 @@ var _ = require('lodash'),
 	User = mongoose.model('User'),
 	Config = mongoose.model('Config'),
     formidable = require('formidable'),
-    fs = require('fs');
+    fs = require('fs')
 
   /*
    * Assign Roles
-	 */
+   */
 exports.assignRoles = function(req, res) {
 
-	if(req.body.role === 'admin'){
-			User.find({roles: 'admin'}, function(err, items) {
-			if(items.length > 0){
-				User.update({username: items[0].username}, {roles: ['user']}, function(err1, numAffected1){
-			});
-		 }
-		});
-	 }
+    if(req.body.role === 'admin'){
+        User.find({roles: 'admin'}, function(err, items) {
+            if(items.length > 0 ){
+                User.update({username: items[0].username}, {roles: ['user']}, function(err1, numAffected1){
+                });
+            }
+            else {
+                res.status(400).send({message: 'Did not change Admin!'});
+            }
+        });
+    }
 
 		User.update({username: req.body.userID}, {roles: [req.body.role]}, function(err, numAffected){
 			if(err) return res.status(400).send({
@@ -63,13 +66,16 @@ exports.assignRolesAdminRole = function(req, res) {
 	var error;
 
 		if(req.body.role === 'superuser'){
-				User.find({roles: 'superuser'}, function(err, items) {
-			  if(items.length > 0){
-					User.update({username: items[0].username}, {roles: ['user']}, function(err1, numAffected1){
-				});
-			 }
+			User.find({roles: 'superuser'}, function(err, items) {
+                if(items.length > 0){
+                    User.update({username: items[0].username}, {roles: ['user']}, function(err1, numAffected1){
+                    });
+                }
+                else {
+                      res.status(400).send({message: 'Did not change Admin!'});
+                }
 			});
-		 }
+        }
 
 		User.update({username: req.body.userID}, {roles: [req.body.role]}, function(err, numAffected){
 			if(err) return res.status(400).send({
@@ -219,5 +225,16 @@ exports.loadEmployees = function(req, res){
             res.status(200).send({message: itemMap});
         }
     });
+/*
+
+    exports.really = function(req, res) {
+        $scope.r = confirm("Press a button");
+        if ($scope.r == true) {
+            $scope.x = "You pressed OK!";
+        } else {
+            $scope.x = "You pressed Cancel!";
+        }
+    };*/
+
 
 };
