@@ -42,9 +42,9 @@
             <h4> <b>Search Results:</b>  </h4>
         </a>
         <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:searchDrinks"><h3>
-            <span data-ng-show="item.stock"><input type="checkbox" name='itemOption'  value='{{item.itemName}}' > </span>
             {{item.itemName}}  <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}} </h5>
-        </div>
+			<button type="button" data-ng-show="item.stock" data-ng-click="addToPlate(item.itemName)"> Add to plate </button>
+		</div>
     </div>
 
     <!-- Display  Drinks -->
@@ -55,36 +55,36 @@
 
 
         <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:drinks"><h3>
-            <span data-ng-show="item.stock"><input type="checkbox" name='itemOption'  value='{{item.itemName}}' > </span>
-            {{item.itemName}}  <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}}
+           {{item.itemName}}  <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}}
             <form>
                 <span data-ng-show="!item.stock" style="color:red"><h3>Not in stock </h3></span>
             </form>
+			<button type="button" data-ng-show="item.stock" data-ng-click="addToPlate(item.itemName)"> Add to plate </button>
           </h5>
         </div>
     </div>
 
 
-    <!-- Show all the items on the menu list, description, and price-->
-    <form name="chooseOrderForm" data-ng-submit="addToPlate()" class="signin form-horizontal" autocomplete="off" data-ng-init="loadMenuItems()">
-        <div data-ng-repeat="order in orders" data-ng-href="#!/orders/{{order._id}}" class="list-group-item">
-            <h4 class="list-group-item-heading" data-ng-bind="order.name"> </h4>
-            <input type = "checkbox">
-            <input type="number" min = 0>
-        </div>
-        <br>
-        <div class="text-center form-group">
-            <button type="submit" class="btn btn-primary" onclick="location.reload(true)">Add to plate</button>
-        </div>
+    <!-- Show all the items on the menu list, description, and price>
+			<form name="chooseOrderForm" data-ng-submit="addToPlate()" class="signin form-horizontal" autocomplete="off" data-ng-init="loadMenuItems()">
+				<div data-ng-repeat="order in orders" data-ng-href="#!/orders/{{order._id}}" class="list-group-item">
+					<h4 class="list-group-item-heading" data-ng-bind="order.name"> </h4>
+					<input type = "checkbox">
+					<input type="number" min = 0>
+				</div>
+					<br>
+				<div class="text-center form-group">
+					<button type="submit" class="btn btn-primary" onclick="location.reload(true)">Add to plate</button>
+				</div>
 
-        <!--Success/error message-->
-        <div data-ng-show="success" class="text-center text-success">
-            <strong>Action completed successfully.</strong>
-        </div>
-        <div data-ng-show="error" class="text-center text-danger">
-            <strong data-ng-bind="error"></strong>
-        </div>
+				<!--Success/error message>
+				<div data-ng-show="success" class="text-center text-success">
+					<strong>Action completed successfully.</strong>
+				</div>
+				<div data-ng-show="error" class="text-center text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
 
-    </form>
+	</form-->
 
 </section>

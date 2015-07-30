@@ -49,9 +49,9 @@
               <h4> <b>Search Results:</b>  </h4>
           </a>
           <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:special"><h3>
-              <span data-ng-show="item.stock"><input type="checkbox" name='itemOption'  value='{{item.itemName}}' > </span>
               {{item.itemName}}  <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}} </h5>
-          </div>
+			<button type="button" data-ng-show="item.stock" data-ng-click="addToPlate(item.itemName)"> Add to plate </button>
+		 </div>
       </div>
 
       <!-- Display Special of the day -->
@@ -60,11 +60,11 @@
               <h4> Daily Specials</h4>
           </a>
           <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:special"><h3>
-              <span data-ng-show="item.stock"><input type="checkbox" name='itemOption'  value='{{item.itemName}}' > </span>
               {{item.itemName}}  <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}}
               <form>
                   <span data-ng-show="!item.stock" style="color:red"><h3>Not in stock </h3></span>
               </form>
+			  <button type="button" data-ng-show="item.stock" data-ng-click="addToPlate(item.itemName)"> Add to plate </button>
           </h5>
           </div>
       </div>
