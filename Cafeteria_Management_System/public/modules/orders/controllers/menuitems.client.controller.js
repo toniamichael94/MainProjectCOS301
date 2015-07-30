@@ -1,8 +1,8 @@
 'use strict';
 
 // MenuItem controller
-var menuItemsModule = angular.module('menuItems').controller('MenuItemsController', ['$scope', '$http', '$stateParams', '$location', '$cookies', 'Authentication', 'MenuItems',
-	function($scope, $http, $stateParams, $location, $cookies, Authentication, MenuItems) {
+var menuItemsModule = angular.module('menuItems').controller('MenuItemsController', ['$scope', '$rootScope','$http', '$stateParams', '$location', '$cookies', 'Authentication', 'MenuItems',
+	function($scope, $rootScope, $http, $stateParams, $location, $cookies, Authentication, MenuItems) {
 		$scope.authentication = Authentication;
 
 		/*
@@ -487,7 +487,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		/*
 		 * Add to plate. Last edited by {Rendani Dau}
 		 */
-		//Helper function to determine if item is in plate
+		//Helper function to determine if item is in array(i.e. item is in plate)
 		var indexOfItem = function(arr, item){
 			for(var i = 0; i < arr.length; i++){
 				if(arr[i].itemName === item.itemName)
@@ -496,55 +496,36 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 			return -1;
 		};
 		
-		//add to plate
-		$scope.addToPlate = function(){
-			var x = angular.element(document.querySelectorAll('input[name="itemOption"]:checked'));
-			//console.log(x.length);
-			if(x.length > 0){
-				var y = [];
-				for(var i = 0; i < x.length; i++)
-				{
-					var _price;
-					for(var j = 0; j < $scope.menuItems.length; j++){
-						if(x[i].value === $scope.menuItems[j].itemName){
-							_price = $scope.menuItems[j].price;
-							break;
-						}
-					}
-					y[i] = {
-						itemName: x[i].value,
-						price: _price,
-						quantity: 1
-					};
-					//y[i] = x[i].value;
-				}
-				console.log(y);
-				//$cookies.plate = JSON.stringify(y);
-				//alert($cookies.plate);
-				if($cookies.plate){
-					var existing = JSON.parse($cookies.plate);
-					
-					var count = existing.length;
-					for(var k = 0; k < y.length; k++){
-						if(indexOfItem(existing, y[k]) === -1)
-							existing[count++] = y[k];
-					}
-
-					$cookies.plate = JSON.stringify(existing);
-				}
-				else
-				{
-					$cookies.plate = JSON.stringify(y);
+		$scope.addToPlate = function(itemName){
+			var _price;
+			for(var j = 0; j < $scope.menuItems.length; j++){
+				if(itemName === $scope.menuItems[j].itemName){
+					_price = $scope.menuItems[j].price;
+					break;
 				}
 			}
-		};
+			var y = {
+				itemName: itemName,
+				price: _price,
+				quantity: 1
+			};
+			
+			if($cookies.plate){
+					var existing = JSON.parse($cookies.plate);
+					
+					if(indexOfItem(existing, y) === -1)
+						existing[existing.length] = y;
 
-		/*redirect to view plate
-		$scope.viewPlate = function(){
-			alert(JSON.parse($cookies.plate));
-			//$location.path('/placeOrder/viewOrders');
-			//$window.location.href = '/placeOrder/viewOrders';
-		};*/
+					$cookies.plate = JSON.stringify(existing);
+			}
+			else
+			{
+				var plt = [];
+				plt[0] = y;
+				$cookies.plate = JSON.stringify(plt);
+			}
+			$rootScope.$broadcast('plateUpdated');
+		};
 	}
 ]);
 

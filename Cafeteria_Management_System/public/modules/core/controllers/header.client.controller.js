@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('core').controller('HeaderController', ['$scope', '$http', '$cookies','Authentication', 'Menus',
-	function($scope,  $http, $cookies, Authentication, Menus) {
+angular.module('core').controller('HeaderController', ['$scope', '$rootScope', '$http', '$cookies','Authentication', 'Menus',
+	function($scope, $rootScope,$http, $cookies, Authentication, Menus) {
 		$scope.authentication = Authentication;
 		$scope.isCollapsed = false;
 		$scope.menu = Menus.getMenu('topbar');
@@ -9,6 +9,13 @@ angular.module('core').controller('HeaderController', ['$scope', '$http', '$cook
 		$scope.onMyPlateNum = 0;
 		if($cookies.plate)
 			$scope.onMyPlateNum = JSON.parse($cookies.plate).length;
+		
+		$rootScope.$on('plateUpdated',  function(){
+			if($cookies.plate)
+				$scope.onMyPlateNum = JSON.parse($cookies.plate).length;
+			else
+				$scope.onMyPlateNum = 0;
+		});
 
 
 		$scope.toggleCollapsibleMenu = function() {
