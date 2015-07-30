@@ -65,6 +65,10 @@ angular.module('users').config(['$stateProvider',
             url: '/cashier',
             templateUrl: 'modules/users/views/settings/cashier.html'
         }).
+				state('admin', {
+            url: '/settings/adminUser',
+            templateUrl: 'modules/users/views/settings/adminSettingsAdminUser.html'
+        }).
         state('finance', {
             url: '/finance',
             templateUrl: 'modules/users/views/settings/finance.html'
