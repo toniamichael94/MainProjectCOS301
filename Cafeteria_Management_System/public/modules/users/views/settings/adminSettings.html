@@ -96,6 +96,35 @@
     </div>
 </div>
 
+<!-- remove employee -->
+<div class="list-group-item clearfix">
+    <h4> Remove employee </h4>
+    <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
+        <form name="userForm" data-ng-submit="removeEmployee(userForm.$valid)" class="signin form-horizontal" autocomplete="on">
+            <fieldset>
+                <div class="form-group" >
+                    <label for="empId">Employee ID</label>
+                    <input type="text" id="empId" name="empId" class="form-control" data-ng-model="empId" placeholder="Employee ID"> <br>
+                    <!--label>Current Employee ID </label>
+                    <div ng-init="loadEmployees()" data-ng-controller="SettingsController" >
+                        <select id="currentEmp_id" name="currentEmp_id" class="form-control" data-ng-model = 'currentEmp_id'/>
+                        <option ng-repeat="employee in employees" value="employee.username"> {{employee.username}}</option>
+                        </select><br>
+                    </div-->
+
+                <div class="text-center form-group">
+                    <button type="submit" class="btn btn-large btn-primary">Remove Employee</button>
+                </div>
+                <div data-ng-show="successFour" class="text-center text-success">
+                    <strong>{{successFour}}</strong>
+                </div>
+                <div data-ng-show="errorFour" class="text-center text-danger">
+                    <strong data-ng-bind="errorFour">{{errorFour}}</strong>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
 
 <div class="list-group-item clearfix">
 	<h4> Set system wide spending limit </h4>

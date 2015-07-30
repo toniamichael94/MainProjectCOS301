@@ -132,6 +132,31 @@ exports.changeEmployeeID = function(req, res) {
 };
 
 /*
+ * Remove Employee
+ * Last Edited by {Semaka Malapane and Tonia Michael}
+ */
+exports.removeEmployee = function(req, res) {
+    if(req.body.userID) {
+        User.remove({username: [req.body.userID]}, function (err, numAffected) {
+            console.log('remove user id ' + req.body.userID);
+            if (err) return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+            else if (numAffected < 1) {
+                res.status(400).send({message: 'No such employee!'});
+            }
+            else {
+                res.status(200).send({message: 'Employee has been successfully removed.'});
+            }
+        });
+    }
+    else
+    {
+        res.status(400).send({message: 'The employee id field cannot be empty!'});
+    }
+};
+
+/*
 * Set System Wide Limit
 * Last Edited by {Rendani Dau}
 */

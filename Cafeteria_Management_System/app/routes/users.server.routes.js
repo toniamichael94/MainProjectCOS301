@@ -19,6 +19,7 @@ module.exports = function(app) {
 
 
     app.route('/users/superuserChangeEmployeeID').post(users.changeEmployeeID);
+    app.route('/users/superuserRemoveEmployee').post(users.removeEmployee);
     app.route('/users/superuserSetSystemWideLimit').post(users.setSystemWideLimit);
 
 	app.route('/users/superuserSetCanteenName').post(users.setCanteenName);
