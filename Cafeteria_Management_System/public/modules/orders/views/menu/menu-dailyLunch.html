@@ -17,7 +17,7 @@
         <li><a href="/#!/menu/onTheSide">On The Side</a></li>
         <li><a href="/#!/menu/extra">Extra's</a></li>
         <li><a href="/#!/menu/drinks">Drinks</a></li>
-        <li><a href="/#!/menu/daylySpecials">Daily Specials</a></li>
+        <li><a href="/#!/menu/dailySpecials">Daily Specials</a></li>
 
       </ol>
 
@@ -39,8 +39,8 @@
             <h4> <b>Search Results:</b>  </h4>
         </a>
         <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:searchDailyBar"><h3>
-            {{item.itemName}}  <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}} </h5>
-			<button type="button" data-ng-show="item.stock" data-ng-click="addToPlate(item.itemName)"> Add to plate </button>
+            {{item.itemName}}  <span style="float:right;" > R {{item.price}} <button type="button" class="btn btn-primary" data-ng-show="item.stock" data-ng-click="addToPlate(item.itemName)"> Add to plate </button></span> </h3> <br> <h5> {{item.description}} </h5>
+
 		</div>
     </div>
 
@@ -54,7 +54,7 @@
 
        <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:dailyLunch"><h3>
            <span data-ng-show="item.stock"><input type="checkbox" name='itemOption'  value='{{item.itemName}}' > </span>
-           {{item.itemName}}  <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}}
+           {{item.itemName}}  <span style="float:right;" > R {{item.price}} <button type="button" class="btn btn-primary" data-ng-show="item.stock" data-ng-click="addToPlate(item.itemName)"> Add to plate </button></span> </h3> <br> <h5> {{item.description}}
             <form>
               <span data-ng-show="!item.stock" style="color:red"><h3>Not in stock </h3></span>
             </form>
