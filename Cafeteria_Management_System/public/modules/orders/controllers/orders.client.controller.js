@@ -1,8 +1,8 @@
 'use strict';
 
 // Orders controller
-angular.module('orders').controller('OrdersController', ['$scope', '$http', '$stateParams', '$location', '$cookies', 'Authentication', 'Orders',
-	function($scope, $http, $stateParams, $location, $cookies, Authentication, Orders) {
+angular.module('orders').controller('OrdersController', ['$scope', '$rootScope','$http', '$stateParams', '$location', '$cookies', 'Authentication', 'Orders',
+	function($scope, $rootScope, $http, $stateParams, $location, $cookies, Authentication, Orders) {
 		$scope.authentication = Authentication;
 		
 		$scope.plate = [];
@@ -61,6 +61,7 @@ angular.module('orders').controller('OrdersController', ['$scope', '$http', '$st
 					}
 				}
 				location.reload(true);
+				//$rootScope.$broadcast('plateUpdated');
 			}
 		};
 		/*
