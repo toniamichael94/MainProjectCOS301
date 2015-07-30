@@ -32,6 +32,8 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 					if(JSON.parse($cookies.plate).length > 0){
 						$location.path('/placeOrder/viewOrders');
 					}
+					else
+						$location.path('/');
 				}
 				else
 					$location.path('/');
