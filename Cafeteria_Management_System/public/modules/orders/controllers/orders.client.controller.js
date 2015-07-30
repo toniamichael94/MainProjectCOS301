@@ -8,18 +8,33 @@ angular.module('orders').controller('OrdersController', ['$scope', '$rootScope',
 		$scope.plate = [];
 		if($cookies.plate)
 			$scope.plate = JSON.parse($cookies.plate);
-			
+		
+		//Helper function to determine if item is in array(i.e. item is in plate)
+		var indexOfItem = function(arr, _itemName){
+			for(var i = 0; i < arr.length; i++){
+				if(arr[i].itemName === _itemName)
+					return i;
+			}
+			return -1;
+		};
+		
+		$scope.quantityChange = function(itemName){
+			$cookies.plate = JSON.stringify($scope.plate);
+			$scope.subTotal();
+		};
+		
 		$scope.subTotal = function(){
 			var total = 0;
-			
 			if($scope.plate.length > 0){
 				for(var i = 0; i < $scope.plate.length; i++){
 					total += $scope.plate[i].price * $scope.plate[i].quantity;
 				}
 			}
-			return total;
+			$scope.orderTotal = total;
 		};
-
+		
+		$scope.orderTotal = 0;
+		$scope.subTotal();
 		//place the order
 		$scope.placeOrder = function(){
 			/*if($scope.plate){
