@@ -17,7 +17,7 @@
         <li><a href="/#!/menu/onTheSide">On The Side</a></li>
         <li><a href="/#!/menu/extra">Extra's</a></li>
         <li><a href="/#!/menu/drinks">Drinks</a></li>
-        <li><a href="/#!/menu/daylySpecials">Daily Specials</a></li>
+        <li><a href="/#!/menu/dailySpecials">Daily Specials</a></li>
       </ol>
 
     <!--Search for a menu product-->
@@ -39,9 +39,9 @@
             <h4> <b>Search Results:</b>  </h4>
         </a>
         <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:searchTramBar"><h3>
-            <span data-ng-show="item.stock"><input type="checkbox" name='itemOption'  value='{{item.itemName}}' > </span>
-            {{item.itemName}}  <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}} </h5>
-        </div>
+            {{item.itemName}}  <span style="float:right;" > R {{item.price}} <button type="button" class="btn btn-primary" data-ng-show="item.stock" data-ng-click="addToPlate(item.itemName)"> Add to plate </button></span> </h3> <br> <h5> {{item.description}} </h5>
+			<button type="button" data-ng-show="item.stock" data-ng-click="addToPlate(item.itemName)"> Add to plate </button>
+		</div>
     </div>
 
     <!-- Display Tramezzinis -->
@@ -51,17 +51,17 @@
      </a>
 
    <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:tramezzinis">
-       <h3> <span data-ng-show="item.stock"><input type="checkbox" name='itemOption'  value='{{item.itemName}}' > </span>{{item.itemName}}
-       <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}}
+       <h3>{{item.itemName}}
+       <span style="float:right;" > R {{item.price}} <button type="button" class="btn btn-primary" data-ng-show="item.stock" data-ng-click="addToPlate(item.itemName)"> Add to plate </button></span> </h3> <br> <h5> {{item.description}}
        <span data-ng-show="!item.stock" style="color:red"><h3>Not in stock </h3></span>
-    </h5>
+	</h5>
   </div>
   </div>
 
 
 </div>
 
-	<!-- Show all the items on the menu list, description, and price-->
+	<!-- Show all the items on the menu list, description, and price>
 			<form name="chooseOrderForm" data-ng-submit="addToPlate()" class="signin form-horizontal" autocomplete="off" data-ng-init="loadMenuItems()">
 				<div data-ng-repeat="order in orders" data-ng-href="#!/orders/{{order._id}}" class="list-group-item">
 					<h4 class="list-group-item-heading" data-ng-bind="order.name"> </h4>
@@ -73,7 +73,7 @@
 					<button type="submit" class="btn btn-primary" onclick="location.reload(true)">Add to plate</button>
 				</div>
 
-				<!--Success/error message-->
+				<!--Success/error message>
 				<div data-ng-show="success" class="text-center text-success">
 					<strong>Action completed successfully.</strong>
 				</div>
@@ -81,6 +81,6 @@
 					<strong data-ng-bind="error"></strong>
 				</div>
 
-	</form>
+	</form-->
 
 </section>

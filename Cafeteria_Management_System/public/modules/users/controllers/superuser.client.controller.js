@@ -7,15 +7,6 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 		// If user is not signed in then redirect back home
 		if (!$scope.user) $location.path('/');
 
-       /* exports.really = function(req, res) {
-            $scope.r = confirm("Press a button");
-            if ($scope.r == true) {
-                $scope.x = "You pressed OK!";
-            } else {
-                $scope.x = "You pressed Cancel!";
-            }
-        };*/
-
 		// Assign a role to user - as the super user
 		$scope.assignRoles = function(isValid) {
 		  if (isValid) {
@@ -89,6 +80,28 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
                 }
                 else{
                     $scope.currentEmp_id = $scope.newEmp_id = null;
+                }
+            }
+        };
+
+        //Remove user from the database
+        $scope.removeEmployee = function(isValid) {
+            if (isValid) {
+                $scope.successFour = $scope.errorFour = null;
+                var reqObj = {userID: $scope.empId};
+                $scope.r = $window.confirm("Are you sure?");
+
+                if($scope.r === true) {
+                    $http.post('/users/superuserRemoveEmployee', reqObj).success(function (response) {
+                        // If successful show success message and clear form
+                        $scope.successFour = response.message;
+                        $scope.empId = null;
+                    }).error(function (response) {
+                        $scope.errorFour = response.message;
+                    });
+                }
+                else{
+                    $scope.empId = null;
                 }
             }
         };

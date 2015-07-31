@@ -18,6 +18,10 @@
 	Antonia Michael (13014171) \\
 	Isabel Nel (13070305)}
 
+
+
+
+
 \date{\today}
 
 %\documentclass[12pt]{article}
@@ -34,13 +38,13 @@
  \hline
  \textbf{Document Title} & Architectural Specification Document \\
  \hline
- \textbf{Document Identification}  & Document 0.0.1  \\
+ \textbf{Document Identification}  & Document 0.0.2 \\
  \hline
  \textbf{Author}  & Rendani Dau, Isabel Nel, Elana Kuun, Semaka Malapane, Antonia Michael \\
  \hline
- \textbf{Version} & 0.0.1 \\
+ \textbf{Version} & 0.0.2\\
  \hline
- \textbf{Document Status} & First Version - contains architectural requirements  \\
+ \textbf{Document Status} & Second Version - contains edited architectural requirements  \\
  \hline
  \end{tabu}
 
@@ -51,6 +55,8 @@
  \textbf{Version} & \textbf{Date} & \textbf{Summary} & \textbf{Authors} \\ [0.5ex] 
  \hline\hline
  0.0.1 & 29 May 2015 & First draft contains architectural requirements & Rendani Dau, \\ & & & Isabel Nel, \\ & & & Elana Kuun, \\ & & & Semaka Malapane, \\ & & & Antonia Michael \\   [1ex] 
+ \hline\hline
+ 0.0.2 & 30 July 2015 & Second draft contains edited architectural requirements & Rendani Dau, \\ & & & Isabel Nel, \\ & & & Elana Kuun, \\ & & & Semaka Malapane, \\ & & & Antonia Michael \\   [1ex] 
  \hline
  \end{tabular}
 \end{table}
@@ -85,17 +91,41 @@ requirements, and architectural constraints. These points will be thouroughly di
 \begin{itemize}
 \item The system must allow a user to view the menu without being logged in
 \item The system must allow a user to select items from the menu and proceed to place the order
+\item The system should not process an order unless a user is logged in
+\item On placement of an order the system should send the order details to the cafeteria
 \item The system should notify the user when their order is ready
-\item The system should send a bill to payroll or the user  once a month
-\item The system should allow a user to manage their profile by editing their password, email and limit
+\item The system should send a bill to payroll or the user  once a month or both (depending on preferance)
+\item The system should allow a user to manage their profile by editing their password, email and spending limit
+\item The system should allow configeration and branding by a super user or an  admin user
+\item The system should allow management of inventory and management of the cafeteria
+\item The system should provide casheir functionality
 \item The system should provide for multiple deployment
 \item The system must be usable, scalable, reliable and auditable
 \end{itemize}
 
-%% ---------  QUALITY REQUIREMENTS -----------------------
+%% ---------------------------------  QUALITY REQUIREMENTS -------------------------------------
 \section{Quality Requirements}
 
+%%--------------SECURITY------------------
 \subsection{Security}
+\subsubsection{Reasons for security in quality requirements}
+ \begin{itemize}
+ \item Security is one of the most important requirement for the Cafeteria Management System because using the system involves storing confidential details such as personal e-mail addresses  and deducting the bill from the users salary. The user must hence have full control over the amount spent.  
+\item There are also superuser and admin roles who have certain functionality assigned to them, dealing with the confidential details of the users and the cafeteria and hence ordinary users must not be able to use the route to the superuser to access the superuser functionality. Hence, security must be in place.
+ \end{itemize}
+ \subsubsection{Strategies to achieve this quality requirement}
+ \begin{itemize}
+ \item Detecting attacks by determining message integrity, event logging and analysis, scanning for attack signatures and auditing sensitive events (Solms, 2014).
+\item Resisting attacks by limiting access and exposure. This can be done by minimizing access channels, minimizing access domains, authentication, confidentiality, assuming external resources as untrusted, minimizing hosting of external resources, additonal security layers for valuables.
+\item Recovering from attacks by dropping connections and requests. In addition, updating access rules and restoring states.
+ \end{itemize}
+\subsubsection{Patterns to achieve these strategies}
+ \begin{itemize} 
+ \item Layering
+\end{itemize} 
+Layering can enforce security due to seperation into layers, in which different users have different levels of access to the layers, depending on their roles in the system
+Layering can be used within the subsections of MVC, i.e. the Control and Model layer can be layered to further divide concerns and restrict different users' access on those layers, providing tighter security.
+
 
 \subsection{Usability}
  \subsubsection{Reasons for quality requirements}
@@ -231,8 +261,7 @@ The resolve admin user will be able to view all the registered users, their acco
 %%--------SYSTEM ACCESS CHANNELS -------
 \subsubsection{System Access Channels}
 The different technologies selected will be used to support the access channels effectively. We will be using NodeJs running on an Express server and the server needs to be connected to the Mongo database on which various data will be stored and retrieved. This data will be transfered from the server to the respective node modules and so forth. 
-The integration channels will also be accessable by the mobile applications, since Phone Gap which is the program we will be using to help us convert our web interface into a mobile application and will appear to the user that the user is working on an application where in reality the user will be using the web interface. 
-
+The integration channels will also be accessable by the mobile applications, such as Phone Gap, which is the program we will be using to help us convert our web interface into a mobile application.
 \begin{itemize}
 
 \item The system will have to integrate with the Mongo database, retrieving information of the employees - such as contact information to notify the user that an order is ready, get inventory or stock and so forth. 
