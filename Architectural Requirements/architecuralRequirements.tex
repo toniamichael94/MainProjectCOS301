@@ -106,7 +106,7 @@ requirements, and architectural constraints. These points will be thouroughly di
 %%--------------SECURITY------------------
 \subsection{Security}
 
-\subsubsection{Reasons for security as quality requirements}
+\subsubsection{Reasons for security as a quality requirement}
  \begin{itemize}
  \item Security is one of the most important requirement for the Cafeteria Management System because using the system involves storing confidential details such as personal e-mail addresses, employee ID's and finantial information - the amount the user spend will be deducted from his/her salery. The user must hence have full control over the amount spent.  
 \item There are also Super user and Admin user roles who have certain functionality assigned to them, dealing with the confidential details of the users and of the cafeteria, hence ordinary users must not be able to access any functionality besides the functionality assigned to their respective roles. Hence, security is of upmost importance.
@@ -129,7 +129,7 @@ Layering can be used within the subsections of MVC, i.e. the Control and Model l
 %%-------------USABILITY------------------
 \subsection{Usability}
 
- \subsubsection{Reasons for  usability as quality requirements}
+ \subsubsection{Reasons for  usability as a quality requirement}
  \begin{itemize}
  \item Usability involves measuring user's performance with regard to the use of a software system, since the users of the cafeteria system will be in different divisions within the company and have different technological skill levels, it should not be hard for new users to become familiarized with the system, thus the system has to be user friendly in all aspects.
  \item Due to the fact that Resolve has not had such a system in place before, the novice user would not have had exposure to such a system therefore the system should also be memorable as the first of its kind at Resolve.  
@@ -156,24 +156,30 @@ Layering can be used within the subsections of MVC, i.e. the Control and Model l
 
 %%-------------RELIABILITY------------------
 \subsection{Reliability}
-\subsubsection{Reasons for quality requirement}
-	\begin{itemize}
-	\item The reason we have placed great importance on reliability is because a large scale of users (Resolve employees) will be using the system concurrently in the one hour lunch break thus the system should be able to notify each user separately when their orders are ready and a bill should be generated for each user
-	\item The system should ensure that the correct amount is deducted from the user's account and that the user's set limits are adhered to.
-	\item Reliability plays a key role, ensuring that all functions work as the user expects them, when the user requires to use the system.
-	\item It must hence have a maximum of 2 or 3 hours down time a week.
-	\item The system should be reliable in terms of ensuring that the different functionality is assigned to users with different roles.  
-	\end{itemize}
-	\subsubsection{Strategies to achieve this quality requirement}
-	\begin{itemize}
-	\item Firstly, the prevention of faults. This is done by testing the system thoroughly, using resource locking as well as removing single points of failure. (Solms, 2014)
+\subsubsection{Reasons for reliability as a quality requirement}
+\begin{itemize}
+\item The reason we have placed great importance on reliability is because a large scale of users (Resolve employees) will be using the system concurrently in the one hour lunch break thus the system should be able to notify each user separately when their orders are ready and a bill should be generated for each user every month and it  will store the credit made by a user that he/she owes the canteen and reliability of this system of keeping the information save and correctly is thus very important.
+\item The system should ensure that the correct amount is deducted from the user's account and that the user's set limits are adhered to.
+\item Whilst it may not be possible to design software that is failure and defect-free, software needs to be tested and debugged 
+until a satisfactory level of reliability can be achieved, reliability plays a key role, ensuring that all functions work as the user expects them, when the user requires to use the system, thus things like proper unit testing goes hand in hand with reliability.
+\item It must hence have a maximum of 2 or 3 hours down time a week (The ideal will be no down time at all, but unfortunatly we live in a non-ideal world so one needs to be realistic).
+\item The system should be reliable in terms of ensuring that the different functionality is assigned to users with different roles and no user can access functionality outside their role, thus reliability also have a close corrolation with security of the system.  
+\item Maintanance of a system is also important for reliability, a system must be maintained and kept up to date at all times to ensure that the system stays reliable and any faults found while the system is live should be fixed and the system should be updated thereafter.
+\end{itemize}
+
+\subsubsection{Strategies to achieve this quality requirement}
+\begin{itemize}
+\item Firstly, the prevention of faults. This is done by testing the system thoroughly, using resource locking as well as removing single points of failure (Solms, 2014). We will do this with thourough unit testing on both the client and server side and later on also with proper integration testing between all modules. 
  \item Secondly, detection of faults, which is achieved through deadlock detection, logging, checkpoint evaluation and error communication to name but a few. Recovering from faults also falls under reliability. This is done by passive redundancy, maintaining backups and checkpoint rollbacks. (Solms, 2014)
  \end{itemize}
+
  \subsubsection{Patterns to achieve these strategies}
  \begin{itemize}
  \item MVC
  \end{itemize}
  The MVC pattern can  be used for reliability, because since the different layers are clearly separated, hence particular teams are focused on working on each layer, making the system more reliable. 
+
+
  \subsection{Auditability}
  \subsubsection{Reasons for quality requirements}
  \begin{itemize}
