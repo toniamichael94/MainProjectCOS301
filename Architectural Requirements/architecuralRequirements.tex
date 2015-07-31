@@ -108,25 +108,25 @@ requirements, and architectural constraints. These points will be thouroughly di
 
 %%--------------SECURITY------------------
 \subsection{Security}
+
 \subsubsection{Reasons for security in quality requirements}
  \begin{itemize}
- \item Security is one of the most important requirement for the Cafeteria Management System because using the system involves storing confidential details such as personal e-mail addresses  and deducting the bill from the users salary. The user must hence have full control over the amount spent.  
-\item There are also superuser and admin roles who have certain functionality assigned to them, dealing with the confidential details of the users and the cafeteria and hence ordinary users must not be able to use the route to the superuser to access the superuser functionality. Hence, security must be in place.
+ \item Security is one of the most important requirement for the Cafeteria Management System because using the system involves storing confidential details such as personal e-mail addresses, employee ID's and finantial information - the amount the user spend will be deducted from his/her salery. The user must hence have full control over the amount spent.  
+\item There are also Super user and Admin user roles who have certain functionality assigned to them, dealing with the confidential details of the users and of the cafeteria, hence ordinary users must not be able to access any functionality besides the functionality assigned to their respective roles. Hence, security is of upmost importance.
  \end{itemize}
+
  \subsubsection{Strategies to achieve this quality requirement}
  \begin{itemize}
  \item Detecting attacks by determining message integrity, event logging and analysis, scanning for attack signatures and auditing sensitive events (Solms, 2014).
 \item Resisting attacks by limiting access and exposure. This can be done by minimizing access channels, minimizing access domains, authentication, confidentiality, assuming external resources as untrusted, minimizing hosting of external resources, additonal security layers for valuables.
 \item Recovering from attacks by dropping connections and requests. In addition, updating access rules and restoring states.
  \end{itemize}
-\subsubsection{Patterns to achieve these strategies}
- \begin{itemize} 
- \item Layering
-\end{itemize} 
+
+\subsubsection{Pattern to achieve these strategies}
 Layering can enforce security due to seperation into layers, in which different users have different levels of access to the layers, depending on their roles in the system
 Layering can be used within the subsections of MVC, i.e. the Control and Model layer can be layered to further divide concerns and restrict different users' access on those layers, providing tighter security.
 
-
+%%-------------USABILITY------------------
 \subsection{Usability}
  \subsubsection{Reasons for quality requirements}
  \begin{itemize}

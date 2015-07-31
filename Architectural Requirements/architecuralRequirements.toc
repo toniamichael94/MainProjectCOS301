@@ -7,7 +7,7 @@
 \contentsline {subsection}{\numberline {6.1}Security}{7}{subsection.6.1}
 \contentsline {subsubsection}{\numberline {6.1.1}Reasons for security in quality requirements}{7}{subsubsection.6.1.1}
 \contentsline {subsubsection}{\numberline {6.1.2}Strategies to achieve this quality requirement}{7}{subsubsection.6.1.2}
-\contentsline {subsubsection}{\numberline {6.1.3}Patterns to achieve these strategies}{7}{subsubsection.6.1.3}
+\contentsline {subsubsection}{\numberline {6.1.3}Pattern to achieve these strategies}{7}{subsubsection.6.1.3}
 \contentsline {subsection}{\numberline {6.2}Usability}{8}{subsection.6.2}
 \contentsline {subsubsection}{\numberline {6.2.1}Reasons for quality requirements}{8}{subsubsection.6.2.1}
 \contentsline {subsubsection}{\numberline {6.2.2}Strategies to achieve this quality requirement}{8}{subsubsection.6.2.2}
