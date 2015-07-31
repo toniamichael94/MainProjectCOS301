@@ -142,7 +142,7 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
         $http.post('/orders/create', reqObj).success(function(response) {
 	   $scope.allInventory.inventoryProduct.push($scope.inventory.itemName.toLowerCase()+' ' +$scope.inventory.unit);
 		$scope.allInventory.inventoryQuantity.push($scope.inventory.quantity);
-        $scope.success = true;
+        $scope.success = 'Inventory item added';
 		$scope.inventory = null;
 		//$scope.hideInventory=true;
         }).error(function(response) {
