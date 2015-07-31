@@ -47,11 +47,14 @@
 				<!-- Dynamically add ingredients -->
 				<label>Ingredients</label>
 					<div ng-init="loadInventoryItems()" data-ng-controller="InventoryController" ng-repeat = "ingredient in ingredients.ingredients track by $index" >
-						<select  class="form-control" ng-model = 'ingredients.ingredients[$index]'/>
-								<option  ng-repeat="item in inventoryItems" >{{item.productName}} ({{item.unit[0]}})</option>
-						</select><br>
-						<input class="form-control" placeholder ="Quantity"  type = "number" min =0 ng-model = 'ingredients.quantities[$index]'/>
-						<br>
+						
+							<select  class="form-control" ng-model = 'ingredients.ingredients[$index]'/>
+									<option  ng-repeat="item in inventoryItems" >{{item.productName}} ({{item.unit[0]}})</option>
+							</select><br>
+							<input class="form-control" placeholder ="Quantity"  type = "number" min =0 ng-model = 'ingredients.quantities[$index]'/>
+							<a class = "btn" ng-click = "removeIngredientOption($index); removeOption = true">Remove</a>
+							<br>
+						
 					</div>
 
 					<!--Dynamically add ingredients button-->
@@ -160,12 +163,14 @@
 							</div>
 
 						<!--Add more ingredients to item-->
+						<h4>Add more ingredients <h4>
 						<div ng-init="loadInventoryItems()" data-ng-controller="InventoryController" ng-repeat = "ingredient in addedUpdateIngredients.ingredients track by $index" >
-							<label ng-bind = 'addedUpdateIngredients.ingredients[$index]'>{{addedUpdateIngredients.ingredients}}</label>
+							<!--<label ng-bind = 'addedUpdateIngredients.ingredients[$index]'>{{addedUpdateIngredients.ingredients}}</label>-->
 							<select  class="form-control" ng-model = 'addedUpdateIngredients.ingredients[$index]'/>
 									<option  ng-repeat="item in inventoryItems" >{{item.productName}} ({{item.unit[0]}})</option>
 							</select><br>
 							<input class="form-control" placeholder ="Quantity"  type = "number" min =0 ng-model = 'addedUpdateIngredients.quantities[$index]'/>
+							<a class = "btn" ng-click = "removeIngredientOptionUpdate($index); removeOption = true">Remove</a>
 							<br>
 						</div>
 
@@ -174,11 +179,18 @@
 						<br>
                             <div class = "text-center form-group">
                                 <!--<button type = "submit" class = "btn btn-large btn-primary" onclick= "location.reload(true)" ng-click = "upadateMenuItem()"> Update</button>-->
-                                <button type = "submit" class = "btn btn-large btn-primary" ng-click = "upadateMenuItem(); showme=false"> Update</button>
+                                <button type = "submit" class = "btn btn-large btn-primary" ng-click = "upadateMenuItem();"> Update</button>
 
 							</div>
                         </form>
 					</div>
+					<!--<p>IaddedUpdateIngredients</p>
+
+						<pre>{{ addedUpdateIngredients | json }}</pre>-->
+						
+						<!--<p>loadedIngredients</p>
+
+						<pre>{{loadedIngredients | json }}</pre>
 					<!--Success or Error message-->
 						 <div data-ng-show="successMessage" class="text-center text-success">
                             <strong data-ng-bind="successMessage"></strong>
