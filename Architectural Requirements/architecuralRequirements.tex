@@ -259,23 +259,25 @@ concept of incremental development - as you are busy building the system each as
 
 
 %\end{enumerate}
-%%adding some info
+
+%%-------------NICE TO HAVE-----------------
 \subsection{Nice-To-Have}
-	\begin{enumerate}
-		\item Performance
-		\item Integrability
-		\item Flexibility
-		\item Maintainability
+\begin{enumerate}
+	\item Performance
+	\item Integrability
+	\item Flexibility
+	\item Maintainability
 \end{enumerate}
 
 %% --------------------------------- ARCHITECTURE REQUIREMENTS ---------------------------------
-\section{Access and Integration Requirements}
-%% ---------- ACCESS CHANNEL REQUIREMENTS ------------
+\section{Access and Integration Requirements}\
+
+%% ---------------- ACCESS CHANNEL REQUIREMENTS ------------
 \subsection{Access Channel Requirements}
 In this section we will discuss the requirements for the different channels through which the system can be accessed by firstly, people (users - client side) and systems (server-side).
 
 
-%%--------HUMAN ACCESS CHANNELS------
+%%------------------HUMAN ACCESS CHANNELS---------------
 \subsubsection{Human Access Channels}
 The Cafeteria Management System will be accessed by the different users via the online web page (web interface) or through the mobile application (if one is developed). The web interface will be accessible through all the standard web browsers such as Mozilla Firefox, Google Chrome and Microsoft Internet Explorer. The mobile application will be accessible on multiple platforms including the standard IOS/Anroid platforms. Different services will be available to different users. There are five types of users: Super User, Cafeteria Manager, Casher, Normal User, and Resolve Admin. These will be discussed below. \\
 
@@ -294,7 +296,7 @@ The normal user will be a Resolve employee registered on the Cafeteria Managemen
 \paragraph{ Resolve Admin\\}
 The resolve admin user will be able to view all the registered users, their account history and their outsanding balances. This is for administrative and financial purposes . This role has been requested by the Resolve team.
 
-%%--------SYSTEM ACCESS CHANNELS -------
+%%------------------SYSTEM ACCESS CHANNELS -----------------
 \subsubsection{System Access Channels}
 The different technologies selected will be used to support the access channels effectively. We will be using NodeJs running on an Express server and the server needs to be connected to the Mongo database on which various data will be stored and retrieved. This data will be transfered from the server to the respective node modules and so forth. 
 The integration channels will also be accessable by the mobile applications, such as Phone Gap, which is the program we will be using to help us convert our web interface into a mobile application.
@@ -320,7 +322,7 @@ Integration with this protocol will occur at a high level and typically be handl
 \subsubsection{SMTP - Simple Mail Transfer Protocol}
 This protocol will be used to handle e-mail communication, specifically notifications to users when their orders are ready, as well as the sending of bills to both users and payroll. It addresses Security as a quality requirement since it incorporates SMTP-Authentication defined by RFC 2554 (Meyers, 1999) which enhances the security of the protocol.
 
-%% ----------ARCHITECTURE CONSTRAINTS----------------
+%% ----------------ARCHITECTURE CONSTRAINTS-------------------------
 \subsection{Architecture Constraints}
 \subsubsection{Technologies}
 Technologies we will be using in the creation of the Cafeteria Management System includes the following: 
