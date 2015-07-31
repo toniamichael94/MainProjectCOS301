@@ -93,7 +93,7 @@ requirements, and architectural constraints. These points will be thouroughly di
 \item The system should notify the user when their order is ready
 \item The system should send a bill to payroll or the user  once a month or both (depending on preferance)
 \item The system should allow a user to manage their profile by editing their password, email and spending limit
-\item The system should allow configeration and branding by a super user or an  admin user
+\item The system should allow configuration and branding by a super user or an  admin user
 \item The system should allow management of inventory and management of the cafeteria
 \item The system should provide casheir functionality
 \item The system should provide for multiple deployment
@@ -137,7 +137,7 @@ Layering can be used within the subsections of MVC, i.e. the Control and Model l
  \end{itemize}
  \subsubsection{Strategies to achieve this quality requirement}
  \begin{itemize}
- \item Various goals of usability requirements are firstly, that the that the interface is intuitive, i.e. easy to navigate and understand, that the buttons and icons are self explanatory for the primary users.
+ \item Various goals of usability requirements are firstly, that the interface is intuitive, i.e. easy to navigate and understand, that the buttons and icons are self explanatory for the primary users.
  \item The interface must also not be a cluttered, frustrating and overwhelming one. 
  \item Ease of learning is also an important goal, such that users who have never used such a system can catch on easily, for example users who have used applications which work on the same principle like an online shopping application (which most users would have some experience with in today's age) will find it easy to work with.
  \item The system must also be task efficient, i.e. if users access this space regularly, long tedious processes and other admin must be avoided.
@@ -158,12 +158,12 @@ Layering can be used within the subsections of MVC, i.e. the Control and Model l
 \subsection{Reliability}
 \subsubsection{Reasons for reliability as a quality requirement}
 \begin{itemize}
-\item The reason we have placed great importance on reliability is because a large scale of users (Resolve employees) will be using the system concurrently in the one hour lunch break thus the system should be able to notify each user separately when their orders are ready and a bill should be generated for each user every month and it  will store the credit made by a user that he/she owes the canteen and reliability of this system of keeping the information save and correctly is thus very important.
+\item The reason we have placed great importance on reliability is because a large scale of users (Resolve employees) will be using the system concurrently in the one hour lunch break thus the system should be able to notify each user separately when their orders are ready and a bill should be generated for each user every month and it  will store the credit made by a user that he/she owes the canteen and reliability of this system of keeping the information safe and correct is thus very important.
 \item The system should ensure that the correct amount is deducted from the user's account and that the user's set limits are adhered to.
 \item Whilst it may not be possible to design software that is failure and defect-free, software needs to be tested and debugged 
 until a satisfactory level of reliability can be achieved, reliability plays a key role, ensuring that all functions work as the user expects them, when the user requires to use the system, thus things like proper unit testing goes hand in hand with reliability.
 \item It must hence have a maximum of 2 or 3 hours down time a week (The ideal will be no down time at all, but unfortunatly we live in a non-ideal world so one needs to be realistic).
-\item The system should be reliable in terms of ensuring that the different functionality is assigned to users with different roles and no user can access functionality outside their role, thus reliability also have a close corrolation with security of the system.  
+\item The system should be reliable in terms of ensuring that the different functionality is assigned to users with different roles and no user can access functionality outside their role, thus reliability also have a close correlation with security of the system.  
 \item Maintanance of a system is also important for reliability, a system must be maintained and kept up to date at all times to ensure that the system stays reliable and any faults found while the system is live should be fixed and the system should be updated thereafter.
 \end{itemize}
 
@@ -177,7 +177,7 @@ until a satisfactory level of reliability can be achieved, reliability plays a k
  \begin{itemize}
  \item MVC
  \end{itemize}
- The MVC pattern can  be used for reliability, because since the different layers are clearly separated, hence particular teams are focused on working on each layer, making the system more reliable. 
+ The MVC pattern can  be used for reliability, because the different layers are clearly separated, particular teams are focused on working on each layer, making the system more reliable. 
 
 %%-------------AUDITABILITY------------------
  \subsection{Auditability}
@@ -198,7 +198,7 @@ that alters the system in any way.
 \item ACID test can be carried out. Acid is an acronym that describes the properties of a database or system. The properties are:
 	\begin{itemize}
 	\item \textbf{Atomicity:} Defined as all or none situation referring to the processes that take place on the 
-	   system. If something where to go wrong with a process such as posting on the system,
+	   system. If something were to go wrong with a process such as posting on the system,
 	   then the entire process has to be repeated or not at all.
 	\item \textbf{Consistency:} All processes must be completed. No process can be left in a half-finished state,
 	     if a failure is detected in a process then the entire process has to be rolled back.
@@ -222,8 +222,8 @@ that alters the system in any way.
 \subsubsection{Reasons for scalibility as a quality requirement}
 \begin{itemize}
 \item Scalability refers to a software's ability to handle increased workloads, thus scalibility is an important requirement due to the fact that a large volume of Resolve employees will be using the system possibly on the same time each each day (during lunch hour)  and hence the system needs to support all these users concurrently. 
-\item In saying this, the system must allow each user to order multiple items and process orders per user concurrently and efficiantly.
-\item With this, we can assume that there will be in excess of 500 users meaning that the system has to have the ability to handle at least 500 concurrent users at peak times and in a case where the amount of users increase drastically, small server side changes needs to be made with ease to handle more users if needed.
+\item In saying this, the system must allow each user to order multiple items and process orders per user concurrently and efficiently.
+\item With this, we can assume that there will be an excess of 500 users meaning that the system has to have the ability to handle at least 500 concurrent users at peak times and in a case where the amount of users increase drastically, small server side changes needs to be made with ease to handle more users if needed.
 \end{itemize}
 
 \subsubsection{Strategies to achieve this quality requirement}
@@ -257,10 +257,10 @@ Integration testing is used to ensure that all the modules work together and loo
 %\item Integrability
 
 
-%%-------------TESTEBILITY------------------
-%\item Testebility
-\subsection{Testebility}
-\subsubsection{Reasons for testebility as a quality requirement}
+%%-------------TESTABILITY------------------
+%\item Testability
+\subsection{Testability}
+\subsubsection{Reasons for testability as a quality requirement}
 \begin{itemize}
 \item  It is important to ensure that a software system is adequately tested at various levels. In other words, testing is based on the 
 concept of incremental development - as you are busy building the system each aspect needs to be thourougly tested to ensure the functionality works correctly, before you move on to build the next step - this will make sure that at all times the software is functional with very little flaws (those flaws can refer to logical mistakes and possible untested sections still being built).
@@ -277,18 +277,11 @@ concept of incremental development - as you are busy building the system each as
 
 %%-------------NICE TO HAVE-----------------
 \subsection{Nice-To-Have}
-Listed below are the nice to have quality requirements related to the Cafeteria Management System, these requirements are not considered as crutical but are considered as desireble. \\
-
-\begin{enumerate}
-	\item Performance. Performance refers to the behaviour of the system, meaning its response time and throughput - the number of operations performed per second. The cafeteria system should behave as expected and should not take long to respond. Some changes are important and should be reflected in a timely manner, for example, when an email is sent to a user who forget his/her password, when an employee id is changed, when an order is ready the user should be notified soon.
-	\item Flexibility. Flexibility refers to the ability of a system to respond in a time and cost efficient manner to internal or extarnal changes that affects the quality of its service. The system should be able to increase or sustain the quality of its service when responding to these changes.
-	\item Maintainability. Maintainability refers to how easily the software can be modified to adapt to a new environment, fix bugs, and improve performance. Other developers should be able to add new features, bug fixes, and make changes without invensting a significant amount of time and effort. Users of the system should also be able to maintain it by making certain changes to the system. Some aspects of the cafeteria management system such as the branding, the colours, and the menu section needs to be configurable by a user. This is a desirable quality requirement to have as it means that the system can be changed, adapted, and improved, and thus be used for a longer time.
-\end{enumerate}
-
+Listed below are the nice to have quality requirements related to the Cafeteria Management System, these requirements are not considered as critical but are considered as desirable. \\
 
 \begin{itemize}
 \subsubsection{Performance}
-\item  Performance refers to the behaviour of the system, meaning its response time and throughput - the number of operations performed per second. The cafeteria system should behave as expected and should not take long to respond. Some changes are important and should be reflected in a timely manner, for example, when an email is sent to a user who forget his/her password, when an employee id is changed, when an order is ready the user should be notified soon.
+\item  Performance refers to the behaviour of the system, meaning its response time and throughput - the number of operations performed per second. The cafeteria system should behave as expected and should not take long to respond. Some changes are important and should be reflected in a timely manner, for example, when an email is sent to a user who forgot his/her password, when an employee id is changed, when an order is ready the user should be notified soon.
 
 \subsubsection{Flexibility}
 \item  Flexibility refers to the ability of a system to respond in a time and cost efficient manner to internal or extarnal changes that affects the quality of its service. The system should be able to increase or sustain the quality of its service when responding to these changes.
@@ -308,7 +301,7 @@ In this section we will discuss the requirements for the different channels thro
 
 %%------------------HUMAN ACCESS CHANNELS---------------
 \subsubsection{Human Access Channels}
-The Cafeteria Management System will be accessed by the different users via the online web page (web interface) or through the mobile application. The web interface will be accessible through all the standard web browsers such as Mozilla Firefox, Google Chrome and Microsoft Internet Explorer. The mobile application will be accessible on multiple platforms including the standard IOS/Anroid platforms. Different services will be available to different users (According to their roles). There are six types of users: Super User, Cafeteria Manager, Casher, Normal User, finance and Admin user. These will be discussed below. \\
+The Cafeteria Management System will be accessed by the different users via the online web page (web interface) or through the mobile application. The web interface will be accessible through all the standard web browsers such as Mozilla Firefox, Google Chrome and Microsoft Internet Explorer. The mobile application will be accessible on multiple platforms including the standard IOS/Anroid platforms. Different services will be available to different users (According to their roles). There are six types of users: Super User, Cafeteria Manager, Casher, Normal User, Finance and Admin user. These will be discussed below. \\
 
 \paragraph{Super User\\}
 The super user will be one of 2 administrative users that will have global access to all the functionality of the Cafeteria Management System, in particular the super user will have access to the branding of the Cafeteria Management system (changing the logo and so forth) and Administrative settings such as the ability to assign roles to users  . The super user will hence have access to all the functionality of all the other users listed below.
@@ -412,7 +405,7 @@ However, it should be mentioned that Layering has a performance overhead associa
 \\
 For concurrency, the Master-Slave architectural pattern (Solms, 2014) is considered, because the system needs to accommodate a large number of users at a time.
 
--------------------SUPORTING DOCUMENTATION -----------------------------
+%%-------------------SUPORTING DOCUMENTATION -----------------------------
 \section{Other Supporting Documentation}
 
 On the GitHub repository the rest of the supporting documentation for the Cafeteria Management System can be found together with the actual implimentation of the work. \\\\
