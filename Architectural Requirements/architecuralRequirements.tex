@@ -18,6 +18,10 @@
 	Antonia Michael (13014171) \\
 	Isabel Nel (13070305)}
 
+
+
+
+
 \date{\today}
 
 %\documentclass[12pt]{article}
@@ -87,18 +91,24 @@ requirements, and architectural constraints. These points will be thouroughly di
 \begin{itemize}
 \item The system must allow a user to view the menu without being logged in
 \item The system must allow a user to select items from the menu and proceed to place the order
+\item The system should not process an order unless a user is logged in
+\item On placement of an order the system should send the order details to the cafeteria
 \item The system should notify the user when their order is ready
-\item The system should send a bill to payroll or the user  once a month
-\item The system should allow a user to manage their profile by editing their password, email and limit
+\item The system should send a bill to payroll or the user  once a month or both (depending on preferance)
+\item The system should allow a user to manage their profile by editing their password, email and spending limit
+\item The system should allow configeration and branding by a super user or an  admin user
+\item The system should allow management of inventory and management of the cafeteria
+\item The system should provide casheir functionality
 \item The system should provide for multiple deployment
 \item The system must be usable, scalable, reliable and auditable
 \end{itemize}
 
-%% ---------  QUALITY REQUIREMENTS -----------------------
+%% ---------------------------------  QUALITY REQUIREMENTS -------------------------------------
 \section{Quality Requirements}
 
+%%--------------SECURITY------------------
 \subsection{Security}
-\subsubsection{Reasons for quality requirements}
+\subsubsection{Reasons for security in quality requirements}
  \begin{itemize}
  \item This is the most important requirement for the Cafeteria Management System because the system involves storing confidential details and deducting the bill from the users salary. The user must hence have full control over the amount spent.  
 \item There are also superuser and admin roles who have certain functionality assigned to them, dealing with the confidential details of the users and the cafeteria and hence ordinary users must not be able to use the route to the superuser to access the superuser functionality. Hence, security must be in place.
