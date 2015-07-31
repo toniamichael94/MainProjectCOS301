@@ -17,14 +17,14 @@
 \contentsline {subsubsection}{\numberline {6.3.2}Strategies to achieve this quality requirement}{10}{subsubsection.6.3.2}
 \contentsline {subsubsection}{\numberline {6.3.3}Patterns to achieve these strategies}{10}{subsubsection.6.3.3}
 \contentsline {subsection}{\numberline {6.4}Auditability}{10}{subsection.6.4}
-\contentsline {subsubsection}{\numberline {6.4.1}Reasons for quality requirements}{10}{subsubsection.6.4.1}
+\contentsline {subsubsection}{\numberline {6.4.1}Reasons for auditability as a quality requirement}{10}{subsubsection.6.4.1}
 \contentsline {subsubsection}{\numberline {6.4.2}Strategies to achieve this quality requirement}{11}{subsubsection.6.4.2}
 \contentsline {subsubsection}{\numberline {6.4.3}Patterns to achieve these strategies}{11}{subsubsection.6.4.3}
 \contentsline {subsection}{\numberline {6.5}Scalability}{12}{subsection.6.5}
-\contentsline {subsubsection}{\numberline {6.5.1}Reasons for quality requirement}{12}{subsubsection.6.5.1}
+\contentsline {subsubsection}{\numberline {6.5.1}Reasons for scalibility as a quality requirement}{12}{subsubsection.6.5.1}
 \contentsline {subsubsection}{\numberline {6.5.2}Strategies to achieve this quality requirement}{12}{subsubsection.6.5.2}
 \contentsline {subsubsection}{\numberline {6.5.3}Patterns to achieve these strategies}{12}{subsubsection.6.5.3}
-\contentsline {subsection}{\numberline {6.6}Nice-To-Have}{12}{subsection.6.6}
+\contentsline {subsection}{\numberline {6.6}Nice-To-Have}{13}{subsection.6.6}
 \contentsline {section}{\numberline {7}Access and Integration Requirements}{13}{section.7}
 \contentsline {subsection}{\numberline {7.1}Access Channel Requirements}{13}{subsection.7.1}
 \contentsline {subsubsection}{\numberline {7.1.1}Human Access Channels}{13}{subsubsection.7.1.1}
@@ -34,8 +34,8 @@
 \contentsline {paragraph}{ Normal User\\}{14}{section*.6}
 \contentsline {paragraph}{ Resolve Admin\\}{14}{section*.7}
 \contentsline {subsubsection}{\numberline {7.1.2}System Access Channels}{14}{subsubsection.7.1.2}
-\contentsline {subsection}{\numberline {7.2}Protocols}{14}{subsection.7.2}
-\contentsline {subsubsection}{\numberline {7.2.1}HTTP - Hypertext Transfer Protocol}{14}{subsubsection.7.2.1}
+\contentsline {subsection}{\numberline {7.2}Protocols}{15}{subsection.7.2}
+\contentsline {subsubsection}{\numberline {7.2.1}HTTP - Hypertext Transfer Protocol}{15}{subsubsection.7.2.1}
 \contentsline {subsubsection}{\numberline {7.2.2}TCP - Transmission Control Protocol}{15}{subsubsection.7.2.2}
 \contentsline {subsubsection}{\numberline {7.2.3}SMTP - Simple Mail Transfer Protocol}{15}{subsubsection.7.2.3}
 \contentsline {subsection}{\numberline {7.3}Architecture Constraints}{15}{subsection.7.3}

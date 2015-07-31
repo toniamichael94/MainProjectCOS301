@@ -179,19 +179,20 @@ until a satisfactory level of reliability can be achieved, reliability plays a k
  \end{itemize}
  The MVC pattern can  be used for reliability, because since the different layers are clearly separated, hence particular teams are focused on working on each layer, making the system more reliable. 
 
-
+%%-------------AUDITABILITY------------------
  \subsection{Auditability}
- \subsubsection{Reasons for quality requirements}
+
+ \subsubsection{Reasons for auditability as a quality requirement}
  \begin{itemize}
  \item Any action performed on the system should be traceable back to the person who made these changes and when these changes were made.
- \item In the event of a system crash, it should be possible to roll the system back to a previous working state
+ \item In the event of a system crash, it should be possible to roll the system back to a previous working state.
  \item The super user should be able to view every other user's activities. This is a part of the monitorability aspect of the system.
  \end{itemize}
+
  \subsubsection{Strategies to achieve this quality requirement}
  \begin{itemize}
  \item System should have log files running at all times to track all transactions made by users. 
- \item Time stamps should be added to document time and date information of the activities done so that the system can trace through the
-information when needed, such as the events that precede a system crash or unauthorized access
+ \item Time stamps should be added to document time and date information of the activities done so that the system can trace through the information when needed, such as the events that precede a system crash or unauthorized access
 that alters the system in any way.
 \item System backup should allow rollback when needed.
 \item ACID test can be carried out. Acid is an acronym that describes the properties of a database or system. The properties are:
@@ -207,6 +208,7 @@ that alters the system in any way.
 	    to a security breach.
 	\end{itemize}
  \end{itemize}
+
  \subsubsection{Patterns to achieve these strategies}
  \begin{itemize}
  \item MVC
@@ -214,26 +216,31 @@ that alters the system in any way.
 \end{itemize} 
  MVC is a suitable pattern because it provides auditability through logging all filter inputs and outputs (off queues). Layering is a suitable pattern because each separate layer can be audited and monitored individually, rather than auditing the system as a whole.
   
+%%-------------SCALIBILITY------------------
 %\item Scalability
 \subsection{Scalability}
-	\subsubsection{Reasons for quality requirement}
-	\begin{itemize}
-	\item This is an important requirement due to the fact that a large volume of Resolve employees will be using the system possibly during lunch hour break and hence the system needs to support all these users concurrently. 
-	\item In saying this, the system must allow each user to order multiple items and process orders per user concurrently.
-	\item With this, we can assume that there will be in excess of 500 users meaning that the system has to have the ability to handle at least 500 concurrent users at peak times.
-	\end{itemize}
-	\subsubsection{Strategies to achieve this quality requirement}
-	\begin{itemize}
-		\item We will need to firstly ensure that existing resources are managed efficiently, i.e. reducing the load using efficient storage, processing,  and persistence. In addition, we will need to ensure that the load is spread across resources and time, using methods of load balancing to spread load across resources as well as using scheduling and queueing to spread load across time.
-		\item Secondly, the resources can be scaled up by increasing storage, increasing processing power and increasing the capacity of communication channels.
-		\item Lastly, resources can be scaled out by means of using external resources, using commoditized resources and distributing tasks across specialized resources.
-		\end{itemize}
-	\subsubsection{Patterns to achieve these strategies}
-	 \begin{itemize}
-		\item Concurrency Master-Slave 
-	\end{itemize}
+\subsubsection{Reasons for scalibility as a quality requirement}
+\begin{itemize}
+\item Scalability refers to a software's ability to handle increased workloads, thus scalibility is an important requirement due to the fact that a large volume of Resolve employees will be using the system possibly on the same time each each day (during lunch hour)  and hence the system needs to support all these users concurrently. 
+\item In saying this, the system must allow each user to order multiple items and process orders per user concurrently and efficiantly.
+\item With this, we can assume that there will be in excess of 500 users meaning that the system has to have the ability to handle at least 500 concurrent users at peak times and in a case where the amount of users increase drastically, small server side changes needs to be made with ease to handle more users if needed.
+\end{itemize}
+
+\subsubsection{Strategies to achieve this quality requirement}
+\begin{itemize}
+\item We will need to firstly ensure that existing resources are managed efficiently, i.e. reducing the load using efficient storage, processing,  and persistence (thus the server hosting the system should be effecient enough to handle the current amount of users and more). In addition, we will need to ensure that the load is spread across resources and time, using methods of load balancing to spread load across resources as well as using scheduling and queueing to spread load across time.
+\item Secondly, the resources can be scaled up by increasing storage, increasing processing power and increasing the capacity of communication channels (this can easily be done by increasing processing power, and storage space on the server that is hosting the system).
+\item Lastly, resources can be scaled out by means of using external resources, using commoditized resources and distributing tasks across specialized resources.
+\end{itemize}
+
+\subsubsection{Patterns to achieve these strategies}
+\begin{itemize}
+\item Concurrency Master-Slave 
+\end{itemize}
 We chose this pattern here due to the concurrency of the system, meaning that a large number of users must be able to access the system at a time.
 %\end{enumerate}
+
+
 \subsection{Nice-To-Have}
 	\begin{enumerate}
 		\item Performance
