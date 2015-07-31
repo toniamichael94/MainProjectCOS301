@@ -274,13 +274,7 @@ concept of incremental development - as you are busy building the system each as
 
 %%-------------NICE TO HAVE-----------------
 \subsection{Nice-To-Have}
-\begin{enumerate}
-	\item Performance. Performance refers to the behaviour of the system, meaning its response time and throughput - the number of operations performed per second. The cafeteria system should behave as expected and should not take long to respond. Some changes are important and should be reflected in a timely manner, for example, when an email is sent to a user who forget his/her password, when an employee id is changed, when an order is ready the user should be notified soon.
-	\item Flexibility. Flexibility refers to the ability of a system to respond in a time and cost efficient manner to internal or extarnal changes that affects the quality of its service. 
-	\item Maintainability. Maintainability refers to how easily the software can be modified to adapt to a new environment, fix bugs, and improve performance. Other developers should be able to add new features, bug fixes, and make changes without invensting a significant amount of time and effort. Users of the system should also be able to maintain it by making certain changes to the system. Some aspects of the cafeteria management system such as the branding, the colours, and the menu section needs to be configurable by a user. This is a desirable quality requirement to have as it means that the system can be changed, adapted, and improved, and thus be used for a longer time.
-\end{enumerate}
-Listed below are the nice to have quality requirements related to the Cafeteria Management System, these requirements are not considered as crutical but as desireble. \\
-
+Listed below are the nice to have quality requirements related to the Cafeteria Management System, these requirements are not considered as crutical but are considered as desireble. \\
 
 \begin{itemize}
 \subsubsection{Performance}
@@ -293,6 +287,7 @@ Listed below are the nice to have quality requirements related to the Cafeteria 
 \item  Maintainability refers to how easily the software can be modified to adapt to a new environment, fix bugs, and improve performance. Other developers should be able to add new features, bug fixes, and make changes without invensting a significant amount of time and effort. Users of the system should also be able to maintain it by making certain changes to the system. Some aspects of the cafeteria management system such as the branding, the colours, and the menu section needs to be configurable by a user. This is a desirable quality requirement to have as it means that the system can be changed, adapted, and improved, and thus be used for a longer time.
 \end{itemize}
 
+
 %% --------------------------------- ARCHITECTURE REQUIREMENTS ---------------------------------
 \section{Access and Integration Requirements}\
 
@@ -303,10 +298,14 @@ In this section we will discuss the requirements for the different channels thro
 
 %%------------------HUMAN ACCESS CHANNELS---------------
 \subsubsection{Human Access Channels}
-The Cafeteria Management System will be accessed by the different users via the online web page (web interface) or through the mobile application (if one is developed). The web interface will be accessible through all the standard web browsers such as Mozilla Firefox, Google Chrome and Microsoft Internet Explorer. The mobile application will be accessible on multiple platforms including the standard IOS/Anroid platforms. Different services will be available to different users. There are five types of users: Super User, Cafeteria Manager, Casher, Normal User, and Resolve Admin. These will be discussed below. \\
+The Cafeteria Management System will be accessed by the different users via the online web page (web interface) or through the mobile application. The web interface will be accessible through all the standard web browsers such as Mozilla Firefox, Google Chrome and Microsoft Internet Explorer. The mobile application will be accessible on multiple platforms including the standard IOS/Anroid platforms. Different services will be available to different users (According to their roles). There are six types of users: Super User, Cafeteria Manager, Casher, Normal User, finance and Admin user. These will be discussed below. \\
 
 \paragraph{Super User\\}
 The super user will be one of 2 administrative users that will have global access to all the functionality of the Cafeteria Management System, in particular the super user will have access to the branding of the Cafeteria Management system (changing the logo and so forth) and Administrative settings such as the ability to assign roles to users  . The super user will hence have access to all the functionality of all the other users listed below.
+
+\paragraph{Admin User\\}
+The admin user is the second administrative user which will serve as a backup for the super user. The admin user will have all the functionality that the super user has. 
+
 
 \paragraph{ Cafeteria Manager\\}
 The cafeteria manager will have the ability to view his/her own profile, edit his/her profile, and place orders. This user will also be able to add and edit menu items, view the orders placed by the users of the system, view the inventory, and add or remove inventory. 
@@ -317,8 +316,8 @@ The cashier will be able to view his/her profile, edit his/her profile, view the
 \paragraph{ Normal User\\}
 The normal user will be a Resolve employee registered on the Cafeteria Management System.  A normal user will only be able to view his/her profile, edit his/her profile, place orders, check if their order is ready, and view/print their balance reports and account history.
 
-\paragraph{ Admin User\\}
-The resolve admin user will be able to view all the registered users, their account history and their outsanding balances. This is for administrative and financial purposes . This role has been requested by the Resolve team.
+\paragraph{ Finance \\}
+The resolve admin user will be able to view all the registered users, their account history and their outsanding balances. This is for administrative and financial purposes . This role has been requested by the Resolve team (the client for this project).
 
 %%------------------SYSTEM ACCESS CHANNELS -----------------
 \subsubsection{System Access Channels}
@@ -336,8 +335,12 @@ The integration channels will also be accessable by the mobile applications, suc
 Integration with this protocol will occur at a high level and typically be handled by libraries or browser-clients etc.
 \textbf{To be used for:	}
 	\begin{itemize}
-	\item{All data transferred between users and the server on which the system is hosted.}
-	\item{Transfer of miscellaneous data such as HTTP error codes to ensure both servers and clients are aware of the state of data transfers and its results}
+	\item{All data transferred between users and the server on which the system is hosted, this will be done via the HTTP GET and 
+	         POST requests where we will request data from the database  to be displayed and post data to the database to be 
+		stored .}
+	\item{Transfer of miscellaneous data such as HTTP error codes to ensure both servers and clients are aware of the state of 	
+		data transfers and its results - in a case of an error we will configure the system to try and rectify the problem first then 
+		when no correction could be made the user will be notified accordingly }
 	\end{itemize}
 	
 \subsubsection{TCP - Transmission Control Protocol}
@@ -348,54 +351,58 @@ This protocol will be used to handle e-mail communication, specifically notifica
 
 %% ----------------ARCHITECTURE CONSTRAINTS-------------------------
 \subsection{Architecture Constraints}
+
 \subsubsection{Technologies}
 Technologies we will be using in the creation of the Cafeteria Management System includes the following: 
 
 \begin{itemize}
-  \item \textbf{HTML}: The Software system will be mainly web-based.
+ \item \textbf{HTML}: The Software system will be mainly web-based a large part will be made out of HTML5.
+ \item \textbf{JavaScript together with AngularJS  and NodeJS}: this will enable us to add extra functionality to our web page and modularise the system thus also helping us to implement dependency injection. For creating reports we can also import ReportingJS to create visually pleasing reports that is logically structured.
 
-  \item \textbf{JavaScript together with AngularJS  and NodeJS}: this will enable us to add extra functionality to our web page and modularise the system thus also helping us to implement dependency injection. For creating reports we can also import ReportingJS to create visually pleasing reports that is logically structured
+ \item \textbf{CSS together with BootStrap}: which will allow us to style our page and also make it responsive
 
- \item \textbf{CSS together with BootStrap}: which will allow us to style our page and also make it interactive.
-
- \item \textbf{Mongo DB}: MongoDB for our database which goes extremely well with NodeJS. 
+ \item \textbf{Mongo DB}: MongoDB which is an object oriented database and we will be using it as our database which goes 	
+extremely well with NodeJS. 
 
  \item \textbf{Express server}: will be set up as our server that will host the system.
 
+\item \textbf{MEAN stack}: The MEAN stack is a JavaScript solution that helps you  build fast, robust, and maintainable 	 production web applications using  MongoDB, Express, AngularJS, and 	 Node.js.
+
+
  \item \textbf{Phone gap}: Phone gap will be used to convert our web page into a usable application which will then look like the online webpage that will run like a web interface in the background but  will seem like a mobile application to the user that will be accessible from multiple platforms.
 
-\item \textbf{Git and GitHub}: A version control software and a repository website that will be used to host the source code of the Cafeteria Management System. Reasons for the use of Git is its ease of use and because it is free and open source. (http://git-scm.com/).
+\item \textbf{Git and GitHub}: A version control software and a repository website that will be used to host the source code of the Cafeteria Management System. Reasons for the use of Git is its ease of use and because it is free and open source.
+ \url{(http://git-scm.com/)}.
 
 \end{itemize}
 The above mentioned technologies will be our basis we will create our system on, but as we are busy building the Cafeteria Management System we will add other technologies as needed. 
 
 \subsubsection{Operating Systems}
-Since server side of the Cafeteria Management System will be an Express server which is based on JavaScript, the CMS server will be able to run on both Windows and Unix platforms, given that they both support JavaScript and NodeJS.\\
-\\
-The client side of the Cafeteria Management System will be able to run on almost all operating systems that can run a modern web browser such as Mozilla Firefox, Google Chrome or Internet Explorer (for example, Microsoft Windows, Apple Mac OSX or any distribution of Linux or BSD).
+The Cafeteria Management System will be able to run on all operating systems with a modern web browser such as Mozilla Firefox, Google Chrome or Internet Explorer installed given there is an internet connection, since the application will be hosted on a remote server, it can be accessed from anywhere in the world.
 
 \section{Architectural Patterns}
-		For the design of The Cafeteria Management System, two patterns are considered: the \textbf{MVC (Model-View-Controller) pattern} and the \textbf{Layering architectural pattern}. For concurrency, the \textbf{Master-Slave pattern} is used.\\
-		The top layers of the Model and the Controller are interfaces for the MVC architecture and the layers below provide the functionality.\\
-		MVC is considered because:
+For the design of The Cafeteria Management System, two patterns are considered: the \textbf{MVC (Model-View-Controller) pattern} and the \textbf{Layering architectural pattern}. For concurrency, the \textbf{Master-Slave pattern} is used.\\
+The top layers of the Model and the Controller are interfaces for the MVC architecture and the layers below provide the functionality.\\
+MVC is considered because:
+	\begin{itemize}
+	\item It provides modularity (i.e. the system's concerns are separated, thus easier to implement). (Solms, 2014)
+	\item It allows for better maintainability (one can maintain the Model, View and Controller separately). (Solms, 2014)				\item Testability (it is easier to test because of separated concerns, so the source of any problems are easy to identify). 	
+	(Solms, 2014)
+	\item Reuse (it is possible to take any component and reuse it where necessary). (Solms, 2014)
+	\end{itemize} 
+Layering allows the Cafeteria Management System to have pluggable layers, which will allow the developers to replace layers as needed.This pattern allows for: 
 		\begin{itemize}
-			\item It provides modularity (i.e. the system's concerns are separated, thus easier to implement). (Solms, 2014)
-			\item It allows for better maintainability (one can maintain the Model, View and Controller separately). (Solms, 2014)
-			\item Testability (it is easier to test because of separated concerns, so the source of any problems are easy to identify). (Solms, 2014)
-			\item Reuse (it is possible to take any component and reuse it where necessary). (Solms, 2014)
-		\end{itemize} 
-		Layering allows the Cafeteria Management System to have pluggable layers, which will allow the developers to replace layers as needed.
-		This pattern allows for: 
-		\begin{itemize}
-			\item Improved cohesion. (Solms, 2014)
-			\item Reduced complexity of the system. (Solms, 2014)
-			\item Improved testability (which will allow for easier debugging). (Solms, 2014)
-			\item Improved reuse and maintainability of the source code, because all the layers are individual and separate from one another. (Solms, 2014)
+		\item Improved cohesion. (Solms, 2014)
+		\item Reduced complexity of the system. (Solms, 2014)
+		\item Improved testability (which will allow for easier debugging). (Solms, 2014)
+		\item Improved reuse and maintainability of the source code, because all the layers are individual and separate from 	
+		one another. (Solms, 2014)
 		\end{itemize}
-		However, it should be mentioned that Layering has a performance overhead associated with it, as well as higher maintenance costs associated with the lower layers, because they impact the higher levels. (Solms, 2014). Given the benefits, however, the authors feel that the reduced performance and maintenance costs are a good compromise for reduced complexity and testability.\\
-		\\
-		For concurrency, the Master-Slave architectural pattern (Solms, 2014) is considered, because the system needs to accommodate a large number of users at a time.
+However, it should be mentioned that Layering has a performance overhead associated with it, as well as higher maintenance costs associated with the lower layers, because they impact the higher levels. (Solms, 2014). Given the benefits, however, the authors feel that the reduced performance and maintenance costs are a good compromise for reduced complexity and testability.\\
+\\
+For concurrency, the Master-Slave architectural pattern (Solms, 2014) is considered, because the system needs to accommodate a large number of users at a time.
 
+-------------------SUPORTING DOCUMENTATION -----------------------------
 \section{Other Supporting Documentation}
 
 On the GitHub repository the rest of the supporting documentation for the Cafeteria Management System can be found together with the actual implimentation of the work. \\\\
