@@ -245,7 +245,13 @@ We chose this pattern here due to the concurrency of the system, meaning that a 
 \subsection{Integrability}
 \subsubsection{Reasons for integrability as a quality requirement}
 \begin{itemize}
-\item  Integrability refers to how seperate components of the system work together. Different components of the cafeteria should work together correctly.
+\item  Integrability refers to how seperate components of the system work together. Different modules of the cafeteria management system are developed separately, for the system to work these components need to work together correctly. Many activities in the cafeteria management work together and it is important that the functions are performed correctly. For example, a user placing an order affects the inventory, and what is still available to order.
+\end{itemize}
+
+\subsubsection{Strategies to achieve this quality requirement}
+Integration testing is used to ensure that all the modules work together and loose coupling is achieved through dependency injection.
+\begin{itemize}
+\item 
 \end{itemize}
 
 %\item Integrability
@@ -267,21 +273,25 @@ concept of incremental development - as you are busy building the system each as
 \item Integration testing will also be conducted on both the client side and server side to ensure that all modules work together as expected.
 \end{itemize}
 
-
 %\end{enumerate}
-
-
 
 %%-------------NICE TO HAVE-----------------
 \subsection{Nice-To-Have}
 Listed below are the nice to have quality requirements related to the Cafeteria Management System, these requirements are not considered as crutical but are considered as desireble. \\
+
+\begin{enumerate}
+	\item Performance. Performance refers to the behaviour of the system, meaning its response time and throughput - the number of operations performed per second. The cafeteria system should behave as expected and should not take long to respond. Some changes are important and should be reflected in a timely manner, for example, when an email is sent to a user who forget his/her password, when an employee id is changed, when an order is ready the user should be notified soon.
+	\item Flexibility. Flexibility refers to the ability of a system to respond in a time and cost efficient manner to internal or extarnal changes that affects the quality of its service. The system should be able to increase or sustain the quality of its service when responding to these changes.
+	\item Maintainability. Maintainability refers to how easily the software can be modified to adapt to a new environment, fix bugs, and improve performance. Other developers should be able to add new features, bug fixes, and make changes without invensting a significant amount of time and effort. Users of the system should also be able to maintain it by making certain changes to the system. Some aspects of the cafeteria management system such as the branding, the colours, and the menu section needs to be configurable by a user. This is a desirable quality requirement to have as it means that the system can be changed, adapted, and improved, and thus be used for a longer time.
+\end{enumerate}
+
 
 \begin{itemize}
 \subsubsection{Performance}
 \item  Performance refers to the behaviour of the system, meaning its response time and throughput - the number of operations performed per second. The cafeteria system should behave as expected and should not take long to respond. Some changes are important and should be reflected in a timely manner, for example, when an email is sent to a user who forget his/her password, when an employee id is changed, when an order is ready the user should be notified soon.
 
 \subsubsection{Flexibility}
-\item  Flexibility refers to the ability of a system to respond in a time and cost efficient manner to internal or extarnal changes that affects the quality of its service. 
+\item  Flexibility refers to the ability of a system to respond in a time and cost efficient manner to internal or extarnal changes that affects the quality of its service. The system should be able to increase or sustain the quality of its service when responding to these changes.
 
 \subsubsection{Maintainability}
 \item  Maintainability refers to how easily the software can be modified to adapt to a new environment, fix bugs, and improve performance. Other developers should be able to add new features, bug fixes, and make changes without invensting a significant amount of time and effort. Users of the system should also be able to maintain it by making certain changes to the system. Some aspects of the cafeteria management system such as the branding, the colours, and the menu section needs to be configurable by a user. This is a desirable quality requirement to have as it means that the system can be changed, adapted, and improved, and thus be used for a longer time.
