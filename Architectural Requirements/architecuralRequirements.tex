@@ -18,11 +18,8 @@
 	Antonia Michael (13014171) \\
 	Isabel Nel (13070305)}
 
-
-
-
-
 \date{\today}
+
 
 %\documentclass[12pt]{article}
 
@@ -123,6 +120,9 @@ requirements, and architectural constraints. These points will be thouroughly di
  \end{itemize}
 
 \subsubsection{Pattern to achieve these strategies}
+\begin{itemize}
+ \item Layering
+\end{itemize}
 Layering can enforce security due to seperation into layers, in which different users have different levels of access to the layers, depending on their roles in the system
 Layering can be used within the subsections of MVC, i.e. the Control and Model layer can be layered to further divide concerns and restrict different users' access on those layers, providing tighter security.
 
@@ -139,10 +139,11 @@ Layering can be used within the subsections of MVC, i.e. the Control and Model l
  \begin{itemize}
  \item Various goals of usability requirements are firstly, that the that the interface is intuitive, i.e. easy to navigate and understand, that the buttons and icons are self explanatory for the primary users.
  \item The interface must also not be a cluttered, frustrating and overwhelming one. 
- \item Ease of learning is also an important goal here such that users who have never used such a system can catch on easily and such that users who regularly use other discussion boards will not get confused and displaced. 
+ \item Ease of learning is also an important goal, such that users who have never used such a system can catch on easily, for example users who have used applications which work on the same principle like an online shopping application (which most users would have some experience with in today's age) will find it easy to work with.
  \item The system must also be task efficient, i.e. if users access this space regularly, long tedious processes and other admin must be avoided.
 \item Also, the colour schemes, functionality and interactiveness of the interface and system must contribute to this task efficiency. 
-\item Different usability tests can be conducted such as handing out paper prototypes of different interface designs, and questionnaires getting feedback from the sample of people that were consulted in the survey. Problems with the different interfaces can be picked up during the usability testing phase, as indicated by the sample of users consulted, such that the final product will be much more user friendly. (http://www.usability.gov/what-and-why/usability-evaluation.html)
+\item Different usability tests can be conducted such as handing out paper prototypes of different interface designs, and questionnaires getting feedback from the sample of people that were consulted in the survey. Problems with the different interfaces can be picked up during the usability testing phase, as indicated by the sample of users consulted, such that the final product will be much more user friendly. \url{(http://www.usability.gov/what-and-why/usability-evaluation.html)}
+
  \end{itemize}
  \subsubsection{Patterns to achieve these strategies}
  \begin{itemize}
@@ -152,6 +153,8 @@ Layering can be used within the subsections of MVC, i.e. the Control and Model l
 MVC is a suitable pattern because the user will only need to interact with the front end interface, rather than dealing with the technical aspects of the back-end system. Another reason for this is that the developers allocated to working on the View will have the sole focus of making it usable.
 Layering can be used within the subsections of MVC, i.e. the Control and Model layer can be layered to further divide concerns and allow different people to work on those layers.
 
+
+%%-------------RELIABILITY------------------
 \subsection{Reliability}
 \subsubsection{Reasons for quality requirement}
 	\begin{itemize}
@@ -334,6 +337,11 @@ The client side of the Cafeteria Management System will be able to run on almost
 		However, it should be mentioned that Layering has a performance overhead associated with it, as well as higher maintenance costs associated with the lower layers, because they impact the higher levels. (Solms, 2014). Given the benefits, however, the authors feel that the reduced performance and maintenance costs are a good compromise for reduced complexity and testability.\\
 		\\
 		For concurrency, the Master-Slave architectural pattern (Solms, 2014) is considered, because the system needs to accommodate a large number of users at a time.
+
+\section{Other Supporting Documentation}
+
+On the GitHub repository the rest of the supporting documentation for the Cafeteria Management System can be found together with the actual implimentation of the work. \\\\
+ \url{https://github.com/toniamichael94/MainProjectCOS301}
 
 \newpage
 \section{Bibliography}

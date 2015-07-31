@@ -25,7 +25,7 @@
 \BOOKMARK [3][-]{subsubsection.6.5.2}{Strategies to achieve this quality requirement}{subsection.6.5}% 25
 \BOOKMARK [3][-]{subsubsection.6.5.3}{Patterns to achieve these strategies}{subsection.6.5}% 26
 \BOOKMARK [2][-]{subsection.6.6}{Nice-To-Have}{section.6}% 27
-\BOOKMARK [1][-]{section.7}{Integration Requirements}{}% 28
+\BOOKMARK [1][-]{section.7}{Access and Integration Requirements}{}% 28
 \BOOKMARK [2][-]{subsection.7.1}{Access Channel Requirements}{section.7}% 29
 \BOOKMARK [3][-]{subsubsection.7.1.1}{Human Access Channels}{subsection.7.1}% 30
 \BOOKMARK [3][-]{subsubsection.7.1.2}{System Access Channels}{subsection.7.1}% 31
@@ -37,4 +37,5 @@
 \BOOKMARK [3][-]{subsubsection.7.3.1}{Technologies}{subsection.7.3}% 37
 \BOOKMARK [3][-]{subsubsection.7.3.2}{Operating Systems}{subsection.7.3}% 38
 \BOOKMARK [1][-]{section.8}{Architectural Patterns}{}% 39
-\BOOKMARK [1][-]{section.9}{Bibliography}{}% 40
+\BOOKMARK [1][-]{section.9}{Other Supporting Documentation}{}% 40
+\BOOKMARK [1][-]{section.10}{Bibliography}{}% 41
