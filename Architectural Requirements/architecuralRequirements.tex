@@ -282,11 +282,15 @@ concept of incremental development - as you are busy building the system each as
 	\item Flexibility. Flexibility refers to the ability of a system to respond in a time and cost efficient manner to internal or extarnal changes that affects the quality of its service. The system should be able to increase or sustain the quality of its service when responding to these changes.
 	\item Maintainability. Maintainability refers to how easily the software can be modified to adapt to a new environment, fix bugs, and improve performance. Other developers should be able to add new features, bug fixes, and make changes without invensting a significant amount of time and effort. Users of the system should also be able to maintain it by making certain changes to the system. Some aspects of the cafeteria management system such as the branding, the colours, and the menu section needs to be configurable by a user. This is a desirable quality requirement to have as it means that the system can be changed, adapted, and improved, and thus be used for a longer time.
 \end{enumerate}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/phase3
 Listed below are the nice to have quality requirements related to the Cafeteria Management System, these requirements are not considered as crutical but as desireble. \\
 
-\subsubsection{Performance}
+
 \begin{itemize}
+\subsubsection{Performance}
 \item  Performance refers to the behaviour of the system, meaning its response time and throughput - the number of operations performed per second. The cafeteria system should behave as expected and should not take long to respond. Some changes are important and should be reflected in a timely manner, for example, when an email is sent to a user who forget his/her password, when an employee id is changed, when an order is ready the user should be notified soon.
 
 \subsubsection{Flexibility}
@@ -309,7 +313,7 @@ In this section we will discuss the requirements for the different channels thro
 The Cafeteria Management System will be accessed by the different users via the online web page (web interface) or through the mobile application (if one is developed). The web interface will be accessible through all the standard web browsers such as Mozilla Firefox, Google Chrome and Microsoft Internet Explorer. The mobile application will be accessible on multiple platforms including the standard IOS/Anroid platforms. Different services will be available to different users. There are five types of users: Super User, Cafeteria Manager, Casher, Normal User, and Resolve Admin. These will be discussed below. \\
 
 \paragraph{Super User\\}
-The super user will be the only administrative user that will have global access to all the functionality of the Cafeteria Management System, in particular the Super User will have access to the branding of the Cafeteria Management system (changing the logo and so forth) . The super user will hence have access to all the functionality of all the other users listed below.
+The super user will be one of 2 administrative users that will have global access to all the functionality of the Cafeteria Management System, in particular the super user will have access to the branding of the Cafeteria Management system (changing the logo and so forth) and Administrative settings such as the ability to assign roles to users  . The super user will hence have access to all the functionality of all the other users listed below.
 
 \paragraph{ Cafeteria Manager\\}
 The cafeteria manager will have the ability to view his/her own profile, edit his/her profile, and place orders. This user will also be able to add and edit menu items, view the orders placed by the users of the system, view the inventory, and add or remove inventory. 
@@ -320,7 +324,7 @@ The cashier will be able to view his/her profile, edit his/her profile, view the
 \paragraph{ Normal User\\}
 The normal user will be a Resolve employee registered on the Cafeteria Management System.  A normal user will only be able to view his/her profile, edit his/her profile, place orders, check if their order is ready, and view/print their balance reports and account history.
 
-\paragraph{ Resolve Admin\\}
+\paragraph{ Admin User\\}
 The resolve admin user will be able to view all the registered users, their account history and their outsanding balances. This is for administrative and financial purposes . This role has been requested by the Resolve team.
 
 %%------------------SYSTEM ACCESS CHANNELS -----------------
@@ -407,9 +411,9 @@ On the GitHub repository the rest of the supporting documentation for the Cafete
 \newpage
 \section{Bibliography}
 		\begin{itemize}
-			\item \textit{Basic MVC Architecture}. [Online]. Available: <http://www.tutorialspoint.com/struts\_2/basic\\\_mvc\_architecture.htm> [Accessed 5 March 2015].
+			\item \textit{Basic MVC Architecture}. [Online]. Available: <http://www.tutorialspoint.com/struts\_2/\\basic\_mvc\_architecture.htm> [Accessed 5 March 2015].
 			
-			\item Beal, V. n.d. \textit{Linux Server}. [Online]. Available: <http://www.webopedia.com/TERM/L/linux\_\\server.html> [Accessed 10 March 2015].
+			\item Beal, V. n.d. \textit{Linux Server}. [Online]. Available: <http://www.webopedia.com/TERM/L/\\linux\_server.html> [Accessed 10 March 2015].
 
 			\item Bien, A. 2009. \textit{9 Reasons Why Java EE 6 Will Save Real Money - Or How To Convince Your Management}. [Online]. Available: <http://www.adam-bien.com/roller/abien/entry/\\8\_reasons\_why\_java\_ee> [Accessed 10 March 2015].
 
@@ -420,7 +424,7 @@ On the GitHub repository the rest of the supporting documentation for the Cafete
 
 			\item \textit{Git --loval-branding-on-the-cheap}. [Online]. Available: <http://git-scm.com/> [Accessed 10 March 2015].
 
-			\item \textit{JavaServer Faces Technology}. [Online]. Available: <http://www.oracle.com/technetwork/java/javaee/javaserverfaces-139869.html> [Accessed 10 March 2015].
+			\item \textit{JavaServer Faces Technology}. [Online]. Available: <http://www.oracle.com/technetwork/\\java/javaee/javaserverfaces-139869.html> [Accessed 10 March 2015].
 
 			\item Kabanov, J. 2011. \textit{Ed Burns on Why JSF is the Most Popular Framework}. [Online]. Available: <http://zeroturnaround.com/rebellabs/ed-burns-on-why-jsf-is-the-most-popular-framework/> [Accessed 10 March 2015].
 			\item Meyers, J. 1999. \textit{SMTP Service Extension for Authentication} [Online]. Available: <http://tools.ietf.org/html/rfc2554> [Accessed 9 March 2015]
@@ -431,9 +435,9 @@ On the GitHub repository the rest of the supporting documentation for the Cafete
 			
 			\item \textit{Software Engineering}. [Online]. Available: <http://sesolution.blogspot.com/p/software-engineering-layered-technology.html>[Accessed 5 March 2015].
 								
-			\item Solms, F. 2014. \textit{Software Architecture Desgin.} [Online]. University of Pretoria: Pretoria. Available: <http://www.cs.up.ac.za/modules/courses/download.php?id=8565> [Accessed 9 March 2015].
+			\item Solms, F. 2014. \textit{Software Architecture Desgin.} [Online]. University of Pretoria: Pretoria. Available: <http://www.cs.up.ac.za/modules/courses/download.php?\\id=8565> [Accessed 9 March 2015].
 			
-			\item Solms, F. 2015. \textit{Java Persistence API (JPA).} [Online]. University of Pretoria: Pretoria. Available: <http://www.cs.up.ac.za/modules/courses/download.php?id=8640> [Accessed 7 March 2015].
+			\item Solms, F. 2015. \textit{Java Persistence API (JPA).} [Online]. University of Pretoria: Pretoria. Available: <http://www.cs.up.ac.za/modules/courses/download.php?\\id=8640> [Accessed 7 March 2015].
 			
 			\item \textit{SQL Server 2008 R2 Express Database Size Limit Increased to 10GB}. [Online]. Available: <http://blogs.msdn.com/b/sqlexpress/archive/2010/04/21/database-size-limit-increased-to-10gb-in-sql-server-2008-r2-express.aspx> [Accessed 9 March 2015].
 			
