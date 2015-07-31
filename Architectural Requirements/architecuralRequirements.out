@@ -24,21 +24,26 @@
 \BOOKMARK [3][-]{subsubsection.6.5.1}{Reasons for scalibility as a quality requirement}{subsection.6.5}% 24
 \BOOKMARK [3][-]{subsubsection.6.5.2}{Strategies to achieve this quality requirement}{subsection.6.5}% 25
 \BOOKMARK [3][-]{subsubsection.6.5.3}{Patterns to achieve these strategies}{subsection.6.5}% 26
-\BOOKMARK [2][-]{subsection.6.6}{Testebility}{section.6}% 27
-\BOOKMARK [3][-]{subsubsection.6.6.1}{Reasons for testebility as a quality requirement}{subsection.6.6}% 28
-\BOOKMARK [3][-]{subsubsection.6.6.2}{Strategies to achieve this quality requirement}{subsection.6.6}% 29
-\BOOKMARK [2][-]{subsection.6.7}{Nice-To-Have}{section.6}% 30
-\BOOKMARK [1][-]{section.7}{Access and Integration Requirements}{}% 31
-\BOOKMARK [2][-]{subsection.7.1}{Access Channel Requirements}{section.7}% 32
-\BOOKMARK [3][-]{subsubsection.7.1.1}{Human Access Channels}{subsection.7.1}% 33
-\BOOKMARK [3][-]{subsubsection.7.1.2}{System Access Channels}{subsection.7.1}% 34
-\BOOKMARK [2][-]{subsection.7.2}{Protocols}{section.7}% 35
-\BOOKMARK [3][-]{subsubsection.7.2.1}{HTTP - Hypertext Transfer Protocol}{subsection.7.2}% 36
-\BOOKMARK [3][-]{subsubsection.7.2.2}{TCP - Transmission Control Protocol}{subsection.7.2}% 37
-\BOOKMARK [3][-]{subsubsection.7.2.3}{SMTP - Simple Mail Transfer Protocol}{subsection.7.2}% 38
-\BOOKMARK [2][-]{subsection.7.3}{Architecture Constraints}{section.7}% 39
-\BOOKMARK [3][-]{subsubsection.7.3.1}{Technologies}{subsection.7.3}% 40
-\BOOKMARK [3][-]{subsubsection.7.3.2}{Operating Systems}{subsection.7.3}% 41
-\BOOKMARK [1][-]{section.8}{Architectural Patterns}{}% 42
-\BOOKMARK [1][-]{section.9}{Other Supporting Documentation}{}% 43
-\BOOKMARK [1][-]{section.10}{Bibliography}{}% 44
+\BOOKMARK [2][-]{subsection.6.6}{Integrability}{section.6}% 27
+\BOOKMARK [3][-]{subsubsection.6.6.1}{Reasons for integrability as a quality requirement}{subsection.6.6}% 28
+\BOOKMARK [2][-]{subsection.6.7}{Testebility}{section.6}% 29
+\BOOKMARK [3][-]{subsubsection.6.7.1}{Reasons for testebility as a quality requirement}{subsection.6.7}% 30
+\BOOKMARK [3][-]{subsubsection.6.7.2}{Strategies to achieve this quality requirement}{subsection.6.7}% 31
+\BOOKMARK [2][-]{subsection.6.8}{Nice-To-Have}{section.6}% 32
+\BOOKMARK [3][-]{subsubsection.6.8.1}{Performance}{subsection.6.8}% 33
+\BOOKMARK [3][-]{subsubsection.6.8.2}{Flexibility}{subsection.6.8}% 34
+\BOOKMARK [3][-]{subsubsection.6.8.3}{Maintainability}{subsection.6.8}% 35
+\BOOKMARK [1][-]{section.7}{Access and Integration Requirements}{}% 36
+\BOOKMARK [2][-]{subsection.7.1}{Access Channel Requirements}{section.7}% 37
+\BOOKMARK [3][-]{subsubsection.7.1.1}{Human Access Channels}{subsection.7.1}% 38
+\BOOKMARK [3][-]{subsubsection.7.1.2}{System Access Channels}{subsection.7.1}% 39
+\BOOKMARK [2][-]{subsection.7.2}{Protocols}{section.7}% 40
+\BOOKMARK [3][-]{subsubsection.7.2.1}{HTTP - Hypertext Transfer Protocol}{subsection.7.2}% 41
+\BOOKMARK [3][-]{subsubsection.7.2.2}{TCP - Transmission Control Protocol}{subsection.7.2}% 42
+\BOOKMARK [3][-]{subsubsection.7.2.3}{SMTP - Simple Mail Transfer Protocol}{subsection.7.2}% 43
+\BOOKMARK [2][-]{subsection.7.3}{Architecture Constraints}{section.7}% 44
+\BOOKMARK [3][-]{subsubsection.7.3.1}{Technologies}{subsection.7.3}% 45
+\BOOKMARK [3][-]{subsubsection.7.3.2}{Operating Systems}{subsection.7.3}% 46
+\BOOKMARK [1][-]{section.8}{Architectural Patterns}{}% 47
+\BOOKMARK [1][-]{section.9}{Other Supporting Documentation}{}% 48
+\BOOKMARK [1][-]{section.10}{Bibliography}{}% 49

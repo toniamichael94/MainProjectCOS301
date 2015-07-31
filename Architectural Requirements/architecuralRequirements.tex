@@ -240,6 +240,16 @@ that alters the system in any way.
 We chose this pattern here due to the concurrency of the system, meaning that a large number of users must be able to access the system at a time.
 %\end{enumerate}
 
+%%-------------INTEGRABILITY------------------
+%\item Integrability
+\subsection{Integrability}
+\subsubsection{Reasons for integrability as a quality requirement}
+\begin{itemize}
+\item  Integrability refers to how seperate components of the system work together. Different components of the cafeteria should work together correctly.
+\end{itemize}
+
+%\item Integrability
+
 
 %%-------------TESTEBILITY------------------
 %\item Testebility
@@ -247,7 +257,7 @@ We chose this pattern here due to the concurrency of the system, meaning that a 
 \subsubsection{Reasons for testebility as a quality requirement}
 \begin{itemize}
 \item  It is important to ensure that a software system is adequately tested at various levels. In other words, testing is based on the 
-concept of incremental development - as you are busy building the system each aspect needs to be thourougly tested to ensure the functionality works correctly, before you move on to build the next step - this will make sure that at all times the software is functional with very little flaws (those flaws can refer to logical mistakes and possible untested sections still being build).
+concept of incremental development - as you are busy building the system each aspect needs to be thourougly tested to ensure the functionality works correctly, before you move on to build the next step - this will make sure that at all times the software is functional with very little flaws (those flaws can refer to logical mistakes and possible untested sections still being built).
 \item Testing a system goes hand in hand with other quality requirements such as maintainability, reliability and security. All the quality requirements works together to ensure a product of high quality gets produced at the end of the project.
 \end{itemize}
 
@@ -260,14 +270,22 @@ concept of incremental development - as you are busy building the system each as
 
 %\end{enumerate}
 
+
+
 %%-------------NICE TO HAVE-----------------
 \subsection{Nice-To-Have}
-\begin{enumerate}
-	\item Performance
-	\item Integrability
-	\item Flexibility
-	\item Maintainability
-\end{enumerate}
+Listed below are the nice to have quality requirements related to the Cafeteria Management System, these requirements are not considered as crutical but as desireble. \\
+
+\subsubsection{Performance}
+\begin{itemize}
+\item  Performance refers to the behaviour of the system, meaning its response time and throughput - the number of operations performed per second. The cafeteria system should behave as expected and should not take long to respond. Some changes are important and should be reflected in a timely manner, for example, when an email is sent to a user who forget his/her password, when an employee id is changed, when an order is ready the user should be notified soon.
+
+\subsubsection{Flexibility}
+\item  Flexibility refers to the ability of a system to respond in a time and cost efficient manner to internal or extarnal changes that affects the quality of its service. 
+
+\subsubsection{Maintainability}
+\item  Maintainability refers to how easily the software can be modified to adapt to a new environment, fix bugs, and improve performance. Other developers should be able to add new features, bug fixes, and make changes without invensting a significant amount of time and effort. Users of the system should also be able to maintain it by making certain changes to the system. Some aspects of the cafeteria management system such as the branding, the colours, and the menu section needs to be configurable by a user. This is a desirable quality requirement to have as it means that the system can be changed, adapted, and improved, and thus be used for a longer time.
+\end{itemize}
 
 %% --------------------------------- ARCHITECTURE REQUIREMENTS ---------------------------------
 \section{Access and Integration Requirements}\
