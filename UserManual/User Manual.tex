@@ -68,28 +68,41 @@
 The Cafeteria Management System is a system designed to assist users with efficiently ordering food from a cafeteria online and being notified when their order is done. The system will also assist cafeteria staff with dealing with orders in real time as well as managing inventory. The system will also assist in branding configeration of the cafeteria The system is intended to be used in a corporate environment whereby users have the option to charge their cafeteria expenses to their salary or immediately pay for orders. In addition, the system will allow management to view expense reports of different users. All users will also be able to access their history, set faveroutes and other similar functionality which will all be explained in this user manual.
 
 \section{System Configuration}
-The system requires a Windows/Unix based host to run the server. This host must have NodeJS and MongoDB installed. In addition, the host must be connected to the internet in order to allow any required dependencies to be installed and set up for the operating system environment. The configuration of the server requires an active E-mail account to facilitate communication between the system and end users. Interaction with this host will be achieved using a standard mouse and keyboard as well as a monitor.\\
+The system requires a Windows/Unix based host to run the server. This host must have NodeJS, MongoDB, Express server, Bower and grunt  installed on it (all of the mentioned thechnologies will be described step by step how to be installed in the next section). In addition, the host must be connected to the internet in order to allow any required dependencies to be installed and set up for the operating system environment. The configuration of the server requires an active e-mail account to facilitate communication between the system and end users. Interaction with this host will be achieved using a standard mouse and keyboard as well as a monitor.\\ 
 \\
-End users will only require a PC equipped with a web browser and an active internet connection.
+End users will only require a PC equipped with a modern web browser and an active internet connection.
 
 \section{Installation}
 \subsection{Prerequisites}
 The Cafeteria Management System requires NodeJS and MongoDB to run. These are free and open source software and can be obtained from the following sites:\\
 \url{https://nodejs.org/download/} \\
 \url{https://www.mongodb.org/downloads} \\
-The applications are available for both Windows and Unix environments and include setup guides on their respective sites.\\
+The applications are available for both Windows and Unix environments and include setup guides on their respective web pages.\\
 
-Once installed, NodeJS includes a package manager called NPM. This package manager will be available from the terminal and will be used to install all dependencies. The following dependencies have to be installed first:
+Once installed, NodeJS includes a package manager called NPM. This package manager will be available from the terminal and will be used to install all dependencies. The following dependencies have to be installed first (Run these commands one by one in the command prompt or terminal):
 \begin{verbatim}
 $npm install -g bower
 $npm install -g grunt-cli
 \end{verbatim}
 
+
+After these commands have sucessfully installed the respective applications you can download the Cafeteria Management Software from the GitHub repository :
+ \url{https://github.com/toniamichael94/MainProjectCOS301}
+\\ \\
+This can be done by cloning the repositry onto a remote location on your PC, if you do not know how to clone a GitHub repository, please visit:\\
+  \url{https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository}  under the section "How to clone an existing repository" you will find the GitHub documentation on how to do this.
+\\
+Once you have cloned the GitHub repository and installed the above mentioned techmologies, please move on to the next section , which will take you step by step in configering the Cafeteria Management System (CMS).
+\\ \\
+{\em Please note that 'CMS' will be refered to in the rest of this document as an abbriviation for the Cafeteria Management System}
+
 \subsection{Setting up CMS}
 Before starting the system, an email account has to be set up to facilitate communication between the system and end users. The details of this account can be configured in the following config file:
 \begin{verbatim}
-	~/Cafeteria Management System/config/env/production.js
+	~/Cafeteria_Management_System/config/env/production.js
 \end{verbatim} 
+{\em (The document can be opened in any text editor or IDE  such as NetBeans, WebStorm or atom - just to name a few )}
+\\ \\
 Under the section 'Mailer', the following fields should be specified:\\
 \begin{itemize}
 \item MAIELR\textunderscore FROM: A name indicating the sender of mail.
@@ -99,18 +112,21 @@ Under the section 'Mailer', the following fields should be specified:\\
 \end{itemize}
 
 
-In a terminal/command prompt, navigate to the CMS directory and execute the 'npm install' command. This will install all the packages required to run the system:
+In a terminal/command prompt, navigate to the CMS directory and execute the 'npm install' command. This will install all the packages required to run the system: 
+
+
 \begin{verbatim}
-~/Cafeteria Management System$ npm install
+~/  Cafeteria_Management_System/ $npm install
 \end{verbatim}
 
-If all dependencies were installed successfully, then MongoDB can be started with the following command:
+If all dependencies were installed successfully, then MongoDB can be started with the following command in a completely new terminal or command prompt:
 \begin{verbatim}
 ~/$mongod --dbpath "directory"
 \end{verbatim}
 
-Where directory is a path to the folder which Mongo will use as a working directory.\\
-{\em Note that this command has to be executed in a separate terminal.}\\
+Where "directory"  is a path to the folder which Mongo will use as a working directory.\\ \\
+{\em Remember that this command has to be executed in a separate terminal.}\\ \\
+Below is an example of what the output should look like :
 
 \begin{figure}[H]
   \centering
@@ -118,10 +134,12 @@ Where directory is a path to the folder which Mongo will use as a working direct
     \caption{MongoDB Terminal - Expected output when running MongoDB} 
 \end{figure}
 
-Once mongo has been started, the CMS server can be started with the following command:\\
+Once mongo has been started, the CMS server can be started with the following command:\\ \\
+
+
 
 \begin{verbatim}
-~/Cafeteria Management System$ grunt
+~/Cafeteria_Management_System/$ grunt
 \end{verbatim}
 
 \begin{figure}[H]
@@ -130,7 +148,9 @@ Once mongo has been started, the CMS server can be started with the following co
     \caption{Grunt - When grunt is running, output should be similar to this.} 
 \end{figure}
 
-Note: Inside the browser one will run localhost:3000 to view the system.
+
+Now the Server and the Database is running and we can get started with the rest of the setup process. \\
+Note: Inside the browser one will run localhost:3000 to view  system.
 
 \section{Getting Started}
 Access to the Cafeteria Management System is through a standard web browser. Different types of users have access to different facets of the system. The system has a default Superuser account which can assign different roles (cafeteria manager, cashier, etc.) to the users. These users can then sign in to access the facet of the system they are authorised to.\\
