@@ -55,7 +55,7 @@ angular.module('orders').config(['$stateProvider',
        templateUrl: 'modules/orders/views/menu/menu-drinks.html'
     }).
 		state('dailySpecials', {
-       url: '/menu/daylySpecials',
+       url: '/menu/dailySpecials',
        templateUrl: 'modules/orders/views/menu/menu-specialOfTheDay.html'
     }).
 		//-----------------end of menu page routes

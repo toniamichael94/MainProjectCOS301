@@ -20,6 +20,7 @@
 
 \date{\today}
 
+
 %\documentclass[12pt]{article}
 
 \begin{document}
@@ -34,13 +35,13 @@
  \hline
  \textbf{Document Title} & Architectural Specification Document \\
  \hline
- \textbf{Document Identification}  & Document 0.0.1  \\
+ \textbf{Document Identification}  & Document 0.0.2 \\
  \hline
  \textbf{Author}  & Rendani Dau, Isabel Nel, Elana Kuun, Semaka Malapane, Antonia Michael \\
  \hline
- \textbf{Version} & 0.0.1 \\
+ \textbf{Version} & 0.0.2\\
  \hline
- \textbf{Document Status} & First Version - contains architectural requirements  \\
+ \textbf{Document Status} & Second Version - contains edited architectural requirements  \\
  \hline
  \end{tabu}
 
@@ -50,7 +51,9 @@
  \hline
  \textbf{Version} & \textbf{Date} & \textbf{Summary} & \textbf{Authors} \\ [0.5ex] 
  \hline\hline
- 0.0.1 & 29 May 2015 & First draft contains architectural requirements & Rendani Dau, \\ & & & Isabel Nel, \\ & & & Elana Kuun, \\ & & & Semaka Malapane, \\ & & & Antonia Michael \\   [1ex] 
+ 0.0.1 & 29 May 2015 & First draft & Rendani Dau, \\ & & contains & Isabel Nel, \\ & & architectural & Elana Kuun, \\ & & requirements & Semaka Malapane, \\ & & & Antonia Michael \\   [1ex] 
+ \hline\hline
+ 0.0.2 & 30 July 2015 & Second draft & Rendani Dau, \\ & & contains edited & Isabel Nel, \\ & & architectural & Elana Kuun, \\ & & requirements & Semaka Malapane, \\ & & & Antonia Michael \\   [1ex] 
  \hline
  \end{tabular}
 \end{table}
@@ -65,53 +68,87 @@ This document contains the architectural requirements for the Resolve Cafeteria 
 
 %% ------------------------------ VISION ------------------------------------------------------
 \section{Vision}
-The vision of this project is to implement a flexible, pluggable, fully functional software application that will be maintainable, with detailed supporting documentation and an instruction manual for the Cafeteria Management System. This system will assist in managing the cafeteria's inventory/stock, executing orders from the cafeteria, generating bills and sending these to the appropriate parties and facilitating payments for access cards (or the use of unique access card numbers). 
+The vision of this project is to implement a fully functional software application that will be maintainable, with detailed supporting documentation and an instruction manual for the Cafeteria Management System. This system will, amongst others, assist in executing orders from the cafeteria, managing the cafeteria's inventory, generating bills, and perform various reporting tasks. 
 
 %%---------------------------------- BACKGROUND -----------------------------------------
 \section{Background}
-As specified in the project proposal document from Resolve - the cafeteria is currently cash only and does not accept bank cards or electronic payments. This makes it inconvenient for employees as they have to carry around cash if they want to purchase anything from the cafeteria. Hence, this is equivalent to purchasing from an external food outlet where they can also pay with their preferred method of payment. The employees have to hence use up fuel and time and lastly this does not bring in the maximum amount of income to the cafeteria, hindering its growth and improvement.\\
+As specified in the project proposal document from Resolve, the cafeteria is currently cash only and does not accept bank cards or electronic payments. This makes it inconvenient for employees as they have to carry around cash if they want to purchase anything from the cafeteria. Employees may choose to go to an external food outlet where they can pay with their preferred method of payment, which uses time and fuel. Lastly, this means the cafeteria does not achieve the maximum amount of income which hinders its growth and improvement.\\
 
-Resolve is therefore looking for a means to accept payments from employees for the canteen using their employee access cards or access card numbers, with an amount being deducted from their salary at the end of the month.\\
+Resolve is therefore looking for a means to accept payments from employees  using their employee access cards or access card numbers, with an amount being deducted from their salary at the end of the month.\\
 
 Resolve proposed the Cafeteria Management System to assist with this problem.
-After our first meeting with the client, they brought to our attention that at times the cafeteria does not even have enough stock to provide some of the menu items, thus the managing of inventory or stock will also be part of the system. The system will also predict what inventory/stock needs to be bought for the next week in order to avoid such a problem. At the end of each month, the bill for the month will be sent to either payroll or to the employee. This option is configurable from the user's profile. The employee can also set a spending limit for each month for control purposes. The system will have its own maximum, such that users cannot set a limit that exeeds this. 
+After our first meeting with the client, they brought to our attention that at times the cafeteria does not have enough stock to provide some of the menu items, thus managing the inventory will also be part of the system. The system will predict which inventory items needs to be bought for the next week in order to avoid such a problem. At the end of each month, the bill for the month will be sent to either payroll or to the employee, or both. This option is configurable from the user's profile. The employee can also set a spending limit for each month. There will also be a system wide limit that users cannot exceed.
 
-\section{Architecture Requirementss}
+\section{Architecture Requirements}
 The software architecture requirements include the access and integration requirements, quality
-requirements, and architectural constraints. These points will be thouroughly discussed below.
+requirements, and architectural constraints. These points will be thoroughly discussed below.
 
 %%---------------------------------- ARCHITECTURAL RESPONSIBILITIES----------------------------
 \section{Architectural Responsibilities}
 \begin{itemize}
-\item The system must allow a user to view the menu without being logged in
-\item The system must allow a user to select items from the menu and proceed to place the order
-\item The system should notify the user when their order is ready
-\item The system should send a bill to payroll or the user  once a month
-\item The system should allow a user to manage their profile by editing their password, email and limit
-\item The system should provide for multiple deployment
-\item The system must be usable, scalable, reliable and auditable
+
+\item The system must allow a user to view the menu without being logged in.
+\item The system must allow a user to select items from the menu and place an order.
+\item The system should not process an order unless a user is logged in.
+\item On placement of an order the system should send the order details to the cashier.
+\item The system should notify the user when their order is ready.
+\item The system should send a bill to payroll, the user, or both once a month (depending on the preference of the user).
+\item The system should allow a user to manage their profile by editing their personal details, password, financial preferences, and spending limit
+\item The system should allow configuration and branding by a superuser or an admin user.
+\item The system should have the functionality to manage the inventory and the cafeteria (such as the items on the menu).
+\item The system should provide cashier functionality.
+\item The system should provide for multiple deployment.
+\item The system must be usable, scalable, reliable, and auditable.
+
 \end{itemize}
 
-%% ---------  QUALITY REQUIREMENTS -----------------------
+%% ---------------------------------  QUALITY REQUIREMENTS -------------------------------------
 \section{Quality Requirements}
 
+%%--------------SECURITY------------------
 \subsection{Security}
 
-\subsection{Usability}
- \subsubsection{Reasons for quality requirements}
+\subsubsection{Reasons for security as a quality requirement}
  \begin{itemize}
- \item Since the users of the cafeteria system will be in different divisions within the company and have different technological skill levels, it should not be hard for new users to become familiarized with the system
- \item Due to the fact that Resolve has not had such a system in place before, the novice user would not have had exposure to such a system therefore the system should also be rememberable hence it must also be understandable. 
-	\item It should take at most 30 minutes for an average user to be familiar with the system
+ \item Security is one of the most important requirements for the Cafeteria Management System. Using the system involves storing confidential details such as personal e-mail addresses, employee IDs, and financial information. The amount the user spends will be deducted from his/her salary, therefore the user must have full control over the amount they can spend. This will be implemented by letting the user set a maximum limit for each month.  
+\item There are also super user and admin user roles. Users with these roles have certain functionality assigned to them. These users have access to confidential details of the users and the cafeteria. Other users must not be able to access any functionality besides the functionality assigned to their respective roles. Hence, security is of utmost importance.
+ \end{itemize}
+
+ \subsubsection{Strategies to achieve this quality requirement}
+ \begin{itemize}
+ \item Detecting attacks by determining message integrity, event logging and analysis, scanning for attack signatures and auditing sensitive events (Solms, 2014).
+\item Resisting attacks by limiting access and exposure. This can be done by minimizing access channels, minimizing access domains, authentication, confidentiality, assuming external resources as untrusted, minimizing hosting of external resources, additional security layers for valuables. (Solms, 2014).
+\item Recovering from attacks by dropping connections and requests. In addition, updating access rules and restoring states.(Solms, 2014).
+ \end{itemize}
+
+\subsubsection{Pattern to achieve these strategies}
+\begin{itemize}
+ \item Layering
+\end{itemize}
+<<<<<<< HEAD
+Layering can enforce security due to separation into layers, in which different users have different levels of access to the layers, depending on their roles in the system
+=======
+Layering can enforce security due to seperation into layers in which different users have different levels of access to the layers depending on their roles in the system.
+>>>>>>> 9dd3e3002c13a292df5dd40b40f6dd1c9ba144a2
+Layering can be used within the subsections of MVC, i.e. the Control and Model layer can be layered to further divide concerns and restrict different users' access on those layers, providing tighter security.
+
+%%-------------USABILITY------------------
+\subsection{Usability}
+
+ \subsubsection{Reasons for usability as a quality requirement}
+ \begin{itemize}
+ \item Usability involves measuring users' performance with regard to the use of a software system. The users of the cafeteria management system will have different technological skill levels, therefore the system has to be user friendly in all aspects and it should not be hard for new users to become familiarized with the system.
+
  \end{itemize}
  \subsubsection{Strategies to achieve this quality requirement}
  \begin{itemize}
- \item Various goals of usability requirements are firstly, that the that the interface is intuitive, i.e. easy to navigate and understand, that the buttons and icons are self explanatory for the primary users.
+ \item Various goals of usability requirements are firstly, that the interface is intuitive, i.e. easy to navigate and understand, that the buttons and icons are self explanatory for the primary users.
  \item The interface must also not be a cluttered, frustrating and overwhelming one. 
- \item Ease of learning is also an important goal here such that users who have never used such a system can catch on easily and such that users who regularly use other discussion boards will not get confused and displaced. 
+ \itemEase of learning is also an important goal. Users who are unfamiliar with the system, but who have used similar systems in the past, should find the system easy to work with.
  \item The system must also be task efficient, i.e. if users access this space regularly, long tedious processes and other admin must be avoided.
 \item Also, the colour schemes, functionality and interactiveness of the interface and system must contribute to this task efficiency. 
-\item Different usability tests can be conducted such as handing out paper prototypes of different interface designs, and questionnaires getting feedback from the sample of people that were consulted in the survey. Problems with the different interfaces can be picked up during the usability testing phase, as indicated by the sample of users consulted, such that the final product will be much more user friendly. (http://www.usability.gov/what-and-why/usability-evaluation.html)
+\item Different usability tests can be conducted such as handing out paper prototypes of different interface designs, and questionnaires getting feedback from the sample of people that were consulted in the survey. Problems with the different interfaces can be picked up during the usability testing phase, as indicated by the sample of users consulted, such that the final product will be much more user friendly. \url{(http://www.usability.gov/what-and-why/usability-evaluation.html)}
+
  \end{itemize}
  \subsubsection{Patterns to achieve these strategies}
  \begin{itemize}
@@ -121,43 +158,52 @@ requirements, and architectural constraints. These points will be thouroughly di
 MVC is a suitable pattern because the user will only need to interact with the front end interface, rather than dealing with the technical aspects of the back-end system. Another reason for this is that the developers allocated to working on the View will have the sole focus of making it usable.
 Layering can be used within the subsections of MVC, i.e. the Control and Model layer can be layered to further divide concerns and allow different people to work on those layers.
 
+
+%%-------------RELIABILITY------------------
 \subsection{Reliability}
-\subsubsection{Reasons for quality requirement}
-	\begin{itemize}
-	\item The reason we have placed great importance on reliability is because a large scale of users (Resolve employees) will be using the system concurrently in the one hour lunch break thus the system should be able to notify each user separately when their orders are ready and a bill should be generated for each user
-	\item The system should ensure that the correct amount is deducted from the user's account and that the user's set limits are adhered to.
-	\item Reliability plays a key role, ensuring that all functions work as the user expects them, when the user requires to use the system.
-	\item It must hence have a maximum of 2 or 3 hours down time a week.
-	\item The system should be reliable in terms of ensuring that the different functionality is assigned to users with different roles.  
-	\end{itemize}
-	\subsubsection{Strategies to achieve this quality requirement}
-	\begin{itemize}
-	\item Firstly, the prevention of faults. This is done by testing the system thoroughly, using resource locking as well as removing single points of failure. (Solms, 2014)
+\subsubsection{Reasons for reliability as a quality requirement}
+\begin{itemize}
+\item The reason we have placed great importance on reliability is because a large scale of users (Resolve employees) will be using the system concurrently in the one hour lunch break thus the system should be able to notify each user separately when their orders are ready and a bill should be generated for each user every month and it  will store the credit made by a user that he/she owes the canteen and reliability of this system of keeping the information safe and correct is thus very important.
+\item The system should ensure that the correct amount is deducted from the user's account and that the user's set limits are adhered to.
+\item Whilst it may not be possible to design software that is failure and defect-free, software needs to be tested and debugged 
+until a satisfactory level of reliability can be achieved, reliability plays a key role, ensuring that all functions work as the user expects them, when the user requires to use the system, thus things like proper unit testing goes hand in hand with reliability.
+\item It must hence have a maximum of 2 or 3 hours down time a week (The ideal will be no down time at all, but unfortunately we live in a non-ideal world so one needs to be realistic).
+\item The system should be reliable in terms of ensuring that the different functionality is assigned to users with different roles and no user can access functionality outside their role, thus reliability also have a close correlation with security of the system.  
+\item Maintenance of a system is also important for reliability, a system must be maintained and kept up to date at all times to ensure that the system stays reliable and any faults found while the system is live should be fixed and the system should be updated thereafter.
+\end{itemize}
+
+\subsubsection{Strategies to achieve this quality requirement}
+\begin{itemize}
+\item Firstly, the prevention of faults. This is done by testing the system thoroughly, using resource locking as well as removing single points of failure (Solms, 2014). We will do this with thorough unit testing on both the client and server side and later on also with proper integration testing between all modules. 
  \item Secondly, detection of faults, which is achieved through deadlock detection, logging, checkpoint evaluation and error communication to name but a few. Recovering from faults also falls under reliability. This is done by passive redundancy, maintaining backups and checkpoint rollbacks. (Solms, 2014)
  \end{itemize}
+
  \subsubsection{Patterns to achieve these strategies}
  \begin{itemize}
  \item MVC
  \end{itemize}
- The MVC pattern can  be used for reliability, because since the different layers are clearly separated, hence particular teams are focused on working on each layer, making the system more reliable. 
+ The MVC pattern can  be used for reliability, because the different layers are clearly separated, particular teams are focused on working on each layer, making the system more reliable. 
+
+%%-------------AUDITABILITY------------------
  \subsection{Auditability}
- \subsubsection{Reasons for quality requirements}
+
+ \subsubsection{Reasons for auditability as a quality requirement}
  \begin{itemize}
  \item Any action performed on the system should be traceable back to the person who made these changes and when these changes were made.
- \item In the event of a system crash, it should be possible to roll the system back to a previous working state
- \item The super user should be able to view every other user's activities. This is a part of the monitorability aspect of the system.
+ \item In the event of a system crash, it should be possible to roll the system back to a previous working state.
+ \item The superuser should be able to view every other user's activities. This is a part of the monitorability aspect of the system.
  \end{itemize}
+
  \subsubsection{Strategies to achieve this quality requirement}
  \begin{itemize}
  \item System should have log files running at all times to track all transactions made by users. 
- \item Time stamps should be added to document time and date information of the activities done so that the system can trace through the
-information when needed, such as the events that precede a system crash or unauthorized access
+ \item Timestamps should be added to document time and date information of the activities done so that the system can trace through the information when needed, such as the events that precede a system crash or unauthorized access
 that alters the system in any way.
 \item System backup should allow rollback when needed.
 \item ACID test can be carried out. Acid is an acronym that describes the properties of a database or system. The properties are:
 	\begin{itemize}
 	\item \textbf{Atomicity:} Defined as all or none situation referring to the processes that take place on the 
-	   system. If something where to go wrong with a process such as posting on the system,
+	   system. If something were to go wrong with a process such as posting on the system,
 	   then the entire process has to be repeated or not at all.
 	\item \textbf{Consistency:} All processes must be completed. No process can be left in a half-finished state,
 	     if a failure is detected in a process then the entire process has to be rolled back.
@@ -167,6 +213,7 @@ that alters the system in any way.
 	    to a security breach.
 	\end{itemize}
  \end{itemize}
+
  \subsubsection{Patterns to achieve these strategies}
  \begin{itemize}
  \item MVC
@@ -174,47 +221,99 @@ that alters the system in any way.
 \end{itemize} 
  MVC is a suitable pattern because it provides auditability through logging all filter inputs and outputs (off queues). Layering is a suitable pattern because each separate layer can be audited and monitored individually, rather than auditing the system as a whole.
   
+%%-------------SCALABILITY------------------
 %\item Scalability
 \subsection{Scalability}
-	\subsubsection{Reasons for quality requirement}
-	\begin{itemize}
-	\item This is an important requirement due to the fact that a large volume of Resolve employees will be using the system possibly during lunch hour break and hence the system needs to support all these users concurrently. 
-	\item In saying this, the system must allow each user to order multiple items and process orders per user concurrently.
-	\item With this, we can assume that there will be in excess of 500 users meaning that the system has to have the ability to handle at least 500 concurrent users at peak times.
-	\end{itemize}
-	\subsubsection{Strategies to achieve this quality requirement}
-	\begin{itemize}
-		\item We will need to firstly ensure that existing resources are managed efficiently, i.e. reducing the load using efficient storage, processing,  and persistence. In addition, we will need to ensure that the load is spread across resources and time, using methods of load balancing to spread load across resources as well as using scheduling and queueing to spread load across time.
-		\item Secondly, the resources can be scaled up by increasing storage, increasing processing power and increasing the capacity of communication channels.
-		\item Lastly, resources can be scaled out by means of using external resources, using commoditized resources and distributing tasks across specialized resources.
-		\end{itemize}
-	\subsubsection{Patterns to achieve these strategies}
-	 \begin{itemize}
-		\item Concurrency Master-Slave 
-	\end{itemize}
+\subsubsection{Reasons for scalability as a quality requirement}
+\begin{itemize}
+\item Scalability refers to a software's ability to handle increased workloads, thus scalability is an important requirement due to the fact that a large volume of Resolve employees will be using the system possibly on the same time each each day (during lunch hour)  and hence the system needs to support all these users concurrently. 
+\item In saying this, the system must allow each user to order multiple items and process orders per user concurrently and efficiently.
+\item With this, we can assume that there will be an excess of 500 users meaning that the system has to have the ability to handle at least 500 concurrent users at peak times and in a case where the amount of users increase drastically, small server side changes needs to be made with ease to handle more users if needed.
+\end{itemize}
+
+\subsubsection{Strategies to achieve this quality requirement}
+\begin{itemize}
+\item We will need to firstly ensure that existing resources are managed efficiently, i.e. reducing the load using efficient storage, processing,  and persistence (thus the server hosting the system should be efficient enough to handle the current amount of users and more). In addition, we will need to ensure that the load is spread across resources and time, using methods of load balancing to spread load across resources as well as using scheduling and queueing to spread load across time.
+\item Secondly, the resources can be scaled up by increasing storage, increasing processing power and increasing the capacity of communication channels (this can easily be done by increasing processing power, and storage space on the server that is hosting the system).
+\item Lastly, resources can be scaled out by means of using external resources, using commoditized resources and distributing tasks across specialized resources.
+\end{itemize}
+
+\subsubsection{Patterns to achieve these strategies}
+\begin{itemize}
+\item Concurrency Master-Slave 
+\end{itemize}
 We chose this pattern here due to the concurrency of the system, meaning that a large number of users must be able to access the system at a time.
 %\end{enumerate}
+
+%%-------------INTEGRABILITY------------------
+%\item Integrability
+\subsection{Integrability}
+\subsubsection{Reasons for integrability as a quality requirement}
+\begin{itemize}
+\item  Integrability refers to how separate components of the system work together. Different modules of the cafeteria management system are developed separately, for the system to work these components need to work together correctly. Many activities in the cafeteria management work together and it is important that the functions are performed correctly. For example, a user placing an order affects the inventory, and what is still available to order.
+\end{itemize}
+
+\subsubsection{Strategies to achieve this quality requirement}
+Integration testing is used to ensure that all the modules work together and loose coupling is achieved through dependency injection.
+\begin{itemize}
+\item 
+\end{itemize}
+
+%\item Integrability
+
+
+%%-------------TESTABILITY------------------
+%\item Testability
+\subsection{Testability}
+\subsubsection{Reasons for testability as a quality requirement}
+\begin{itemize}
+\item  It is important to ensure that a software system is adequately tested at various levels. In other words, testing is based on the 
+concept of incremental development - as you are busy building the system each aspect needs to be thorougly tested to ensure the functionality works correctly, before you move on to build the next step - this will make sure that at all times the software is functional with very little flaws (those flaws can refer to logical mistakes and possible untested sections still being built).
+\item Testing a system goes hand in hand with other quality requirements such as maintainability, reliability and security. All the quality requirements works together to ensure a product of high quality gets produced at the end of the project.
+\end{itemize}
+
+\subsubsection{Strategies to achieve this quality requirement}
+\begin{itemize}
+\item Unit tests will be conducted, each section of the software needs to be thoroughly tested using unit tests with mock objects ensuring that it works as expected, this includes unit testing on both the client side and the server side.
+\item Integration testing will also be conducted on both the client side and server side to ensure that all modules work together as expected.
+\end{itemize}
+
+%\end{enumerate}
+
+%%-------------NICE TO HAVE-----------------
 \subsection{Nice-To-Have}
-	\begin{enumerate}
-		\item Performance
-		\item Integrability
-		\item Flexibility
-		\item Maintainability
-\end{enumerate}
+Listed below are the nice to have quality requirements related to the Cafeteria Management System, these requirements are not considered as critical but are considered as desirable. \\
+
+\begin{itemize}
+\subsubsection{Performance}
+\item  Performance refers to the behaviour of the system, meaning its response time and throughput - the number of operations performed per second. The cafeteria system should behave as expected and should not take long to respond. Some changes are important and should be reflected in a timely manner, for example, when an email is sent to a user who forgot his/her password, when an employee id is changed, when an order is ready the user should be notified soon.
+
+\subsubsection{Flexibility}
+\item  Flexibility refers to the ability of a system to respond in a time and cost efficient manner to internal or external changes that affects the quality of its service. The system should be able to increase or sustain the quality of its service when responding to these changes.
+
+\subsubsection{Maintainability}
+\item  Maintainability refers to how easily the software can be modified to adapt to a new environment, fix bugs, and improve performance. Other developers should be able to add new features, bug fixes, and make changes without investing a significant amount of time and effort. Users of the system should also be able to maintain it by making certain changes to the system. Some aspects of the cafeteria management system such as the branding, the colours, and the menu section needs to be configurable by a user. This is a desirable quality requirement to have as it means that the system can be changed, adapted, and improved, and thus be used for a longer time.
+\end{itemize}
+
 
 %% --------------------------------- ARCHITECTURE REQUIREMENTS ---------------------------------
-\section{Integration Requirements}
-%% ---------- ACCESS CHANNEL REQUIREMENTS ------------
+\section{Access and Integration Requirements}\
+
+%% ---------------- ACCESS CHANNEL REQUIREMENTS ------------
 \subsection{Access Channel Requirements}
 In this section we will discuss the requirements for the different channels through which the system can be accessed by firstly, people (users - client side) and systems (server-side).
 
 
-%%--------HUMAN ACCESS CHANNELS------
+%%------------------HUMAN ACCESS CHANNELS---------------
 \subsubsection{Human Access Channels}
-The Cafeteria Management System will be accessed by the different users via the online web page (web interface) or through the mobile application (if one is developed). The web interface will be accessible through all the standard web browsers such as Mozilla Firefox, Google Chrome and Microsoft Internet Explorer. The mobile application will be accessible on multiple platforms including the standard IOS/Anroid platforms. Different services will be available to different users. There are five types of users: Super User, Cafeteria Manager, Casher, Normal User, and Resolve Admin. These will be discussed below. \\
+The Cafeteria Management System will be accessed by the different users via the online web page (web interface) or through the mobile application. The web interface will be accessible through all the standard web browsers such as Mozilla Firefox, Google Chrome and Microsoft Internet Explorer. The mobile application will be accessible on multiple platforms including the standard IOS/Android platforms. Different services will be available to different users (According to their roles). There are six types of users: Super User, Cafeteria Manager, Cashier, Normal User, Finance and Admin user. These will be discussed below. \\
 
-\paragraph{Super User\\}
-The super user will be the only administrative user that will have global access to all the functionality of the Cafeteria Management System, in particular the Super User will have access to the branding of the Cafeteria Management system (changing the logo and so forth) . The super user will hence have access to all the functionality of all the other users listed below.
+\paragraph{Superuser\\}
+The super user will be one of 2 administrative users that will have global access to all the functionality of the Cafeteria Management System, in particular the super user will have access to the branding of the Cafeteria Management system (changing the logo and so forth) and Administrative settings such as the ability to assign roles to users  . The super user will hence have access to all the functionality of all the other users listed below.
+
+\paragraph{Admin User\\}
+The admin user is the second administrative user which will serve as a backup for the super user. The admin user will have all the functionality that the superuser has. 
+
 
 \paragraph{ Cafeteria Manager\\}
 The cafeteria manager will have the ability to view his/her own profile, edit his/her profile, and place orders. This user will also be able to add and edit menu items, view the orders placed by the users of the system, view the inventory, and add or remove inventory. 
@@ -225,14 +324,13 @@ The cashier will be able to view his/her profile, edit his/her profile, view the
 \paragraph{ Normal User\\}
 The normal user will be a Resolve employee registered on the Cafeteria Management System.  A normal user will only be able to view his/her profile, edit his/her profile, place orders, check if their order is ready, and view/print their balance reports and account history.
 
-\paragraph{ Resolve Admin\\}
-The resolve admin user will be able to view all the registered users, their account history and their outsanding balances. This is for administrative and financial purposes . This role has been requested by the Resolve team.
+\paragraph{ Finance \\}
+The resolve admin user will be able to view all the registered users, their account history and their outstanding balances. This is for administrative and financial purposes . This role has been requested by the Resolve team (the client for this project).
 
-%%--------SYSTEM ACCESS CHANNELS -------
+%%------------------SYSTEM ACCESS CHANNELS -----------------
 \subsubsection{System Access Channels}
-The different technologies selected will be used to support the access channels effectively. We will be using NodeJs running on an Express server and the server needs to be connected to the Mongo database on which various data will be stored and retrieved. This data will be transfered from the server to the respective node modules and so forth. 
-The integration channels will also be accessable by the mobile applications, since Phone Gap which is the program we will be using to help us convert our web interface into a mobile application and will appear to the user that the user is working on an application where in reality the user will be using the web interface. 
-
+The different technologies selected will be used to support the access channels effectively. We will be using NodeJs running on an Express server and the server needs to be connected to the Mongo database on which various data will be stored and retrieved. This data will be transferred from the server to the respective node modules and so forth. 
+The integration channels will also be accessible by the mobile applications, such as Phone Gap, which is the program we will be using to help us convert our web interface into a mobile application.
 \begin{itemize}
 
 \item The system will have to integrate with the Mongo database, retrieving information of the employees - such as contact information to notify the user that an order is ready, get inventory or stock and so forth. 
@@ -245,8 +343,12 @@ The integration channels will also be accessable by the mobile applications, sin
 Integration with this protocol will occur at a high level and typically be handled by libraries or browser-clients etc.
 \textbf{To be used for:	}
 	\begin{itemize}
-	\item{All data transferred between users and the server on which the system is hosted.}
-	\item{Transfer of miscellaneous data such as HTTP error codes to ensure both servers and clients are aware of the state of data transfers and its results}
+	\item{All data transferred between users and the server on which the system is hosted, this will be done via the HTTP GET and 
+	         POST requests where we will request data from the database  to be displayed and post data to the database to be 
+		stored .}
+	\item{Transfer of miscellaneous data such as HTTP error codes to ensure both servers and clients are aware of the state of 	
+		data transfers and its results - in a case of an error we will configure the system to try and rectify the problem first then 
+		when no correction could be made the user will be notified accordingly }
 	\end{itemize}
 	
 \subsubsection{TCP - Transmission Control Protocol}
@@ -255,62 +357,71 @@ Integration with this protocol will occur at a high level and typically be handl
 \subsubsection{SMTP - Simple Mail Transfer Protocol}
 This protocol will be used to handle e-mail communication, specifically notifications to users when their orders are ready, as well as the sending of bills to both users and payroll. It addresses Security as a quality requirement since it incorporates SMTP-Authentication defined by RFC 2554 (Meyers, 1999) which enhances the security of the protocol.
 
-%% ----------ARCHITECTURE CONSTRAINTS----------------
+%% ----------------ARCHITECTURE CONSTRAINTS-------------------------
 \subsection{Architecture Constraints}
+
 \subsubsection{Technologies}
 Technologies we will be using in the creation of the Cafeteria Management System includes the following: 
 
 \begin{itemize}
-  \item \textbf{HTML}: The Software system will be mainly web-based.
+ \item \textbf{HTML}: The Software system will be mainly web-based a large part will be made out of HTML5.
+ \item \textbf{JavaScript together with AngularJS  and NodeJS}: this will enable us to add extra functionality to our web page and modularise the system thus also helping us to implement dependency injection. For creating reports we can also import ReportingJS to create visually pleasing reports that is logically structured.
 
-  \item \textbf{JavaScript together with AngularJS  and NodeJS}: this will enable us to add extra functionality to our web page and modularise the system thus also helping us to implement dependency injection. For creating reports we can also import ReportingJS to create visually pleasing reports that is logically structured
+ \item \textbf{CSS together with BootStrap}: which will allow us to style our page and also make it responsive
 
- \item \textbf{CSS together with BootStrap}: which will allow us to style our page and also make it interactive.
-
- \item \textbf{Mongo DB}: MongoDB for our database which goes extremely well with NodeJS. 
+ \item \textbf{Mongo DB}: MongoDB which is an object oriented database and we will be using it as our database which goes 	
+extremely well with NodeJS. 
 
  \item \textbf{Express server}: will be set up as our server that will host the system.
 
+\item \textbf{MEAN stack}: The MEAN stack is a JavaScript solution that helps you  build fast, robust, and maintainable 	 production web applications using  MongoDB, Express, AngularJS, and 	 Node.js.
+
+
  \item \textbf{Phone gap}: Phone gap will be used to convert our web page into a usable application which will then look like the online webpage that will run like a web interface in the background but  will seem like a mobile application to the user that will be accessible from multiple platforms.
 
-\item \textbf{Git and GitHub}: A version control software and a repository website that will be used to host the source code of the Cafeteria Management System. Reasons for the use of Git is its ease of use and because it is free and open source. (http://git-scm.com/).
+\item \textbf{Git and GitHub}: A version control software and a repository website that will be used to host the source code of the Cafeteria Management System. Reasons for the use of Git is its ease of use and because it is free and open source.
+ \url{(http://git-scm.com/)}.
 
 \end{itemize}
 The above mentioned technologies will be our basis we will create our system on, but as we are busy building the Cafeteria Management System we will add other technologies as needed. 
 
 \subsubsection{Operating Systems}
-Since server side of the Cafeteria Management System will be an Express server which is based on JavaScript, the CMS server will be able to run on both Windows and Unix platforms, given that they both support JavaScript and NodeJS.\\
-\\
-The client side of the Cafeteria Management System will be able to run on almost all operating systems that can run a modern web browser such as Mozilla Firefox, Google Chrome or Internet Explorer (for example, Microsoft Windows, Apple Mac OSX or any distribution of Linux or BSD).
+The Cafeteria Management System will be able to run on all operating systems with a modern web browser such as Mozilla Firefox, Google Chrome or Internet Explorer installed given there is an internet connection, since the application will be hosted on a remote server, it can be accessed from anywhere in the world.
 
 \section{Architectural Patterns}
-		For the design of The Cafeteria Management System, two patterns are considered: the \textbf{MVC (Model-View-Controller) pattern} and the \textbf{Layering architectural pattern}. For concurrency, the \textbf{Master-Slave pattern} is used.\\
-		The top layers of the Model and the Controller are interfaces for the MVC architecture and the layers below provide the functionality.\\
-		MVC is considered because:
+For the design of The Cafeteria Management System, two patterns are considered: the \textbf{MVC (Model-View-Controller) pattern} and the \textbf{Layering architectural pattern}. For concurrency, the \textbf{Master-Slave pattern} is used.\\
+The top layers of the Model and the Controller are interfaces for the MVC architecture and the layers below provide the functionality.\\
+MVC is considered because:
+	\begin{itemize}
+	\item It provides modularity (i.e. the system's concerns are separated, thus easier to implement). (Solms, 2014)
+	\item It allows for better maintainability (one can maintain the Model, View and Controller separately). (Solms, 2014)				\item Testability (it is easier to test because of separated concerns, so the source of any problems are easy to identify). 	
+	(Solms, 2014)
+	\item Reuse (it is possible to take any component and reuse it where necessary). (Solms, 2014)
+	\end{itemize} 
+Layering allows the Cafeteria Management System to have pluggable layers, which will allow the developers to replace layers as needed.This pattern allows for: 
 		\begin{itemize}
-			\item It provides modularity (i.e. the system's concerns are separated, thus easier to implement). (Solms, 2014)
-			\item It allows for better maintainability (one can maintain the Model, View and Controller separately). (Solms, 2014)
-			\item Testability (it is easier to test because of separated concerns, so the source of any problems are easy to identify). (Solms, 2014)
-			\item Reuse (it is possible to take any component and reuse it where necessary). (Solms, 2014)
-		\end{itemize} 
-		Layering allows the Cafeteria Management System to have pluggable layers, which will allow the developers to replace layers as needed.
-		This pattern allows for: 
-		\begin{itemize}
-			\item Improved cohesion. (Solms, 2014)
-			\item Reduced complexity of the system. (Solms, 2014)
-			\item Improved testability (which will allow for easier debugging). (Solms, 2014)
-			\item Improved reuse and maintainability of the source code, because all the layers are individual and separate from one another. (Solms, 2014)
+		\item Improved cohesion. (Solms, 2014)
+		\item Reduced complexity of the system. (Solms, 2014)
+		\item Improved testability (which will allow for easier debugging). (Solms, 2014)
+		\item Improved reuse and maintainability of the source code, because all the layers are individual and separate from 	
+		one another. (Solms, 2014)
 		\end{itemize}
-		However, it should be mentioned that Layering has a performance overhead associated with it, as well as higher maintenance costs associated with the lower layers, because they impact the higher levels. (Solms, 2014). Given the benefits, however, the authors feel that the reduced performance and maintenance costs are a good compromise for reduced complexity and testability.\\
-		\\
-		For concurrency, the Master-Slave architectural pattern (Solms, 2014) is considered, because the system needs to accommodate a large number of users at a time.
+However, it should be mentioned that Layering has a performance overhead associated with it, as well as higher maintenance costs associated with the lower layers, because they impact the higher levels. (Solms, 2014). Given the benefits, however, the authors feel that the reduced performance and maintenance costs are a good compromise for reduced complexity and testability.\\
+\\
+For concurrency, the Master-Slave architectural pattern (Solms, 2014) is considered, because the system needs to accommodate a large number of users at a time.
+
+%%-------------------SUPPORTING DOCUMENTATION -----------------------------
+\section{Other Supporting Documentation}
+
+On the GitHub repository the rest of the supporting documentation for the Cafeteria Management System can be found together with the actual implementation of the work. \\\\
+ \url{https://github.com/toniamichael94/MainProjectCOS301}
 
 \newpage
 \section{Bibliography}
 		\begin{itemize}
-			\item \textit{Basic MVC Architecture}. [Online]. Available: <http://www.tutorialspoint.com/struts\_2/basic\\\_mvc\_architecture.htm> [Accessed 5 March 2015].
+			\item \textit{Basic MVC Architecture}. [Online]. Available: <http://www.tutorialspoint.com/struts\_2/\\basic\_mvc\_architecture.htm> [Accessed 5 March 2015].
 			
-			\item Beal, V. n.d. \textit{Linux Server}. [Online]. Available: <http://www.webopedia.com/TERM/L/linux\_\\server.html> [Accessed 10 March 2015].
+			\item Beal, V. n.d. \textit{Linux Server}. [Online]. Available: <http://www.webopedia.com/TERM/L/\\linux\_server.html> [Accessed 10 March 2015].
 
 			\item Bien, A. 2009. \textit{9 Reasons Why Java EE 6 Will Save Real Money - Or How To Convince Your Management}. [Online]. Available: <http://www.adam-bien.com/roller/abien/entry/\\8\_reasons\_why\_java\_ee> [Accessed 10 March 2015].
 
@@ -321,7 +432,7 @@ The client side of the Cafeteria Management System will be able to run on almost
 
 			\item \textit{Git --loval-branding-on-the-cheap}. [Online]. Available: <http://git-scm.com/> [Accessed 10 March 2015].
 
-			\item \textit{JavaServer Faces Technology}. [Online]. Available: <http://www.oracle.com/technetwork/java/javaee/javaserverfaces-139869.html> [Accessed 10 March 2015].
+			\item \textit{JavaServer Faces Technology}. [Online]. Available: <http://www.oracle.com/technetwork/\\java/javaee/javaserverfaces-139869.html> [Accessed 10 March 2015].
 
 			\item Kabanov, J. 2011. \textit{Ed Burns on Why JSF is the Most Popular Framework}. [Online]. Available: <http://zeroturnaround.com/rebellabs/ed-burns-on-why-jsf-is-the-most-popular-framework/> [Accessed 10 March 2015].
 			\item Meyers, J. 1999. \textit{SMTP Service Extension for Authentication} [Online]. Available: <http://tools.ietf.org/html/rfc2554> [Accessed 9 March 2015]
@@ -332,9 +443,9 @@ The client side of the Cafeteria Management System will be able to run on almost
 			
 			\item \textit{Software Engineering}. [Online]. Available: <http://sesolution.blogspot.com/p/software-engineering-layered-technology.html>[Accessed 5 March 2015].
 								
-			\item Solms, F. 2014. \textit{Software Architecture Desgin.} [Online]. University of Pretoria: Pretoria. Available: <http://www.cs.up.ac.za/modules/courses/download.php?id=8565> [Accessed 9 March 2015].
+			\item Solms, F. 2014. \textit{Software Architecture Desgin.} [Online]. University of Pretoria: Pretoria. Available: <http://www.cs.up.ac.za/modules/courses/download.php?\\id=8565> [Accessed 9 March 2015].
 			
-			\item Solms, F. 2015. \textit{Java Persistence API (JPA).} [Online]. University of Pretoria: Pretoria. Available: <http://www.cs.up.ac.za/modules/courses/download.php?id=8640> [Accessed 7 March 2015].
+			\item Solms, F. 2015. \textit{Java Persistence API (JPA).} [Online]. University of Pretoria: Pretoria. Available: <http://www.cs.up.ac.za/modules/courses/download.php?\\id=8640> [Accessed 7 March 2015].
 			
 			\item \textit{SQL Server 2008 R2 Express Database Size Limit Increased to 10GB}. [Online]. Available: <http://blogs.msdn.com/b/sqlexpress/archive/2010/04/21/database-size-limit-increased-to-10gb-in-sql-server-2008-r2-express.aspx> [Accessed 9 March 2015].
 			
@@ -343,6 +454,8 @@ The client side of the Cafeteria Management System will be able to run on almost
 			\item Wähner, K. n.d. \textit{Why I will use Java EE (JEE, and not J2EE) instead of Spring in new Enterprise Java Projects in 2012}. [Online]. Available: <www.kai-waehner.de/blog/2011/11/21/why-i-will-use-java-ee-jee-and-not-j2ee-instead-of-spring-in-new-enterprise-java-projects-in-2012/> [Accessed 10 March 2015].		
 
 			\item \textit{Welcome to Apache Maven}. [Online]. Available: <http://maven.apache.org/> [Accessed 10 March 2015].
+			
+			\item \textit{Manageability, Maintainability, and Supportability} [Online]. Available: <https://msdn.microsoft.com/en-us/library/bb896744.aspx> [Accessed 31 July 2015]
 			
 			
 

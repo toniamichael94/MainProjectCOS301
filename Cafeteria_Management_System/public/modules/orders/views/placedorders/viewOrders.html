@@ -8,14 +8,24 @@
 		<div class="list-group-item clearfix">
 			<div class="list-group-item clearfix" ng-repeat="item in plate">
 				{{item.itemName}}  <span> R {{item.price}}</span>
-				<span> Quantity <input type='number' name='{{item.itemName}}' value={{item.quantity}} min=1 max=5 /></span>
+
+		<!--		<span> Quantity <input type='number' name='{{item.itemName}}' value={{item.quantity}} min=1 max=5 /></span>
 				<span style="float: right"><button type="button" data-ng-click="removeFromPlate(item.itemName)"> Remove </button></span> <br>
                 <span> Preferences
                     <input type="text" id="preferences" name="preferences" class="form-control" data-ng-model="preferences" placeholder="none">
                 </span>
 			</div>
 			<div>
-				<span style="float: right">Total: R {{subTotal()}} </span>
+				<span style="float: right">Total: R {{subTotal()}} </span-->
+<!---=======-->
+				<span> Quantity <input type='number' data-ng-model='item.quantity' data-ng-change='quantityChange(item.itemName)' name='{{item.itemName}}' min=1 max=5 /></span>
+				<span style="float: right"><button type="button" data-ng-click="removeFromPlate(item.itemName)"> Remove </button></span> <br>
+                <span> Preferences
+                    <input type="text" id="preferences" name="preferences" class="form-control" data-ng-model="preferences" placeholder="none">
+                </span>
+			</div>
+			<div>
+				<span style="float: right">Total: {{orderTotal}} </span>
 			</div>
 			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2"  data-ng-controller="MenuItemsController">
 				<!--p> Placed order </p> <input class = "form-control" type = number min = 0> <input type = "checkbox" checked = true-->
