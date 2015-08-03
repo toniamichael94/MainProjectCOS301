@@ -7,6 +7,7 @@
 \usepackage{tabu}
 %% Title Page 
 \title{\Huge User Manual \\ 
+	 Project: \\ 
 	Cafeteria Management System: Resolve}
 \author{
          \underline{T-RISE}\\
@@ -64,51 +65,32 @@
 \pagebreak
 
 %%now begin document
-%%--------------------------------------SYSTEM OVERVIEW ----------------------------------------
 \section{System Overview}
-The Cafeteria Management System is a system designed to assist users with efficiently ordering food from a cafeteria online and being notified when their order is done. The system will also assist cafeteria staff with dealing with orders in real time as well as managing inventory. The system will also assist in branding configeration of the cafeteria The system is intended to be used in a corporate environment whereby users have the option to charge their cafeteria expenses to their salary or immediately pay for orders. In addition, the system will allow management to view expense reports of different users. All users will also be able to access their history, set faveroutes and other similar functionality which will all be explained in this user manual.
+The Cafeteria Management System is a system designed to assist users with efficiently ordering food online as well to assist cafeteria staff with dealing with orders in real time as well as managing inventory. The system is intended to be used in a corporate environment whereby users have the option to charge their cafeteria expenses to their salary or immediately pay for orders. In addition, the system will allow management to view expense reports of different users.
 
-%%--------------------------------------SYSTEM CONFIGERATION ----------------------------------------
 \section{System Configuration}
-The system requires a Windows/Unix based host to run the server. This host must have NodeJS, MongoDB, Express server, Bower and grunt  installed on it (all of the mentioned thechnologies will be described step by step how to be installed in the next section). In addition, the host must be connected to the internet in order to allow any required dependencies to be installed and set up for the operating system environment. The configuration of the server requires an active e-mail account to facilitate communication between the system and end users. Interaction with this host will be achieved using a standard mouse and keyboard as well as a monitor.\\ 
+The system requires a Windows/Unix based host to run the server. This host must have NodeJS and MongoDB installed. In addition, the host must be connected to the internet in order to allow any required dependencies to be installed and set up for the operating system environment. The configuration of the server requires an active E-mail account to facilitate communication between the system and end users. Interaction with this host will be achieved using a standard mouse and keyboard as well as a monitor.\\
 \\
-End users will only require a PC equipped with a modern web browser and an active internet connection.
+End users will only require a PC equipped with a web browser and an active internet connection.
 
-%%--------------------------------------INSTTALATION  ----------------------------------------
 \section{Installation}
-
-%%------------------------PREREQUISITES ----------------------------
 \subsection{Prerequisites}
 The Cafeteria Management System requires NodeJS and MongoDB to run. These are free and open source software and can be obtained from the following sites:\\
 \url{https://nodejs.org/download/} \\
 \url{https://www.mongodb.org/downloads} \\
-The applications are available for both Windows and Unix environments and include setup guides on their respective web pages.\\
+The applications are available for both Windows and Unix environments and include setup guides on their respective sites.\\
 
-Once installed, NodeJS includes a package manager called NPM. This package manager will be available from the terminal and will be used to install all dependencies. The following dependencies have to be installed first (Run these commands one by one in the command prompt or terminal):
+Once installed, NodeJS includes a package manager called NPM. This package manager will be available from the terminal and will be used to install all dependencies. The following dependencies have to be installed first:
 \begin{verbatim}
 $npm install -g bower
 $npm install -g grunt-cli
 \end{verbatim}
 
-After these commands have sucessfully installed the respective applications you can download the Cafeteria Management Software from the GitHub repository :
- \url{https://github.com/toniamichael94/MainProjectCOS301}
-\\ \\
-This can be done by cloning the repositry onto a remote location on your PC, if you do not know how to clone a GitHub repository, please visit:\\
-  \url{https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository}  under the section "How to clone an existing repository" you will find the GitHub documentation on how to do this.
-\\
-Once you have cloned the GitHub repository and installed the above mentioned techmologies, please move on to the next section , which will take you step by step in configering the Cafeteria Management System (CMS).
-\\ \\
-{\em Please note that 'CMS' will be refered to in the rest of this document as an abbriviation for the Cafeteria Management System}
-
-
-%%------------------------SETTING UP CMS ----------------------------
 \subsection{Setting up CMS}
 Before starting the system, an email account has to be set up to facilitate communication between the system and end users. The details of this account can be configured in the following config file:
 \begin{verbatim}
-	~/Cafeteria_Management_System/config/env/production.js
+	~/Cafeteria Management System/config/env/production.js
 \end{verbatim} 
-{\em (The document can be opened in any text editor or IDE  such as NetBeans, WebStorm or atom - just to name a few )}
-\\ \\
 Under the section 'Mailer', the following fields should be specified:\\
 \begin{itemize}
 \item MAIELR\textunderscore FROM: A name indicating the sender of mail.
@@ -118,21 +100,18 @@ Under the section 'Mailer', the following fields should be specified:\\
 \end{itemize}
 
 
-In a terminal/command prompt, navigate to the CMS directory and execute the 'npm install' command. This will install all the packages required to run the system: 
-
-
+In a terminal/command prompt, navigate to the CMS directory and execute the 'npm install' command. This will install all the packages required to run the system:
 \begin{verbatim}
-~/  Cafeteria_Management_System/ $npm install
+~/Cafeteria Management System$ npm install
 \end{verbatim}
 
-If all dependencies were installed successfully, then MongoDB can be started with the following command in a completely new terminal or command prompt:
+If all dependencies were installed successfully, then MongoDB can be started with the following command:
 \begin{verbatim}
 ~/$mongod --dbpath "directory"
 \end{verbatim}
 
-Where "directory"  is a path to the folder which Mongo will use as a working directory.\\ \\
-{\em Remember that this command has to be executed in a separate terminal.}\\ \\
-Below is an example of what the output should look like :
+Where directory is a path to the folder which Mongo will use as a working directory.\\
+{\em Note that this command has to be executed in a separate terminal.}\\
 
 \begin{figure}[H]
   \centering
@@ -140,10 +119,10 @@ Below is an example of what the output should look like :
     \caption{MongoDB Terminal - Expected output when running MongoDB} 
 \end{figure}
 
-Once mongo has been started, the CMS server can be started with the following command:\\ \\
+Once mongo has been started, the CMS server can be started with the following command:\\
 
 \begin{verbatim}
-~/Cafeteria_Management_System/$ grunt
+~/Cafeteria Management System$ grunt
 \end{verbatim}
 
 \begin{figure}[H]
@@ -152,146 +131,24 @@ Once mongo has been started, the CMS server can be started with the following co
     \caption{Grunt - When grunt is running, output should be similar to this.} 
 \end{figure}
 
-Now the Server and the Database is running and we can get started with the rest of the setup process. \\
-Note: Inside the browser one will run localhost:3000 to view  system. \\ 
+Note: Inside the browser one will run localhost:3000 to view the system.
+
+\section{Getting Started}
+Access to the Cafeteria Management System is through a standard web browser. Different types of users have access to different facets of the system. The system has a default Superuser account which can assign different roles (cafeteria manager, cashier, etc.) to the users. These users can then sign in to access the facet of the system they are authorised to.\\
+Once logged in, the superuser can change their password from the profile management page which is available directly from the home page. They can also set additional fields such as an E-mail address which will assist in password recovery in the event of a forgotten password.\\
 
 To terminate the sever, the user can enter the Ctrl+C command in the terminal. The user can also terminate the MongoDB service by executing the same command (Ctrl+C) in the MongoDB terminal.
 
-%%-------------------------------------GETTING STARTED ----------------------------------------
-\section{Getting Started}
-Access to the Cafeteria Management System is through a standard web browser. Different types of users have access to different facets of the system. The system has a default super user account and an admin user account which can assign different roles (cafeteria manager, cashier, etc.) to the users and which has global access to the whole system. These users can then sign in to access the facet of the system they are authorised to.\\
-
-%%--------------------------------ADMINISTRATIVE USERS -------------------------
-\subsection{Administrative Users}
-When the CMS is started initially with an empty database there will be no users in the database this includes that there will  be no administrative users.  \\
-Thus to generate the administrative users on the first startup of the system one shoud navigate to the sighn in page and sighn in with empty credentials. If the stystem is started for the first time with an empty database, on sighn in with empty credentials (this means click on the sighn in button without filling out the text boxes) administrative users will be created. \\
-
-\textbf{The system will have a super user:} \\
-Employee ID: SuperUser \\
-Password: SuperUser \\
-
-\textbf{And the system will also have an adminuser:} \\
-Employee ID: AdminUser \\
-Password: AdminUser \\
-
-\textbf{WARNING :} \\
-Administrative users will have global access to the whole system, thus it is of upmost importance that the administrative users should be set up with the first start up of the system and their credentials and passords must be changed to not violate the security of the system. \\ 
-
-{\em* Note at all times there can only be 1 super user and 1 admin user - this is done for security purposes  } \\
-
-Once logged in, the super user and admin user can change their password from the profile management page which is available directly from the home page. They can also set additional fields such as an e-mail address which will assist in password recovery in the event of a forgotten password and to where notifications about the CMS will be sent to.\\
-
-%%-------------------------------- CREATING AN ACCOUNT -------------------------
-\subsection{Creating an Account}
-If you are a new user to the system you can create a new account by navigating to the Sign Up page by click the 'Sign Up' button on the navigation bar:
-
-\begin{figure}[H]
-  \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/sighnUp.png}
-    \caption{Sign-Up - red circled button should be clicked to sighn up} 
-\end{figure}
-
-When the button is clicked the CMS will rerirect you to the sighn up page where you can fill out all the details: \\
-
-\begin{figure}[H]
-  \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/sighnUpPage.png}
-    \caption{Sign-Up Page - detailes to be filled in - all fields are required} 
-\end{figure}
-
-{\em Employee ID } will be determined by the company where the cafeteria might find itself - no Employee ID can be reused.\\
-The {\em e-mail address} is of importance for notifications when the order will be ready and for finantial bills to be send to. \\
-The {\em spending} Limit is the maximum amount you may spend each month.\\
-
-{\em Note that all the fields may be eddited when logged in} \\
-
-After signing up and creating a new account the user will outomaticcally be logged in. \\
-
-%%-------------------------------- LOGGING IN  -------------------------
-\subsection{Logging In}
-Once a user navigates to the home page of the CMS to log in the user can click on the button in the navigation bar called 'Sigh In':
-
-\begin{figure}[H]
-  \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/sighnIn.png}
-    \caption{Sign - In - red circled button should be clicked to sighn in} 
-\end{figure}
-
-Once the user clicks on the sighn in button the CMS should direct to the sign in page :
-
-\begin{figure}[H]
-  \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/signIn.png}
-    \caption{Sign - In page} 
-\end{figure}
-
-Only regestered users can sign in and fill out his/her personal details and click on the sign in button and the sustem will redirect to the home page when the user's login was sucessfull.\\
-If the user can not log in due to forgetting his/her password they can click on the forget password link which will redirect to the forget password page:
-
-\begin{figure}[H]
-  \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/ForgotPass.png}
-    \caption{Forgot password page} 
-\end{figure}
-
-The user can simply type in his/het Employee ID and click on the submit button, the CMS will send an e-mail notification to the user's registered e-mail address and he/she can just follow the link send by the CMS via e-mail and reset the password and try to log in again. \\
-
-The rest of the functionality will be described in the section below in detail  under the respective headings of how to navigate between pages to administrative settings to ordering an item and so forth. 
-
-
-%%-------------------------------------USING THE SYSTEM----------------------------------------
 \section{Using The System} 
-
-%%------------------------NAVIGATION PLANE ----------------------
 \subsection{The Navigation pane} 
-
-%%------------------------NAVIGATION PLANE USER  NOT LOGGED ON ----------------------
-\subsubsection{The Navigation pane - once the user is not  logged on}
 On the home page, the name of the canteen is displayed. The user will also see the navigation pane at the top. The actions available with the pane are "Sign in", "Sign up", "Menu" and "On your plate". 
-The Navigation pane will when not logged in will be displayed as follows:
-
-\begin{figure}[H]
-  \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/HomePage.png}
-    \caption{Home Page - user not logged in } 
-\end{figure}
-
-The numbers in the images are described below:
-
-\begin{enumerate}
-\item The Home button - when clicking on this button it will always redirect to the home page
-\item The Menu button - this button will redirect to the menui page
-\item The on my plate button - this button will redirect to an orders page showing how many items you currently have on your plate and what they all consist of with totals.
-\item The Sign Up button - this button will redirect to the sign up page where a new account can be created
-\item The Sign In button - this button will redirect to a page where the usere can sign in and log into his/her account.
-\end{enumerate}
-
+\\
 The user can not proceed to order food if the user has not signed up and logged in. Hence, the first step a new user should take is signing up/ registering with the system. 
-\\ \\
+\\
 If a user has not signed in, the user will still be allowed, however, to view the menu, without ordering anything. However, the user will be able to add items to their plate and view them on the "On My Plate" page, but the order will not be sent to the system until the user signs in.
-
-
-%%------------------------NAVIGATION PLANE USER LOGGED ON  ----------------------
 \subsubsection{The Navigation pane - once the user has logged on}
 The user will now view a drop down menu with various options displayed on it. The following options will be displayed if the user is a normal user: "Edit Profile", "Profile", "Sign out". These pages will be discussed below.
-
-\begin{figure}[H]
-  \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/HomePage2.png}
-    \caption{Home Page - user not logged in } 
-\end{figure}
-
-
-When a user is logged in as a normal user he/she will have the following view of the navigation plane as the above image.\\ below we describe what each of those buttons will do: \\
-
-\begin{enumerate}
- \item The Home button - when clicking on this button it will always redirect to the home page
-\item The Menu button - this button will redirect to the menui page
-\item The on my plate button - this button will redirect to an orders page showing how many items you currently have on your
-\item
-\end{enumerate}
-
-
+\\
 If the user is a superuser the options "Admin Settings" and "Branding Settings" will be displayed. The superuser will hence be in control of assigning roles, changing employee ID's, setting the limit, changing the canteen name and the cover image of the canteen.  
 \\
 If the user is a cafeteria manager, the options "Manage Cafeteria" and "Manage Inventory" will be displayed. Manage Inventory is where the stock additions and removals are kept track of. Manage Cafeteria is where the different menu meal items will be logged.
@@ -346,7 +203,7 @@ This is where the user will be able to view the menu items and their prices. An 
 \\
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/searchCheese.png}
+    \includegraphics[width=1.0\textwidth]{screenshots/searchMenu.png}
     \caption{The menu page from which a user can order food} 
 \end{figure}
 On the menu page there is also a breadcrumb which indicates the different meal categories to make the search more efficient. There is also a search bar on all these pages. 
@@ -453,7 +310,7 @@ There are two sections on this page. One where the user can change the canteen n
     \caption{The admin settings page - superuser can change the canteen name}
 \end{figure}
 
-\subsection{Cafeteria Manager: The "Manage Cafeteria" Page}
+\subsection{Cafeteria Manager: The "Manage Menu" Page}
 
 \subsection{Cafeteria Manager: The "Manage Menu" Page}
 
