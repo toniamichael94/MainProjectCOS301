@@ -64,15 +64,20 @@
 \pagebreak
 
 %%now begin document
+%%--------------------------------------SYSTEM OVERVIEW ----------------------------------------
 \section{System Overview}
 The Cafeteria Management System is a system designed to assist users with efficiently ordering food from a cafeteria online and being notified when their order is done. The system will also assist cafeteria staff with dealing with orders in real time as well as managing inventory. The system will also assist in branding configeration of the cafeteria The system is intended to be used in a corporate environment whereby users have the option to charge their cafeteria expenses to their salary or immediately pay for orders. In addition, the system will allow management to view expense reports of different users. All users will also be able to access their history, set faveroutes and other similar functionality which will all be explained in this user manual.
 
+%%--------------------------------------SYSTEM CONFIGERATION ----------------------------------------
 \section{System Configuration}
 The system requires a Windows/Unix based host to run the server. This host must have NodeJS, MongoDB, Express server, Bower and grunt  installed on it (all of the mentioned thechnologies will be described step by step how to be installed in the next section). In addition, the host must be connected to the internet in order to allow any required dependencies to be installed and set up for the operating system environment. The configuration of the server requires an active e-mail account to facilitate communication between the system and end users. Interaction with this host will be achieved using a standard mouse and keyboard as well as a monitor.\\ 
 \\
 End users will only require a PC equipped with a modern web browser and an active internet connection.
 
+%%--------------------------------------INSTTALATION  ----------------------------------------
 \section{Installation}
+
+%%------------------------PREREQUISITES ----------------------------
 \subsection{Prerequisites}
 The Cafeteria Management System requires NodeJS and MongoDB to run. These are free and open source software and can be obtained from the following sites:\\
 \url{https://nodejs.org/download/} \\
@@ -85,7 +90,6 @@ $npm install -g bower
 $npm install -g grunt-cli
 \end{verbatim}
 
-
 After these commands have sucessfully installed the respective applications you can download the Cafeteria Management Software from the GitHub repository :
  \url{https://github.com/toniamichael94/MainProjectCOS301}
 \\ \\
@@ -96,6 +100,8 @@ Once you have cloned the GitHub repository and installed the above mentioned tec
 \\ \\
 {\em Please note that 'CMS' will be refered to in the rest of this document as an abbriviation for the Cafeteria Management System}
 
+
+%%------------------------SETTING UP CMS ----------------------------
 \subsection{Setting up CMS}
 Before starting the system, an email account has to be set up to facilitate communication between the system and end users. The details of this account can be configured in the following config file:
 \begin{verbatim}
@@ -136,8 +142,6 @@ Below is an example of what the output should look like :
 
 Once mongo has been started, the CMS server can be started with the following command:\\ \\
 
-
-
 \begin{verbatim}
 ~/Cafeteria_Management_System/$ grunt
 \end{verbatim}
@@ -148,15 +152,34 @@ Once mongo has been started, the CMS server can be started with the following co
     \caption{Grunt - When grunt is running, output should be similar to this.} 
 \end{figure}
 
-
 Now the Server and the Database is running and we can get started with the rest of the setup process. \\
-Note: Inside the browser one will run localhost:3000 to view  system.
-
-\section{Getting Started}
-Access to the Cafeteria Management System is through a standard web browser. Different types of users have access to different facets of the system. The system has a default Superuser account which can assign different roles (cafeteria manager, cashier, etc.) to the users. These users can then sign in to access the facet of the system they are authorised to.\\
-Once logged in, the superuser can change their password from the profile management page which is available directly from the home page. They can also set additional fields such as an E-mail address which will assist in password recovery in the event of a forgotten password.\\
+Note: Inside the browser one will run localhost:3000 to view  system. \\ 
 
 To terminate the sever, the user can enter the Ctrl+C command in the terminal. The user can also terminate the MongoDB service by executing the same command (Ctrl+C) in the MongoDB terminal.
+
+%%-------------------------------------GETTING STARTED ----------------------------------------
+\section{Getting Started}
+Access to the Cafeteria Management System is through a standard web browser. Different types of users have access to different facets of the system. The system has a default super user account and an admin user account which can assign different roles (cafeteria manager, cashier, etc.) to the users and which has global access to the whole system. These users can then sign in to access the facet of the system they are authorised to.\\
+
+%%--------------------------------ADMINISTRATIVE USERS -------------------------
+\subsection{Administrative Users}
+When the CMS is started initially with an empty database there will be no users in the database this includes that there will  be no administrative users.  \\
+Thus to generate the administrative users on the first startup of the system one shoud navigate to the sighn in page and sighn in with empty credentials. If the stystem is started for the first time with an empty database, on sighn in with empty credentials (this means click on the sighn in button without filling out the text boxes) administrative users will be created. \\
+
+\textbf{The system will have a super user:} \\
+Employee ID: SuperUser \\
+Password: SuperUser \\
+
+\textbf{And the system will also have an adminuser:} \\
+Employee ID: AdminUser \\
+Password: AdminUser \\
+
+\textbf{WARNING :} \\
+Administrative users will have global access to the whole system, thus it is of upmost importance that the administrative users should be set up with the first start up of the system and their credentials and passords must be changed to not violate the security of the system. \\ 
+
+{\em* Note at all times there can only be 1 super user and 1 admin user - this is done for security purposes  } \\
+
+Once logged in, the super user and admin user can change their password from the profile management page which is available directly from the home page. They can also set additional fields such as an e-mail address which will assist in password recovery in the event of a forgotten password and to where notifications about the CMS will be sent to.\\
 
 \section{Using The System} 
 \subsection{The Navigation pane} 
