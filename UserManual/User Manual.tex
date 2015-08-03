@@ -31,13 +31,13 @@
  \hline
  \textbf{Document Title} & User Manual \\
  \hline
- \textbf{Document Identification}  & Document 0.0.3  \\
+ \textbf{Document Identification}  & Document 0.0.4  \\
  \hline
  \textbf{Author}  & Rendani Dau, Isabel Nel, Elana Kuun, Semaka Malapane, Antonia Michael \\
  \hline
  \textbf{Version} & 0.0.4 \\
  \hline
- \textbf{Document Status} & Fourth Version - contains Troubleshooting section \\
+ \textbf{Document Status} & Fourth Version - contains Troubleshooting section and extra content\\
  \hline
  \end{tabu}
 
@@ -64,21 +64,39 @@
 \pagebreak
 
 %%now begin document
-%%--------------------------------------SYSTEM OVERVIEW ----------------------------------------
+%%---------------------------------  INTRODUCTION -------------------------------------------
+\section{Introduction}
+This document contains the user manual for the Resolve Cafeteria Management System that will be created for Software Engineering (COS 301) at the University of Pretoria 2015, by the group T-RISE. 
+
+%% ------------------------------ VISION ------------------------------------------------------
+\section{Vision}
+The vision of this project is to implement a fully functional software application that will be maintainable, with detailed supporting documentation and an instruction manual for the Cafeteria Management System. This system will, amongst others, assist in executing orders from the cafeteria, managing the cafeteria's inventory, generating bills, and perform various reporting tasks. 
+
+%%---------------------------------- INTRO -----------------------------------------
+\section{Introduction}
+As specified in the project proposal document from Resolve, the cafeteria is currently cash only and does not accept bank cards or electronic payments. This makes it inconvenient for employees as they have to carry around cash if they want to purchase anything from the cafeteria. Employees may choose to go to an external food outlet where they can pay with their preferred method of payment, which uses time and fuel. Lastly, this means the cafeteria does not achieve the maximum amount of income which hinders its growth and improvement.\\
+
+Resolve is therefore looking for a means to accept payments from employees  using their employee access cards or access card numbers, with an amount being deducted from their salary at the end of the month.\\
+
+Resolve proposed the Cafeteria Management System to assist with this problem.
+After our first meeting with the client, they brought to our attention that at times the cafeteria does not have enough stock to provide some of the menu items, thus managing the inventory will also be part of the system. The system will predict which inventory items needs to be bought for the next week in order to avoid such a problem. At the end of each month, the bill for the month will be sent to either payroll or to the employee, or both. This option is configurable from the user's profile. The employee can also set a spending limit for each month. There will also be a system wide limit that users cannot exceed.
+
+%%---------------------------------- SYSTEM OVERVIEW -----------------------------------------
 \section{System Overview}
-The Cafeteria Management System is a system designed to assist users with efficiently ordering food from a cafeteria online and being notified when their order is done. The system will also assist cafeteria staff with dealing with orders in real time as well as managing inventory. The system will also assist in branding configuration of the cafeteria The system is intended to be used in a corporate environment whereby users have the option to charge their cafeteria expenses to their salary or immediately pay for orders. In addition, the system will allow management to view expense reports of different users. All users will also be able to access their history, set favourites and other similar functionality which will all be explained in this user manual.
+The Cafeteria Management System is a system designed to assist users to order food efficiently from their office's canteen and to be notified when their order is ready for collection. The system will also assist cafeteria staff with keeping track of the orders in real time as well as managing inventory. The system will also provide for configuring the branding settings of the cafeteria. The system is intended to be used in a corporate environment whereby users have the option to allow their cafeteria expenses to be deducted from their salary or immediately pay for orders. In addition, the system will allow management to view the bill reports of the different users. All users will also be able to access their spending history, set favourites and other similar functionality which will all be explained in this user manual. \\
 
 %%--------------------------------------SYSTEM CONFIGURATION ----------------------------------------
 \section{System Configuration}
-The system requires a Windows/Unix based host to run the server. This host must have NodeJS, MongoDB, Express server, Bower and grunt  installed on it (all of the mentioned technologies will be described step by step how to be installed in the next section). In addition, the host must be connected to the internet in order to allow any required dependencies to be installed and set up for the operating system environment. The configuration of the server requires an active email account to facilitate communication between the system and end users. Interaction with this host will be achieved using a standard mouse and keyboard as well as a monitor.\\ 
+The system requires a Windows/Unix based host to run the server. This host must have NodeJS, MongoDB, Express server, Bower and grunt  installed (the installation of these technologies will be discussed later in the document). In addition, the host must be connected to the internet in order to allow any required dependencies to be installed and set up for the operating system environment. The configuration of the server requires an active email account to facilitate communication between the system and end users. \\ 
 \\
-End users will only require a PC equipped with a modern web browser and an active internet connection.
+End users will only require a PC equipped with a web browser such as Mozilla, Chrome or Internet Explorer, as well as an active internet connection.
 
 %%--------------------------------------INSTALLATION  ----------------------------------------
 \section{Installation}
 
 %%------------------------PREREQUISITES ----------------------------
 \subsection{Prerequisites}
+For the programmer, who will maintain the code: \\
 The Cafeteria Management System requires NodeJS and MongoDB to run. These are free and open source software and can be obtained from the following sites:\\
 \url{https://nodejs.org/download/} \\
 \url{https://www.mongodb.org/downloads} \\
@@ -103,6 +121,7 @@ Once you have cloned the GitHub repository and installed the above mentioned tec
 
 %%------------------------SETTING UP CMS ----------------------------
 \subsection{Setting up CMS}
+For the programmer, who will maintain the system: \\
 Before starting the system, an email account has to be set up to facilitate communication between the system and end users. The details of this account can be configured in the following config file:
 \begin{verbatim}
 	~/Cafeteria_Management_System/config/env/production.js
@@ -152,19 +171,19 @@ Once mongo has been started, the CMS server can be started with the following co
     \caption{Grunt - When grunt is running, output should be similar to this.} 
 \end{figure}
 
-Now the Server and the Database is running and we can get started with the rest of the setup process. \\
-Note: Inside the browser one will run localhost:3000 to view  system. \\ 
+Now the Server and the Database are running and we can get started with the rest of the setup process. \\
+Note: Inside the browser one will run localhost:3000 to view system. \\ 
 
-To terminate the server, the user can enter the Ctrl+C command in the terminal. The user can also terminate the MongoDB service by executing the same command (Ctrl+C) in the MongoDB terminal.
+To terminate the server, the user can enter the Ctrl+C command in the "grunt" terminal. The user can also terminate the MongoDB service by executing the same command (Ctrl+C) in the MongoDB terminal.
 
 %%-------------------------------------GETTING STARTED ----------------------------------------
 \section{Getting Started}
-Access to the Cafeteria Management System is through a standard web browser. Different types of users have access to different facets of the system. The system has a default super user account and an admin user account which can assign different roles (cafeteria manager, cashier, etc.) to the users and which has global access to the whole system. These users can then sign in to access the facet of the system they are authorised to.\\
+Access to the Cafeteria Management System is through a standard web browser. Different types of users have access to different facets of the system. The system has a default super user account and an admin user account, where both of these users can assign different roles (cafeteria manager, cashier, etc.) to the users. They also have global access to the whole system. These users can then sign in to access the facet of the system they are authorised to.\\
 
 %%--------------------------------ADMINISTRATIVE USERS -------------------------
 \subsection{Administrative Users}
-When the CMS is started initially with an empty database there will be no users in the database this includes that there will  be no administrative users.  \\
-Thus to generate the administrative users on the first startup of the system one should navigate to the sign in page and sign in with empty credentials. If the system is started for the first time with an empty database, on sign in with empty credentials (this means click on the sign in button without filling out the text boxes) administrative users will be created. \\
+When the CMS is started initially with an empty database there will be no users in the database and this includes no administrative users.  \\
+Thus, to generate the administrative users, on the first startup of the system, one should navigate to the sign in page and sign in with empty credentials. If the system is started for the first time with an empty database, on sign in with empty credentials (proceeding to submit the sign in form without filling in username or password) administrative users will be created. \\
 
 \textbf{The system will have a super user:} \\
 Employee ID: SuperUser \\
@@ -175,15 +194,14 @@ Employee ID: AdminUser \\
 Password: AdminUser \\
 
 \textbf{WARNING :} \\
-Administrative users will have global access to the whole system, thus it is of utmost importance that the administrative users should be set up with the first start up of the system and their credentials and passwords must be changed to not violate the security of the system. \\ 
+Administrative users will have global access to the whole system, thus it is of utmost importance that the administrative users should be set up with the first start up of the system and their credentials should immediately be changed for security. \\ 
 
 {\em* Note at all times there can only be 1 super user and 1 admin user - this is done for security purposes  } \\
-
-Once logged in, the superuser and admin user can change their password from the profile management page which is available directly from the home page. They can also set additional fields such as an e-mail address which will assist in password recovery in the event of a forgotten password and to where notifications about the CMS will be sent to.\\
+ 
 
 %%-------------------------------- CREATING AN ACCOUNT -------------------------
-\subsection{Creating an Account}
-If you are a new user to the system you can create a new account by navigating to the signup page by click the 'Sign Up' button on the navigation bar:
+\subsection{Creating an Account} 
+Once the user has clicked the "Sign Up" option on the navigation pane, the user will be directed to the signup form, where the user should fill in their details. 
 
 \begin{figure}[H]
   \centering
@@ -191,7 +209,7 @@ If you are a new user to the system you can create a new account by navigating t
     \caption{Sign Up - red circled button should be clicked to sign up} 
 \end{figure}
 
-When the button is clicked the CMS will redirect you to the signup page where you can fill out all the details: \\
+When the button is clicked, the CMS will direct the user to the signup page where the user can fill out all the details. Once the user have completed the form, the user will click submit and if the form is correctly filled in , the user will be notified upon success and will be signed up for the system. They will hence be redirected to the home page. The user will then use the password created and employee ID to log in to the system. If the information entered is not valid, a thorough error message will be displayed indicating what the problem is so that the user can rectify it.
 
 \begin{figure}[H]
   \centering
@@ -199,8 +217,8 @@ When the button is clicked the CMS will redirect you to the signup page where yo
     \caption{Sign Up Page - details to be filled in - all fields are required} 
 \end{figure}
 
-{\em Employee ID } will be determined by the company where the cafeteria might find itself - no Employee ID can be reused.\\
-The {\em e-mail address} is of importance for notifications when the order will be ready and for financial bills to be send to. \\
+{\em Employee ID } will be assigned to users by their company - no Employee ID can be reused.\\
+The {\em e-mail address} to receive notifications of when their orders are ready and to receive monthly financial bills. \\
 The {\em spending} Limit is the maximum amount you may spend each month.\\
 
 {\em Note that all the fields may be edited when logged in} \\
@@ -217,26 +235,38 @@ To sign in, the user must click on the 'Sign In' tab on the navigation bar.
     \caption{Sign In - red circled button should be clicked to sign in} 
 \end{figure}
 
-Once the user clicks on the sign in button the CMS should direct to the sign in page :
+Once the user clicks on the sign in tab, the CMS should direct to the sign in page :
 
-\begin{figure}[H]
+begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{screenshots/signIn.png}
-    \caption{Sign - In page} 
+    \caption{Sign In page - Type the appropriate information in the textboxes and click submit to sign in} 
 \end{figure}
-
-Only registered users can sign in and fill out his/her personal details and click on the sign in button and the system will redirect to the home page when the user's login was successful.\\
+  
+The user will fill in their password and Employee ID in the provided slots and click submit to proceed. If the information entered is valid, the user will be notified upon success and redirected to the home page, logged in on their personal account. If the information entered is not valid, a thorough error message will be displayed indicating what the problem is so that the user can rectify it.
 If the user can not login due to forgetting his/her password they can click on the forget password link which will redirect to the forget password page:
-
+ 
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{screenshots/ForgotPass.png}
     \caption{Forgot password page} 
 \end{figure}
 
-The user can simply type in his/her Employee ID and click on the submit button, the CMS will send an e-mail notification to the user's registered email address and he/she can just follow the link send by the CMS via e-mail and reset the password and try to log in again. \\
+The "Forgot your password?"option, which once clicks leads the user to a page where the user must enter their Employee ID. The user will then be notified that an email has been sent to their personal email account with further instructions on how to rectify the situation. The user will be sent a link to a page, in order to set a new password.    \\
 
 The rest of the functionality will be described in the section below in detail  under the respective headings of how to navigate between pages to administrative settings to ordering an item and so forth. 
+ 
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/emailSentForPass.png}
+    \caption{After submitting the form - notified about email sent} 
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/newPassForPass.png}
+    \caption{The url sent via email leads to this page - fill in the textboxes and new password is set} 
+\end{figure}
 
 
 %%-------------------------------------USING THE SYSTEM----------------------------------------
@@ -247,8 +277,8 @@ The rest of the functionality will be described in the section below in detail  
 
 %%------------------------NAVIGATION PANE USER  NOT LOGGED ON ----------------------
 \subsubsection{The Navigation pane - once the user is not  logged on}
-On the home page, the name of the canteen is displayed. The user will also see the navigation pane at the top. The actions available with the pane are "Sign in", "Sign up", "Menu" and "On your plate". 
-The Navigation pane will when not logged in will be displayed as follows:
+On the home page, the name of the canteen is displayed. The user will also see that the navigation pane is located at the top of the screen. The actions available on the pane are "Sign in", "Sign up", "Menu" and "On your plate". 
+The Navigation pane will be displayed as follows if the user has not logged in:
 
 \begin{figure}[H]
   \centering
@@ -260,13 +290,13 @@ The numbers in the images are described below:
 
 \begin{enumerate}
 \item The Home button - when clicking on this button it will always redirect to the home page
-\item The Menu button - this button will redirect to the menu page
-\item The on my plate button - this button will redirect to an orders page showing how many items you currently have on your plate and what they all consist of with totals.
-\item The Sign Up button - this button will redirect to the signup page where a new account can be created
-\item The Sign In button - this button will redirect to a page where the user can signin and log into his/her account.
+\item The Menu button - this button will direct user to the menu page
+\item The on my plate button - this button will direct user to an orders page showing items you have currently ordered and the bill total
+\item The Sign Up button - this button will direct to the signup page where a new account can be created
+\item The Sign In button - this button will direct to a page where the user can signin and log into his/her account
 \end{enumerate}
 
-The user can not proceed to order food if the user has not signed up and logged in. Hence, the first step a new user should take is signing up/ registering with the system. 
+The user cannot proceed to order food if the user has not signed up and logged in. Hence, the first step a new user should take is signing up/ registering with the system. 
 \\ \\
 If a user has not signed in, the user will still be allowed, however, to view the menu, without ordering anything. However, the user will be able to add items to their plate and view them on the "On My Plate" page, but the order will not be sent to the system until the user signs in.
 
@@ -282,22 +312,21 @@ The user will now view a drop down menu with various options displayed on it. Th
 \end{figure}
 
 
-When a user is logged in as a normal user he/she will have the following view of the navigation plane as the above image.\\ below we describe what each of those buttons will do: \\
+When a user is logged in as a normal user he/she will have the following view of the navigation pane as the above image.\\ below we describe what each of those buttons will do: \\
 
 \begin{enumerate}
- \item The Home button - when clicking on this button it will always redirect to the home page
+\item The Home button - when clicking on this button it will always redirect to the home page
 \item The Menu button - this button will redirect to the menu page
-\item The on my plate button - this button will redirect to an orders page showing how many items you currently have on your
-plate and what they all consist of with totals.
-\item The User button - this button will display the user's name and when clicked on will give a dropdown menu with different options depending what the role of the user is - the example used is just a normal user with the basic options described below:
-\item View Profile button - this button will redirect to the profile page of the respective user.
-\item Edit Profile button - this button will redirect to the edit profile page where a user can change his/her current details and save it onto the CMS
-\item Change Password button - this button will redirect to the change password page where a user can change his/her current password.
-\item Sign Out button - this button will sign a user out of the CMS and redirect the user to the home page. 
+\item The on my plate button - this button will redirect to an orders page showing items you have currently ordered and the bill total
+\item The User button - this button will display the user's name and when clicked, will launch a dropdown menu with different options depending on what the role of the user is - the example used is just a normal user with the basic options. These are described below:
+\item View Profile - this will redirect to the profile page of the respective user.
+\item Edit Profile - this will redirect to the edit profile page where a user can change his/her current details and save it onto the CMS
+\item Change Password - this will redirect to the change password page where a user can change his/her current password
+\item Sign Out  - this will sign a user out of the CMS and redirect the user to the home page
 \end{enumerate}
 
 \textbf{Normal User}\\
-A normal user will only have the visible options in the dropdown menu as displayed in the image.Although if the user has any other role than a user they will see extra settings displaying in the dropdown menu.\\
+A normal user will only have the options in the dropdown menu as displayed in the image above. If the user obtains another role, there will be extra settings displaying in the dropdown menu.\\
 
 \textbf{Superuser or Admin User}\\
 If the user is a superuser or an admin user the options "Admin Settings" and "Branding Settings" will also be displayed in the dropdown menu. The superuser and the admin user will hence be in control of assigning roles, changing employee ID's, setting the system wide spending limit, changing the canteen name and the cover image of the canteen.  \\
@@ -305,55 +334,11 @@ If the user is a superuser or an admin user the options "Admin Settings" and "Br
 \textbf{Cafeteria Manager}\\
 If the user is a cafeteria manager, the options "Manage Menu Items" and "Manage Inventory" will be displayed. Manage Inventory is where the stock additions and removals are kept track of. Manage Menu Items  is where the different menu meal items will be logged.\\
 
-
-\textbf{Finance r}\\
+\textbf{Finance}\\
 If user is a financial manager, the option "Finance" will be displayed. The financial manager will be able to search for employees and view their bills, to keep track of these.\\
 
 \textbf{Cashier}\\
 If the user is a cashier, the options "Placed Orders" will be displayed and it is here where the transactions will occur, such as marking whether orders are ready, and paid for. The cashier will also send notifications to the user, when the food is ready for the user to collect. 
-
-%%------------------------SIGN UP PAGE  ----------------------
-\subsection{The "Sign Up" Page} 
-Once the user has clicked the "Sign Up" option on the navigation pane, the user will be directed to the signup form, where a user should fill in their details. Once completed, the user will click submit and if the form is correctly filled in the user will be notified upon success and will be signed up for the system. The user will hence be redirected to the home page. The user can then use the password created and employee ID to log in to the system. If the information entered is not followed, a thorough error message will be displayed indicating what the problem is so that the user can rectify it.
-\\
-The user must now log in to access the ordering and managing profile functionality.
-\begin{figure}[H]
-  \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/limitExeedSignUp.png}
-    \caption{Sign up sheet - when a user types in a limit value larger than the maximum spending limit per month} 
-\end{figure}
-
-%%-----------------------SIGN IN PAGE  ----------------------
-\subsection{The "Sign In" Page} 
-To log into the system the user should click the Sign In option on the navigation pane. The user will fill in their password and Employee ID in the provided slots and click submit to proceed. If the information entered is valid, the user will be notified upon success and redirected to the home page, logged in on their personal account. If the information entered is not valid, a thorough error message will be displayed indicating what the problem is so that the user can rectify it.
-\\
-There is also an option called "Forgot your password?" which once clicked leads the user to a page where the user must enter their Employee ID. The user will then be notified that an email has been sent to their personal email account with further instructions on how to rectify the situation. The user will be sent a link to a page, in order to set a new password.   
-
-\begin{figure}[H]
-  \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/signIn.png}
-    \caption{Sign In page - Type the appropriate information in the textboxes and click submit to sign in} 
-\end{figure}
-
-\begin{figure}[H]
-  \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/ForgotPass.png}
-    \caption{Forgot password page} 
-\end{figure}
-
-
-\begin{figure}[H]
-  \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/emailSentForPass.png}
-    \caption{After submitting the form - notified about email sent} 
-\end{figure}
-
-\begin{figure}[H]
-  \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/newPassForPass.png}
-    \caption{The url sent via email leads to this page - fill in the textboxes and new password is set} 
-\end{figure}
-
 
 %%------------------------MENU PAGE----------------------
 \subsection{The "Menu" Page} 
