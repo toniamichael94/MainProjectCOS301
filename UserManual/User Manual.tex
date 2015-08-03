@@ -36,9 +36,9 @@
  \hline
  \textbf{Author}  & Rendani Dau, Isabel Nel, Elana Kuun, Semaka Malapane, Antonia Michael \\
  \hline
- \textbf{Version} & 0.0.3 \\
+ \textbf{Version} & 0.0.4 \\
  \hline
- \textbf{Document Status} & Third Version - contains screenshots for different pages \\
+ \textbf{Document Status} & Fourth Version - contains Troubleshooting section \\
  \hline
  \end{tabu}
 
@@ -54,7 +54,10 @@
  0.0.2 & 20 July 2015 &  Second draft adding page  & Rendani Dau, \\ & & assistance and explanation & Elana Kuun, \\ & & of how to use & Semaka Malapane, \\ & & functionality on page &  Antonia Michael \\ & & & Isabel Nel \\   [1ex]  
  \hline 
  & & & \\
- 0.0.3& 23 July 2015 &  Third draft containing  & Rendani Dau, \\ & & screenshots of the & Elana Kuun, \\ & & of different paged & Semaka Malapane, \\ & & and their functionality &  Antonia Michael \\ & & & Isabel Nel \\   [1ex]  
+ 0.0.3& 23 July 2015 &  Third draft containing  & Rendani Dau, \\ & & screenshots of the & Elana Kuun, \\ & & of different page & Semaka Malapane, \\ & & and their functionality &  Antonia Michael \\ & & & Isabel Nel \\   [1ex]  
+ \hline
+ & & & \\
+ 0.0.4& 3 August 2015 &  Fourth draft Added  & Rendani Dau, \\ & & Troubleshooting & Elana Kuun, \\ & & Section & Semaka Malapane, \\ & &  &  Antonia Michael \\ & & & Isabel Nel \\   [1ex]  
  \hline
  \end{tabular}
 \end{table}
@@ -104,23 +107,36 @@ In a terminal/command prompt, navigate to the CMS directory and execute the 'npm
 
 If all dependencies were installed successfully, then MongoDB can be started with the following command:
 \begin{verbatim}
-~$mongod --dbpath "directory"
+~/$mongod --dbpath "directory"
 \end{verbatim}
 
 Where directory is a path to the folder which Mongo will use as a working directory.\\
 {\em Note that this command has to be executed in a separate terminal.}\\
-Once mongo has been started, then the CMS server can be started with the following command:\\
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/MongoDB.png}
+    \caption{MongoDB Terminal - Expected output when running MongoDB} 
+\end{figure}
+
+Once mongo has been started, the CMS server can be started with the following command:\\
 
 \begin{verbatim}
 ~/Cafeteria Management System$ grunt
 \end{verbatim}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/gruntOutput.png}
+    \caption{Grunt - When grunt is running, output should be similar to this.} 
+\end{figure}
 
 Note: Inside the browser one will run localhost:3000 to view the system.
 
 \section{Getting Started}
 Access to the Cafeteria Management System is through a standard web browser. Different types of users have access to different facets of the system. The system has a default Superuser account which can assign different roles (cafeteria manager, cashier, etc.) to the users. These users can then sign in to access the facet of the system they are authorised to.\\
 Once logged in, the superuser can change their password from the profile management page which is available directly from the home page. They can also set additional fields such as an E-mail address which will assist in password recovery in the event of a forgotten password.\\
-**walkthrough from initiation to exit**\\
+
 To terminate the sever, the user can enter the Ctrl+C command in the terminal. The user can also terminate the MongoDB service by executing the same command (Ctrl+C) in the MongoDB terminal.
 
 \section{Using The System} 
@@ -129,15 +145,15 @@ On the home page, the name of the canteen is displayed. The user will also see t
 \\
 The user can not proceed to order food if the user has not signed up and logged in. Hence, the first step a new user should take is signing up/ registering with the system. 
 \\
-If a user has not signed in, the user will still be allowed, however, to view the menu, without ordering anything. However, the user will not be able to add any item to their plate and hence no orders will be displayed on the "On my plate" page.
+If a user has not signed in, the user will still be allowed, however, to view the menu, without ordering anything. However, the user will be able to add items to their plate and view them on the "On My Plate" page, but the order will not be sent to the system until the user signs in.
 \subsubsection{The Navigation pane - once the user has logged on}
 The user will now view a drop down menu with various options displayed on it. The following options will be displayed if the user is a normal user: "Edit Profile", "Profile", "Sign out". These pages will be discussed below.
 \\
-If the user is a superuser the options of "Admin Settings", "Branding Settings". The superuser will hence be in control of assigning roles, changing employee ID's, setting the limit, changing the canteen name and the cover image of the canteen.  
+If the user is a superuser the options "Admin Settings" and "Branding Settings" will be displayed. The superuser will hence be in control of assigning roles, changing employee ID's, setting the limit, changing the canteen name and the cover image of the canteen.  
 \\
-If the user is a cafeteria manager, the options "Manage Cafeteria", "Manage Inventory" will be displayed.Manage Inventory is where the stock additions and removals are kept track of. Manage Cafeteria is where the different menu meal items will be logged.
+If the user is a cafeteria manager, the options "Manage Cafeteria" and "Manage Inventory" will be displayed. Manage Inventory is where the stock additions and removals are kept track of. Manage Cafeteria is where the different menu meal items will be logged.
 
-If user is a financial manager, the option "Finance" will be displayed. The financial managed will be able to search for employees and view their bills, to keep track of these.
+If user is a financial manager, the option "Finance" will be displayed. The financial manager will be able to search for employees and view their bills, to keep track of these.
 
 If the user is a cashier, the options "Placed Orders" will be displayed and it is here where the transactions will occur, such as marking whether orders are ready, and paid for. The cashier will also send notifications to the user, when the food is ready for the user to collect. 
 
@@ -153,7 +169,7 @@ The user must now log in to access the ordering and managing profile functionali
 \end{figure}
 
 \subsection{The "Sign In" Page} 
-To log into the system the user should click the Sign In option on the navigation pane. The user will fill in their password and Employee ID in the provided slots and click submit to proceed. If the information entered is valid, the user will be notified upon success and redirected to the home page, logged in on their personal account. If the information entered is not followed, a thorough error message will be displayed indicating what the problem is so that the user can rectify it.
+To log into the system the user should click the Sign In option on the navigation pane. The user will fill in their password and Employee ID in the provided slots and click submit to proceed. If the information entered is valid, the user will be notified upon success and redirected to the home page, logged in on their personal account. If the information entered is not valid, a thorough error message will be displayed indicating what the problem is so that the user can rectify it.
 \\
 There is also an option called "Forgot your password?" which once clicked leads the user to a page where the user must enter their Employee ID. The user will then be notified that an email has been sent to their personal email account with further instructions on how to rectify the situation. The user will be sent a link to a page, in order to set a new password.   
 
@@ -169,11 +185,6 @@ There is also an option called "Forgot your password?" which once clicked leads 
     \caption{Forgot password page} 
 \end{figure}
 
-\begin{figure}[H]
-  \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/pleaseWaitForPass.png}
-    \caption{After submitting the form} 
-\end{figure}
 
 \begin{figure}[H]
   \centering
@@ -183,18 +194,12 @@ There is also an option called "Forgot your password?" which once clicked leads 
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/emailForPass.png}
-    \caption{The actual email that the system sent - follow the provided url to change password} 
-\end{figure}
-
-\begin{figure}[H]
-  \centering
     \includegraphics[width=1.0\textwidth]{screenshots/newPassForPass.png}
-    \caption{The url sent via the email leads to this page - fill in the textboxes and new password is set} 
+    \caption{The url sent via email leads to this page - fill in the textboxes and new password is set} 
 \end{figure}
 
 \subsection{The "Menu" Page} 
-This is where the user will be able to view the menu of the items and their prices. There are checkboxes next to the meal items that the user can click to select meal options. The user can proceed to click the "Add to plate" button to place their order. Their order can then be viewed on the "On my plate" tab on the navigation pane. 
+This is where the user will be able to view the menu items and their prices. An item can be added to the user's plate by simply clicking the 'Add to Plate' button alongside each item. These can then be viewed on the 'On my Plate' page.
 \\
 \begin{figure}[H]
   \centering
@@ -218,11 +223,6 @@ On the menu page there is also a breadcrumb which indicates the different meal c
 \subsection{The "On my plate" Page} 
 This page serves to indicate the current meal items that the user has ordered, and these can be removed on this page via the appropriately labelled button. The tab in the navigation bar also indicates an amount which is the amount of meal items ordered.
 
-\begin{figure}[H]
-  \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/tunaAdd.png}
-    \caption{Menu page - Adding a meal to your plate } 
-\end{figure}
 
 \begin{figure}[H]
   \centering
@@ -255,7 +255,7 @@ This is where the user will be able to view their profile i.e. the details they 
 \end{figure}
 
 \subsection{The "Change Password" Page} 
-The user is presented with a form where the user will be asked to enter their new and old passwords to change their password. 
+The user is presented with a form where the user will be asked to enter their old and new passwords to change their password. 
 
 \begin{figure}[H]
   \centering
@@ -277,14 +277,8 @@ There are two sections on this page. One where the user can change the canteen n
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/canteenName.png}
-    \caption{The admin settings page - superuser can change the canteen name} 
-\end{figure}
-
-\begin{figure}[H]
-  \centering
     \includegraphics[width=1.0\textwidth]{screenshots/coverImage.png}
-    \caption{The admin settings page - superuser can change the cover image} 
+    \caption{The admin settings page - superuser can change the System Branding} 
 \end{figure}
 
 \subsection{Cashier: The "Process Orders" Page}
@@ -292,6 +286,29 @@ This page is for the use of the cashier. Orders can be marked as ready via the c
 
 \subsection{Financial Manager: The "View Employee Bills" Page}
 There is a field labelled "Employee Id" and it is in here where a user will type in the employee ID 
+
+\section{Troubleshooting}
+\subsection{Problems with setting up the system}
+If the system does not start up when you run the 'grunt' command, either of the following procedures can be followed:
+\begin{itemize}
+\item Ensure you have an active internet connection as the system requires an internet connection.
+\item Ensure you have MongoDB running in a separate terminal. \\
+	The line \begin{verbatim}
+		Waiting for connections on port 27017
+	\end{verbatim} should be displayed at the end of the Mongo terminal.
+\item If the above does not solve the problem, the command npm update should be run from inside the CMS directory:
+	\begin{verbatim}
+		~/Cafeteria Management System$ npm update
+	\end{verbatim}
+\item If the problem persists the following commands should be run in order:
+	\begin{verbatim}
+		~/Cafeteria Management System$ bower install
+	\end{verbatim} 
+	\begin{verbatim}
+		~/Cafeteria Management System$ npm install
+	\end{verbatim} 
+	\begin{verbatim}
+		~/Cafeteria Management System$ npm update
+	\end{verbatim}
+\end{itemize}
 \end{document}
-
-
