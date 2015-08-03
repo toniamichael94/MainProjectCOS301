@@ -94,5 +94,62 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
                 $scope.employees = 'Error loading employees';
             });
         };
+
+        $scope.checkUser = function(){
+            if(!$scope.user)// && ($location.path === '/#!/settings/password'))
+            {
+                $location.path('/');
+                /*if($location.path === '/#!/settings/password')
+                    $location.path('/');
+                else if($location.path === '/#!/settings/profileView')
+                    $location.path('/');
+                else if($location.path === '/#!/settings/profile')
+                    $location.path('/');
+                else if($location.path === '/#!/manageCafeteria')
+                    $location.path('/');
+                else if($location.path === '/#!/manageInventory')
+                    $location.path('/');
+                else if($location.path === '/#!/finance')
+                    $location.path('/');*/
+            }
+            else if(Authentication.user.roles[0] !== 'cafeteriaManager')
+            {
+                if($location.path ==='/#!/manageCafeteria')
+                    $location.path('/');
+                else if($location.path === '/#!/manageInventory')
+                    $location.path('/');
+            }
+            else if(((Authentication.user.roles[0] !== 'finance')) && $location.path('/#!/finance'))
+                $location.path('/');
+        }
+
+        $scope.checkCMUser = function(){
+             if(((Authentication.user.roles[0] !== 'cafeteriaManager') || (!$scope.user)))
+                $location.path('/');
+            /* if(((Authentication.user.roles[0] !== 'cafeteriaManager') || (!$scope.user)))
+                $location.path('/');*/
+             /*if(((Authentication.user.roles[0] !== 'finance') || (!$scope.user)) && $location.path('/#!/finance'))
+                $location.path('/');*/
+            /*if(!$scope.user && ($location.path === '/#!/settings/password'))
+                $location.path('/');
+            if(!$scope.user && ($location.path === '/#!/settings/profileView'))
+                $location.path('/');
+            if(!$scope.user && ($location.path === '/#!/settings/profile'))
+                $location.path('/');
+            /*
+             <li data-ng-show="">
+             <a href="/#!/settings/profileView">View Profile</a>
+             </li>
+             <li>
+             <a href="/#!/settings/profile"> Edit Profile</a>
+             </li>
+             /*
+             <li data-ng-show="authentication.user.roles[0] === 'cashier'">
+             <a href="/#!/cashier"> Process Orders </a>
+             </li>
+             <li data-ng-show="authentication.user.provider === 'local'">
+             <a href="/#!/settings/password"> Change Password</a>
+             </li>*/
+        }
 	}
 ]);

@@ -167,5 +167,10 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
                     });
                 }
 		};
+
+        $scope.checkUser = function(){
+            if(($scope.user && Authentication.user.roles[0] !== 'superuser') || ($scope.user && Authentication.user.roles[0] !== 'superuser') || (!$scope.user))
+                $location.path('/');
+        }
     }
 ]);

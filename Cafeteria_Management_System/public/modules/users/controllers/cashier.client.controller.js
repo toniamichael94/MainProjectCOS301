@@ -15,7 +15,12 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
 				console.log('error' + response.message);
 			});
 		};
-	
+
+
+        $scope.checkUser = function(){
+            if((($scope.user && Authentication.user.roles[0] !== 'cashier') || (!$scope.user)) && $location.path('/#!/cashier'))
+                $location.path('/');
+        }
 	
 	
 	}

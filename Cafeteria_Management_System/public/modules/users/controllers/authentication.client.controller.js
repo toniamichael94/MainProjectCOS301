@@ -26,7 +26,6 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 				// If successful we assign the response to the global user model
 
 				$scope.authentication.user = response;
-
 				//Redirect to the view order page if orders pending
                 if($cookies.plate) {
 					if(JSON.parse($cookies.plate).length > 0){
