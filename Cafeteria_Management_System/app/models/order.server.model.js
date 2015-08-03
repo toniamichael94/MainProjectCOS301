@@ -27,6 +27,10 @@ var OrderSchema = new Schema({
 		type: Number,
 		required: 'Please fill in quantity'
 	},
+    preferences: {
+        type: String,
+        default: 'none'
+    },
 	status: {
 		type: String,
 		enum: ['open', 'closed'],
