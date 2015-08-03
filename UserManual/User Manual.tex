@@ -66,15 +66,15 @@
 %%now begin document
 %%--------------------------------------SYSTEM OVERVIEW ----------------------------------------
 \section{System Overview}
-The Cafeteria Management System is a system designed to assist users with efficiently ordering food from a cafeteria online and being notified when their order is done. The system will also assist cafeteria staff with dealing with orders in real time as well as managing inventory. The system will also assist in branding configeration of the cafeteria The system is intended to be used in a corporate environment whereby users have the option to charge their cafeteria expenses to their salary or immediately pay for orders. In addition, the system will allow management to view expense reports of different users. All users will also be able to access their history, set faveroutes and other similar functionality which will all be explained in this user manual.
+The Cafeteria Management System is a system designed to assist users with efficiently ordering food from a cafeteria online and being notified when their order is done. The system will also assist cafeteria staff with dealing with orders in real time as well as managing inventory. The system will also assist in branding configuration of the cafeteria The system is intended to be used in a corporate environment whereby users have the option to charge their cafeteria expenses to their salary or immediately pay for orders. In addition, the system will allow management to view expense reports of different users. All users will also be able to access their history, set favourites and other similar functionality which will all be explained in this user manual.
 
-%%--------------------------------------SYSTEM CONFIGERATION ----------------------------------------
+%%--------------------------------------SYSTEM CONFIGURATION ----------------------------------------
 \section{System Configuration}
-The system requires a Windows/Unix based host to run the server. This host must have NodeJS, MongoDB, Express server, Bower and grunt  installed on it (all of the mentioned thechnologies will be described step by step how to be installed in the next section). In addition, the host must be connected to the internet in order to allow any required dependencies to be installed and set up for the operating system environment. The configuration of the server requires an active e-mail account to facilitate communication between the system and end users. Interaction with this host will be achieved using a standard mouse and keyboard as well as a monitor.\\ 
+The system requires a Windows/Unix based host to run the server. This host must have NodeJS, MongoDB, Express server, Bower and grunt  installed on it (all of the mentioned technologies will be described step by step how to be installed in the next section). In addition, the host must be connected to the internet in order to allow any required dependencies to be installed and set up for the operating system environment. The configuration of the server requires an active email account to facilitate communication between the system and end users. Interaction with this host will be achieved using a standard mouse and keyboard as well as a monitor.\\ 
 \\
 End users will only require a PC equipped with a modern web browser and an active internet connection.
 
-%%--------------------------------------INSTTALATION  ----------------------------------------
+%%--------------------------------------INSTALLATION  ----------------------------------------
 \section{Installation}
 
 %%------------------------PREREQUISITES ----------------------------
@@ -90,15 +90,15 @@ $npm install -g bower
 $npm install -g grunt-cli
 \end{verbatim}
 
-After these commands have sucessfully installed the respective applications you can download the Cafeteria Management Software from the GitHub repository :
+After these commands have successfully installed the respective applications you can download the Cafeteria Management Software from the GitHub repository :
  \url{https://github.com/toniamichael94/MainProjectCOS301}
 \\ \\
-This can be done by cloning the repositry onto a remote location on your PC, if you do not know how to clone a GitHub repository, please visit:\\
+This can be done by cloning the repository onto a remote location on your PC, if you do not know how to clone a GitHub repository, please visit:\\
   \url{https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository}  under the section "How to clone an existing repository" you will find the GitHub documentation on how to do this.
 \\
-Once you have cloned the GitHub repository and installed the above mentioned techmologies, please move on to the next section , which will take you step by step in configering the Cafeteria Management System (CMS).
+Once you have cloned the GitHub repository and installed the above mentioned technologies, please move on to the next section , which will take you step by step in configuring the Cafeteria Management System (CMS).
 \\ \\
-{\em Please note that 'CMS' will be refered to in the rest of this document as an abbriviation for the Cafeteria Management System}
+{\em Please note that 'CMS' will be referred to in the rest of this document as an abbreviation for the Cafeteria Management System}
 
 
 %%------------------------SETTING UP CMS ----------------------------
@@ -111,7 +111,7 @@ Before starting the system, an email account has to be set up to facilitate comm
 \\ \\
 Under the section 'Mailer', the following fields should be specified:\\
 \begin{itemize}
-\item MAIELR\textunderscore FROM: A name indicating the sender of mail.
+\item MAILER\textunderscore FROM: A name indicating the sender of mail.
 \item MAILER\textunderscore SERVICE\textunderscore PROVIDER: The service provider of the email account
 \item MAILER\textunderscore EMAIL\textunderscore ID: The email ID of the account set up for CMS
 \item MAILER\textunderscore PASSWORD: The password of the account set up for CMS
@@ -155,7 +155,7 @@ Once mongo has been started, the CMS server can be started with the following co
 Now the Server and the Database is running and we can get started with the rest of the setup process. \\
 Note: Inside the browser one will run localhost:3000 to view  system. \\ 
 
-To terminate the sever, the user can enter the Ctrl+C command in the terminal. The user can also terminate the MongoDB service by executing the same command (Ctrl+C) in the MongoDB terminal.
+To terminate the server, the user can enter the Ctrl+C command in the terminal. The user can also terminate the MongoDB service by executing the same command (Ctrl+C) in the MongoDB terminal.
 
 %%-------------------------------------GETTING STARTED ----------------------------------------
 \section{Getting Started}
@@ -164,60 +164,60 @@ Access to the Cafeteria Management System is through a standard web browser. Dif
 %%--------------------------------ADMINISTRATIVE USERS -------------------------
 \subsection{Administrative Users}
 When the CMS is started initially with an empty database there will be no users in the database this includes that there will  be no administrative users.  \\
-Thus to generate the administrative users on the first startup of the system one shoud navigate to the sighn in page and sighn in with empty credentials. If the stystem is started for the first time with an empty database, on sighn in with empty credentials (this means click on the sighn in button without filling out the text boxes) administrative users will be created. \\
+Thus to generate the administrative users on the first startup of the system one should navigate to the sign in page and sign in with empty credentials. If the system is started for the first time with an empty database, on sign in with empty credentials (this means click on the sign in button without filling out the text boxes) administrative users will be created. \\
 
 \textbf{The system will have a super user:} \\
 Employee ID: SuperUser \\
 Password: SuperUser \\
 
-\textbf{And the system will also have an adminuser:} \\
+\textbf{And the system will also have an admin user:} \\
 Employee ID: AdminUser \\
 Password: AdminUser \\
 
 \textbf{WARNING :} \\
-Administrative users will have global access to the whole system, thus it is of upmost importance that the administrative users should be set up with the first start up of the system and their credentials and passords must be changed to not violate the security of the system. \\ 
+Administrative users will have global access to the whole system, thus it is of utmost importance that the administrative users should be set up with the first start up of the system and their credentials and passwords must be changed to not violate the security of the system. \\ 
 
 {\em* Note at all times there can only be 1 super user and 1 admin user - this is done for security purposes  } \\
 
-Once logged in, the super user and admin user can change their password from the profile management page which is available directly from the home page. They can also set additional fields such as an e-mail address which will assist in password recovery in the event of a forgotten password and to where notifications about the CMS will be sent to.\\
+Once logged in, the superuser and admin user can change their password from the profile management page which is available directly from the home page. They can also set additional fields such as an e-mail address which will assist in password recovery in the event of a forgotten password and to where notifications about the CMS will be sent to.\\
 
 %%-------------------------------- CREATING AN ACCOUNT -------------------------
 \subsection{Creating an Account}
-If you are a new user to the system you can create a new account by navigating to the Sign Up page by click the 'Sign Up' button on the navigation bar:
+If you are a new user to the system you can create a new account by navigating to the signup page by click the 'Sign Up' button on the navigation bar:
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/sighnUp.png}
-    \caption{Sign-Up - red circled button should be clicked to sighn up} 
+    \includegraphics[width=1.0\textwidth]{screenshots/signUp.png}
+    \caption{Sign Up - red circled button should be clicked to sign up} 
 \end{figure}
 
-When the button is clicked the CMS will rerirect you to the sighn up page where you can fill out all the details: \\
+When the button is clicked the CMS will redirect you to the signup page where you can fill out all the details: \\
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/sighnUpPage.png}
-    \caption{Sign-Up Page - detailes to be filled in - all fields are required} 
+    \includegraphics[width=1.0\textwidth]{screenshots/signUpPage.png}
+    \caption{Sign Up Page - details to be filled in - all fields are required} 
 \end{figure}
 
 {\em Employee ID } will be determined by the company where the cafeteria might find itself - no Employee ID can be reused.\\
-The {\em e-mail address} is of importance for notifications when the order will be ready and for finantial bills to be send to. \\
+The {\em e-mail address} is of importance for notifications when the order will be ready and for financial bills to be send to. \\
 The {\em spending} Limit is the maximum amount you may spend each month.\\
 
-{\em Note that all the fields may be eddited when logged in} \\
+{\em Note that all the fields may be edited when logged in} \\
 
-After signing up and creating a new account the user will outomaticcally be logged in. \\
+After signing up and creating a new account the user will automatically be logged in. \\
 
 %%-------------------------------- LOGGING IN  -------------------------
 \subsection{Logging In}
-Once a user navigates to the home page of the CMS to log in the user can click on the button in the navigation bar called 'Sigh In':
+To sign in, the user must click on the 'Sign In' tab on the navigation bar.
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/sighnIn.png}
-    \caption{Sign - In - red circled button should be clicked to sighn in} 
+    \includegraphics[width=1.0\textwidth]{screenshots/signIn.png}
+    \caption{Sign In - red circled button should be clicked to sign in} 
 \end{figure}
 
-Once the user clicks on the sighn in button the CMS should direct to the sign in page :
+Once the user clicks on the sign in button the CMS should direct to the sign in page :
 
 \begin{figure}[H]
   \centering
@@ -225,8 +225,8 @@ Once the user clicks on the sighn in button the CMS should direct to the sign in
     \caption{Sign - In page} 
 \end{figure}
 
-Only regestered users can sign in and fill out his/her personal details and click on the sign in button and the sustem will redirect to the home page when the user's login was sucessfull.\\
-If the user can not log in due to forgetting his/her password they can click on the forget password link which will redirect to the forget password page:
+Only registered users can sign in and fill out his/her personal details and click on the sign in button and the system will redirect to the home page when the user's login was successful.\\
+If the user can not login due to forgetting his/her password they can click on the forget password link which will redirect to the forget password page:
 
 \begin{figure}[H]
   \centering
@@ -234,7 +234,7 @@ If the user can not log in due to forgetting his/her password they can click on 
     \caption{Forgot password page} 
 \end{figure}
 
-The user can simply type in his/het Employee ID and click on the submit button, the CMS will send an e-mail notification to the user's registered e-mail address and he/she can just follow the link send by the CMS via e-mail and reset the password and try to log in again. \\
+The user can simply type in his/her Employee ID and click on the submit button, the CMS will send an e-mail notification to the user's registered email address and he/she can just follow the link send by the CMS via e-mail and reset the password and try to log in again. \\
 
 The rest of the functionality will be described in the section below in detail  under the respective headings of how to navigate between pages to administrative settings to ordering an item and so forth. 
 
@@ -242,10 +242,10 @@ The rest of the functionality will be described in the section below in detail  
 %%-------------------------------------USING THE SYSTEM----------------------------------------
 \section{Using The System} 
 
-%%------------------------NAVIGATION PLANE ----------------------
+%%------------------------NAVIGATION PANE ----------------------
 \subsection{The Navigation pane} 
 
-%%------------------------NAVIGATION PLANE USER  NOT LOGGED ON ----------------------
+%%------------------------NAVIGATION PANE USER  NOT LOGGED ON ----------------------
 \subsubsection{The Navigation pane - once the user is not  logged on}
 On the home page, the name of the canteen is displayed. The user will also see the navigation pane at the top. The actions available with the pane are "Sign in", "Sign up", "Menu" and "On your plate". 
 The Navigation pane will when not logged in will be displayed as follows:
@@ -260,10 +260,10 @@ The numbers in the images are described below:
 
 \begin{enumerate}
 \item The Home button - when clicking on this button it will always redirect to the home page
-\item The Menu button - this button will redirect to the menui page
+\item The Menu button - this button will redirect to the menu page
 \item The on my plate button - this button will redirect to an orders page showing how many items you currently have on your plate and what they all consist of with totals.
-\item The Sign Up button - this button will redirect to the sign up page where a new account can be created
-\item The Sign In button - this button will redirect to a page where the usere can sign in and log into his/her account.
+\item The Sign Up button - this button will redirect to the signup page where a new account can be created
+\item The Sign In button - this button will redirect to a page where the user can signin and log into his/her account.
 \end{enumerate}
 
 The user can not proceed to order food if the user has not signed up and logged in. Hence, the first step a new user should take is signing up/ registering with the system. 
@@ -271,7 +271,7 @@ The user can not proceed to order food if the user has not signed up and logged 
 If a user has not signed in, the user will still be allowed, however, to view the menu, without ordering anything. However, the user will be able to add items to their plate and view them on the "On My Plate" page, but the order will not be sent to the system until the user signs in.
 
 
-%%------------------------NAVIGATION PLANE USER LOGGED ON  ----------------------
+%%------------------------NAVIGATION PANE USER LOGGED ON  ----------------------
 \subsubsection{The Navigation pane - once the user has logged on}
 The user will now view a drop down menu with various options displayed on it. The following options will be displayed if the user is a normal user: "Edit Profile", "Profile", "Sign out". These pages will be discussed below.
 
@@ -286,10 +286,10 @@ When a user is logged in as a normal user he/she will have the following view of
 
 \begin{enumerate}
  \item The Home button - when clicking on this button it will always redirect to the home page
-\item The Menu button - this button will redirect to the menui page
+\item The Menu button - this button will redirect to the menu page
 \item The on my plate button - this button will redirect to an orders page showing how many items you currently have on your
 plate and what they all consist of with totals.
-\item The User button - this button will display the user's name and when clicked on will give a dropdown menu with differant options depending what the role of the user is - the exaple used is just a normal user with the basic options described below:
+\item The User button - this button will display the user's name and when clicked on will give a dropdown menu with different options depending what the role of the user is - the example used is just a normal user with the basic options described below:
 \item View Profile button - this button will redirect to the profile page of the respective user.
 \item Edit Profile button - this button will redirect to the edit profile page where a user can change his/her current details and save it onto the CMS
 \item Change Password button - this button will redirect to the change password page where a user can change his/her current password.
@@ -297,10 +297,10 @@ plate and what they all consist of with totals.
 \end{enumerate}
 
 \textbf{Normal User}\\
-A normal user will only have the visable options in the dropdown menu as displayed in the image.Although if the user has any other role than a user they will see extra settings displaying in the dropdown menu.\\
+A normal user will only have the visible options in the dropdown menu as displayed in the image.Although if the user has any other role than a user they will see extra settings displaying in the dropdown menu.\\
 
-\textbf{Superl User or Admin User}\\
-If the user is a super user or an admin user the options "Admin Settings" and "Branding Settings" will also be displayed in the dropdown menu. The super user an the admin user will hence be in control of assigning roles, changing employee ID's, setting the system wyde spending limit, changing the canteen name and the cover image of the canteen.  \\
+\textbf{Superuser or Admin User}\\
+If the user is a superuser or an admin user the options "Admin Settings" and "Branding Settings" will also be displayed in the dropdown menu. The superuser and the admin user will hence be in control of assigning roles, changing employee ID's, setting the system wide spending limit, changing the canteen name and the cover image of the canteen.  \\
 
 \textbf{Cafeteria Manager}\\
 If the user is a cafeteria manager, the options "Manage Menu Items" and "Manage Inventory" will be displayed. Manage Inventory is where the stock additions and removals are kept track of. Manage Menu Items  is where the different menu meal items will be logged.\\
@@ -314,7 +314,7 @@ If the user is a cashier, the options "Placed Orders" will be displayed and it i
 
 %%------------------------SIGN UP PAGE  ----------------------
 \subsection{The "Sign Up" Page} 
-Once the user has clicked the "Sign Up" option on the navigation pane, the user will be directed to the sing up form, where a user should fill in their details. Once completed, the user will click submit and if the form is correctly filled in the user will be notified upon success and will be signed up for the system. The user will hence be redirected to the home page. The user can then use the password created and employee ID to log in to the system. If the information entered is not followed, a thorough error message will be displayed indicating what the problem is so that the user can rectify it.
+Once the user has clicked the "Sign Up" option on the navigation pane, the user will be directed to the signup form, where a user should fill in their details. Once completed, the user will click submit and if the form is correctly filled in the user will be notified upon success and will be signed up for the system. The user will hence be redirected to the home page. The user can then use the password created and employee ID to log in to the system. If the information entered is not followed, a thorough error message will be displayed indicating what the problem is so that the user can rectify it.
 \\
 The user must now log in to access the ordering and managing profile functionality.
 \begin{figure}[H]
@@ -397,18 +397,18 @@ This page serves to indicate the current meal items that the user has ordered, a
 
 %%----------------------EDIT PROFILE PAGE ----------------------
 \subsection{The "Edit Profile" Page} 
-The user will be presented with a similar form to that which they signed up with, however, the details that the user entered in the sign up form will be present in these textboxes. The user can proceed to edit these here. Clicking the submit button will indicate whether changes have been saved or if errors have been made and how the user can correct these.
+The user will be presented with a similar form to that which they signed up with, however, the details that the user entered in the signup form will be present in these textboxes. The user can proceed to edit these here. Clicking the submit button will indicate whether changes have been saved or if errors have been made and how the user can correct these.
 
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{screenshots/editProfile.png}
-    \caption{Edit profile page - Edit profile by typing into the textboxes and submitting for validation message and to save new information } 
+    \caption{Edit profile page - Edit profile by typing into the text boxes and submitting for validation message and to save new information } 
 \end{figure}
 
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{screenshots/limitExeeds.png}
-    \caption{You must ensure your monthly spending limit is within the bounds of the maximum spending limit of the system, set by the superuser} 
+    \caption{You must ensure your monthly spending limit is within the bounds of the maximum spending limit of the system, set by the super user} 
 \end{figure}
 
 %%------------------------PROFILE PAGE----------------------
@@ -432,7 +432,7 @@ The user is presented with a form where the user will be asked to enter their ol
 \end{figure}
 
 \subsection{Superuser: The "Administrative Settings" Page} 
-At the top of the page there is a section labelled assign roles, where different admin roles will be assigned to different users. The superuser simply has to type in an employee ID and select a role from the dropdown menu below. There is a section underneath that where the superuser can change the user ID of an employee. Self explanatory textboxes are provided for the superuser to fill in and the submit button will save the changes, unless an error occurs.  This page also consists of a section labelled "Change system limit" and it is here where the superuser can alter the limit of the system, i.e. the maximum value that a user can set their daily spending limits to. Hence a textbox is provided for the superuser to type the new limit and save it.
+At the top of the page there is a section labelled assign roles, where different admin roles will be assigned to different users. The super user simply has to type in an employee ID and select a role from the dropdown menu below. There is a section underneath that where the superuser can change the user ID of an employee. Self explanatory text boxes are provided for the superuser to fill in and the submit button will save the changes, unless an error occurs.  This page also consists of a section labelled "Change system limit" and it is here where the superuser can alter the limit of the system, i.e. the maximum value that a user can set their daily spending limits to. Hence a textbox is provided for the super user to type the new limit and save it.
 
 \begin{figure}[H]
   \centering
@@ -443,7 +443,7 @@ At the top of the page there is a section labelled assign roles, where different
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{screenshots/changeEmplid.png}
-    \caption{The admin page - superuser can change the users' employee ID} 
+    \caption{The admin page - superuser can change the users' employee IDs} 
 \end{figure}
 
 \begin{figure}[H]
