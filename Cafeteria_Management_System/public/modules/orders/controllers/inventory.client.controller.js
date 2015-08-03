@@ -8,7 +8,6 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 		/*
 			Dynamically add fields to the inventory page to update the quantity.
 		*/
-		
 		$scope.allInventory = {inventoryProduct:[],inventoryQuantity:[]};
 		$scope.addFormFieldInventory = function() {			
 			$http.get('/loadInventoryItems').success(function(response) {

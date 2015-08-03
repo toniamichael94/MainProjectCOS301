@@ -60,6 +60,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 	{
 		console.log('UNDOREMOVE:'+index + ' ' + $scope.loadedIngredients.ingredients[index]);
 		delete $scope.removedIngredients[index];
+		
 		console.log('Removed ingredients:'+$scope.removedIngredients);
 		//console.log('Removed ingredients:'+ $scope.removedIngredients);
 		//var found = false;
@@ -80,7 +81,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		/*Update the menu item*/
 		$scope.updateMenuItem = function()
 		{
-
+			
 		//console.log('Update - Loaded ingredients.ingredients:'+$scope.loadedIngredients.ingredients);
 		//console.log('Update - Removed ingredients:'+$scope.removedIngredients);
 		//console.log('Update - addedUpdateIngreients.ingredients:'+$scope.addedUpdateIngredients.ingredients);
@@ -88,19 +89,82 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		for(var removedIngredient in $scope.removedIngredients)
 		{
 			if($scope.removedIngredients[removedIngredient] == 0)
-				delete $scope.loadedIngredients.ingredients[removedIngredient];
-				delete $scope.loadedIngredients.quantities[removedIngredient];
+			{
+				//delete $scope.loadedIngredients.ingredients[removedIngredient];
+				//delete $scope.loadedIngredients.quantities[removedIngredient];
+				//$scope.removedIngredients.ingredients.splice(index, 1);
+				
+				$scope.loadedIngredients.ingredients.splice(removedIngredient,1);
+				$scope.loadedIngredients.quantities.splice(removedIngredient,1);
+			}
+				
 		}
 
-			/*for(var removedIngredient in $scope.removedIngredients)
+			for(var removedIngredient in $scope.removedIngredients)
 			{
 				if($scope.removedIngredients[removedIngredient] !== '')
 				{
 					$scope.loadedIngredients.ingredients[removedIngredient] = '';
 					$scope.loadedIngredients.quantities[removedIngredient] = '';
 				}
-			}*/
+			}
+			
+			var errorIngredient = false;
+			
+			/*Perform check to see if any of the ingredient or quantity fields are empty.*/
+			for(var ingredient in $scope.loadedIngredients.quantities)
+			{
+				if($scope.loadedIngredients.quantities[ingredient] === null)
+				{
+					errorIngredient = true;
+					$scope.errorMessage = 'Please fill in all the quantity fields.';
+				}
+			}
+			
+			if(!errorIngredient)
+			{
+				for (var i = 0; i < $scope.addedUpdateIngredients.ingredients.length; i++)
+				{
+					if($scope.addedUpdateIngredients.ingredients[i] == '' || $scope.addedUpdateIngredients.quantities[i] == '' || $scope.addedUpdateIngredients.quantities[i] == null)
+					{
+						errorIngredient = true;
+						$scope.errorMessage = 'Please fill in all the ingredients fields.';				
+					}
+				}
+				
+			}
+			
+			/*Perform check for duplicate ingredients*/
+			if(!errorIngredient)
+			{
+				for(var i = 0; i < ($scope.addedUpdateIngredients.ingredients.length-1); i++)
+				{
+					for(var j = i+1; j < ($scope.addedUpdateIngredients.ingredients.length); j++)
+					{
+					
+						if($scope.addedUpdateIngredients.ingredients[i].localeCompare($scope.addedUpdateIngredients.ingredients[j])===0)
+						{
+							errorIngredient = true;
+							$scope.errorMessage = 'Duplicate ingredients are not allowed.';
+						}
+					}
+				}
+			}
+			
+		
+		/*Perform check to see if the menu item has at least one ingredient*/
+		/*if(!errorIngredient)
+		{
+			if($scope.addedUpdateIngredients.ingredients.length == 0 && $scope.ingredients.ingredients.length == 0)
+			{
+				errorIngredient = true;
+				$scope.errorMessage = 'The menu item must have at least one ingredient.';
+			}
+		}*/
+				
 
+		if(!errorIngredient)
+		{
 			for (var ingredient in $scope.loadedIngredients.ingredients)
 			{
 				if($scope.loadedIngredients.ingredients[ingredient] !== '')
@@ -109,26 +173,37 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 					$scope.addedUpdateIngredients.quantities.push($scope.loadedIngredients.quantities[ingredient]);
 				}
 			}
-
-			//console.log('Ingredients updated:'+$scope.addedUpdateIngredients.ingredients);
-		    //console.log('Quantities updated:'+$scope.addedUpdateIngredients.quantities);
-
-			$scope.updateItemName = $scope.updateItemName.toLowerCase();
-			$scope.successFind = null;
-			var reqObj = {itemName:$scope.foundItem.itemName.toLowerCase(), updateItemName: $scope.updateItemName, price:$scope.updateItemPrice, description:$scope.updateItemDescription, category : $scope.updateItemCategory, ingredients:$scope.addedUpdateIngredients};
-			$http.post('/orders/updateMenuItem',reqObj).success(function(response){
+		}
+			
+			
+			if(!errorIngredient)
+			{
+				$scope.errorMessage = null;
+				$scope.updateItemName = $scope.updateItemName.toLowerCase();
+				$scope.successFind = null;
+				var reqObj = {itemName:$scope.foundItem.itemName.toLowerCase(), updateItemName: $scope.updateItemName, price:$scope.updateItemPrice, description:$scope.updateItemDescription, category : $scope.updateItemCategory, ingredients:$scope.addedUpdateIngredients};
+				$http.post('/orders/updateMenuItem',reqObj).success(function(response){
 				$scope.successMessage = response.message;
 				$scope.itemNameSearch = $scope.updateItemName = $scope.updateItemPrice = $scope.updateItemCategory = $scope.updateItemDescription = null;
 			    $scope.addedUpdateIngredients = {ingredients:[],quantities:[]};
 				$scope.removedIngredients =[];
 				$scope.loadedIngredients = {ingredients:[],quantities:[]};
-			}).error(function(response){
-				$scope.errorMessage = response.message;
-				$scope.addedUpdateIngredients = {ingredients:[],quantities:[]};
-				$scope.removedIngredients =[];
-				$scope.loadedIngredients = {ingredients:[],quantities:[]};
-			});
+				$scope.showme = false;
+				}).error(function(response){
+					$scope.errorMessage = response.message;
+					$scope.addedUpdateIngredients = {ingredients:[],quantities:[]};
+					$scope.removedIngredients =[];
+					$scope.loadedIngredients = {ingredients:[],quantities:[]};
+				});
+			}
 		};
+		
+		/*Removing add ingredients option*/
+		$scope.removeIngredientOptionUpdate = function(index)
+		{
+			$scope.addedUpdateIngredients.ingredients.splice(index, 1);
+			$scope.addedUpdateIngredients.quantities.splice(index, 1);					
+		}
 
 
 /*==== end of update functions ===*/
@@ -145,7 +220,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 //search for item
         $scope.searchMenu = function(isValid) {
             if(isValid){
-
+				$scope.showme = false;
 				$scope.successFind = $scope.errorFind = null;
 				$scope.successMessage = $scope.errorMessage = null;
 
@@ -153,6 +228,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
                 var reqObj = {itemName: $scope.menuNameSearch.toLowerCase()};
                 $http.post('/menu/search', reqObj).success(function(response){
 
+					//$scope.showme = true;
 					 $scope.successFind = response.message;
 					//Set the values for the item being updated.
 					$scope.foundItem = response.menuItem;
@@ -169,33 +245,79 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
                 });
             }
         };
+		
+		/*Functions for creating a new menu item*/
 
 		 // Create new Menu Item
-		$scope.createMenuItem = function(isValid) {
-      if (isValid) {
+		$scope.createMenuItem = function(isValid) {			
+			$scope.success = $scope.error = null;
+			console.log('here');
+		
+		//Check if any of the ingredient name or ingredient quantity fields are empty
+		var errorIngredient = false;
+		
+		for (var i = 0; i < $scope.ingredients.ingredients.length; i++)
+		{
+			if($scope.ingredients.ingredients[i] == '' || $scope.ingredients.quantities[i] == '' || $scope.ingredients.quantities[i] == null)
+			{
+				errorIngredient = true;
+				$scope.error = 'Please fill in all the ingredients fields.';				
+			}
+		}
+		
+		if(!errorIngredient)
+		{
+			for(var i = 0; i < ($scope.ingredients.ingredients.length-1); i++)
+			{
+				for(var j = i+1; j < ($scope.ingredients.ingredients.length); j++)
+				{
+					
+					if($scope.ingredients.ingredients[i].localeCompare($scope.ingredients.ingredients[j])===0)
+					{
+						errorIngredient = true;
+						$scope.error = 'Duplicate ingredients are not allowed.';
+					}
+				}
+			}
+		}
+		
+		/*Perform check to see if the menu item has at least one ingredient*/
+		if(!errorIngredient)
+		{
+			if($scope.ingredients.ingredients.length == 0)
+			{
+				errorIngredient = true;
+				$scope.error = 'The menu item must have at least one ingredient.';
+			}
+		}
+		
+		if(!errorIngredient)
+		{  		
+				if (isValid) {		
+				var reqObj = {itemName: $scope.menuItem.itemNameAdd.toLowerCase(), description: $scope.menuItem.itemDescription, price:$scope.menuItem.itemPrice,
+				category:$scope.menuItem.itemCategory, ingredients:$scope.ingredients};
+				$http.post('/orders/createMenuItem', reqObj).success(function(response) {
+				// If successful show success message and clear form
+				$scope.success = true;//response.message;
+				$scope.sucess = 'Item added to the menu.';
+				$scope.menuItem = null;
+				$scope.ingredients = null;
+				$scope.ingredients = {ingredients:[''],quantities:['']};
+				}).error(function(response) {
+					$scope.error = response.message;
+				});
+				}
+			}
+		};
 
-
-        $scope.success = $scope.error = null;
-        var reqObj = {itemName: $scope.menuItem.itemNameAdd.toLowerCase(), description: $scope.menuItem.itemDescription, price:$scope.menuItem.itemPrice,
-	  	  category:$scope.menuItem.itemCategory, ingredients:$scope.ingredients};
-
-
-		$http.post('/orders/createMenuItem', reqObj).success(function(response) {
-          // If successful show success message and clear form
-        $scope.success = true;//response.message;
-		$scope.menuItem = null;
-		$scope.ingredients = null;
-		$scope.ingredients = {ingredients:[],quantities:[]};
-
-        }).error(function(response) {
-          $scope.error = response.message;
-        });
-        }
-      };
-
-		/*Adding buttons*/
-		$scope.count = 0;
-
+		/*Removing add ingredients option*/
+		$scope.removeIngredientOption = function(index)
+		{
+			$scope.ingredients.ingredients.splice(index, 1);
+			$scope.ingredients.quantities.splice(index, 1);					
+		}
+/*End of functions for creating a new menu item*/
+		
         //Filter Menu items - Special Of The Day
         $scope.special = function (row) {
             return (angular.lowercase(row.category).indexOf('Special Of The Day') !== -1);
