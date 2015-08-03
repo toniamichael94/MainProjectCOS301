@@ -172,11 +172,24 @@ exports.setSystemWideLimit = function(req, res){
 
 			config.save(function(err){
 				if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
-				res.status(200).send({message: 'Limit has been successfully changed.'});
+				
+				User.update({limit: { $gt: req.body.value }}, {limit: req.body.value}, { multi: true }, function(err, numAffected){
+				if(err)
+					res.status(200).send({message: 'Limit has been successfully changed. No users updated!'});
+				else
+					console.log(numAffected + ' have been changed');
+				res.status(200).send({message: 'Limit has been successfully changed.' + numAffected + ' users have been updated'});
+			});
 			});
 		}
 		else{
-			res.status(200).send({message: 'Limit has been successfully changed.'});
+			User.update({limit: { $gt: req.body.value }}, {limit: req.body.value}, { multi: true }, function(err, numAffected){
+				if(err)
+					res.status(200).send({message: 'Limit has been successfully changed. No users updated!'});
+				else
+					console.log(numAffected + ' have been changed');
+				res.status(200).send({message: 'Limit has been successfully changed.' + numAffected + ' users have been updated'});
+			});
 		}
 	});
 };
