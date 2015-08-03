@@ -10,7 +10,7 @@
 					Semaka Malapane (13081129)
 *
 -->
-<section class="row" data-ng-controller="superuserController">
+<section ng-init="checkUser()" class="row" data-ng-controller="superuserController">
 	<h4> Administrative settings </h4>
 	<hr>
 	<div class="list-group clearfix">
@@ -111,7 +111,7 @@
                         <option ng-repeat="employee in employees" value="employee.username"> {{employee.username}}</option>
                         </select><br>
                     </div-->
-
+                </div>
                 <div class="text-center form-group">
                     <button type="submit" class="btn btn-large btn-primary">Remove Employee</button>
                 </div>
