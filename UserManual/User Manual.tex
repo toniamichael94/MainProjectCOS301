@@ -234,10 +234,32 @@ If the user can not log in due to forgetting his/her password they can click on 
     \caption{Forgot password page} 
 \end{figure}
 
-The user can simply type in his/het Employee ID and click on the submit button, the CMS will send an e-mail notification to the user's registered e-mail address and he/she can just follow the link send by the CMS via e-mail and reset the password and try to log in again. 
+The user can simply type in his/het Employee ID and click on the submit button, the CMS will send an e-mail notification to the user's registered e-mail address and he/she can just follow the link send by the CMS via e-mail and reset the password and try to log in again. \\
 
+The rest of the functionality will be described in the section below in detail  under the respective headings of how to navigate between pages to administrative settings to ordering an item and so forth. 
+
+
+%%-------------------------------------USING THE SYSTEM----------------------------------------
 \section{Using The System} 
 \subsection{The Navigation pane} 
+The Navigation pane will when not logged in will be displayed as follows:
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/HomePage.png}
+    \caption{Home Page - user not logged in } 
+\end{figure}
+
+The numbers in the images are described below:
+
+\begin{enumerate}
+\item The Home button - when clicking on this button it will always redirect to the home page
+\item The Menu button - this button will redirect to the menui page
+\item The on my plate button - this button will redirect to an orders page showing how many items you currently have on your plate and what they all consist of with totals.
+\item The Sign Up button - this button will redirect to the sign up page where a new account can be created
+\item The Sign In button - this button will redirect to a page where the usere can sign in and log into his/her account.
+\end{enumerate}
+
 On the home page, the name of the canteen is displayed. The user will also see the navigation pane at the top. The actions available with the pane are "Sign in", "Sign up", "Menu" and "On your plate". 
 \\
 The user can not proceed to order food if the user has not signed up and logged in. Hence, the first step a new user should take is signing up/ registering with the system. 
@@ -408,4 +430,11 @@ If the system does not start up when you run the 'grunt' command, either of the 
 		~/Cafeteria Management System$ npm update
 	\end{verbatim}
 \end{itemize}
+
+%%-------------------SUPPORTING DOCUMENTATION -----------------------------
+\section{Other Supporting Documentation}
+
+For other supporting documentation regarding the CMS please refer to the GitHub repository: \\
+
+ \url{https://github.com/toniamichael94/MainProjectCOS301}
 \end{document}
