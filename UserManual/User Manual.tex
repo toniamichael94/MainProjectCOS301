@@ -288,19 +288,31 @@ When a user is logged in as a normal user he/she will have the following view of
  \item The Home button - when clicking on this button it will always redirect to the home page
 \item The Menu button - this button will redirect to the menui page
 \item The on my plate button - this button will redirect to an orders page showing how many items you currently have on your
-\item
+plate and what they all consist of with totals.
+\item The User button - this button will display the user's name and when clicked on will give a dropdown menu with differant options depending what the role of the user is - the exaple used is just a normal user with the basic options described below:
+\item View Profile button - this button will redirect to the profile page of the respective user.
+\item Edit Profile button - this button will redirect to the edit profile page where a user can change his/her current details and save it onto the CMS
+\item Change Password button - this button will redirect to the change password page where a user can change his/her current password.
+\item Sign Out button - this button will sign a user out of the CMS and redirect the user to the home page. 
 \end{enumerate}
 
+\textbf{Normal User}\\
+A normal user will only have the visable options in the dropdown menu as displayed in the image.Although if the user has any other role than a user they will see extra settings displaying in the dropdown menu.\\
 
-If the user is a superuser the options "Admin Settings" and "Branding Settings" will be displayed. The superuser will hence be in control of assigning roles, changing employee ID's, setting the limit, changing the canteen name and the cover image of the canteen.  
-\\
-If the user is a cafeteria manager, the options "Manage Cafeteria" and "Manage Inventory" will be displayed. Manage Inventory is where the stock additions and removals are kept track of. Manage Cafeteria is where the different menu meal items will be logged.
+\textbf{Superl User or Admin User}\\
+If the user is a super user or an admin user the options "Admin Settings" and "Branding Settings" will also be displayed in the dropdown menu. The super user an the admin user will hence be in control of assigning roles, changing employee ID's, setting the system wyde spending limit, changing the canteen name and the cover image of the canteen.  \\
 
-If user is a financial manager, the option "Finance" will be displayed. The financial manager will be able to search for employees and view their bills, to keep track of these.
+\textbf{Cafeteria Manager}\\
+If the user is a cafeteria manager, the options "Manage Menu Items" and "Manage Inventory" will be displayed. Manage Inventory is where the stock additions and removals are kept track of. Manage Menu Items  is where the different menu meal items will be logged.\\
 
+
+\textbf{Finance r}\\
+If user is a financial manager, the option "Finance" will be displayed. The financial manager will be able to search for employees and view their bills, to keep track of these.\\
+
+\textbf{Cashier}\\
 If the user is a cashier, the options "Placed Orders" will be displayed and it is here where the transactions will occur, such as marking whether orders are ready, and paid for. The cashier will also send notifications to the user, when the food is ready for the user to collect. 
 
-
+%%------------------------SIGN UP PAGE  ----------------------
 \subsection{The "Sign Up" Page} 
 Once the user has clicked the "Sign Up" option on the navigation pane, the user will be directed to the sing up form, where a user should fill in their details. Once completed, the user will click submit and if the form is correctly filled in the user will be notified upon success and will be signed up for the system. The user will hence be redirected to the home page. The user can then use the password created and employee ID to log in to the system. If the information entered is not followed, a thorough error message will be displayed indicating what the problem is so that the user can rectify it.
 \\
@@ -311,6 +323,7 @@ The user must now log in to access the ordering and managing profile functionali
     \caption{Sign up sheet - when a user types in a limit value larger than the maximum spending limit per month} 
 \end{figure}
 
+%%-----------------------SIGN IN PAGE  ----------------------
 \subsection{The "Sign In" Page} 
 To log into the system the user should click the Sign In option on the navigation pane. The user will fill in their password and Employee ID in the provided slots and click submit to proceed. If the information entered is valid, the user will be notified upon success and redirected to the home page, logged in on their personal account. If the information entered is not valid, a thorough error message will be displayed indicating what the problem is so that the user can rectify it.
 \\
@@ -341,8 +354,11 @@ There is also an option called "Forgot your password?" which once clicked leads 
     \caption{The url sent via email leads to this page - fill in the textboxes and new password is set} 
 \end{figure}
 
+
+%%------------------------MENU PAGE----------------------
 \subsection{The "Menu" Page} 
 This is where the user will be able to view the menu items and their prices. An item can be added to the user's plate by simply clicking the 'Add to Plate' button alongside each item. These can then be viewed on the 'On my Plate' page.
+If a menu item is not in stock it will be written in red on the menu item that it is "out of stock " and there will be no  option to click the add to plate button since that item will not be available. 
 \\
 \begin{figure}[H]
   \centering
@@ -369,6 +385,7 @@ On the menu page there is also a breadcrumb which indicates the different meal c
     \caption{The menu page - order menu items by clicking the addToPlate button } 
 \end{figure}
 
+%%------------------------ON MY PLATE PAGE----------------------
 \subsection{The "On my plate" Page} 
 This page serves to indicate the current meal items that the user has ordered, and these can be removed on this page via the appropriately labelled button. The tab in the navigation bar also indicates an amount which is the amount of meal items ordered.
 
@@ -378,6 +395,7 @@ This page serves to indicate the current meal items that the user has ordered, a
     \caption{On my plate page - The meal you selected on the menu page is displayed here (Navigate here via the navigation bar)} 
 \end{figure}
 
+%%----------------------EDIT PROFILE PAGE ----------------------
 \subsection{The "Edit Profile" Page} 
 The user will be presented with a similar form to that which they signed up with, however, the details that the user entered in the sign up form will be present in these textboxes. The user can proceed to edit these here. Clicking the submit button will indicate whether changes have been saved or if errors have been made and how the user can correct these.
 
@@ -393,6 +411,7 @@ The user will be presented with a similar form to that which they signed up with
     \caption{You must ensure your monthly spending limit is within the bounds of the maximum spending limit of the system, set by the superuser} 
 \end{figure}
 
+%%------------------------PROFILE PAGE----------------------
 \subsection{The "Profile" Page} 
 This is where the user will be able to view their profile i.e. the details they entered when they signed up/ edited their profile. 
 
@@ -402,6 +421,7 @@ This is where the user will be able to view their profile i.e. the details they 
     \caption{The profile page - where you view your profile (via the orange navigation tab menu indicated)} 
 \end{figure}
 
+%%-----------------------CHANGE PASSWORD PAGE----------------------
 \subsection{The "Change Password" Page} 
 The user is presented with a form where the user will be asked to enter their old and new passwords to change their password. 
 
