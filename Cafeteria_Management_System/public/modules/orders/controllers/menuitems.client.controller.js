@@ -4,6 +4,8 @@
 var menuItemsModule = angular.module('menuItems').controller('MenuItemsController', ['$scope', '$rootScope','$http', '$stateParams', '$location', '$cookies', 'Authentication', 'MenuItems',
 	function($scope, $rootScope, $http, $stateParams, $location, $cookies, Authentication, MenuItems) {
 		$scope.authentication = Authentication;
+		
+		$scope.menuCategories = [];
 
 		/*
 			Dynamically add fields to the menu items page to add ingredients for a menu item.
@@ -86,15 +88,16 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		{
 			if($scope.removedIngredients[removedIngredient] === 0)
 			{
-				//delete $scope.loadedIngredients.ingredients[removedIngredient];
-				//delete $scope.loadedIngredients.quantities[removedIngredient];
+				delete $scope.loadedIngredients.ingredients[removedIngredient];
+				delete $scope.loadedIngredients.quantities[removedIngredient];
 				//$scope.removedIngredients.ingredients.splice(index, 1);
 				
-				$scope.loadedIngredients.ingredients.splice(removedIngredient,1);
-				$scope.loadedIngredients.quantities.splice(removedIngredient,1);
+				//$scope.loadedIngredients.ingredients.splice(removedIngredient,1);
+				//$scope.loadedIngredients.quantities.splice(removedIngredient,1);
 			}
 				
 		}
+					  
 
 			for(var removedIngredient in $scope.removedIngredients)
 			{
@@ -104,7 +107,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 					$scope.loadedIngredients.quantities[removedIngredient] = '';
 				}
 			}
-			
+			console.log('After removed:'+$scope.loadedIngredients.ingredients);
 			var errorIngredient = false;
 			
 			/*Perform check to see if any of the ingredient or quantity fields are empty.*/
@@ -194,6 +197,12 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		
 		/*Perform check to see if the menu item has at least one ingredient*/
 		console.log('all:'+$scope.addedUpdateIngredients.ingredients);
+		
+		if(errorIngredient)
+		{
+			$scope.loadedIngredients = {ingredients:[],quantities:[]};
+			$scope.loadIngredients();
+		}
 			
 			
 			if(!errorIngredient)
@@ -214,6 +223,10 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 					$scope.addedUpdateIngredients = {ingredients:[],quantities:[]};
 					$scope.removedIngredients =[];
 					$scope.loadedIngredients = {ingredients:[],quantities:[]};
+					
+					/*Reload all of the ingredients*/
+					$scope.loadIngredients();
+				
 				});
 			}
 		};
@@ -268,10 +281,10 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		
 		/*Functions for creating a new menu item*/
 
-		 // Create new Menu Item
+		 /* Create new Menu Item*/
 		$scope.createMenuItem = function(isValid) {			
 			$scope.success = $scope.error = null;
-			console.log('here');
+			
 		
 		//Check if any of the ingredient name or ingredient quantity fields are empty
 		var errorIngredient = false;
