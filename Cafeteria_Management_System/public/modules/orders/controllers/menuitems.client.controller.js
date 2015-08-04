@@ -196,7 +196,20 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		}
 		
 		/*Perform check to see if the menu item has at least one ingredient*/
-		console.log('all:'+$scope.addedUpdateIngredients.ingredients);
+		var count = 0;
+		var i = 0;
+		while(count == 0 && i < $scope.addedUpdateIngredients.ingredients.length)
+		{
+			if($scope.addedUpdateIngredients.ingredients[i] != null && $scope.addedUpdateIngredients.ingredients[i] !='')
+				count = 1;
+			i++;
+		}
+		
+		if(count == 0)
+		{
+			errorIngredient = true;
+			$scope.errorMessage = 'The menu item must have at least one ingredient.';
+		}
 		
 		if(errorIngredient)
 		{
