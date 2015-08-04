@@ -84,14 +84,14 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 					
 		for(var removedIngredient in $scope.removedIngredients)
 		{
-			if($scope.removedIngredients[removedIngredient] == 0)
+			if($scope.removedIngredients[removedIngredient] === 0)
 			{
-				delete $scope.loadedIngredients.ingredients[removedIngredient];
-				delete $scope.loadedIngredients.quantities[removedIngredient];
+				//delete $scope.loadedIngredients.ingredients[removedIngredient];
+				//delete $scope.loadedIngredients.quantities[removedIngredient];
 				//$scope.removedIngredients.ingredients.splice(index, 1);
 				
-				//$scope.loadedIngredients.ingredients.splice(removedIngredient,1);
-				//$scope.loadedIngredients.quantities.splice(removedIngredient,1);
+				$scope.loadedIngredients.ingredients.splice(removedIngredient,1);
+				$scope.loadedIngredients.quantities.splice(removedIngredient,1);
 			}
 				
 		}
@@ -166,6 +166,8 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 				}
 			}
 			/*Perform check to see if the menu item has at least one ingredient*/
+			console.log($scope.loadedIngredients.ingredients);
+			console.log($scope.addedUpdateIngredients.ingredients);
 		
 		/*Perform check to see if the menu item has at least one ingredient*/
 		/*if(!errorIngredient)
@@ -189,6 +191,9 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 				}
 			}
 		}
+		
+		/*Perform check to see if the menu item has at least one ingredient*/
+		console.log('all:'+$scope.addedUpdateIngredients.ingredients);
 			
 			
 			if(!errorIngredient)
