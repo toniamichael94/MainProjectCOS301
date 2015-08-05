@@ -171,6 +171,24 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
         $scope.checkUser = function(){
             if(($scope.user && Authentication.user.roles[0] !== 'superuser') || ($scope.user && Authentication.user.roles[0] !== 'superuser') || (!$scope.user))
                 $location.path('/');
-        }
+        };
+
+        // Loading the items from the inventory to display in the add ingredients of the menu items being added
+        $scope.loadEmployees = function(){
+            $http.get('/loadEmployees').success(function(response) {
+                $scope.employees = response.message;
+                var empArr = [];
+                var counter = 0;
+
+                for(var empID in response.message){
+                    empArr[counter] = response.message[empID];
+                    counter++;
+                    console.log("Superuser: "+ empID);
+                }
+                $scope.employees = empArr;
+            }).error(function(response) {
+                $scope.employees = 'Error loading employees';
+            });
+        };
     }
 ]);

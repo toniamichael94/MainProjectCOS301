@@ -237,7 +237,6 @@ exports.loadEmployees = function(req, res){
 
     User.find({}, function(err, employees) {
         var itemMap = {};
-
         employees.forEach(function(employees) {
             itemMap[employees._id] = employees;
             console.log(employees.username);
@@ -250,16 +249,4 @@ exports.loadEmployees = function(req, res){
             res.status(200).send({message: itemMap});
         }
     });
-/*
-
-    exports.really = function(req, res) {
-        $scope.r = confirm("Press a button");
-        if ($scope.r == true) {
-            $scope.x = "You pressed OK!";
-        } else {
-            $scope.x = "You pressed Cancel!";
-        }
-    };*/
-
-
 };

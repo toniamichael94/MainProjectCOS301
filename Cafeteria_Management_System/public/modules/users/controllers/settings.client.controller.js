@@ -95,6 +95,24 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
             });
         };
 
+        /*exports.loadEmployees = function(req, res){
+            User.find({}, function(err, employees) {
+                var itemMap = {};
+
+                employees.forEach(function(employees) {
+                    itemMap[employees._id] = employees;
+                    console.log(employees.username);
+                    //console.log(employees.username);
+                });
+                if(err || !itemMap) return res.status(400).send({message: 'Employees not found' });
+                else {
+                    console.log('LOAD');
+                    //console.log(employees);
+                    res.status(200).send({message: itemMap});
+                }
+            });
+        };*/
+
         $scope.checkUser = function(){
             if(!$scope.user)// && ($location.path === '/#!/settings/password'))
             {
