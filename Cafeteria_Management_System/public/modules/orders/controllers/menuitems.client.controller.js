@@ -694,6 +694,15 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 			}
 			$rootScope.$broadcast('plateUpdated');
 		};
+
+        $scope.checkCMUser = function(){
+            if(!Authentication.user) {
+                $location.path('/');
+            }
+            else if(Authentication.user.roles[0] !== 'cafeteriaManager') {
+                $location.path('/');
+            }
+        };
 	}
 ]);
 
