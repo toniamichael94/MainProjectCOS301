@@ -49,8 +49,8 @@
             <h4> <b>Search Results:</b>  </h4>
         </a>
         <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:searchBar"><h3>
-            {{item.itemName}}  <span style="float:right;" > R {{item.price}}</span> </h3> <br> <h5> {{item.description}} </h5>
-			<button type="button" class="btn btn-primary" data-ng-show="item.stock" data-ng-click="addToPlate(item.itemName)"> Add to plate </button>
+            {{item.itemName}}  <span style="float:right;" > R {{item.price}} <button type="button" class="btn btn-primary" data-ng-show="item.stock" data-ng-click="addToPlate(item.itemName)"> Add to plate </button></span> </h3> <br> <h5> {{item.description}} </h5>
+
 		</div>
     </div>
 

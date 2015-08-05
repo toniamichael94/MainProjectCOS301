@@ -10,7 +10,9 @@ var _ = require('lodash'),
 	User = mongoose.model('User'),
 	Config = mongoose.model('Config'),
     formidable = require('formidable'),
-    fs = require('fs')
+    fs = require('fs'),
+	configs = require('../../../config/config'),
+	nodemailer = require('nodemailer');
 
   /*
    * Assign Roles
@@ -160,6 +162,28 @@ exports.removeEmployee = function(req, res) {
 * Set System Wide Limit
 * Last Edited by {Rendani Dau}
 */
+//Helper function to mail all users of CMS
+function sendEmail(newLimit){
+	User.find({}, function(err, users){
+		var smtpTransport = nodemailer.createTransport(configs.mailer.options);
+		users.forEach(function(user){
+			
+			var mailOptions = {
+				from: configs.mailer.from,
+				subject: 'System Wide Spending Limit Updated'
+			};
+			mailOptions.to = user.email;
+			mailOptions.text = 'Dear ' + user.displayName + ',\n\n' +
+									'Please note the system limit for the Cafeteria Management System has been changed to R' + newLimit + '\n'+
+									'Please visit CMS if you\'d like to adjust your limit.\n\n'+
+									'The CMS Team';
+			smtpTransport.sendMail(mailOptions, function(err){ 
+				if(err) console.log('Email not sent' + err); 
+			});
+		});
+	});
+}
+
 exports.setSystemWideLimit = function(req, res){
 	Config.update({name: 'System wide limit'}, {value: req.body.value}, function(err, numAffected){
 		if(err) return res.status(400).send({
@@ -172,11 +196,24 @@ exports.setSystemWideLimit = function(req, res){
 
 			config.save(function(err){
 				if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
-				res.status(200).send({message: 'Limit has been successfully changed.'});
+				
+				User.update({limit: { $gt: req.body.value }}, {limit: req.body.value}, { multi: true }, function(err, numAffected){
+				if(err)
+					res.status(200).send({message: 'Limit has been successfully changed. No users updated!'});
+				else
+					res.status(200).send({message: 'Limit has been successfully changed. ' + numAffected + ' users have been updated'});
+				sendEmail(req.body.value);
+			});
 			});
 		}
 		else{
-			res.status(200).send({message: 'Limit has been successfully changed.'});
+			User.update({limit: { $gt: req.body.value }}, {limit: req.body.value}, { multi: true }, function(err, numAffected){
+				if(err)
+					res.status(200).send({message: 'Limit has been successfully changed. No users updated!'});
+				else
+					res.status(200).send({message: 'Limit has been successfully changed. ' + numAffected + ' users have been updated'});
+				sendEmail(req.body.value);
+			});
 		}
 	});
 };
