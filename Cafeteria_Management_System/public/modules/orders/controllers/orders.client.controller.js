@@ -23,6 +23,10 @@ angular.module('orders').controller('OrdersController', ['$scope', '$rootScope',
 			$scope.subTotal();
 		};
 		
+		$scope.prefChange = function(){
+			$cookies.plate = JSON.stringify($scope.plate);
+		};
+		
 		$scope.subTotal = function(){
 			var total = 0;
 			if($scope.plate.length > 0){
@@ -37,16 +41,16 @@ angular.module('orders').controller('OrdersController', ['$scope', '$rootScope',
 		$scope.subTotal();
 		//place the order
 		$scope.placeOrder = function(){
-			/*if($scope.plate){
+			if($scope.plate){
 				if(Authentication.user){
-					console.log('User is: ' + Authentication.user.username);
+					//console.log('User is: ' + Authentication.user.username);
 					
 					for(var i = 0; i < $scope.plate.length; i++){
 						$scope.plate[i].username = Authentication.user.username;
-						var itemName = $scope.plate[i].itemName;
-						var _quantity = angular.element(document.querySelector('input[name="' + itemName + '"]'))[0].value;
-						
-						$scope.plate[i].quantity = _quantity;
+						//var itemName = $scope.plate[i].itemName;
+						//var _quantity = angular.element(document.querySelector('input[name="' + itemName + '"]'))[0].value;
+						//alert($scope.plate[i].preferences + ' ' + $scope.plate[i].quantity);
+						//$scope.plate[i].quantity = _quantity;
 					}
 					$http.post('/orders/placeOrder', $scope.plate).success(function(response) {
 						$scope.plate = [];
@@ -60,7 +64,7 @@ angular.module('orders').controller('OrdersController', ['$scope', '$rootScope',
 				else{
 					$location.path('/signin');
 				}
-			}*/
+			}
 		};
 		
 		//Remove from plate

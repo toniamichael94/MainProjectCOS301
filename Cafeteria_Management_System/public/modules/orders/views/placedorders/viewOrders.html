@@ -21,7 +21,7 @@
 				<span> Quantity <input type='number' data-ng-model='item.quantity' data-ng-change='quantityChange(item.itemName)' name='{{item.itemName}}' min=1 max=5 /></span>
 				<span style="float: right"><button type="button" data-ng-click="removeFromPlate(item.itemName)"> Remove </button></span> <br>
                 <span> Preferences
-                    <input type="text" id="preferences" name="preferences" class="form-control" data-ng-model="preferences" placeholder="none">
+                    <input type="text" id="preferences" name="preferences" class="form-control" data-ng-model="item.preferences" data-ng-change="prefChange()" placeholder="none">
                 </span>
 			</div>
 			<div>

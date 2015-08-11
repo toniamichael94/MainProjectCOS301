@@ -39,13 +39,13 @@ var mongoose = require('mongoose'),
  exports.getOrders = function(req, res){
 	//res.status(400).send({message: 'hello'});
 	console.log('heeeeelloooooooooooooooooooooo');
-	/*Order.find({status: 'open'}, function(err, items){
+	Order.find({status: 'open'}, function(err, items){
 		if(err) return res.status(400).send({
 			message: errorHandler.getErrorMessage(err)
 		});
 		
 		res.status(200).send({message: items});
-	});*/
+	});
  };
 /**
  *END {Rendani Dau}
