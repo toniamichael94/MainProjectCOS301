@@ -35,6 +35,17 @@ var mongoose = require('mongoose'),
 		res.status(400).send({message: 'Order could not be processed'});
 	}
  };
+ 
+ exports.getOrderList = function(req, res){
+	console.log('heeeeelloooooooooooooooooooooo');
+	Order.find({status: 'open'}, function(err, items){
+		if(err) return res.status(400).send({
+			message: errorHandler.getErrorMessage(err)
+		});
+		
+		res.status(200).send({message: items});
+	});
+ };
 
  exports.getOrders = function(req, res){
 	//res.status(400).send({message: 'hello'});
