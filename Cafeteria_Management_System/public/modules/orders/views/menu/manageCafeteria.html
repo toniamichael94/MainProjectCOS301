@@ -1,4 +1,4 @@
-<section ng-init="checkUser()" class="row">
+<section ng-init="checkCMUser()" class="row" data-ng-controller="MenuItemsController">
 
 	<h4> Manage Menu </h4>
 	<hr>
@@ -164,7 +164,7 @@
 							</div>
 
 						<!--Add more ingredients to item-->
-						<h4>Add more ingredients <h4>
+						<h4>Add more ingredients </h4>
 						<div ng-init="loadInventoryItems()" data-ng-controller="InventoryController" ng-repeat = "ingredient in addedUpdateIngredients.ingredients track by $index" >
 							<!--<label ng-bind = 'addedUpdateIngredients.ingredients[$index]'>{{addedUpdateIngredients.ingredients}}</label>-->
 							<select  class="form-control" ng-model = 'addedUpdateIngredients.ingredients[$index]'/>

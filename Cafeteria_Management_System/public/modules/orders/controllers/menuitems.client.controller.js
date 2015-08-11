@@ -4,6 +4,8 @@
 var menuItemsModule = angular.module('menuItems').controller('MenuItemsController', ['$scope', '$rootScope','$http', '$stateParams', '$location', '$cookies', 'Authentication', 'MenuItems',
 	function($scope, $rootScope, $http, $stateParams, $location, $cookies, Authentication, MenuItems) {
 		$scope.authentication = Authentication;
+		
+		$scope.menuCategories = [];
 
 		/*
 			Dynamically add fields to the menu items page to add ingredients for a menu item.
@@ -81,24 +83,21 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		/*Update the menu item*/
 		$scope.updateMenuItem = function()
 		{
-			
-		//console.log('Update - Loaded ingredients.ingredients:'+$scope.loadedIngredients.ingredients);
-		//console.log('Update - Removed ingredients:'+$scope.removedIngredients);
-		//console.log('Update - addedUpdateIngreients.ingredients:'+$scope.addedUpdateIngredients.ingredients);
-		
+					
 		for(var removedIngredient in $scope.removedIngredients)
 		{
-			if($scope.removedIngredients[removedIngredient] == 0)
+			if($scope.removedIngredients[removedIngredient] === 0)
 			{
-				//delete $scope.loadedIngredients.ingredients[removedIngredient];
-				//delete $scope.loadedIngredients.quantities[removedIngredient];
+				delete $scope.loadedIngredients.ingredients[removedIngredient];
+				delete $scope.loadedIngredients.quantities[removedIngredient];
 				//$scope.removedIngredients.ingredients.splice(index, 1);
 				
-				$scope.loadedIngredients.ingredients.splice(removedIngredient,1);
-				$scope.loadedIngredients.quantities.splice(removedIngredient,1);
+				//$scope.loadedIngredients.ingredients.splice(removedIngredient,1);
+				//$scope.loadedIngredients.quantities.splice(removedIngredient,1);
 			}
 				
 		}
+					  
 
 			for(var removedIngredient in $scope.removedIngredients)
 			{
@@ -108,7 +107,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 					$scope.loadedIngredients.quantities[removedIngredient] = '';
 				}
 			}
-			
+			console.log('After removed:'+$scope.loadedIngredients.ingredients);
 			var errorIngredient = false;
 			
 			/*Perform check to see if any of the ingredient or quantity fields are empty.*/
@@ -128,13 +127,13 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 					if($scope.addedUpdateIngredients.ingredients[i] == '' || $scope.addedUpdateIngredients.quantities[i] == '' || $scope.addedUpdateIngredients.quantities[i] == null)
 					{
 						errorIngredient = true;
-						$scope.errorMessage = 'Please fill in all the ingredients fields.';				
+						$scope.errorMessage = 'Please fill in all the ingredients and quantities fields.';				
 					}
 				}
 				
 			}
 			
-			/*Perform check for duplicate ingredients*/
+			/*Perform check for duplicate ingredients in the extra added ingredients*/
 			if(!errorIngredient)
 			{
 				for(var i = 0; i < ($scope.addedUpdateIngredients.ingredients.length-1); i++)
@@ -150,7 +149,28 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 					}
 				}
 			}
+			console.log('error:'+errorIngredient);
+			console.log('here');
 			
+			/*Perform check for duplicate ingredients in loaded ingredients and the extra added ingredients*/
+			if(!errorIngredient)
+			{
+				for(var k = 0; k < ($scope.addedUpdateIngredients.ingredients.length); k++)
+				{console.log('here2');
+					for(var g = 0; g < ($scope.loadedIngredients.ingredients.length); g++)
+					{
+						console.log('addedIngredient:'+$scope.addedUpdateIngredients.ingredients[k]+' loaded:'+$scope.loadedIngredients.ingredients[g]);
+						if($scope.addedUpdateIngredients.ingredients[k].localeCompare($scope.loadedIngredients.ingredients[g])===0)
+						{
+							errorIngredient = true;
+							$scope.errorMessage = 'Duplicate ingredients are not allowed.';
+						}
+					}
+				}
+			}
+			/*Perform check to see if the menu item has at least one ingredient*/
+			console.log($scope.loadedIngredients.ingredients);
+			console.log($scope.addedUpdateIngredients.ingredients);
 		
 		/*Perform check to see if the menu item has at least one ingredient*/
 		/*if(!errorIngredient)
@@ -174,6 +194,28 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 				}
 			}
 		}
+		
+		/*Perform check to see if the menu item has at least one ingredient*/
+		var count = 0;
+		var i = 0;
+		while(count == 0 && i < $scope.addedUpdateIngredients.ingredients.length)
+		{
+			if($scope.addedUpdateIngredients.ingredients[i] != null && $scope.addedUpdateIngredients.ingredients[i] !='')
+				count = 1;
+			i++;
+		}
+		
+		if(count == 0)
+		{
+			errorIngredient = true;
+			$scope.errorMessage = 'The menu item must have at least one ingredient.';
+		}
+		
+		if(errorIngredient)
+		{
+			$scope.loadedIngredients = {ingredients:[],quantities:[]};
+			$scope.loadIngredients();
+		}
 			
 			
 			if(!errorIngredient)
@@ -194,6 +236,10 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 					$scope.addedUpdateIngredients = {ingredients:[],quantities:[]};
 					$scope.removedIngredients =[];
 					$scope.loadedIngredients = {ingredients:[],quantities:[]};
+					
+					/*Reload all of the ingredients*/
+					$scope.loadIngredients();
+				
 				});
 			}
 		};
@@ -248,10 +294,10 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		
 		/*Functions for creating a new menu item*/
 
-		 // Create new Menu Item
+		 /* Create new Menu Item*/
 		$scope.createMenuItem = function(isValid) {			
 			$scope.success = $scope.error = null;
-			console.log('here');
+			
 		
 		//Check if any of the ingredient name or ingredient quantity fields are empty
 		var errorIngredient = false;
@@ -648,6 +694,15 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 			}
 			$rootScope.$broadcast('plateUpdated');
 		};
+
+        $scope.checkCMUser = function(){
+            if(!Authentication.user) {
+                $location.path('/');
+            }
+            else if(Authentication.user.roles[0] !== 'cafeteriaManager') {
+                $location.path('/');
+            }
+        };
 	}
 ]);
 

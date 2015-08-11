@@ -243,5 +243,19 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
                 });
             }
         };
+
+        $scope.checkCMUser = function(){
+            if(!Authentication.user){
+                $location.path('/');
+            }
+            /*else if(Authentication.user.roles[0] === 'cafeteriaManager') {
+                console.log('Checking cafeteria manager Inventory: ' + Authentication.user.roles[0]);
+                //$location.path('/#!/manageInventory');
+            }*/
+            else if(Authentication.user.roles[0] !== 'cafeteriaManager'){
+                $location.path('/');
+            }
+
+        };
 	}
 ]);

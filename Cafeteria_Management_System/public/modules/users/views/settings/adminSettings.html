@@ -68,14 +68,14 @@
         <form name="userForm" data-ng-submit="changeEmployeeID(userForm.$valid)" class="signin form-horizontal" autocomplete="on">
             <fieldset>
                 <div class="form-group" >
-                    <label for="currentEmp_id">Current Employee ID</label>
-                    <input type="text" id="currentEmp_id" name="currentEmp_id" class="form-control" data-ng-model="currentEmp_id" placeholder="Current Employee ID">
-                    <!--label>Current Employee ID </label>
-                    <div ng-init="loadEmployees()" data-ng-controller="SettingsController" >
+                    <!--label for="currentEmp_id">Current Employee ID</label>
+                    <input type="text" id="currentEmp_id" name="currentEmp_id" class="form-control" data-ng-model="currentEmp_id" placeholder="Current Employee ID"-->
+                    <label>Current Employee ID </label>
+                    <div ng-init="loadEmployees()" data-ng-controller="superuserController" >
                         <select id="currentEmp_id" name="currentEmp_id" class="form-control" data-ng-model = 'currentEmp_id'/>
-                        <option ng-repeat="employee in employees" value="employee.username"> {{employee.username}}</option>
+                        <option ng-repeat="employee in employees" value=employee.username> {{employee.username}}</option>
                         </select><br>
-                    </div-->
+                    </div>
 
                 </div>
                 <div class="form-group">
