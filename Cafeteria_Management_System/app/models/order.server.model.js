@@ -19,9 +19,17 @@ var OrderSchema = new Schema({
 		type: Date,
 		default: Date.now
 	},
+	orderNumber: {
+		type: Number,
+		required: 'Order number has not been initialised'
+	},
 	itemName: {
 		type: String,
 		required: 'Please fill in item name'
+	},
+	price: {
+		type: Number,
+		required: 'item price has not been initialized'
 	},
 	quantity: {
 		type: Number,

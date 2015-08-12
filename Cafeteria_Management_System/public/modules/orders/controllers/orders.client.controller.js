@@ -43,7 +43,6 @@ angular.module('orders').controller('OrdersController', ['$scope', '$rootScope',
 		$scope.placeOrder = function(){
 			if($scope.plate){
 				if(Authentication.user){
-					//console.log('User is: ' + Authentication.user.username);
 					
 					for(var i = 0; i < $scope.plate.length; i++){
 						$scope.plate[i].username = Authentication.user.username;

@@ -15,7 +15,16 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
 				console.log('error' + response.message);
 			});
 		};
-
+		
+		$scope.markAsReady = function(username, itemName){
+			console.log(username + ' ' + itemName);
+			
+			$http.post('orders/markAsReady',{uname : username, item : itemName}).success(function(response){
+				
+			}).error(function(response){
+				
+			});
+		};
 
         $scope.checkUser = function(){
             if((($scope.user && Authentication.user.roles[0] !== 'cashier') || (!$scope.user)) && $location.path('/#!/cashier'))
