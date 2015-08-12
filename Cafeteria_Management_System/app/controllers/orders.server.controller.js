@@ -17,7 +17,7 @@ var mongoose = require('mongoose'),
  */
  
  exports.placeOrder = function(req, res){
-	//console.log(req);
+	console.log(req);
 	if(req.body.length > 0){
 		var order = req.body;
 		Order.find({}, function(err, result){
