@@ -44,18 +44,22 @@
             </fieldset>
         </form-->
     </div>
-        <div>
-            <fieldset>
-                <div class="floatLeft checkbox"><h3><b>Mark Orders as ready</b></h3>
-                    <h4>
-                        <div class="list-group-item clearfix" ng-repeat="order in orders">
-						{{order.itemName}}  <span> R {{item.price}}</span>
-						<span> Quantity: {{order.quantity}}</span><span> Employee ID: {{order.username}}</span>
-			</div>
-                    </h4>
-                </div>
-            </fieldset>
-        </div>
+
+
+    <h4>Placed Orders:</h4>
+    <div class="list-group-item clearfix" ng-repeat="order in orders"><h4>
+       <b> <span class="text-warning">{{order.itemName}} : R 20{{item.price}}</span></b> </h4> <br>
+        <span style="float:right;" >
+        <button style="width:200px" type="button" class="btn btn-primary" data-ng-click="markOrderReady(order.itemName)"> Order collected </button> </span>
+        <p></p>
+         <p> Quantity: {{order.quantity}}  </p>
+        <p > Employee ID: {{order.username}} </p>
+        <p> Preferences: {{order.preferences}}
+        <span style="float:right;" >
+            <button style="width:200px" type="button" class="btn btn-primary" data-ng-click="markOrderPaid(order.itemName)"> Employee paid  </button></span>
+    </div>
+    </div>
+
 
 
 </section>
