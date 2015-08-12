@@ -6,7 +6,6 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
 		$scope.authentication = Authentication;
 	
 		$scope.getOrders = function(){
-			console.log('hi');
 			
 			$http.post('/orders/getOrderList').success(function(response){
 				console.log('success' + response);

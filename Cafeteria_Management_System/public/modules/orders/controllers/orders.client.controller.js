@@ -51,6 +51,7 @@ angular.module('orders').controller('OrdersController', ['$scope', '$rootScope',
 						//alert($scope.plate[i].preferences + ' ' + $scope.plate[i].quantity);
 						//$scope.plate[i].quantity = _quantity;
 					}
+					$scope.success = $scope.error = null;
 					$http.post('/orders/placeOrder', $scope.plate).success(function(response) {
 						$scope.plate = [];
 						$cookies.plate = JSON.stringify([]);

@@ -43,7 +43,10 @@
 	<div class="list-group-item">
 		<h4> Spending limit per month: </h4> <h5 align="left"> R <span data-ng-bind="authentication.user.limit"></span> </h5><br>
 	</div>
-
+	<!-- Limit: -->
+	<div class="list-group-item">
+		<h4> Available balance for month: </h4> <h5 align="left"> R <span data-ng-bind="authentication.user.limit - authentication.user.currentBalance"></span> </h5><br>
+	</div>
 	<!-- Profile type: -->
 		<!-- The type will only show on a specific role thet is assigned to the user
 				- The purpose of the type is to help the super user when they need to remove a certain username with a certain role

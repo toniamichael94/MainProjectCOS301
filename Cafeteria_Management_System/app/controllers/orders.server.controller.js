@@ -10,6 +10,7 @@
 var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
 	Order = mongoose.model('Order'),
+	User = mongoose.model('User'),
 	_ = require('lodash');
 
 /********************************************
@@ -17,9 +18,17 @@ var mongoose = require('mongoose'),
  */
  
  exports.placeOrder = function(req, res){
-	console.log(req);
+	//console.log(req);
 	if(req.body.length > 0){
 		var order = req.body;
+		var total = 0;
+		var availBalance = req.user.limit - req.user.currentBalance;
+		for(var j = 0; j < order.length; j++)
+			total += order[j].price * order[j].quantity;
+		
+		if(total > availBalance)
+			return res.status(400).send({message: 'You have insufficient credit to make purchase. Available balance: R' + availBalance});
+		
 		Order.find({}, function(err, result){
 			var orderNum = 1;
 			if(result.length !== 0){
@@ -30,17 +39,29 @@ var mongoose = require('mongoose'),
 				order[i].orderNumber = orderNum;
 			
 			Order.create(order, function(err){
-			if(err) return res.status(400).send({
-				message: errorHandler.getErrorMessage(err)
-			});
-				res.status(200).send({message: 'Order has been made'});
-			});
+				if(err) return res.status(400).send({
+					message: errorHandler.getErrorMessage(err)
+				});
+					User.update({username: req.user.username}, {$inc: { currentBalance : total}}, function(err, numAffected){
+						if(err){
+							//Temporary - Measures to take will be discussed
+							console.log(errorHandler.getErrorMessage(err));
+						}
+						if(numAffected < 0){
+							//Temporary - MEasures to take will be discussed
+							console.log('No user charged');
+						}
+						
+						res.status(200).send({message: 'Order has been made'});
+
+					});
+				});
 		});	
 	}
  };
  
  exports.markAsReady = function(req, res){
-	console.log(req.body);
+	//console.log(req.body);
 	
 	res.status(200).send({message: 'order marked as ready'});
  };
