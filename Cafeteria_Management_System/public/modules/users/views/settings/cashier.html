@@ -48,7 +48,9 @@
 
     <h4>Placed Orders:</h4>
     <div class="list-group-item clearfix" ng-repeat="order in orders"><h4>
-       <b> <span class="text-warning">{{order.itemName}} : R 20{{item.price}}</span></b> </h4> <br>
+       <b> 
+	   <span class="text-warning">Order number: {{order.orderNumber}} </span>
+	    <span class="text-warning">{{order.itemName}} : R {{order.price}}</span></b> </h4> <br>
         <span style="float:right;" >
         <button style="width:200px" type="button" class="btn btn-primary" data-ng-click="markOrderReady(order.itemName)"> Order collected </button> </span>
         <p></p>
