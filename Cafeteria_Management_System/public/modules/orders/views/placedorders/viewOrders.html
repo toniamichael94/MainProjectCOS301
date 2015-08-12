@@ -7,25 +7,19 @@
 		<a href="#" class="list-group-item disabled">Review and confirm your order</a>
 		<div class="list-group-item clearfix">
 			<div class="list-group-item clearfix" ng-repeat="item in plate">
-				{{item.itemName}}  <span> R {{item.price}}</span>
+				<h4><b><p class ="text-warning">{{item.itemName}} : R {{item.price}} </p> </b></h4>
+                    <span style="float:right;" >
+        <button type="button" class="btn btn-primary" data-ng-click="removeFromPlate(item.itemName)"> Remove </button> </span>
 
-		<!--		<span> Quantity <input type='number' name='{{item.itemName}}' value={{item.quantity}} min=1 max=5 /></span>
-				<span style="float: right"><button type="button" data-ng-click="removeFromPlate(item.itemName)"> Remove </button></span> <br>
-                <span> Preferences
-                    <input type="text" id="preferences" name="preferences" class="form-control" data-ng-model="preferences" placeholder="none">
-                </span>
+                <p> Quantity <input type='number' data-ng-model='item.quantity' data-ng-change='quantityChange(item.itemName)' name='{{item.itemName}}' min=1 max=5 /></p>
+
+
+                <p> Preferences
+                    <textarea type="text" id="preferences" name="preferences" class="form-control" data-ng-model="item.preferences" data-ng-change="prefChange()" placeholder="type order preferences here..."></textarea>
+                </p>
 			</div>
 			<div>
-				<span style="float: right">Total: R {{subTotal()}} </span-->
-<!---=======-->
-				<span> Quantity <input type='number' data-ng-model='item.quantity' data-ng-change='quantityChange(item.itemName)' name='{{item.itemName}}' min=1 max=5 /></span>
-				<span style="float: right"><button type="button" data-ng-click="removeFromPlate(item.itemName)"> Remove </button></span> <br>
-                <span> Preferences
-                    <input type="text" id="preferences" name="preferences" class="form-control" data-ng-model="item.preferences" data-ng-change="prefChange()" placeholder="none">
-                </span>
-			</div>
-			<div>
-				<span style="float: right">Total: {{orderTotal}} </span>
+				<h4></h3><span style="float: right">Total: {{orderTotal}} </span></h4>
 			</div>
 			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2"  data-ng-controller="MenuItemsController">
 				<!--p> Placed order </p> <input class = "form-control" type = number min = 0> <input type = "checkbox" checked = true-->
@@ -41,6 +35,9 @@
 			</div>
 		</div>
 	</div>
+
+
+
 
 
 
