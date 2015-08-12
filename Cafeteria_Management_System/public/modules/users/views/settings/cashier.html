@@ -50,7 +50,7 @@
     <div class="list-group-item clearfix" ng-repeat="order in orders"><h4>
        <b> <span class="text-warning">{{order.itemName}} : R 20{{item.price}}</span></b> </h4> <br>
         <span style="float:right;" >
-        <button style="width:200px" type="button" class="btn btn-primary" data-ng-click="markOrderReady(order.itemName)"> Order collected </button> </span>
+        <button style="width:200px" type="button" class="btn btn-primary" data-ng-click="markAsReady(order.itemName)"> Order collected </button> </span>
         <p></p>
          <p> Quantity: {{order.quantity}}  </p>
         <p > Employee ID: {{order.username}} </p>
