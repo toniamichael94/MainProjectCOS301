@@ -19,25 +19,34 @@ var mongoose = require('mongoose'),
  exports.placeOrder = function(req, res){
 	//console.log(req);
 	if(req.body.length > 0){
-		/*for(var i = 0; i < req.body.length; i++){
-			req.body[i].username = req.user.displayUserName;
-		}*/
-		
-		Order.create(req.body, function(err){
+		var order = req.body;
+		Order.find({}, function(err, result){
+			var orderNum = 1;
+			if(result.length !== 0){
+				orderNum = result[result.length-1].orderNumber + 1;
+			}
+			
+			for(var i = 0; i < order.length; i++)
+				order[i].orderNumber = orderNum;
+			
+			Order.create(order, function(err){
 			if(err) return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
-			res.status(200).send({message: 'Order has been made'});
-		});
-	}
-	else
-	{
-		res.status(400).send({message: 'Order could not be processed'});
+				res.status(200).send({message: 'Order has been made'});
+			});
+		});	
 	}
  };
  
+ exports.markAsReady = function(req, res){
+	console.log(req.body);
+	
+	res.status(200).send({message: 'order marked as ready'});
+ };
+ 
+ //Get orders with a POST request
  exports.getOrderList = function(req, res){
-	console.log('heeeeelloooooooooooooooooooooo');
 	Order.find({status: 'open'}, function(err, items){
 		if(err) return res.status(400).send({
 			message: errorHandler.getErrorMessage(err)
@@ -47,6 +56,7 @@ var mongoose = require('mongoose'),
 	});
  };
 
+ //Get orders with a GET request
  exports.getOrders = function(req, res){
 	//res.status(400).send({message: 'hello'});
 	console.log('heeeeelloooooooooooooooooooooo');
