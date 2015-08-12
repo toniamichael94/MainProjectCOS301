@@ -52,17 +52,17 @@
 									<option  ng-repeat="item in inventoryItems" >{{item.productName}} ({{item.unit[0]}})</option>
 							</select><br>
 							<input class="form-control" placeholder ="Quantity"  type = "number" min =0 ng-model = 'ingredients.quantities[$index]'/>
-							<a class = "btn" ng-click = "removeIngredientOption($index); removeOption = true">Remove</a>
-							<br>
+                        <div class="text-center form-group"><a class = "btn" ng-click = "removeIngredientOption($index); removeOption = true">Remove</a></div>
+
 						
 					</div>
 
 					<!--Dynamically add ingredients button-->
-				<a ng-click="addFormField()" class = "btn btn-large btn-primary">Add ingredients</a>
-				<br>
-				<br>
+                        <div class="text-center form-group">
+				<a ng-click="addFormField()" style="width:200px" class = " btn btn-large btn-primary">Add ingredients</a>
+				<br></div>
 						<div class="text-center form-group">
-							<button type="submit" class="btn btn-large btn-primary">Save</button>
+							<button type="submit" style="width:200px" class="btn btn-large btn-primary">Save</button>
 						</div>
 										<!--<p>Ingredient</p>
 
@@ -96,24 +96,26 @@
 					<form name="searchMenuItemsForm" data-ng-submit="searchMenu(searchMenuItemsForm.$valid)" class="signin form-horizontal" autocomplete="off">
 						<!--Search for a menu item-->
 						<div class = "form-group">
-							<input type="text" id="menuItemNameSearch" name ="menuItemNameSearch" class = "form-control" data-ng-model="menuNameSearch" placeholder="Item name">
+							<input type="text" id="menuItemNameSearch"  name ="menuItemNameSearch" class = "form-control" data-ng-model="menuNameSearch" placeholder="Item name">
 						</div>
 
 						<div class = "text-center form-group">
-							<button type = "submit" class = "btn btn-large btn-primary">Search</button>
+							<button type = "submit" style="width:200px" class = "btn btn-large btn-primary">Search</button>
 						</div>
-						<br>
-					</form>
+
+
 
 					<!--Delete or update if item is found-->
+                    <div class = "text-center form-group">
 					<div data-ng-show="successFind">
-						<button class = "btn btn-large btn-primary"  ng-click="showme=true; loadIngredients()" data-ng-hide="showme">Update</button>
+						<button class = "btn btn-large btn-primary" style="width:200px" ng-click="showme=true; loadIngredients()" data-ng-hide="showme">Update</button>
 						<br>
 						<br>
 					</div>
 					<div data-ng-show="successFind">
-						<button class = "btn btn-large btn-primary" data-ng-hide="showme" ng-click = "deleteMenuItem()">Delete</button>
+						<button class = "btn btn-large btn-primary" style="width:200px" data-ng-hide="showme" ng-click = "deleteMenuItem()">Delete</button>
 					</div>
+                        </div> </form>
 					<!--Show if update -->
 					<div ng-show="showme" class="text-center text-success">
                         <form name="updateMenuItemForm" data-ng-submit="updateMenuItem(updateMenuItemForm.$valid)" class="signin form-horizontal" autocomplete="off">
@@ -180,7 +182,7 @@
 						<br>
                             <div class = "text-center form-group">
                                 <!--<button type = "submit" class = "btn btn-large btn-primary" onclick= "location.reload(true)" ng-click = "upadateMenuItem()"> Update</button>-->
-                                <button type = "submit" class = "btn btn-large btn-primary" ng-click = "upadateMenuItem();"> Update</button>
+                                <button type = "submit" style="width:200px" class = "btn btn-large btn-primary" ng-click = "upadateMenuItem();"> Update</button>
 
 							</div>
                         </form>
