@@ -22,12 +22,12 @@ angular.module('users').controller('FinanceController', ['$scope', '$http', '$lo
             }
         };*/
 
-        $scope.getUserOrders = function(isValid){
+        $scope.getUserOrders = function(){
             var reqObj = {username: $scope.username};
             $http.post('/orders/getUserOrders', reqObj).success(function(response){
                 console.log('success' + response);
                 console.log('success2' + response.message);
-                $scope.orders = response.message;
+                $scope.success = response.message;
             }).error(function(response){
                 console.log('error' + response.message);
                 $scope.error = response.message;
