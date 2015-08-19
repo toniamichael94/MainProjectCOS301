@@ -12,13 +12,13 @@
 *
 -->
 
-<section ng-init="checkFinUser()" class="row" data-ng-controller="SettingsController">
+<section ng-init="checkUser()" class="row" data-ng-controller="FinanceController">
 
 	<h4> View Employee Bills </h4>
 	<hr>
       <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 
-        <form name="userForm" data-ng-submit="searchEmployee(userForm.$valid)" class="signin form-horizontal" autocomplete="on">
+        <form name="userForm" data-ng-submit="getUserOrders(userForm.$valid)" class="signin form-horizontal" autocomplete="on">
             <fieldset>
 
                 <div class="form-group">
@@ -30,7 +30,14 @@
                     <button type="submit" class="btn btn-large btn-primary" >Display Bill</button>
                 </div>
                 <div data-ng-show="success" class="text-center text-success">
-                    <strong data-ng-bind="success"></strong>
+                    <div class="list-group-item clearfix" ng-repeat="order in orders">
+                        <h4> <b>
+                            <span class="text-warning">Employee ID: {{order.username}} </span>
+                        </b> </h4>
+                        <h4><b><p class="text-warning">{{order.itemName}} : R{{order.price}}</p></b></h4>
+                        <p> Quantity: {{order.quantity}} </p>
+                                    <p >  </p>
+                    </div>
                 </div>
                 <div data-ng-show="error" class="text-center text-danger">
                     <strong data-ng-bind="error"></strong>
