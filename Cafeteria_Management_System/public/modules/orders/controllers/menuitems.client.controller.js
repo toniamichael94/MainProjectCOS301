@@ -360,6 +360,43 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 			}
 		};
 
+		/*CreateMenuCatagory */
+	 $scope.createMenuCatagory = function(isValid) {
+		 if (isValid){
+			 //console.log('You have validated!');
+			 if($scope.categoryName == null){
+				// console.log('invalid')
+				 $scope.error = true;
+				 $scope.error = 'No catagory added, Please fill in the textbox to add a category';
+			 }else{
+				 var name = {
+					 catagory:  $scope.categoryName
+				 };
+				 //console.log($scope.categoryName);
+				 $http.post('/orders/createMenuCategory', name).success(function(response) {
+				 // If successful show success message and clear form
+				 if(response.message.localeCompare('The category already exist') == 0){
+					 $scope.success = false;
+					 $scope.error = true;//response.message;
+					 $scope.error = 'The category already exist';
+					 //console.log("already exist");
+				 }else{
+					 //console.log('responce : ' + response.message);
+					 $scope.error = false;
+					 $scope.success = true;//response.message;
+					 $scope.sucess = 'Catagory added to the menu.';
+			 	 }
+				 }).error(function(response) {
+					 //console.log("error");
+					 $scope.error ="The category already exist ";
+				 });
+				 }
+			 }
+		 };
+		//  console.log($scope.menuCatagory);
+		 // first we need to check that the field has data
+
+
 		/*Removing add ingredients option*/
 		$scope.removeIngredientOption = function(index)
 		{
