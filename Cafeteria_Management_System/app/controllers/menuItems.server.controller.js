@@ -61,6 +61,28 @@ MenuItem.find({}, function(err, items) {
 };
 
 
+exports.loadMenuCategories = function(req, res) {
+console.log('---------------------------------');
+MenuCatagory.find({}, function(err, items) {
+	//console.log(items);
+	 //var itemMap = {};
+
+	 //items.forEach(function(item) {
+	//	 itemMap[item._id] = item;
+	// });
+	// console.log(itemMap); // testing
+	// res.send(itemMap);
+
+	if(err ) {
+		console.log('Error = ' + err);
+		return res.status(400).send({message: err });}
+	else {
+		res.status(200).send({message: items});
+	}
+ });
+
+};
+
 
 
 /**

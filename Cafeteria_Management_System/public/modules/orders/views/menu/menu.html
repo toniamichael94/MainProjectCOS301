@@ -38,10 +38,10 @@
     	<a href="/#!/" class="navbar-brand" ><span class="glyphicon glyphicon-apple"></span> Menu</a>
     	</div>
 
-      <div id="navbar" class="collapse navbar-collapse navbar-right" collapse="!isCollapsed" role="navigation">
+      <div id="navbar" class="collapse navbar-collapse navbar-right" ng-init="loadMenuCategories()"collapse="!isCollapsed" role="navigation">
         <ul class="nav navbar-nav">
           <li class="active"><a href="#">All Menu Items</a></li>
-          <li><a href="#">Menu1</a></li>
+          <li ng-repeat="item in menuCatagory"><a href="#">{{item.name}}</a></li>
           <li><a href="#">Menu2</a></li>
         </ul>
       </div><!--/.nav-collapse -->

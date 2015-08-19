@@ -597,6 +597,19 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		});
 	};
 
+	/*loadMenuCategories
+	*/
+	$scope.loadMenuCategories = function(){
+		console.log('loading menu Categories');
+		$http.get('/loadMenuCategories').success(function(response) {
+			console.log(response.message);
+		$scope.menuCatagory = response.message;
+
+	}).error(function(response) {
+		$scope.menuItems = 'Error loading menu Items';
+	});
+};
+
 
         /*
          * Check if an ingredient is in stock or not
