@@ -15,13 +15,12 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
 			});
 		};
 		
-		$scope.markAsReady = function(username, itemName){
-			console.log(username + ' ' + itemName);
+		$scope.markAsReady = function(username, orderNumber){
 			
-			$http.post('orders/markAsReady',{uname : username, item : itemName}).success(function(response){
-				
+			$http.post('orders/markAsReady',{uname : username, orderNum : orderNumber}).success(function(response){
+				$scope.success = response.message;
 			}).error(function(response){
-				
+				$scope.error = response.message;
 			});
 		};
 

@@ -19,6 +19,10 @@
                 </p>
 			</div>
 			<div>
+				<span data-ng-show="showRadio()"> Payment method: 
+					<input type="radio" name="paymentMethod" data-ng-model="paymentMethod" value="cash"> Cash</input>
+					<input type="radio" name="paymentMethod" data-ng-model="paymentMethod" value="credit"> Credit</input>
+				</span>
 				<h4></h3><span style="float: right">Total: {{orderTotal}} </span></h4>
 			</div>
 			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2"  data-ng-controller="MenuItemsController">

@@ -11,22 +11,23 @@ var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
 	Order = mongoose.model('Order'),
 	User = mongoose.model('User'),
-	_ = require('lodash');
+	_ = require('lodash'),
+	configs = require('../../config/config'),
+	nodemailer = require('nodemailer');
 
 /********************************************
  *Added by {Rendani Dau}
  */
  
  exports.placeOrder = function(req, res){
-	//console.log(req);
-	if(req.body.length > 0){
-		var order = req.body;
+	if(req.body.plate.length > 0){
+		var order = req.body.plate;
 		var total = 0;
 		var availBalance = req.user.limit - req.user.currentBalance;
 		for(var j = 0; j < order.length; j++)
 			total += order[j].price * order[j].quantity;
 		
-		if(total > availBalance)
+		if(total > availBalance && req.body.paymentMethod === 'credit')
 			return res.status(400).send({message: 'You have insufficient credit to make purchase. Available balance: R' + availBalance});
 		
 		Order.find({}, function(err, result){
@@ -64,9 +65,39 @@ var mongoose = require('mongoose'),
  };
  
  exports.markAsReady = function(req, res){
-	//console.log(req.body);
+	Order.update({orderNumber: req.body.orderNum}, {status: 'closed'}, function(err, numAffected){
+		if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
+		console.log(numAffected);
+		sendEmail(req.body.uname, req.body.orderNum);
+		res.status(200).send({message: 'order marked as ready'});
+	});
 	
-	res.status(200).send({message: 'order marked as ready'});
+ };
+ /*
+  * Helper function to email user about order
+  * Last Edited by: Rendani Dau
+  */
+ function sendEmail(uname, orderNum){
+	User.findOne({username: uname}, function(err, user){
+		if(err){ 
+			console.log(err);
+			return;
+		}
+		var smtpTransport = nodemailer.createTransport(configs.mailer.options);
+		
+		var mailOptions = {
+			from: configs.mailer.from,
+			subject: 'Your Order Is Ready'
+		};
+		mailOptions.to = user.email;
+		mailOptions.text = 'Dear ' + user.displayName + ',\n\n' +
+								'Your order with order number ' + orderNum +  ' is ready for collection.\n'+
+								'You can collect your order at the cafeteria.\n\n'+
+								'The CMS Team';
+		smtpTransport.sendMail(mailOptions, function(err){ 
+			if(err) console.log('Email not sent' + err); 
+		});
+	});
  };
 //,itemName:req.body.itemName
 
