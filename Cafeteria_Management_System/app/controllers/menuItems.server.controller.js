@@ -8,6 +8,7 @@ var mongoose = require('mongoose'),
 	MenuItem = mongoose.model('MenuItem'),
 	OrderItem = mongoose.model('Order'),
 	InventoryItem = mongoose.model('Inventory'),
+	MenuCatagory = mongoose.model('MenuCatagory'),
 
 	_ = require('lodash');
 
@@ -24,7 +25,7 @@ exports.inventoryItems = function(req, res) {
 	var items2 = new Array();
 	items2[0] = items;
 	items2[1] = items.amount;
-	
+
 	if(err || !items) return res.status(400).send({message: 'Inventory Item not found' });
 	else {
 			res.status(200).send({message: items2});
@@ -60,6 +61,28 @@ MenuItem.find({}, function(err, items) {
 };
 
 
+exports.loadMenuCategories = function(req, res) {
+console.log('---------------------------------');
+MenuCatagory.find({}, function(err, items) {
+	//console.log(items);
+	 //var itemMap = {};
+
+	 //items.forEach(function(item) {
+	//	 itemMap[item._id] = item;
+	// });
+	// console.log(itemMap); // testing
+	// res.send(itemMap);
+
+	if(err ) {
+		console.log('Error = ' + err);
+		return res.status(400).send({message: err });}
+	else {
+		res.status(200).send({message: items});
+	}
+ });
+
+};
+
 
 
 /**
@@ -78,6 +101,33 @@ exports.createMenuItem = function(req, res) {
 			res.jsonp(menuitem);
 		}
 	});
+};
+
+exports.createMenuCategory = function(req, res) {
+	//console.log('YOU ARE HERE-------------');
+
+	MenuCatagory.find({name : req.body.catagory}, function(error, model) {
+
+	var v = model;
+	//console.log(v);
+	if(model.length < 1){ // then no such category exists we can create one
+		var catagory = new MenuCatagory({
+			name : req.body.catagory
+		});
+
+
+		catagory.save(function(err, catagory) {
+			if (err){
+				return console.error(err);
+			}
+				console.dir(catagory);
+			});
+
+			return res.status(200).send({message: "sucess" });
+		}else {
+		return res.status(400).send({message: "The category already exist" }); // menu  catagory already exixts
+		}
+ });
 };
 
 /**

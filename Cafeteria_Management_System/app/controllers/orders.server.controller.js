@@ -77,6 +77,41 @@ var mongoose = require('mongoose'),
 	});
  };
 
+/*
+    Last edited by {Semaka Malapane}
+ */
+exports.getUserOrders = function(req, res){
+    console.log('server req' + req);
+    console.log('username' + req.body.username);
+    if (req.body.username) {
+        Order.find({
+            username: req.body.username
+        }, function (err, items) {
+            console.log('items: ' + items);
+            console.log('err: ' + err);
+            if (items !== '') {
+                return res.status(400).send({
+                    message: 'That user has no orders placed.'
+                });
+            }
+            else{
+                console.log('server res' + res);
+                res.status(200).send({message: items});
+            }
+        });
+    }
+    else {
+        return res.status(400).send({
+            message: 'Username field must not be blank'
+        });
+    }
+    /*Order.find({status: 'open'}, function(err, items){
+        if(err) return res.status(400).send({
+            message: errorHandler.getErrorMessage(err)
+        });
+    });*/
+};
+
  //Get orders with a GET request
  exports.getOrders = function(req, res){
 	//res.status(400).send({message: 'hello'});
