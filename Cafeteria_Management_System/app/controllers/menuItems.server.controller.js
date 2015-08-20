@@ -54,6 +54,7 @@ MenuItem.find({}, function(err, items) {
 		console.log('Error = ' + err);
 		return res.status(400).send({message: err });}
 	else {
+		//console.log(items[0].ingredients.ingredients);	
 		res.status(200).send({message: items});
 	}
  });
