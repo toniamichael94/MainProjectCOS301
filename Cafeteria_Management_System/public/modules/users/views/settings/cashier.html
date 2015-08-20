@@ -11,7 +11,8 @@
 *
 -->
 
-<section ng-init="checkUser()" class="row" data-ng-controller="cashierController" data-ng-init="getOrders()">
+<section ng-init="checkUser()" class="row" data-ng-controller="cashierController" data-ng-init="getOrders()"
+         xmlns="http://www.w3.org/1999/html">
 
 	<h4> Process Orders </h4>
 	<hr>
@@ -21,19 +22,20 @@
 
     <h4>Placed Orders:</h4>
     <div class="list-group-item clearfix" ng-repeat="order in orders"><h4>
-       <b> 
+       <b>
 	   <span class="text-warning">Order number: {{order.orderNumber}} </span>
 	    </b> </h4>
         <span style="float:right;" >
-		<button style="width:200px" type="button" class="btn btn-primary" data-ng-click="markAsReady(order.username,order.orderNumber)"> Order Ready </button> </span>
-
         <button style="width:200px" type="button" class="btn btn-primary" data-ng-click="markAsCollected(order.username,order.itemName,order.orderNumber)"> Order collected </button> </span>
-
+</span>
        <h4><b><p class="text-warning">{{order.itemName}} : R{{order.price}}</p></b></h4>
         <p> Quantity: {{order.quantity}}  </p><span style="float:right;" >
             <button style="width:200px" type="button" class="btn btn-primary" data-ng-click="markAsPaid(order.username,order.itemName,order.orderNumber)"> Employee paid  </button></span>
         <p > Employee ID: {{order.username}} </p>
-        <p> Preferences: {{order.preferences}}
+        <p> Preferences: {{order.preferences}}</p>
+       <span style="float:right;" >
+            <button style="width:200px" type="button" class="btn btn-info" data-ng-click="markAsReady(order.username,order.orderNumber)"> Order Ready </button>
+        </span>
 
     </div>
 	<div data-ng-show="success" class="text-center text-success">
