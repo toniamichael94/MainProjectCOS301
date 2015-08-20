@@ -65,7 +65,40 @@ var mongoose = require('mongoose'),
 	
 	res.status(200).send({message: 'order marked as ready'});
  };
- 
+//,itemName:req.body.itemName
+
+exports.markAsPaid = function(req, res){
+    console.log('dgefrgwergtwe'); //console.log(req.body);
+    Order.find({orderNumber: req.body.orderNumber },function(err, numAffected2) {
+        console.log(numAffected2);
+        console.log(numAffected2.length);
+        for(var item in numAffected2){
+            console.log(numAffected2[item].orderNumber);
+            Order.update({orderNumber: numAffected2[item].orderNumber, itemName: numAffected2[item].itemName }, {status: 'closed'},  function(err2, numAffected) {
+                console.log('hhhh');
+            });
+        }
+
+    });
+
+
+};
+exports.markAsCollected = function(req, res){
+    console.log('dgefrgwergtwe');  console.log(req.body);
+    Order.update({orderNumber: req.body.orderNumber }, {status: 'closed'},  function(err, numAffected){
+        if(err) return res.status(400).send({
+            message: errorHandler.getErrorMessage(err)
+        });
+        else if (numAffected < 1){
+            res.status(400).send({message: 'Error closing order!'});
+        }
+        else{
+            res.status(200).send({message: 'Order closed.'});
+        }
+    });
+};
+
+
  //Get orders with a POST request
  exports.getOrderList = function(req, res){
 	Order.find({status: 'open'}, function(err, items){
@@ -87,14 +120,13 @@ exports.getUserOrders = function(req, res){
         Order.find({
             username: req.body.username
         }, function (err, items) {
-            console.log('items: ' + items);
             console.log('err: ' + err);
-            if (items !== '') {
+            if (items === null) {
                 return res.status(400).send({
                     message: 'That user has no orders placed.'
                 });
             }
-            else{
+            else{ console.log('items: ' + items);
                 console.log('server res' + res);
                 res.status(200).send({message: items});
             }
