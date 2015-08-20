@@ -29,20 +29,23 @@
                 <div class="text-center form-group">
                     <button type="submit" class="btn btn-large btn-primary" >Display Bill</button>
                 </div>
-                <div data-ng-show="success" data-ng-bind="success" class="text-center text-success">
-                    <div class="list-group-item clearfix" ng-repeat="order in orders">
+                <div data-ng-show="success" data-ng-bind="success" class="text-center text-success" >
+                    JJJJJJ
+                    <div ng-repeat="order in orders track by order.username">
+                        {{order.itemName}}
+                    </div>
+                    <!--div class="list-group-item clearfix" ng-repeat="order in success">
                         <h4> <b>
                             <span class="text-warning">Employee ID: {{order.username}} </span>
                         </b> </h4>
                         <h4><b><p class="text-warning">{{order.itemName}} : R{{order.price}}</p></b></h4>
                         <p> Quantity: {{order.quantity}} </p>
                                     <p >  </p>
-                    </div>
+                    </div-->
                 </div>
                 <div data-ng-show="error" class="text-center text-danger">
                     <strong data-ng-bind="error"></strong>
                 </div>
-
             </fieldset>
         </form>
     </div>

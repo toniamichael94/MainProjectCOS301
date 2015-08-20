@@ -42,7 +42,10 @@ var mongoose = require('mongoose'),
 				if(err) return res.status(400).send({
 					message: errorHandler.getErrorMessage(err)
 				});
-					User.update({username: req.user.username}, {$inc: { currentBalance : total}}, function(err, numAffected){
+					res.status(200).send({message: 'Order has been made'});
+				
+					//Code to update balance when order has been placed
+					/*User.update({username: req.user.username}, {$inc: { currentBalance : total}}, function(err, numAffected){
 						if(err){
 							//Temporary - Measures to take will be discussed
 							console.log(errorHandler.getErrorMessage(err));
@@ -54,7 +57,7 @@ var mongoose = require('mongoose'),
 						
 						res.status(200).send({message: 'Order has been made'});
 
-					});
+					});*/
 				});
 		});	
 	}
@@ -121,7 +124,7 @@ exports.getUserOrders = function(req, res){
             username: req.body.username
         }, function (err, items) {
             console.log('err: ' + err);
-            if (items === null) {
+            if (items === '') { 
                 return res.status(400).send({
                     message: 'That user has no orders placed.'
                 });
