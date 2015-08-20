@@ -15,7 +15,8 @@ module.exports = function(app) {
 	app.route('/orders/getOrderList').post(orders.getOrderList);
 	app.route('/orders/getUserOrders').post(orders.getUserOrders);
 	app.route('/orders/markAsReady').post(orders.markAsReady);
-	
+    app.route('/orders/markAsCollected').post(orders.markAsCollected);
+    app.route('/orders/markAsPaid').post(orders.markAsPaid);
 	//app.route('/orders/:orderId')
 		//.get(orders.read)
 		//.put(users.requiresLogin, orders.hasAuthorization, orders.update)
