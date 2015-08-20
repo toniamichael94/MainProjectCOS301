@@ -46,10 +46,6 @@ angular.module('orders').controller('OrdersController', ['$scope', '$rootScope',
 					
 					for(var i = 0; i < $scope.plate.length; i++){
 						$scope.plate[i].username = Authentication.user.username;
-						//var itemName = $scope.plate[i].itemName;
-						//var _quantity = angular.element(document.querySelector('input[name="' + itemName + '"]'))[0].value;
-						//alert($scope.plate[i].preferences + ' ' + $scope.plate[i].quantity);
-						//$scope.plate[i].quantity = _quantity;
 					}
 					$scope.success = $scope.error = null;
 					$http.post('/orders/placeOrder', $scope.plate).success(function(response) {
