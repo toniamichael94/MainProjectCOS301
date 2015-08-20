@@ -25,6 +25,8 @@
 	   <span class="text-warning">Order number: {{order.orderNumber}} </span>
 	    </b> </h4>
         <span style="float:right;" >
+		<button style="width:200px" type="button" class="btn btn-primary" data-ng-click="markAsReady(order.username,order.orderNumber)"> Order Ready </button> </span>
+
         <button style="width:200px" type="button" class="btn btn-primary" data-ng-click="markAsCollected(order.username,order.itemName,order.orderNumber)"> Order collected </button> </span>
 
        <h4><b><p class="text-warning">{{order.itemName}} : R{{order.price}}</p></b></h4>
@@ -34,8 +36,12 @@
         <p> Preferences: {{order.preferences}}
 
     </div>
-    </div>
-
+	<div data-ng-show="success" class="text-center text-success">
+		<strong>{{success}}</strong>
+	</div>
+	<div data-ng-show="error" class="text-center text-danger">
+		<strong data-ng-bind="error">{{error}}</strong>
+	</div>
 
 
 </section>
