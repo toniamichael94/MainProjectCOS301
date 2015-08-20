@@ -8,6 +8,7 @@ angular.module('orders').controller('OrdersController', ['$scope', '$rootScope',
 		$scope.plate = [];
 		if($cookies.plate)
 			$scope.plate = JSON.parse($cookies.plate);
+		$scope.paymentMethod = 'credit';
 		
 		//Helper function to determine if item is in array(i.e. item is in plate)
 		var indexOfItem = function(arr, _itemName){
@@ -41,14 +42,23 @@ angular.module('orders').controller('OrdersController', ['$scope', '$rootScope',
 		$scope.subTotal();
 		//place the order
 		$scope.placeOrder = function(){
+			$scope.error = $scope.success = '';
 			if($scope.plate){
 				if(Authentication.user){
-					
+					if((Authentication.user.limit - Authentication.user.currentBalance) < $scope.orderTotal && $scope.paymentMethod == 'credit'){
+						var avail = Authentication.user.limit - Authentication.user.currentBalance;
+						$scope.error = 'You do not have enough credit to make purchase. Available credit: R' + avail + '. You can place order with cash payment instead';
+						return;
+					}
 					for(var i = 0; i < $scope.plate.length; i++){
 						$scope.plate[i].username = Authentication.user.username;
 					}
 					$scope.success = $scope.error = null;
-					$http.post('/orders/placeOrder', $scope.plate).success(function(response) {
+					var order = {
+						plate: $scope.plate,
+						paymentMeth: $scope.paymentMethod
+					};
+					$http.post('/orders/placeOrder', order).success(function(response) {
 						$scope.plate = [];
 						$cookies.plate = JSON.stringify([]);
 						$scope.success = response.message;
@@ -78,6 +88,10 @@ angular.module('orders').controller('OrdersController', ['$scope', '$rootScope',
 				location.reload(true);
 				//$rootScope.$broadcast('plateUpdated');
 			}
+		};
+		
+		$scope.showRadio = function(){
+			return $scope.plate.length > 0
 		};
 		/*
 		// Create new Order

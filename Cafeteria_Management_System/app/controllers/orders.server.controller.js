@@ -19,14 +19,15 @@ var mongoose = require('mongoose'),
  
  exports.placeOrder = function(req, res){
 	//console.log(req);
-	if(req.body.length > 0){
-		var order = req.body;
+	//console.log(req.body);
+	if(req.body.plate.length > 0){
+		var order = req.body.plate;
 		var total = 0;
 		var availBalance = req.user.limit - req.user.currentBalance;
 		for(var j = 0; j < order.length; j++)
 			total += order[j].price * order[j].quantity;
 		
-		if(total > availBalance)
+		if(total > availBalance && req.body.paymentMethod === 'credit')
 			return res.status(400).send({message: 'You have insufficient credit to make purchase. Available balance: R' + availBalance});
 		
 		Order.find({}, function(err, result){
