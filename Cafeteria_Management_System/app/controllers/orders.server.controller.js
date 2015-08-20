@@ -117,21 +117,23 @@ exports.markAsPaid = function(req, res){
 
 
 };
-exports.markAsCollected = function(req, res){
-    console.log('dgefrgwergtwe');  console.log(req.body);
-    Order.update({orderNumber: req.body.orderNumber }, {status: 'closed'},  function(err, numAffected){
-        if(err) return res.status(400).send({
-            message: errorHandler.getErrorMessage(err)
-        });
-        else if (numAffected < 1){
-            res.status(400).send({message: 'Error closing order!'});
-        }
-        else{
-            res.status(200).send({message: 'Order closed.'});
-        }
-    });
-};
 
+exports.markAsCollected = function(req, res){
+    console.log('dgefrgwergtwe'); //console.log(req.body);
+    Order.find({orderNumber: req.body.orderNumber },function(err, numAffected2) {
+        console.log(numAffected2);
+        console.log(numAffected2.length);
+        for(var item in numAffected2){
+            console.log(numAffected2[item].orderNumber);
+            Order.update({orderNumber: numAffected2[item].orderNumber, itemName: numAffected2[item].itemName }, {status: 'closed'},  function(err2, numAffected) {
+                console.log('hhhh');
+            });
+        }
+
+    });
+
+
+};
 
  //Get orders with a POST request
  exports.getOrderList = function(req, res){
