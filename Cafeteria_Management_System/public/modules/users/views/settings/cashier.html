@@ -25,11 +25,11 @@
 	   <span class="text-warning">Order number: {{order.orderNumber}} </span>
 	    </b> </h4>
         <span style="float:right;" >
-        <button style="width:200px" type="button" class="btn btn-primary" data-ng-click="markAsReady(order.itemName)"> Order collected </button> </span>
+        <button style="width:200px" type="button" class="btn btn-primary" data-ng-click="markAsCollected(order.username,order.itemName,order.orderNumber)"> Order collected </button> </span>
 
        <h4><b><p class="text-warning">{{order.itemName}} : R{{order.price}}</p></b></h4>
         <p> Quantity: {{order.quantity}}  </p><span style="float:right;" >
-            <button style="width:200px" type="button" class="btn btn-primary" data-ng-click="markOrderPaid(order.itemName)"> Employee paid  </button></span>
+            <button style="width:200px" type="button" class="btn btn-primary" data-ng-click="markAsPaid(order.username,order.itemName,order.orderNumber)"> Employee paid  </button></span>
         <p > Employee ID: {{order.username}} </p>
         <p> Preferences: {{order.preferences}}
 
