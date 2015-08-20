@@ -28,20 +28,20 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
             console.log(username  + ' ' +itemName + orderNumber);
 
             $http.post('orders/markAsCollected',{uname : username, orderNumber: orderNumber,item : itemName}).success(function(response){
-              //  location.reload(true);
+
             }).error(function(response){
 
-            });
+            }); location.reload(true);
         };
 
         $scope.markAsPaid = function(username, itemName, orderNumber){
             console.log(username + ' ' + itemName +orderNumber);
 
             $http.post('orders/markAsPaid',{uname : username, orderNumber:orderNumber, item : itemName }).success(function(response){
-                //location.reload(true);
+
             }).error(function(response){
 
-            });
+            });location.reload(true);
         };
         $scope.checkUser = function(){
             if((($scope.user && Authentication.user.roles[0] !== 'cashier') || (!$scope.user)) && $location.path('/#!/cashier'))
