@@ -124,7 +124,7 @@ exports.getUserOrders = function(req, res){
             username: req.body.username
         }, function (err, items) {
             console.log('err: ' + err);
-            if (items === '') { 
+            if (items === '') {
                 return res.status(400).send({
                     message: 'That user has no orders placed.'
                 });
