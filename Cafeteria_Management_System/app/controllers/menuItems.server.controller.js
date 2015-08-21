@@ -146,10 +146,12 @@ exports.updateMenuItem = function(req,res){
             message: errorHandler.getErrorMessage(err)
         });
         else if (numAffected < 1){
-            res.status(400).send({message: 'Error updating the product!'});
+            res.status(400).send({message: 'Error updating the menu item!'});
         }
         else{
-            res.status(200).send({message: 'Product information successfully updated.'});
+			if(req.body.itemName.length > 1)
+				var item = req.body.itemName.charAt(0).toUpperCase() + req.body.itemName.slice(1);
+            res.status(200).send({message: 'Menu item successfully updated.'});
         }
     });
 	};
@@ -190,7 +192,9 @@ exports.update = function(req, res) {
             res.status(400).send({message: 'Error deleting the menu item.'});
         }
         else{
-            res.status(200).send({message: 'Menu item successfully deleted.'});
+			if(req.body.itemName.length > 1)
+				var item = req.body.itemName.charAt(0).toUpperCase() + req.body.itemName.slice(1);
+            res.status(200).send({message: item + ' successfully deleted.'});
         }
     });
 	};
