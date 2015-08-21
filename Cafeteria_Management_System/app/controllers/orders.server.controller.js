@@ -65,7 +65,7 @@ var mongoose = require('mongoose'),
  };
  
  exports.markAsReady = function(req, res){
-	Order.update({orderNumber: req.body.orderNum}, {status: 'ready'}, function(err, numAffected){
+	Order.update({orderNumber: req.body.orderNum}, {status: 'ready'}, { multi: true }, function(err, numAffected){
 		if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
 		console.log(numAffected);
 		sendEmail(req.body.uname, req.body.orderNum);
@@ -137,7 +137,7 @@ exports.markAsCollected = function(req, res){
 
  //Get orders with a POST request
  exports.getOrderList = function(req, res){
-	Order.find({status: 'open'}, function(err, items){
+	Order.find({$or: [{status: 'open'}, {status:'ready'}]}, function(err, items){
 		if(err) return res.status(400).send({
 			message: errorHandler.getErrorMessage(err)
 		});

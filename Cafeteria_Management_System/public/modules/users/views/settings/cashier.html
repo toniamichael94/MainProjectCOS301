@@ -34,7 +34,7 @@
         <p > Employee ID: {{order.username}} </p>
         <p> Preferences: {{order.preferences}}</p>
        <span style="float:right;" >
-            <button style="width:200px" type="button" class="btn btn-success" data-ng-click="markAsReady(order.username,order.orderNumber)"> Order Ready </button>
+            <button style="width:200px" type="button" class="btn btn-success" data-ng-click="markAsReady(order.username,order.orderNumber)" data-ng-hide="(order.status === 'ready')"> Order Ready </button>
         </span>
 
     </div>
