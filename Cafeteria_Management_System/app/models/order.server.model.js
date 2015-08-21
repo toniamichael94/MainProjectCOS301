@@ -41,7 +41,7 @@ var OrderSchema = new Schema({
     },
 	status: {
 		type: String,
-		enum: ['open', 'closed'],
+		enum: ['open', 'ready', 'closed'],
 		default: 'open'
 	}
 });

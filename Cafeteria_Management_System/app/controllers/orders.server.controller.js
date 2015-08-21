@@ -65,7 +65,7 @@ var mongoose = require('mongoose'),
  };
  
  exports.markAsReady = function(req, res){
-	Order.update({orderNumber: req.body.orderNum}, {status: 'closed'}, function(err, numAffected){
+	Order.update({orderNumber: req.body.orderNum}, {status: 'ready'}, function(err, numAffected){
 		if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
 		console.log(numAffected);
 		sendEmail(req.body.uname, req.body.orderNum);
