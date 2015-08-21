@@ -579,7 +579,18 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 			$http.get('/loadMenuItems').success(function(response) {
 
 		  //console.log(response.message); // testing
+			var displayItems = response.message;
+			
+			for(var item in displayItems)
+			{
+				if(displayItems[item].itemName.length >1)
+					displayItems[item].itemName = displayItems[item].itemName.charAt(0).toUpperCase() + displayItems[item].itemName.slice(1);
+				console.log(displayItems[item].itemName);
+			}
+			
+			
 			$scope.menuItems = response.message;
+			
 			var inStock = true;
 			//var notInStock = 'Not in stock';
 
