@@ -71,7 +71,7 @@ var mongoose = require('mongoose'),
 		sendEmail(req.body.uname, req.body.orderNum);
 		res.status(200).send({message: 'order marked as ready'});
 	});
-	
+
  };
  /*
   * Helper function to email user about order
