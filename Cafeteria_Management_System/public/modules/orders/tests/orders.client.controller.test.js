@@ -51,7 +51,9 @@
             });
         }));
 
-        /*  it('$scope.placeOrder() should not place order', function() {
+   /* BROKEN TEST
+
+         it('$scope.placeOrder() should not place order', function() {
            //Test expected POST request
 
             $httpBackend.expectPOST('/orders/placeOrder',{plate : { itemName: 'Feta salad',
@@ -64,25 +66,9 @@
 
             expect(scope.success).toEqual('Order has been made');
         });
-        */
 
+*/
 
-        /*
-
-         it('$scope.searchEmployee() should NOT search for employee if emp_id blank', function() {
-         // Test expected GET request
-         $httpBackend.when('POST', '/users/search').respond(400, {'message': 'Username field must not be blank'}
-         );
-         scope.currentEmp_id = null;
-         scope.searchEmployee(true);
-         $httpBackend.flush();
-
-         expect(scope.error).toEqual('Username field must not be blank');
-         });
-
-         expect(scope.passwordDetails).toEqual(null);
-         expect(scope.success).toEqual(true);
-         */
 
     });
 }());
