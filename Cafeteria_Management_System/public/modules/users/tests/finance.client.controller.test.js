@@ -5,10 +5,10 @@
 //reset password
 (function() {
     // settings/profile controller Spec
-    describe('PasswordController', function() {
+    describe('FinanceController', function() {
 
         // Initialize global variables
-        var PasswordController,
+        var FinanceController,
             scope,
             $httpBackend,
             $stateParams,
@@ -44,21 +44,32 @@
             $location = _$location_;
 
             // Initialize the PasswordController controller
-            PasswordController = $controller('PasswordController', {
+            FinanceController = $controller('FinanceController', {
                 $scope: scope
             });
         }));
 
 
-        it('$scope.askForPasswordReset() should let valid user get email with instructions to change password', function() {
+        it('$scope.getUserOrders() should get users orders', function() {
             // Test expected GET request
-            $httpBackend.when('POST',	'/auth/forgot').respond(200,'validID');
+            $httpBackend.when('POST','/orders/getUserOrders').respond(200,{'message': ['spinach pie','feta pie','cheese pie']});
 
-            scope.askForPasswordReset();
+            scope.getUserOrders();
             $httpBackend.flush();
 
             // Test scope value
-            expect(scope.credentials).toEqual(null);
+            expect(scope.success).toEqual(['spinach pie','feta pie','cheese pie']);
+        });
+
+        it('$scope.getUserOrders() should not get users orders', function() {
+            // Test expected GET request
+            $httpBackend.when('POST','/orders/getUserOrders').respond(400,"could not get orders" );
+
+            scope.getUserOrders();
+            $httpBackend.flush();
+
+            // Test scope value
+            expect(scope.error).toEqual("could not get orders");
         });
     });
 }());
