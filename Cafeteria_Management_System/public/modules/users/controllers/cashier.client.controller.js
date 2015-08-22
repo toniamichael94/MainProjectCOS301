@@ -8,10 +8,11 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
 		$scope.getOrders = function(){
 			
 			$http.post('/orders/getOrderList').success(function(response){
-				console.log(response.message);
+				console.log('hahahahahahhahahahhahaha'+response.message);
 				$scope.orders = response.message;
 			}).error(function(response){
 				console.log('error' + response.message);
+                $scope.error=response.message;
 			});
 		};
 		
