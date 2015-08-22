@@ -1,168 +1,88 @@
+/**
+ * Created by rendani on 2015/07/23.
+ */
+'use strict';
 
-/*'use  strict';
+(function() {
+    // menuItems controller Spec
+    describe('OrdersController', function() {
+        // Initialize global variables
+        var OrdersController,
+            scope,
+            $httpBackend,
+            $stateParams,
+            $location,
+            Authentication,
+            $cookies;
+
+        beforeEach(function() {
+            jasmine.addMatchers({
+                toEqualData: function(util, customEqualityTesters) {
+                    return {
+                        compare: function(actual, expected) {
+                            return {
+                                pass: angular.equals(actual, expected)
+                            };
+                        }
+                    };
+                }
+            });
+        });
+
+        // Load the main application module
+        beforeEach(module(ApplicationConfiguration.applicationModuleName));
+
+        // The injector ignores leading and trailing underscores here (i.e. _$httpBackend_).
+        // This allows us to inject a service but then attach it to a variable
+        // with the same name as the service.
+        beforeEach(inject(function($controller, $rootScope, _$location_, _$stateParams_, _$httpBackend_, _$cookies_, Authentication) {
+            // Set a new global scope
+            scope = $rootScope.$new();
+             scope.authentication = Authentication;
+            // Point global variables to injected services
+            $stateParams = _$stateParams_;
+            $httpBackend = _$httpBackend_;
+            $location = _$location_;
+            $cookies = _$cookies_;
+
+            // Initialize the SettingsController controller
+            OrdersController = $controller('OrdersController', {
+                $scope: scope
+            });
+        }));
+
+        /*  it('$scope.placeOrder() should not place order', function() {
+           //Test expected POST request
+
+            $httpBackend.expectPOST('/orders/placeOrder',{plate : { itemName: 'Feta salad',
+                price: 30,
+                quantity: 1,
+                username: '12345'}, paymentMeth: 'credit' }).respond(200, {'message': 'Order has been made'});
+
+            scope.placeOrder();
+            $httpBackend.flush();
+
+            expect(scope.success).toEqual('Order has been made');
+        });
+        */
 
 
+        /*
 
- (function() {
-	// Orders Controller Spec
-	describe('Orders Controller Tests', function() {
-		// Initialize global variables
-		var OrdersController,
-		scope,
-		$httpBackend,
-		$stateParams,
-		$location;
+         it('$scope.searchEmployee() should NOT search for employee if emp_id blank', function() {
+         // Test expected GET request
+         $httpBackend.when('POST', '/users/search').respond(400, {'message': 'Username field must not be blank'}
+         );
+         scope.currentEmp_id = null;
+         scope.searchEmployee(true);
+         $httpBackend.flush();
 
-		// The $resource service augments the response object with methods for updating and deleting the resource.
-		// If we were to use the standard toEqual matcher, our tests would fail because the test values would not match
-		// the responses exactly. To solve the problem, we define a new toEqualData Jasmine matcher.
-		// When the toEqualData matcher compares two objects, it takes only object properties into
-		// account and ignores methods.
-		beforeEach(function() {
-			jasmine.addMatchers({
-				toEqualData: function(util, customEqualityTesters) {
-					return {
-						compare: function(actual, expected) {
-							return {
-								pass: angular.equals(actual, expected)
-							};
-						}
-					};
-				}
-			});
-		});
+         expect(scope.error).toEqual('Username field must not be blank');
+         });
 
-		// Then we can start by loading the main application module
-		beforeEach(module(ApplicationConfiguration.applicationModuleName));
+         expect(scope.passwordDetails).toEqual(null);
+         expect(scope.success).toEqual(true);
+         */
 
-		// The injector ignores leading and trailing underscores here (i.e. _$httpBackend_).
-		// This allows us to inject a service but then attach it to a variable
-		// with the same name as the service.
-		beforeEach(inject(function($controller, $rootScope, _$location_, _$stateParams_, _$httpBackend_) {
-			// Set a new global scope
-			scope = $rootScope.$new();
-
-			// Point global variables to injected services
-			$stateParams = _$stateParams_;
-			$httpBackend = _$httpBackend_;
-			$location = _$location_;
-
-			// Initialize the Orders controller.
-			OrdersController = $controller('OrdersController', {
-				$scope: scope
-			});
-		}));
-
-		it('$scope.find() should create an array with at least one Order object fetched from XHR', inject(function(Orders) {
-			// Create sample Order using the Orders service
-			var sampleOrder = new Orders({
-				name: 'New Order'
-			});
-
-			// Create a sample Orders array that includes the new Order
-			var sampleOrders = [sampleOrder];
-
-			// Set GET response
-			$httpBackend.expectGET('orders').respond(sampleOrders);
-
-			// Run controller functionality
-			scope.find();
-			$httpBackend.flush();
-
-			// Test scope value
-			expect(scope.orders).toEqualData(sampleOrders);
-		}));
-
-		it('$scope.findOne() should create an array with one Order object fetched from XHR using a orderId URL parameter', inject(function(Orders) {
-			// Define a sample Order object
-			var sampleOrder = new Orders({
-				name: 'New Order'
-			});
-
-			// Set the URL parameter
-			$stateParams.orderId = '525a8422f6d0f87f0e407a33';
-
-			// Set GET response
-			$httpBackend.expectGET(/orders\/([0-9a-fA-F]{24})$/).respond(sampleOrder);
-
-			// Run controller functionality
-			scope.findOne();
-			$httpBackend.flush();
-
-			// Test scope value
-			expect(scope.order).toEqualData(sampleOrder);
-		}));
-
-		it('$scope.create() with valid form data should send a POST request with the form input values and then locate to new object URL', inject(function(Orders) {
-			// Create a sample Order object
-			var sampleOrderPostData = new Orders({
-				name: 'New Order'
-			});
-
-			// Create a sample Order response
-			var sampleOrderResponse = new Orders({
-				_id: '525cf20451979dea2c000001',
-				name: 'New Order'
-			});
-
-			// Fixture mock form input values
-			scope.name = 'New Order';
-
-			// Set POST response
-			$httpBackend.expectPOST('orders', sampleOrderPostData).respond(sampleOrderResponse);
-
-			// Run controller functionality
-			scope.create();
-			$httpBackend.flush();
-
-			// Test form inputs are reset
-			expect(scope.name).toEqual('');
-
-			// Test URL redirection after the Order was created
-			expect($location.path()).toBe('/orders/' + sampleOrderResponse._id);
-		}));
-
-		it('$scope.update() should update a valid Order', inject(function(Orders) {
-			// Define a sample Order put data
-			var sampleOrderPutData = new Orders({
-				_id: '525cf20451979dea2c000001',
-				name: 'New Order'
-			});
-
-			// Mock Order in scope
-			scope.order = sampleOrderPutData;
-
-			// Set PUT response
-			$httpBackend.expectPUT(/orders\/([0-9a-fA-F]{24})$/).respond();
-
-			// Run controller functionality
-			scope.update();
-			$httpBackend.flush();
-
-			// Test URL location to new object
-			expect($location.path()).toBe('/orders/' + sampleOrderPutData._id);
-		}));
-
-		it('$scope.remove() should send a DELETE request with a valid orderId and remove the Order from the scope', inject(function(Orders) {
-			// Create new Order object
-			var sampleOrder = new Orders({
-				_id: '525a8422f6d0f87f0e407a33'
-			});
-
-			// Create new Orders array and include the Order
-			scope.orders = [sampleOrder];
-
-			// Set expected DELETE response
-			$httpBackend.expectDELETE(/orders\/([0-9a-fA-F]{24})$/).respond(204);
-
-			// Run controller functionality
-			scope.remove(sampleOrder);
-			$httpBackend.flush();
-
-			// Test array after successful delete
-			expect(scope.orders.length).toBe(0);
-		}));
-	});
+    });
 }());
-
-}());*/
