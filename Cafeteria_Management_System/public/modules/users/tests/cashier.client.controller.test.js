@@ -72,28 +72,70 @@
             expect(scope.error).toEqual('error occurred');
         });
 
-        it('$scope.markAsCollected() should let mark the order as collected successfully', function() {
+        it('$scope.markAsCollected() should  mark the order as collected successfully', function() {
             // Test expected GET request
-            $httpBackend.expectPOST('orders/markAsCollected',{"uname":"tonia","item":"spinach tart","orderNum":"7"}).respond(200, {'message': 'Order collected'});
+            $httpBackend.expectPOST('orders/markAsCollected',{"uname":"tonia","orderNumber":"7","item":"spinach tart"}).respond(200, {'message': 'Order collected'});
 
             scope.markAsCollected('tonia','spinach tart','7');
             $httpBackend.flush();
 
             // Test scope value
-            expect(scope.success).toEqual('Order collected');
+            // expect(scope.success).toEqual('Order collected');
         });
 
-
-        it('$scope.markAsCollected() should not mark order as collected ', function() {
+        it('$scope.markAsCollected() should not mark the order as collected successfully', function() {
             // Test expected GET request
-            $httpBackend.expectPOST('orders/markAsCollected',{uname : 'tonia'}).respond(400, {'message': 'Error occured'});
+            $httpBackend.expectPOST('orders/markAsCollected',{"uname":"tonia"}).respond(400, {'message': 'Order not collected'});
 
             scope.markAsCollected('tonia');
             $httpBackend.flush();
 
             // Test scope value
-            expect(scope.error).toEqual('Error occured');
+            // expect(scope.success).toEqual('Order collected');
         });
 
+        it('$scope.markAsPaid() should  mark the order as paid successfully', function() {
+            // Test expected GET request
+            $httpBackend.expectPOST('orders/markAsPaid',{"uname":"tonia","orderNumber":"7","item":"spinach tart"}).respond(200, {'message': 'Order paid'});
+
+            scope.markAsPaid('tonia','spinach tart','7');
+            $httpBackend.flush();
+
+            // Test scope value
+           // expect(scope.success).toEqual('Order paid');
+        });
+
+        it('$scope.markAsPaid() should  mark the order as collected successfully', function() {
+            // Test expected GET request
+            $httpBackend.expectPOST('orders/markAsPaid',{"uname":"tonia"}).respond(400, {'message': 'Order not paid'});
+
+            scope.markAsPaid('tonia' );
+            $httpBackend.flush();
+
+            // Test scope value
+            // expect(scope.success).toEqual('Order collected');
+        });
+
+        it('$scope.getOrders() should get a list of orders where status is open', function() {
+            // Test expected GET request
+            $httpBackend.expectPOST('/orders/getOrderList').respond(200, {'message': {"status":"open"}});
+
+            scope.getOrders();
+            $httpBackend.flush();
+
+            // Test scope value
+             expect(scope.orders).toEqual({"status":"open"});
+        });
+
+        it('$scope.getOrders() should not get a list of orders where status is closed', function() {
+            // Test expected GET request
+            $httpBackend.expectPOST('/orders/getOrderList').respond(400, {'message': {"status":"closed"}});
+
+            scope.getOrders();
+            $httpBackend.flush();
+
+            // Test scope value
+            expect(scope.error).toEqual({"status":"closed"});
+        });
     });
 }());
