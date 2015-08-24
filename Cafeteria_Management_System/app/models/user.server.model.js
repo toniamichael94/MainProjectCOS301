@@ -64,6 +64,10 @@ var UserSchema = new Schema({
 	type: Number,
 	default: 500
 	},
+	currentBalance: {
+		type: Number,
+		default: 0
+	},
 	username: {
 		type: String,
 		unique: 'testing error message',

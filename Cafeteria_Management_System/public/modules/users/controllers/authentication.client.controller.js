@@ -5,7 +5,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 		$scope.authentication = Authentication;
 		// If user is signed in then redirect back home
 		if ($scope.authentication.user) $location.path('/');
-
+		
 		$scope.signup = function() {
 
 				$http.post('/auth/signup', $scope.credentials).success(function(response) {
@@ -26,12 +26,13 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 				// If successful we assign the response to the global user model
 
 				$scope.authentication.user = response;
-
 				//Redirect to the view order page if orders pending
                 if($cookies.plate) {
 					if(JSON.parse($cookies.plate).length > 0){
 						$location.path('/placeOrder/viewOrders');
 					}
+					else
+						$location.path('/');
 				}
 				else
 					$location.path('/');

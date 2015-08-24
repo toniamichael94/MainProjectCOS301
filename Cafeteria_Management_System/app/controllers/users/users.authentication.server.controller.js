@@ -117,9 +117,18 @@ exports.checkSuperUser = function(){
 			roles : 'superuser',
 			provider : 'local',
 			limit : '500'
+		});
 
-			// now set default system limit
-			//set default system wyde limit
+			var adminUser = new User({
+				firstName : 'Admin',
+				lastName : 'User',
+				username : 'AdminUser',
+				password : 'AdminUser',
+				email : 'email@address.com',
+				recipientEmailAddress : 'email@address.com',
+				roles : 'admin',
+				provider : 'local',
+				limit : '500'
 
 		});
 
@@ -136,7 +145,12 @@ exports.checkSuperUser = function(){
 		superUser.save(function(err, superUser) {
   		if (err) error.superUser = err;//return console.error(err);
   			console.dir(superUser);
-});
+			});
+			adminUser.save(function(err, adminUser) {
+	  		if (err) return console.error(err);
+	  			console.dir(superUser);
+	});
+
 	}else {
 		console.log('USER FOUND ');
 	}

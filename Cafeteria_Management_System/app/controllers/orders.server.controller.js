@@ -10,42 +10,187 @@
 var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
 	Order = mongoose.model('Order'),
-	_ = require('lodash');
+	User = mongoose.model('User'),
+	_ = require('lodash'),
+	configs = require('../../config/config'),
+	nodemailer = require('nodemailer');
 
 /********************************************
  *Added by {Rendani Dau}
  */
  
  exports.placeOrder = function(req, res){
-	//console.log(req);
-	if(req.body.length > 0){
-		/*for(var i = 0; i < req.body.length; i++){
-			req.body[i].username = req.user.displayUserName;
-		}*/
+	if(req.body.plate.length > 0){
+		var order = req.body.plate;
+		var total = 0;
+		var availBalance = req.user.limit - req.user.currentBalance;
+		for(var j = 0; j < order.length; j++)
+			total += order[j].price * order[j].quantity;
 		
-		Order.create(req.body, function(err){
-			if(err) return res.status(400).send({
-				message: errorHandler.getErrorMessage(err)
-			});
-			res.status(200).send({message: 'Order has been made'});
-		});
-	}
-	else
-	{
-		res.status(400).send({message: 'Order could not be processed'});
+		if(total > availBalance && req.body.paymentMethod === 'credit')
+			return res.status(400).send({message: 'You have insufficient credit to make purchase. Available balance: R' + availBalance});
+		
+		Order.find({}, function(err, result){
+			var orderNum = 1;
+			if(result.length !== 0){
+				orderNum = result[result.length-1].orderNumber + 1;
+			}
+			
+			for(var i = 0; i < order.length; i++)
+				order[i].orderNumber = orderNum;
+			
+			Order.create(order, function(err){
+				if(err) return res.status(400).send({
+					message: errorHandler.getErrorMessage(err)
+				});
+					res.status(200).send({message: 'Order has been made'});
+				
+					//Code to update balance when order has been placed
+					/*User.update({username: req.user.username}, {$inc: { currentBalance : total}}, function(err, numAffected){
+						if(err){
+							//Temporary - Measures to take will be discussed
+							console.log(errorHandler.getErrorMessage(err));
+						}
+						if(numAffected < 0){
+							//Temporary - MEasures to take will be discussed
+							console.log('No user charged');
+						}
+						
+						res.status(200).send({message: 'Order has been made'});
+
+					});*/
+				});
+		});	
 	}
  };
+ 
+ exports.markAsReady = function(req, res){
+	Order.update({orderNumber: req.body.orderNum}, {status: 'ready'}, { multi: true }, function(err, numAffected){
+		if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
+		console.log(numAffected);
+		sendEmail(req.body.uname, req.body.orderNum);
+		res.status(200).send({message: 'order marked as ready'});
+	});
 
- exports.getOrders = function(req, res){
-	//res.status(400).send({message: 'hello'});
-	console.log('heeeeelloooooooooooooooooooooo');
-	/*Order.find({status: 'open'}, function(err, items){
+ };
+ /*
+  * Helper function to email user about order
+  * Last Edited by: Rendani Dau
+  */
+ function sendEmail(uname, orderNum){
+	User.findOne({username: uname}, function(err, user){
+		if(err){ 
+			console.log(err);
+			return;
+		}
+		var smtpTransport = nodemailer.createTransport(configs.mailer.options);
+		
+		var mailOptions = {
+			from: configs.mailer.from,
+			subject: 'Your Order Is Ready'
+		};
+		mailOptions.to = user.email;
+		mailOptions.text = 'Dear ' + user.displayName + ',\n\n' +
+								'Your order with order number ' + orderNum +  ' is ready for collection.\n'+
+								'You can collect your order at the cafeteria.\n\n'+
+								'The CMS Team';
+		smtpTransport.sendMail(mailOptions, function(err){ 
+			if(err) console.log('Email not sent' + err); 
+		});
+	});
+ };
+//,itemName:req.body.itemName
+
+exports.markAsPaid = function(req, res){
+    console.log('dgefrgwergtwe'); //console.log(req.body);
+    Order.find({orderNumber: req.body.orderNumber },function(err, numAffected2) {
+        console.log(numAffected2);
+        console.log(numAffected2.length);
+        for(var item in numAffected2){
+            console.log(numAffected2[item].orderNumber);
+            Order.update({orderNumber: numAffected2[item].orderNumber, itemName: numAffected2[item].itemName }, {status: 'closed'},  function(err2, numAffected) {
+                console.log('hhhh');
+            });
+        }
+
+    });
+
+
+};
+
+exports.markAsCollected = function(req, res){
+    console.log('dgefrgwergtwe'); //console.log(req.body);
+    Order.find({orderNumber: req.body.orderNumber },function(err, numAffected2) {
+        console.log(numAffected2);
+        console.log(numAffected2.length);
+        for(var item in numAffected2){
+            console.log(numAffected2[item].orderNumber);
+            Order.update({orderNumber: numAffected2[item].orderNumber, itemName: numAffected2[item].itemName }, {status: 'closed'},  function(err2, numAffected) {
+                console.log('hhhh');
+            });
+        }
+
+    });
+
+
+};
+
+ //Get orders with a POST request
+ exports.getOrderList = function(req, res){
+	Order.find({$or: [{status: 'open'}, {status:'ready'}]}, function(err, items){
 		if(err) return res.status(400).send({
 			message: errorHandler.getErrorMessage(err)
 		});
 		
 		res.status(200).send({message: items});
-	});*/
+	});
+ };
+
+/*
+    Last edited by {Semaka Malapane}
+ */
+exports.getUserOrders = function(req, res){
+    console.log('server req' + req);
+    console.log('username' + req.body.username);
+    if (req.body.username) {
+        Order.find({
+            username: req.body.username
+        }, function (err, items) {
+            console.log('err: ' + err);
+            if (items === '') {
+                return res.status(400).send({
+                    message: 'That user has no orders placed.'
+                });
+            }
+            else{ console.log('items: ' + items);
+                console.log('server res' + res);
+                res.status(200).send({message: items});
+            }
+        });
+    }
+    else {
+        return res.status(400).send({
+            message: 'Username field must not be blank'
+        });
+    }
+    /*Order.find({status: 'open'}, function(err, items){
+        if(err) return res.status(400).send({
+            message: errorHandler.getErrorMessage(err)
+        });
+    });*/
+};
+
+ //Get orders with a GET request
+ exports.getOrders = function(req, res){
+	//res.status(400).send({message: 'hello'});
+	console.log('heeeeelloooooooooooooooooooooo');
+	Order.find({status: 'open'}, function(err, items){
+		if(err) return res.status(400).send({
+			message: errorHandler.getErrorMessage(err)
+		});
+		
+		res.status(200).send({message: items});
+	});
  };
 /**
  *END {Rendani Dau}

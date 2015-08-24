@@ -6,6 +6,7 @@
 var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
 	Inventory = mongoose.model('Inventory'),
+	MenuItem = mongoose.model('MenuItem'),
 	_ = require('lodash');
 
 
@@ -76,6 +77,7 @@ exports.update = function(req, res) {
  * Delete an inventory Item
  */
 exports.delete = function(req, res) {
+	
 	var inventoryItem = req.inventoryItem ;
 
 	inventoryItem.remove(function(err) {
@@ -153,15 +155,10 @@ exports.searchInventory=function(req,res){
     }
 };
 
-
  /* Update inventory
  * Last Edited by {Semaka Malapane and Tonia Michael}
  */
 exports.updateInventory = function(req, res) {
-	console.log('Update'+req.body.oldProdName);
-	console.log('Update'+req.body.newProdName);
-	console.log('Update'+req.body.quantity);
-	console.log('Update'+req.body.unit);
     Inventory.update({productName: req.body.oldProdName}, {productName: req.body.newProdName, quantity: req.body.quantity, unit: req.body.unit}, function(err, numAffected){
         if(err) return res.status(400).send({
             message: errorHandler.getErrorMessage(err)
@@ -178,8 +175,10 @@ exports.updateInventory = function(req, res) {
 /*
 updateInventoryQuantity
 */
-
 	exports.updateInventoryQuantity=function(req,res){
+		console.log('Product:'+req.body.productName);
+		console.log('Quantity:'+req.body.quantity);
+		
 		Inventory.update({productName: req.body.productName}, {quantity: req.body.quantity}, function(err, numAffected){
         if(err) return res.status(400).send({
             message: errorHandler.getErrorMessage(err)
@@ -192,11 +191,58 @@ updateInventoryQuantity
         }
     });
 	};
-
+	
 	/*
 	Delete an inventory item
 	*/
-	exports.deleteInventoryItem=function(req,res)
+	exports.deleteInventoryItem = function(req, res) {
+
+	MenuItem.find({}, function(err, items) {
+	if(err ) {
+		console.log('Error = ' + err);
+		return res.status(400).send({message: err });}
+	else {
+		console.log('Delete:'+req.body.productName);
+		var found = 0; //false
+		for(var j = 0; j != items.length && found === 0; j++)
+		{
+			for(var i = 0; i != items[j].ingredients.ingredients.length && found === 0; i++)
+			{
+				var ingredientName = items[j].ingredients.ingredients[i];
+				ingredientName = ingredientName.substring(0,ingredientName.indexOf("(")-1);
+				if(req.body.productName === ingredientName)
+					found = 1;				
+			}
+		}
+		if(found === 0)
+		{
+			Inventory.remove({productName: req.body.productName}, function(err, numAffected){
+			if(err) return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
+			});
+			else if (numAffected < 1){
+				res.status(400).send({message: 'Error deleting the item ' + req.body.productName});
+			}
+			else{
+				
+				res.status(200).send({message: req.body.productName + ' successfully deleted.'});
+				}
+			});
+			
+		}//end delete
+		if(found === 1)
+		{
+			res.status(400).send({message: 'Error deleting the item ' + req.body.productName+'. The item is used in a menu item.'});
+		}
+		
+	}//end else
+ });
+
+};
+	/*
+	Delete an inventory item
+	*/
+	/*exports.deleteInventoryItem=function(req,res)
 	{
 		Inventory.remove({productName: req.body.productName}, function(err, numAffected){
         if(err) return res.status(400).send({
@@ -206,7 +252,8 @@ updateInventoryQuantity
             res.status(400).send({message: 'Error deleting the item ' + req.body.productName});
         }
         else{
+			
             res.status(200).send({message: req.body.productName + ' successfully deleted.'});
         }
     });
-	};
+	};*/

@@ -1,7 +1,12 @@
 'use strict';
 
+<<<<<<< HEAD
 angular.module('core').controller('HeaderController', ['$scope', '$rootScope', '$http', '$cookies','Authentication', 'Menus',
 	function($scope, $rootScope,$http, $cookies, Authentication, Menus) {
+=======
+angular.module('core').controller('HeaderController', ['$scope', '$rootScope', '$http', '$location', '$cookies','Authentication', 'Menus',
+	function($scope, $rootScope,$http, $location, $cookies, Authentication, Menus) {
+>>>>>>> phase3
 		$scope.authentication = Authentication;
 		$scope.isCollapsed = false;
 		$scope.menu = Menus.getMenu('topbar');
@@ -30,9 +35,13 @@ angular.module('core').controller('HeaderController', ['$scope', '$rootScope', '
 				$scope.canteenName = 'Canteen Name';
 			});
 		};
-
-
-
+		
+		$scope.signout = function(){
+			if($cookies.plate){
+				var j = [];
+				$cookies.plate = JSON.stringify(j);
+			}
+		};
 
 
 

@@ -49,6 +49,10 @@ angular.module('users').config(['$stateProvider',
             url: '/settings/adminSettings',
             templateUrl: 'modules/users/views/settings/adminSettings.html'
         }).
+				state('admin', {
+            url: '/settings/adminSettingsAdminRole',
+            templateUrl: 'modules/users/views/settings/adminSettingsAdminRole.html'
+        }).
         state('superuser2', {
             url: '/settings/brandingSettings',
             templateUrl: 'modules/users/views/settings/brandingSuperUser.html'

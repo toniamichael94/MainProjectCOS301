@@ -8,32 +8,57 @@ angular.module('orders').controller('OrdersController', ['$scope', '$rootScope',
 		$scope.plate = [];
 		if($cookies.plate)
 			$scope.plate = JSON.parse($cookies.plate);
-			
+		$scope.paymentMethod = 'credit';
+		
+		//Helper function to determine if item is in array(i.e. item is in plate)
+		var indexOfItem = function(arr, _itemName){
+			for(var i = 0; i < arr.length; i++){
+				if(arr[i].itemName === _itemName)
+					return i;
+			}
+			return -1;
+		};
+		
+		$scope.quantityChange = function(itemName){
+			$cookies.plate = JSON.stringify($scope.plate);
+			$scope.subTotal();
+		};
+		
+		$scope.prefChange = function(){
+			$cookies.plate = JSON.stringify($scope.plate);
+		};
+		
 		$scope.subTotal = function(){
 			var total = 0;
-			
 			if($scope.plate.length > 0){
 				for(var i = 0; i < $scope.plate.length; i++){
 					total += $scope.plate[i].price * $scope.plate[i].quantity;
 				}
 			}
-			return total;
+			$scope.orderTotal = total;
 		};
-
+		
+		$scope.orderTotal = 0;
+		$scope.subTotal();
 		//place the order
 		$scope.placeOrder = function(){
-			/*if($scope.plate){
+			$scope.error = $scope.success = '';
+			if($scope.plate){
 				if(Authentication.user){
-					console.log('User is: ' + Authentication.user.username);
-					
+					if((Authentication.user.limit - Authentication.user.currentBalance) < $scope.orderTotal && $scope.paymentMethod == 'credit'){
+						var avail = Authentication.user.limit - Authentication.user.currentBalance;
+						$scope.error = 'You do not have enough credit to make purchase. Available credit: R' + avail + '. You can place order with cash payment instead';
+						return;
+					}
 					for(var i = 0; i < $scope.plate.length; i++){
 						$scope.plate[i].username = Authentication.user.username;
-						var itemName = $scope.plate[i].itemName;
-						var _quantity = angular.element(document.querySelector('input[name="' + itemName + '"]'))[0].value;
-						
-						$scope.plate[i].quantity = _quantity;
 					}
-					$http.post('/orders/placeOrder', $scope.plate).success(function(response) {
+					$scope.success = $scope.error = null;
+					var order = {
+						plate: $scope.plate,
+						paymentMeth: $scope.paymentMethod
+					};
+					$http.post('/orders/placeOrder', order).success(function(response) {
 						$scope.plate = [];
 						$cookies.plate = JSON.stringify([]);
 						$scope.success = response.message;
@@ -45,7 +70,7 @@ angular.module('orders').controller('OrdersController', ['$scope', '$rootScope',
 				else{
 					$location.path('/signin');
 				}
-			}*/
+			}
 		};
 		
 		//Remove from plate
@@ -63,6 +88,10 @@ angular.module('orders').controller('OrdersController', ['$scope', '$rootScope',
 				location.reload(true);
 				//$rootScope.$broadcast('plateUpdated');
 			}
+		};
+		
+		$scope.showRadio = function(){
+			return $scope.plate.length > 0
 		};
 		/*
 		// Create new Order

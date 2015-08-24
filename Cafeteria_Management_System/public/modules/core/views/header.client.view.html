@@ -60,16 +60,25 @@
 					<li>
 						<a href="/#!/settings/profile"> Edit Profile</a>
 					</li>
+
                     <li data-ng-show="authentication.user.roles[0] === 'superuser'">
                         <a href="/#!/settings/adminSettings"> Administrative settings</a>
                     </li>
                     <li data-ng-show="authentication.user.roles[0] === 'superuser'">
                         <a href="/#!/settings/brandingSettings"> Branding settings</a>
                     </li>
+
+					<!--<<<<<<< HEAD
 										<li data-ng-show="authentication.user.roles[0] === 'admin'">
                         <a href="/#!/settings/adminUser"> Administrative settings</a>
                     </li>
 										<li data-ng-show="authentication.user.roles[0] === 'admin'">
+=======-->
+                    <li data-ng-show="authentication.user.roles[0] === 'admin'">
+                        <a href="/#!/settings/adminSettingsAdminRole"> Administrative settings</a>
+                    </li>
+                    <li data-ng-show="authentication.user.roles[0] === 'admin'">
+
                         <a href="/#!/settings/brandingSettings"> Branding settings</a>
                     </li>
 					<!--Edit, add, or remove menu items-->
@@ -91,7 +100,7 @@
 					</li>
 					<li class="divider"></li>
 					<li>
-						<a href="/auth/signout">Signout</a>
+						<a data-ng-href="/auth/signout" data-ng-click="signout()">Signout</a>
 					</li>
 				</ul>
 			</li>

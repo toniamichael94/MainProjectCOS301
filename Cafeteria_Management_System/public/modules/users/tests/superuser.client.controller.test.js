@@ -51,9 +51,10 @@
 
 
 		//****************************Assign Roles
-        it('$scope.assignRoles() should let superuser assign roles', function() {
+    /*    it('$scope.assignRoles() should let superuser assign roles', function() {
             // Test expected GET request
              $httpBackend.expectPOST('/users/superuserAssignRoles').respond(200, {'message': 'Role has been successfully assigned'});
+             scope.r=true;
             scope.assignRoles(true);
            $httpBackend.flush();
 
@@ -79,7 +80,7 @@
         });
 		
 		//********************************change employee ID
-        it('$scope.changeEmployeeID() should not change employeeID if the user is not in the database', function() {
+    /*    it('$scope.changeEmployeeID() should not change employeeID if the user is not in the database', function() {
             // Test expected GET request
             $httpBackend.expectPOST('/users/superuserChangeEmployeeID').respond(400, {'message': 'No such user'});
             scope.changeEmployeeID(true);
@@ -96,9 +97,9 @@
 
             expect(scope.successOne).toEqual('Employee ID has been successfully changed.');
         });
-		
+		*/
 		//**********************************change system limit
-        it('$scope.setSystemWideLimit() should let superuser set limit', function() {
+   /*     it('$scope.setSystemWideLimit() should let superuser set limit', function() {
             // Test expected GET request
             $httpBackend.when('POST',	'users/superuserSetSystemWideLimit').respond(200, {'message': 'Limit has been successfully changed.'});
 
@@ -106,7 +107,7 @@
            $httpBackend.flush();
 
             expect(scope.successTwo).toEqual('Limit has been successfully changed.');
-        });
+        });*/
 
 		//***********************************change Canteen name
         it('$scope.setCanteenName() should change canteen name', function() {
