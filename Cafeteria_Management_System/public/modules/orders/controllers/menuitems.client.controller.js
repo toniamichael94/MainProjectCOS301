@@ -731,15 +731,21 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 
 		$scope.addToPlate = function(itemName){
 			var _price;
+			var _ingredients = [];
+			var _quantities = [];
 			for(var j = 0; j < $scope.menuItems.length; j++){
 				if(itemName === $scope.menuItems[j].itemName){
 					_price = $scope.menuItems[j].price;
+					_ingredients = $scope.menuItems[j].ingredients.ingredients;
+					_quantities = $scope.menuItems[j].ingredients.quantities;
 					break;
 				}
 			}
 			var y = {
 				itemName: itemName,
 				price: _price,
+				ingredients: _ingredients,
+				quantities: _quantities,
 				quantity: 1
 			};
 

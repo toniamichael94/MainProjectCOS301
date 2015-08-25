@@ -61,6 +61,52 @@ angular.module('orders').controller('OrdersController', ['$scope', '$rootScope',
 					$http.post('/orders/placeOrder', order).success(function(response) {
 						$scope.plate = [];
 						$cookies.plate = JSON.stringify([]);
+						
+						
+						
+						
+						//console.log(order.plate[0]);
+						var ingredients = [];
+						var quantities = [];
+						var i;
+					
+						for(i = 0; i != order.plate.length; i++)
+						{
+							console.log(i);
+							for(var j = 0; j != order.plate[i].ingredients.length; j++)
+							{
+								var ingredient = order.plate[i].ingredients[j].substring(0, order.plate[i].ingredients[j].indexOf("(")-1);
+								var quantity = order.plate[i].quantities[j];
+								quantity = quantity*order.plate[i].quantity;
+								
+								var found = false;
+									for(var k = 0; k != ingredients.length; k++)
+									{										
+										if(ingredients[k] == ingredient)
+										{
+											quantities[k] = quantities[k] + quantity;
+											found = true;
+											break;
+										}
+									}
+									
+									if(!found || ingredients.length <= 0)
+									{
+										ingredients.push(ingredient);										
+										quantities.push(quantity);
+									}
+									
+								
+								
+								
+								
+							}
+						}
+						
+						console.log('Ingredients and quantities');
+						console.log(ingredients);
+						console.log(quantities);
+						
 						$scope.success = response.message;
 					}).error(function(response) {
 						console.log('error' + response.message);
