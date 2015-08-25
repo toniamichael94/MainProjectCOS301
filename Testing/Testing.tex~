@@ -66,7 +66,7 @@
 & & & \\
  \hline 
  & & & \\
- 0.0.4 & 25 August 2015 &  Fifth draft adding Testing for  & Rendani Dau, \\ & & orders, finance and & Elana Kuun, \\ & & cashier controllers& Semaka Malapane, \\ & & and updated spec &  Antonia Michael \\ & & & Isabel Nel \\   [1ex] 
+ 0.0.4 & 25 August 2015 &  Fifth draft adding Testing for  & Rendani Dau, \\ & & models and controllers & Elana Kuun, \\ & & for manage cafeteria & Semaka Malapane, \\ & & and manage system &  Antonia Michael \\ & & & Isabel Nel \\   [1ex] 
  \hline
  \end{tabular}
 \end{table} 
