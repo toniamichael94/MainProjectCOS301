@@ -35,13 +35,13 @@
  \hline
  \textbf{Document Title} & Testing Documentation \\
  \hline
- \textbf{Document Identification}  & Document 0.0.4  \\
+ \textbf{Document Identification}  & Document 0.0.5 \\
  \hline
  \textbf{Author}  & Rendani Dau, Isabel Nel, Elana Kuun, Semaka Malapane, Antonia Michael \\
  \hline
- \textbf{Version} & 0.0.4\\
+ \textbf{Version} & 0.0.5\\
  \hline
- \textbf{Document Status} & Fourth Version - contains added tests for manage system client controller, manage cafeteria client controller, and updates on auth module  \\
+ \textbf{Document Status} & Fifth Version - contains added tests for cashier client controller, finance client controller, orders client controller and updates on the other tests  \\
  \hline
  \end{tabu}
 
@@ -118,53 +118,54 @@ The tests can be found in settings.client.controller.test.js
 1.) Change Password
 Pre condtions: Valid password entered
 \\Post conditions: Password has changed
-\\ Test Case 1: should let user change their password if a valid one was entered: Pass
-\\ Test Case 2: should send an error message if new password is too short : Pass
-\\ Test Case 3: should send an error message if the current password is incorrect: Pass
-\\ Test Case 4: should send an error message if the passwords do not match: Pass
+\\ Test Case 1: \$scope.changeUserPassword() should let user change their password if a valid one was entered: Pass
+\\ Test Case 2: \$scope.changeUserPassword() should send an error message if new password is too short : Pass
+\\ Test Case 3: \$scope.changeUserPassword()  should send an error message if the current password is incorrect: Pass
+\\ Test Case 4: \$scope.changeUserPassword() should send an error message if the passwords do not match: Pass
  
 \subsubsection{Authentication Module - authentication.client.controller.js }
 The tests can be found in authentication.client.controller.test.js
 1.) Sign in : \\
 Pre condtions: Valid credentials have been entered, the user exists on the system
 \\ Post conditions: User has been signed in
-\\  Test Case 1: should login with a correct user and password: Pass
-\\ Test Case 2: should fail to log user in if nothing has been entered: Pass
-\\ Test Case 3: should fail to log user in with wrong credentials: Pass
+\\  Test Case 1:\$scope.signin() should login with a correct user and password: Pass
+\\ Test Case 2: \$scope.signin() should fail to log user in if nothing has been entered: Pass
+\\ Test Case 3: \$scope.signin()  should fail to log user in with wrong credentials: Pass
 
 2.) Sign up: \\
 Pre condtions: User entered valid credentials, Username/ Employee Id does not exist on the system
 \\ Post conditions: User is signed up to use the system \\
-Test Case 1 - the function should register user with correct data: Pass \\
-Test Case 2 - should fail to register with duplicate Username: Pass
+Test Case 1 - \$scope.signup()  should register user with correct data: Pass \\
+Test Case 2 - \$scope.signup()  should fail to register with duplicate Username: Pass
 
 \subsubsection{Manage System Module - superuser.client.controller.js }
 1.) Assign Roles - \\
 Pre conditions: User id entered by superuser exists in the system \\
 Post conditions: Role has been assigned to user by superuser \\
-Test Case 1:  should let superuser assign roles because the user id entered exists on the system: Pass
-\\ Test Case 2:  should not let superuser assign roles because user id entered does not exist on the system: Pass \\
-Test Case 3: should redirect if superuser role is assigned: Pass \\
+Test Case 1: \scope.assignRoles() should let superuser assign roles because the user id entered exists on the system: Pass
+\\ Test Case 2:  \scope.assignRoles() should not let superuser assign roles because user id entered does not exist on the system: Pass \\
+Test Case 3: \scope.assignRoles() should redirect if superuser role is assigned: Pass \\
  
 2.) Set system wide limit - \\
 Pre conditions: Limit is valid \\
 Post conditions: Limit has been set \\
-Test Case 1: should allow superuser to set limit: Pass
+Test Case 1: \$scope.setSystemWideLimit() should allow superuser to set limit: Pass
 
 3.) Set canteen name-\\
 Pre conditions: N/a \\
 Post conditions: Canteen name set successfully \\
-Test Case 1: should let user set canteen name: Pass \\
+Test Case 1: \$scope.setCanteenName()  should let user set canteen name: Pass \\
 
 4.) Change Employee ID- \\
 Pre conditions: New employeeID doesn't exist currently, new employeeID field is not blank \\
 Post conditions: Employee ID updated \\
-Test Case 1: should not change employeeID if the user is not in the database: Pass \\
-Test Case 2: should change employee ID: Pass \\
+Test Case 1: \$scope.changeEmployeeID()should not change employeeID if the user is not in the database: Pass \\
+Test Case 2: \$scope.changeEmployeeID() should change employee ID: Pass \\
 
 5.) Search Employees \\
-Test Case 1: should search for employee by ID: Pass \\
-Test Case 2:  should not search for employee if emp id blank: Pass \\
+Test Case 1: \$scope.searchEmployee() should search for employee by ID: Pass \\
+Test Case 2:  \$scope.searchEmployee() should not search for employee if emp id blank: Pass \\
+Test Case 3: \$scope.searchEmployee() should not search for employee by ID: Pass \\
 
 \subsubsection{Manage Cafeteria Module - menuItems.client.controller.js }
 1.)Update Menu Items \\
@@ -176,20 +177,50 @@ Test Case 2: should not update menu item: Pass \\
 2.) Search Menu items \\
 Pre conditions: menu item exists in the database \\
 Post condtions: menu item found \\
-Test Case 1: should not update menu item: Pass \\
-Test Case 2: should search and find menu item: Pass \\
-Test Case 3: should search and NOT find menu item: Pass \\
+Test Case 1: \$scope.updateMenuItem() should update menu item: Pass \\
+Test Case 2: \$scope.updateMenuItem()should not update menu item: Pass \\
+Test Case 3: \$scope.searchMenu() should search and find menu item: Pass \\
+Test Case 4: \$scope.searchMenu() should search and NOT find menu item: Pass \\
 
 3.) Add Menu item \\
 Pre conditions: menu item does not exist\\
 Post condtions: menu item added\\
-Test Case 1: should create menu item: Pass\\
-Test Case 2: should fail to create menu item: Pass\\
+Test Case 1: \$scope.createMenuItem() should create menu item: Pass\\
+Test Case 2: \$scope.createMenuItem() should fail to create menu item: Pass\\
 
 4.) Load menu items \\
 Pre conditions: menu items must exist in the database\\
 Post conditions: menu items will be loaded \\
-Test Case 1: should load menu items: Pass \\ 
+Test Case 1: \$scope.loadMenuItems() should load menu items: Pass \\ 
+
+\subsubsection{Place order Module - orders.client.controller.js, cashier.client.controller.js , finance.client.controller.js}
+\begin{enumerate}
+
+\item The first set of tests can be found in orders.client.controller.test.js.\\
+Pre Conditions: A valid user has logged in. The user has sufficient funds to account for the order placed.\\
+Post Conditions: The order is sent through to the cashier. \\
+Test Case 1: \$scope.placeOrder() should not allow order to be placed: Pass\\
+Test Case 2: \$scope.placeOrder() should allow order to be placed: Pass\\
+
+\item The second set of tests can be found in cashier.client.controller.test.js.\\
+Pre Conditions: The user facilitating the orders is the cashier and is hence on the process orders page that is only accessable to the cashier\\
+Post Conditions: The order has been marked as ready or closed.The user is notified when order is ready\\
+Test Case 1: \$scope.markAsReady() should let user know order is ready: Pass\\
+Test Case 2: \$scope.markAsReady() should not let user know order is ready when incorrect parameters sent to function: Pass \\
+Test Case 3: \$scope.markAsCollected() should  mark the order as collected successfully: Pass \\
+Test Case 4: \$scope.markAsCollected() should not mark the order as collected successfully: Pass \\
+Test Case 5: \$scope.markAsPaid() should  mark the order as paid successfully: Pass \\
+Test Case 6: \$scope.markAsPaid() should  mark the order as collected successfully: Pass \\
+Test Case 7: \$scope.getOrders() should get a list of orders where status is open: Pass \\
+Test Case 8: \$scope.getOrders() should not get a list of orders where status is closed: Pass \\
+
+\item The third set of tests can be found in finance.client.controller.test.js.\\
+Pre Conditions: The user facilitating the orders is the finance manager and is hence on the process orders page that is only accessable to the finance manager. \\ The employee ID has been entered and is valid\\
+Post Conditions: The bill corresponding to the Employee ID entered is generated\\
+Test Case 1: \$scope.getUserOrders() should get users orders: Pass\\
+Test Case 2: \$scope.getUserOrders() should not get users orders: Pass \\
+
+\end{enumerate}
 
 \subsection{Tests conducted/ Test coverage - Server Side}
 
@@ -219,6 +250,7 @@ Test Case 5: should be able to show an error when trying to save without quantit
 Test Case 6: should be able to show an error when trying to save with incorrect unit : Pass\\
  
   \subsubsection{Place Orders Module - menuItem.server.model.js}
+ 
 The tests can be found in menuItem.server.model.test.js.\\
 Pre Conditions: There are no items in the menu database to start off with, All required fields are filled in with valid information\\
 Post Conditions: The menu item has been saved to the database/ Error message sent\\
