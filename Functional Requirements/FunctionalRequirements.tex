@@ -74,7 +74,7 @@
 
 %%---------------------------------  INTRODUCTION -------------------------------------------
 \section{Introduction}
-This document contains the functional requirements specification, architecture requirements and testing for the Resolve Cafeteria Management System that will be created for Software Engineering (COS 301) at the University of Pretoria 2015, by the group T-RISE. In this document we will thoroughly discuss and layout the project's functional requirements to provide a clear view of the system as a whole. An agile approach is being followed which involves an interactive and incremential method of managing and designing the system. 
+This document contains the functional requirements specification, architecture requirements and testing for the Resolve Cafeteria Management System that will be created for Software Engineering (COS 301) at the University of Pretoria 2015, by the group T-RISE. In this document we will thoroughly discuss and layout the project's functional requirements to provide a clear view of the system as a whole. An agile approach is being followed which involves an interactive and incremential method of managing and designing the system as described by the scrum methodology.
 %% ------------------------------ VISION ------------------------------------------------------
 \section{Vision}
 The vision of this project is to implement a flexible, pluggable, fully functional software application that will be maintainable, with detailed supporting documentation and an instruction manual for the Cafeteria Management System. This system will assist in managing the cafeteria's inventory/stock, placing orders made by employees, generating bills, and sending the appropriate information to the right parties.  
@@ -107,36 +107,40 @@ Below is a list of all the use cases we have identified:
 \end{itemize}
 
 
-%% ---------------USE CASE PRIORITIZATION -------------------
+%% ------------------- USE CASE PRIORITIZATION -----------------------
 \subsection{Use Case Prioritization}
 Below the use cases mentioned above will be catagorized as critical, important or nice to have.
 
 \begin{itemize}
 
+%%-----CRITICAL-----
 \subsubsection{Critical}
-\item Authentication \\
+\item \textbf{Authentication} \\
 This is a critical use case due to the fact that you cannot send through any order if you are not logged in. In such a case you will only be able to view the menu. In addition, you can not log into the system if you have not been registered on the system.
 
-\item Place Order\\
-This is critical due to the fact that the main functionality of the system revolves around the ability to place orders at the cafeteria as well as other activities relating to that. 
+\item \textbf{Place Order}\\
+This is critical due to the fact that the main functionality of the system revolves around the ability to place orders at the cafeteria as well as other functionality that is closley related to the placing order functionality.
 
-\item Manage Inventory \\
-This use case is considered critical because it deals with adding, removing, searching for and updating (i.e. incrementing stock that has been added and decrementing stock when it is purchased or expired). This is hence vital for achieving the purpose of the system. The items displayed on the menu will contain a field called "Not in stock" if there is not a sufficient supply of inventory for the various menu items. 
+\item \textbf{Manage Inventory} \\
+This use case is considered critical because it deals with adding, removing, searching for and updating (i.e. incrementing stock that has been added and decrementing stock when it is purchased or expired). This is hence vital for achieving the purpose of the system. The items displayed on the menu will contain a field called "Not in stock" if there is not a sufficient supply of inventory for the various menu items and the option to order an 'out of stock' item will not be available. 
 
-\item Manage Cafeteria \\
+\item \textbf{Manage Cafeteria} \\
 This use case is considered critical because it deals with firstly adding menu items to the menu that the user will view, which again is vital for achieving the purpose of the system, as well as removing, updating and searching for various menu items. 
 
+%%-----IMPORTANT-----
 \subsubsection{Important}
-\item Manage Profile \\
-This use case is considered important because the user must be able edit their profile by resetting their personal spending limits and changing their email and passwords. The user must also be able to view his/her account history and current bill. It is crucial that the user is able to configure spending limits according to their own preferences as well as keep track of monthly purchases.
+\item \textbf{Manage Profile} \\
+This use case is considered important because the user must be able edit their profile by resetting their personal spending limits and changing their email and passwords. The user must also be able to view his/her account history and current bill as well as his/her available balance for credit spending for the month. It is crucial that the user is able to configure spending limits according to their own preferences as well as keep track of monthly purchases.
 
-\item Manage System \\
+\item \textbf{ Manage System} \\
 This use case is considered important because this is where the superuser will configure the maximum spending limit, assign roles such as a cashier, change employee IDs as well as branding functionality such as setting the canteen name and uploading a canteen photo for the home page.
 
 \end{itemize}
 
 %%--------------- USE CASE/SERVICE CONTRACTS --------------
+%%------MODULAR SYSTEM------
 \section{Modular System}
+
 The system will be built using a modular approach to allow more modules to be added at a later stage. This will also provide for pluggability and integratibility of the system.
 
 \subsection{High level use case diagram of the CMS}
@@ -145,15 +149,21 @@ The system will be built using a modular approach to allow more modules to be ad
     \includegraphics[width=1.0\textwidth]{../images/CMSUseCase.png}
     \caption{Cafeteria Management System Use Case} 
 \end{figure}
+
 The core of the system is a cafeteria management system that will provide functionality such as allowing users to place orders once they have registered and logged on to the system. Different types of users will have different privileges. 
 
+%%-----AUTHENTICATION MODULE-----
 \subsection{Authentication Module}
+
 In this module, the functionality provided consists of validating the credentials entered into the system by a user whilst signing in. In addition, assistance is provided via the forgotPassword functionality. The different roles are also obtained in order to assign different functionality to users based on their roles. The register/ sign up functionality is also included here. 
+
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{../images/AuthenticationUseCaseDiagram.png}
     \caption{The main use case diagram for Authentication} 
 \end{figure}
+
+Another crutial part of the authentication module is to verify if a user may have access to certain pages given his/her role which will also contribute to the security of the data stored on our system and to control which user has access to which functionality.
 
 \subsubsection{Forgot Password }
 The service contract and activity diagram for forgotPassword follow. forgotPassword falls under the use case for Authentication (refer to page 15 - figure 12 to view this use case diagram). Here, a user who has forgotten their password will be assisted via sending an email to the user's email account with steps to follow to create a new password.
@@ -253,13 +263,17 @@ The service contract and activity diagram for setFinancialPreferences follow. se
     \caption{The service contract for setting financial preferences on the system} 
 \end{figure}
 
+%%---------MANAGE CAFETERIA MODULE-----
 \subsection{Manage Cafeteria Module}
-The menu module consists of the functionality of adding and removing meal items from the menu from which the user will place orders. This use case diagram indicates the functionality that this module consists of such as addMenuItem, updateMenuItem, searchMenuItem and deleteMenuItem, which are the use cases of this module.
+
+The menu module consists of the functionality of adding and removing menu items from the menu from which the user will place orders. This use case diagram indicates the functionality that this module consists of such as addMenuItem, updateMenuItem, searchMenuItem and deleteMenuItem, which are the use cases of this module.
+
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{../images/MenuUseCase.jpg}
     \caption{The use case for menu} 
 \end{figure}
+
  \subsubsection{addMenuItem}
 The service contract and activity diagram for addMenuItem follow. addMenuItem falls under the use case for Menu (refer to page   - figure   to view this use case diagram). The system allows the cafeteria manager to add items to the menu via the menu managing page.
 \begin{figure}[H]
@@ -312,8 +326,11 @@ The service contract and activity diagram for updateMenuItem follow. updateMenuI
 	\caption{The service contract for updating a menu item}
 \end{figure}
 
+%%-----PLACE ORDERS MODULE-----
 \subsection{Place Orders Module}
+
 The main functionality the system serves to provide, is  to allow the user to use their access card number to purchase food items from the cafeteria via the system. This use case diagram indicates the functionality around placing orders, such as CheckProductAvailability and checkLimits, which are the use cases of this module.
+
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{../images/placeOrder.png}
@@ -348,8 +365,11 @@ The service contract and activity diagram for checkLimit follow. checkLimit fall
 	\caption{The service contract for checking limits}
 \end{figure}
 
+%%-----MANAGE INVENTORY MODULE-----
 \subsection{Manage Inventory Module}
+
 The inventory module is where the cafeteria manager will keep track of stock additions and removals. Different menu items require certain inventory items.This use case diagram indicates the functionality around adding, deleting, searching for and updating inventory.
+
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{../images/InventoryUseCase.jpg}
@@ -412,6 +432,7 @@ The service contract and activity diagram for updateInventory to follow. updateI
 	\caption{The service contract for updating inventory}
 \end{figure}
 
+%%-----Manage Profile module-----
 \subsection{Manage Profile Module}
  The user will be allowed to customize various settings such as resetting his/her personal limit, changing password and email, displaying the bill and viewing favourites. The following use case diagram indicates the above mentioned functionality around managing the profile. Hence, it has the use cases generateFavourite and edit profile.
 
@@ -477,7 +498,9 @@ The service contract and activity diagram for changeLimit follow. changeLimit fa
 	\caption{The service contract for setting limit}
 \end{figure}
  
+%%-----MANAGE SYSTEM MODULE-----
 \subsection{Manage System Module}
+
  The superuser will be allowed to customize various settings such as assign roles to the users, changing employee IDs, setting the maximum spending limit as well as branding settings such as setting the canteen name and changing the cover photo. The following use case diagram indicates the above mentioned functionality.
 
 \begin{figure}[H]
@@ -490,15 +513,13 @@ The service contract and activity diagram for changeLimit follow. changeLimit fa
 The service contract and activity diagram for assignRoles to follow. assignRoles falls under the use case for Manage System (refer to page   figure   to view this use case diagram). The superuser is the only user who can allocate the various roles to users. Roles consist of finance managers, cashiers, cafeteria managers, and administrator. 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{../images/assignRolesActivityDiagram.png
-}
+    \includegraphics[width=1.0\textwidth]{../images/assignRolesActivityDiagram.png}
     \caption{The activity diagram for assign roles} 
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1.0\textwidth]{../images/assignRolesServiceContract.png
-}
+	\includegraphics[width=1.0\textwidth]{../images/assignRolesServiceContract.png}
 	\caption{The service contract for assign roles}
 \end{figure}
 
@@ -520,15 +541,13 @@ The service contract and activity diagram for changeEmployeeID to follow. change
 The service contract and activity diagram for setSystemWideLimit to follow. setSystemWideLimit falls under the use case for Manage System (refer to page   figure   to view this use case diagram). The superuser is the only user who can change the maximum monthly spending limit. Users will then not be able to set their personal monthly spending limits to a value higher than this.
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{../images/setSystemWideLimit.png
-}
+    \includegraphics[width=1.0\textwidth]{../images/setSystemWideLimit.png}
     \caption{The activity diagram for setting the system wide limit} 
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1.0\textwidth]{../images/setSystemWideLimitServiceContract.png
-}
+	\includegraphics[width=1.0\textwidth]{../images/setSystemWideLimitServiceContract.png}
 	\caption{The service contract for setting the system wide limit}
 \end{figure}
 
