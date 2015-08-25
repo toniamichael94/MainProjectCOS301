@@ -133,7 +133,7 @@
               expect(scope.success).toEqual('This user has been found');
         });
 		
-		it('$scope.searchEmployee() should search for employee by ID', function() {
+		it('$scope.searchEmployee() should not search for employee by ID', function() {
             // Test expected GET request
             $httpBackend.when('POST', '/users/search').respond(400, {'message': 'No account with that username has been found'}
              );
