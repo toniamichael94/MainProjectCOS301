@@ -92,13 +92,14 @@ requirements, and architectural constraints. These points will be thoroughly dis
 \item The system should not process an order unless a user is logged in.
 \item On placement of an order the system should send the order details to the cashier.
 \item The system should notify the user when their order is ready.
-\item The system should send a bill to payroll, the user, or both once a month (depending on the preference of the user).
+\item The system should send a bill to payroll, the user ( personal e-mail address), or both once a month (depending on the preference of the user).
 \item The system should allow a user to manage their profile by editing their personal details, password, financial preferences, and spending limit
 \item The system should allow configuration and branding by a superuser or an admin user.
-\item The system should have the functionality to manage the inventory and the cafeteria (such as the items on the menu).
+\item The system should have the functionality to manage the inventory and the cafeteria (such as the items on the menu and the menu categories).
 \item The system should provide cashier functionality.
 \item The system should provide for multiple deployment.
 \item The system must be usable, scalable, reliable, and auditable.
+\item The system must be maintainable.
 
 \end{itemize}
 
@@ -125,11 +126,9 @@ requirements, and architectural constraints. These points will be thoroughly dis
 \begin{itemize}
  \item Layering
 \end{itemize}
-<<<<<<< HEAD
+
 Layering can enforce security due to separation into layers, in which different users have different levels of access to the layers, depending on their roles in the system
-=======
-Layering can enforce security due to seperation into layers in which different users have different levels of access to the layers depending on their roles in the system.
->>>>>>> 9dd3e3002c13a292df5dd40b40f6dd1c9ba144a2
+
 Layering can be used within the subsections of MVC, i.e. the Control and Model layer can be layered to further divide concerns and restrict different users' access on those layers, providing tighter security.
 
 %%-------------USABILITY------------------
@@ -144,7 +143,7 @@ Layering can be used within the subsections of MVC, i.e. the Control and Model l
  \begin{itemize}
  \item Various goals of usability requirements are firstly, that the interface is intuitive, i.e. easy to navigate and understand, that the buttons and icons are self explanatory for the primary users.
  \item The interface must also not be a cluttered, frustrating and overwhelming one. 
- \itemEase of learning is also an important goal. Users who are unfamiliar with the system, but who have used similar systems in the past, should find the system easy to work with.
+ \item Ease of learning is also an important goal. Users who are unfamiliar with the system, but who have used similar systems in the past, should find the system easy to work with.
  \item The system must also be task efficient, i.e. if users access this space regularly, long tedious processes and other admin must be avoided.
 \item Also, the colour schemes, functionality and interactiveness of the interface and system must contribute to this task efficiency. 
 \item Different usability tests can be conducted such as handing out paper prototypes of different interface designs, and questionnaires getting feedback from the sample of people that were consulted in the survey. Problems with the different interfaces can be picked up during the usability testing phase, as indicated by the sample of users consulted, such that the final product will be much more user friendly. \url{(http://www.usability.gov/what-and-why/usability-evaluation.html)}
@@ -338,34 +337,38 @@ The integration channels will also be accessible by the mobile applications, suc
 \item The system will also have to integrate with the server to pass information to and from the database.
 \end{itemize}
 
+%%------------------PROTCOLS -----------------------------
 \subsection{Protocols}
+
+%%-------HTTP------------
 \subsubsection{HTTP - Hypertext Transfer Protocol}
 Integration with this protocol will occur at a high level and typically be handled by libraries or browser-clients etc.
 \textbf{To be used for:	}
 	\begin{itemize}
-	\item{All data transferred between users and the server on which the system is hosted, this will be done via the HTTP GET and 
-	         POST requests where we will request data from the database  to be displayed and post data to the database to be 
-		stored .}
-	\item{Transfer of miscellaneous data such as HTTP error codes to ensure both servers and clients are aware of the state of 	
-		data transfers and its results - in a case of an error we will configure the system to try and rectify the problem first then 
-		when no correction could be made the user will be notified accordingly }
+	\item{All data transferred between users and the server on which the system is hosted, this will be done via the HTTP GET 		and POST requests where we will request data from the database  to be displayed and post data to the database 
+		to be stored .}
+	\item{Transfer of miscellaneous data such as HTTP error codes to ensure both servers and clients are aware of the state 			of data transfers and its results - in a case of an error we will configure the system to try and rectify the problem 	 		first then when no correction could be made the user will be notified accordingly }
 	\end{itemize}
-	
+
+%%----------TCP----------
 \subsubsection{TCP - Transmission Control Protocol}
  For establishing network connections between the user computers and the system server. Streams of data can then be exchanged between the connected hosts. Error detection, faulty transmission of data, resending of data etc. will all be done using TCP (Davids). Integration with this protocol will occur at a high level and will typically be handled by libraries or operating system functions.
  
+%%------------SMTP--------
 \subsubsection{SMTP - Simple Mail Transfer Protocol}
 This protocol will be used to handle e-mail communication, specifically notifications to users when their orders are ready, as well as the sending of bills to both users and payroll. It addresses Security as a quality requirement since it incorporates SMTP-Authentication defined by RFC 2554 (Meyers, 1999) which enhances the security of the protocol.
 
 %% ----------------ARCHITECTURE CONSTRAINTS-------------------------
 \subsection{Architecture Constraints}
 
+%%--------------THECNOLOGIES---------------
 \subsubsection{Technologies}
 Technologies we will be using in the creation of the Cafeteria Management System includes the following: 
 
 \begin{itemize}
  \item \textbf{HTML}: The Software system will be mainly web-based a large part will be made out of HTML5.
- \item \textbf{JavaScript together with AngularJS  and NodeJS}: this will enable us to add extra functionality to our web page and modularise the system thus also helping us to implement dependency injection. For creating reports we can also import ReportingJS to create visually pleasing reports that is logically structured.
+
+ \item \textbf{JavaScript together with AngularJS  and NodeJS}: this will enable us to add extra functionality to our web page and modularise the system thus also helping us to implement dependency injection. For creating reports we can also import \textbf{ReportingJS} to create visually pleasing reports that is logically structured.
 
  \item \textbf{CSS together with BootStrap}: which will allow us to style our page and also make it responsive
 
@@ -374,19 +377,18 @@ extremely well with NodeJS.
 
  \item \textbf{Express server}: will be set up as our server that will host the system.
 
-\item \textbf{MEAN stack}: The MEAN stack is a JavaScript solution that helps you  build fast, robust, and maintainable 	 production web applications using  MongoDB, Express, AngularJS, and 	 Node.js.
-
+\item \textbf{MEAN stack}: The MEAN stack is a JavaScript solution that helps you  build fast, robust, and maintainable 	 production web applications using  MongoDB, Express, AngularJS, and  Node.js.
 
  \item \textbf{Phone gap}: Phone gap will be used to convert our web page into a usable application which will then look like the online webpage that will run like a web interface in the background but  will seem like a mobile application to the user that will be accessible from multiple platforms.
 
-\item \textbf{Git and GitHub}: A version control software and a repository website that will be used to host the source code of the Cafeteria Management System. Reasons for the use of Git is its ease of use and because it is free and open source.
+\item \textbf{GitHub}: A version control software and a repository website that will be used to host the source code of the Cafeteria Management System. Reasons for the use of Git is its ease of use and because it is free and open source and it is a good way topractice source control.\\
  \url{(http://git-scm.com/)}.
 
 \end{itemize}
-The above mentioned technologies will be our basis we will create our system on, but as we are busy building the Cafeteria Management System we will add other technologies as needed. 
+The above mentioned technologies will be our basis we will create our system on, but as we are busy building the Cafeteria Management System we will add other technologies as needed, wich will be logical since we are using the Agile software engeneering metedology.
 
 \subsubsection{Operating Systems}
-The Cafeteria Management System will be able to run on all operating systems with a modern web browser such as Mozilla Firefox, Google Chrome or Internet Explorer installed given there is an internet connection, since the application will be hosted on a remote server, it can be accessed from anywhere in the world.
+The Cafeteria Management System will be able to run on all operating systems with a modern web browser such as Mozilla Firefox or Google Chrome installed given there is an internet connection, since the application will be hosted on a remote server, it can be accessed from anywhere in the world.
 
 \section{Architectural Patterns}
 For the design of The Cafeteria Management System, two patterns are considered: the \textbf{MVC (Model-View-Controller) pattern} and the \textbf{Layering architectural pattern}. For concurrency, the \textbf{Master-Slave pattern} is used.\\
@@ -394,7 +396,7 @@ The top layers of the Model and the Controller are interfaces for the MVC archit
 MVC is considered because:
 	\begin{itemize}
 	\item It provides modularity (i.e. the system's concerns are separated, thus easier to implement). (Solms, 2014)
-	\item It allows for better maintainability (one can maintain the Model, View and Controller separately). (Solms, 2014)				\item Testability (it is easier to test because of separated concerns, so the source of any problems are easy to identify). 	
+	\item It allows for better maintainability (one can maintain the Model, View and Controller separately). (Solms, 2014)			\item Testability (it is easier to test because of separated concerns, so the source of any problems are easy to identify). 	
 	(Solms, 2014)
 	\item Reuse (it is possible to take any component and reuse it where necessary). (Solms, 2014)
 	\end{itemize} 
@@ -403,8 +405,8 @@ Layering allows the Cafeteria Management System to have pluggable layers, which 
 		\item Improved cohesion. (Solms, 2014)
 		\item Reduced complexity of the system. (Solms, 2014)
 		\item Improved testability (which will allow for easier debugging). (Solms, 2014)
-		\item Improved reuse and maintainability of the source code, because all the layers are individual and separate from 	
-		one another. (Solms, 2014)
+		\item Improved reuse and maintainability of the source code, because all the layers are individual and separate 		
+		from 	one another. (Solms, 2014)
 		\end{itemize}
 However, it should be mentioned that Layering has a performance overhead associated with it, as well as higher maintenance costs associated with the lower layers, because they impact the higher levels. (Solms, 2014). Given the benefits, however, the authors feel that the reduced performance and maintenance costs are a good compromise for reduced complexity and testability.\\
 \\
@@ -413,7 +415,7 @@ For concurrency, the Master-Slave architectural pattern (Solms, 2014) is conside
 %%-------------------SUPPORTING DOCUMENTATION -----------------------------
 \section{Other Supporting Documentation}
 
-On the GitHub repository the rest of the supporting documentation for the Cafeteria Management System can be found together with the actual implementation of the work. \\\\
+On the GitHub repository the rest of the supporting documentation for the Cafeteria Management System can be found in the root directory together with the actual implementation of the work in the file named . \\\\
  \url{https://github.com/toniamichael94/MainProjectCOS301}
 
 \newpage
