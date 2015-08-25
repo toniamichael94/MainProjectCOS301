@@ -51,21 +51,32 @@
             });
         }));
 
-   /* BROKEN TEST
+   /*
 
          it('$scope.placeOrder() should not place order', function() {
            //Test expected POST request
 
-            $httpBackend.expectPOST('/orders/placeOrder',{plate : { itemName: 'Feta salad',
-                price: 30,
-                quantity: 1,
-                username: '12345'}, paymentMeth: 'credit' }).respond(200, {'message': 'Order has been made'});
+            $httpBackend.expectPOST('/orders/placeOrder',{plate : { itemName: ''}, paymentMeth: 'credit' }).respond(400, {'message': 'Order has not been made'});
 
             scope.placeOrder();
             $httpBackend.flush();
 
-            expect(scope.success).toEqual('Order has been made');
+            expect(scope.success).toEqual('Order has not been made');
         });
+
+    it('$scope.placeOrder() should place order', function() {
+    //Test expected POST request
+
+    $httpBackend.expectPOST('/orders/placeOrder',{plate : { itemName: 'Feta salad',
+    price: 30,
+    quantity: 1,
+    username: '12345'}, paymentMeth: 'credit' }).respond(200, {'message': 'Order has been made'});
+
+    scope.placeOrder();
+    $httpBackend.flush();
+
+    expect(scope.success).toEqual('Order has been made');
+    });
 
 */
 
