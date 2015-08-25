@@ -248,7 +248,7 @@ that alters the system in any way.
 
 \subsubsection{Patterns to achieve these strategies} 
 MVC is used to achieve maintainability due to its clean seperation of concerns, and organized structure, making it easier for a different programmer to get a high level understanding of the code.  
- 
+\begin{itemize}
 
 %%-------------SCALABILITY------------------
 %\item Scalability
