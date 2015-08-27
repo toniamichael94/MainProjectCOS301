@@ -91,7 +91,7 @@ var UserSchema = new Schema({
 	roles: {
 		type: [{
 			type: String,
-			enum: ['user','superuser','cashier', 'cafeteriaManager','finance', 'admin']
+			enum: ['user','superuser','cashier', 'cafeteriaManager','finance']
 		}],
 		default: ['user']
 	},

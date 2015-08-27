@@ -57,6 +57,7 @@ exports.assignRoles = function(req, res) {
 		});
 };
 
+
 /*
 * Set roles by the Admin user
 */
