@@ -155,10 +155,29 @@ exports.searchInventory=function(req,res){
     }
 };
 
+/*
+Decrease the inventory
+*/
+exports.decreaseInventory = function(req,res)
+{
+	 Inventory.update({productName: req.body.productName}, {$inc: { quantity: req.body.quantity }}, function(err, numAffected){
+        if(err) return res.status(400).send({
+            message: errorHandler.getErrorMessage(err)
+        });
+        else if (numAffected < 1){
+            res.status(400).send({message: 'Error updating the product!'});
+        }
+        else{
+            res.status(200).send({message: 'Product information successfully updated.'});
+        }
+    });
+};
+
  /* Update inventory
  * Last Edited by {Semaka Malapane and Tonia Michael}
  */
 exports.updateInventory = function(req, res) {
+																		 
     Inventory.update({productName: req.body.oldProdName}, {productName: req.body.newProdName, quantity: req.body.quantity, unit: req.body.unit}, function(err, numAffected){
         if(err) return res.status(400).send({
             message: errorHandler.getErrorMessage(err)

@@ -1,0 +1,49 @@
+\documentclass[a4paper,12pt]{article}
+\begin {document}
+\section{Authentication}
+\subsection{authentication.client.controller}
+The authentication controller only allows existing users to log in and new users to sign up.
+ \begin{itemize}
+ \item signup \\
+ -Usage\\
+ Method that allows a new user to sign up.
+ \item signin\\
+ -Usage\\
+ Method that allows an existing user to sign in.
+ \end{itemize}
+ 
+ \section{Settings}
+ \subsection{settings.client.controller}
+ The settings controller allows the user to view and edit profile information. The controller also perfomrs security checks to make sure that unauthorised users cannot access certain functions of the system. 
+ \begin{itemize}
+ \item updateUserProfile\\
+ -Usage\\
+ This method allows the user to update profile information.
+\item viewUserProfile\\
+-Usage\\
+
+\item chageUserPassword\\
+-Usage\\
+This method lets the user change his/her password.
+
+\item getSystemLimit\\
+-Usage\\
+This method retrieves the system wide limit.
+
+\item searchEmployee\\
+-Usage\\
+This method allows the superuser to search for an employee, for example when a new role needs to be assigned to the employee.
+This method is also used in finance where an employee is searched to display his/her bill.
+
+\item loadEmployees\\
+-Usage\\
+
+\item checkUser\\
+-Usage\\
+This method performs an authentication check to ensure that unauthorised users cannot access certain features. For example, a normal user will not be able to navigate to the manage cafeteria page.
+
+\item checkFinUser\\
+-Usage\\
+The checkFinUser method performs a check to establish wheter the user has a finance role or not. It prevents unauthorised users from performing actions that can only be done by users with a finance role.
+ \end{itemize}
+ \end{document}
