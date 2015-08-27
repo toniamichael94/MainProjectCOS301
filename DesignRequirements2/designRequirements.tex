@@ -50,6 +50,11 @@ The checkFinUser method performs a check to establish wheter the user has a fina
  \subsection{password.client.controller}
  The password controller allows a user to reset his/her passoword if they forgot what their password is. 
  \begin{itemize}
- \item 
+ \item askForPasswordReset
+ -Usage\\
+ This method asks the user for his/her email and then sends the user a link to follow to reset his/her password. In the case where an email could not be sent an error message is displayed.
+ \item resetUserPassword
+ -Usage\\
+ This method allows the user to choose a new password.
  \end{itemize}
  \end{document}
