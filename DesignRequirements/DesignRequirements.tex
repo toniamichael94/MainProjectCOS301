@@ -169,7 +169,20 @@ After our first meeting with the client, they brought to our attention that at t
 \section{Manage Inventory}
 >>>>>>> origin/phase4
 \section{Place Order}
-
+\subsection{orders.client.controller.js}
+\begin{enumerate}
+\item Declaration: angular.module('orders').controller('OrdersController', ['\$scope', '\$rootScope','\$http', '\$stateParams', '\$location', '\$cookies', 'Authentication', 'Orders',
+	function(\$scope, \$rootScope, \$http, \$stateParams, \$location, \$cookies, Authentication, Orders) \{\}
+\item Methods:
+	\begin{itemize}
+		\item Change item quantity \\  \$scope.quantityChange = function()\{\}
+		\\ \\ Usage: Function to increase or decrease the number of items ordered. It is used when a user wants to order multiple of the same item. It then also increases or decreases the total price accordingly. 
+		\item Change or add preferences \\ \$scope.prefChange = function()\{\}
+	\\ \\ Usage: Function to add preferences. The user can specify how they prefer their order to be prepared.
+		\item Change the total \\ \$scope.subTotal = function()\{\}
+	\\ \\ Usage: Function to calculate the total. This function calculates the total that will be displayed for the user at the bottom - so they can know how much their order is going to cost.
+	\end{itemize}	
+\end{enumerate}
 
  
 \subsection{Manage Profile}
