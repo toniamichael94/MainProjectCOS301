@@ -36,13 +36,13 @@
  \hline
 \textbf{Document Title} & Functional Requirements Document \\
  \hline
- \textbf{Document Identification}  & Document 0.0.4 \\
+ \textbf{Document Identification}  & Document 0.0.5 \\
 \hline
  \textbf{Author}  & Rendani Dau, Elana Kuun, Semaka Malapane, Antonia Michael, Isabel Nel \\
 \hline
-\textbf{Version} & 0.0.4 \\
+\textbf{Version} & 0.0.5 \\
 \hline
-\textbf{Document Status} & Fourth Version - edited the whole document thoroughly, added Manage System module and made other module changes and additions \\
+\textbf{Document Status} & Fifth Version - edited the whole document thoroughly, added to and edited the place order module \\
 \hline
 \end{tabu}
 
@@ -62,6 +62,9 @@
  \hline
 & & & \\
  0.0.4 & 23 July 2015 &  Fourth draft adding Manage & Rendani Dau, \\ & & system and editing & Elana Kuun, \\ & & whole document  & Semaka Malapane, \\ & & &  Antonia Michael \\ & & & Isabel Nel \\   [1ex] 
+ \hline
+& & & \\
+ 0.0.5 & 25 August 2015 &  Fifth draft adding and & Rendani Dau, \\ & & editing Place Order  & Elana Kuun, \\ & & module  & Semaka Malapane, \\ & & &  Antonia Michael \\ & & & Isabel Nel \\   [1ex] 
 \hline
  \end{tabular}
 \end{table}
@@ -350,6 +353,35 @@ The service contract and activity diagram for CheckProductAvailability follow. C
 	\includegraphics[width=1.0\textwidth]{../images/checkProductAvailabilitySC.jpg}
 	\caption{The service contract for checking product availabilty}
 \end{figure}
+
+\subsubsection{markAsReady}
+The service contract and activity diagram for markAsReady follow. markAsReady falls under the use case for Place Orders (refer to page 20 - figure 17 to view this use case diagram). The cashier will be the only user with access to this functionality and when the order is marked as ready, the status of the order in the model is changed to ready. This will also send an email notification to the user that their order is ready for collection. 
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/markAsReadyActivity.png}
+    \caption{The activity diagram for marking an order as ready } 
+\end{figure}
+ 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{../images/markAsReadySC.jpg}
+	\caption{The service contract for marking an order as ready}
+\end{figure}
+
+\subsubsection{markAsCollected}
+The service contract and activity diagram for markAsCollected follow. markAsCollected falls under the use case for Place Orders (refer to page 20 - figure 17 to view this use case diagram). The cashier will be the only user with access to this functionality and when the order is marked as collected, the status of the order in the model is changed to closed. It is important to note that by marking it as just merely "collected", the system will know to deduct the amount from the user's monthly balance, as the user has not paid with cash. This hence marks that the order has collected their order and their order has been processed. It will then no longer be displayed on the cashiers page.
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/markAsCollectedActivity.png}
+    \caption{The activity diagram for marking an order as collected } 
+\end{figure}
+ 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{../images/markAsCollectedSC.jpg}
+	\caption{The service contract for marking an order as collected}
+\end{figure}
+
 
 \subsubsection{checkLimit}
 The service contract and activity diagram for checkLimit follow. checkLimit falls under the use case for Place Orders (refer to figure 17 page 20 to view this use case diagram). The system will be able to view the user's personal limit to make sure that the total of the bill is not larger than the users spending limit. 

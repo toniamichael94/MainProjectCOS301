@@ -49,27 +49,28 @@ After our first meeting with the client, they brought to our attention that at t
 \subsection{Design standards}
  The diagrams are designed and created using UML. The main use case of the system is decomposed into components.
 
-\section{Modules}
-\subsection{Place Order}
-Declaration: public class placeOrder 
-extends CMS
-\\
-Constructors: 
- 	placeOrder.exports=function(jsonObj){}
-	-usage: creates instances of this component
-\\
-Methods:
-\begin{itemize}
-\item checkProductAvailability
-        exports.checkProductAvailability =function(jsonObj){} where jsonObj contains product name
-\item checkLimits
-	exports.checkLimits = function(jsonObj){} where jsonObj contains employeeId, totalPrice
-\item generateBill
-	exports.generateBill = function(jsonObj){} where jsonObj contains employeeId,Items
-\end{itemize}
+\subsection{superuser.client.controller.js}
+\begin{enumerate}
+\item Declaration: \\ angular.module('users').controller('superuserController', ['$scope', '$http', '$location', '$window', 'Users', 'Authentication',
+	function($scope, $http, $location, $window, Users, Authentication) { }
+\item Methods: 
+	\begin{itemize}
+		\item Assign roles \\ \$scope.assignRoles = function(isValid) \{\} \\ \\
+		Usage: Superuser can assign cashier, cafeteria manager, finance manager and admin roles
+		\item Assign roles admin role \\ \$scope.assignRolesAdminRole = function(isValid) \{ \} \\ \\
+		Usage: Admin user also has access to the assign roles functionality and serves as a back up superuser
+		\item Change employee ID \\ \$scope.changeEmployeeID = function(isValid) \{\} \\ \\
+		Usage: The superuser can change the employee ID of the users if the user signed up with the incorrect ID or if the company changes the IDs.
+		\item Remove employee \\ \$scope.removeEmployee = function(isValid) \{\}
+		\\ \\ Usage: The superuser is also able to remove users from the system, due to resignation or dismissal for example
+	\end{itemize}
+\end{enumerate}
+\section{Place Order}
+
+
  
 \subsection{Manage Profile}
-Declaration: public class manageProfile 
+var manageProfileObj = require('./manageProfile');
 extends CMS
 \\
 Constructors: 
