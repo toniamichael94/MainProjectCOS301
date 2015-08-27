@@ -1,8 +1,8 @@
 \documentclass[a4paper,12pt]{article}
 \begin {document}
 \section{Authentication}
+The authentication controller allows existing users to log in and new users to sign up.
 \subsection{authentication.client.controller}
-The authentication controller only allows existing users to log in and new users to sign up.
  \begin{itemize}
  \item Sign up \\
  \$scope.signup = function()\\
@@ -12,6 +12,25 @@ The authentication controller only allows existing users to log in and new users
   \$scope.signin = function()\\
  -Usage\\
  Method that allows an existing user to sign in.
+ \end{itemize}
+ \subsection{users.authentication.server.controller}
+ \begin{itemize}
+ \item Sign up\\
+  exports.signUp = function(req,res)\\
+  -Usage\\
+  This method ensures that all the fields neccessary to sign up were completed correctly. It returns an error message if one or more of the fields were entered incorrectly, otherwhise it adds the user deatils to the database.
+  \item Sign in\\
+exports.signin = function(req, res, next) \\
+-Usage\\
+This method allows an existing user to sign it if the user entered his/her details correctly. It performs a check to see if the user id and the passoword is correct. If the details are incorrect an error message is displayed.
+\item Sign out\\
+-Usage\\
+This method lets a user sign out of the system.
+  \item Check super user\\
+  -Usage\\
+  This method performs a check to confirm whether there is an existing super user or not. If there is no super user, it creates a super user and admin user, and sets the system wide limit to 5000. If these actions were not completed successfully the method displays an error message. This method also checks whether there is an existing admin user and creates one if there is not currently and admin user. An error message is displayed if this action was not performed successfully.
+  
+  \item add outh functions
  \end{itemize}
  
  \section{Settings}
