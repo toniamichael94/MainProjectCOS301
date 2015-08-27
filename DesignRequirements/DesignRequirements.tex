@@ -49,6 +49,7 @@ After our first meeting with the client, they brought to our attention that at t
 \subsection{Design standards}
  The diagrams are designed and created using UML. The main use case of the system is decomposed into components.
 
+\section{Manage Profile}
 \subsection{superuser.client.controller.js}
 \begin{enumerate}
 \item Declaration: \\ angular.module('users').controller('superuserController', ['$scope', '$http', '$location', '$window', 'Users', 'Authentication',
@@ -76,31 +77,13 @@ After our first meeting with the client, they brought to our attention that at t
 		\\ \\Usage: This function is used to dynamically populate the drop down menu for the change employee ID functionality
 	\end{itemize}
 \end{enumerate}
+
+\section{Manage System}
+\section{Manage Cafeteria}
+\section{Manage Inventory}
 \section{Place Order}
+\section{Authentication}
 
 
- 
-\subsection{Manage Profile}
-var manageProfileObj = require('./manageProfile');
-extends CMS
-\\
-Constructors: 
- 	manageProfile.exports=function(jsonObj){}
-	-usage: creates instances of this component
-\\
-Methods:
-\begin{itemize}
-\item changePassword
-        exports.changePassword =function(jsonObj){} where jsonObj contains employeeID, password, newPassword
-\item changeEmail
-	exports.changeEmail = function(jsonObj){} where jsonObj contains employeeId, email
-\item setLimit
-	exports.setLimit = function(jsonObj){} where jsonObj contains employeeId,newLimit
-\item displayBill
-	exports.displayBill = function(jsonObj){} where jsonObj contains employeeId
-\item viewHistory
-	exports.viewHistory = function(jsonObj){}where jsonObj contains employeeId
-\item generateFavourites
-	exports.generateFavourites = function(jsonObj){} where jsonObj contains employeeId
-\end{itemize}
+  
 \end{document}

@@ -63,6 +63,17 @@ After our first meeting with the client, they brought to our attention that at t
 		Usage: The superuser can change the employee ID of the users if the user signed up with the incorrect ID or if the company changes the IDs.
 		\item Remove employee \\ \$scope.removeEmployee = function(isValid) \{\}
 		\\ \\ Usage: The superuser is also able to remove users from the system, due to resignation or dismissal for example
+		\item Search employee \\ \$scope.searchEmployee = function(isValid) \{ \}
+		\\ \\ Usage: This function is used to retrieve employees from the system to be able to change their employe ID or remove them from the system
+		\item Search employee ID \\ \$scope.searchEmployeeID = function(row) \{\}
+		\\ \\ Usage: This function is used to retrieve employee IDs 
+		\item Set system wide limit \\ \$scope.setSystemWideLimit = function(isValid)\{ \} \\ \\ Usage: This is used by the superuser to set the maximum monthly spending limit for all the users of the system.
+		 \item Set canteen name \\ \$scope.setCanteenName = function(isValid)\{ \}
+		\\ \\ Usage: The canteen name is configurable from the superuser's branding settings page.
+		\item Check user \\ \$scope.checkUser = function()\{\}
+		\\ \\Usage: This is a security function that checks to make sure that an authorized superuser is accessing the page and if this is not the case, the user will be redirected to the home page
+		\item Load employees \\ \$scope.loadEmployees = function()\{\}
+		\\ \\Usage: This function is used to dynamically populate the drop down menu for the change employee ID functionality
 	\end{itemize}
 \end{enumerate}
 \section{Place Order}
