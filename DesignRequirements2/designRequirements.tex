@@ -69,4 +69,42 @@ The checkFinUser method performs a check to establish wheter the user has a fina
  -Usage\\
  This method allows the user to choose a new password.
  \end{itemize}
+ \section{Inventory}
+ \subsection{inventory.client.controller}
+ The inventory controller handles all the main functionality concerning inventory, such as adding an anventory item.
+ \begin{itemize}
+ \item Add form field inventory\\
+  \$scope.addFormFieldInventory = function()\\
+  -Usage\\
+  This method dynamically adds fields to the inventory page that are used to update the quantity of an inventory item. Each inventory item is displayed with the option to edit the quantity.
+\item  Update inventory quantity\\
+ \$scope.updateInventoryQuantity = function()\\
+ -Usage\\
+ This method updates the quantity of an inventory item.
+ \item Delete inventory item\\
+  \$scope.deleteInventoryItem = function()\\
+  -Usage\\
+  This method removes an inventory item from the database. It displays an error message when a user wants to remove an inventory item that is used by a menu item, in this case it displays an error message and does not remove the inventory item from the database.
+  \item Load inventory items\\
+   \$scope.loadInventoryItems = function()\\
+   -Usage\\
+   The load inventory items searches for and returns all the inventory items in the database. It displays an error message when it could not load all the inventory items.
+   \item Create inventory item\\
+    \$scope.create = function(boolean isValid)\\
+    -Usage\\
+    This method creates a new inventory item and stores it in the database. It displays an error message if all the neccessary fields are not entered correctly. 
+    \item Search inventory\\
+     \$scope.searchInventory = function(boolean isValid)\\
+     -Usage\\
+     This method searches for and returns a specific inventory item. It displays an error message if the inventory item could not be found.
+     \item Update inventory\\
+      \$scope.updateInventory = function(boolean isValid)\\
+      -Usage\\
+      This method updates a specified inventory item. It displays an error message if all the neccessary fields were not entered correctly or if the item could not be updated.
+      \item Check if cafeteria manager\\
+       \$scope.checkCMUser = function()\\
+       -Usage\\
+       This method performs a check to te confirm that the user has the cafeteria manager role. It prevents unauthorised users to perform actions that only the cafeteria manager is allowed to perform.
+       
+ \end{itemize}
  \end{document}
