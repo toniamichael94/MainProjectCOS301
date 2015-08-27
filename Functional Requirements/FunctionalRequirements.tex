@@ -333,7 +333,7 @@ The main functionality the system serves to provide, is  to allow the user to us
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{../images/placeOrder.png}
+    \includegraphics[width=1.0\textwidth]{../images/PlaceOrderUseCase.jpg}
     \caption{The use case for placing an order} 
 \end{figure}
  
@@ -355,14 +355,28 @@ The service contract and activity diagram for CheckProductAvailability follow. C
 The service contract and activity diagram for checkLimit follow. checkLimit falls under the use case for Place Orders (refer to figure 17 page 20 to view this use case diagram). The system will be able to view the user's personal limit to make sure that the total of the bill is not larger than the users spending limit. 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{../images/checkLimit.png}
+    \includegraphics[width=1.0\textwidth]{../images/CheckLimitActivity.jpg}
     \caption{The activity diagram for checking limits} 
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1.0\textwidth]{../images/checkLimitsSC.jpg}
+	\includegraphics[width=1.0\textwidth]{../images/CheckLimitsSC.jpg}
 	\caption{The service contract for checking limits}
+\end{figure}
+
+\subsubsection{employeePaid}
+The service contract and activity diagram for employeePaid follow. employeePaid falls under the use case for Place Orders (refer to figure 17 page 20 to view this use case diagram). The cashier will be able to check this off if the client pays using cash instead of paying from their account. This will ensure that money isn't deducted from the user's limit because they paid cash. 
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/EmployeePaidActivity.jpg}
+    \caption{The activity diagram for employee paid} 
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{../images/EmployeePaidSC.jpg}
+	\caption{The service contract for employee paid}
 \end{figure}
 
 %%-----MANAGE INVENTORY MODULE-----
