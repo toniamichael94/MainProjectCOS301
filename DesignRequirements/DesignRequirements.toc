@@ -4,5 +4,5 @@
 \contentsline {section}{\numberline {4}Standards and conventions}{4}
 \contentsline {subsection}{\numberline {4.1}Design standards}{4}
 \contentsline {subsection}{\numberline {4.2}superuser.client.controller.js}{4}
-\contentsline {section}{\numberline {5}Place Order}{5}
-\contentsline {subsection}{\numberline {5.1}Manage Profile}{5}
+\contentsline {section}{\numberline {5}Place Order}{6}
+\contentsline {subsection}{\numberline {5.1}Manage Profile}{6}
