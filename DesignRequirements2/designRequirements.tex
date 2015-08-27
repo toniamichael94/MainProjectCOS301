@@ -4,10 +4,12 @@
 \subsection{authentication.client.controller}
 The authentication controller only allows existing users to log in and new users to sign up.
  \begin{itemize}
- \item signup \\
+ \item Sign up \\
+ \$scope.signup = function()\\
  -Usage\\
  Method that allows a new user to sign up.
- \item signin\\
+ \item Sign in\\
+  \$scope.signin = function()\\
  -Usage\\
  Method that allows an existing user to sign in.
  \end{itemize}
@@ -16,33 +18,41 @@ The authentication controller only allows existing users to log in and new users
  \subsection{settings.client.controller}
  The settings controller allows the user to view and edit profile information. The controller also perfomrs security checks to make sure that unauthorised users cannot access certain functions of the system. 
  \begin{itemize}
- \item updateUserProfile\\
+ \item Update user profile\\
+ \$scope.updateUserProfile = function(boolean isValid)
  -Usage\\
- This method allows the user to update profile information.
-\item viewUserProfile\\
+ This method allows the user to update profile information. It displays an error if any of the information entered by the user is not in the correct format, or if the limit set by the user exceeds the system limit.
+\item View user profile\\
+ \$scope.viewUserProfile = function(boolean isValid)\\
 -Usage\\
 
-\item chageUserPassword\\
+\item Change user password\\
+ \$scope.chageUserPassword = function()\\
 -Usage\\
 This method lets the user change his/her password.
 
-\item getSystemLimit\\
+\item Get system limit\\
+ \$scope.getSystemLimit = function()\\
 -Usage\\
 This method retrieves the system wide limit.
 
-\item searchEmployee\\
+\item Search employee\\
+ \$scope.searchEmployee = function(boolean isValid)\\
 -Usage\\
 This method allows the superuser to search for an employee, for example when a new role needs to be assigned to the employee.
 This method is also used in finance where an employee is searched to display his/her bill.
 
-\item loadEmployees\\
+\item Load employees\\
+ \$scope.loadEmplyees = function()\\
 -Usage\\
 
-\item checkUser\\
+\item Check user role\\
+ \$scope.checkuser = function()\\
 -Usage\\
 This method performs an authentication check to ensure that unauthorised users cannot access certain features. For example, a normal user will not be able to navigate to the manage cafeteria page.
 
-\item checkFinUser\\
+\item Check if the user has a financial role\\
+ \$scope.checkFinUser = function()\\
 -Usage\\
 The checkFinUser method performs a check to establish wheter the user has a finance role or not. It prevents unauthorised users from performing actions that can only be done by users with a finance role.
  \end{itemize}
@@ -50,10 +60,12 @@ The checkFinUser method performs a check to establish wheter the user has a fina
  \subsection{password.client.controller}
  The password controller allows a user to reset his/her passoword if they forgot what their password is. 
  \begin{itemize}
- \item askForPasswordReset
+\item Ask for password reset\\
+  \$scope.askForPasswordReset = function()\\
  -Usage\\
  This method asks the user for his/her email and then sends the user a link to follow to reset his/her password. In the case where an email could not be sent an error message is displayed.
- \item resetUserPassword
+ \item Reset user password
+  \$scope.resetUserPassword = function()\\
  -Usage\\
  This method allows the user to choose a new password.
  \end{itemize}
