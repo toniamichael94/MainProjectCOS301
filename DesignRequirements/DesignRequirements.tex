@@ -1,5 +1,13 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{array}
+\usepackage{tabu}
 
 %% Title Page 
+\begin{document}
 \title{\Huge Testing Spec\\ 
 	 Project: \\ 
 	Cafeteria Management System: Reslove}
@@ -12,16 +20,45 @@
 	Isabel Nel (13070305)}
 
 \date{\today}
+ 
 
-\documentclass[12pt]{article}
-
-\begin{document}
 \maketitle
 \break
 
 %% Make table of contents
 \tableofcontents
 \break
+
+\begin{tabu} to 0.8\textwidth { | X[l] | X[l] | }
+ \hline
+\textbf{Document Title} & Design Requirements Document \\
+ \hline
+ \textbf{Document Identification}  & Document 0.0.2 \\
+\hline
+ \textbf{Author}  & Rendani Dau, Elana Kuun, Semaka Malapane, Antonia Michael, Isabel Nel \\
+\hline
+\textbf{Version} & 0.0.2 \\
+\hline
+\textbf{Document Status} & Second Version - added the function templates for the client controllers \\
+\hline
+\end{tabu}
+
+\begin{table}[h!]
+\centering
+ \begin{tabular}{||c c c c||} 
+ \hline
+ \textbf{Version} & \textbf{Date} & \textbf{Summary} & \textbf{Authors} \\ [0.5ex] 
+ \hline\hline
+ 0.0.1 & 29 May 2015 &  First draft contains first two use cases  & Rendani Dau, \\ & & template methods and  & Elana Kuun, \\ & &  declarations& Semaka Malapane, \\ & & & Antonia Michael \\ & & & Isabel Nel, \\ & & & \\
+ \hline 
+ & & & \\
+ 0.0.2 & 27 August 2015 &  Second draft adding all the client & Rendani Dau, \\ & & and controllers for & Elana Kuun, \\ & & the updated system & Semaka Malapane, \\ & & &  Antonia Michael \\ & & & Isabel Nel \\   [1ex] 
+ \hline  
+ \end{tabular}
+\end{table}
+
+\pagebreak
+
 
 %%now begin document
 
@@ -49,33 +86,88 @@ After our first meeting with the client, they brought to our attention that at t
 \subsection{Design standards}
  The diagrams are designed and created using UML. The main use case of the system is decomposed into components.
 
+<<<<<<< HEAD
+=======
+%%TEMPLATE_________________ !!!!!!!!!!!!!!!!!!!!!
+\section{Authentication}
+\subsection{something.client.controller.js}
+\begin{enumerate}
+\item Declaration: angular.module('users').controller....... 
+\item Methods:
+	\begin{itemize}
+		\item
+	\end{itemize}	
+\end{enumerate}
+%%END TEMPLATE_________________ !!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+\section{Manage Profile}
+%%superuser client controller----------------------------------------------
+>>>>>>> origin/phase4
 \subsection{superuser.client.controller.js}
 \begin{enumerate}
-\item Declaration: \\ angular.module('users').controller('superuserController', ['$scope', '$http', '$location', '$window', 'Users', 'Authentication',
-	function($scope, $http, $location, $window, Users, Authentication) { }
+\item Declaration: \\ angular.module('users').controller('superuserController', ['\$scope', '\$http', '\$location', '\$window', 'Users', 'Authentication',
+	function(\$scope, \$http, \$location, \$window, Users, Authentication) \{ \}
 \item Methods: 
 	\begin{itemize}
 		\item Assign roles \\ \$scope.assignRoles = function(isValid) \{\} \\ \\
 		Usage: Superuser can assign cashier, cafeteria manager, finance manager and admin roles
 		\item Assign roles admin role \\ \$scope.assignRolesAdminRole = function(isValid) \{ \} \\ \\
 		Usage: Admin user also has access to the assign roles functionality and serves as a back up superuser
-		\item Change employee ID \\ \$scope.changeEmployeeID = function(isValid) \{\} \\ \\
+		\item Change employee ID \\ \$scope.changeEmployeeID = function(Boolean isValid) \{\} \\ \\
 		Usage: The superuser can change the employee ID of the users if the user signed up with the incorrect ID or if the company changes the IDs.
-		\item Remove employee \\ \$scope.removeEmployee = function(isValid) \{\}
+		\item Remove employee \\ \$scope.removeEmployee = function(Boolean isValid) \{\}
 		\\ \\ Usage: The superuser is also able to remove users from the system, due to resignation or dismissal for example
-		\item Search employee \\ \$scope.searchEmployee = function(isValid) \{ \}
+		\item Search employee \\ \$scope.searchEmployee = function(Boolean isValid) \{ \}
 		\\ \\ Usage: This function is used to retrieve employees from the system to be able to change their employe ID or remove them from the system
 		\item Search employee ID \\ \$scope.searchEmployeeID = function(row) \{\}
 		\\ \\ Usage: This function is used to retrieve employee IDs 
-		\item Set system wide limit \\ \$scope.setSystemWideLimit = function(isValid)\{ \} \\ \\ Usage: This is used by the superuser to set the maximum monthly spending limit for all the users of the system.
-		 \item Set canteen name \\ \$scope.setCanteenName = function(isValid)\{ \}
+		\item Set system wide limit \\ \$scope.setSystemWideLimit = function(Boolean isValid)\{ \} \\ \\ Usage: This is used by the superuser to set the maximum monthly spending limit for all the users of the system.
+		 \item Set canteen name \\ \$scope.setCanteenName = function(Boolean isValid)\{ \}
 		\\ \\ Usage: The canteen name is configurable from the superuser's branding settings page.
 		\item Check user \\ \$scope.checkUser = function()\{\}
-		\\ \\Usage: This is a security function that checks to make sure that an authorized superuser is accessing the page and if this is not the case, the user will be redirected to the home page
+		\\ \\Usage: This is a security function that checks to make sure that the authorized superuser is accessing the page and if this is not the case, the user will be redirected to the home page
 		\item Load employees \\ \$scope.loadEmployees = function()\{\}
 		\\ \\Usage: This function is used to dynamically populate the drop down menu for the change employee ID functionality
 	\end{itemize}
 \end{enumerate}
+<<<<<<< HEAD
+=======
+%%cashier client controller----------------------------------------------
+\subsection{cashier.client.controller.js}
+\begin{enumerate}
+\item Declaration: \\ angular.module('users').controller('cashierController', ['\$scope', '\$http', '\$stateParams', '\$location', 'Authentication',
+	function(\$scope, \$http, \$stateParams, \$location, Authentication) \{\}
+\item Methods:
+	\begin{itemize}
+		\item Get orders \\ \$scope.getOrders = function()\{\}
+		\\ \\ Usage: Function to obtain the list of orders that an order placed from the menu
+		\item Mark as ready \\ \$scope.markAsReady = function(username, orderNumber)\{\}
+		\\ \\ Usage: Function that the cashier uses to send a notification to the user notifying the user that their order is ready. The function also changes the status in the model from open to ready.
+	\item Mark as collected \\ \$scope.markAsCollected = function(username, itemName,orderNumber)\{\}
+	\\ \\ Usage: On the click of the 'Order collected' button on the cashier page, this function will be called. It changes the status of the order in the model from ready/open to closed.
+	\item Mark as paid \\ \$scope.markAsPaid = function(username, itemName, orderNumber)\{\}
+	\\ \\ Usage: On the click of the 'Paid and collected' button on the cashier page, this function will be called. It changes the status of the order in the model from ready/open to closed.
+	\item Check user \\ \$scope.checkUser = function()\{\}
+	\\ \\ Usage: This is a security function that checks to make sure that the authorized cashier is accessing the page and if this is not the case, the user will be redirected to the home page
+	\end{itemize}	
+\end{enumerate}
+%%cashier client controller----------------------------------------------
+\subsection{cashier.client.controller.js}
+\begin{enumerate}
+\item Declaration: angular.module('users').controller('FinanceController', ['\$scope', '\$http', '\$location', '\$stateParams', 'Authentication',
+    function(\$scope, \$http, \$location, \$stateParams, Authentication) \{\}
+\item Methods:
+	\begin{itemize}
+		\item  Get user orders \\  \$scope.getUserOrders = function()\{\}
+		\\ \\ Usage: Function to obtain the orders placed by the users via adding to plate from the menu page and proceeding to place that order. The finance manager will enter the employee ID of the user in the textbox displayed on the page and the orders placed by that user will be displayed on that page.
+		\item Check user \\ \$scope.checkUser = function()\{\}
+	\\ \\ Usage: This is a security function that checks to make sure that the authorized cashier is accessing the page and if this is not the case, the user will be redirected to the home page
+	\end{itemize}	
+\end{enumerate}
+\section{Manage System}
+\section{Manage Cafeteria}
+\section{Manage Inventory}
+>>>>>>> origin/phase4
 \section{Place Order}
 
 
