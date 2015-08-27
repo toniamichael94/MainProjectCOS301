@@ -169,6 +169,7 @@ After our first meeting with the client, they brought to our attention that at t
 \section{Manage Inventory}
 >>>>>>> origin/phase4
 \section{Place Order}
+
 \subsection{orders.client.controller.js}
 \begin{enumerate}
 \item Declaration: angular.module('orders').controller('OrdersController', ['\$scope', '\$rootScope','\$http', '\$stateParams', '\$location', '\$cookies', 'Authentication', 'Orders',
@@ -181,6 +182,10 @@ After our first meeting with the client, they brought to our attention that at t
 	\\ \\ Usage: Function to add preferences. The user can specify how they prefer their order to be prepared.
 		\item Change the total \\ \$scope.subTotal = function()\{\}
 	\\ \\ Usage: Function to calculate the total. This function calculates the total that will be displayed for the user at the bottom - so they can know how much their order is going to cost.
+		\item Place order \\ \$scope.placeOrder = function()\{\}
+	\\ \\ Usage: Function to place the order. If the user is not signed in, the function redirects them to the signin page. If the user is signed in, the function checks the order total against the user's available balance. If the user has enough funds in their account the order is placed. Otherwise a pop-up message tells the user they have insufficient funds in their account and that if they proceed with placing the order they will have to use cash - if the user agrees to use cash the order is placed otherwise nothing is done.
+		\item Remove item from plate \\ \$scope.removeFromPlate = function()\{\}
+	\\ \\ Usage: Function to remove an item from the plate. If the user decides they don't want an item anymore, they can remove it from the plate (before the order is placed).
 	\end{itemize}	
 \end{enumerate}
 
