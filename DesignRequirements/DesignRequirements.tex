@@ -189,7 +189,27 @@ After our first meeting with the client, they brought to our attention that at t
 	\end{itemize}	
 \end{enumerate}
 
- 
+\subsection{orders.server.controller.js}
+\begin{enumerate}
+%---Server controllers don't have this.........
+%\item Declaration: angular.module('orders').controller('OrdersController', ['\$scope', '\$rootScope','\$http', '\$stateParams', '\$location', '\$cookies', 'Authentication', 'Orders',
+\item Methods:
+	\begin{itemize}
+		\item Place order \\  exports.placeOrder = function(req, res)\{\}
+		\\ \\ Usage: Function to place the order. It adds the order to the orders table if the user is successful in placing the order, otherwise it generates the appropriate error message.
+		\item Mark the order as ready \\ exports.markAsReady = function(req, res)\{\}
+	\\ \\ Usage: Function to mark the order as ready. The cashier can mark the order as ready when the items are done being prepared and ready to be collected. This changes the status of the order to ready and sends the client a notification to come fetch their order.
+		\item Send Email \\ function sendEmail(uname, orderNum)\{\}
+	\\ \\ Usage: Function to send the user an email. This function is called in markAsReady - it sends the user an email letting them know their order (with the given orderNumber) is ready to be collected. 
+		\item Mark order as paid \\ exports.markAsPaid = function(req, res)\{\}
+	\\ \\ Usage: Function to mark the order as paid and collected. This function marks the order as closed in the orders table and it removes it from the process orders page.
+		\item Mark order as collected \\ exports.markAsCollected = function(req, res)\{\}
+	\\ \\ Usage: Function to mark the order as paid and collected. This function marks the order as closed in the orders table and it removes it from the process orders page. It also subtracts the total of the order from the user's limit because the client only collected the order and didn't pay. This can only be used when the user has sufficient funds in their account.
+		\item Get a list of orders \\ exports.getOrderList = function(req, res)\{\}
+	\\ \\ Usage: Function to get a list of all the orders that are open and ready. This is used to display the orders that are still being processed and have not yet been collected on the process orders page (accessed by the cashier).
+	\end{itemize}	
+\end{enumerate}
+
 \subsection{Manage Profile}
 var manageProfileObj = require('./manageProfile');
 extends CMS
