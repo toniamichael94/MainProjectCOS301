@@ -1,12 +1,15 @@
-\contentsline {section}{\numberline {1}Introduction}{3}
-\contentsline {section}{\numberline {2}Vision}{3}
-\contentsline {section}{\numberline {3}Background}{3}
-\contentsline {section}{\numberline {4}Standards and conventions}{4}
-\contentsline {subsection}{\numberline {4.1}Design standards}{4}
-\contentsline {section}{\numberline {5}Manage Profile}{4}
-\contentsline {subsection}{\numberline {5.1}superuser.client.controller.js}{4}
-\contentsline {section}{\numberline {6}Manage System}{6}
-\contentsline {section}{\numberline {7}Manage Cafeteria}{6}
-\contentsline {section}{\numberline {8}Manage Inventory}{6}
-\contentsline {section}{\numberline {9}Place Order}{6}
-\contentsline {section}{\numberline {10}Authentication}{6}
+\contentsline {section}{\numberline {1}Introduction}{4}{section.1}
+\contentsline {section}{\numberline {2}Vision}{4}{section.2}
+\contentsline {section}{\numberline {3}Background}{4}{section.3}
+\contentsline {section}{\numberline {4}Standards and conventions}{5}{section.4}
+\contentsline {subsection}{\numberline {4.1}Design standards}{5}{subsection.4.1}
+\contentsline {section}{\numberline {5}Authentication}{5}{section.5}
+\contentsline {subsection}{\numberline {5.1}something.client.controller.js}{5}{subsection.5.1}
+\contentsline {section}{\numberline {6}Manage Profile}{5}{section.6}
+\contentsline {subsection}{\numberline {6.1}superuser.client.controller.js}{5}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}cashier.client.controller.js}{7}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}cashier.client.controller.js}{8}{subsection.6.3}
+\contentsline {section}{\numberline {7}Manage System}{8}{section.7}
+\contentsline {section}{\numberline {8}Manage Cafeteria}{8}{section.8}
+\contentsline {section}{\numberline {9}Manage Inventory}{8}{section.9}
+\contentsline {section}{\numberline {10}Place Order}{8}{section.10}
