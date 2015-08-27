@@ -12,43 +12,23 @@ Resolve proposed the Cafeteria Management System to assist with this problem. Af
 
 For more information, please have a look at the project proposal document in the root folder named resolve_cafeteriaManagementSystem.pdf.
 
+
 ********************************************************************************
-Instalation Manual
+Supporting documentation
 ********************************************************************************
 
-To run the Cafeteria Management System please follow the following instructions:
+The supporting documentation to this project can be found in the root directory under their respective folders.
 
-1) Download this repository.
-
-2) In the directory Cafeteria_Management_System run npm install (this will install all the dependancies needed to run    this application. 
-
-3) Start your local mongoose database. 
-
-4) Run the 'grunt' command in your terminal.
-
-5) Open a browser and type 'localhost:3000' in the search bar and it will direct you to the home page of the CMS  
-   application
+Such as:
+- The Functional Requirements Specification
+- The Architectural Requirements Spesification
 
 ********************************************************************************
 User Manual
 ********************************************************************************
-- The first page that displays will be the order page. Here you can view the menu i.e. the menu items, the prices and the configurable daily specials. You will be able to select meal items here to purchase.
 
-- If you hasn't logged on, the system will prompt you to log on in order to facilitate the order of the meal items.
+The user Manul can be found in the root directory in the folder named 'User Manual'
 
-- If you do not exist on the system, you will be prompted to register on the system and then log in.
-
-- Once you have been logged in (using your Resolve employee number as a username), the system will check the total price of the meal items against your configurable spending limit to ensure that this limit is not exeeded.
-
-- The system will also verify that the items that you have selected are in stock. 
-
-- The system will then process your order
-
-- You will recieve a notification when your meal is ready. You can configure if this is an email or sms
-
-- You can go to your profile page to view account history and change various settings
-
-- The cafeteria manager will be responsible for adding and removing stock items from the systems, to represent the current state of the cafeteria
 
 
 
