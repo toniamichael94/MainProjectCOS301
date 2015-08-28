@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.23)  25 AUG 2015 23:36
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.23)  28 AUG 2015 22:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -361,9 +361,9 @@ the su-pe-ruser.client.controller.js
  []
 
 
-Overfull \hbox (67.22256pt too wide) in paragraph at lines 106--107
-\OT1/cmr/m/n/12 file. The reg-is-ter/ sign up func-tion-al-ity also re-sides in
- the au-then-ti-ca-tion.client.controller.js
+Overfull \hbox (64.2851pt too wide) in paragraph at lines 106--107
+\OT1/cmr/m/n/12 file. The reg-is-ter/ signup func-tion-al-ity also re-sides in 
+the au-then-ti-ca-tion.client.controller.js
  []
 
 [6]
@@ -474,7 +474,7 @@ Here is how much of TeX's memory you used:
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on Testing.pdf (13 pages, 69938 bytes).
+Output written on Testing.pdf (13 pages, 69905 bytes).
 PDF statistics:
  200 PDF objects out of 1000 (max. 8388607)
  180 compressed objects within 2 object streams

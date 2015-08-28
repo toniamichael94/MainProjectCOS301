@@ -31,13 +31,13 @@
  \hline
  \textbf{Document Title} & User Manual \\
  \hline
- \textbf{Document Identification}  & Document 0.0.4  \\
+ \textbf{Document Identification}  & Document 0.0.5  \\
  \hline
  \textbf{Author}  & Rendani Dau, Isabel Nel, Elana Kuun, Semaka Malapane, Antonia Michael \\
  \hline
- \textbf{Version} & 0.0.4 \\
+ \textbf{Version} & 0.0.5 \\
  \hline
- \textbf{Document Status} & Fourth Version - contains Troubleshooting section and extra content\\
+ \textbf{Document Status} & Fifth Version - contains view order page, place order and cashier page section\\
  \hline
  \end{tabu}
 
@@ -57,12 +57,15 @@
  \hline
  & & & \\
  0.0.4& 3 August 2015 &  Fourth draft Added  & Rendani Dau, \\ & & Troubleshooting & Elana Kuun, \\ & & Section & Semaka Malapane, \\ & &  &  Antonia Michael \\ & & & Isabel Nel \\   [1ex]  
- \hline
+  \hline 
+ & & & \\
+ 0.0.5& 28 August 2015 &  Fifth draft containing  & Rendani Dau, \\ & & screenshots of the & Elana Kuun, \\ & & of different page & Semaka Malapane, \\ & & and their functionality &  Antonia Michael \\ & & & Isabel Nel \\   [1ex]  
+\hline
  \end{tabular}
 \end{table}
 
 \pagebreak
-
+\pagebreak
 %%now begin document
 %%---------------------------------  INTRODUCTION -------------------------------------------
 \section{Introduction}
@@ -73,7 +76,7 @@ This document contains the user manual for the Resolve Cafeteria Management Syst
 The vision of this project is to implement a fully functional software application that will be maintainable, with detailed supporting documentation and an instruction manual for the Cafeteria Management System. This system will, amongst others, assist in executing orders from the cafeteria, managing the cafeteria's inventory, generating bills, and perform various reporting tasks. 
 
 %%---------------------------------- INTRO -----------------------------------------
-\section{Introduction}
+\section{Background}
 As specified in the project proposal document from Resolve, the cafeteria is currently cash only and does not accept bank cards or electronic payments. This makes it inconvenient for employees as they have to carry around cash if they want to purchase anything from the cafeteria. Employees may choose to go to an external food outlet where they can pay with their preferred method of payment, which uses time and fuel. Lastly, this means the cafeteria does not achieve the maximum amount of income which hinders its growth and improvement.\\
 
 Resolve is therefore looking for a means to accept payments from employees  using their employee access cards or access card numbers, with an amount being deducted from their salary at the end of the month.\\
@@ -183,7 +186,7 @@ Access to the Cafeteria Management System is through a standard web browser. Dif
 %%--------------------------------ADMINISTRATIVE USERS -------------------------
 \subsection{Administrative Users}
 When the CMS is started initially with an empty database there will be no users in the database and this includes no administrative users.  \\
-Thus, to generate the administrative users, on the first startup of the system, one should navigate to the sign in page and sign in with empty credentials. If the system is started for the first time with an empty database, on sign in with empty credentials (proceeding to submit the sign in form without filling in username or password) administrative users will be created. \\
+Thus, to generate the administrative users, on the first startup of the system, one should navigate to the sign in page and sign in with empty credentials. If the system is started for the first time with an empty database, on sign in with empty credentials (proceeding to submit the signin form without filling in username or password) administrative users will be created. \\
 
 \textbf{The system will have a super user:} \\
 Employee ID: SuperUser \\
@@ -205,7 +208,7 @@ Once the user has clicked the "Sign Up" option on the navigation pane, the user 
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/signUp.png}
+    \includegraphics[width=1.0\textwidth]{screenshots/signUp.PNG}
     \caption{Sign Up - red circled button should be clicked to sign up} 
 \end{figure}
 
@@ -213,7 +216,7 @@ When the button is clicked, the CMS will direct the user to the signup page wher
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/signUpPage.png}
+    \includegraphics[width=1.0\textwidth]{screenshots/signUpPage.PNG}
     \caption{Sign Up Page - details to be filled in - all fields are required} 
 \end{figure}
 
@@ -282,7 +285,7 @@ The Navigation pane will be displayed as follows if the user has not logged in:
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/HomePage.png}
+    \includegraphics[width=1.0\textwidth]{screenshots/HomePage.PNG}
     \caption{Home Page - user not logged in } 
 \end{figure}
 
@@ -307,7 +310,7 @@ The user will now view a drop down menu with various options displayed on it. Th
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/HomePage2.png}
+    \includegraphics[width=1.0\textwidth]{screenshots/HomePage2.PNG}
     \caption{Home Page - user not logged in } 
 \end{figure}
 
@@ -376,8 +379,18 @@ This page serves to indicate the current meal items that the user has on their p
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/addedOnPlate.png}
+    \includegraphics[width=1.0\textwidth]{screenshots/viewOrder1.png}
     \caption{On my plate page - The meal you selected on the menu page is displayed here (Navigate here via the navigation bar)} 
+\end{figure}
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/viewOrder2.png}
+    \caption{One can increase the quantity of items ordered by editing the quantity field indicated} 
+\end{figure}
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/viewOrder3.png}
+    \caption{One can remove orders as well as specify preferences by clicking in the indicated areas} 
 \end{figure}
 
 %%----------------------EDIT PROFILE PAGE ----------------------
@@ -502,6 +515,24 @@ This is the page where the cafeteria manager adds menu items so that these can b
 
 \subsection{Cashier: The "Process Orders" Page}
 This page is for use by the cashier. Orders that are "open" will be displayed on the page. Orders can be marked as ready, paid or collected. When the order is marked as ready, the button will disappear and the employee will be sent an email informing them to come collect their order. When the "Employee Paid" button is clicked, the cashier will choose whether it was a cash or credit purchase and the amount will be deducted accordingly from the user's account.
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/cashier.png}
+    \caption{The process orders page - The cashier is authorized to facilitate these transactions}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/cashierReady.png}
+    \caption{The process orders page - The cashier can mark orders as ready which will send a notification email to the user}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/cashierCredit.png}
+    \caption{The process orders page - The cashier can select the appropriate radio button as to whether the employee is paying with cash or credit.}
+\end{figure}
 
 \subsection{Financial Manager: The "View Employee Bills" Page}
 There is a field labelled "Employee Id" and it is in here where a user will type in the employee ID 

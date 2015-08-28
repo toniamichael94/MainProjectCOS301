@@ -32,7 +32,7 @@
 \contentsline {subsection}{\numberline {6.7}Nice-To-Have}{14}{subsection.6.7}
 \contentsline {subsubsection}{\numberline {6.7.1}Performance}{14}{subsubsection.6.7.1}
 \contentsline {subsubsection}{\numberline {6.7.2}Flexibility}{15}{subsubsection.6.7.2}
-\contentsline {subsubsection}{\numberline {6.7.3}Integratibility}{15}{subsubsection.6.7.3}
+\contentsline {subsubsection}{\numberline {6.7.3}Integrability}{15}{subsubsection.6.7.3}
 \contentsline {subsubsection}{\numberline {6.7.4}Testability}{15}{subsubsection.6.7.4}
 \contentsline {section}{\numberline {7}Access and Integration Requirements}{15}{section.7}
 \contentsline {subsection}{\numberline {7.1}Access Channel Requirements}{15}{subsection.7.1}

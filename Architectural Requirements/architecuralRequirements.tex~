@@ -234,7 +234,7 @@ that alters the system in any way.
 \item Due to the fact that this system is generic enough to be deployed at any cafeteria, this means that a potentially wide range of programmers will be accessing the code and for this reason it is of utmost importance that the code will be easy to grasp and easy to make changes to / maintain.
 \item Developers other than those who created the system should be able to add new features, bug fixes, and make changes without investing a significant amount of time and effort in restructuring code and learning/ understanding the code. High level users of the system should also be able to maintain the system without needing to change the code. 
 
-\item Current examples of this requirement in the CMS system are as follows: Firstly, the cafeteria manager can dynamically add menu categories to the menu page and secondly the superuser is able to change various branding options such as the canten name, the cover image, and the system limit.
+\item Current examples of this requirement in the CMS system are as follows: Firstly, the cafeteria manager can dynamically add menu categories to the menu page and secondly the superuser is able to change various branding options such as the canteen name, the cover image, and the system limit.
 \item In addition, the superuser can also change other settings such as being able to change employee IDs as well as assigning roles to various users. There is also an admin user of the system in case the superuser is fired, resigns or deceased.
 \item This in turn is not just improving the maintainability of the system, but also the usability of the system.
  \end{itemize}
@@ -247,8 +247,8 @@ that alters the system in any way.
 \end{itemize}
 
 \subsubsection{Patterns to achieve these strategies} 
-MVC is used to achieve maintainability due to its clean seperation of concerns, and organized structure, making it easier for a different programmer to get a high level understanding of the code.  
-\begin{itemize}
+MVC is used to achieve maintainability due to its clean separation of concerns, and organized structure, making it easier for a different programmer to get a high level understanding of the code.  
+ 
 
 %%-------------SCALABILITY------------------
 %\item Scalability
@@ -293,12 +293,12 @@ Listed below are the nice to have quality requirements related to the Cafeteria 
 \subsubsection{Flexibility}
 \item  Flexibility refers to the ability of a system to respond in a time and cost efficient manner to internal or external changes that affects the quality of its service. The system should be able to increase or sustain the quality of its service when responding to these changes.
 
-\subsubsection{Integratibility}  
-\item  Integrability refers to the ability of the different components of the system to be compatible and pluggable with eachother as well as with the components of seperate systems. The modules of the cafeteria management system are developed as seperate pluggable modules to enforce integratibiliity. The different modules are integrated together to achieve different functionality, for example a user views the menu (Manage Cafeteria Module), and then proceeds to select a menu item and place an order (Place Order Module). 
+\subsubsection{Integrability}  
+\item  Integrability refers to the ability of the different components of the system to be compatible and pluggable with each other as well as with the components of separate systems. The modules of the cafeteria management system are developed as separate pluggable modules to enforce Integrability. The different modules are integrated together to achieve different functionality, for example a user views the menu (Manage Cafeteria Module), and then proceeds to select a menu item and place an order (Place Order Module). 
  
 \subsubsection{Testability} 
 \item  It is important to ensure that a software system is adequately tested at various levels. In other words, testing is based on the 
-concept of incremental development - during the construction of the system, each added component needs to be thorougly tested to ensure that the functionality works correctly, before it is integrated with the other system components. 
+concept of incremental development - during the construction of the system, each added component needs to be thourougly tested to ensure that the functionality works correctly, before it is integrated with the other system components. 
 \end{itemize}
 
 
@@ -344,7 +344,7 @@ The integration channels will also be accessible by the mobile applications, suc
 \item The system will also have to integrate with the server to pass information to and from the database.
 \end{itemize}
 
-%%------------------PROTCOLS -----------------------------
+%%------------------PROTOCOLS -----------------------------
 \subsection{Protocols}
 
 %%-------HTTP------------

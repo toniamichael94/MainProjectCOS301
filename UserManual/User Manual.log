@@ -1,21 +1,14 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.5.1)  28 AUG 2015 21:58
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.23)  28 AUG 2015 22:57
 entering extended mode
-**User*Manual.tex
-("C:\Users\Rendani\Documents\MainProjectCOS301\UserManual\User Manual.tex"
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**"User Manual.tex"
+(./User Manual.tex
 LaTeX2e <2011/06/27>
-Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
-abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
-croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
-lician, german, german-x-2013-05-26, greek, gujarati, hindi, hungarian, iceland
-ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
- lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
-german-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
-ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
-an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
-ishmax, welsh, loaded.
-(C:\MikTex\tex\latex\base\article.cls
+Babel <3.9h> and hyphenation patterns for 2 languages loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
-(C:\MikTex\tex\latex\base\size12.clo
+(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
 File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -30,16 +23,16 @@ File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(C:\MikTex\tex\latex\hyperref\hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
 
-(C:\MikTex\tex\generic\oberdiek\hobsub-hyperref.sty
-Package: hobsub-hyperref 2012/04/25 v1.12 Bundle oberdiek, subset hyperref (HO)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+Package: hobsub-hyperref 2012/05/28 v1.13 Bundle oberdiek, subset hyperref (HO)
 
 
-(C:\MikTex\tex\generic\oberdiek\hobsub-generic.sty
-Package: hobsub-generic 2012/04/25 v1.12 Bundle oberdiek, subset generic (HO)
-Package: hobsub 2012/04/25 v1.12 Construct package bundles (HO)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+Package: hobsub-generic 2012/05/28 v1.13 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2012/05/28 v1.13 Construct package bundles (HO)
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
@@ -70,7 +63,7 @@ Package: uniquecounter 2011/01/30 v1.2 Provide unlimited unique counter (HO)
 )
 Package hobsub Info: Skipping package `hobsub' (already loaded).
 Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
-Package: hopatch 2011/06/24 v1.1 Wrapper for package hooks (HO)
+Package: hopatch 2012/05/28 v1.2 Wrapper for package hooks (HO)
 Package: xcolor-patch 2011/01/30 xcolor patch
 Package: atveryend 2011/06/30 v1.8 Hooks at the very end of document (HO)
 Package atveryend Info: \enddocument detected (standard20110627).
@@ -78,29 +71,29 @@ Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
 Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
 Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
 )
-(C:\MikTex\tex\latex\graphics\keyval.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-(C:\MikTex\tex\generic\ifxetex\ifxetex.sty
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-(C:\MikTex\tex\latex\oberdiek\auxhook.sty
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
 Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
 )
-(C:\MikTex\tex\latex\oberdiek\kvoptions.sty
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 )
 \@linkdim=\dimen103
 \Hy@linkcounter=\count87
 \Hy@pagecounter=\count88
 
-(C:\MikTex\tex\latex\hyperref\pd1enc.def
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
 )
 \Hy@SavedSpaceFactor=\count89
 
-(C:\MikTex\tex\latex\00miktex\hyperref.cfg
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
 Package hyperref Info: Hyper figures OFF on input line 4443.
@@ -111,7 +104,8 @@ Package hyperref Info: Backreferencing OFF on input line 4463.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4688.
 \c@Hy@tempcnt=\count90
- (C:\MikTex\tex\latex\url\url.sty
+
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
@@ -136,50 +130,51 @@ LaTeX Info: Redefining \pageref on input line 6369.
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
-(C:\MikTex\tex\latex\hyperref\hpdftex.def
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
 \Fld@listcount=\count95
 \c@bookmark@seq@number=\count96
 
-(C:\MikTex\tex\latex\oberdiek\rerunfilecheck.sty
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 )
 \Hy@SectionHShift=\skip43
 )
-(C:\MikTex\tex\latex\graphics\graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-(C:\MikTex\tex\latex\graphics\graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-(C:\MikTex\tex\latex\graphics\trig.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(C:\MikTex\tex\latex\00miktex\graphics.cfg
-File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
 
-(C:\MikTex\tex\latex\pdftex-def\pdftex.def
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 \Gread@gobject=\count97
 ))
 \Gin@req@height=\dimen107
 \Gin@req@width=\dimen108
 )
-(C:\MikTex\tex\latex\float\float.sty
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count98
 \float@exts=\toks15
 \float@box=\box26
 \@float@everytoks=\toks16
 \@floatcapt=\box27
-) (C:\MikTex\tex\latex\caption\caption.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
 
-(C:\MikTex\tex\latex\caption\caption3.sty
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 57.
 \captionmargin=\dimen109
@@ -194,17 +189,18 @@ Package caption3 Info: TeX engine: e-TeX on input line 57.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 )
-(C:\MikTex\tex\latex\tools\array.sty
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
 Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
 \col@sep=\dimen116
 \extrarowheight=\dimen117
 \NC@list=\toks17
 \extratabsurround=\skip44
 \backup@length=\skip45
-) (C:\MikTex\tex\latex\tabu\tabu.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tabu/tabu.sty
 Package: tabu 2011/02/26 v2.8 - flexible LaTeX tabulars (FC)
 
-(C:\MikTex\tex\latex\ltxmisc\varwidth.sty
+(/usr/share/texlive/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@box=\box28
 \sift@deathcycles=\count100
@@ -234,7 +230,9 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \tabu@vleads=\box32
 \tabu@cellskip=\skip46
 )
-No file User*Manual.aux.
+No file "User Manual".aux.
+\openout1 = `"User Manual.aux"'.
+
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
 LaTeX Font Info:    ... okay on input line 21.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
@@ -251,10 +249,10 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 21.
 LaTeX Font Info:    ... okay on input line 21.
 \AtBeginShipoutBox=\box33
 Package hyperref Info: Link coloring OFF on input line 21.
-(C:\MikTex\tex\latex\hyperref\nameref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
-(C:\MikTex\tex\generic\oberdiek\gettitlestring.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count107
@@ -263,8 +261,10 @@ LaTeX Info: Redefining \ref on input line 21.
 LaTeX Info: Redefining \pageref on input line 21.
 LaTeX Info: Redefining \nameref on input line 21.
 \@outlinefile=\write3
+\openout3 = `"User Manual.out"'.
 
-(C:\MikTex\tex\context\base\supp-pdf.mkii
+
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count108
 \scratchdimen=\dimen129
@@ -277,19 +277,35 @@ LaTeX Info: Redefining \nameref on input line 21.
 \MPnumerator=\count112
 \makeMPintoPDFobject=\count113
 \everyMPtoPDFconversion=\toks21
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
 )
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <14.4> on input line 23.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 23.
- [1
 
-{C:/Users/Rendani/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 \tf@toc=\write4
+\openout4 = `"User Manual.toc"'.
 
-[2]
+ [2]
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 30.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -297,239 +313,228 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 30.
 
-Overfull \hbox (76.96283pt too wide) in paragraph at lines 46--62
+Overfull \hbox (82.83777pt too wide) in paragraph at lines 46--65
  [][] 
  []
 
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 77--78
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[3] [4]
+Underfull \hbox (badness 10000) in paragraph at lines 80--81
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 79--80
+Underfull \hbox (badness 10000) in paragraph at lines 82--83
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 86--87
-
- []
-
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 90--93
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 99--104
+Underfull \hbox (badness 10000) in paragraph at lines 89--90
 
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 111--120
+Underfull \hbox (badness 10000) in paragraph at lines 93--96
 
  []
 
 
-Overfull \hbox (20.5502pt too wide) in paragraph at lines 111--120
+Underfull \hbox (badness 10000) in paragraph at lines 102--107
+
+ []
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 114--123
+
+ []
+
+
+Overfull \hbox (20.5502pt too wide) in paragraph at lines 114--123
 []$\OT1/cmtt/m/n/12 https : / / git-[]scm . com / book / en / v2 / Git-[]Basics
 -[]Getting-[]a-[]Git-[]Repository$[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--120
+Underfull \hbox (badness 10000) in paragraph at lines 114--123
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 129--132
+Underfull \hbox (badness 10000) in paragraph at lines 132--135
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 129--132
+Underfull \hbox (badness 10000) in paragraph at lines 132--135
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 133.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 136.
 
-(C:\MikTex\tex\latex\base\omscmr.fd
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 133.
- [6]
-Underfull \hbox (badness 10000) in paragraph at lines 152--155
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 136.
+ [7]
+Underfull \hbox (badness 10000) in paragraph at lines 155--158
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 152--155
+Underfull \hbox (badness 10000) in paragraph at lines 155--158
 
  []
 
-<screenshots/MongoDB.png, id=48, 509.65407pt x 257.46187pt>
+<screenshots/MongoDB.png, id=54, 509.65407pt x 257.46187pt>
 File: screenshots/MongoDB.png Graphic file (type png)
 
 <use screenshots/MongoDB.png>
-Package pdftex.def Info: screenshots/MongoDB.png used on input line 158.
+Package pdftex.def Info: screenshots/MongoDB.png used on input line 161.
 (pdftex.def)             Requested size: 390.0pt x 197.02446pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 162--163
+Underfull \hbox (badness 10000) in paragraph at lines 165--166
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 162--163
+Underfull \hbox (badness 10000) in paragraph at lines 165--166
 
  []
 
-[7 <C:/Users/Rendani/Documents/MainProjectCOS301/UserManual/screenshots/MongoDB
-.png>] <screenshots/gruntOutput.png, id=57, 510.40688pt x 294.34969pt>
+<screenshots/gruntOutput.png, id=56, 510.40688pt x 294.34969pt>
 File: screenshots/gruntOutput.png Graphic file (type png)
 
 <use screenshots/gruntOutput.png>
-Package pdftex.def Info: screenshots/gruntOutput.png used on input line 170.
+Package pdftex.def Info: screenshots/gruntOutput.png used on input line 173.
 (pdftex.def)             Requested size: 390.0pt x 224.92075pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 174--176
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 181--182
-
- []
-
-[8 <C:/Users/Rendani/Documents/MainProjectCOS301/UserManual/screenshots/gruntOu
-tput.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 185--187
+ [8 <./screenshots/MongoDB.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 177--179
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 188--191
+Underfull \hbox (badness 10000) in paragraph at lines 184--185
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 192--195
+Underfull \hbox (badness 10000) in paragraph at lines 188--190
+
+ []
+
+[9 <./screenshots/gruntOutput.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 191--194
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 196--198
+Underfull \hbox (badness 10000) in paragraph at lines 195--198
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 199--200
+Underfull \hbox (badness 10000) in paragraph at lines 199--201
 
  []
 
-<screenshots/signUp.png, id=65, 1024.57782pt x 303.38344pt>
-File: screenshots/signUp.png Graphic file (type png)
 
-<use screenshots/signUp.png>
-Package pdftex.def Info: screenshots/signUp.png used on input line 208.
+Underfull \hbox (badness 10000) in paragraph at lines 202--203
+
+ []
+
+<screenshots/signUp.PNG, id=70, 1024.57782pt x 303.38344pt>
+File: screenshots/signUp.PNG Graphic file (type png)
+
+<use screenshots/signUp.PNG>
+Package pdftex.def Info: screenshots/signUp.PNG used on input line 211.
 (pdftex.def)             Requested size: 390.0pt x 115.48132pt.
- [9]
-<screenshots/signUpPage.png, id=72, 788.9475pt x 472.01344pt>
-File: screenshots/signUpPage.png Graphic file (type png)
+ [10]
+<screenshots/signUpPage.PNG, id=77, 788.9475pt x 472.01344pt>
+File: screenshots/signUpPage.PNG Graphic file (type png)
 
-<use screenshots/signUpPage.png>
-Package pdftex.def Info: screenshots/signUpPage.png used on input line 216.
+<use screenshots/signUpPage.PNG>
+Package pdftex.def Info: screenshots/signUpPage.PNG used on input line 219.
 (pdftex.def)             Requested size: 390.0pt x 233.32686pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 220--223
+Underfull \hbox (badness 10000) in paragraph at lines 223--226
 
  []
 
-[10 <C:/Users/Rendani/Documents/MainProjectCOS301/UserManual/screenshots/signUp
-.png> <C:/Users/Rendani/Documents/MainProjectCOS301/UserManual/screenshots/sign
-UpPage.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 224--225
+[11 <./screenshots/signUp.PNG> <./screenshots/signUpPage.PNG>]
+Underfull \hbox (badness 10000) in paragraph at lines 227--228
 
  []
 
-<screenshots/signIn.png, id=81, 1026.83624pt x 300.3722pt>
+<screenshots/signIn.png, id=86, 1026.83624pt x 300.3722pt>
 File: screenshots/signIn.png Graphic file (type png)
 
 <use screenshots/signIn.png>
-Package pdftex.def Info: screenshots/signIn.png used on input line 234.
+Package pdftex.def Info: screenshots/signIn.png used on input line 237.
 (pdftex.def)             Requested size: 390.0pt x 114.08302pt.
 File: screenshots/signIn.png Graphic file (type png)
  <use screenshots/signIn.png>
-Package pdftex.def Info: screenshots/signIn.png used on input line 242.
+Package pdftex.def Info: screenshots/signIn.png used on input line 245.
 (pdftex.def)             Requested size: 390.0pt x 114.08302pt.
- [11 <C:/Users/Rendani/Documents/MainProjectCOS301/UserManual/screenshots/signI
-n.png>]
-<screenshots/ForgotPass.png, id=90, 1606.0pt x 903.375pt>
+ [12 <./screenshots/signIn.png>] <screenshots/ForgotPass.png, id=95, 1606.0pt x
+ 903.375pt>
 File: screenshots/ForgotPass.png Graphic file (type png)
 
 <use screenshots/ForgotPass.png>
-Package pdftex.def Info: screenshots/ForgotPass.png used on input line 251.
+Package pdftex.def Info: screenshots/ForgotPass.png used on input line 254.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 255--256
+Underfull \hbox (badness 10000) in paragraph at lines 258--259
 
  []
 
-<screenshots/emailSentForPass.png, id=91, 1606.0pt x 903.375pt>
+<screenshots/emailSentForPass.png, id=96, 1606.0pt x 903.375pt>
 File: screenshots/emailSentForPass.png Graphic file (type png)
 
 <use screenshots/emailSentForPass.png>
 Package pdftex.def Info: screenshots/emailSentForPass.png used on input line 26
-1.
+4.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
- [12 <C:/Users/Rendani/Documents/MainProjectCOS301/UserManual/screenshots/Forgo
-tPass.png>]
-<screenshots/newPassForPass.png, id=97, 1606.0pt x 903.375pt>
+ [13 <./screenshots/ForgotPass.png>]
+<screenshots/newPassForPass.png, id=103, 1606.0pt x 903.375pt>
 File: screenshots/newPassForPass.png Graphic file (type png)
 
 <use screenshots/newPassForPass.png>
-Package pdftex.def Info: screenshots/newPassForPass.png used on input line 267.
+Package pdftex.def Info: screenshots/newPassForPass.png used on input line 270.
 
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
- [13 <C:/Users/Rendani/Documents/MainProjectCOS301/UserManual/screenshots/email
-SentForPass.png> <C:/Users/Rendani/Documents/MainProjectCOS301/UserManual/scree
-nshots/newPassForPass.png>]
-<screenshots/HomePage.png, id=105, 1003.49907pt x 246.1697pt>
-File: screenshots/HomePage.png Graphic file (type png)
+ [14 <./screenshots/emailSentForPass.png> <./screenshots/newPassForPass.png>]
+<screenshots/HomePage.PNG, id=110, 1003.49907pt x 246.1697pt>
+File: screenshots/HomePage.PNG Graphic file (type png)
 
-<use screenshots/HomePage.png>
-Package pdftex.def Info: screenshots/HomePage.png used on input line 285.
+<use screenshots/HomePage.PNG>
+Package pdftex.def Info: screenshots/HomePage.PNG used on input line 288.
 (pdftex.def)             Requested size: 390.0pt x 95.67148pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 299--302
+Underfull \hbox (badness 10000) in paragraph at lines 302--305
 
  []
 
-[14 <C:/Users/Rendani/Documents/MainProjectCOS301/UserManual/screenshots/HomePa
-ge.png>] <screenshots/HomePage2.png, id=120, 1018.55531pt x 257.46187pt>
-File: screenshots/HomePage2.png Graphic file (type png)
+[15 <./screenshots/HomePage.PNG>]
+<screenshots/HomePage2.PNG, id=125, 1018.55531pt x 257.46187pt>
+File: screenshots/HomePage2.PNG Graphic file (type png)
 
-<use screenshots/HomePage2.png>
-Package pdftex.def Info: screenshots/HomePage2.png used on input line 310.
+<use screenshots/HomePage2.PNG>
+Package pdftex.def Info: screenshots/HomePage2.PNG used on input line 313.
 (pdftex.def)             Requested size: 390.0pt x 98.58295pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 315--316
+Underfull \hbox (badness 10000) in paragraph at lines 318--319
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 328--330
-
- []
-
-[15 <C:/Users/Rendani/Documents/MainProjectCOS301/UserManual/screenshots/HomePa
-ge2.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 331--333
 
  []
 
-
+[16 <./screenshots/HomePage2.PNG>]
 Underfull \hbox (badness 10000) in paragraph at lines 334--336
 
  []
@@ -539,209 +544,240 @@ Underfull \hbox (badness 10000) in paragraph at lines 337--339
 
  []
 
-<screenshots/searchCheese.png, id=136, 1606.0pt x 903.375pt>
-File: screenshots/searchCheese.png Graphic file (type png)
 
-<use screenshots/searchCheese.png>
-Package pdftex.def Info: screenshots/searchCheese.png used on input line 350.
-(pdftex.def)             Requested size: 390.0pt x 219.37833pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 345--352
+Underfull \hbox (badness 10000) in paragraph at lines 340--342
 
  []
 
-[16]
+<screenshots/searchCheese.png, id=141, 1606.0pt x 903.375pt>
 File: screenshots/searchCheese.png Graphic file (type png)
- <use screenshots/searchCheese.png>
-Package pdftex.def Info: screenshots/searchCheese.png used on input line 357.
+
+<use screenshots/searchCheese.png>
+Package pdftex.def Info: screenshots/searchCheese.png used on input line 353.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
 
-<screenshots/catMenu.png, id=142, 1606.0pt x 903.375pt>
+Underfull \hbox (badness 10000) in paragraph at lines 348--355
+
+ []
+
+[17]
+File: screenshots/searchCheese.png Graphic file (type png)
+ <use screenshots/searchCheese.png>
+Package pdftex.def Info: screenshots/searchCheese.png used on input line 360.
+(pdftex.def)             Requested size: 390.0pt x 219.37833pt.
+
+<screenshots/catMenu.png, id=148, 1606.0pt x 903.375pt>
 File: screenshots/catMenu.png Graphic file (type png)
 
 <use screenshots/catMenu.png>
-Package pdftex.def Info: screenshots/catMenu.png used on input line 363.
+Package pdftex.def Info: screenshots/catMenu.png used on input line 366.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
- [17 <C:/Users/Rendani/Documents/MainProjectCOS301/UserManual/screenshots/searc
-hCheese.png>]
-<screenshots/addToPlate.png, id=149, 1606.0pt x 903.375pt>
+ [18 <./screenshots/searchCheese.png>]
+<screenshots/addToPlate.png, id=155, 1606.0pt x 903.375pt>
 File: screenshots/addToPlate.png Graphic file (type png)
 
 <use screenshots/addToPlate.png>
-Package pdftex.def Info: screenshots/addToPlate.png used on input line 369.
+Package pdftex.def Info: screenshots/addToPlate.png used on input line 372.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
- [18 <C:/Users/Rendani/Documents/MainProjectCOS301/UserManual/screenshots/catMe
-nu.png> <C:/Users/Rendani/Documents/MainProjectCOS301/UserManual/screenshots/ad
-dToPlate.png>]
-<screenshots/addedOnPlate.png, id=156, 1606.0pt x 903.375pt>
-File: screenshots/addedOnPlate.png Graphic file (type png)
+ [19 <./screenshots/catMenu.png> <./screenshots/addToPlate.png>] <screenshots/v
+iewOrder1.png, id=163, 1606.0pt x 903.375pt>
+File: screenshots/viewOrder1.png Graphic file (type png)
 
-<use screenshots/addedOnPlate.png>
-Package pdftex.def Info: screenshots/addedOnPlate.png used on input line 379.
+<use screenshots/viewOrder1.png>
+Package pdftex.def Info: screenshots/viewOrder1.png used on input line 382.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
 
-<screenshots/editProfile.png, id=157, 1606.0pt x 903.375pt>
+<screenshots/viewOrder2.png, id=164, 1606.0pt x 903.375pt>
+File: screenshots/viewOrder2.png Graphic file (type png)
+
+<use screenshots/viewOrder2.png>
+Package pdftex.def Info: screenshots/viewOrder2.png used on input line 387.
+(pdftex.def)             Requested size: 390.0pt x 219.37833pt.
+
+<screenshots/viewOrder3.png, id=165, 1606.0pt x 903.375pt>
+File: screenshots/viewOrder3.png Graphic file (type png)
+
+<use screenshots/viewOrder3.png>
+Package pdftex.def Info: screenshots/viewOrder3.png used on input line 392.
+(pdftex.def)             Requested size: 390.0pt x 219.37833pt.
+ [20 <./screenshots/viewOrder1.png>] [21 <./screenshots/viewOrder2.png> <./scre
+enshots/viewOrder3.png>]
+<screenshots/editProfile.png, id=178, 1606.0pt x 903.375pt>
 File: screenshots/editProfile.png Graphic file (type png)
 
 <use screenshots/editProfile.png>
-Package pdftex.def Info: screenshots/editProfile.png used on input line 389.
+Package pdftex.def Info: screenshots/editProfile.png used on input line 402.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
- [19 <C:/Users/Rendani/Documents/MainProjectCOS301/UserManual/screenshots/added
-OnPlate.png>]
-<screenshots/limitExeeds.png, id=166, 1606.0pt x 903.375pt>
+
+<screenshots/limitExeeds.png, id=179, 1606.0pt x 903.375pt>
 File: screenshots/limitExeeds.png Graphic file (type png)
 
 <use screenshots/limitExeeds.png>
-Package pdftex.def Info: screenshots/limitExeeds.png used on input line 395.
+Package pdftex.def Info: screenshots/limitExeeds.png used on input line 408.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
-
-<screenshots/viewProfile.png, id=167, 1606.0pt x 903.375pt>
+ [22 <./screenshots/editProfile.png>]
+<screenshots/viewProfile.png, id=186, 1606.0pt x 903.375pt>
 File: screenshots/viewProfile.png Graphic file (type png)
 
 <use screenshots/viewProfile.png>
-Package pdftex.def Info: screenshots/viewProfile.png used on input line 405.
+Package pdftex.def Info: screenshots/viewProfile.png used on input line 418.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
- [20 <C:/Users/Rendani/Documents/MainProjectCOS301/UserManual/screenshots/editP
-rofile.png> <C:/Users/Rendani/Documents/MainProjectCOS301/UserManual/screenshot
-s/limitExeeds.png>]
-<screenshots/changePassDontMatch.png, id=174, 1606.0pt x 903.375pt>
+ [23 <./screenshots/limitExeeds.png>]
+<screenshots/changePassDontMatch.png, id=193, 1606.0pt x 903.375pt>
 File: screenshots/changePassDontMatch.png Graphic file (type png)
 
 <use screenshots/changePassDontMatch.png>
 Package pdftex.def Info: screenshots/changePassDontMatch.png used on input line
- 415.
+ 428.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
- [21 <C:/Users/Rendani/Documents/MainProjectCOS301/UserManual/screenshots/viewP
-rofile.png>]
-<screenshots/assignRole.png, id=182, 1606.0pt x 903.375pt>
+ [24 <./screenshots/viewProfile.png>]
+<screenshots/assignRole.png, id=200, 1606.0pt x 903.375pt>
 File: screenshots/assignRole.png Graphic file (type png)
 
 <use screenshots/assignRole.png>
-Package pdftex.def Info: screenshots/assignRole.png used on input line 424.
+Package pdftex.def Info: screenshots/assignRole.png used on input line 437.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
- [22 <C:/Users/Rendani/Documents/MainProjectCOS301/UserManual/screenshots/chang
-ePassDontMatch.png>]
-<screenshots/changeEmplid.png, id=189, 1606.0pt x 903.375pt>
+ [25 <./screenshots/changePassDontMatch.png>]
+<screenshots/changeEmplid.png, id=208, 1606.0pt x 903.375pt>
 File: screenshots/changeEmplid.png Graphic file (type png)
 
 <use screenshots/changeEmplid.png>
-Package pdftex.def Info: screenshots/changeEmplid.png used on input line 430.
+Package pdftex.def Info: screenshots/changeEmplid.png used on input line 443.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
 
-<screenshots/removeUser.png, id=190, 1606.0pt x 903.375pt>
+<screenshots/removeUser.png, id=209, 1606.0pt x 903.375pt>
 File: screenshots/removeUser.png Graphic file (type png)
 
 <use screenshots/removeUser.png>
-Package pdftex.def Info: screenshots/removeUser.png used on input line 436.
+Package pdftex.def Info: screenshots/removeUser.png used on input line 449.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
- [23 <C:/Users/Rendani/Documents/MainProjectCOS301/UserManual/screenshots/assig
-nRole.png> <C:/Users/Rendani/Documents/MainProjectCOS301/UserManual/screenshots
-/changeEmplid.png>]
-<screenshots/setLimit.png, id=197, 1606.0pt x 903.375pt>
+ [26 <./screenshots/assignRole.png> <./screenshots/changeEmplid.png>]
+<screenshots/setLimit.png, id=216, 1606.0pt x 903.375pt>
 File: screenshots/setLimit.png Graphic file (type png)
 
 <use screenshots/setLimit.png>
-Package pdftex.def Info: screenshots/setLimit.png used on input line 442.
+Package pdftex.def Info: screenshots/setLimit.png used on input line 455.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
- [24 <C:/Users/Rendani/Documents/MainProjectCOS301/UserManual/screenshots/remov
-eUser.png> <C:/Users/Rendani/Documents/MainProjectCOS301/UserManual/screenshots
-/setLimit.png>]
-<screenshots/coverImage.png, id=204, 1606.0pt x 903.375pt>
+ [27 <./screenshots/removeUser.png> <./screenshots/setLimit.png>] <screenshots/
+coverImage.png, id=223, 1606.0pt x 903.375pt>
 File: screenshots/coverImage.png Graphic file (type png)
 
 <use screenshots/coverImage.png>
-Package pdftex.def Info: screenshots/coverImage.png used on input line 451.
+Package pdftex.def Info: screenshots/coverImage.png used on input line 464.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
 
-<screenshots/canteenName.png, id=205, 1606.0pt x 903.375pt>
+<screenshots/canteenName.png, id=224, 1606.0pt x 903.375pt>
 File: screenshots/canteenName.png Graphic file (type png)
 
 <use screenshots/canteenName.png>
-Package pdftex.def Info: screenshots/canteenName.png used on input line 457.
+Package pdftex.def Info: screenshots/canteenName.png used on input line 470.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
- [25 <C:/Users/Rendani/Documents/MainProjectCOS301/UserManual/screenshots/cover
-Image.png>]
-Overfull \hbox (1.09956pt too wide) in paragraph at lines 461--461
+ [28 <./screenshots/coverImage.png>]
+Overfull \hbox (1.09956pt too wide) in paragraph at lines 474--474
 []\OT1/cmr/bx/n/14.4 Cafeteria Man-ager: The "Man-age In-ven-tory" Page 
  []
 
-<screenshots/addInv.png, id=213, 1606.0pt x 903.375pt>
+<screenshots/addInv.png, id=231, 1606.0pt x 903.375pt>
 File: screenshots/addInv.png Graphic file (type png)
 
 <use screenshots/addInv.png>
-Package pdftex.def Info: screenshots/addInv.png used on input line 466.
+Package pdftex.def Info: screenshots/addInv.png used on input line 479.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
- [26 <C:/Users/Rendani/Documents/MainProjectCOS301/UserManual/screenshots/cante
-enName.png>]
-<screenshots/updateInv.png, id=220, 1606.0pt x 903.375pt>
+ [29 <./screenshots/canteenName.png>]
+<screenshots/updateInv.png, id=238, 1606.0pt x 903.375pt>
 File: screenshots/updateInv.png Graphic file (type png)
 
 <use screenshots/updateInv.png>
-Package pdftex.def Info: screenshots/updateInv.png used on input line 472.
+Package pdftex.def Info: screenshots/updateInv.png used on input line 485.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
- [27 <C:/Users/Rendani/Documents/MainProjectCOS301/UserManual/screenshots/addIn
-v.png> <C:/Users/Rendani/Documents/MainProjectCOS301/UserManual/screenshots/upd
-ateInv.png>]
-<screenshots/addMenu.png, id=227, 1606.0pt x 903.375pt>
+ [30 <./screenshots/addInv.png> <./screenshots/updateInv.png>] <screenshots/add
+Menu.png, id=245, 1606.0pt x 903.375pt>
 File: screenshots/addMenu.png Graphic file (type png)
 
 <use screenshots/addMenu.png>
-Package pdftex.def Info: screenshots/addMenu.png used on input line 481.
+Package pdftex.def Info: screenshots/addMenu.png used on input line 494.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
 
-<screenshots/searchMenuItem.png, id=228, 1606.0pt x 903.375pt>
+<screenshots/searchMenuItem.png, id=246, 1606.0pt x 903.375pt>
 File: screenshots/searchMenuItem.png Graphic file (type png)
 
 <use screenshots/searchMenuItem.png>
-Package pdftex.def Info: screenshots/searchMenuItem.png used on input line 487.
+Package pdftex.def Info: screenshots/searchMenuItem.png used on input line 500.
 
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
- [28 <C:/Users/Rendani/Documents/MainProjectCOS301/UserManual/screenshots/addMe
-nu.png>]
-<screenshots/updateMenu.png, id=235, 1606.0pt x 903.375pt>
+ [31 <./screenshots/addMenu.png>]
+<screenshots/updateMenu.png, id=254, 1606.0pt x 903.375pt>
 File: screenshots/updateMenu.png Graphic file (type png)
 
 <use screenshots/updateMenu.png>
-Package pdftex.def Info: screenshots/updateMenu.png used on input line 493.
+Package pdftex.def Info: screenshots/updateMenu.png used on input line 506.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
 
-<screenshots/deleteHam.png, id=236, 1606.0pt x 903.375pt>
+<screenshots/deleteHam.png, id=255, 1606.0pt x 903.375pt>
 File: screenshots/deleteHam.png Graphic file (type png)
 
 <use screenshots/deleteHam.png>
-Package pdftex.def Info: screenshots/deleteHam.png used on input line 499.
+Package pdftex.def Info: screenshots/deleteHam.png used on input line 512.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
- [29 <C:/Users/Rendani/Documents/MainProjectCOS301/UserManual/screenshots/searc
-hMenuItem.png> <C:/Users/Rendani/Documents/MainProjectCOS301/UserManual/screens
-hots/updateMenu.png>] [30 <C:/Users/Rendani/Documents/MainProjectCOS301/UserMan
-ual/screenshots/deleteHam.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 533.
- [31]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 533.
+ [32 <./screenshots/searchMenuItem.png> <./screenshots/updateMenu.png>]
+<screenshots/cashier.png, id=262, 1606.0pt x 903.375pt>
+File: screenshots/cashier.png Graphic file (type png)
 
-("C:\Users\Rendani\Documents\MainProjectCOS301\UserManual\User Manual.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 533.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 533.
-Package rerunfilecheck Info: File `User*Manual.out' has not changed.
-(rerunfilecheck)             Checksum: <no file>.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 533.
+<use screenshots/cashier.png>
+Package pdftex.def Info: screenshots/cashier.png used on input line 521.
+(pdftex.def)             Requested size: 390.0pt x 219.37833pt.
+ [33 <./screenshots/deleteHam.png>]
+<screenshots/cashierReady.png, id=269, 1606.0pt x 903.375pt>
+File: screenshots/cashierReady.png Graphic file (type png)
+
+<use screenshots/cashierReady.png>
+Package pdftex.def Info: screenshots/cashierReady.png used on input line 527.
+(pdftex.def)             Requested size: 390.0pt x 219.37833pt.
+
+<screenshots/cashierCredit.png, id=270, 1606.0pt x 903.375pt>
+File: screenshots/cashierCredit.png Graphic file (type png)
+
+<use screenshots/cashierCredit.png>
+Package pdftex.def Info: screenshots/cashierCredit.png used on input line 533.
+(pdftex.def)             Requested size: 390.0pt x 219.37833pt.
+ [34 <./screenshots/cashier.png> <./screenshots/cashierReady.png>] [35 <./scree
+nshots/cashierCredit.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 564.
+ [36]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 564.
+
+(./User Manual.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 564.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 564.
+
+
+Package rerunfilecheck Warning: File `"User Manual".out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `"User Manual".out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  9912C2A394CE59245DD8AB6F3188BBF1;2048.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 564.
  ) 
 Here is how much of TeX's memory you used:
- 7052 strings out of 493921
- 107424 string characters out of 3154495
- 189092 words of memory out of 3000000
- 10188 multiletter control sequences out of 15000+200000
- 9623 words of font info for 34 fonts, out of 3000000 for 9000
- 841 hyphenation exceptions out of 8191
- 36i,13n,38p,853b,382s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/MikTex/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/MikTex/fonts/type1/p
-ublic/amsfonts/cm/cmr12.pfb><C:/MikTex/fonts/type1/public/amsfonts/cm/cmr17.pfb
-><C:/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/MikTex/fonts/type1/pu
-blic/amsfonts/cm/cmti12.pfb><C:/MikTex/fonts/type1/public/amsfonts/cm/cmtt12.pf
-b>
-Output written on "User Manual.pdf" (31 pages, 4697354 bytes).
+ 7199 strings out of 495028
+ 111581 string characters out of 6181497
+ 193215 words of memory out of 5000000
+ 10226 multiletter control sequences out of 15000+600000
+ 9623 words of font info for 34 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 36i,13n,38p,854b,437s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on "User Manual.pdf" (36 pages, 5617001 bytes).
 PDF statistics:
- 300 PDF objects out of 1000 (max. 8388607)
- 108 named destinations out of 1000 (max. 500000)
- 151 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 337 PDF objects out of 1000 (max. 8388607)
+ 248 compressed objects within 3 object streams
+ 118 named destinations out of 1000 (max. 500000)
+ 176 words of extra memory for PDF output out of 10000 (max. 10000000)
 
