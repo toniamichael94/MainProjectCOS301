@@ -13,3 +13,5 @@ orders.server.controller
 menuitems.client.controller
 menuitems.server.controller
 users.superuser.server.controller
+users.authorization.server.controller
+users.password.server.controller
