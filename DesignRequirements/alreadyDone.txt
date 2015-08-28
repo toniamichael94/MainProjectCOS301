@@ -15,3 +15,6 @@ menuitems.server.controller
 users.superuser.server.controller
 users.authorization.server.controller
 users.password.server.controller
+errors.server.controller
+core.server.controller
+tests.server.controller
