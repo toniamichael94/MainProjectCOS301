@@ -165,8 +165,7 @@ The authentication controller allows existing users to log in and new users to s
 \item Methods:
 	\begin{itemize}
 		\item Get orders \\ \$scope.getOrders = function()
-		\\ \\ Usage: Function to obtain the list of orders that an order placed from the menu
- 
+		\\ \\ Usage: Function to obtain the list of orders that an order placed from the menu 
 		\item Mark as ready \\ \$scope.markAsReady = function(String username, String orderNumber) 
 		\\ \\ Usage: Function that the cashier uses to send a notification to the user notifying the user that their order is ready. The function also changes the status in the model from open to ready.
 	\item Mark as collected \\ \$scope.markAsCollected = function(String username, String itemName, String orderNumber) 
