@@ -226,7 +226,7 @@ The authentication controller allows existing users to log in and new users to s
 	\end{itemize}	
 \end{enumerate}
 
-\subsection{users.profile.server.controller}
+\subsection{users.profile.server.controller.js}
  The profile controller provides fuctionality to search for an employee, retrieve the system limit, and for a user to update his/her password.
  \begin{enumerate}
  \item Methods:
@@ -245,7 +245,7 @@ The authentication controller allows existing users to log in and new users to s
 		 This method allows an employee to be searched. It returns the emplyee details if that employee is found, if the employee is not found it displays an error message.
  	\end{itemize}
  \end{enumerate}
-\subsection{settings.client.controller}
+\subsection{settings.client.controller.js}
  The settings controller allows the user to view and edit profile information. The controller also perfomrs security checks to make sure that unauthorised users cannot access certain functions of the system.
  \begin{enumerate}
  \item Declaration:\\angular.module('users').controller('SettingsController', ['\$scope', '\$http', '\$location', 'Users', 'Authentication',
@@ -283,7 +283,7 @@ This method performs an authentication check to ensure that unauthorised users c
 The checkFinUser method performs a check to establish wheter the user has a finance role or not. It prevents unauthorised users from performing actions that can only be done by users with a finance role.
 	\end{itemize}
  \end{enumerate}
- \subsection{password.client.controller}
+ \subsection{password.client.controller.js}
  The password controller allows a user to reset his/her passoword if they forgot what their password is. 
  \begin{enumerate}
  \item Declaration:\\angular.module('users').controller('PasswordController', ['\$scope', '\$stateParams', '\$http', '\$location', 'Authentication',
@@ -366,7 +366,7 @@ The checkFinUser method performs a check to establish wheter the user has a fina
 
 \section{Manage Cafeteria}
 %---------------------------menu items server controller-------------------------------------------------------------
-\subsection{menuItems.server.controller}
+\subsection{menuItems.server.controller.js}
  The menuItems controller handles all the functionality for creating and removing menu items. It also deals with allocating ingredients (inventory items) to the menu items.
 \begin{enumerate}
 \item Methods:
@@ -487,7 +487,7 @@ The menuitems client controller handles all the functionality concerning the men
 \end{enumerate}
 \section{Manage Inventory}
 %-------------------------------inventory client controller
-\subsection{inventory.client.controller}
+\subsection{inventory.client.controlle.jsr}
  The inventory controller handles all the main functionality concerning inventory, such as adding an anventory item.
 \begin{enumerate}
 \item Declaration:\\angular.module('inventory').controller('InventoryController', ['\$scope', '\$http', '\$stateParams', '\$location', 'Authentication', 'Inventory',
@@ -652,10 +652,10 @@ function(\$scope, \$rootScope, \$http, \$stateParams, \$location, \$cookies, Aut
 	\item Methods:\\
 	\begin{itemize}
 	\item Load canteen info\\
-	$scope.loadCanteenInfo = function()\\ \\
+	\$scope.loadCanteenInfo = function()\\ \\
 	Usage: This function loads the canteen name, if there is no name for the canteen it sets the cateen name to ``Canteen Name''.
 	\item Sign out\\
-	$scope.signout = function()\\ \\
+	\$scope.signout = function()\\ \\
 	Usage: This method clears any orders of the user that might be stored in cookies when that user signs out.
 	
 	\end{itemize}
