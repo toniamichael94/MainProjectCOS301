@@ -128,6 +128,17 @@ The authentication controller allows existing users to log in and new users to s
 	\end{itemize}
 \end{enumerate} 
 
+\subsection{users.authorization.server.controller.js}
+\begin{enumerate}
+\item Methods: 
+	\begin{itemize}
+		\item User by ID // exports.userByID = function(JsonOBject req,JsonOBject res,JsonOBject next, String id)
+		Usage: 
+	\end{itemize}
+
+\end{enumerate}
+
+
 \section{Manage Profile} 
 %%superuser client controller----------------------------------------------
 \subsection{superuser.client.controller.js}
@@ -281,9 +292,9 @@ The checkFinUser method performs a check to establish wheter the user has a fina
 	function(\$scope, \$http, \$location, \$window, Users, Authentication) 
 \item Methods: 
 	\begin{itemize}
-		\item Assign roles \\ \$scope.assignRoles = function(isValid)  \\ \\
+		\item Assign roles \\ \$scope.assignRoles = function(Boolean isValid)  \\ \\
 		Usage: Superuser can assign cashier, cafeteria manager, finance manager and admin roles
-		\item Assign roles admin role \\ \$scope.assignRolesAdminRole = function(isValid)   \\ \\
+		\item Assign roles admin role \\ \$scope.assignRolesAdminRole = function(Boolean isValid)   \\ \\
 		Usage: Admin user also has access to the assign roles functionality and serves as a back up superuser
 		\item Change employee ID \\ \$scope.changeEmployeeID = function(Boolean isValid)  \\ \\
 		Usage: The superuser can change the employee ID of the users if the user signed up with the incorrect ID or if the company changes the IDs.
@@ -307,18 +318,24 @@ The checkFinUser method performs a check to establish wheter the user has a fina
 \begin{enumerate}
 \item Methods:
 	\begin{itemize}
-		\item Assign roles \\ exports.assignRoles = function(req, res) 
+		\item Assign roles \\ exports.assignRoles = function(JsonObject req, JsonObject res) 
 		\\ \\ Usage: Superuser can assign cashier, cafeteria manager, finance manager and admin roles. It also changes the role of the users in the database/model. 
-		\item Assign roles admin role \\ exports.assignRolesAdminRole = function(req, res) 
+		\item Assign roles admin role \\ exports.assignRolesAdminRole = function(JsonObject req, JsonObject res) 
 		\\ \\ Usage: Admin user also has access to the assign roles functionality and serves as a back up superuser. It also changes the role of the users in the database/model.
-		\item Change employee ID \\ exports.changeEmployeeID = function(req, res)  
+		\item Change employee ID \\ exports.changeEmployeeID = function(JsonObject req, JsonObject res)  
 		\\ \\ Usage: The superuser can change the employee ID of the users if the user signed up with the incorrect ID or if the company changes the IDs. This changes the employee ID of the user and saves the nnew one in the database.
-		\item Remove Employee \\ exports.removeEmployee = function(req, res)  
+		\item Remove Employee \\ exports.removeEmployee = function(JsonObject req, JsonObject res)  
 		\\ \\ Usage: The superuser is also able to remove users from the system, due to resignation or dismissal for example. The employee is then also removed from the database.	
 		\item Send email \\ function sendEmail(newLimit)  
 		\\ \\ Usage: This is a helper function to mail all users of the system. It takes the new limit as a parameter and tells the users what the new limit is in the email.
-		\item Set system wide limit \\ exports.setSystemWideLimit = function(req, res) 
-		\\ \\ Usage: The superuser is able to change the monthly spending limit of the system here and it will save this value to the database.
+		\item Set system wide limit \\ exports.setSystemWideLimit = function(JsonObject req, JsonObject res) 
+		\\ \\ Usage: The superuser is able to change the monthly spending limit of the system here and it will save this value to the database. 
+		\item Set canteen name \\ exports.setCanteenName = function(JsonObject req,JsonObject res)
+		\\ \\ Usage: The superuser is able to change the canteen name of the system and this is then stored in the database.
+		\item Upload Image \\ exports.uploadImage = function(JsonObject req,JsonObject res) \\ \\
+		Usage: The superuser can update the cover image on the home page
+		\item Load employees \\ exports.loadEmployees = function(JsonObject req,JsonObject res)
+		\\ \\ Usage: Employees are loaded from the database for use in other functions
 	\end{itemize}
 \end{enumerate}
 
