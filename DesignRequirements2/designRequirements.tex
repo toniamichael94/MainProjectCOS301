@@ -1,8 +1,8 @@
 \documentclass[a4paper,12pt]{article}
 \begin {document}
 \section{Authentication}
-The authentication controller allows existing users to log in and new users to sign up.
 \subsection{authentication.client.controller}
+The authentication controller allows existing users to log in and new users to sign up.
  \begin{itemize}
  \item Sign up \\
  \$scope.signup = function()\\
@@ -14,6 +14,7 @@ The authentication controller allows existing users to log in and new users to s
  Method that allows an existing user to sign in.
  \end{itemize}
  \subsection{users.authentication.server.controller}
+ The authentication controller allows existing users to log in and new users to sign up. It also creates a new super user or admin if eitehr one does not exist, and it sets the system wide limit to 5000.
  \begin{itemize}
  \item Sign up\\
   exports.signUp = function(req,res)\\
@@ -75,6 +76,28 @@ This method performs an authentication check to ensure that unauthorised users c
 -Usage\\
 The checkFinUser method performs a check to establish wheter the user has a finance role or not. It prevents unauthorised users from performing actions that can only be done by users with a finance role.
  \end{itemize}
+ \section{Profile}
+ The profile controller provides fuctionality to search for an employee, retrieve the system limit, and for a user to update his/her password.
+ \subsection{users.profile.server.controller}
+ \item Update\\
+ exports.update = function(req, res)\\
+ -Usage\\
+ This method allows a user to update his/her profile and displays an error message if the profile could not be updated.
+ \item Me\\
+ exports.me = function(req, res)\\
+ -Usage\\
+ 
+ \item Get system limit\\
+ exports.getSystemLimit = function(req, res)\\
+ -Usage\\
+ This method retrieves the system limit, it is used to prevent an employee from setting their limit too high.
+ \item Search employee\\
+ exports.searchEmployee=function(req,res)\\
+ -Usage\\
+ This method allows an employee to be searched. It returns the emplyee details if that employee is found, if the employee is not found it displays an error message.
+ \begin{itemize}
+ 
+ \end{itemize}
  \section{Password}
  \subsection{password.client.controller}
  The password controller allows a user to reset his/her passoword if they forgot what their password is. 
@@ -87,6 +110,26 @@ The checkFinUser method performs a check to establish wheter the user has a fina
   \$scope.resetUserPassword = function()\\
  -Usage\\
  This method allows the user to choose a new password.
+ \end{itemize}
+ \subsection{users.password.server.controller}
+ This controller allows a user to create a new password or to reset the password in the case where the user forgot his/her password.
+ \begin{itemize}
+ \item Forgot password\\
+ exports.forgot = function(req, res, next)\\
+ -Usage\\
+ This method sends a link to the user who forgot his/her password that they can follow to reset the password. This link is sent to the user's email account. It displays an error message if the user could not be found, if the user id field is blank, or if an email could not be sent.
+ \item Validate reset token\\
+ exports.validateResetToken = function(req, res)\\
+ -Usage\\
+ The method validates that the user can reset his/her password with the link they followed. If the link is invalid it displays an error message.\\
+ \item Reset\\
+ exports.reset = function(req, res, next)\\
+ -Usage\\
+ This method resets the user password if the link followed to reset his/her password is valid. It displays an error message if the user did not enter the same password twice or if the password reset token is invalid. If the password has been changed an email is sent to the user to notify him/her of the change.
+ \item Change password\\
+ exports.changePassword = function(req, res)\\
+ -Usage\\
+ This method allows the user to change his/her password. It displays an error message if the user could not be found or is not logged in, if the user did not enter the current password correctly, if the new password is not long enough, or if the user did not enter the same new password twice in order to confirm the new password.
  \end{itemize}
  \section{Inventory}
  \subsection{inventory.client.controller}
