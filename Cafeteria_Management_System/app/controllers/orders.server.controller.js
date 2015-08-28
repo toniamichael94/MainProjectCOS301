@@ -116,7 +116,7 @@ exports.markAsPaid = function(req, res){
 				total+= orders[order].price * orders[order].quantity;
 			}
 			console.log('total' + total);
-			User.findOne({username: req.user.username}, function(err, user){
+			User.findOne({username: req.body.username}, function(err, user){
 				if(err){ 
 					console.log('Error2' + err);
 					return;
