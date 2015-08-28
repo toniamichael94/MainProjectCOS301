@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.23)  28 AUG 2015 15:58
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.23)  28 AUG 2015 16:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -230,7 +230,7 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \tabu@vleads=\box32
 \tabu@cellskip=\skip46
 )
-No file DesignRequirements.aux.
+(./DesignRequirements.aux)
 \openout1 = `DesignRequirements.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
@@ -249,6 +249,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
 \AtBeginShipoutBox=\box33
 Package hyperref Info: Link coloring OFF on input line 10.
+
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -260,6 +261,8 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 10.
 LaTeX Info: Redefining \pageref on input line 10.
 LaTeX Info: Redefining \nameref on input line 10.
+
+(./DesignRequirements.out) (./DesignRequirements.out)
 \@outlinefile=\write3
 \openout3 = `DesignRequirements.out'.
 
@@ -302,22 +305,23 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+(./DesignRequirements.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 5.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 5.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 5.
+ [2])
 \tf@toc=\write4
 \openout4 = `DesignRequirements.toc'.
 
- [2]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 32.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 32.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 32.
-
+ [3]
 Overfull \hbox (79.70447pt too wide) in paragraph at lines 48--58
  [][] 
  []
 
-[3]
+[4]
 Underfull \hbox (badness 10000) in paragraph at lines 75--76
 
  []
@@ -327,7 +331,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 77--78
 
  []
 
-[4]
+[5]
 Overfull \hbox (4.72646pt too wide) in paragraph at lines 93--95
 \OT1/cmr/m/n/12 angular.module('users').controller('AuthenticationController', 
 ['$scope',
@@ -355,7 +359,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 101--105
 
  []
 
-[5]
+[6]
 Underfull \hbox (badness 10000) in paragraph at lines 113--117
 
  []
@@ -375,7 +379,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 125--128
 
  []
 
-[6]
+[7]
 Overfull \hbox (27.31947pt too wide) in paragraph at lines 135--137
 []\OT1/cmr/m/n/12 User by ID // ex-ports.userByID = func-tion(JsonOBject req,Js
 onOBject
@@ -412,7 +416,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 156--159
 
  []
 
-[7]
+[8]
 Underfull \hbox (badness 10000) in paragraph at lines 159--162
 
  []
@@ -449,7 +453,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 179--181
 
  []
 
-[8]
+[9]
 Underfull \hbox (badness 10000) in paragraph at lines 181--183
 
  []
@@ -484,7 +488,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 192--194
 
  []
 
-[9]
+[10]
 Overfull \hbox (3.42508pt too wide) in paragraph at lines 199--201
 \OT1/cmr/m/n/12 angular.module('users').controller('cashierController', ['$scop
 e', '$http',
@@ -521,7 +525,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 211--213
 
  []
 
-[10]
+[11]
 Overfull \hbox (35.08032pt too wide) in paragraph at lines 218--220
 []\OT1/cmr/m/n/12 Declaration: an-gu-lar.module('users').controller('FinanceCon
 troller', ['$scope',
@@ -547,7 +551,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 238--242
 
  []
 
-[11]
+[12]
 Overfull \hbox (5.73615pt too wide) in paragraph at lines 242--246
 \OT1/cmr/m/n/12 exports.searchEmployee=function(JsonObject req, JsonOb-ject res
 ) 
@@ -584,7 +588,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 264--268
 
  []
 
-[12]
+[13]
 Underfull \hbox (badness 10000) in paragraph at lines 269--274
 
  []
@@ -610,7 +614,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 293--297
 
  []
 
-[13]
+[14]
 Underfull \hbox (badness 10000) in paragraph at lines 297--301
 
  []
@@ -642,7 +646,7 @@ Overfull \hbox (3.80841pt too wide) in paragraph at lines 316--318
 tion($scope, $http,
  []
 
-[14]
+[15]
 Underfull \hbox (badness 10000) in paragraph at lines 320--322
 
  []
@@ -672,7 +676,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 330--332
 
  []
 
-[15]
+[16]
 Underfull \hbox (badness 10000) in paragraph at lines 332--333
 
  []
@@ -708,7 +712,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 348--350
 
  []
 
-[16]
+[17]
 Underfull \hbox (badness 10000) in paragraph at lines 350--352
 
  []
@@ -738,7 +742,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 360--362
 
  []
 
-[17]
+[18]
 Overfull \hbox (2.53757pt too wide) in paragraph at lines 362--364
 \OT1/cmr/m/n/12 exports.loadEmployees = func-tion(JsonObject req,JsonObject res
 ) 
@@ -769,7 +773,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 384--387
 
  []
 
-[18]
+[19]
 Overfull \hbox (1.84592pt too wide) in paragraph at lines 387--390
 \OT1/cmr/m/n/12 exports.createMenuCategory = func-tion(JsonOBject req, JsonOB-
  []
@@ -799,7 +803,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 399--402
 
  []
 
-[19]
+[20]
 Underfull \hbox (badness 10000) in paragraph at lines 402--405
 
  []
@@ -824,7 +828,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 414--417
 
  []
 
-[20]
+[21]
 Overfull \hbox (15.48885pt too wide) in paragraph at lines 424--426
 \OT1/cmr/m/n/12 angular.module('menuItems').controller('MenuItemsController', [
 '$scope',
@@ -836,13 +840,13 @@ Overfull \hbox (5.66673pt too wide) in paragraph at lines 424--426
 stateParams,
  []
 
-[21]
+[22]
 Overfull \hbox (4.19124pt too wide) in paragraph at lines 469--473
 \OT1/cmr/m/n/12 Removes in-gre-di-ents from the new menu item be-ing added. Met
 hod
  []
 
-[22]
+[23]
 Underfull \hbox (badness 10000) in paragraph at lines 497--501
 
  []
@@ -852,7 +856,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 501--505
 
  []
 
-[23]
+[24]
 Underfull \hbox (badness 10000) in paragraph at lines 505--509
 
  []
@@ -882,7 +886,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 525--529
 
  []
 
-[24]
+[25]
 Underfull \hbox (badness 10000) in paragraph at lines 537--541
 
  []
@@ -914,7 +918,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 550--554
 
  []
 
-[25]
+[26]
 Overfull \hbox (88.66444pt too wide) in paragraph at lines 554--558
 []\OT1/cmr/m/n/12 Update in-ven-tory quan-tity ex-ports.updateInventoryQuantity
 =function(JsonOBject
@@ -951,7 +955,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 576--578
 
  []
 
-[26]
+[27]
 Underfull \hbox (badness 10000) in paragraph at lines 578--580
 
  []
@@ -976,7 +980,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 592--594
 
  []
 
-[27]
+[28]
 Underfull \hbox (badness 10000) in paragraph at lines 594--596
 
  []
@@ -996,7 +1000,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 600--602
 
  []
 
-[28]
+[29]
 Underfull \hbox (badness 10000) in paragraph at lines 610--612
 
  []
@@ -1037,7 +1041,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 622--624
 
  []
 
-[29]
+[30]
 Underfull \hbox (badness 10000) in paragraph at lines 631--633
 
  []
@@ -1058,38 +1062,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 644--646
  []
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 650.
-[30]
+[31]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 650.
  (./DesignRequirements.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 650.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 650.
-
-
-Package rerunfilecheck Warning: File `DesignRequirements.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `DesignRequirements.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  84C6E0E494133CDA42525D633B037E47;2274.
+Package rerunfilecheck Info: File `DesignRequirements.out' has not changed.
+(rerunfilecheck)             Checksum: 84C6E0E494133CDA42525D633B037E47;2274.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 650.
  ) 
 Here is how much of TeX's memory you used:
- 6993 strings out of 495028
- 106208 string characters out of 6181497
- 190051 words of memory out of 5000000
- 10081 multiletter control sequences out of 15000+600000
+ 7034 strings out of 495028
+ 106846 string characters out of 6181497
+ 191210 words of memory out of 5000000
+ 10113 multiletter control sequences out of 15000+600000
  9107 words of font info for 32 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 36i,13n,38p,709b,467s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,13n,38p,709b,465s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on DesignRequirements.pdf (30 pages, 96314 bytes).
+Output written on DesignRequirements.pdf (31 pages, 99876 bytes).
 PDF statistics:
- 237 PDF objects out of 1000 (max. 8388607)
- 199 compressed objects within 2 object streams
- 97 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 377 PDF objects out of 1000 (max. 8388607)
+ 336 compressed objects within 4 object streams
+ 98 named destinations out of 1000 (max. 500000)
+ 265 words of extra memory for PDF output out of 10000 (max. 10000000)
 

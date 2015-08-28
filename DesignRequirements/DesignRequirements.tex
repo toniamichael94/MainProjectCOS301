@@ -169,27 +169,27 @@ The authentication controller allows existing users to log in and new users to s
 \subsection{superuser.client.controller.js}
 \begin{enumerate}
 \item Declaration: \\ angular.module('users').controller('superuserController', ['\$scope', '\$http', '\$location', '\$window', 'Users', 'Authentication',
-	function(\$scope, \$http, \$location, \$window, Users, Authentication) \{ \}
+	function(\$scope, \$http, \$location, \$window, Users, Authentication)  
 \item Methods: 
 	\begin{itemize}
-		\item Assign roles \\ \$scope.assignRoles = function(Boolean isValid) \{\} \\ \\
+		\item Assign roles \\ \$scope.assignRoles = function(Boolean isValid)   \\ \\
 		Usage: Superuser can assign cashier, cafeteria manager, finance manager and admin roles
-		\item Assign roles admin role \\ \$scope.assignRolesAdminRole = function(Boolean isValid) \{ \} \\ \\
+		\item Assign roles admin role \\ \$scope.assignRolesAdminRole = function(Boolean isValid) \\ \\
 		Usage: Admin user also has access to the assign roles functionality and serves as a back up superuser
-		\item Change employee ID \\ \$scope.changeEmployeeID = function(Boolean isValid) \{\} \\ \\
+		\item Change employee ID \\ \$scope.changeEmployeeID = function(Boolean isValid)\\ \\
 		Usage: The superuser can change the employee ID of the users if the user signed up with the incorrect ID or if the company changes the IDs.
-		\item Remove employee \\ \$scope.removeEmployee = function(Boolean isValid) \{\}
+		\item Remove employee \\ \$scope.removeEmployee = function(Boolean isValid)  
 		\\ \\ Usage: The superuser is also able to remove users from the system, due to resignation or dismissal for example
-		\item Search employee \\ \$scope.searchEmployee = function(Boolean isValid) \{ \}
+		\item Search employee \\ \$scope.searchEmployee = function(Boolean isValid)  
 		\\ \\ Usage: This function is used to retrieve employees from the system to be able to change their employe ID or remove them from the system
-		\item Search employee ID \\ \$scope.searchEmployeeID = function(int row) \{\}
+		\item Search employee ID \\ \$scope.searchEmployeeID = function(int row)  
 		\\ \\ Usage: This function is used to retrieve employee IDs 
-		\item Set system wide limit \\ \$scope.setSystemWideLimit = function(Boolean isValid)\{ \} \\ \\ Usage: This is used by the superuser to set the maximum monthly spending limit for all the users of the system.
-		 \item Set canteen name \\ \$scope.setCanteenName = function(Boolean isValid)\{ \}
+		\item Set system wide limit \\ \$scope.setSystemWideLimit = function(Boolean isValid)\\ \\ Usage: This is used by the superuser to set the maximum monthly spending limit for all the users of the system.
+		 \item Set canteen name \\ \$scope.setCanteenName = function(Boolean isValid) 
 		\\ \\ Usage: The canteen name is configurable from the superuser's branding settings page.
-		\item Check user \\ \$scope.checkUser = function()\{\}
+		\item Check user \\ \$scope.checkUser = function() 
 		\\ \\Usage: This is a security function that checks to make sure that the authorized superuser is accessing the page and if this is not the case, the user will be redirected to the home page
-		\item Load employees \\ \$scope.loadEmployees = function()\{\}
+		\item Load employees \\ \$scope.loadEmployees = function() 
 		\\ \\Usage: This function is used to dynamically populate the drop down menu for the change employee ID functionality
 	\end{itemize}
 \end{enumerate} 
