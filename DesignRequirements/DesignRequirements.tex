@@ -134,7 +134,7 @@ The authentication controller allows existing users to log in and new users to s
 	\begin{itemize}
 		\item User by ID // exports.userByID = function(JsonOBject req,JsonOBject res,JsonOBject next, String id)
 		\\ \\ Usage: Helper function to find and load specific users
-		\item Requires login // exports.requiresLogin = function(JsonOBject req, JsonOBject res, JsonOBject next) 
+		\item Requires login // exports.requiresLogin = function(JsonOBject req, JsonOBject res, function next) 
 		\\ \\ Usage: Function to check if a user has not logged in
 		\item Has authorization // exports.hasAuthorization = function(JsonOBject roles)
 		\\ \\ Usage: Function to check if a user is authorized to be performing certain tasks for specific roles
@@ -561,9 +561,9 @@ function(\$scope, \$rootScope, \$http, \$stateParams, \$location, \$cookies, Aut
 		\\ \\ Usage: Generic function to update a test 
 		\item List \\ exports.list = function(JsonObject req,JsonObject res)
 		\\ \\ Usage: Function to find all tests that are created and then populates a list
-		\item Test by ID \\ exports.testByID = function(JsonObject req, JsonObject res, JsonObject next, String id)
+		\item Test by ID \\ exports.testByID = function(JsonObject req, JsonObject res, function next, String id)
 		\\ \\ Usage: Function to find specific tests by ID
-		\item Has authorization \\ exports.hasAuthorization = function(JsonObject req, JsonObject res, JsonObject next)
+		\item Has authorization \\ exports.hasAuthorization = function(JsonObject req, JsonObject res, function next)
 		\\ \\ Usage: Function to check if user is authorized to access specific functionality
 	\end{itemize}
 \end{enumerate}
@@ -574,7 +574,7 @@ function(\$scope, \$rootScope, \$http, \$stateParams, \$location, \$cookies, Aut
 	\begin{itemize}
 		\item Get unique error message \\ var getUniqueErrorMessage = function(String err) \\ \\
 		Usage: Function to supply error messages when employee ID chosen by user when signing up already exists in the database
-		\item Get error message \\ exports.getErrorMessage = function(err) 
+		\item Get error message \\ exports.getErrorMessage = function(String err) 
 		\\ \\ Usage: Function to supply generic error message when a problem occured in the system.
 	\end{itemize}
 \end{enumerate}
@@ -583,9 +583,9 @@ function(\$scope, \$rootScope, \$http, \$stateParams, \$location, \$cookies, Aut
 \begin{enumerate}
 	\item Methods:
 	\begin{itemize}
-		\item Get unique error message \\ exports.index = function(req, res) 
+		\item Get unique error message \\ exports.index = function(JsonObject req,JsonObject  res) 
 		\\ \\ Usage: Function to get the indexes of the different users 
-		\item Load canteen info \\ exports.loadCanteenInfo = function(req, res)
+		\item Load canteen info \\ exports.loadCanteenInfo = function(JsonObject req,JsonObject  res)
 		\\ \\ Usage: Function that is called when the home page is accessed to load the information about the canteen
 	\end{itemize}
 \end{enumerate}
