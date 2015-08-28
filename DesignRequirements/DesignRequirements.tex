@@ -86,8 +86,6 @@ After our first meeting with the client, they brought to our attention that at t
 \subsection{Design standards}
  The diagrams are designed and created using UML. The main use case of the system is decomposed into components.
 
-<<<<<<< HEAD
-=======
 %%TEMPLATE_________________ !!!!!!!!!!!!!!!!!!!!!
 \section{Authentication}
 \subsection{something.client.controller.js}
@@ -102,7 +100,6 @@ After our first meeting with the client, they brought to our attention that at t
 
 \section{Manage Profile}
 %%superuser client controller----------------------------------------------
->>>>>>> origin/phase4
 \subsection{superuser.client.controller.js}
 \begin{enumerate}
 \item Declaration: \\ angular.module('users').controller('superuserController', ['\$scope', '\$http', '\$location', '\$window', 'Users', 'Authentication',
@@ -130,8 +127,6 @@ After our first meeting with the client, they brought to our attention that at t
 		\\ \\Usage: This function is used to dynamically populate the drop down menu for the change employee ID functionality
 	\end{itemize}
 \end{enumerate}
-<<<<<<< HEAD
-=======
 %%cashier client controller----------------------------------------------
 \subsection{cashier.client.controller.js}
 \begin{enumerate}
@@ -167,70 +162,8 @@ After our first meeting with the client, they brought to our attention that at t
 \section{Manage System}
 \section{Manage Cafeteria}
 \section{Manage Inventory}
->>>>>>> origin/phase4
 \section{Place Order}
 
-\subsection{orders.client.controller.js}
-\begin{enumerate}
-\item Declaration: angular.module('orders').controller('OrdersController', ['\$scope', '\$rootScope','\$http', '\$stateParams', '\$location', '\$cookies', 'Authentication', 'Orders',
-	function(\$scope, \$rootScope, \$http, \$stateParams, \$location, \$cookies, Authentication, Orders) \{\}
-\item Methods:
-	\begin{itemize}
-		\item Change item quantity \\  \$scope.quantityChange = function()\{\}
-		\\ \\ Usage: Function to increase or decrease the number of items ordered. It is used when a user wants to order multiple of the same item. It then also increases or decreases the total price accordingly. 
-		\item Change or add preferences \\ \$scope.prefChange = function()\{\}
-	\\ \\ Usage: Function to add preferences. The user can specify how they prefer their order to be prepared.
-		\item Change the total \\ \$scope.subTotal = function()\{\}
-	\\ \\ Usage: Function to calculate the total. This function calculates the total that will be displayed for the user at the bottom - so they can know how much their order is going to cost.
-		\item Place order \\ \$scope.placeOrder = function()\{\}
-	\\ \\ Usage: Function to place the order. If the user is not signed in, the function redirects them to the signin page. If the user is signed in, the function checks the order total against the user's available balance. If the user has enough funds in their account the order is placed. Otherwise a pop-up message tells the user they have insufficient funds in their account and that if they proceed with placing the order they will have to use cash - if the user agrees to use cash the order is placed otherwise nothing is done.
-		\item Remove item from plate \\ \$scope.removeFromPlate = function()\{\}
-	\\ \\ Usage: Function to remove an item from the plate. If the user decides they don't want an item anymore, they can remove it from the plate (before the order is placed).
-	\end{itemize}	
-\end{enumerate}
 
-\subsection{orders.server.controller.js}
-\begin{enumerate}
-%---Server controllers don't have this.........
-%\item Declaration: angular.module('orders').controller('OrdersController', ['\$scope', '\$rootScope','\$http', '\$stateParams', '\$location', '\$cookies', 'Authentication', 'Orders',
-\item Methods:
-	\begin{itemize}
-		\item Place order \\  exports.placeOrder = function(req, res)\{\}
-		\\ \\ Usage: Function to place the order. It adds the order to the orders table if the user is successful in placing the order, otherwise it generates the appropriate error message.
-		\item Mark the order as ready \\ exports.markAsReady = function(req, res)\{\}
-	\\ \\ Usage: Function to mark the order as ready. The cashier can mark the order as ready when the items are done being prepared and ready to be collected. This changes the status of the order to ready and sends the client a notification to come fetch their order.
-		\item Send Email \\ function sendEmail(uname, orderNum)\{\}
-	\\ \\ Usage: Function to send the user an email. This function is called in markAsReady - it sends the user an email letting them know their order (with the given orderNumber) is ready to be collected. 
-		\item Mark order as paid \\ exports.markAsPaid = function(req, res)\{\}
-	\\ \\ Usage: Function to mark the order as paid and collected. This function marks the order as closed in the orders table and it removes it from the process orders page.
-		\item Mark order as collected \\ exports.markAsCollected = function(req, res)\{\}
-	\\ \\ Usage: Function to mark the order as paid and collected. This function marks the order as closed in the orders table and it removes it from the process orders page. It also subtracts the total of the order from the user's limit because the client only collected the order and didn't pay. This can only be used when the user has sufficient funds in their account.
-		\item Get a list of orders \\ exports.getOrderList = function(req, res)\{\}
-	\\ \\ Usage: Function to get a list of all the orders that are open and ready. This is used to display the orders that are still being processed and have not yet been collected on the process orders page (accessed by the cashier).
-	\end{itemize}	
-\end{enumerate}
-
-\subsection{Manage Profile}
-var manageProfileObj = require('./manageProfile');
-extends CMS
-\\
-Constructors: 
- 	manageProfile.exports=function(jsonObj){}
-	-usage: creates instances of this component
-\\
-Methods:
-\begin{itemize}
-\item changePassword
-        exports.changePassword =function(jsonObj){} where jsonObj contains employeeID, password, newPassword
-\item changeEmail
-	exports.changeEmail = function(jsonObj){} where jsonObj contains employeeId, email
-\item setLimit
-	exports.setLimit = function(jsonObj){} where jsonObj contains employeeId,newLimit
-\item displayBill
-	exports.displayBill = function(jsonObj){} where jsonObj contains employeeId
-\item viewHistory
-	exports.viewHistory = function(jsonObj){}where jsonObj contains employeeId
-\item generateFavourites
-	exports.generateFavourites = function(jsonObj){} where jsonObj contains employeeId
-\end{itemize}
+  
 \end{document}
