@@ -64,15 +64,6 @@ var mongoose = require('mongoose'),
 	}
  };
  
- exports.markAsReady = function(req, res){
-	Order.update({orderNumber: req.body.orderNum}, {status: 'ready'}, { multi: true }, function(err, numAffected){
-		if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
-		console.log(numAffected);
-		sendEmail(req.body.uname, req.body.orderNum);
-		res.status(200).send({message: 'order marked as ready'});
-	});
-
- };
  /*
   * Helper function to email user about order
   * Last Edited by: Rendani Dau
@@ -99,15 +90,60 @@ var mongoose = require('mongoose'),
 		});
 	});
  };
-//,itemName:req.body.itemName
-
-exports.markAsPaid = function(req, res){
-	Order.update({orderNumber: req.body.orderNum}, {status: 'closed'}, { multi: true }, function(err, numAffected){
+ 
+ exports.markAsReady = function(req, res){
+	Order.update({orderNumber: req.body.orderNum}, {status: 'ready'}, { multi: true }, function(err, numAffected){
 		if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
 		console.log(numAffected);
 		sendEmail(req.body.uname, req.body.orderNum);
-		res.status(200).send({message: 'order marked as paid/closed'});
+		res.status(200).send({message: 'order marked as ready'});
 	});
+
+ };
+ 
+//,itemName:req.body.itemName
+
+exports.markAsPaid = function(req, res){
+	console.log(req.body);
+	if(req.body.method === 'credit'){
+		console.log('hello');
+		Order.find({orderNumber: req.body.orderNum}, function(err, orders) {
+			if(err){ console.log('Error1' + err); return;}
+			console.log('helo2');
+			var total = 0;
+			console.log('length' + orders.length);
+			for(var order in orders){
+				total+= orders[order].price * orders[order].quantity;
+			}
+			console.log('total' + total);
+			User.findOne({username: req.user.username}, function(err, user){
+				if(err){ 
+					console.log('Error2' + err);
+					return;
+				}
+				
+				if(user.limit - user.currentBalance < total)
+					return res.status(400).send({message: 'User has insufficient credit'});
+				
+				user.currentBalance = user.currentBalance + total;
+				user.save(function(err, user){
+				if(err){ console.log('Error3' + err); return;}
+						Order.update({orderNumber: req.body.orderNum}, {status: 'closed'}, { multi: true }, function(err, numAffected){
+							if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
+								console.log(numAffected);
+							res.status(200).send({message: 'order marked as paid/closed'});
+						});
+				});
+			});	
+		});
+	}
+	else{
+		Order.update({orderNumber: req.body.orderNum}, {status: 'closed'}, { multi: true }, function(err, numAffected){
+			if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
+			console.log(numAffected);
+			res.status(200).send({message: 'order marked as paid/closed'});
+		});
+	}
 	/*
     console.log('dgefrgwergtwe'); //console.log(req.body);
     Order.find({orderNumber: req.body.orderNumber },function(err, numAffected2) {

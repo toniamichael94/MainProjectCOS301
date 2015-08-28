@@ -1,14 +1,17 @@
 'use strict';
 
 // Cashier controller
-angular.module('users').controller('cashierController', ['$scope', '$http', '$stateParams', '$location', 'Authentication',
-	function($scope, $http, $stateParams, $location, Authentication) {
+angular.module('users').controller('cashierController', ['$scope', '$http', '$stateParams', '$location', '$window', 'Authentication',
+	function($scope, $http, $stateParams, $location, $window, Authentication) {
 		$scope.authentication = Authentication;
 	
 		$scope.getOrders = function(){
 			
 			$http.post('/orders/getOrderList').success(function(response){
 				$scope.orders = response.message;
+				for(var i = 0; i < $scope.orders.length; i++){
+					$scope.orders[i].paymentMethod = "cash";
+				}
 			}).error(function(response){
 				console.log('error' + response.message);
                 $scope.error=response.message;
@@ -35,9 +38,20 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
         };
 
         $scope.markAsPaid = function(username, itemName, orderNumber){
-            console.log(username + ' ' + itemName +orderNumber);
-
-            $http.post('orders/markAsPaid',{uname : username, orderNum:orderNumber, item : itemName }).success(function(response){
+            //console.log(username + ' ' + itemName +orderNumber);
+			
+			var pMethod;
+			if(document.getElementsByName(orderNumber + '-paymentMethod')[0].checked)
+				pMethod = document.getElementsByName(orderNumber + '-paymentMethod')[0].value;
+			else if(document.getElementsByName(orderNumber + '-paymentMethod')[1].checked)
+				pMethod = document.getElementsByName(orderNumber + '-paymentMethod')[1].value;
+			else{
+				alert('Please select a payment method');
+				return;
+			}
+			
+			
+			$http.post('orders/markAsPaid',{uname : username, orderNum:orderNumber, method: pMethod }).success(function(response){
 
             }).error(function(response){
 

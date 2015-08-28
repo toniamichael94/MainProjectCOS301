@@ -36,7 +36,10 @@
        <span style="float:right;" >
             <button style="width:200px" type="button" class="btn btn-success" data-ng-click="markAsReady(order.username,order.orderNumber)" data-ng-hide="(order.status === 'ready')"> Order Ready </button>
         </span>
-
+		<span> Payment method: 
+					<input type="radio" data-ng-attr-name="{{order.orderNumber}}-paymentMethod" value="cash"> Cash</input>
+					<input type="radio" data-ng-attr-name="{{order.orderNumber}}-paymentMethod" value="credit"> Credit</input>
+		</span>
     </div>
 	<div data-ng-show="success" class="text-center text-success">
 		<strong>{{success}}</strong>

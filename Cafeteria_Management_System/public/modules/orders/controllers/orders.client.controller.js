@@ -1,8 +1,8 @@
 'use strict';
 
 // Orders controller
-angular.module('orders').controller('OrdersController', ['$scope', '$rootScope','$http', '$stateParams', '$location', '$cookies', 'Authentication', 'Orders',
-	function($scope, $rootScope, $http, $stateParams, $location, $cookies, Authentication, Orders) {
+angular.module('orders').controller('OrdersController', ['$scope', '$rootScope','$http', '$stateParams', '$location', '$cookies', '$window', 'Authentication', 'Orders',
+	function($scope, $rootScope, $http, $stateParams, $location, $cookies, $window, Authentication, Orders) {
 		$scope.authentication = Authentication;
 		
 		$scope.plate = [];
@@ -45,10 +45,12 @@ angular.module('orders').controller('OrdersController', ['$scope', '$rootScope',
 			$scope.error = $scope.success = '';
 			if($scope.plate){
 				if(Authentication.user){
-					if((Authentication.user.limit - Authentication.user.currentBalance) < $scope.orderTotal && $scope.paymentMethod == 'credit'){
+					if((Authentication.user.limit - Authentication.user.currentBalance) < $scope.orderTotal){
 						var avail = Authentication.user.limit - Authentication.user.currentBalance;
-						$scope.error = 'You do not have enough credit to make purchase. Available credit: R' + avail + '. You can place order with cash payment instead';
-						return;
+						var choice = $window.confirm('You do not have enough credit to make purchase. Available credit: R' + avail + '. Place order with cash payment instead?');
+						
+						if(choice === false)
+							return;
 					}
 					for(var i = 0; i < $scope.plate.length; i++){
 						$scope.plate[i].username = Authentication.user.username;
@@ -135,11 +137,11 @@ angular.module('orders').controller('OrdersController', ['$scope', '$rootScope',
 				//$rootScope.$broadcast('plateUpdated');
 			}
 		};
-		
+		/*
 		$scope.showRadio = function(){
 			return $scope.plate.length > 0
 		};
-		/*
+		
 		// Create new Order
 		$scope.create = function() {
 			// Create new Order object
