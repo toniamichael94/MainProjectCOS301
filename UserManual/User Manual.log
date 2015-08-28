@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.23)  28 AUG 2015 22:28
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.23)  28 AUG 2015 22:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -230,7 +230,7 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \tabu@vleads=\box32
 \tabu@cellskip=\skip46
 )
-(./User Manual.aux)
+No file "User Manual".aux.
 \openout1 = `"User Manual.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
@@ -249,7 +249,6 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 21.
 LaTeX Font Info:    ... okay on input line 21.
 \AtBeginShipoutBox=\box33
 Package hyperref Info: Link coloring OFF on input line 21.
-
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -261,8 +260,6 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 21.
 LaTeX Info: Redefining \pageref on input line 21.
 LaTeX Info: Redefining \nameref on input line 21.
-
-(./User Manual.out) (./User Manual.out)
 \@outlinefile=\write3
 \openout3 = `"User Manual.out"'.
 
@@ -304,19 +301,18 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./User Manual.toc
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 7.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 7.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 7.
-)
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 \tf@toc=\write4
 \openout4 = `"User Manual.toc"'.
 
+ [2]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 30.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 30.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 30.
 
-[2]
 Overfull \hbox (82.83777pt too wide) in paragraph at lines 46--65
  [][] 
  []
@@ -392,7 +388,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 155--158
 
  []
 
-<screenshots/MongoDB.png, id=192, 509.65407pt x 257.46187pt>
+<screenshots/MongoDB.png, id=54, 509.65407pt x 257.46187pt>
 File: screenshots/MongoDB.png Graphic file (type png)
 
 <use screenshots/MongoDB.png>
@@ -408,7 +404,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 165--166
 
  []
 
-<screenshots/gruntOutput.png, id=194, 510.40688pt x 294.34969pt>
+<screenshots/gruntOutput.png, id=56, 510.40688pt x 294.34969pt>
 File: screenshots/gruntOutput.png Graphic file (type png)
 
 <use screenshots/gruntOutput.png>
@@ -449,14 +445,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 202--203
 
  []
 
-<screenshots/signUp.PNG, id=207, 1024.57782pt x 303.38344pt>
+<screenshots/signUp.PNG, id=70, 1024.57782pt x 303.38344pt>
 File: screenshots/signUp.PNG Graphic file (type png)
 
 <use screenshots/signUp.PNG>
 Package pdftex.def Info: screenshots/signUp.PNG used on input line 211.
 (pdftex.def)             Requested size: 390.0pt x 115.48132pt.
  [10]
-<screenshots/signUpPage.PNG, id=212, 788.9475pt x 472.01344pt>
+<screenshots/signUpPage.PNG, id=77, 788.9475pt x 472.01344pt>
 File: screenshots/signUpPage.PNG Graphic file (type png)
 
 <use screenshots/signUpPage.PNG>
@@ -472,7 +468,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 227--228
 
  []
 
-<screenshots/signIn.png, id=221, 1026.83624pt x 300.3722pt>
+<screenshots/signIn.png, id=86, 1026.83624pt x 300.3722pt>
 File: screenshots/signIn.png Graphic file (type png)
 
 <use screenshots/signIn.png>
@@ -482,8 +478,8 @@ File: screenshots/signIn.png Graphic file (type png)
  <use screenshots/signIn.png>
 Package pdftex.def Info: screenshots/signIn.png used on input line 245.
 (pdftex.def)             Requested size: 390.0pt x 114.08302pt.
- [12 <./screenshots/signIn.png>] <screenshots/ForgotPass.png, id=229, 1606.0pt 
-x 903.375pt>
+ [12 <./screenshots/signIn.png>] <screenshots/ForgotPass.png, id=95, 1606.0pt x
+ 903.375pt>
 File: screenshots/ForgotPass.png Graphic file (type png)
 
 <use screenshots/ForgotPass.png>
@@ -494,7 +490,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 258--259
 
  []
 
-<screenshots/emailSentForPass.png, id=230, 1606.0pt x 903.375pt>
+<screenshots/emailSentForPass.png, id=96, 1606.0pt x 903.375pt>
 File: screenshots/emailSentForPass.png Graphic file (type png)
 
 <use screenshots/emailSentForPass.png>
@@ -502,7 +498,7 @@ Package pdftex.def Info: screenshots/emailSentForPass.png used on input line 26
 4.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
  [13 <./screenshots/ForgotPass.png>]
-<screenshots/newPassForPass.png, id=237, 1606.0pt x 903.375pt>
+<screenshots/newPassForPass.png, id=103, 1606.0pt x 903.375pt>
 File: screenshots/newPassForPass.png Graphic file (type png)
 
 <use screenshots/newPassForPass.png>
@@ -510,7 +506,7 @@ Package pdftex.def Info: screenshots/newPassForPass.png used on input line 270.
 
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
  [14 <./screenshots/emailSentForPass.png> <./screenshots/newPassForPass.png>]
-<screenshots/HomePage.PNG, id=244, 1003.49907pt x 246.1697pt>
+<screenshots/HomePage.PNG, id=110, 1003.49907pt x 246.1697pt>
 File: screenshots/HomePage.PNG Graphic file (type png)
 
 <use screenshots/HomePage.PNG>
@@ -522,7 +518,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 302--305
  []
 
 [15 <./screenshots/HomePage.PNG>]
-<screenshots/HomePage2.PNG, id=256, 1018.55531pt x 257.46187pt>
+<screenshots/HomePage2.PNG, id=125, 1018.55531pt x 257.46187pt>
 File: screenshots/HomePage2.PNG Graphic file (type png)
 
 <use screenshots/HomePage2.PNG>
@@ -553,7 +549,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 340--342
 
  []
 
-<screenshots/searchCheese.png, id=271, 1606.0pt x 903.375pt>
+<screenshots/searchCheese.png, id=141, 1606.0pt x 903.375pt>
 File: screenshots/searchCheese.png Graphic file (type png)
 
 <use screenshots/searchCheese.png>
@@ -570,35 +566,35 @@ File: screenshots/searchCheese.png Graphic file (type png)
 Package pdftex.def Info: screenshots/searchCheese.png used on input line 360.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
 
-<screenshots/catMenu.png, id=276, 1606.0pt x 903.375pt>
+<screenshots/catMenu.png, id=148, 1606.0pt x 903.375pt>
 File: screenshots/catMenu.png Graphic file (type png)
 
 <use screenshots/catMenu.png>
 Package pdftex.def Info: screenshots/catMenu.png used on input line 366.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
  [18 <./screenshots/searchCheese.png>]
-<screenshots/addToPlate.png, id=283, 1606.0pt x 903.375pt>
+<screenshots/addToPlate.png, id=155, 1606.0pt x 903.375pt>
 File: screenshots/addToPlate.png Graphic file (type png)
 
 <use screenshots/addToPlate.png>
 Package pdftex.def Info: screenshots/addToPlate.png used on input line 372.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
  [19 <./screenshots/catMenu.png> <./screenshots/addToPlate.png>] <screenshots/v
-iewOrder1.png, id=291, 1606.0pt x 903.375pt>
+iewOrder1.png, id=163, 1606.0pt x 903.375pt>
 File: screenshots/viewOrder1.png Graphic file (type png)
 
 <use screenshots/viewOrder1.png>
 Package pdftex.def Info: screenshots/viewOrder1.png used on input line 382.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
 
-<screenshots/viewOrder2.png, id=292, 1606.0pt x 903.375pt>
+<screenshots/viewOrder2.png, id=164, 1606.0pt x 903.375pt>
 File: screenshots/viewOrder2.png Graphic file (type png)
 
 <use screenshots/viewOrder2.png>
 Package pdftex.def Info: screenshots/viewOrder2.png used on input line 387.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
 
-<screenshots/viewOrder3.png, id=293, 1606.0pt x 903.375pt>
+<screenshots/viewOrder3.png, id=165, 1606.0pt x 903.375pt>
 File: screenshots/viewOrder3.png Graphic file (type png)
 
 <use screenshots/viewOrder3.png>
@@ -606,28 +602,28 @@ Package pdftex.def Info: screenshots/viewOrder3.png used on input line 392.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
  [20 <./screenshots/viewOrder1.png>] [21 <./screenshots/viewOrder2.png> <./scre
 enshots/viewOrder3.png>]
-<screenshots/editProfile.png, id=306, 1606.0pt x 903.375pt>
+<screenshots/editProfile.png, id=178, 1606.0pt x 903.375pt>
 File: screenshots/editProfile.png Graphic file (type png)
 
 <use screenshots/editProfile.png>
 Package pdftex.def Info: screenshots/editProfile.png used on input line 402.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
 
-<screenshots/limitExeeds.png, id=307, 1606.0pt x 903.375pt>
+<screenshots/limitExeeds.png, id=179, 1606.0pt x 903.375pt>
 File: screenshots/limitExeeds.png Graphic file (type png)
 
 <use screenshots/limitExeeds.png>
 Package pdftex.def Info: screenshots/limitExeeds.png used on input line 408.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
  [22 <./screenshots/editProfile.png>]
-<screenshots/viewProfile.png, id=313, 1606.0pt x 903.375pt>
+<screenshots/viewProfile.png, id=186, 1606.0pt x 903.375pt>
 File: screenshots/viewProfile.png Graphic file (type png)
 
 <use screenshots/viewProfile.png>
 Package pdftex.def Info: screenshots/viewProfile.png used on input line 418.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
  [23 <./screenshots/limitExeeds.png>]
-<screenshots/changePassDontMatch.png, id=319, 1606.0pt x 903.375pt>
+<screenshots/changePassDontMatch.png, id=193, 1606.0pt x 903.375pt>
 File: screenshots/changePassDontMatch.png Graphic file (type png)
 
 <use screenshots/changePassDontMatch.png>
@@ -635,42 +631,42 @@ Package pdftex.def Info: screenshots/changePassDontMatch.png used on input line
  428.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
  [24 <./screenshots/viewProfile.png>]
-<screenshots/assignRole.png, id=325, 1606.0pt x 903.375pt>
+<screenshots/assignRole.png, id=200, 1606.0pt x 903.375pt>
 File: screenshots/assignRole.png Graphic file (type png)
 
 <use screenshots/assignRole.png>
 Package pdftex.def Info: screenshots/assignRole.png used on input line 437.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
  [25 <./screenshots/changePassDontMatch.png>]
-<screenshots/changeEmplid.png, id=332, 1606.0pt x 903.375pt>
+<screenshots/changeEmplid.png, id=208, 1606.0pt x 903.375pt>
 File: screenshots/changeEmplid.png Graphic file (type png)
 
 <use screenshots/changeEmplid.png>
 Package pdftex.def Info: screenshots/changeEmplid.png used on input line 443.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
 
-<screenshots/removeUser.png, id=333, 1606.0pt x 903.375pt>
+<screenshots/removeUser.png, id=209, 1606.0pt x 903.375pt>
 File: screenshots/removeUser.png Graphic file (type png)
 
 <use screenshots/removeUser.png>
 Package pdftex.def Info: screenshots/removeUser.png used on input line 449.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
  [26 <./screenshots/assignRole.png> <./screenshots/changeEmplid.png>]
-<screenshots/setLimit.png, id=340, 1606.0pt x 903.375pt>
+<screenshots/setLimit.png, id=216, 1606.0pt x 903.375pt>
 File: screenshots/setLimit.png Graphic file (type png)
 
 <use screenshots/setLimit.png>
 Package pdftex.def Info: screenshots/setLimit.png used on input line 455.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
  [27 <./screenshots/removeUser.png> <./screenshots/setLimit.png>] <screenshots/
-coverImage.png, id=347, 1606.0pt x 903.375pt>
+coverImage.png, id=223, 1606.0pt x 903.375pt>
 File: screenshots/coverImage.png Graphic file (type png)
 
 <use screenshots/coverImage.png>
 Package pdftex.def Info: screenshots/coverImage.png used on input line 464.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
 
-<screenshots/canteenName.png, id=348, 1606.0pt x 903.375pt>
+<screenshots/canteenName.png, id=224, 1606.0pt x 903.375pt>
 File: screenshots/canteenName.png Graphic file (type png)
 
 <use screenshots/canteenName.png>
@@ -681,28 +677,28 @@ Overfull \hbox (1.09956pt too wide) in paragraph at lines 474--474
 []\OT1/cmr/bx/n/14.4 Cafeteria Man-ager: The "Man-age In-ven-tory" Page 
  []
 
-<screenshots/addInv.png, id=354, 1606.0pt x 903.375pt>
+<screenshots/addInv.png, id=231, 1606.0pt x 903.375pt>
 File: screenshots/addInv.png Graphic file (type png)
 
 <use screenshots/addInv.png>
 Package pdftex.def Info: screenshots/addInv.png used on input line 479.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
  [29 <./screenshots/canteenName.png>]
-<screenshots/updateInv.png, id=360, 1606.0pt x 903.375pt>
+<screenshots/updateInv.png, id=238, 1606.0pt x 903.375pt>
 File: screenshots/updateInv.png Graphic file (type png)
 
 <use screenshots/updateInv.png>
 Package pdftex.def Info: screenshots/updateInv.png used on input line 485.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
  [30 <./screenshots/addInv.png> <./screenshots/updateInv.png>] <screenshots/add
-Menu.png, id=367, 1606.0pt x 903.375pt>
+Menu.png, id=245, 1606.0pt x 903.375pt>
 File: screenshots/addMenu.png Graphic file (type png)
 
 <use screenshots/addMenu.png>
 Package pdftex.def Info: screenshots/addMenu.png used on input line 494.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
 
-<screenshots/searchMenuItem.png, id=368, 1606.0pt x 903.375pt>
+<screenshots/searchMenuItem.png, id=246, 1606.0pt x 903.375pt>
 File: screenshots/searchMenuItem.png Graphic file (type png)
 
 <use screenshots/searchMenuItem.png>
@@ -710,35 +706,35 @@ Package pdftex.def Info: screenshots/searchMenuItem.png used on input line 500.
 
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
  [31 <./screenshots/addMenu.png>]
-<screenshots/updateMenu.png, id=375, 1606.0pt x 903.375pt>
+<screenshots/updateMenu.png, id=254, 1606.0pt x 903.375pt>
 File: screenshots/updateMenu.png Graphic file (type png)
 
 <use screenshots/updateMenu.png>
 Package pdftex.def Info: screenshots/updateMenu.png used on input line 506.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
 
-<screenshots/deleteHam.png, id=376, 1606.0pt x 903.375pt>
+<screenshots/deleteHam.png, id=255, 1606.0pt x 903.375pt>
 File: screenshots/deleteHam.png Graphic file (type png)
 
 <use screenshots/deleteHam.png>
 Package pdftex.def Info: screenshots/deleteHam.png used on input line 512.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
  [32 <./screenshots/searchMenuItem.png> <./screenshots/updateMenu.png>]
-<screenshots/cashier.png, id=383, 1606.0pt x 903.375pt>
+<screenshots/cashier.png, id=262, 1606.0pt x 903.375pt>
 File: screenshots/cashier.png Graphic file (type png)
 
 <use screenshots/cashier.png>
 Package pdftex.def Info: screenshots/cashier.png used on input line 521.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
  [33 <./screenshots/deleteHam.png>]
-<screenshots/cashierReady.png, id=389, 1606.0pt x 903.375pt>
+<screenshots/cashierReady.png, id=269, 1606.0pt x 903.375pt>
 File: screenshots/cashierReady.png Graphic file (type png)
 
 <use screenshots/cashierReady.png>
 Package pdftex.def Info: screenshots/cashierReady.png used on input line 527.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
 
-<screenshots/cashierCredit.png, id=390, 1606.0pt x 903.375pt>
+<screenshots/cashierCredit.png, id=270, 1606.0pt x 903.375pt>
 File: screenshots/cashierCredit.png Graphic file (type png)
 
 <use screenshots/cashierCredit.png>
@@ -760,15 +756,15 @@ Package rerunfilecheck Warning: File `"User Manual".out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `"User Manual".out':
-(rerunfilecheck)             Before: 2664D8AA13866982AE5948DD8DB1230F;2050
+(rerunfilecheck)             Before: <no file>
 (rerunfilecheck)             After:  9912C2A394CE59245DD8AB6F3188BBF1;2048.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 564.
  ) 
 Here is how much of TeX's memory you used:
- 7237 strings out of 495028
- 112143 string characters out of 6181497
- 193345 words of memory out of 5000000
- 10256 multiletter control sequences out of 15000+600000
+ 7199 strings out of 495028
+ 111581 string characters out of 6181497
+ 193215 words of memory out of 5000000
+ 10226 multiletter control sequences out of 15000+600000
  9623 words of font info for 34 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  36i,13n,38p,854b,437s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -778,10 +774,10 @@ r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on "User Manual.pdf" (36 pages, 5620695 bytes).
+Output written on "User Manual.pdf" (36 pages, 5617001 bytes).
 PDF statistics:
- 455 PDF objects out of 1000 (max. 8388607)
- 365 compressed objects within 4 object streams
+ 337 PDF objects out of 1000 (max. 8388607)
+ 248 compressed objects within 3 object streams
  118 named destinations out of 1000 (max. 500000)
- 408 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 176 words of extra memory for PDF output out of 10000 (max. 10000000)
 
