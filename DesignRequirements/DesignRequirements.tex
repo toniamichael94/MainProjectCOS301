@@ -140,6 +140,27 @@ The authentication controller allows existing users to log in and new users to s
 
 
 \section{Manage Profile} 
+%------------------------password server controller--------
+\subsection{users.password.server.controller}
+ The password controller handles all the functionality that has to do with creating and changing passwords.
+\begin{enumerate}
+\item Methods:
+	\begin{itemize}
+	\item Forgot password\\ exports.forgot = function(JsonOBject req, JsonOBject res, function next)\\ \\
+  	Usage: \\
+  	This method lets a user reset their password if they forgot it. It checks that the given username is in the database and then sends the user an email with a link to a page where they can change their password. It also checks that the user's email is correct and valid, otherwise it gives an error.
+	\item Validate reset token\\ exports.validateResetToken = function(JsonOBject req, JsonOBject res) \\ \\
+	Usage: \\
+	This function checks that the reset token isn't invalid. If it's invalid, it redirects the user to a page telling them the token has expired. Otherwise, it redirects them to the page where they can set a new password.
+	\item Reset password\\ exports.reset = function(JsonOBject req, JsonOBject res, function next)\\  \\
+	Usage: \\
+	This method checks that the user's new password details are correct. If they are, then it resets the password, otherwise it gives an error message.
+ 	 \item Change password\\ exports.changePassword = function(JsonOBject req, JsonOBject res)\\ \\
+ 	 Usage\\ 
+  	This function is called when the user accesses the change password page. It finds the user in the database and changes the password if the password and confirm password are the same.
+	\end{itemize}
+\end{enumerate} 
+
 %%superuser client controller----------------------------------------------
 \subsection{superuser.client.controller.js}
 \begin{enumerate}
