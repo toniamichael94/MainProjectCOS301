@@ -18,3 +18,5 @@ users.password.server.controller
 errors.server.controller
 core.server.controller
 tests.server.controller
+heder.client.controller
+home.client.controller
