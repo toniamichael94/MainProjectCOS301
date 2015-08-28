@@ -8,7 +8,6 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
 		$scope.getOrders = function(){
 			
 			$http.post('/orders/getOrderList').success(function(response){
-				console.log('hahahahahahhahahahhahaha'+response.message);
 				$scope.orders = response.message;
 			}).error(function(response){
 				console.log('error' + response.message);
@@ -28,7 +27,7 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
         $scope.markAsCollected = function(username, itemName,orderNumber){
             console.log(username  + ' ' +itemName + orderNumber);
 
-            $http.post('orders/markAsCollected',{uname : username, orderNumber: orderNumber,item : itemName}).success(function(response){
+            $http.post('orders/markAsCollected',{uname : username, orderNum: orderNumber,item : itemName}).success(function(response){
 
             }).error(function(response){
 
@@ -38,7 +37,7 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
         $scope.markAsPaid = function(username, itemName, orderNumber){
             console.log(username + ' ' + itemName +orderNumber);
 
-            $http.post('orders/markAsPaid',{uname : username, orderNumber:orderNumber, item : itemName }).success(function(response){
+            $http.post('orders/markAsPaid',{uname : username, orderNum:orderNumber, item : itemName }).success(function(response){
 
             }).error(function(response){
 

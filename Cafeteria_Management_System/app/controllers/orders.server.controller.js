@@ -102,6 +102,13 @@ var mongoose = require('mongoose'),
 //,itemName:req.body.itemName
 
 exports.markAsPaid = function(req, res){
+	Order.update({orderNumber: req.body.orderNum}, {status: 'closed'}, { multi: true }, function(err, numAffected){
+		if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
+		console.log(numAffected);
+		sendEmail(req.body.uname, req.body.orderNum);
+		res.status(200).send({message: 'order marked as paid/closed'});
+	});
+	/*
     console.log('dgefrgwergtwe'); //console.log(req.body);
     Order.find({orderNumber: req.body.orderNumber },function(err, numAffected2) {
         console.log(numAffected2);
@@ -115,7 +122,7 @@ exports.markAsPaid = function(req, res){
 
     });
 
-
+*/
 };
 
 exports.markAsCollected = function(req, res){
