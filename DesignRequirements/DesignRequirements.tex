@@ -226,7 +226,7 @@ The authentication controller allows existing users to log in and new users to s
 	\end{itemize}	
 \end{enumerate}
 
-\subsection{users.profile.server.controller.js}
+\subsection{users.profile.server.controller}
  The profile controller provides fuctionality to search for an employee, retrieve the system limit, and for a user to update his/her password.
  \begin{enumerate}
  \item Methods:
@@ -245,7 +245,7 @@ The authentication controller allows existing users to log in and new users to s
 		 This method allows an employee to be searched. It returns the emplyee details if that employee is found, if the employee is not found it displays an error message.
  	\end{itemize}
  \end{enumerate}
-\subsection{settings.client.controller.js}
+\subsection{settings.client.controller}
  The settings controller allows the user to view and edit profile information. The controller also perfomrs security checks to make sure that unauthorised users cannot access certain functions of the system.
  \begin{enumerate}
  \item Declaration:\\angular.module('users').controller('SettingsController', ['\$scope', '\$http', '\$location', 'Users', 'Authentication',
@@ -283,7 +283,7 @@ This method performs an authentication check to ensure that unauthorised users c
 The checkFinUser method performs a check to establish wheter the user has a finance role or not. It prevents unauthorised users from performing actions that can only be done by users with a finance role.
 	\end{itemize}
  \end{enumerate}
- \subsection{password.client.controller.js}
+ \subsection{password.client.controller}
  The password controller allows a user to reset his/her passoword if they forgot what their password is. 
  \begin{enumerate}
  \item Declaration:\\angular.module('users').controller('PasswordController', ['\$scope', '\$stateParams', '\$http', '\$location', 'Authentication',
@@ -366,7 +366,7 @@ The checkFinUser method performs a check to establish wheter the user has a fina
 
 \section{Manage Cafeteria}
 %---------------------------menu items server controller-------------------------------------------------------------
-\subsection{menuItems.server.controller.js}
+\subsection{menuItems.server.controller}
  The menuItems controller handles all the functionality for creating and removing menu items. It also deals with allocating ingredients (inventory items) to the menu items.
 \begin{enumerate}
 \item Methods:
@@ -428,66 +428,83 @@ The menuitems client controller handles all the functionality concerning the men
 	\begin{itemize}
 		\item Toggle Collapsible Menu\\
 		\$scope.toggleCollapsibleMenu = function()\\
-		-Usage\\
+		-Usage\\ \\
 		This method collapses and opens the Menu Bar. The function is invoked on the click of a button in the HTML file.
 		\item Add Form Field\\
 		\$scope.addFormField = function()\\
-		-Usage\\
+		-Usage\\ \\
 		This method adds new text-boxes to assist with adding ingredients for menu items. The method is invoked when the button addIngridients is clicked in the HTML.
 		\item Load Ingridients\\
 		\$scope.loadIngredients = function()\\
-		-Usage\\
+		-Usage\\ \\
 		This method transfers ingredients from the request result array to the working scope array. The method is invoked by other methods in the controller.
 		\item Add More Ingridients Update\\
 		\$scope.addMoreIngredientsUpdate = function()\\
-		-Usage\\
+		-Usage\\ \\
 		This method adds new text-boxes to assist with updating ingredients for existing menu items. The method is invoked when the button addIngridients is clicked in the update ingredients section in the HTML.
 		\item Remove Ingridient\\
 		\$scope.removeIngredient = function(int index)\\
-		-Usage\\
+		-Usage\\ \\
 		This method removes the ingredient at the specified index for the menu item being updated.
 		\item Undo Remove Ingredient\\
 		\$scope.undoRemoveIngredient = function(index)\\
-		-Usage\\
+		-Usage\\ \\
 		This method undo's a remove ingredient operation performed by the above function.
 		\item Update Menu Itemp\\
 		\$scope.updateMenuItem = function()\\
-		-Usage\\
+		-Usage\\ \\
 		This method sends the update request to the server to update the menu items. It will perform all error checks and display any errors returned from the server in the HTML.
 		\item Search Menu\\
 		\$scope.searchMenu = function(Boolean isValid)\\
-		-Usage\\
+		-Usage\\ \\
 		This method searches for a menu item in the database. The search query is obtained from the scope variable.
 		\item Create menu item\\
 		\$scope.createMenuItem = function(Boolean isValid)\\
-		-Usage\\
+		-Usage\\ \\
 		This method creates a new menu item in the database. The method will perform all error checks and validation and send the request to the server. The server response will then be displayed on the page.
 		\item Create Menu Category\\
 		\$scope.createMenuCatagory = function(Boolean isValid)\\
-		-Usage\\
+		-Usage\\ \\
 		This method adds a new Menu item category to the database. The method will perform error checks and send the request to the server. The server response will be displayed on the page.
 		\item Remove Ingredient\\
 		\$scope.removeIngredientOption = function(int index)
-		-Usage\\
+		-Usage\\ \\
 		Removes ingredients from the  new menu item being added. Method is invoked on button click.
 		\item Load Menu Items\\
 		\$scope.loadMenuItems = function()
-		-Usage\\
+		-Usage\\ \\
 		This method gets all the menu items from the server and populates the local array. If the server responds with an error, the error will be displayed on the page.
 		\item Load Menu Categories\\
 		\$scope.loadMenuCategories = function()\\
-		-Usage\\
+		-Usage\\ \\
 		This method gets all the menu item categories from the server. If the server responds with an error, the error wil be displayed on the page.
 		\item Check Stock\\
 		\$scope.checkStock = function(String menuItemName)\\
-		-Usage\\
+		-Usage\\ \\
 		This method checks if all the ingredients required to make a menu item are in stock and the quantities are enough. The item will then be marked appropriately as in-stock or out-of-stock.
+		\item Delete Menu Item\\
+		\$scope.deleteMenuItem = function(String menuItemName)\\
+		-Usage\\ \\
+		This method checks deletes the specified menu item from the database. It sends the delete request to the server and will display the servers response in HMTL page.
+		\item Add To Plate\\
+		\$scope.addToPlate = function(String itemName)\\
+		-Usage\\ \\
+		This method adds the specified item to the plate, which uses the browsers cookies. The method will check for duplicates and react accordingly when adding
+		\item Index of Item\\
+		var indexOfItem = function(JsonObj[] arr, String item)\\
+		-Usage\\ \\
+		This is a helper method that searches an arry for the specified item. If the item is found, the index is returned, else -1 is returned.
+		$scope.checkCMUser = function()
+		\item Index of Item\\
+		\$scope.checkCMUser = function()\\
+		-Usage\\ \\
+		This method checks whether the current user has permision to view the page, and redirects to the home page if they do not.
 	\end{itemize}
 	
 \end{enumerate}
 \section{Manage Inventory}
 %-------------------------------inventory client controller
-\subsection{inventory.client.controlle.jsr}
+\subsection{inventory.client.controller}
  The inventory controller handles all the main functionality concerning inventory, such as adding an anventory item.
 \begin{enumerate}
 \item Declaration:\\angular.module('inventory').controller('InventoryController', ['\$scope', '\$http', '\$stateParams', '\$location', 'Authentication', 'Inventory',
@@ -652,19 +669,13 @@ function(\$scope, \$rootScope, \$http, \$stateParams, \$location, \$cookies, Aut
 	\item Methods:\\
 	\begin{itemize}
 	\item Load canteen info\\
-	\$scope.loadCanteenInfo = function()\\ \\
+	$scope.loadCanteenInfo = function()\\ \\
 	Usage: This function loads the canteen name, if there is no name for the canteen it sets the cateen name to ``Canteen Name''.
 	\item Sign out\\
-	\$scope.signout = function()\\ \\
+	$scope.signout = function()\\ \\
 	Usage: This method clears any orders of the user that might be stored in cookies when that user signs out.
 	
 	\end{itemize}
-\end{enumerate}
-\subsection{home.client.controller.js}
-\begin{enumerate}
-\item Declaration:\\ angular.module('core').controller('HomeController', ['\$scope', 'Authentication',
-	function(\$scope, Authentication)
-\item Usage: The home controller calls the core server contraller which provides the functionality of the home page.
 \end{enumerate}
 
 
