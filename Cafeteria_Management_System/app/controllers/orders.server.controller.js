@@ -163,7 +163,8 @@ exports.markAsPaid = function(req, res){
 
 exports.markAsCollected = function(req, res){
     console.log('dgefrgwergtwe'); //console.log(req.body);
-    Order.find({orderNumber: req.body.orderNumber },function(err, numAffected2) {
+	res.status(200).send();
+  /* Order.find({orderNumber: req.body.orderNumber },function(err, numAffected2) {
         console.log(numAffected2);
         console.log(numAffected2.length);
         for(var item in numAffected2){
@@ -174,7 +175,7 @@ exports.markAsCollected = function(req, res){
         }
 
     });
-
+*/
 
 };
 
