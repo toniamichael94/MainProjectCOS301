@@ -1,0 +1,25 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Vision}{}% 2
+\BOOKMARK [1][-]{section.3}{Background}{}% 3
+\BOOKMARK [1][-]{section.4}{Standards and conventions}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{Design standards}{section.4}% 5
+\BOOKMARK [1][-]{section.5}{Authentication}{}% 6
+\BOOKMARK [2][-]{subsection.5.1}{authentication.client.controller}{section.5}% 7
+\BOOKMARK [2][-]{subsection.5.2}{users.authentication.server.controller}{section.5}% 8
+\BOOKMARK [1][-]{section.6}{Manage Profile}{}% 9
+\BOOKMARK [2][-]{subsection.6.1}{superuser.client.controller.js}{section.6}% 10
+\BOOKMARK [2][-]{subsection.6.2}{cashier.client.controller.js}{section.6}% 11
+\BOOKMARK [2][-]{subsection.6.3}{cashier.client.controller.js}{section.6}% 12
+\BOOKMARK [2][-]{subsection.6.4}{users.profile.server.controller}{section.6}% 13
+\BOOKMARK [2][-]{subsection.6.5}{settings.client.controller}{section.6}% 14
+\BOOKMARK [2][-]{subsection.6.6}{password.client.controller}{section.6}% 15
+\BOOKMARK [1][-]{section.7}{Manage System}{}% 16
+\BOOKMARK [2][-]{subsection.7.1}{superuser.client.controller.js}{section.7}% 17
+\BOOKMARK [2][-]{subsection.7.2}{users.superuser.server.controller.js}{section.7}% 18
+\BOOKMARK [1][-]{section.8}{Manage Cafeteria}{}% 19
+\BOOKMARK [1][-]{section.9}{Manage Inventory}{}% 20
+\BOOKMARK [2][-]{subsection.9.1}{inventory.client.controller}{section.9}% 21
+\BOOKMARK [2][-]{subsection.9.2}{inventory.server.controller}{section.9}% 22
+\BOOKMARK [1][-]{section.10}{Place Order}{}% 23
+\BOOKMARK [2][-]{subsection.10.1}{orders.client.controller.js}{section.10}% 24
+\BOOKMARK [2][-]{subsection.10.2}{orders.server.controller.js}{section.10}% 25

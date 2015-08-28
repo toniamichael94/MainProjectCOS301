@@ -108,30 +108,55 @@ The authentication controller allows existing users to log in and new users to s
 \subsection{users.authentication.server.controller}
  The authentication controller allows existing users to log in and new users to sign up. It also creates a new super user or admin if eitehr one does not exist, and it sets the system wide limit to 5000.
 \begin{enumerate}
-\item Declaration:
 \item Methods:
 	\begin{itemize}
-	\item Sign up\\
-  	exports.signUp = function(req,res)\\ \\
+	\item Sign up\\ 
+  	exports.signUp = function(JsonOBject req, JsonOBject res)\\ \\
   	-Usage\\
   	This method ensures that all the fields neccessary to sign up were completed correctly. It returns an error message if one or 	more of the fields were entered incorrectly, otherwhise it adds the user deatils to the database.
  	 \item Sign in\\
-	exports.signin = function(req, res, next) \\ \\
+	exports.signin = function(JsonOBject req, JsonOBject res, function next) \\ \\
 	-Usage\\
 	This method allows an existing user to sign it if the user entered his/her details correctly. It performs a check to see if the user 	id and the passoword is correct. If the details are incorrect an error message is displayed.
 	\item Sign out\\
+	exports.signout = function(JsonOBject req, JsonOBject res)\\  \\
 	-Usage\\
 	This method lets a user sign out of the system.
- 	 \item Check super user\\
- 	 -Usage\\
+ 	 \item Check super user\\ exports.checkSuperUser = function()\\ \\
+ 	 -Usage\\ 
   This method performs a check to confirm whether there is an existing super user or not. If there is no super user, it creates a super user and admin user, and sets the system wide limit to 5000. If these actions were not completed successfully the method displays an error message. This method also checks whether there is an existing admin user and creates one if there is not currently and admin user. An error message is displayed if this action was not performed successfully.
-  
-  \item add outh functions
 	\end{itemize}
 \end{enumerate} 
 
-\section{Manage Profile}
-
+\section{Manage Profile} 
+%%superuser client controller----------------------------------------------
+\subsection{superuser.client.controller.js}
+\begin{enumerate}
+\item Declaration: \\ angular.module('users').controller('superuserController', ['\$scope', '\$http', '\$location', '\$window', 'Users', 'Authentication',
+	function(\$scope, \$http, \$location, \$window, Users, Authentication) \{ \}
+\item Methods: 
+	\begin{itemize}
+		\item Assign roles \\ \$scope.assignRoles = function(Boolean isValid) \{\} \\ \\
+		Usage: Superuser can assign cashier, cafeteria manager, finance manager and admin roles
+		\item Assign roles admin role \\ \$scope.assignRolesAdminRole = function(Boolean isValid) \{ \} \\ \\
+		Usage: Admin user also has access to the assign roles functionality and serves as a back up superuser
+		\item Change employee ID \\ \$scope.changeEmployeeID = function(Boolean isValid) \{\} \\ \\
+		Usage: The superuser can change the employee ID of the users if the user signed up with the incorrect ID or if the company changes the IDs.
+		\item Remove employee \\ \$scope.removeEmployee = function(Boolean isValid) \{\}
+		\\ \\ Usage: The superuser is also able to remove users from the system, due to resignation or dismissal for example
+		\item Search employee \\ \$scope.searchEmployee = function(Boolean isValid) \{ \}
+		\\ \\ Usage: This function is used to retrieve employees from the system to be able to change their employe ID or remove them from the system
+		\item Search employee ID \\ \$scope.searchEmployeeID = function(int row) \{\}
+		\\ \\ Usage: This function is used to retrieve employee IDs 
+		\item Set system wide limit \\ \$scope.setSystemWideLimit = function(Boolean isValid)\{ \} \\ \\ Usage: This is used by the superuser to set the maximum monthly spending limit for all the users of the system.
+		 \item Set canteen name \\ \$scope.setCanteenName = function(Boolean isValid)\{ \}
+		\\ \\ Usage: The canteen name is configurable from the superuser's branding settings page.
+		\item Check user \\ \$scope.checkUser = function()\{\}
+		\\ \\Usage: This is a security function that checks to make sure that the authorized superuser is accessing the page and if this is not the case, the user will be redirected to the home page
+		\item Load employees \\ \$scope.loadEmployees = function()\{\}
+		\\ \\Usage: This function is used to dynamically populate the drop down menu for the change employee ID functionality
+	\end{itemize}
+\end{enumerate} 
 %%cashier client controller----------------------------------------------
 \subsection{cashier.client.controller.js}
 \begin{enumerate}
@@ -140,12 +165,12 @@ The authentication controller allows existing users to log in and new users to s
 \item Methods:
 	\begin{itemize}
 		\item Get orders \\ \$scope.getOrders = function()
-		\\ \\ Usage: Function to obtain the list of orders that an order placed from the menu
-		\item Mark as ready \\ \$scope.markAsReady = function(username, orderNumber)
+		\\ \\ Usage: Function to obtain the list of orders that an order placed from the menu 
+		\item Mark as ready \\ \$scope.markAsReady = function(String username, String orderNumber) 
 		\\ \\ Usage: Function that the cashier uses to send a notification to the user notifying the user that their order is ready. The function also changes the status in the model from open to ready.
-	\item Mark as collected \\ \$scope.markAsCollected = function(username, itemName,orderNumber) 
+	\item Mark as collected \\ \$scope.markAsCollected = function(String username, String itemName, String orderNumber) 
 	\\ \\ Usage: On the click of the 'Order collected' button on the cashier page, this function will be called. It changes the status of the order in the model from ready/open to closed.
-	\item Mark as paid \\ \$scope.markAsPaid = function(username, itemName, orderNumber) 
+	\item Mark as paid \\ \$scope.markAsPaid = function(String username, String itemName, String orderNumber)  
 	\\ \\ Usage: On the click of the 'Paid and collected' button on the cashier page, this function will be called. It changes the status of the order in the model from ready/open to closed.
 	\item Check user \\ \$scope.checkUser = function() 
 	\\ \\ Usage: This is a security function that checks to make sure that the authorized cashier is accessing the page and if this is not the case, the user will be redirected to the home page
@@ -168,23 +193,18 @@ The authentication controller allows existing users to log in and new users to s
 \subsection{users.profile.server.controller}
  The profile controller provides fuctionality to search for an employee, retrieve the system limit, and for a user to update his/her password.
  \begin{enumerate}
- \item Declaration:\\
  \item Methods:
  	\begin{itemize}
- 		\item Update\\
- 		exports.update = function(req, res)\\ \\
+ 		\item Update\\ 
+ 		exports.update = function(JsonObject req, JsonObject res)\\ \\ 
  		-Usage\\
- 		This method allows a user to update his/her profile and displays an error message if the profile could not be updated.
-		 \item Me\\
- 		exports.me = function(req, res)\\ \\
- 		-Usage\\
- 
- 		\item Get system limit\\
- 		exports.getSystemLimit = function(req, res)\\ \\
+ 		This method allows a user to update his/her profile and displays an error message if the profile could not be updated. 
+ 		\item Get system limit\\ 
+ 		exports.getSystemLimit = function(JsonObject req, JsonObject res)\\ \\
  		-Usage\\
 		 This method retrieves the system limit, it is used to prevent an employee from setting their limit too high.
  		\item Search employee\\
- 		exports.searchEmployee=function(req,res)\\ \\
+ 		exports.searchEmployee=function(JsonObject req, JsonObject res)\\ \\ 
  		-Usage\\
 		 This method allows an employee to be searched. It returns the emplyee details if that employee is found, if the employee is not found it displays an error message.
  	\end{itemize}
@@ -196,14 +216,10 @@ The authentication controller allows existing users to log in and new users to s
 	function(\$scope, \$http, \$location, Users, Authentication) 
 	\item Methods:\\
 	\begin{itemize}
-	\item Update user profile\\
- \$scope.updateUserProfile = function(boolean isValid) \\ \\
-  Usage\\ 
- This method allows the user to update profile information. It displays an error if any of the information entered by the user is not in the correct format, or if the limit set by the user exceeds the system limit.
-\item View user profile\\
- \$scope.viewUserProfile = function(boolean isValid)\\ \\
--Usage\\
-
+	\item Update user profile\\ 
+ \$scope.updateUserProfile = function(Boolean isValid) \\ \\
+ -Usage\\
+ This method allows the user to update profile information. It displays an error if any of the information entered by the user is not in the correct format, or if the limit set by the user exceeds the system limit. 
 \item Change user password\\
  \$scope.chageUserPassword = function()\\ \\ 
 -Usage\\
@@ -214,15 +230,11 @@ This method lets the user change his/her password.
 -Usage\\
 This method retrieves the system wide limit.
 
-\item Search employee\\
- \$scope.searchEmployee = function(boolean isValid)\\ \\
+\item Search employee\\ 
+ \$scope.searchEmployee = function(Boolean isValid)\\  \\
 -Usage\\
 This method allows the superuser to search for an employee, for example when a new role needs to be assigned to the employee.
-This method is also used in finance where an employee is searched to display his/her bill.
-
-\item Load employees\\
- \$scope.loadEmplyees = function()\\ \\
--Usage\\
+This method is also used in finance where an employee is searched to display his/her bill. 
 
 \item Check user role\\
  \$scope.checkuser = function()\\ \\
@@ -242,20 +254,20 @@ The checkFinUser method performs a check to establish wheter the user has a fina
 	function(\$scope, \$stateParams, \$http, \$location, Authentication) 
 	\item Methods:
 	\begin{itemize}
-	\item Forgot password\\
- exports.forgot = function(req, res, next)\\ \\
+	\item Forgot password\\ 
+ exports.forgot = function(JsonObject req, JsonObject res, function next)\\ \\
  -Usage\\
  This method sends a link to the user who forgot his/her password that they can follow to reset the password. This link is sent to the user's email account. It displays an error message if the user could not be found, if the user id field is blank, or if an email could not be sent.
  \item Validate reset token\\
- exports.validateResetToken = function(req, res)\\ \\
+ exports.validateResetToken = function(JsonObject req, JsonObject res)\\ \\
  -Usage\\
  The method validates that the user can reset his/her password with the link they followed. If the link is invalid it displays an error message.\\
  \item Reset\\
- exports.reset = function(req, res, next)\\ \\
+ exports.reset = function(JsonObject req, JsonObject res, function next)\\ \\
  -Usage\\
  This method resets the user password if the link followed to reset his/her password is valid. It displays an error message if the user did not enter the same password twice or if the password reset token is invalid. If the password has been changed an email is sent to the user to notify him/her of the change.
  \item Change password\\
- exports.changePassword = function(req, res)\\ \\
+ exports.changePassword = function(JsonObject req, JsonObject res)\\  \\
  -Usage\\
  This method allows the user to change his/her password. It displays an error message if the user could not be found or is not logged in, if the user did not enter the current password correctly, if the new password is not long enough, or if the user did not enter the same new password twice in order to confirm the new password.
 	\end{itemize}
@@ -335,16 +347,16 @@ The checkFinUser method performs a check to establish wheter the user has a fina
    \$scope.loadInventoryItems = function()\\ \\
    -Usage\\
    The load inventory items searches for and returns all the inventory items in the database. It displays an error message when it could not load all the inventory items.
-   \item Create inventory item\\
-    \$scope.create = function(boolean isValid)\\ \\
+   \item Create inventory item\\ 
+    \$scope.create = function(Boolean isValid)\\ \\
     -Usage\\
     This method creates a new inventory item and stores it in the database. It displays an error message if all the neccessary fields are not entered correctly. 
     \item Search inventory\\
-     \$scope.searchInventory = function(boolean isValid)\\ \\
+     \$scope.searchInventory = function(Boolean isValid)\\ \\
      -Usage\\
      This method searches for and returns a specific inventory item. It displays an error message if the inventory item could not be found.
      \item Update inventory\\
-      \$scope.updateInventory = function(boolean isValid)\\ \\
+      \$scope.updateInventory = function(Boolean isValid)\\ \\
       -Usage\\
       This method updates a specified inventory item. It displays an error message if all the neccessary fields were not entered correctly or if the item could not be updated.
       \item Check if cafeteria manager\\
@@ -355,31 +367,33 @@ The checkFinUser method performs a check to establish wheter the user has a fina
 \end{enumerate}
 \subsection{inventory.server.controller}
  The inventory controller handles all the main functionality concerning inventory, such as adding an anventory item.
- \begin{enumerate} 
+ 
+ \begin{enumerate}
  \item Methods:
  	\begin{itemize}
  	\item Load inventory items\\
- 	exports.loadInventoryItems = function(req, res)\\ \\
+ 	exports.loadInventoryItems = function(JsonOBject req, JsonOBject res)\\ \\
  	-Usage\\
  	This method retrieves and returns all the inventory items in the databse. It is used to display all the inventory items where neccessary.
  	\item Search inventory\\
- 	exports.searchInventory=function(req,res)\\ \\
+ 	exports.searchInventory=function(JsonOBject req, JsonOBject res)\\ \\
  	-Usage\\
  	This method searches and returns a specific inventory item. It returns an error message if the specified item could not be found, or if the inventory item's name is empty.
- 	\item Decrease inventory\\
- 	exports.decreaseInventory = function(req,res) \\ \\
+ 	\item Decrease inventory
+ 	exports.decreaseInventory = function(JsonOBject req, JsonOBject res) \\ \\
  	-Usage\\
  	This method decreases a specific inventory item with a certain amount. It returns an error message if the inventory item could not be found or if the inventory item could not be decreased.
  	\item Update inventory\\
- 	exports.updateInventory = function(req, res)\\ \\
+ 	exports.updateInventory = function(JsonOBject req,JsonOBject  res)\\ \\
  	-Usage\\
  	This method updates a specific inventory item. It returns an error message if the item to be updated was  not found, or if the item could not be updated.
  	\item Update inventory quantity
- 	exports.updateInventoryQuantity=function(req,res)\\ \\
+ 	exports.updateInventoryQuantity=function(JsonOBject req, JsonOBject res)\\ \\
  	-Usage\\
  	This method updates the quantity of a specific inventory item. If the inventory item could not be found or updated it returns an error message.
- 	\item Delete inventory item\\
- 	exports.deleteInventoryItem = function(req, res)\\ \\
+ 	\item Delte inventory item\\
+ 	exports.deleteInventoryItem = function(JsonOBject req, JsonOBject res)\\ \\
+ 
  	-Usage\\
  	This method deletes a specific inventory item. It returns an error messag if the item could not be found or deleted.
  	\end{itemize}
