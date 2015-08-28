@@ -51,11 +51,11 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
 			}
 			
 			
-			$http.post('orders/markAsPaid',{uname : username, orderNum:orderNumber, method: pMethod }).success(function(response){
-
+			$http.post('orders/markAsPaid',{username : username, orderNum:orderNumber, method: pMethod }).success(function(response){
+				location.reload(true);
             }).error(function(response){
-
-            });location.reload(true);
+				$scope.error = response.message;
+            });
         };
         $scope.checkUser = function(){
             if((($scope.user && Authentication.user.roles[0] !== 'cashier') || (!$scope.user)) && $location.path('/#!/cashier'))
