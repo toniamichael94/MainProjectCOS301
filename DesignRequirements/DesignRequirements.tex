@@ -88,13 +88,47 @@ After our first meeting with the client, they brought to our attention that at t
 
 %%TEMPLATE_________________ !!!!!!!!!!!!!!!!!!!!!
 \section{Authentication}
-\subsection{something.client.controller.js}
+\subsection{authentication.client.controller}
+The authentication controller allows existing users to log in and new users to sign up.
 \begin{enumerate}
-\item Declaration: angular.module('users').controller....... 
+\item Declaration: \\angular.module('users').controller('AuthenticationController', ['\$scope', '\$http', '\$location', '\$cookies', 'Authentication',
+	function(\$scope, \$http, \$location, \$cookies, Authentication)
 \item Methods:
 	\begin{itemize}
-		\item
-	\end{itemize}	
+ 	\item Sign up \\
+	 \$scope.signup = function()\\
+ 	-Usage\\
+	 Method that allows a new user to sign up.
+	 \item Sign in\\
+  	\$scope.signin = function()\\
+	 -Usage\\
+ 	Method that allows an existing user to sign in.
+ \end{itemize}	
+\end{enumerate}
+
+\subsection{users.authentication.server.controller}
+ The authentication controller allows existing users to log in and new users to sign up. It also creates a new super user or admin if eitehr one does not exist, and it sets the system wide limit to 5000.
+\begin{enumerate}
+\item Declaration:
+\item Methods:
+	\begin{itemize}
+	\item Sign up\\
+  	exports.signUp = function(req,res)\\
+  	-Usage\\
+  	This method ensures that all the fields neccessary to sign up were completed correctly. It returns an error message if one or 	more of the fields were entered incorrectly, otherwhise it adds the user deatils to the database.
+ 	 \item Sign in\\
+	exports.signin = function(req, res, next) \\
+	-Usage\\
+	This method allows an existing user to sign it if the user entered his/her details correctly. It performs a check to see if the user 	id and the passoword is correct. If the details are incorrect an error message is displayed.
+	\item Sign out\\
+	-Usage\\
+	This method lets a user sign out of the system.
+ 	 \item Check super user\\
+ 	 -Usage\\
+  This method performs a check to confirm whether there is an existing super user or not. If there is no super user, it creates a super user and admin user, and sets the system wide limit to 5000. If these actions were not completed successfully the method displays an error message. This method also checks whether there is an existing admin user and creates one if there is not currently and admin user. An error message is displayed if this action was not performed successfully.
+  
+  \item add outh functions
+	\end{itemize}
 \end{enumerate}
 %%END TEMPLATE_________________ !!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -159,9 +193,178 @@ After our first meeting with the client, they brought to our attention that at t
 	\\ \\ Usage: This is a security function that checks to make sure that the authorized cashier is accessing the page and if this is not the case, the user will be redirected to the home page
 	\end{itemize}	
 \end{enumerate}
+\subsection{users.profile.server.controller}
+ The profile controller provides fuctionality to search for an employee, retrieve the system limit, and for a user to update his/her password.
+ \begin{enumerate}
+ \item Declaration:\\
+ \item Methods:
+ 	\begin{itemize}
+ 		\item Update\\
+ 		exports.update = function(req, res)\\
+ 		-Usage\\
+ 		This method allows a user to update his/her profile and displays an error message if the profile could not be updated.
+		 \item Me\\
+ 		exports.me = function(req, res)\\
+ 		-Usage\\
+ 
+ 		\item Get system limit\\
+ 		exports.getSystemLimit = function(req, res)\\
+ 		-Usage\\
+		 This method retrieves the system limit, it is used to prevent an employee from setting their limit too high.
+ 		\item Search employee\\
+ 		exports.searchEmployee=function(req,res)\\
+ 		-Usage\\
+		 This method allows an employee to be searched. It returns the emplyee details if that employee is found, if the employee is not found it displays an error message.
+ 	\end{itemize}
+ \end{enumerate}
+\subsection{settings.client.controller}
+ The settings controller allows the user to view and edit profile information. The controller also perfomrs security checks to make sure that unauthorised users cannot access certain functions of the system.
+ \begin{enumerate}
+ \item Declaration:\\angular.module('users').controller('SettingsController', ['\$scope', '\$http', '\$location', 'Users', 'Authentication',
+	function(\$scope, \$http, \$location, Users, Authentication) 
+	\item Methods:\\
+	\begin{itemize}
+	\item Update user profile\\
+ \$scope.updateUserProfile = function(boolean isValid)
+ -Usage\\
+ This method allows the user to update profile information. It displays an error if any of the information entered by the user is not in the correct format, or if the limit set by the user exceeds the system limit.
+\item View user profile\\
+ \$scope.viewUserProfile = function(boolean isValid)\\
+-Usage\\
+
+\item Change user password\\
+ \$scope.chageUserPassword = function()\\
+-Usage\\
+This method lets the user change his/her password.
+
+\item Get system limit\\
+ \$scope.getSystemLimit = function()\\
+-Usage\\
+This method retrieves the system wide limit.
+
+\item Search employee\\
+ \$scope.searchEmployee = function(boolean isValid)\\
+-Usage\\
+This method allows the superuser to search for an employee, for example when a new role needs to be assigned to the employee.
+This method is also used in finance where an employee is searched to display his/her bill.
+
+\item Load employees\\
+ \$scope.loadEmplyees = function()\\
+-Usage\\
+
+\item Check user role\\
+ \$scope.checkuser = function()\\
+-Usage\\
+This method performs an authentication check to ensure that unauthorised users cannot access certain features. For example, a normal user will not be able to navigate to the manage cafeteria page.
+
+\item Check if the user has a financial role\\
+ \$scope.checkFinUser = function()\\
+-Usage\\
+The checkFinUser method performs a check to establish wheter the user has a finance role or not. It prevents unauthorised users from performing actions that can only be done by users with a finance role.
+	\end{itemize}
+ \end{enumerate}
+ \subsection{password.client.controller}
+ The password controller allows a user to reset his/her passoword if they forgot what their password is. 
+ \begin{enumerate}
+ \item Declaration:\\angular.module('users').controller('PasswordController', ['\$scope', '\$stateParams', '\$http', '\$location', 'Authentication',
+	function(\$scope, \$stateParams, \$http, \$location, Authentication) 
+	\item Methods:
+	\begin{itemize}
+	\item Forgot password\\
+ exports.forgot = function(req, res, next)\\
+ -Usage\\
+ This method sends a link to the user who forgot his/her password that they can follow to reset the password. This link is sent to the user's email account. It displays an error message if the user could not be found, if the user id field is blank, or if an email could not be sent.
+ \item Validate reset token\\
+ exports.validateResetToken = function(req, res)\\
+ -Usage\\
+ The method validates that the user can reset his/her password with the link they followed. If the link is invalid it displays an error message.\\
+ \item Reset\\
+ exports.reset = function(req, res, next)\\
+ -Usage\\
+ This method resets the user password if the link followed to reset his/her password is valid. It displays an error message if the user did not enter the same password twice or if the password reset token is invalid. If the password has been changed an email is sent to the user to notify him/her of the change.
+ \item Change password\\
+ exports.changePassword = function(req, res)\\
+ -Usage\\
+ This method allows the user to change his/her password. It displays an error message if the user could not be found or is not logged in, if the user did not enter the current password correctly, if the new password is not long enough, or if the user did not enter the same new password twice in order to confirm the new password.
+	\end{itemize}
+ \end{enumerate}
+
 \section{Manage System}
 \section{Manage Cafeteria}
 \section{Manage Inventory}
+\subsection{inventory.client.controller}
+ The inventory controller handles all the main functionality concerning inventory, such as adding an anventory item.
+\begin{enumerate}
+\item Declaration:\\angular.module('inventory').controller('InventoryController', ['\$scope', '\$http', '\$stateParams', '\$location', 'Authentication', 'Inventory',
+	function(\$scope, \$http, \$stateParams, \$location, Authentication, Inventory)
+\item Methods:
+	\begin{itemize}
+	\item Add form field inventory\\
+  \$scope.addFormFieldInventory = function()\\
+  -Usage\\
+  This method dynamically adds fields to the inventory page that are used to update the quantity of an inventory item. Each inventory item is displayed with the option to edit the quantity.
+\item  Update inventory quantity\\
+ \$scope.updateInventoryQuantity = function()\\
+ -Usage\\
+ This method updates the quantity of an inventory item.
+ \item Delete inventory item\\
+  \$scope.deleteInventoryItem = function()\\
+  -Usage\\
+  This method removes an inventory item from the database. It displays an error message when a user wants to remove an inventory item that is used by a menu item, in this case it displays an error message and does not remove the inventory item from the database.
+  \item Load inventory items\\
+   \$scope.loadInventoryItems = function()\\
+   -Usage\\
+   The load inventory items searches for and returns all the inventory items in the database. It displays an error message when it could not load all the inventory items.
+   \item Create inventory item\\
+    \$scope.create = function(boolean isValid)\\
+    -Usage\\
+    This method creates a new inventory item and stores it in the database. It displays an error message if all the neccessary fields are not entered correctly. 
+    \item Search inventory\\
+     \$scope.searchInventory = function(boolean isValid)\\
+     -Usage\\
+     This method searches for and returns a specific inventory item. It displays an error message if the inventory item could not be found.
+     \item Update inventory\\
+      \$scope.updateInventory = function(boolean isValid)\\
+      -Usage\\
+      This method updates a specified inventory item. It displays an error message if all the neccessary fields were not entered correctly or if the item could not be updated.
+      \item Check if cafeteria manager\\
+       \$scope.checkCMUser = function()\\
+       -Usage\\
+       This method performs a check to te confirm that the user has the cafeteria manager role. It prevents unauthorised users to perform actions that only the cafeteria manager is allowed to perform.
+	\end{itemize}
+\end{enumerate}
+\subsection{inventory.server.controller}
+ The inventory controller handles all the main functionality concerning inventory, such as adding an anventory item.
+ \begin{enumerate}
+ \item Declaration:
+ \item Methods:
+ 	\begin{itemize}
+ 	\item Load inventory items\\
+ 	exports.loadInventoryItems = function(req, res)\\
+ 	-Usage\\
+ 	This method retrieves and returns all the inventory items in the databse. It is used to display all the inventory items where neccessary.
+ 	\item Search inventory\\
+ 	exports.searchInventory=function(req,res)\\
+ 	-Usage\\
+ 	This method searches and returns a specific inventory item. It returns an error message if the specified item could not be found, or if the inventory item's name is empty.
+ 	\tiem Decrease inventory\\
+ 	exports.decreaseInventory = function(req,res)\\
+ 	-Usage\\
+ 	This method decreases a specific inventory item with a certain amount. It returns an error message if the inventory item could not be found or if the inventory item could not be decreased.
+ 	\item Update inventory\\
+ 	exports.updateInventory = function(req, res)\\
+ 	-Usage\\
+ 	This method updates a specific inventory item. It returns an error message if the item to be updated was  not found, or if the item could not be updated.
+ 	\item Update inventory quantity
+ 	exports.updateInventoryQuantity=function(req,res)\\
+ 	-Usage\\
+ 	This method updates the quantity of a specific inventory item. If the inventory item could not be found or updated it returns an error message.
+ 	\item Delte inventory item\\
+ 	exports.deleteInventoryItem = function(req, res)\\
+ 	-Usage\\
+ 	This method deletes a specific inventory item. It returns an error messag if the item could not be found or deleted.
+ 	\end{itemize}
+ \end{enumerate}
 \section{Place Order}
 
 

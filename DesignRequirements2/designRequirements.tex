@@ -1,6 +1,6 @@
 \documentclass[a4paper,12pt]{article}
 \begin {document}
-\section{Authentication}
+\section{Authentication- added to main doc}
 \subsection{authentication.client.controller}
 The authentication controller allows existing users to log in and new users to sign up.
  \begin{itemize}
@@ -34,7 +34,7 @@ This method lets a user sign out of the system.
   \item add outh functions
  \end{itemize}
  
- \section{Settings}
+ \section{Settings- added to main doc}
  \subsection{settings.client.controller}
  The settings controller allows the user to view and edit profile information. The controller also perfomrs security checks to make sure that unauthorised users cannot access certain functions of the system. 
  \begin{itemize}
@@ -76,9 +76,9 @@ This method performs an authentication check to ensure that unauthorised users c
 -Usage\\
 The checkFinUser method performs a check to establish wheter the user has a finance role or not. It prevents unauthorised users from performing actions that can only be done by users with a finance role.
  \end{itemize}
- \section{Profile}
+ \section{Profile-added to main doc}
  The profile controller provides fuctionality to search for an employee, retrieve the system limit, and for a user to update his/her password.
- \subsection{users.profile.server.controller}
+ \subsection{users.profile.server.controller - added to main doc} 
  \item Update\\
  exports.update = function(req, res)\\
  -Usage\\
@@ -98,7 +98,7 @@ The checkFinUser method performs a check to establish wheter the user has a fina
  \begin{itemize}
  
  \end{itemize}
- \section{Password}
+ \section{Password-added to main doc}
  \subsection{password.client.controller}
  The password controller allows a user to reset his/her passoword if they forgot what their password is. 
  \begin{itemize}
@@ -131,7 +131,7 @@ The checkFinUser method performs a check to establish wheter the user has a fina
  -Usage\\
  This method allows the user to change his/her password. It displays an error message if the user could not be found or is not logged in, if the user did not enter the current password correctly, if the new password is not long enough, or if the user did not enter the same new password twice in order to confirm the new password.
  \end{itemize}
- \section{Inventory}
+ \section{Inventory-added to main doc}
  \subsection{inventory.client.controller}
  The inventory controller handles all the main functionality concerning inventory, such as adding an anventory item.
  \begin{itemize}
