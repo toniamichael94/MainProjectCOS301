@@ -25,7 +25,7 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 			}
 		};
 
-		// view user profile
+		// view user profile -- What does this function do????{Lana}
 		$scope.viewUserProfile = function(isValid) {
 			if (isValid) {
 				$scope.success = $scope.error = null;
@@ -78,7 +78,7 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
             }
         };
 
-        // Loading the items from the inventory to display in the add ingredients of the menu items being added
+        // Should this be taken out {Lana}
         $scope.loadEmployees = function(){
             $http.get('/loadEmployees').success(function(response) {
                 $scope.employees = response.message;
