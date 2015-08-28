@@ -185,7 +185,7 @@ The service contract and activity diagram for forgotPassword follow. forgotPassw
 The service contract and activity diagram for validateUserCredentials follow. validateUserCredentials falls under the use case for Authentication (refer to page 15 - figure 12 to view this use case diagram). Here, a user who has forgotten their password will be assisted via sending an email to the user's email account with steps to follow to create a new password.
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{../images/ValidateUserPass.jpg}
+    \includegraphics[width=1.0\textwidth]{../images/ValidateUserPassActivity.png}
     \caption{The activity diagram for validateUserCredentials} 
 \end{figure}
 \begin{figure}[H]
@@ -341,7 +341,7 @@ The main functionality the system serves to provide, is  to allow the user to us
 \end{figure}
  
 \subsubsection{CheckProductAvailability}
-The service contract and activity diagram for CheckProductAvailability follow. CheckProductAvailability falls under the use case for Place Orders (refer to page 20 - figure 17 to view this use case diagram). The system will check whether the product that the user has selected to purchase is currently in stock.
+The service contract and activity diagram for CheckProductAvailability follow. CheckProductAvailability falls under the use case for Place Orders (refer to page 27 - figure 27 to view this use case diagram). The system will check whether the product that the user has selected to purchase is currently in stock.
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{../images/checkProductAvailability.png}
@@ -355,7 +355,7 @@ The service contract and activity diagram for CheckProductAvailability follow. C
 \end{figure}
 
 \subsubsection{markAsReady}
-The service contract and activity diagram for markAsReady follow. markAsReady falls under the use case for Place Orders (refer to page 20 - figure 17 to view this use case diagram). The cashier will be the only user with access to this functionality and when the order is marked as ready, the status of the order in the model is changed to ready. This will also send an email notification to the user that their order is ready for collection. 
+The service contract and activity diagram for markAsReady follow. markAsReady falls under the use case for Place Orders (refer to page 27 - figure 27 to view this use case diagram). The cashier will be the only user with access to this functionality and when the order is marked as ready, the status of the order in the model is changed to ready. This will also send an email notification to the user that their order is ready for collection. 
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{../images/markAsReadyActivity.png}
@@ -369,7 +369,7 @@ The service contract and activity diagram for markAsReady follow. markAsReady fa
 \end{figure}
 
 \subsubsection{markAsCollected}
-The service contract and activity diagram for markAsCollected follow. markAsCollected falls under the use case for Place Orders (refer to page 20 - figure 17 to view this use case diagram). The cashier will be the only user with access to this functionality and when the order is marked as collected, the status of the order in the model is changed to closed. It is important to note that by marking it as just merely "collected", the system will know to deduct the amount from the user's monthly balance, as the user has not paid with cash. This hence marks that the order has collected their order and their order has been processed. It will then no longer be displayed on the cashiers page.
+The service contract and activity diagram for markAsCollected follow. markAsCollected falls under the use case for Place Orders (refer to page 27 - figure 27 to view this use case diagram). The cashier will be the only user with access to this functionality and when the order is marked as collected, the status of the order in the model is changed to closed. It is important to note that by marking it as just merely "collected", the system will know to deduct the amount from the user's monthly balance, as the user has not paid with cash. This hence marks that the order has collected their order and their order has been processed. It will then no longer be displayed on the cashiers page.
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{../images/MarkAsCollectedActivity.png}
@@ -384,7 +384,7 @@ The service contract and activity diagram for markAsCollected follow. markAsColl
 
 
 \subsubsection{checkLimit}
-The service contract and activity diagram for checkLimit follow. checkLimit falls under the use case for Place Orders (refer to figure 17 page 20 to view this use case diagram). The system will be able to view the user's personal limit to make sure that the total of the bill is not larger than the users spending limit. 
+The service contract and activity diagram for checkLimit follow. checkLimit falls under the use case for Place Orders (refer to figure 27 page 27 to view this use case diagram). The system will be able to view the user's personal limit to make sure that the total of the bill is not larger than the users spending limit. 
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{../images/CheckLimitActivity.jpg}
@@ -398,7 +398,7 @@ The service contract and activity diagram for checkLimit follow. checkLimit fall
 \end{figure}
 
 \subsubsection{employeePaid}
-The service contract and activity diagram for employeePaid follow. employeePaid falls under the use case for Place Orders (refer to figure 17 page 20 to view this use case diagram). The cashier will be able to check this off if the client pays using cash instead of paying from their account. This will ensure that money isn't deducted from the user's limit because they paid cash. 
+The service contract and activity diagram for employeePaid follow. employeePaid falls under the use case for Place Orders (refer to figure 27 page 27 to view this use case diagram). The cashier will be able to check this off if the client pays using cash instead of paying from their account. This will ensure that money isn't deducted from the user's limit because they paid cash. 
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{../images/EmployeePaidActivity.jpg}
