@@ -1,0 +1,29 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Vision}{}% 2
+\BOOKMARK [1][-]{section.3}{Background}{}% 3
+\BOOKMARK [1][-]{section.4}{System Overview}{}% 4
+\BOOKMARK [1][-]{section.5}{System Configuration}{}% 5
+\BOOKMARK [1][-]{section.6}{Installation}{}% 6
+\BOOKMARK [2][-]{subsection.6.1}{Prerequisites}{section.6}% 7
+\BOOKMARK [2][-]{subsection.6.2}{Setting up CMS}{section.6}% 8
+\BOOKMARK [1][-]{section.7}{Getting Started}{}% 9
+\BOOKMARK [2][-]{subsection.7.1}{Administrative Users}{section.7}% 10
+\BOOKMARK [2][-]{subsection.7.2}{Creating an Account}{section.7}% 11
+\BOOKMARK [2][-]{subsection.7.3}{Logging In}{section.7}% 12
+\BOOKMARK [1][-]{section.8}{Using The System}{}% 13
+\BOOKMARK [2][-]{subsection.8.1}{The Navigation pane}{section.8}% 14
+\BOOKMARK [3][-]{subsubsection.8.1.1}{The Navigation pane - once the user is not logged on}{subsection.8.1}% 15
+\BOOKMARK [3][-]{subsubsection.8.1.2}{The Navigation pane - once the user has logged on}{subsection.8.1}% 16
+\BOOKMARK [2][-]{subsection.8.2}{The "Menu" Page}{section.8}% 17
+\BOOKMARK [2][-]{subsection.8.3}{The "On my plate" Page}{section.8}% 18
+\BOOKMARK [2][-]{subsection.8.4}{The "Edit Profile" Page}{section.8}% 19
+\BOOKMARK [2][-]{subsection.8.5}{The "Profile" Page}{section.8}% 20
+\BOOKMARK [2][-]{subsection.8.6}{The "Change Password" Page}{section.8}% 21
+\BOOKMARK [2][-]{subsection.8.7}{Superuser: The "Administrative Settings" Page}{section.8}% 22
+\BOOKMARK [2][-]{subsection.8.8}{Superuser: The "Branding Settings" Page}{section.8}% 23
+\BOOKMARK [2][-]{subsection.8.9}{Cafeteria Manager: The "Manage Inventory" Page}{section.8}% 24
+\BOOKMARK [2][-]{subsection.8.10}{Cafeteria Manager: The "Manage Menu" Page}{section.8}% 25
+\BOOKMARK [2][-]{subsection.8.11}{Cashier: The "Process Orders" Page}{section.8}% 26
+\BOOKMARK [2][-]{subsection.8.12}{Financial Manager: The "View Employee Bills" Page}{section.8}% 27
+\BOOKMARK [1][-]{section.9}{Troubleshooting}{}% 28
+\BOOKMARK [2][-]{subsection.9.1}{Problems with setting up the system}{section.9}% 29

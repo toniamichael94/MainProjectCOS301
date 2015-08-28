@@ -112,7 +112,7 @@ Below is a list of all the use cases we have identified:
 
 %% ------------------- USE CASE PRIORITIZATION -----------------------
 \subsection{Use Case Prioritization}
-Below the use cases mentioned above will be catagorized as critical, important or nice to have.
+Below the use cases mentioned above will be categorized as critical, important or nice to have.
 
 \begin{itemize}
 
@@ -122,7 +122,7 @@ Below the use cases mentioned above will be catagorized as critical, important o
 This is a critical use case due to the fact that you cannot send through any order if you are not logged in. In such a case you will only be able to view the menu. In addition, you can not log into the system if you have not been registered on the system.
 
 \item \textbf{Place Order}\\
-This is critical due to the fact that the main functionality of the system revolves around the ability to place orders at the cafeteria as well as other functionality that is closley related to the placing order functionality.
+This is critical due to the fact that the main functionality of the system revolves around the ability to place orders at the cafeteria as well as other functionality that is closely related to the placing order functionality.
 
 \item \textbf{Manage Inventory} \\
 This use case is considered critical because it deals with adding, removing, searching for and updating (i.e. incrementing stock that has been added and decrementing stock when it is purchased or expired). This is hence vital for achieving the purpose of the system. The items displayed on the menu will contain a field called "Not in stock" if there is not a sufficient supply of inventory for the various menu items and the option to order an 'out of stock' item will not be available. 
@@ -136,7 +136,7 @@ This use case is considered critical because it deals with firstly adding menu i
 This use case is considered important because the user must be able edit their profile by resetting their personal spending limits and changing their email and passwords. The user must also be able to view his/her account history and current bill as well as his/her available balance for credit spending for the month. It is crucial that the user is able to configure spending limits according to their own preferences as well as keep track of monthly purchases.
 
 \item \textbf{ Manage System} \\
-This use case is considered important because this is where the superuser will configure the maximum spending limit, assign roles such as a cashier, change employee IDs as well as branding functionality such as setting the canteen name and uploading a canteen photo for the home page.
+This use case is considered important because this is where the super user will configure the maximum spending limit, assign roles such as a cashier, change employee IDs as well as branding functionality such as setting the canteen name and uploading a canteen photo for the home page.
 
 \end{itemize}
 
@@ -144,7 +144,7 @@ This use case is considered important because this is where the superuser will c
 %%------MODULAR SYSTEM------
 \section{Modular System}
 
-The system will be built using a modular approach to allow more modules to be added at a later stage. This will also provide for pluggability and integratibility of the system.
+The system will be built using a modular approach to allow more modules to be added at a later stage. This will also provide for pluggability and integrability of the system.
 
 \subsection{High level use case diagram of the CMS}
 \begin{figure}[H]
@@ -158,7 +158,7 @@ The core of the system is a cafeteria management system that will provide functi
 %%-----AUTHENTICATION MODULE-----
 \subsection{Authentication Module}
 
-In this module, the functionality provided consists of validating the credentials entered into the system by a user whilst signing in. In addition, assistance is provided via the forgotPassword functionality. The different roles are also obtained in order to assign different functionality to users based on their roles. The register/ sign up functionality is also included here. 
+In this module, the functionality provided consists of validating the credentials entered into the system by a user whilst signing in. In addition, assistance is provided via the forgotPassword functionality. The different roles are also obtained in order to assign different functionality to users based on their roles. The register/ signup functionality is also included here. 
 
 \begin{figure}[H]
   \centering
@@ -172,7 +172,7 @@ Another crutial part of the authentication module is to verify if a user may hav
 The service contract and activity diagram for forgotPassword follow. forgotPassword falls under the use case for Authentication (refer to page 15 - figure 12 to view this use case diagram). Here, a user who has forgotten their password will be assisted via sending an email to the user's email account with steps to follow to create a new password.
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{../images/ForgotPassword.jpg}
+    \includegraphics[width=1.0\textwidth]{../images/ForgotPasswordActivity.png}
     \caption{The activity diagram for forgotPassword} 
 \end{figure}
 \begin{figure}[H]
@@ -345,13 +345,13 @@ The service contract and activity diagram for CheckProductAvailability follow. C
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{../images/checkProductAvailability.png}
-    \caption{The activity diagram for checking product availibilty } 
+    \caption{The activity diagram for checking product availability } 
 \end{figure}
  
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1.0\textwidth]{../images/checkProductAvailabilitySC.jpg}
-	\caption{The service contract for checking product availabilty}
+	\caption{The service contract for checking product availability}
 \end{figure}
 
 \subsubsection{markAsReady}
@@ -499,7 +499,7 @@ The service contract and activity diagram for setFinancialPreferences to follow.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1.0\textwidth]{../Diagrams/ManageProfile/serviceContracts/changeFinancialPreferencesServiceContract.png}
-	\caption{The service contract for settting financial preferences}
+	\caption{The service contract for setting financial preferences}
 \end{figure}
 
 \subsubsection{changePassword}
@@ -531,7 +531,7 @@ The service contract and activity diagram for changeEmail follow. changeEmail fa
 \end{figure}
 
 \subsubsection{changeLimit}
-The service contract and activity diagram for changeLimit follow. changeLimit falls under the use case for Edit Profile (refer to page 24 figure 22 to view this use case diagram). The user will be able to change their personal spending limit on their profile, however, this must not exeed the system's limit.
+The service contract and activity diagram for changeLimit follow. changeLimit falls under the use case for Edit Profile (refer to page 24 figure 22 to view this use case diagram). The user will be able to change their personal spending limit on their profile, however, this must not exceed the system's limit.
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{../Diagrams/ManageProfile/ActivityDiagrams/setLimit.png}

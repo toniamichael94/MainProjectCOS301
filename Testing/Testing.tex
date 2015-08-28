@@ -87,23 +87,23 @@ As specified in the project proposal document from Resolve - the cafeteria is cu
 Resolve is therefore looking for a means to accept payments from employees for the canteen using their employee access cards or access card numbers, with an amount being deducted from their salary at the end of the month.\\
 
 Resolve proposed the Cafeteria Management System to assist with this problem.
-After our first meeting with the client, they brought to our attention that at times the cafeteria does not even have enough stock to provide some of the menu items, thus the managing of inventory or stock will also be part of the system. The system will also predict what inventory/stock needs to be bought for the next week in order to avoid such a problem. At the end of each month, the bill for the month will be sent to either payroll or to the employee. This option is configurable from the user's profile. The employee can also set a spending limit for each month for control purposes. The system will have its own maximum, such that users cannot set a limit that exeeds this. 
+After our first meeting with the client, they brought to our attention that at times the cafeteria does not even have enough stock to provide some of the menu items, thus the managing of inventory or stock will also be part of the system. The system will also predict what inventory/stock needs to be bought for the next week in order to avoid such a problem. At the end of each month, the bill for the month will be sent to either payroll or to the employee. This option is configurable from the user's profile. The employee can also set a spending limit for each month for control purposes. The system will have its own maximum, such that users cannot set a limit that exceeds this. 
 
 
 %%-------------TESTING--------------------------------------
 \section{Test Plan}
 
 \subsection{Introduction}
-The scope of the testing: This document will be used be the Team t-rise to elaborate and substantiate the unit tests conducted for the various use cases/ modules of the Resolve Cafeteria Management System. Unit tests using mocks and Integration tests using actual data from the system have been conducted and will be explained in the document below. Tests for the server side functionality as well as the client side functionality were executed.
+The scope of the testing: This document will be used be the Team T-RISE to elaborate and substantiate the unit tests conducted for the various use cases/ modules of the Resolve Cafeteria Management System. Unit tests using mocks and Integration tests using actual data from the system have been conducted and will be explained in the document below. Tests for the server side functionality as well as the client side functionality were executed.
 
 \subsection{Technologies used for testing}
-Testing was done during the construction of the various functions to ensure that the code is working at all times, and that only fully working functions are used in other functions going forward. PhantomJS was used to run the Mocha, Karma and Jasmine tests automatically, hence the tests for the different files could be run consecutively without being manually executed seperately. The reason the testing frameworks were used was due to the simple set up that it required and due to its compatibility with PhantomJs. In addition the syntax of these was simple and intuitive.  Karma in particular is the official Angular Js test runner, hence it was used. Mocha, is based on node.js and hence was used for this reason. 
+Testing was done during the construction of the various functions to ensure that the code is working at all times, and that only fully working functions are used in other functions going forward. PhantomJS was used to run the Mocha, Karma and Jasmine tests automatically, hence the tests for the different files could be run consecutively without being manually executed separately. The reason the testing frameworks were used was due to the simple set up that it required and due to its compatibility with PhantomJs. In addition the syntax of these was simple and intuitive.  Karma in particular is the official Angular Js test runner, hence it was used. Mocha, is based on node.js and hence was used for this reason. 
 \\
 \subsection{How to run the unit tests}
-To execute the tests one must first ensure that the Mongo database is running. After this, one opens a seperate terminal inside the Cafeteria Management System. Then sudo npm tes is run which executes PhantomJs to run the tests automatically.  The output will indicate whether the tests are passing or failing as well as the different descriptions for each test. Server side and client side tests are executed.
+To execute the tests one must first ensure that the Mongo database is running. After this, one opens a separate terminal inside the Cafeteria Management System. Then sudo npm test is run which executes PhantomJs to run the tests automatically.  The output will indicate whether the tests are passing or failing as well as the different descriptions for each test. Server side and client side tests are executed.
 
 \subsection{Testing approach - Client Side}
-The unit tests written for the Authentication module were done to test the functions inside authentication.client.controller.js and the superuser.client.controller.js file.  The register/ sign up functionality also resides in the authentication.client.controller.js file. The unit tests written for the Manage Profile module were done to test the settings.client.controller.js and the password.client.controller.js files, which contained the code to implement the manage profile module.
+The unit tests written for the Authentication module were done to test the functions inside authentication.client.controller.js and the superuser.client.controller.js file.  The register/ signup functionality also resides in the authentication.client.controller.js file. The unit tests written for the Manage Profile module were done to test the settings.client.controller.js and the password.client.controller.js files, which contained the code to implement the manage profile module.
  
 The functions tested for the Authentication module include signin() and signup(), located in the authentication.client.controller.js file, assignRoles(), setSystemWideLimit(), and setCanteenName() located in the  superuser.client.controller.js file.
  
@@ -120,7 +120,7 @@ Test for the controllers:
 \subsubsection{Profile Module - settings.client.controller.js}
 The tests can be found in settings.client.controller.test.js
 1.) Change Password
-Pre condtions: Valid password entered
+Pre conditions: Valid password entered
 \\Post conditions: Password has changed
 \\ Test Case 1: \$scope.changeUserPassword() should let user change their password if a valid one was entered: Pass
 \\ Test Case 2: \$scope.changeUserPassword() should send an error message if new password is too short : Pass
@@ -130,14 +130,14 @@ Pre condtions: Valid password entered
 \subsubsection{Authentication Module - authentication.client.controller.js }
 The tests can be found in authentication.client.controller.test.js
 1.) Sign in : \\
-Pre condtions: Valid credentials have been entered, the user exists on the system
+Pre conditions: Valid credentials have been entered, the user exists on the system
 \\ Post conditions: User has been signed in
 \\  Test Case 1:\$scope.signin() should login with a correct user and password: Pass
 \\ Test Case 2: \$scope.signin() should fail to log user in if nothing has been entered: Pass
 \\ Test Case 3: \$scope.signin()  should fail to log user in with wrong credentials: Pass
 
 2.) Sign up: \\
-Pre condtions: User entered valid credentials, Username/ Employee Id does not exist on the system
+Pre conditions: User entered valid credentials, Username/ Employee Id does not exist on the system
 \\ Post conditions: User is signed up to use the system \\
 Test Case 1 - \$scope.signup()  should register user with correct data: Pass \\
 Test Case 2 - \$scope.signup()  should fail to register with duplicate Username: Pass
@@ -180,7 +180,7 @@ Test Case 2: should not update menu item: Pass \\
 
 2.) Search Menu items \\
 Pre conditions: menu item exists in the database \\
-Post condtions: menu item found \\
+Post conditions: menu item found \\
 Test Case 1: \$scope.updateMenuItem() should update menu item: Pass \\
 Test Case 2: \$scope.updateMenuItem()should not update menu item: Pass \\
 Test Case 3: \$scope.searchMenu() should search and find menu item: Pass \\
@@ -188,7 +188,7 @@ Test Case 4: \$scope.searchMenu() should search and NOT find menu item: Pass \\
 
 3.) Add Menu item \\
 Pre conditions: menu item does not exist\\
-Post condtions: menu item added\\
+Post conditions: menu item added\\
 Test Case 1: \$scope.createMenuItem() should create menu item: Pass\\
 Test Case 2: \$scope.createMenuItem() should fail to create menu item: Pass\\
 
@@ -207,7 +207,7 @@ Test Case 1: \$scope.placeOrder() should not allow order to be placed: Pass\\
 Test Case 2: \$scope.placeOrder() should allow order to be placed: Pass\\
 
 \item The second set of tests can be found in cashier.client.controller.test.js.\\
-Pre Conditions: The user facilitating the orders is the cashier and is hence on the process orders page that is only accessable to the cashier\\
+Pre Conditions: The user facilitating the orders is the cashier and is hence on the process orders page that is only accessible to the cashier\\
 Post Conditions: The order has been marked as ready or closed.The user is notified when order is ready\\
 Test Case 1: \$scope.markAsReady() should let user know order is ready: Pass\\
 Test Case 2: \$scope.markAsReady() should not let user know order is ready when incorrect parameters sent to function: Pass \\
@@ -219,7 +219,7 @@ Test Case 7: \$scope.getOrders() should get a list of orders where status is ope
 Test Case 8: \$scope.getOrders() should not get a list of orders where status is closed: Pass \\
 
 \item The third set of tests can be found in finance.client.controller.test.js.\\
-Pre Conditions: The user facilitating the orders is the finance manager and is hence on the process orders page that is only accessable to the finance manager. \\ The employee ID has been entered and is valid\\
+Pre Conditions: The user facilitating the orders is the finance manager and is hence on the process orders page that is only accessible to the finance manager. \\ The employee ID has been entered and is valid\\
 Post Conditions: The bill corresponding to the Employee ID entered is generated\\
 Test Case 1: \$scope.getUserOrders() should get users orders: Pass\\
 Test Case 2: \$scope.getUserOrders() should not get users orders: Pass \\
