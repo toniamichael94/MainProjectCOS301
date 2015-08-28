@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.23)  28 AUG 2015 15:52
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.23)  28 AUG 2015 15:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -230,7 +230,7 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \tabu@vleads=\box32
 \tabu@cellskip=\skip46
 )
-(./DesignRequirements.aux)
+No file DesignRequirements.aux.
 \openout1 = `DesignRequirements.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
@@ -249,7 +249,6 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
 \AtBeginShipoutBox=\box33
 Package hyperref Info: Link coloring OFF on input line 10.
-
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -261,8 +260,6 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 10.
 LaTeX Info: Redefining \pageref on input line 10.
 LaTeX Info: Redefining \nameref on input line 10.
-
-(./DesignRequirements.out) (./DesignRequirements.out)
 \@outlinefile=\write3
 \openout3 = `DesignRequirements.out'.
 
@@ -305,18 +302,17 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-(./DesignRequirements.toc
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 5.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 5.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 5.
-)
 \tf@toc=\write4
 \openout4 = `DesignRequirements.toc'.
 
  [2]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 32.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 32.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 32.
+
 Overfull \hbox (79.70447pt too wide) in paragraph at lines 48--58
  [][] 
  []
@@ -380,15 +376,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 125--128
  []
 
 [6]
-Overfull \hbox (16.87216pt too wide) in paragraph at lines 135--137
-\OT1/cmr/m/n/12 angular.module('users').controller('superuserController', ['$sc
-ope', '$http',
+Overfull \hbox (27.31947pt too wide) in paragraph at lines 135--137
+[]\OT1/cmr/m/n/12 User by ID // ex-ports.userByID = func-tion(JsonOBject req,Js
+onOBject
  []
 
 
-Overfull \hbox (3.80841pt too wide) in paragraph at lines 135--137
-\OT1/cmr/m/n/12 '$lo-ca-tion', '$win-dow', 'Users', 'Au-then-ti-ca-tion', func-
-tion($scope, $http,
+Underfull \hbox (badness 10000) in paragraph at lines 135--137
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 137--139
+
+ []
+
+
+Overfull \hbox (22.53874pt too wide) in paragraph at lines 139--141
+[]\OT1/cmr/m/n/12 Has au-tho-riza-tion // ex-ports.hasAuthorization = func-tion
+(JsonOBject
  []
 
 
@@ -397,80 +403,35 @@ Underfull \hbox (badness 10000) in paragraph at lines 139--141
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 141--143
+Underfull \hbox (badness 10000) in paragraph at lines 153--156
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 143--145
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 145--147
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 147--149
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 149--151
+Underfull \hbox (badness 10000) in paragraph at lines 156--159
 
  []
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 151--152
+Underfull \hbox (badness 10000) in paragraph at lines 159--162
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 152--154
+Underfull \hbox (badness 10000) in paragraph at lines 162--165
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 154--156
-
+Overfull \hbox (16.87216pt too wide) in paragraph at lines 171--173
+\OT1/cmr/m/n/12 angular.module('users').controller('superuserController', ['$sc
+ope', '$http',
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 156--158
-
- []
-
-
-Overfull \hbox (3.42508pt too wide) in paragraph at lines 163--165
-\OT1/cmr/m/n/12 angular.module('users').controller('cashierController', ['$scop
-e', '$http',
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 167--169
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 169--171
-
- []
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 171--173
-
- []
-
-
-Overfull \hbox (4.62225pt too wide) in paragraph at lines 173--175
-\OT1/cmr/m/n/12 $scope.markAsPaid = func-tion(String user-name, String item-Nam
-e,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 173--175
-
+Overfull \hbox (3.80841pt too wide) in paragraph at lines 171--173
+\OT1/cmr/m/n/12 '$lo-ca-tion', '$win-dow', 'Users', 'Au-then-ti-ca-tion', func-
+tion($scope, $http,
  []
 
 
@@ -479,366 +440,629 @@ Underfull \hbox (badness 10000) in paragraph at lines 175--177
  []
 
 
-Overfull \hbox (35.08032pt too wide) in paragraph at lines 182--184
-[]\OT1/cmr/m/n/12 Declaration: an-gu-lar.module('users').controller('FinanceCon
-troller', ['$scope',
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 186--188
+Underfull \hbox (badness 10000) in paragraph at lines 177--179
 
  []
 
-[9]
+
+Underfull \hbox (badness 10000) in paragraph at lines 179--181
+
+ []
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 181--183
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 183--185
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 185--187
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 187--188
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 188--190
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 198--202
+Underfull \hbox (badness 10000) in paragraph at lines 190--192
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 202--206
+Underfull \hbox (badness 10000) in paragraph at lines 192--194
+
+ []
+
+[9]
+Overfull \hbox (3.42508pt too wide) in paragraph at lines 199--201
+\OT1/cmr/m/n/12 angular.module('users').controller('cashierController', ['$scop
+e', '$http',
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--205
 
  []
 
 
-Overfull \hbox (5.73615pt too wide) in paragraph at lines 206--210
+Underfull \hbox (badness 10000) in paragraph at lines 205--207
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--209
+
+ []
+
+
+Overfull \hbox (4.62225pt too wide) in paragraph at lines 209--211
+\OT1/cmr/m/n/12 $scope.markAsPaid = func-tion(String user-name, String item-Nam
+e,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 209--211
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 211--213
+
+ []
+
+[10]
+Overfull \hbox (35.08032pt too wide) in paragraph at lines 218--220
+[]\OT1/cmr/m/n/12 Declaration: an-gu-lar.module('users').controller('FinanceCon
+troller', ['$scope',
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 222--224
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 224--226
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 234--238
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 238--242
+
+ []
+
+[11]
+Overfull \hbox (5.73615pt too wide) in paragraph at lines 242--246
 \OT1/cmr/m/n/12 exports.searchEmployee=function(JsonObject req, JsonOb-ject res
 ) 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 206--210
+Underfull \hbox (badness 10000) in paragraph at lines 242--246
 
  []
 
-[10]
-Overfull \hbox (9.30002pt too wide) in paragraph at lines 215--217
+
+Overfull \hbox (9.30002pt too wide) in paragraph at lines 251--253
 \OT1/cmr/m/n/12 angular.module('users').controller('SettingsController', ['$sco
 pe', '$http',
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 217--218
+Underfull \hbox (badness 10000) in paragraph at lines 253--254
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 219--223
+Underfull \hbox (badness 10000) in paragraph at lines 255--259
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 223--227
+Underfull \hbox (badness 10000) in paragraph at lines 259--263
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 228--232
+Underfull \hbox (badness 10000) in paragraph at lines 264--268
+
+ []
+
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 269--274
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 233--238
+Underfull \hbox (badness 10000) in paragraph at lines 275--279
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 239--243
-
- []
-
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 244--248
+Underfull \hbox (badness 10000) in paragraph at lines 280--284
 
  []
 
 
-Overfull \hbox (57.47037pt too wide) in paragraph at lines 253--255
+Overfull \hbox (57.47037pt too wide) in paragraph at lines 289--291
 \OT1/cmr/m/n/12 angular.module('users').controller('PasswordController', ['$sco
 pe', '$stateParams',
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 257--261
+Underfull \hbox (badness 10000) in paragraph at lines 293--297
+
+ []
+
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 297--301
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 261--265
+Underfull \hbox (badness 10000) in paragraph at lines 297--301
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 261--265
-
- []
-
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 265--269
+Underfull \hbox (badness 10000) in paragraph at lines 301--305
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 269--273
+Underfull \hbox (badness 10000) in paragraph at lines 305--309
 
  []
 
 
-Overfull \hbox (16.87216pt too wide) in paragraph at lines 280--282
+Overfull \hbox (16.87216pt too wide) in paragraph at lines 316--318
 \OT1/cmr/m/n/12 angular.module('users').controller('superuserController', ['$sc
 ope', '$http',
  []
 
 
-Overfull \hbox (3.80841pt too wide) in paragraph at lines 280--282
+Overfull \hbox (3.80841pt too wide) in paragraph at lines 316--318
 \OT1/cmr/m/n/12 '$lo-ca-tion', '$win-dow', 'Users', 'Au-then-ti-ca-tion', func-
 tion($scope, $http,
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 284--286
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 286--288
-
- []
-
-[13]
-Underfull \hbox (badness 10000) in paragraph at lines 288--290
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 290--292
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 292--294
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 294--296
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 296--297
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 297--299
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 299--301
-
- []
-
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 301--303
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 310--312
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 312--314
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 314--316
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 316--318
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 318--320
-
- []
-
-[15]
 Underfull \hbox (badness 10000) in paragraph at lines 320--322
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 334--338
+Underfull \hbox (badness 10000) in paragraph at lines 322--324
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 338--342
+Underfull \hbox (badness 10000) in paragraph at lines 324--326
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 342--346
+Underfull \hbox (badness 10000) in paragraph at lines 326--328
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 328--330
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 330--332
+
+ []
+
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 332--333
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 333--335
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 335--337
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 337--339
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 346--348
+
+ []
+
+
+Overfull \hbox (9.22223pt too wide) in paragraph at lines 348--350
+\OT1/cmr/m/n/12 exports.assignRolesAdminRole = func-tion(JsonObject req, JsonOb
+-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 348--350
 
  []
 
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 346--350
+Underfull \hbox (badness 10000) in paragraph at lines 350--352
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 350--354
+Underfull \hbox (badness 10000) in paragraph at lines 352--354
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 354--358
+Underfull \hbox (badness 10000) in paragraph at lines 354--356
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 358--362
+Underfull \hbox (badness 10000) in paragraph at lines 356--358
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 362--366
+Underfull \hbox (badness 10000) in paragraph at lines 358--360
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 360--362
 
  []
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 374--378
+Overfull \hbox (2.53757pt too wide) in paragraph at lines 362--364
+\OT1/cmr/m/n/12 exports.loadEmployees = func-tion(JsonObject req,JsonObject res
+) 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 362--364
 
  []
 
 
-Overfull \hbox (7.52502pt too wide) in paragraph at lines 378--382
+Underfull \hbox (badness 10000) in paragraph at lines 374--377
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 378--381
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 381--384
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 384--387
+
+ []
+
+[18]
+Overfull \hbox (1.84592pt too wide) in paragraph at lines 387--390
+\OT1/cmr/m/n/12 exports.createMenuCategory = func-tion(JsonOBject req, JsonOB-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 387--390
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 390--393
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 393--396
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 396--399
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 399--402
+
+ []
+
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 402--405
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 405--408
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 408--411
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 411--414
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 414--417
+
+ []
+
+[20]
+Overfull \hbox (15.48885pt too wide) in paragraph at lines 424--426
+\OT1/cmr/m/n/12 angular.module('menuItems').controller('MenuItemsController', [
+'$scope',
+ []
+
+
+Overfull \hbox (5.66673pt too wide) in paragraph at lines 424--426
+\OT1/cmr/m/n/12 ca-tion', 'Me-nu-Items', func-tion($scope, $rootScope, $http, $
+stateParams,
+ []
+
+[21]
+Overfull \hbox (4.19124pt too wide) in paragraph at lines 469--473
+\OT1/cmr/m/n/12 Removes in-gre-di-ents from the new menu item be-ing added. Met
+hod
+ []
+
+[22]
+Underfull \hbox (badness 10000) in paragraph at lines 497--501
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 501--505
+
+ []
+
+[23]
+Underfull \hbox (badness 10000) in paragraph at lines 505--509
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 509--513
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 513--517
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 517--521
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 521--525
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 525--529
+
+ []
+
+[24]
+Underfull \hbox (badness 10000) in paragraph at lines 537--541
+
+ []
+
+
+Overfull \hbox (7.52502pt too wide) in paragraph at lines 541--545
 \OT1/cmr/m/n/12 exports.searchInventory=function(JsonOBject req, JsonOB-ject re
 s) 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 378--382
+Underfull \hbox (badness 10000) in paragraph at lines 541--545
 
  []
 
 
-Overfull \hbox (16.17632pt too wide) in paragraph at lines 382--386
+Overfull \hbox (16.17632pt too wide) in paragraph at lines 546--550
 []\OT1/cmr/m/n/12 Decrease in-ven-tory ex-ports.decreaseInventory = func-tion(J
 sonOBject
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 382--386
+Underfull \hbox (badness 10000) in paragraph at lines 546--550
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 386--390
+Underfull \hbox (badness 10000) in paragraph at lines 550--554
 
  []
 
-[18]
-Overfull \hbox (88.66444pt too wide) in paragraph at lines 390--394
+[25]
+Overfull \hbox (88.66444pt too wide) in paragraph at lines 554--558
 []\OT1/cmr/m/n/12 Update in-ven-tory quan-tity ex-ports.updateInventoryQuantity
 =function(JsonOBject
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 390--394
+Underfull \hbox (badness 10000) in paragraph at lines 554--558
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 394--396
+Underfull \hbox (badness 10000) in paragraph at lines 558--560
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 394--396
+Underfull \hbox (badness 10000) in paragraph at lines 558--560
 
  []
 
 
-Overfull \hbox (35.24559pt too wide) in paragraph at lines 404--406
+Overfull \hbox (35.24559pt too wide) in paragraph at lines 570--572
 []\OT1/cmr/m/n/12 Declaration: an-gu-lar.module('orders').controller('OrdersCon
 troller', ['$scope',
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 408--410
+Underfull \hbox (badness 10000) in paragraph at lines 574--576
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 410--412
+Underfull \hbox (badness 10000) in paragraph at lines 576--578
 
  []
 
-[19]
-Underfull \hbox (badness 10000) in paragraph at lines 412--414
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 414--416
+[26]
+Underfull \hbox (badness 10000) in paragraph at lines 578--580
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 416--418
+Underfull \hbox (badness 10000) in paragraph at lines 580--582
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 424--426
+Underfull \hbox (badness 10000) in paragraph at lines 582--584
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 426--428
-
- []
-
-[20]
-Underfull \hbox (badness 10000) in paragraph at lines 428--430
+Underfull \hbox (badness 10000) in paragraph at lines 590--592
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 430--432
+Underfull \hbox (badness 10000) in paragraph at lines 592--594
+
+ []
+
+[27]
+Underfull \hbox (badness 10000) in paragraph at lines 594--596
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 432--434
+Underfull \hbox (badness 10000) in paragraph at lines 596--598
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 434--436
+Underfull \hbox (badness 10000) in paragraph at lines 598--600
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 440.
-[21]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 440.
+
+Underfull \hbox (badness 10000) in paragraph at lines 600--602
+
+ []
+
+[28]
+Underfull \hbox (badness 10000) in paragraph at lines 610--612
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 612--614
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 614--616
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 616--618
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 618--620
+
+ []
+
+
+Overfull \hbox (3.86821pt too wide) in paragraph at lines 620--622
+\OT1/cmr/m/n/12 exports.testByID = func-tion(JsonObject req, JsonOb-ject res, f
+unc-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 620--622
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 622--624
+
+ []
+
+[29]
+Underfull \hbox (badness 10000) in paragraph at lines 631--633
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 633--635
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 642--644
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 644--646
+
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 650.
+[30]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 650.
  (./DesignRequirements.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 440.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 440.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 650.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 650.
 
 
 Package rerunfilecheck Warning: File `DesignRequirements.out' has changed.
@@ -846,26 +1070,26 @@ Package rerunfilecheck Warning: File `DesignRequirements.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `DesignRequirements.out':
-(rerunfilecheck)             Before: 16ADE4A157D6A0E73AC7458E11966F29;1672
-(rerunfilecheck)             After:  8B97E8E5F667BF645B30EE04CDCBABB6;1672.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 440.
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  84C6E0E494133CDA42525D633B037E47;2274.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 650.
  ) 
 Here is how much of TeX's memory you used:
- 7002 strings out of 495028
- 106517 string characters out of 6181497
- 190204 words of memory out of 5000000
- 10107 multiletter control sequences out of 15000+600000
+ 6993 strings out of 495028
+ 106208 string characters out of 6181497
+ 190051 words of memory out of 5000000
+ 10081 multiletter control sequences out of 15000+600000
  9107 words of font info for 32 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 36i,13n,38p,709b,465s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,13n,38p,709b,467s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on DesignRequirements.pdf (21 pages, 88113 bytes).
+Output written on DesignRequirements.pdf (30 pages, 96314 bytes).
 PDF statistics:
- 280 PDF objects out of 1000 (max. 8388607)
- 250 compressed objects within 3 object streams
- 72 named destinations out of 1000 (max. 500000)
- 201 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 237 PDF objects out of 1000 (max. 8388607)
+ 199 compressed objects within 2 object streams
+ 97 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

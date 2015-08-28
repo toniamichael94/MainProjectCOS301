@@ -6,20 +6,28 @@
 \contentsline {section}{\numberline {5}Authentication}{5}{section.5}
 \contentsline {subsection}{\numberline {5.1}authentication.client.controller}{5}{subsection.5.1}
 \contentsline {subsection}{\numberline {5.2}users.authentication.server.controller}{6}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}users.authorization.server.controller.js}{7}{subsection.5.3}
 \contentsline {section}{\numberline {6}Manage Profile}{7}{section.6}
-\contentsline {subsection}{\numberline {6.1}superuser.client.controller.js}{7}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}cashier.client.controller.js}{8}{subsection.6.2}
-\contentsline {subsection}{\numberline {6.3}finance.client.controller.js}{9}{subsection.6.3}
-\contentsline {subsection}{\numberline {6.4}users.profile.server.controller}{10}{subsection.6.4}
-\contentsline {subsection}{\numberline {6.5}settings.client.controller}{10}{subsection.6.5}
-\contentsline {subsection}{\numberline {6.6}password.client.controller}{12}{subsection.6.6}
-\contentsline {section}{\numberline {7}Manage System}{13}{section.7}
-\contentsline {subsection}{\numberline {7.1}superuser.client.controller.js}{13}{subsection.7.1}
-\contentsline {subsection}{\numberline {7.2}users.superuser.server.controller.js}{15}{subsection.7.2}
-\contentsline {section}{\numberline {8}Manage Cafeteria}{16}{section.8}
-\contentsline {section}{\numberline {9}Manage Inventory}{16}{section.9}
-\contentsline {subsection}{\numberline {9.1}inventory.client.controller}{16}{subsection.9.1}
-\contentsline {subsection}{\numberline {9.2}inventory.server.controller}{18}{subsection.9.2}
-\contentsline {section}{\numberline {10}Place Order}{19}{section.10}
-\contentsline {subsection}{\numberline {10.1}orders.client.controller.js}{19}{subsection.10.1}
-\contentsline {subsection}{\numberline {10.2}orders.server.controller.js}{20}{subsection.10.2}
+\contentsline {subsection}{\numberline {6.1}users.password.server.controller}{7}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}superuser.client.controller.js}{8}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}cashier.client.controller.js}{10}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}finance.client.controller.js}{11}{subsection.6.4}
+\contentsline {subsection}{\numberline {6.5}users.profile.server.controller}{11}{subsection.6.5}
+\contentsline {subsection}{\numberline {6.6}settings.client.controller}{12}{subsection.6.6}
+\contentsline {subsection}{\numberline {6.7}password.client.controller}{13}{subsection.6.7}
+\contentsline {section}{\numberline {7}Manage System}{15}{section.7}
+\contentsline {subsection}{\numberline {7.1}superuser.client.controller.js}{15}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}users.superuser.server.controller.js}{16}{subsection.7.2}
+\contentsline {section}{\numberline {8}Manage Cafeteria}{18}{section.8}
+\contentsline {subsection}{\numberline {8.1}menuItems.server.controller}{18}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}menuitems.client.controller}{21}{subsection.8.2}
+\contentsline {section}{\numberline {9}Manage Inventory}{23}{section.9}
+\contentsline {subsection}{\numberline {9.1}inventory.client.controller}{23}{subsection.9.1}
+\contentsline {subsection}{\numberline {9.2}inventory.server.controller}{25}{subsection.9.2}
+\contentsline {section}{\numberline {10}Place Order}{26}{section.10}
+\contentsline {subsection}{\numberline {10.1}orders.client.controller.js}{26}{subsection.10.1}
+\contentsline {subsection}{\numberline {10.2}orders.server.controller.js}{27}{subsection.10.2}
+\contentsline {section}{\numberline {11}Other}{29}{section.11}
+\contentsline {subsection}{\numberline {11.1}tests.server.controller.js}{29}{subsection.11.1}
+\contentsline {subsection}{\numberline {11.2}errors.server.controller.js}{30}{subsection.11.2}
+\contentsline {subsection}{\numberline {11.3}core.server.controller.js}{30}{subsection.11.3}

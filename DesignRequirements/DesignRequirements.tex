@@ -128,7 +128,43 @@ The authentication controller allows existing users to log in and new users to s
 	\end{itemize}
 \end{enumerate} 
 
+\subsection{users.authorization.server.controller.js}
+\begin{enumerate}
+\item Methods: 
+	\begin{itemize}
+		\item User by ID // exports.userByID = function(JsonOBject req,JsonOBject res,JsonOBject next, String id)
+		\\ \\ Usage: Helper function to find and load specific users
+		\item Requires login // exports.requiresLogin = function(JsonOBject req, JsonOBject res, function next) 
+		\\ \\ Usage: Function to check if a user has not logged in
+		\item Has authorization // exports.hasAuthorization = function(JsonOBject roles)
+		\\ \\ Usage: Function to check if a user is authorized to be performing certain tasks for specific roles
+	\end{itemize}
+
+\end{enumerate}
+
+
 \section{Manage Profile} 
+%------------------------password server controller--------
+\subsection{users.password.server.controller}
+ The password controller handles all the functionality that has to do with creating and changing passwords.
+\begin{enumerate}
+\item Methods:
+	\begin{itemize}
+	\item Forgot password\\ exports.forgot = function(JsonOBject req, JsonOBject res, function next)\\ \\
+  	Usage: \\
+  	This method lets a user reset their password if they forgot it. It checks that the given username is in the database and then sends the user an email with a link to a page where they can change their password. It also checks that the user's email is correct and valid, otherwise it gives an error.
+	\item Validate reset token\\ exports.validateResetToken = function(JsonOBject req, JsonOBject res) \\ \\
+	Usage: \\
+	This function checks that the reset token isn't invalid. If it's invalid, it redirects the user to a page telling them the token has expired. Otherwise, it redirects them to the page where they can set a new password.
+	\item Reset password\\ exports.reset = function(JsonOBject req, JsonOBject res, function next)\\  \\
+	Usage: \\
+	This method checks that the user's new password details are correct. If they are, then it resets the password, otherwise it gives an error message.
+ 	 \item Change password\\ exports.changePassword = function(JsonOBject req, JsonOBject res)\\ \\
+ 	 Usage\\ 
+  	This function is called when the user accesses the change password page. It finds the user in the database and changes the password if the password and confirm password are the same.
+	\end{itemize}
+\end{enumerate} 
+
 %%superuser client controller----------------------------------------------
 \subsection{superuser.client.controller.js}
 \begin{enumerate}
@@ -281,9 +317,9 @@ The checkFinUser method performs a check to establish wheter the user has a fina
 	function(\$scope, \$http, \$location, \$window, Users, Authentication) 
 \item Methods: 
 	\begin{itemize}
-		\item Assign roles \\ \$scope.assignRoles = function(isValid)  \\ \\
+		\item Assign roles \\ \$scope.assignRoles = function(Boolean isValid)  \\ \\
 		Usage: Superuser can assign cashier, cafeteria manager, finance manager and admin roles
-		\item Assign roles admin role \\ \$scope.assignRolesAdminRole = function(isValid)   \\ \\
+		\item Assign roles admin role \\ \$scope.assignRolesAdminRole = function(Boolean isValid)   \\ \\
 		Usage: Admin user also has access to the assign roles functionality and serves as a back up superuser
 		\item Change employee ID \\ \$scope.changeEmployeeID = function(Boolean isValid)  \\ \\
 		Usage: The superuser can change the employee ID of the users if the user signed up with the incorrect ID or if the company changes the IDs.
@@ -307,23 +343,150 @@ The checkFinUser method performs a check to establish wheter the user has a fina
 \begin{enumerate}
 \item Methods:
 	\begin{itemize}
-		\item Assign roles \\ exports.assignRoles = function(req, res) 
+		\item Assign roles \\ exports.assignRoles = function(JsonObject req, JsonObject res) 
 		\\ \\ Usage: Superuser can assign cashier, cafeteria manager, finance manager and admin roles. It also changes the role of the users in the database/model. 
-		\item Assign roles admin role \\ exports.assignRolesAdminRole = function(req, res) 
+		\item Assign roles admin role \\ exports.assignRolesAdminRole = function(JsonObject req, JsonObject res) 
 		\\ \\ Usage: Admin user also has access to the assign roles functionality and serves as a back up superuser. It also changes the role of the users in the database/model.
-		\item Change employee ID \\ exports.changeEmployeeID = function(req, res)  
+		\item Change employee ID \\ exports.changeEmployeeID = function(JsonObject req, JsonObject res)  
 		\\ \\ Usage: The superuser can change the employee ID of the users if the user signed up with the incorrect ID or if the company changes the IDs. This changes the employee ID of the user and saves the nnew one in the database.
-		\item Remove Employee \\ exports.removeEmployee = function(req, res)  
+		\item Remove Employee \\ exports.removeEmployee = function(JsonObject req, JsonObject res)  
 		\\ \\ Usage: The superuser is also able to remove users from the system, due to resignation or dismissal for example. The employee is then also removed from the database.	
 		\item Send email \\ function sendEmail(newLimit)  
 		\\ \\ Usage: This is a helper function to mail all users of the system. It takes the new limit as a parameter and tells the users what the new limit is in the email.
-		\item Set system wide limit \\ exports.setSystemWideLimit = function(req, res) 
-		\\ \\ Usage: The superuser is able to change the monthly spending limit of the system here and it will save this value to the database.
+		\item Set system wide limit \\ exports.setSystemWideLimit = function(JsonObject req, JsonObject res) 
+		\\ \\ Usage: The superuser is able to change the monthly spending limit of the system here and it will save this value to the database. 
+		\item Set canteen name \\ exports.setCanteenName = function(JsonObject req,JsonObject res)
+		\\ \\ Usage: The superuser is able to change the canteen name of the system and this is then stored in the database.
+		\item Upload Image \\ exports.uploadImage = function(JsonObject req,JsonObject res) \\ \\
+		Usage: The superuser can update the cover image on the home page
+		\item Load employees \\ exports.loadEmployees = function(JsonObject req,JsonObject res)
+		\\ \\ Usage: Employees are loaded from the database for use in other functions
 	\end{itemize}
 \end{enumerate}
 
 \section{Manage Cafeteria}
+%---------------------------menu items server controller-------------------------------------------------------------
+\subsection{menuItems.server.controller}
+ The menuItems controller handles all the functionality for creating and removing menu items. It also deals with allocating ingredients (inventory items) to the menu items.
+\begin{enumerate}
+\item Methods:
+	\begin{itemize}
+	\item Search for inventory items\\ exports.inventoryItems = function(JsonOBject req, JsonOBject res)\\ \\
+  	Usage: \\
+  	This function is used to find inventory items that can be used as ingredients used to create menu items.
+	
+	\item Load menu items\\ exports.loadMenuItems = function(JsonOBject req, JsonOBject res) \\ \\
+	Usage: \\
+	This function is used to get menu items from the database and display them on the menu page.
+	\item Load menu categories\\ exports.loadMenuCategories = function(JsonOBject req, JsonOBject res)\\  \\
+	Usage: \\
+	This is used to load the menu categories. This is used for making the different menu item pages. 
+	\item Create menu items\\ exports.createMenuItem = function(JsonOBject req, JsonOBject res)\\ \\
+ 	 Usage\\ 
+  	This function is used to create a new menu item. If the menu item already exists, it gives an error message, otherwise, it creates the menu item. It stores all the details of the menu item in the database.
+	\item Create menu category\\ exports.createMenuCategory = function(JsonOBject req, JsonOBject res)\\ \\
+ 	 Usage\\ 
+  	This is used to create categories dynamically. It checks whether a category with the same name exists, if it does, it gives an error message, otherwise, it creates the category.
+	\item Read menu items\\ exports.read = function(JsonOBject req, JsonOBject res)\\ \\
+ 	 Usage\\ 
+  	This function shows the current menu item.
+	\item Update menu items\\ exports.updateMenuItem = function(JsonOBject req, JsonOBject res)\\ \\
+ 	 Usage\\ 
+  	This function is used to update an existing menu item. It changes the updated details of the menu item in the database.
+	\item Update\\ exports.update = function(JsonOBject req, JsonOBject res)\\ \\
+ 	 Usage\\ 
+  	This is a helper function for updateMenuItem. It is used in updateMenuItem to save the changes in the database.
+	\item Delete menu items\\ exports.deleteMenuItem = function(JsonOBject req, JsonOBject res)\\ \\
+ 	 Usage\\ 
+  	This function is used to delete an existing menu item. It gives an error message if the item wasn't deleted, otherwise, it removes the item from the updated details of the menu item in the database.
+	\item Delete \\ exports.update = function(JsonOBject req, JsonOBject res)\\ \\
+ 	 Usage\\ 
+  	This is a helper function for deleteMenuItem. It is used in deleteMenuItem to remove the item from the database.
+	\item List \\ exports.list = function(JsonOBject req, JsonOBject res)\\ \\
+ 	 Usage\\ 
+  	This function is used to display a list of all the menuitems, otherwise, it gives an error message.
+	\item Order by ID\\ exports.orderByID = function(JsonOBject req, JsonOBject res, function next, String id)\\ \\
+ 	 Usage\\ 
+  	This is a menu item middleware. It is used to find the menu items by their ID's and it loops through the database to find all the menu items.
+	\item Has authortization\\ exports.hasAuthorization = function(JsonOBject req, JsonOBject res, function next)\\ \\
+ 	 Usage\\ 
+  	This is a menuitem authorization middleware. It checks whether the user is authorised to change items, otherwise, it gives an error message.
+	\item Search menu \\ exports.searchMenu = function(JsonOBject req, JsonOBject res)\\ \\
+ 	 Usage\\ 
+  	This function is used to search for a given menu item. If the item is not found, an error message is given. If the item is found, its details are returned and it can be updated or deleted from the database.
+	\end{itemize}
+\end{enumerate}
+
+%--------------------------------------menu items client controller--------------------------
+\subsection{menuitems.client.controller}
+The menuitems client controller handles all the functionality concerning the menu, such as adding and updating menu items.
+\begin{enumerate}
+\item Declaration: \\angular.module('menuItems').controller('MenuItemsController', ['\$scope', '\$rootScope','\$http', '\$stateParams', '\$location', '\$cookies', 'Authentication', 'MenuItems',
+	function(\$scope, \$rootScope, \$http, \$stateParams, \$location, \$cookies, Authentication, MenuItems)
+	
+\item Methods:
+	\begin{itemize}
+		\item Toggle Collapsible Menu\\
+		\$scope.toggleCollapsibleMenu = function()\\
+		-Usage\\
+		This method collapses and opens the Menu Bar. The function is invoked on the click of a button in the HTML file.
+		\item Add Form Field\\
+		\$scope.addFormField = function()\\
+		-Usage\\
+		This method adds new text-boxes to assist with adding ingredients for menu items. The method is invoked when the button addIngridients is clicked in the HTML.
+		\item Load Ingridients\\
+		\$scope.loadIngredients = function()\\
+		-Usage\\
+		This method transfers ingredients from the request result array to the working scope array. The method is invoked by other methods in the controller.
+		\item Add More Ingridients Update\\
+		\$scope.addMoreIngredientsUpdate = function()\\
+		-Usage\\
+		This method adds new text-boxes to assist with updating ingredients for existing menu items. The method is invoked when the button addIngridients is clicked in the update ingredients section in the HTML.
+		\item Remove Ingridient\\
+		\$scope.removeIngredient = function(int index)\\
+		-Usage\\
+		This method removes the ingredient at the specified index for the menu item being updated.
+		\item Undo Remove Ingredient\\
+		\$scope.undoRemoveIngredient = function(index)\\
+		-Usage\\
+		This method undo's a remove ingredient operation performed by the above function.
+		\item Update Menu Itemp\\
+		\$scope.updateMenuItem = function()\\
+		-Usage\\
+		This method sends the update request to the server to update the menu items. It will perform all error checks and display any errors returned from the server in the HTML.
+		\item Search Menu\\
+		\$scope.searchMenu = function(Boolean isValid)\\
+		-Usage\\
+		This method searches for a menu item in the database. The search query is obtained from the scope variable.
+		\item Create menu item\\
+		\$scope.createMenuItem = function(Boolean isValid)\\
+		-Usage\\
+		This method creates a new menu item in the database. The method will perform all error checks and validation and send the request to the server. The server response will then be displayed on the page.
+		\item Create Menu Category\\
+		\$scope.createMenuCatagory = function(Boolean isValid)\\
+		-Usage\\
+		This method adds a new Menu item category to the database. The method will perform error checks and send the request to the server. The server response will be displayed on the page.
+		\item Remove Ingredient\\
+		\$scope.removeIngredientOption = function(int index)
+		-Usage\\
+		Removes ingredients from the  new menu item being added. Method is invoked on button click.
+		\item Load Menu Items\\
+		\$scope.loadMenuItems = function()
+		-Usage\\
+		This method gets all the menu items from the server and populates the local array. If the server responds with an error, the error will be displayed on the page.
+		\item Load Menu Categories\\
+		\$scope.loadMenuCategories = function()\\
+		-Usage\\
+		This method gets all the menu item categories from the server. If the server responds with an error, the error wil be displayed on the page.
+		\item Check Stock\\
+		\$scope.checkStock = function(String menuItemName)\\
+		-Usage\\
+		This method checks if all the ingredients required to make a menu item are in stock and the quantities are enough. The item will then be marked appropriately as in-stock or out-of-stock.
+	\end{itemize}
+	
+\end{enumerate}
 \section{Manage Inventory}
+%-------------------------------inventory client controller
 \subsection{inventory.client.controller}
  The inventory controller handles all the main functionality concerning inventory, such as adding an anventory item.
 \begin{enumerate}
@@ -379,6 +542,7 @@ The checkFinUser method performs a check to establish wheter the user has a fina
  	exports.searchInventory=function(JsonOBject req, JsonOBject res)\\ \\
  	-Usage\\
  	This method searches and returns a specific inventory item. It returns an error message if the specified item could not be found, or if the inventory item's name is empty.
+
  	\item Decrease inventory
  	exports.decreaseInventory = function(JsonOBject req, JsonOBject res) \\ \\
  	-Usage\\
@@ -398,6 +562,8 @@ The checkFinUser method performs a check to establish wheter the user has a fina
  	This method deletes a specific inventory item. It returns an error messag if the item could not be found or deleted.
  	\end{itemize}
  \end{enumerate}
+ 
+ %--------------PLACE ORDER----------------
 \section{Place Order}
 \subsection{orders.client.controller.js}
 \begin{enumerate}
@@ -436,5 +602,49 @@ function(\$scope, \$rootScope, \$http, \$stateParams, \$location, \$cookies, Aut
 \end{itemize}
 \end{enumerate}
 
-  
+\section{Other}
+\subsection{tests.server.controller.js}
+\begin{enumerate}
+	\item Methods:
+	\begin{itemize}
+		\item Create \\ exports.create = function(JsonObject req, JsonObject res) 
+		\\ \\ Usage: Function to create a generic test
+		\item Read \\ exports.read = function(JsonObject req, JsonObject res) 
+		\\ \\ Usage: Function to show the current test
+		\item Delete \\ exports.delete = function(JsonObject req, JsonObject res) 
+		\\ \\ Usage: Generic function to delete a test
+		\item Update \\ exports.update = function(JsonObject req, JsonObject res) 
+		\\ \\ Usage: Generic function to update a test 
+		\item List \\ exports.list = function(JsonObject req,JsonObject res)
+		\\ \\ Usage: Function to find all tests that are created and then populates a list
+		\item Test by ID \\ exports.testByID = function(JsonObject req, JsonObject res, function next, String id)
+		\\ \\ Usage: Function to find specific tests by ID
+		\item Has authorization \\ exports.hasAuthorization = function(JsonObject req, JsonObject res, function next)
+		\\ \\ Usage: Function to check if user is authorized to access specific functionality
+	\end{itemize}
+\end{enumerate}
+
+\subsection{errors.server.controller.js}
+\begin{enumerate}
+	\item Methods:
+	\begin{itemize}
+		\item Get unique error message \\ var getUniqueErrorMessage = function(String err) \\ \\
+		Usage: Function to supply error messages when employee ID chosen by user when signing up already exists in the database
+		\item Get error message \\ exports.getErrorMessage = function(String err) 
+		\\ \\ Usage: Function to supply generic error message when a problem occured in the system.
+	\end{itemize}
+\end{enumerate}
+
+\subsection{core.server.controller.js}
+\begin{enumerate}
+	\item Methods:
+	\begin{itemize}
+		\item Get unique error message \\ exports.index = function(JsonObject req,JsonObject  res) 
+		\\ \\ Usage: Function to get the indexes of the different users 
+		\item Load canteen info \\ exports.loadCanteenInfo = function(JsonObject req,JsonObject  res)
+		\\ \\ Usage: Function that is called when the home page is accessed to load the information about the canteen
+	\end{itemize}
+\end{enumerate}
+
+
 \end{document}
