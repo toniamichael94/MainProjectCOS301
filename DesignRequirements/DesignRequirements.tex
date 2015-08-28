@@ -291,6 +291,77 @@ The checkFinUser method performs a check to establish wheter the user has a fina
 
 \section{Manage System}
 \section{Manage Cafeteria}
+\subsection{menuitems.client.controller}
+The menuitems client controller handles all the functionality concerning the menu, such as adding and updating menu items.
+\begin{enumerate}
+\item Declaration: \\angular.module('menuItems').controller('MenuItemsController', ['\$scope', '\$rootScope','\$http', '\$stateParams', '\$location', '\$cookies', 'Authentication', 'MenuItems',
+	function(\$scope, \$rootScope, \$http, \$stateParams, \$location, \$cookies, Authentication, MenuItems)
+	
+\item Methods:
+	\begin{itemize}
+		\item Toggle Collapsible Menu\\
+		\$scope.toggleCollapsibleMenu = function()\\
+		-Usage\\
+		This method collapses and opens the Menu Bar. The function is invoked on the click of a button in the HTML file.
+		\item Add Form Field\\
+		\$scope.addFormField = function()\\
+		-Usage\\
+		This method adds new text-boxes to assist with adding ingredients for menu items. The method is invoked when the button addIngridients is clicked in the HTML.
+		\item Load Ingridients\\
+		\$scope.loadIngredients = function()\\
+		-Usage\\
+		This method transfers ingredients from the request result array to the working scope array. The method is invoked by other methods in the controller.
+		\item Add More Ingridients Update\\
+		\$scope.addMoreIngredientsUpdate = function()\\
+		-Usage\\
+		This method adds new text-boxes to assist with updating ingredients for existing menu items. The method is invoked when the button addIngridients is clicked in the update ingredients section in the HTML.
+		\item Remove Ingridient\\
+		\$scope.removeIngredient = function(int index)\\
+		-Usage\\
+		This method removes the ingredient at the specified index for the menu item being updated.
+		\item Undo Remove Ingredient\\
+		\$scope.undoRemoveIngredient = function(index)\\
+		-Usage\\
+		This method undo's a remove ingredient operation performed by the above function.
+		\item Update Menu Itemp\\
+		\$scope.updateMenuItem = function()\\
+		-Usage\\
+		This method sends the update request to the server to update the menu items. It will perform all error checks and display any errors returned from the server in the HTML.
+		\item Search Menu\\
+		\$scope.searchMenu = function(Boolean isValid)\\
+		-Usage\\
+		This method searches for a menu item in the database. The search query is obtained from the scope variable.
+		\item Create menu item\\
+		\$scope.createMenuItem = function(Boolean isValid)\\
+		-Usage\\
+		This method creates a new menu item in the database. The method will perform all error checks and validation and send the request to the server. The server response will then be displayed on the page.
+		\item Create Menu Category\\
+		\$scope.createMenuCatagory = function(Boolean isValid)\\
+		-Usage\\
+		This method adds a new Menu item category to the database. The method will perform error checks and send the request to the server. The server response will be displayed on the page.
+		\item Remove Ingredient\\
+		\$scope.removeIngredientOption = function(int index)
+		-Usage\\
+		Removes ingredients from the  new menu item being added. Method is invoked on button click.
+		\item Load Menu Items\\
+		\$scope.loadMenuItems = function()
+		-Usage\\
+		This method gets all the menu items from the server and populates the local array. If the server responds with an error, the error will be displayed on the page.
+		\item Load Menu Categories\\
+		\$scope.loadMenuCategories = function()\\
+		-Usage\\
+		This method gets all the menu item categories from the server. If the server responds with an error, the error wil be displayed on the page.
+		\item Check Stock\\
+		\$scope.checkStock = function(String menuItemName)\\
+		-Usage\\
+		This method checks if all the ingredients required to make a menu item are in stock and the quantities are enough. The item will then be marked appropriately as in-stock or out-of-stock.
+		\item \\
+		\
+		-Usage\\
+			
+	\end{itemize}
+	
+\end{enumerate}
 \section{Manage Inventory}
 \subsection{inventory.client.controller}
  The inventory controller handles all the main functionality concerning inventory, such as adding an anventory item.
@@ -347,7 +418,7 @@ The checkFinUser method performs a check to establish wheter the user has a fina
  	exports.searchInventory=function(req,res)\\
  	-Usage\\
  	This method searches and returns a specific inventory item. It returns an error message if the specified item could not be found, or if the inventory item's name is empty.
- 	\tiem Decrease inventory\\
+ 	\item Decrease inventory\\
  	exports.decreaseInventory = function(req,res)\\
  	-Usage\\
  	This method decreases a specific inventory item with a certain amount. It returns an error message if the inventory item could not be found or if the inventory item could not be decreased.
