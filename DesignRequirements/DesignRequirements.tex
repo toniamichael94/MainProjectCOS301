@@ -365,6 +365,59 @@ The checkFinUser method performs a check to establish wheter the user has a fina
 \end{enumerate}
 
 \section{Manage Cafeteria}
+%---------------------------menu items server controller-------------------------------------------------------------
+\subsection{menuItems.server.controller}
+ The menuItems controller handles all the functionality for creating and removing menu items. It also deals with allocating ingredients (inventory items) to the menu items.
+\begin{enumerate}
+\item Methods:
+	\begin{itemize}
+	\item Search for inventory items\\ exports.inventoryItems = function(JsonOBject req, JsonOBject res)\\ \\
+  	Usage: \\
+  	This function is used to find inventory items that can be used as ingredients used to create menu items.
+	
+	\item Load menu items\\ exports.loadMenuItems = function(JsonOBject req, JsonOBject res) \\ \\
+	Usage: \\
+	This function is used to get menu items from the database and display them on the menu page.
+	\item Load menu categories\\ exports.loadMenuCategories = function(JsonOBject req, JsonOBject res)\\  \\
+	Usage: \\
+	This is used to load the menu categories. This is used for making the different menu item pages. 
+	\item Create menu items\\ exports.createMenuItem = function(JsonOBject req, JsonOBject res)\\ \\
+ 	 Usage\\ 
+  	This function is used to create a new menu item. If the menu item already exists, it gives an error message, otherwise, it creates the menu item. It stores all the details of the menu item in the database.
+	\item Create menu category\\ exports.createMenuCategory = function(JsonOBject req, JsonOBject res)\\ \\
+ 	 Usage\\ 
+  	This is used to create categories dynamically. It checks whether a category with the same name exists, if it does, it gives an error message, otherwise, it creates the category.
+	\item Read menu items\\ exports.read = function(JsonOBject req, JsonOBject res)\\ \\
+ 	 Usage\\ 
+  	This function shows the current menu item.
+	\item Update menu items\\ exports.updateMenuItem = function(JsonOBject req, JsonOBject res)\\ \\
+ 	 Usage\\ 
+  	This function is used to update an existing menu item. It changes the updated details of the menu item in the database.
+	\item Update\\ exports.update = function(JsonOBject req, JsonOBject res)\\ \\
+ 	 Usage\\ 
+  	This is a helper function for updateMenuItem. It is used in updateMenuItem to save the changes in the database.
+	\item Delete menu items\\ exports.deleteMenuItem = function(JsonOBject req, JsonOBject res)\\ \\
+ 	 Usage\\ 
+  	This function is used to delete an existing menu item. It gives an error message if the item wasn't deleted, otherwise, it removes the item from the updated details of the menu item in the database.
+	\item Delete \\ exports.update = function(JsonOBject req, JsonOBject res)\\ \\
+ 	 Usage\\ 
+  	This is a helper function for deleteMenuItem. It is used in deleteMenuItem to remove the item from the database.
+	\item List \\ exports.list = function(JsonOBject req, JsonOBject res)\\ \\
+ 	 Usage\\ 
+  	This function is used to display a list of all the menuitems, otherwise, it gives an error message.
+	\item Order by ID\\ exports.orderByID = function(JsonOBject req, JsonOBject res, function next, String id)\\ \\
+ 	 Usage\\ 
+  	This is a menu item middleware. It is used to find the menu items by their ID's and it loops through the database to find all the menu items.
+	\item Has authortization\\ exports.hasAuthorization = function(JsonOBject req, JsonOBject res, function next)\\ \\
+ 	 Usage\\ 
+  	This is a menuitem authorization middleware. It checks whether the user is authorised to change items, otherwise, it gives an error message.
+	\item Search menu \\ exports.searchMenu = function(JsonOBject req, JsonOBject res)\\ \\
+ 	 Usage\\ 
+  	This function is used to search for a given menu item. If the item is not found, an error message is given. If the item is found, its details are returned and it can be updated or deleted from the database.
+	\end{itemize}
+\end{enumerate}
+
+%--------------------------------------menu items client controller--------------------------
 \subsection{menuitems.client.controller}
 The menuitems client controller handles all the functionality concerning the menu, such as adding and updating menu items.
 \begin{enumerate}
@@ -433,6 +486,7 @@ The menuitems client controller handles all the functionality concerning the men
 	
 \end{enumerate}
 \section{Manage Inventory}
+%-------------------------------inventory client controller
 \subsection{inventory.client.controller}
  The inventory controller handles all the main functionality concerning inventory, such as adding an anventory item.
 \begin{enumerate}
@@ -508,6 +562,8 @@ The menuitems client controller handles all the functionality concerning the men
  	This method deletes a specific inventory item. It returns an error messag if the item could not be found or deleted.
  	\end{itemize}
  \end{enumerate}
+ 
+ %--------------PLACE ORDER----------------
 \section{Place Order}
 \subsection{orders.client.controller.js}
 \begin{enumerate}
