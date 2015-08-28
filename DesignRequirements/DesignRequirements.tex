@@ -645,6 +645,21 @@ function(\$scope, \$rootScope, \$http, \$stateParams, \$location, \$cookies, Aut
 		\\ \\ Usage: Function that is called when the home page is accessed to load the information about the canteen
 	\end{itemize}
 \end{enumerate}
+\subsection{header.client.controller.js}
+\begin{enumerate}
+\item Declaration:\\ angular.module('core').controller('HeaderController', ['\$scope', '\$rootScope', '\$http', '\$location', '\$cookies','Authentication', 'Menus',
+	function(\$scope, \$rootScope,\$http, \$location, \$cookies, Authentication, Menus)
+	\item Methods:\\
+	\begin{itemize}
+	\item Load canteen info\\
+	$scope.loadCanteenInfo = function()\\ \\
+	Usage: This function loads the canteen name, if there is no name for the canteen it sets the cateen name to ``Canteen Name''.
+	\item Sign out\\
+	$scope.signout = function()\\ \\
+	Usage: This method clears any orders of the user that might be stored in cookies when that user signs out.
+	
+	\end{itemize}
+\end{enumerate}
 
 
 \end{document}
