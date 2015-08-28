@@ -8,3 +8,6 @@ settings.client.controller
 password.client.controller
 inventory.client.controller
 inventory.server.controller
+orders.client.controller
+orders.server.controller
+menuitems.client.controller
