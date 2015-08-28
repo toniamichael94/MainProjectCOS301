@@ -11,3 +11,5 @@ inventory.server.controller
 orders.client.controller
 orders.server.controller
 menuitems.client.controller
+menuitems.server.controller
+users.superuser.server.controller
