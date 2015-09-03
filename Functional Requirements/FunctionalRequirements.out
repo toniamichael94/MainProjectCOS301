@@ -25,23 +25,24 @@
 \BOOKMARK [2][-]{subsection.5.4}{Place Orders Module}{section.5}% 25
 \BOOKMARK [3][-]{subsubsection.5.4.1}{CheckProductAvailability}{subsection.5.4}% 26
 \BOOKMARK [3][-]{subsubsection.5.4.2}{markAsReady}{subsection.5.4}% 27
-\BOOKMARK [3][-]{subsubsection.5.4.3}{markAsCollected}{subsection.5.4}% 28
-\BOOKMARK [3][-]{subsubsection.5.4.4}{checkLimit}{subsection.5.4}% 29
-\BOOKMARK [3][-]{subsubsection.5.4.5}{employeePaid}{subsection.5.4}% 30
-\BOOKMARK [2][-]{subsection.5.5}{Manage Inventory Module}{section.5}% 31
-\BOOKMARK [3][-]{subsubsection.5.5.1}{addInventory}{subsection.5.5}% 32
-\BOOKMARK [3][-]{subsubsection.5.5.2}{searchInventory}{subsection.5.5}% 33
-\BOOKMARK [3][-]{subsubsection.5.5.3}{deleteInventory}{subsection.5.5}% 34
-\BOOKMARK [3][-]{subsubsection.5.5.4}{updateInventory}{subsection.5.5}% 35
-\BOOKMARK [2][-]{subsection.5.6}{Manage Profile Module}{section.5}% 36
-\BOOKMARK [3][-]{subsubsection.5.6.1}{setFinancialPreferences}{subsection.5.6}% 37
-\BOOKMARK [3][-]{subsubsection.5.6.2}{changePassword}{subsection.5.6}% 38
-\BOOKMARK [3][-]{subsubsection.5.6.3}{changeEmail}{subsection.5.6}% 39
-\BOOKMARK [3][-]{subsubsection.5.6.4}{changeLimit}{subsection.5.6}% 40
-\BOOKMARK [2][-]{subsection.5.7}{Manage System Module}{section.5}% 41
-\BOOKMARK [3][-]{subsubsection.5.7.1}{assignRoles}{subsection.5.7}% 42
-\BOOKMARK [3][-]{subsubsection.5.7.2}{changeEmployeeID}{subsection.5.7}% 43
-\BOOKMARK [3][-]{subsubsection.5.7.3}{setSystemWideLimit}{subsection.5.7}% 44
-\BOOKMARK [3][-]{subsubsection.5.7.4}{setCanteenName}{subsection.5.7}% 45
-\BOOKMARK [3][-]{subsubsection.5.7.5}{uploadImage}{subsection.5.7}% 46
-\BOOKMARK [1][-]{section.6}{Comment}{}% 47
+\BOOKMARK [3][-]{subsubsection.5.4.3}{addToPlate }{subsection.5.4}% 28
+\BOOKMARK [3][-]{subsubsection.5.4.4}{markAsCollected}{subsection.5.4}% 29
+\BOOKMARK [3][-]{subsubsection.5.4.5}{checkLimit}{subsection.5.4}% 30
+\BOOKMARK [3][-]{subsubsection.5.4.6}{employeePaid}{subsection.5.4}% 31
+\BOOKMARK [2][-]{subsection.5.5}{Manage Inventory Module}{section.5}% 32
+\BOOKMARK [3][-]{subsubsection.5.5.1}{addInventory}{subsection.5.5}% 33
+\BOOKMARK [3][-]{subsubsection.5.5.2}{searchInventory}{subsection.5.5}% 34
+\BOOKMARK [3][-]{subsubsection.5.5.3}{deleteInventory}{subsection.5.5}% 35
+\BOOKMARK [3][-]{subsubsection.5.5.4}{updateInventory}{subsection.5.5}% 36
+\BOOKMARK [2][-]{subsection.5.6}{Manage Profile Module}{section.5}% 37
+\BOOKMARK [3][-]{subsubsection.5.6.1}{setFinancialPreferences}{subsection.5.6}% 38
+\BOOKMARK [3][-]{subsubsection.5.6.2}{changePassword}{subsection.5.6}% 39
+\BOOKMARK [3][-]{subsubsection.5.6.3}{changeEmail}{subsection.5.6}% 40
+\BOOKMARK [3][-]{subsubsection.5.6.4}{changeLimit}{subsection.5.6}% 41
+\BOOKMARK [2][-]{subsection.5.7}{Manage System Module}{section.5}% 42
+\BOOKMARK [3][-]{subsubsection.5.7.1}{assignRoles}{subsection.5.7}% 43
+\BOOKMARK [3][-]{subsubsection.5.7.2}{changeEmployeeID}{subsection.5.7}% 44
+\BOOKMARK [3][-]{subsubsection.5.7.3}{setSystemWideLimit}{subsection.5.7}% 45
+\BOOKMARK [3][-]{subsubsection.5.7.4}{setCanteenName}{subsection.5.7}% 46
+\BOOKMARK [3][-]{subsubsection.5.7.5}{uploadImage}{subsection.5.7}% 47
+\BOOKMARK [1][-]{section.6}{Comment}{}% 48

@@ -44,7 +44,7 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
 				$scope.success = response.message;
 			}).error(function(response){
 				$scope.error = response.message;
-			});
+			}); location.reload(true);
 		};
 
         $scope.markAsCollected = function(username, itemName,orderNumber){

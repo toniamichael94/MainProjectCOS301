@@ -20,6 +20,7 @@ exports.signup = function(req, res) {
 	delete req.body.roles;
 
     Config.findOne({name: 'System wide limit'}, function(err, row){
+
         if(!err && row){
             if(req.body.limit > row.value){
                 return res.status(400).send({message: 'Limit cannot exceed ' + row.value});
@@ -317,7 +318,19 @@ exports.saveOAuthUserProfile = function(req, providerUserProfile, done) {
 		}
 	}
 };
-
+exports.getSystemLimit = function(req, res) {
+    console.log('getting system limit');
+    Config.findOne({name: 'System wide limit'}, function (err, row) {
+        if (err) {
+            return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+        } else {
+            return  res.status(200).json({val: row.value});
+        }
+    });
+};
+/**
 /**
  * Remove OAuth provider
  */
