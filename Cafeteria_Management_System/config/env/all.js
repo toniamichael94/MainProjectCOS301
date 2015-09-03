@@ -27,7 +27,9 @@ module.exports = {
 				'public/lib/angular-ui-utils/ui-utils.js',
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
 				'public/lib/bootbox/bootbox.js',
-				'public/lib/jquery/dist/jquery.min.js'
+				'public/lib/jquery/dist/jquery.js',
+				'public/lib/jquery/dist/jquery.min.js',
+				'public/lib/jsreport/'
 
 
 			]
