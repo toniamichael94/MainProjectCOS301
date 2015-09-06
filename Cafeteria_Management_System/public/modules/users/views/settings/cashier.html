@@ -22,24 +22,25 @@
 
     <h4>Placed Orders:</h4>
 	<div data-ng-init="getOrders()" >
-		<div ng-repeat="order in orderNums track by $index">
-			<b>
-				<span class="text-warning">Order number: {{order.orderNum}} </span>
+		<div class="list-group-item clearfix " ng-repeat="order in orderNums track by $index">
+			<b>   <div class="text-center ">
+				<span  class="text-success ">Order number: {{order.orderNum}} </span>  
 			</b>
-			<p > Employee ID: {{order.username}} </p>
-			<div class="list-group-item clearfix" ng-repeat="item in order.items"><h4>   
+			<p > Employee ID: {{order.username}} </p> </div>
+			<div class="list-group-item clearfix" ng-repeat="item in order.items"> 
 				<h4><b><p class="text-warning">{{item.itemName}} : R{{item.price}}</p></b></h4>
-				<p> Quantity: {{item.quantity}}  </p><span style="float:right;" >
-				
-				<p> Preferences: {{item.preferences}}</p>
+				  Quantity: {{item.quantity}}  <br>
+				  Preferences: {{item.preferences}} 
 			</div>
+		 <div class="text-center ">
+			<div> Payment method: 
+				<input type="radio" data-ng-model="order.paymentMethod" value="cash"> Cash</input>
+				<input type="radio" data-ng-model="order.paymentMethod" value="credit"> Credit</input>
+				</div>
 			<!--button style="width:200px" type="button" class="btn btn-primary" data-ng-click="markAsCollected(order.username)"> Order collected </button> </span-->
 			<button style="width:200px" type="button" class="btn btn-primary" data-ng-click="markAsPaid(order)"> Employee paid  </button></span>
 			<button style="width:200px" type="button" class="btn btn-success" data-ng-click="markAsReady(order.username,order.orderNumber)" data-ng-hide="(order.status === 'ready')"> Order Ready </button>
-			<span> Payment method: 
-				<input type="radio" data-ng-model="order.paymentMethod" value="cash"> Cash</input>
-				<input type="radio" data-ng-model="order.paymentMethod" value="credit"> Credit</input>
-			</span>
+			</div>
 		</div>
 	</div>
 	
