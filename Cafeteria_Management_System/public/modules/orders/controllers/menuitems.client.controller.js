@@ -55,8 +55,21 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		};
 
 		$scope.alerts = [
-	    { type: 'warning', msg: 'Page help: To order a menu item - click the add to plate botton and then click the on my plate button to confirm your order ' }, // this needs to explain what to do on the menu page
-	    { type: 'success', msg: 'Well done! You successfully read this important alert message.' }
+	    { type: 'warning', msg: 'Page help: To order a menu item - click the add to plate botton and then click the on my plate button to confirm your order. To navigate between menu categories - use the navigation bar and click on the appropriate button (Menu contains all the menu catagories)' }, // this needs to explain what to do on the menu page
+	    { type: 'warning', msg: 'This page contains all the settings to add menu items and menu catagories to the menu page.' },
+			{ type: 'warning', msg: 'Type in a menu catagory to add to your menu. (a menu catagory will appear in the menu navigation bar on the menu page and menu items can be placed under a menu catagory)' },
+			{ type: 'warning', msg: 'This section will add a menu item to the menu page. NOTE - you need to have ingredients (wich is stored as inventory) - this can be added by clicking on your name in the navigation bar and choosing the manage inventory setting which will take you to a page to add inventory' },
+			{ type: 'warning', msg: 'To search for a menu item, simply type in the name and click search' },
+			{ type: 'warning', msg: 'Manage inventory page will allow you to add inventory, remove and update inventory' },
+			{ type: 'warning', msg: 'Add the name of the ingredient you want to add, together with the amount of the ingredient you are adding and the unit the ingredient is messured in the respective boxes below' },
+			{ type: 'warning', msg: 'To search for an inventory item, type in the name of the item and the option to edit will appear' },
+			{ type: 'warning', msg: 'First click on display inventory and then edit the inventory as needed.' },
+			{ type: 'warning', msg: 'This page shows the orders you clicked, to remove a order click remove to increase the quantity of your order use the arrows in the textbox, to add more items to your order, go to the menu page and click add toplate on the appropriate button associated with the menu item you want.Preferences can be gives for example no tamato or extra sause.' }
+
+
+
+
+
 	  ];
 
 	  $scope.addAlert = function() {
