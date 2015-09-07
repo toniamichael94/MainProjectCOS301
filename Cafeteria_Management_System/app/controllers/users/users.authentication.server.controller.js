@@ -180,7 +180,7 @@ if(model2.length < 1){
 
 
 	adminUser.save(function(err, superUser) {
-		if (err) error.superUser = err;//return console.error(err);
+		if (err) //error.superUser = err;//return console.error(err);
 			console.dir(superUser);
 });
 }else {
