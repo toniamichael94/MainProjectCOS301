@@ -783,9 +783,9 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 			$rootScope.$broadcast('plateUpdated');
 		};
 
-	$scope.custom = true;
+	$scope.view = true;
         $scope.viewImage = function() {
-            $scope.custom = $scope.custom === false ? true: false;
+            $scope.view = $scope.view === false ? true: false;
         };
         
         $scope.checkCMUser = function(){
