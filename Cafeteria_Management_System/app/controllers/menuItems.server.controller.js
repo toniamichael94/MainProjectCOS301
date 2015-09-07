@@ -9,6 +9,8 @@ var mongoose = require('mongoose'),
 	OrderItem = mongoose.model('Order'),
 	InventoryItem = mongoose.model('Inventory'),
 	MenuCatagory = mongoose.model('MenuCatagory'),
+	formidable = require('formidable'),
+	fs = require('fs'),
 
 	_ = require('lodash');
 
@@ -133,7 +135,7 @@ exports.read = function(req, res) {
 
 /* Update menu item*/
 exports.updateMenuItem = function(req,res){
-		MenuItem.update({itemName: req.body.itemName}, {itemName: req.body.updateItemName, price:req.body.price, description: req.body.description, category:req.body.category, ingredients: req.body.ingredients},  function(err, numAffected){
+		MenuItem.update({itemName: req.body.itemName}, {itemName: req.body.updateItemName, price:req.body.price, description: req.body.description, category:req.body.category, ingredients: req.body.ingredients/*, imagePath: req.body.iPath*/},  function(err, numAffected){
         if(err) return res.status(400).send({
             message: errorHandler.getErrorMessage(err)
         });
@@ -265,6 +267,29 @@ exports.hasAuthorization = function(req, res, next) {
 /*
  * search menu item
  */
+
+exports.uploadImage = function(req, res){
+	var menuitem = req.menuitem;
+	var form = new formidable.IncomingForm();
+	console.log('About to parse image');
+	console.log(req);
+
+	form.parse(req, function(error, fields, files){
+		newPath = './public/modules/core/img/brand/' + menuItem.imagePath;
+		console.log('image parsed');
+		if(error){
+			return res.status(400).send({message: errorHandler.getErrorMessage(error)});
+		}
+		fs.rename(files.upload.path, newPath , function(err){
+			if(err){
+				console.log(errorHandler.getErrorMessage(err));
+				fs.unlink(newPath);
+				fs.rename(files.upload.path, newPath);
+			}
+			res.redirect('/');
+		});
+	});
+};
 
 exports.searchMenu=function(req,res){
     console.log('searchMenu'+ req.body.itemName );
