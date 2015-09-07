@@ -8,6 +8,7 @@ angular.module('users').controller('FinanceController', ['$scope', '$http', '$lo
         // If user is not signed in then redirect back home
         if (!$scope.authentication) $location.path('/');
 
+
         // Search a user profile
         /*$scope.searchEmployee = function(isValid) {
             if(isValid){
@@ -22,6 +23,7 @@ angular.module('users').controller('FinanceController', ['$scope', '$http', '$lo
             }
         };*/
 
+      
         $scope.getUserOrders = function(){
             var reqObj = {username: $scope.username};
             var orders = new Array();
@@ -53,6 +55,8 @@ angular.module('users').controller('FinanceController', ['$scope', '$http', '$lo
                 $scope.error = "could not get orders";//response.message;
             });
         };
+
+
 
         $scope.checkUser = function(){
             if(!Authentication.user){
