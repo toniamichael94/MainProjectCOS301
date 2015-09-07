@@ -136,7 +136,11 @@
                                     <option value='units'>units</option>
                                 </select>
                             </div>
-
+                            <div class = "text-center form-group">
+                                <button type = "submit" style="width:200px" class = "btn btn-large btn-primary" ng-click="showme=false"> Update</button>
+                            </div>
+                        </form>
+     
 			    <!--
 			    ****************************IMAGE*****************************************
 			    div class="form-group">
@@ -154,11 +158,15 @@
 			    </div>
 			    </form>
 -->
-                            
-                            <div class = "text-center form-group">
-                                <button type = "submit" style="width:200px" class = "btn btn-large btn-primary" ng-click="showme=false"> Update</button>
-                            </div>
-                        </form>
+			    <form name="uploadImageForm" action="/orders/uploadImage" enctype="multipart/form-data" method="post" class="signin form-horizontal" autocomplete="off">
+				    <fieldset>
+				      <input type="file" id="upload" name="upload" data-ng-model="upload" class="form-control"/> <br>
+				      <div class="text-center form-group"><br>
+				        <button type="submit" style="width:220px"s class="btn btn-large btn-primary">Upload Image</button> <br>
+				      </div>
+				    </fieldset>
+			    </form>
+			    
 					   <button class = "btn btn-large btn-primary" style="width:200px" data-ng-hide="showme" ng-click = "hideInventory=true; deleteInventoryItem()" >Delete</button>
 
 					</div>
