@@ -45,10 +45,6 @@ angular.module('users').config(['$stateProvider',
 			url: '/password/reset/:token',
 			templateUrl: 'modules/users/views/password/reset-password.client.view.html'
 		}).
-		state('invoice', {
-				url: '/invoice',
-				templateUrl: 'modules/users/views/reporting/invoice.html'
-		}).
         state('superuser', {
             url: '/settings/adminSettings',
             templateUrl: 'modules/users/views/settings/adminSettings.html'
