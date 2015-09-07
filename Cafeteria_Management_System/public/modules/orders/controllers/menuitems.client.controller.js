@@ -5,11 +5,83 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 	function($scope, $rootScope, $http, $stateParams, $location, $cookies, Authentication, MenuItems) {
 		$scope.authentication = Authentication;
 
-		$scope.menuCategories = [];
+		$scope.alertUser = false; // used for user alerts - help page...
+
+//filter the catagories
+		$scope.filterCat = function(catName){
+			console.log('cat');
+			$scope.category = catName;
+
+			$http.get('/loadMenuItems').success(function(response) {
+			var count = 0;
+			console.log(response.message)
+			var newArray = [];
+			for(var cat in response.message){
+					if(response.message[cat].category[0].localeCompare(catName) === 0) {
+						newArray[count] = response.message[cat];
+						count = count+1;
+
+					}
+			}
+			$scope.menuItems = newArray;
+			$location.path('/menu-item');
+			var inStock = true;
+
+			for(var itemName in newArray){
+				$scope.menuItems[itemName].stock = true;
+				// now check if the inventory items are indeed available
+				if(newArray[itemName].itemInStock === false){ // then item is marked as out of stock by cafeteria manager for reasons other than inventory
+							$scope.menuItems[itemName].stock = false;
+				}else{ // check the inventory if all items are available
+							$scope.menuItems[itemName].stock= $scope.checkStock(newArray[itemName]);
+				}
+			}
+
+
+		}).error(function(response) {
+			$scope.menuCatagory = 'Error loading menu Categories';
+		});
+	};
+
+
+
+
+		$scope.helpAlert = function(){
+			$scope.alertUser = true;
+		}
 
 		$scope.toggleCollapsibleMenu = function() {
 			$scope.isCollapsed = !$scope.isCollapsed;
 		};
+
+		$scope.alerts = [
+	    { type: 'warning', msg: 'Page help: To order a menu item - click the add to plate botton and then click the on my plate button to confirm your order. To navigate between menu categories - use the navigation bar and click on the appropriate button (Menu contains all the menu catagories)' }, // this needs to explain what to do on the menu page
+	    { type: 'warning', msg: 'This page contains all the settings to add menu items and menu catagories to the menu page.' },
+			{ type: 'warning', msg: 'Type in a menu catagory to add to your menu. (a menu catagory will appear in the menu navigation bar on the menu page and menu items can be placed under a menu catagory)' },
+			{ type: 'warning', msg: 'This section will add a menu item to the menu page. NOTE - you need to have ingredients (wich is stored as inventory) - this can be added by clicking on your name in the navigation bar and choosing the manage inventory setting which will take you to a page to add inventory' },
+			{ type: 'warning', msg: 'To search for a menu item, simply type in the name and click search' },
+			{ type: 'warning', msg: 'Manage inventory page will allow you to add inventory, remove and update inventory' },
+			{ type: 'warning', msg: 'Add the name of the ingredient you want to add, together with the amount of the ingredient you are adding and the unit the ingredient is messured in the respective boxes below' },
+			{ type: 'warning', msg: 'To search for an inventory item, type in the name of the item and the option to edit will appear' },
+			{ type: 'warning', msg: 'First click on display inventory and then edit the inventory as needed.' },
+			{ type: 'warning', msg: 'This page shows the orders you clicked, to remove a order click remove to increase the quantity of your order use the arrows in the textbox, to add more items to your order, go to the menu page and click add toplate on the appropriate button associated with the menu item you want.Preferences can be gives for example no tamato or extra sause.' }
+
+
+
+
+
+	  ];
+
+	  $scope.addAlert = function() {
+	    $scope.alerts.push({msg: 'Another alert!'});
+	  };
+
+	  $scope.closeAlert = function(index) {
+	    $scope.alerts.splice(index, 1);
+			$scope.alertUser = false;
+	  };
+
+
 
 		/*
 			Dynamically add fields to the menu items page to add ingredients for a menu item.
@@ -402,70 +474,17 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		{
 			$scope.ingredients.ingredients.splice(index, 1);
 			$scope.ingredients.quantities.splice(index, 1);
-		}
+		};
 /*End of functions for creating a new menu item*/
 
-        //Filter Menu items - Special Of The Day
-        $scope.special = function (row) {
-            return (angular.lowercase(row.category).indexOf('Special Of The Day') !== -1);
-        };
 
-		//Filter Menu items - Toasted Sandwiches
-		$scope.toastedSandwiches = function (row) {
-			return (angular.lowercase(row.category).indexOf('Toasted Sandwiches') !== -1);
-		};
-
-		//Filter Menu items for Tramezzinis
-		$scope.tramezzinis = function (row) {
-			return (angular.lowercase(row.category).indexOf('Tramezzinis') !== -1);
-		};
-
-		//Filter Menu items for Burger Bar
-		$scope.burgerBar = function (row) {
-			return (angular.lowercase(row.category).indexOf('Burger Bar') !== -1);
-		};
-
-		//Filter Menu items for Daily Lunches
-		$scope.dailyLunch = function (row) {
-			return (angular.lowercase(row.category).indexOf('Daily Lunches') !== -1);
-		};
-
-        //Filter Menu items for Drinks
-        $scope.drinks = function (row) {
-            return (angular.lowercase(row.category).indexOf('Drinks') !== -1);
-        };
-		//Filter Menu items for Salad Bar
-		$scope.saladBar = function (row) {
-				return (angular.lowercase(row.category).indexOf('Salad Bar') !== -1);
-		};
-
-		//Filter Menu items for Sweet Treats
-		$scope.sweetTreat = function (row) {
-			return (angular.lowercase(row.category).indexOf('Sweet Treats') !== -1);
-		};
-
-		//Filter Menu items for Resale Items
-		$scope.resaleItem = function (row) {
-				return (angular.lowercase(row.category).indexOf('Resale Items') !== -1);
-		};
-
-		//Filter Menu items for On The Side
-		$scope.onSide = function (row) {
-			return (angular.lowercase(row.category).indexOf('On The Side') !== -1);
-		};
-
-
-		//Filter Menu items for Extra's
-		$scope.extra = function (row) {
-			return (angular.lowercase(row.category).indexOf('Extra') !== -1);
-		};
 
         //Filter Menu items for search bar
         $scope.searchBar = function (row) {
-            var itemN = $scope.menuNameSearch.toLowerCase();
+          /*  var itemN = $scope.menuNameSearch.toLowerCase();
             if ((angular.lowercase(row.itemName)).contains(itemN)) {
                 return (angular.lowercase(row.itemName));
-            }
+            }*/
         };
 
         //Filter Menu items for burger bar search bar
@@ -580,17 +599,17 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 
 		  //console.log(response.message); // testing
 			var displayItems = response.message;
-			
+
 			for(var item in displayItems)
 			{
 				if(displayItems[item].itemName.length >1)
 					displayItems[item].itemName = displayItems[item].itemName.charAt(0).toUpperCase() + displayItems[item].itemName.slice(1);
 				console.log(displayItems[item].itemName);
 			}
-			
-			
+
+
 			$scope.menuItems = response.message;
-			
+
 			var inStock = true;
 			//var notInStock = 'Not in stock';
 
@@ -613,13 +632,14 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 	$scope.loadMenuCategories = function(){
 		console.log('loading menu Categories');
 		$http.get('/loadMenuCategories').success(function(response) {
-			console.log(response.message);
 		$scope.menuCatagory = response.message;
+		$scope.cat = response.message;
 
 	}).error(function(response) {
 		$scope.menuItems = 'Error loading menu Items';
 	});
 };
+
 
 
         /*
@@ -729,6 +749,8 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 			return -1;
 		};
 
+
+
 		$scope.addToPlate = function(itemName){
 			var _price;
 			var _ingredients = [];
@@ -776,6 +798,8 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
         };
 	}
 ]);
+
+
 
 /*Add ingredients button*/
 

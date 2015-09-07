@@ -1,19 +1,19 @@
 
-<section data-ng-controller="MenuItemsController" data-ng-init="loadMenuItems()">
+<section data-ng-controller="MenuItemsController" >
 
-    <!--ALERT BOX FOR HELP-->
-        <script type="text/ng-template" id="alert.html">
-            <div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-              <div ng-transclude></div>
-            </div>
-        </script>
+  <!--ALERT BOX FOR HELP-->
+      <script type="text/ng-template" id="alert.html">
+          <div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+            <div ng-transclude></div>
+          </div>
+      </script>
 
-        <div  data-ng-controller="MenuItemsController">
-          <h4>Menu<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
-          <hr>
-          <alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alerts[0].msg}}</alert>
-        </div>
-   <!--END ALERT BOX -->
+      <div  data-ng-controller="MenuItemsController">
+        <h4>Menu<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
+        <hr>
+        <alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alerts[0].msg}}</alert>
+      </div>
+ <!--END ALERT BOX -->
 
   <!-- Menu nav -->
   <div class="container " data-ng-controller="HeaderController">
@@ -65,15 +65,15 @@
 
 
   <!-- DYNAMIC filter: -->
-  <div class="list-group clearfix"  ng-repeat="cat in menuCatagory">
+  <div class="list-group clearfix" >
 
-      <a href="#/" class="list-group-item heading"><h4> {{cat.name}}</h4></a>
-      <div class="list-group-item clearfix" ng-repeat ="item in menuItems"  ng-show="cat.name === item.category[0]"><h3>
+      <a href="" class="list-group-item heading"><h4> {{category}}</h4></a>
+      <div class="list-group-item clearfix" ng-repeat ="item in menuItems"  ><h3>
           {{item.itemName}}  <span style="float:right;" > R {{item.price}} <button type="button" class="btn btn-primary" data-ng-show="item.stock" data-ng-click="addToPlate(item.itemName)"> Add to plate </button></span>  </h3> <br> <h5> {{item.description}}
-          <form>
-              <span data-ng-show="!item.stock" style="color:red"><h3>Not in stock </h3></span>
-          </form></h5>
+            <form>
+                <span data-ng-show="!item.stock" style="color:red"><h3>Not in stock </h3></span>
+            </form></h5>
       </div>
 
-  </div>
+    </div>
 </section>

@@ -1,6 +1,6 @@
 ﻿{
     "certificate": {
-        "key": "certificates/jsreport.net.key",    
+        "key": "certificates/jsreport.net.key",
         "cert": "certificates/jsreport.net.cert"
     },
     "connectionString": { "name": "neDB" },
@@ -11,8 +11,9 @@
       "enabled":  false
     },
     "phantom": {
-        "numberOfWorkers" : 2,
-        "timeout": 180000
+      "numberOfWorkers": 1,
+      "timeout": 180000,
+      "allowLocalFilesAccess": false
     },
     "tasks": {
         "numberOfWorkers" : 2,
