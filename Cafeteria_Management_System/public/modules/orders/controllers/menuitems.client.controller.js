@@ -6,10 +6,31 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		$scope.authentication = Authentication;
 
 		$scope.menuCategories = [];
+		$scope.alertUser = false;
+
+		$scope.helpAlert = function(){
+			$scope.alertUser = true;
+		}
 
 		$scope.toggleCollapsibleMenu = function() {
 			$scope.isCollapsed = !$scope.isCollapsed;
 		};
+
+		$scope.alerts = [
+	    { type: 'warning', msg: 'Oh snap! Change a few things up and try submitting again.' }, // this needs to explain what to do on the menu page 
+	    { type: 'success', msg: 'Well done! You successfully read this important alert message.' }
+	  ];
+
+	  $scope.addAlert = function() {
+	    $scope.alerts.push({msg: 'Another alert!'});
+	  };
+
+	  $scope.closeAlert = function(index) {
+	    $scope.alerts.splice(index, 1);
+			$scope.alertUser = false;
+	  };
+
+
 
 		/*
 			Dynamically add fields to the menu items page to add ingredients for a menu item.
@@ -462,10 +483,10 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 
         //Filter Menu items for search bar
         $scope.searchBar = function (row) {
-            var itemN = $scope.menuNameSearch.toLowerCase();
+          /*  var itemN = $scope.menuNameSearch.toLowerCase();
             if ((angular.lowercase(row.itemName)).contains(itemN)) {
                 return (angular.lowercase(row.itemName));
-            }
+            }*/
         };
 
         //Filter Menu items for burger bar search bar
@@ -580,17 +601,17 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 
 		  //console.log(response.message); // testing
 			var displayItems = response.message;
-			
+
 			for(var item in displayItems)
 			{
 				if(displayItems[item].itemName.length >1)
 					displayItems[item].itemName = displayItems[item].itemName.charAt(0).toUpperCase() + displayItems[item].itemName.slice(1);
 				console.log(displayItems[item].itemName);
 			}
-			
-			
+
+
 			$scope.menuItems = response.message;
-			
+
 			var inStock = true;
 			//var notInStock = 'Not in stock';
 

@@ -29,7 +29,7 @@ module.exports = {
 				'public/lib/bootbox/bootbox.js',
 				'public/lib/jquery/dist/jquery.js',
 				'public/lib/jquery/dist/jquery.min.js',
-				'public/lib/jsreport/'
+				'public/lib/ng-bootstrap-alerts/dist/index.min.js'
 
 
 			]

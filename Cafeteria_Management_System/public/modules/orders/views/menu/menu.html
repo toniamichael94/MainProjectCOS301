@@ -1,10 +1,20 @@
 
 <section data-ng-controller="MenuItemsController" data-ng-init="loadMenuItems()">
 
-        <h4>Menu</h4>
-        <hr>
+        <script type="text/ng-template" id="alert.html">
+            <div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+              <div ng-transclude></div>
+            </div>
+        </script>
 
-      <!-- Display all the meals -->
+        <div  data-ng-controller="MenuItemsController">
+          <h4>Menu<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
+          <hr>
+          <alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alerts[0].msg}}</alert>
+        </div>
+
+
+        <!-- Display all the meals -->
       <!-- nav- breadcrum for menu page-->
       <ol class="breadcrumb">
         <li class="active">All Menu Items</li>
@@ -20,6 +30,13 @@
         <li><a href="/#!/menu/drinks">Drinks</a></li>
         <li><a href="/#!/menu/dailySpecials">Daily Specials</a></li>
       </ol>
+
+
+
+
+
+
+
 
       <div class="container">
 
