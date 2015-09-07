@@ -104,7 +104,7 @@
 					<div class = "text-center form-group">
 						<button type = "submit" style="width:200px" class = "btn btn-large btn-primary"><!--ng-submit="inventory.findOne()"--> Search</button>
 					</div>
-                </form>
+                	</form>
 
 				<!--Delete or update if item found-->
 
@@ -140,36 +140,9 @@
                                 <button type = "submit" style="width:200px" class = "btn btn-large btn-primary" ng-click="showme=false"> Update</button>
                             </div>
                         </form>
-     
-			    <!--
-			    ****************************IMAGE*****************************************
-			    div class="form-group">
-                                <label for="itemName">Image path</label>
-                                <input type="text" id="itemName" name="itemName" class="form-control" data-ng-model="itemUpdateImage">
-                            </div
-                            <form name="uploadImageForm" action="/orders/uploadImage" enctype="multipart/form-data" method="post" class="signin form-horizontal" autocomplete="off">
-				    <fieldset>
-				    <input type="file" id="upload" name="upload" data-ng-model="upload" class="form-control"/> <br>
-				    <div class="text-center form-group"><br>
-				    <button type="submit" style="width:220px"s class="btn btn-large btn-primary">Upload Image</button>
-				    <br>
-				    </div>
-				    </fieldset>
-			    </div>
-			    </form>
--->
-			    <form name="uploadImageForm" action="/orders/uploadImage" enctype="multipart/form-data" method="post" class="signin form-horizontal" autocomplete="off">
-				    <fieldset>
-				      <input type="file" id="upload" name="upload" data-ng-model="upload" class="form-control"/> <br>
-				      <div class="text-center form-group"><br>
-				        <button type="submit" style="width:220px"s class="btn btn-large btn-primary">Upload Image</button> <br>
-				      </div>
-				    </fieldset>
-			    </form>
-			    
-					   <button class = "btn btn-large btn-primary" style="width:200px" data-ng-hide="showme" ng-click = "hideInventory=true; deleteInventoryItem()" >Delete</button>
+			<button class = "btn btn-large btn-primary" style="width:200px" data-ng-hide="showme" ng-click = "hideInventory=true; deleteInventoryItem()" >Delete</button>
 
-					</div>
+		</div>
 
 					<!--Error/Success message for delete/update-->
 					<div data-ng-show="errorMessage" class="text-center text-danger">
