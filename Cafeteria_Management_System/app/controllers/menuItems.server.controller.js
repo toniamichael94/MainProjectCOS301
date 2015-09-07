@@ -275,7 +275,7 @@ exports.uploadImage = function(req, res){
 	console.log(req);
 
 	form.parse(req, function(error, fields, files){
-		newPath = './public/modules/core/img/brand/' + menuItem.imagePath;
+		newPath = './public/modules/core/img/' + menuItem.imagePath;
 		console.log('image parsed');
 		if(error){
 			return res.status(400).send({message: errorHandler.getErrorMessage(error)});
