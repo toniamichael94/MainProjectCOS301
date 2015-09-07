@@ -49,20 +49,11 @@
 							<input type="number" min = 0 id="itemPrice" name="itemPrice" class="form-control" data-ng-model="menuItem.itemPrice" placeholder="Price">
 						</div>
 
-						<div class = "form-group">
+						<div class = "form-group" ng-init="loadMenuCategories()">
 						<label for="itemCategory">Category</label>
 							<select id ="itemCategory" name ="itemCategory" class = "form-control" data-ng-model ="menuItem.itemCategory" >
-								<option value = 'Toasted Sandwiches'>Toasted Sandwiches</option>
-								<option value = 'Tramezzinis'>Tramezzinis</option>
-								<option value = 'Burger Bar'>Burger Bar</option>
-								<option value = 'Daily Lunches'>Daily Lunches</option>
-								<option value = 'Salad Bar'>Salad Bar</option>
-								<option value = 'Sweet Treats'>Sweet Treats</option>
-								<option value = 'Resale Items'>Resale Items</option>
-								<option value = 'On The Side'>On The Side</option>
-								<option value = 'Extra'>Extra</option>
-                                <option value = 'Drinks'>Drinks</option>
-                                <option value = 'Special Of The Day'>Special Of The Day</option>
+								<option ng-repeat="item in menuCatagory" value={{item.name}}>{{item.name}}</option>
+							
 							</select>
 						</div>
 
