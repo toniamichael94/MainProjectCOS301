@@ -264,18 +264,18 @@ exports.hasAuthorization = function(req, res, next) {
 	}
 	next();
 };
-/*
- * search menu item
- */
 
+/***
+ * Upload image
+ */
+ 
 exports.uploadImage = function(req, res){
-	var menuitem = req.menuitem;
 	var form = new formidable.IncomingForm();
 	console.log('About to parse image');
 	console.log(req);
 
 	form.parse(req, function(error, fields, files){
-		newPath = './public/modules/core/img/' + menuItem.imagePath;
+		newPath = './public/modules/core/img/' + files.upload.name;
 		console.log('image parsed');
 		if(error){
 			return res.status(400).send({message: errorHandler.getErrorMessage(error)});
@@ -291,6 +291,9 @@ exports.uploadImage = function(req, res){
 	});
 };
 
+/*
+ * search menu item
+ */
 exports.searchMenu=function(req,res){
     console.log('searchMenu'+ req.body.itemName );
     if (req.body.itemName) {
