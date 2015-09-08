@@ -784,8 +784,9 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		};
 
 	$scope.view = true;
-        $scope.viewImage = function() {
-            $scope.view = $scope.view === false ? true: false;
+        $scope.viewImage = function(itemName) {
+            if(itemName)
+                $scope.view = $scope.view === false ? true: false;
         };
         
         $scope.checkCMUser = function(){
