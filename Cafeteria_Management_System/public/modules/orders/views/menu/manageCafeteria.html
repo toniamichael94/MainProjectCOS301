@@ -34,9 +34,9 @@
 						<div class="form-group">
 							<label for="menuCatagory">Menu category name</label>
 							<input type="text" id="menuItemAdd" name="menuItemAdd" class="form-control" data-ng-model="categoryName" placeholder="Menu Category Name">
-						</div>
+						</div>  <div class=" text-center form-group">
 							<button type = "submit" style="width:200px" class = "btn btn-large btn-primary">Add</button>
-							<!-- Show error message or sucess message-->
+							<!-- Show error message or sucess message--></div>
 							<div data-ng-show="success" class="text-center text-success">
 								<strong>Item added successfully.</strong>
 							</div>
@@ -138,6 +138,7 @@
 
 	<!-- Search, delete, and update menu items -->
 	<div class="list-group clearfix"  data-ng-controller="MenuItemsController">
+
 		<a href="#" class="list-group-item disabled">Search menu item</a>
 			<div class="list-group-item clearfix">
 				<h4> Search menu item </h4>
@@ -167,10 +168,10 @@
 
 			   <!-- ********************Upload image if item is found*******************-->
 			    <form name="uploadImageForm" action="/orders/uploadImage" enctype="multipart/form-data" method="post" class="signin form-horizontal" autocomplete="off">
-				    <fieldset>
-				      <input type="file" id="upload" name="upload" data-ng-model="upload" class="form-control"/> <br>
-				      <div class="text-center form-group"><br>
-				        <button type="submit" style="width:220px"s class="btn btn-large btn-primary">Upload Image</button> <br>
+				    <fieldset>  <div class="text-center form-group" data-ng-show="successFind"><br>
+				      <input type="file" id="upload" name="upload" ng-click="showme=true;" data-ng-hide="showme" data-ng-model="upload" class="form-control"/> <br>
+
+				        <button type="submit" style="width:220px"s ng-click="showme=true;" data-ng-hide="showme" class="btn btn-large btn-primary">Upload Image</button> <br>
 				      </div>
 				    </fieldset>
 			    </form>
