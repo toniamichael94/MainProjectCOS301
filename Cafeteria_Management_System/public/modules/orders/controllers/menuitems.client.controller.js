@@ -65,11 +65,6 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 			{ type: 'warning', msg: 'To search for an inventory item, type in the name of the item and the option to edit will appear' },
 			{ type: 'warning', msg: 'First click on display inventory and then edit the inventory as needed.' },
 			{ type: 'warning', msg: 'This page shows the orders you clicked, to remove a order click remove to increase the quantity of your order use the arrows in the textbox, to add more items to your order, go to the menu page and click add toplate on the appropriate button associated with the menu item you want.Preferences can be gives for example no tamato or extra sause.' }
-
-
-
-
-
 	  ];
 
 	  $scope.addAlert = function() {
@@ -788,6 +783,11 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 			$rootScope.$broadcast('plateUpdated');
 		};
 
+	$scope.view = true;
+        $scope.viewImage = function() {
+            $scope.view = $scope.view === false ? true: false;
+        };
+        
         $scope.checkCMUser = function(){
             if(!Authentication.user) {
                 $location.path('/');

@@ -104,7 +104,7 @@
 					<div class = "text-center form-group">
 						<button type = "submit" style="width:200px" class = "btn btn-large btn-primary"><!--ng-submit="inventory.findOne()"--> Search</button>
 					</div>
-                </form>
+                	</form>
 
 				<!--Delete or update if item found-->
 
@@ -136,14 +136,13 @@
                                     <option value='units'>units</option>
                                 </select>
                             </div>
-
                             <div class = "text-center form-group">
                                 <button type = "submit" style="width:200px" class = "btn btn-large btn-primary" ng-click="showme=false"> Update</button>
                             </div>
                         </form>
-					   <button class = "btn btn-large btn-primary" style="width:200px" data-ng-hide="showme" ng-click = "hideInventory=true; deleteInventoryItem()" >Delete</button>
+			<button class = "btn btn-large btn-primary" style="width:200px" data-ng-hide="showme" ng-click = "hideInventory=true; deleteInventoryItem()" >Delete</button>
 
-					</div>
+		</div>
 
 					<!--Error/Success message for delete/update-->
 					<div data-ng-show="errorMessage" class="text-center text-danger">

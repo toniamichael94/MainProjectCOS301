@@ -165,6 +165,15 @@
                         </div>
 					</form>
 
+			   <!-- ********************Upload image if item is found*******************-->
+			    <form name="uploadImageForm" action="/orders/uploadImage" enctype="multipart/form-data" method="post" class="signin form-horizontal" autocomplete="off">
+				    <fieldset>
+				      <input type="file" id="upload" name="upload" data-ng-model="upload" class="form-control"/> <br>
+				      <div class="text-center form-group"><br>
+				        <button type="submit" style="width:220px"s class="btn btn-large btn-primary">Upload Image</button> <br>
+				      </div>
+				    </fieldset>
+			    </form>
 
 					<!--Delete or update if item is found-->
                     <form  class="text-center form-group signin form-horizontal">
