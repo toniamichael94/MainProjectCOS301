@@ -15,6 +15,8 @@ module.exports = function(app) {
 
      //Update
 	app.route('/orders/updateMenuItem').post(menuItems.updateMenuItem);
+	//Add image
+	app.route('/orders/uploadImage').post(menuItems.uploadImage);
 	//Delete
 	app.route('/orders/deleteMenuItem').post(menuItems.deleteMenuItem);
 	//create order

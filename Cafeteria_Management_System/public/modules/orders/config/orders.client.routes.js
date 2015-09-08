@@ -10,6 +10,10 @@ angular.module('orders').config(['$stateProvider',
 			templateUrl: 'modules/orders/views/menu/list-orders.client.view.html'
 		}).
 		//----------------menu items - routes
+		state('menu-item', {
+			url: '/menu-item',
+			templateUrl: 'modules/orders/views/menu/menu-item.html'
+		}).
 		state('menu', {
 			url: '/menu',
 			templateUrl: 'modules/orders/views/menu/menu.html'

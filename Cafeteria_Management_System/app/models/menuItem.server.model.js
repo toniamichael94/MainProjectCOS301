@@ -39,6 +39,11 @@ var MenuItemSchema = new Schema({
 	},
 	ingredients:{type:Object,default:[], required:'Please provide ingredients'
 	},
+	imagePath: {
+		type: String,
+		default : ''
+		/*required: 'Please fill in the path of the menu item.'*/
+	},
 	user: {
 		type: Schema.ObjectId,
 		ref: 'User'

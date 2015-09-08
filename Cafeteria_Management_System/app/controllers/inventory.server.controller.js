@@ -77,7 +77,7 @@ exports.update = function(req, res) {
  * Delete an inventory Item
  */
 exports.delete = function(req, res) {
-	
+
 	var inventoryItem = req.inventoryItem ;
 
 	inventoryItem.remove(function(err) {
@@ -177,7 +177,7 @@ exports.decreaseInventory = function(req,res)
  * Last Edited by {Semaka Malapane and Tonia Michael}
  */
 exports.updateInventory = function(req, res) {
-																		 
+
     Inventory.update({productName: req.body.oldProdName}, {productName: req.body.newProdName, quantity: req.body.quantity, unit: req.body.unit}, function(err, numAffected){
         if(err) return res.status(400).send({
             message: errorHandler.getErrorMessage(err)
@@ -197,7 +197,7 @@ updateInventoryQuantity
 	exports.updateInventoryQuantity=function(req,res){
 		console.log('Product:'+req.body.productName);
 		console.log('Quantity:'+req.body.quantity);
-		
+
 		Inventory.update({productName: req.body.productName}, {quantity: req.body.quantity}, function(err, numAffected){
         if(err) return res.status(400).send({
             message: errorHandler.getErrorMessage(err)
@@ -210,7 +210,7 @@ updateInventoryQuantity
         }
     });
 	};
-	
+
 	/*
 	Delete an inventory item
 	*/
@@ -230,7 +230,7 @@ updateInventoryQuantity
 				var ingredientName = items[j].ingredients.ingredients[i];
 				ingredientName = ingredientName.substring(0,ingredientName.indexOf("(")-1);
 				if(req.body.productName === ingredientName)
-					found = 1;				
+					found = 1;
 			}
 		}
 		if(found === 0)
@@ -243,17 +243,17 @@ updateInventoryQuantity
 				res.status(400).send({message: 'Error deleting the item ' + req.body.productName});
 			}
 			else{
-				
+
 				res.status(200).send({message: req.body.productName + ' successfully deleted.'});
 				}
 			});
-			
+
 		}//end delete
 		if(found === 1)
 		{
 			res.status(400).send({message: 'Error deleting the item ' + req.body.productName+'. The item is used in a menu item.'});
 		}
-		
+
 	}//end else
  });
 
@@ -271,7 +271,7 @@ updateInventoryQuantity
             res.status(400).send({message: 'Error deleting the item ' + req.body.productName});
         }
         else{
-			
+
             res.status(200).send({message: req.body.productName + ' successfully deleted.'});
         }
     });
