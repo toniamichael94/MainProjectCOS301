@@ -285,7 +285,16 @@ exports.uploadImage = function(req, res){
 				console.log(errorHandler.getErrorMessage(err));
 				fs.unlink(newPath);
 				fs.rename(files.upload.path, newPath);
+				return res.status(400).send({message: 'Error with the image path!'});
 			}
+			MenuItem.update({itemName: req.body.itemName}, {imagePath: newPath},  function(erro, numAffected){
+        		if(erro) return res.status(400).send({
+            			message: errorHandler.getErrorMessage(erro)
+        		});
+        		else if (numAffected < 1){
+            			return res.status(400).send({message: 'Image not uploaded! Error!'});
+        		}
+    });
 			res.redirect('/');
 		});
 	});
