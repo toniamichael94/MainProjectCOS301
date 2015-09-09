@@ -77,7 +77,7 @@
 
 %%---------------------------------  INTRODUCTION -------------------------------------------
 \section{Introduction}
-This document contains the functional requirements specification, architecture requirements and testing for the Resolve Cafeteria Management System that will be created for Software Engineering (COS 301) at the University of Pretoria 2015, by the group T-RISE. In this document we will thoroughly discuss and layout the project's functional requirements to provide a clear view of the system as a whole. An agile approach is being followed which involves an interactive and incremential method of managing and designing the system as described by the scrum methodology.
+This document contains the functional requirements specification, architecture requirements and testing for the Resolve Cafeteria Management System that will be created for Software Engineering (COS 301) at the University of Pretoria 2015, by the group T-RISE. In this document we will thoroughly discuss and layout the project's functional requirements to provide a clear view of the system as a whole. An agile approach is being followed which involves an interactive and incremental method of managing and designing the system as described by the scrum methodology.
 %% ------------------------------ VISION ------------------------------------------------------
 \section{Vision}
 The vision of this project is to implement a flexible, pluggable, fully functional software application that will be maintainable, with detailed supporting documentation and an instruction manual for the Cafeteria Management System. This system will assist in managing the cafeteria's inventory/stock, placing orders made by employees, generating bills, and sending the appropriate information to the right parties.  
@@ -366,6 +366,19 @@ The service contract and activity diagram for markAsReady follow. markAsReady fa
 	\centering
 	\includegraphics[width=1.0\textwidth]{../images/markAsReadySC.png}
 	\caption{The service contract for marking an order as ready}
+\end{figure}
+
+\subsubsection{addToPlate }
+The service contract and activity diagram for addToPlate follow. addToPlate falls under the use case for PlaceOrder (refer to page 27- figure 27 to view this use case diagram). This is where a user can select items from the menu and save them on their plate via the addToPlate button. The user can then view these via the "On my plate" page and can also edit these.
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/AddToPlateActivity.png}
+    \caption{The activity diagram for adding a menu item to plate} 
+\end{figure}
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/addToPlateServicee.png}
+    \caption{The service contract for adding a menu item to plate} 
 \end{figure}
 
 \subsubsection{markAsCollected}

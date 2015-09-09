@@ -1,0 +1,140 @@
+<section data-ng-controller="FinanceController" >
+
+  <div class="no-print">
+      <input class='btn' type='button' value='print' id='printCommand'/>
+  </div>
+  <div id="invoice" class="paid">
+    <div class="body">
+      <div class="a">
+              <div class="this-is">
+                  <strong>Invoice</strong>
+              </div><!-- invoice headline -->
+
+
+              <header id="header">
+                  <div class="invoice-intro">
+                      <h1 class="h1">{{:title}}</h1>
+                      <p>{{:description}}</p>
+                  </div>
+
+                  <dl class="invoice-meta">
+                      <dt class="invoice-number">Invoice #</dt>
+                      <dd>{{:number}}</dd>
+                      <dt class="invoice-date">Date of Invoice</dt>
+                      <dd>{{:date}}</dd>
+                      <dt class="invoice-due">Due Date</dt>
+                      <dd>{{:dueDate}}</dd>
+                  </dl>
+              </header>
+              <!-- e: invoice header -->
+
+
+              <section id="parties">
+
+                  <div class="invoice-to">
+                      <h2 class="h2">Invoice To:</h2>
+                      <div id="hcard-Hiram-Roth" class="vcard">
+                          <a class="a" class="url fn">{{:to.name}}</a>
+                          <div class="org">{{:to.description}}</div>
+                          <a class="email, a">{{:to.mail}}</a>
+
+                          <div class="adr">
+                              <div class="street-address">{{:to.address}}</div>
+                              <span class="locality">{{:to.city}}</span>
+                              <span class="country-name">{{:to.country}}</span>
+                          </div>
+
+                          <div class="tel">{{:to.tel}}</div>
+                      </div><!-- e: vcard -->
+                  </div><!-- e invoice-to -->
+
+
+                  <div class="invoice-from">
+                      <h2 class="h2">Invoice From:</h2>
+                      <div id="hcard-Admiral-Valdore" class="vcard">
+                          <a class="url fn, a">{{:from.name}}</a>
+                          <div class="org">{{:from.description}}</div>
+                          <a class="email, a">{{:from.email}}</a>
+
+                          <div class="adr">
+                              <div class="street-address">{{:from.address}}</div>
+                              <span class="locality">{{:from.city}}</span>
+                              <span class="country-name">{{:from.country}}</span>
+                          </div>
+
+                          <div class="tel">{{:from.tel}}</div>
+                      </div><!-- e: vcard -->
+                  </div><!-- e invoice-from -->
+
+
+                  <div class="invoice-status">
+                      <h3 class="h3">Invoice Status</h3>
+                      <strong>Invoice is <em>Paid</em></strong>
+                  </div><!-- e: invoice-status -->
+
+              </section><!-- e: invoice partis -->
+
+
+              <div class="invoice-financials">
+
+                  <div class="invoice-items">
+                      <table>
+                          <caption>Your Invoice</caption>
+                          <thead>
+                              <tr>
+                                  <th>Item & Description</th>
+                                  <th>Quantity</th>
+                                  <th>Price (GPL)</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              {{for items}}
+                              <tr>
+                                  <th>{{:name}}</th>
+                                  <td>{{:quantity}}</td>
+                                  <td>${{:price}}</td>
+                              </tr>
+                              {{/for}}
+                          </tbody>
+                      </table>
+                  </div><!-- e: invoice items -->
+
+
+                  <div class="invoice-totals">
+                      <table>
+                          <caption>Totals:</caption>
+                          <tbody>
+                              <tr>
+                                  <th>Subtotal:</th>
+                                  <td></td>
+                                  <td>${{:~getSubTotal(#data)}}</td>
+                              </tr>
+                              <tr>
+                                  <th>Tax:</th>
+                                  <td>5%</td>
+                                  <td>${{:~getTaxes(#data)}}</td>
+                              </tr>
+                              <tr>
+                                  <th>Total:</th>
+                                  <td></td>
+                                  <td>${{:~getTotal(#data)}}</td>
+                              </tr>
+                          </tbody>
+                      </table>
+
+                  </div><!-- e: invoice totals -->
+
+              </div><!-- e: invoice financials -->
+
+
+              <footer id="footer">
+                  <p>
+                      {{:footer}}
+                  </p>
+              </footer>
+
+            </div>
+          </div>
+          </div><!-- e: invoice -->
+
+</section>

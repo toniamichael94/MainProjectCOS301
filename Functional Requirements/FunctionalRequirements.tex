@@ -368,6 +368,19 @@ The service contract and activity diagram for markAsReady follow. markAsReady fa
 	\caption{The service contract for marking an order as ready}
 \end{figure}
 
+\subsubsection{addToPlate }
+The service contract and activity diagram for addToPlate follow. addToPlate falls under the use case for PlaceOrder (refer to page 27- figure 27 to view this use case diagram). This is where a user can select items from the menu and save them on their plate via the addToPlate button. The user can then view these via the "On my plate" page and can also edit these.
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/AddToPlateActivity.jpg}
+    \caption{The activity diagram for adding a menu item to plate} 
+\end{figure}
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/addToPlateServicee.jpg}
+    \caption{The service contract for adding a menu item to plate} 
+\end{figure}
+
 \subsubsection{markAsCollected}
 The service contract and activity diagram for markAsCollected follow. markAsCollected falls under the use case for Place Orders (refer to page 27 - figure 27 to view this use case diagram). The cashier will be the only user with access to this functionality and when the order is marked as collected, the status of the order in the model is changed to closed. It is important to note that by marking it as just merely "collected", the system will know to deduct the amount from the user's monthly balance, as the user has not paid with cash. This hence marks that the order has collected their order and their order has been processed. It will then no longer be displayed on the cashiers page.
 \begin{figure}[H]

@@ -8,6 +8,7 @@ angular.module('users').controller('FinanceController', ['$scope', '$http', '$lo
         // If user is not signed in then redirect back home
         if (!$scope.authentication) $location.path('/');
 
+
         // Search a user profile
         /*$scope.searchEmployee = function(isValid) {
             if(isValid){
@@ -22,6 +23,7 @@ angular.module('users').controller('FinanceController', ['$scope', '$http', '$lo
             }
         };*/
 
+      
         $scope.getUserOrders = function(){
             var reqObj = {username: $scope.username};
             var orders = new Array();
@@ -53,6 +55,30 @@ angular.module('users').controller('FinanceController', ['$scope', '$http', '$lo
                 $scope.error = "could not get orders";//response.message;
             });
         };
+		
+		$scope.generateReport = function(){
+			console.log('asdasda');
+			$http.post('users/finance/generateReport',{},{responseType:'arraybuffer'}).success(function(response){
+//				document.location = response;
+				
+				var file = new Blob([response], {type: 'application/pdf'});
+				var fileURL = URL.createObjectURL(file);
+				
+				var fileName = "test.pdf";
+				var a = document.createElement("a");
+				document.body.appendChild(a);
+				a.style = "display: none";
+
+				a.href = fileURL;
+                a.download = fileName;
+                a.click();
+				
+			}).error(function(response){
+				console.log(response);
+			});
+		};
+
+
 
         $scope.checkUser = function(){
             if(!Authentication.user){

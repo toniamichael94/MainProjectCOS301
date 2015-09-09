@@ -9,6 +9,8 @@ var mongoose = require('mongoose'),
 	OrderItem = mongoose.model('Order'),
 	InventoryItem = mongoose.model('Inventory'),
 	MenuCatagory = mongoose.model('MenuCatagory'),
+	formidable = require('formidable'),
+	fs = require('fs'),
 
 	_ = require('lodash');
 
@@ -54,7 +56,7 @@ MenuItem.find({}, function(err, items) {
 		console.log('Error = ' + err);
 		return res.status(400).send({message: err });}
 	else {
-		//console.log(items[0].ingredients.ingredients);	
+		//console.log(items[0].ingredients.ingredients);
 		res.status(200).send({message: items});
 	}
  });
@@ -65,14 +67,6 @@ MenuItem.find({}, function(err, items) {
 exports.loadMenuCategories = function(req, res) {
 console.log('---------------------------------');
 MenuCatagory.find({}, function(err, items) {
-	//console.log(items);
-	 //var itemMap = {};
-
-	 //items.forEach(function(item) {
-	//	 itemMap[item._id] = item;
-	// });
-	// console.log(itemMap); // testing
-	// res.send(itemMap);
 
 	if(err ) {
 		console.log('Error = ' + err);
@@ -141,7 +135,7 @@ exports.read = function(req, res) {
 
 /* Update menu item*/
 exports.updateMenuItem = function(req,res){
-		MenuItem.update({itemName: req.body.itemName}, {itemName: req.body.updateItemName, price:req.body.price, description: req.body.description, category:req.body.category, ingredients: req.body.ingredients},  function(err, numAffected){
+		MenuItem.update({itemName: req.body.itemName}, {itemName: req.body.updateItemName, price:req.body.price, description: req.body.description, category:req.body.category, ingredients: req.body.ingredients/*, imagePath: req.body.iPath*/},  function(err, numAffected){
         if(err) return res.status(400).send({
             message: errorHandler.getErrorMessage(err)
         });
@@ -270,10 +264,45 @@ exports.hasAuthorization = function(req, res, next) {
 	}
 	next();
 };
+
+/***
+ * Upload image
+ */
+ 
+exports.uploadImage = function(req, res){
+	var form = new formidable.IncomingForm();
+	console.log('About to parse image');
+	console.log(req);
+
+	form.parse(req, function(error, fields, files){
+		var newPath = './public/modules/core/img/' + files.upload.name;
+		console.log('image parsed');
+		if(error){
+			return res.status(400).send({message: errorHandler.getErrorMessage(error)});
+		}
+		fs.rename(files.upload.path, newPath , function(err){
+			if(err){
+				console.log(errorHandler.getErrorMessage(err));
+				fs.unlink(newPath);
+				fs.rename(files.upload.path, newPath);
+				return res.status(400).send({message: 'Error with the image path!'});
+			}
+			MenuItem.update({itemName: req.body.itemName}, {imagePath: newPath},  function(erro, numAffected){
+        		if(erro) return res.status(400).send({
+            			message: errorHandler.getErrorMessage(erro)
+        		});
+        		else if (numAffected < 1){
+            			return res.status(400).send({message: 'Image not uploaded! Error!'});
+        		}
+    });
+			res.redirect('/');
+		});
+	});
+};
+
 /*
  * search menu item
  */
-
 exports.searchMenu=function(req,res){
     console.log('searchMenu'+ req.body.itemName );
     if (req.body.itemName) {
