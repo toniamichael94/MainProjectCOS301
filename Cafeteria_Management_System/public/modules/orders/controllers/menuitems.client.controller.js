@@ -4,7 +4,6 @@
 var menuItemsModule = angular.module('menuItems').controller('MenuItemsController', ['$scope', '$rootScope','$http', '$stateParams', '$location', '$cookies', 'Authentication', 'MenuItems',
 	function($scope, $rootScope, $http, $stateParams, $location, $cookies, Authentication, MenuItems) {
 		$scope.authentication = Authentication;
-
 		$scope.alertUser = false; // used for user alerts - help page...
 
 //filter the catagories
@@ -36,45 +35,39 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 							$scope.menuItems[itemName].stock= $scope.checkStock(newArray[itemName]);
 				}
 			}
-
-
 		}).error(function(response) {
 			$scope.menuCatagory = 'Error loading menu Categories';
 		});
 	};
 
-
-
-
-		$scope.helpAlert = function(){
+//Help alert function when user wants help variable set to true
+$scope.helpAlert = function(){
 			$scope.alertUser = true;
-		}
+};
 
-		$scope.toggleCollapsibleMenu = function() {
+$scope.toggleCollapsibleMenu = function() {
 			$scope.isCollapsed = !$scope.isCollapsed;
-		};
+};
 
-		$scope.alerts = [
-	    { type: 'warning', msg: 'Page help: To order a menu item - click the add to plate botton and then click the on my plate button to confirm your order. To navigate between menu categories - use the navigation bar and click on the appropriate button (Menu contains all the menu catagories)' }, // this needs to explain what to do on the menu page
-	    { type: 'warning', msg: 'This page contains all the settings to add menu items and menu catagories to the menu page.' },
-			{ type: 'warning', msg: 'Type in a menu catagory to add to your menu. (a menu catagory will appear in the menu navigation bar on the menu page and menu items can be placed under a menu catagory)' },
-			{ type: 'warning', msg: 'This section will add a menu item to the menu page. NOTE - you need to have ingredients (wich is stored as inventory) - this can be added by clicking on your name in the navigation bar and choosing the manage inventory setting which will take you to a page to add inventory' },
-			{ type: 'warning', msg: 'To search for a menu item, simply type in the name and click search' },
-			{ type: 'warning', msg: 'Manage inventory page will allow you to add inventory, remove and update inventory' },
-			{ type: 'warning', msg: 'Add the name of the ingredient you want to add, together with the amount of the ingredient you are adding and the unit the ingredient is messured in the respective boxes below' },
-			{ type: 'warning', msg: 'To search for an inventory item, type in the name of the item and the option to edit will appear' },
-			{ type: 'warning', msg: 'First click on display inventory and then edit the inventory as needed.' },
-			{ type: 'warning', msg: 'This page shows the orders you clicked, to remove a order click remove to increase the quantity of your order use the arrows in the textbox, to add more items to your order, go to the menu page and click add toplate on the appropriate button associated with the menu item you want.Preferences can be gives for example no tamato or extra sause.' }
-	  ];
+	/*Alert Messages for help page*/
+	$scope.alert1 = {type: 'warning', msg: 'Page help: To order a menu item - click the add to plate botton and then click the on my plate button to confirm your order. To navigate between menu categories - use the navigation bar and click on the appropriate button (Menu contains all the menu catagories)'};
+	$scope.alert2 = {type: 'warning', msg: 'Page help: This page contains all the settings to add menu items and menu catagories to the menu page.'};
+	$scope.alert3 = {type: 'warning', msg: 'Page help: Type in a menu catagory to add to your menu. (a menu catagory will appear in the menu navigation bar on the menu page and menu items can be placed under a menu catagory)' };
+	$scope.alert4 = {type: 'warning', msg: 'Page help: This section will add a menu item to the menu page. NOTE - you need to have ingredients (wich is stored as inventory) - this can be added by clicking on your name in the navigation bar and choosing the manage inventory setting which will take you to a page to add inventory' };
+	$scope.alert5 =	{type: 'warning', msg: 'Page help: To search for a menu item, simply type in the name and click search' };
+	$scope.alert6 = {type: 'warning', msg: 'Page help: Manage inventory page will allow you to add inventory, remove and update inventory' };
+	$scope.alert7 = {type: 'warning', msg: 'Page help: Add the name of the ingredient you want to add, together with the amount of the ingredient you are adding and the unit the ingredient is messured in the respective boxes below' };
+	$scope.alert8 = {type: 'warning', msg: 'Page help: To search for an inventory item, type in the name of the item and the option to edit will appear' };
+	$scope.alert9 =	{type: 'warning', msg: 'Page help: First click on display inventory and then edit the inventory as needed.' };
+	$scope.alert10 = {type: 'warning', msg: 'Page help: This page shows the orders you clicked, to remove a order click remove to increase the quantity of your order use the arrows in the textbox, to add more items to your order, go to the menu page and click add toplate on the appropriate button associated with the menu item you want.Preferences can be gives for example no tamato or extra sause.' };
+	$scope.alert11 = {type: 'warning', msg: 'Page help: To edit your profile click on your name in the top navigation bar and then click on edit profile which will direct you to a page to edit your profile settings'};
+	$scope.alert12 = {type: 'warning', msg: 'Page help: To edit your profile simply edit the text boxes and or check boxes end then click save profile'};
+	/*End of Alert messages */
 
-	  $scope.addAlert = function() {
-	    $scope.alerts.push({msg: 'Another alert!'});
-	  };
-
-	  $scope.closeAlert = function(index) {
-	    $scope.alerts.splice(index, 1);
+//close alert will take alert box away
+$scope.closeAlert = function(index) {
 			$scope.alertUser = false;
-	  };
+};
 
 
 
@@ -787,7 +780,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
         $scope.viewImage = function() {
             $scope.view = $scope.view === false ? true: false;
         };
-        
+
         $scope.checkCMUser = function(){
             if(!Authentication.user) {
                 $location.path('/');
