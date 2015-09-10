@@ -1,8 +1,16 @@
 <section data-ng-controller="OrdersController" >
+				<!--Alert box -->
+				<script type="text/ng-template" id="alert.html">
+						<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+							<div ng-transclude></div>
+						</div>
+				</script>
 
+				<div  data-ng-controller="MenuItemsController">
+					<h4>On My plate <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button></h4><hr>
+					<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alerts[9].msg}}</alert>
+				</div>
 
-	<h4>On My plate </h4>
-        <hr>
 
 		<a href="#" class="list-group-item disabled">Review and confirm your order</a>
 		<div class="list-group-item clearfix">
@@ -36,7 +44,8 @@
 		</div>
 	</div>
 
-
+	
+	<button data-ng-click = "dateTest()">Test button</button>
 
 
 

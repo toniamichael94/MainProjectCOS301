@@ -5,6 +5,25 @@ angular.module('orders').controller('OrdersController', ['$scope', '$rootScope',
 	function($scope, $rootScope, $http, $stateParams, $location, $cookies, $window, Authentication, Orders) {
 		$scope.authentication = Authentication;
 		
+		$scope.dateTest = function()
+		{
+			//dateObj =  new Date(getYear(), getMonth(), getDay() getDate(), hours, minutes, seconds, milliseconds);
+			//console.log("Yesterday:"+dateObj.setDate(dateObj.getDate()-1));
+			//console.log("Today:"+dateObj.setDate(dateObj.getDate()-1));
+			
+			var today = new Date();
+			console.log("today:"+today);
+
+			var yesterday = new Date();
+			yesterday.setDate(yesterday.getDate() - 1);
+			console.log("yesterday:"+yesterday);
+			
+			if(today > yesterday)
+				console.log("different");
+			
+			
+		}
+		
 		$scope.plate = [];
 		if($cookies.plate)
 			$scope.plate = JSON.parse($cookies.plate);

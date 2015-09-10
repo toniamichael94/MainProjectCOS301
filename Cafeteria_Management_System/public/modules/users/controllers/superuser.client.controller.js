@@ -10,7 +10,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 		// Assign a role to user - as the super user
 		$scope.assignRoles = function(isValid) {
 		  if (isValid) {
-				BootstrapDialog.confirm('Hi Apple, are you sure?');
+			//	BootstrapDialog.confirm('Hi Apple, are you sure?');
 			$scope.success = $scope.error = null;
 			var reqObj = {userID: $scope.emp_id, role: $scope.role};
               $scope.r = $window.confirm("Are you sure?");

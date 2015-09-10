@@ -32,8 +32,31 @@ var mongoose = require('mongoose'),
 		
 		Order.find({}, function(err, result){
 			var orderNum = 1;
-			if(result.length !== 0){
-				orderNum = result[result.length-1].orderNumber + 1;
+				
+			
+			
+				
+			if(result.length !== 0)
+			{
+				//Reset the order numbers if it is the next day
+				if(result.length > 1)
+				{
+					var today = new Date();
+					var lastOrderDay = result[result.length-1].created;	
+					console.log("Today:"+today);
+					console.log("LOR__:"+lastOrderDay);
+					console.log("");
+					console.log("Today's date:"+today.getDate());
+					console.log("LOrder  Date:"+lastOrderDay.getDate());			
+			
+					if(today.getDate() > lastOrderDay.getDate())
+					{
+						orderNum = 1;
+						console.log("New start date");
+					}
+					else orderNum = result[result.length-1].orderNumber + 1;//Previous order number +1
+				}
+				else orderNum = result[result.length-1].orderNumber + 1;//Previous order number +1
 			}
 			
 			for(var i = 0; i < order.length; i++)

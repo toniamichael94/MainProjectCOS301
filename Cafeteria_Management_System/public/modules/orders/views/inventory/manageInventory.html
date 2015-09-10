@@ -1,12 +1,37 @@
 <section ng-init="checkCMUser()" class="row" data-ng-controller="InventoryController" ng-init="hideInventory=true">
 
-	<h4> Inventory </h4>
-	<hr>
+	<!--Alert box -->
+	<script type="text/ng-template" id="alert.html">
+			<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+				<div ng-transclude></div>
+			</div>
+	</script>
+
+	<div  data-ng-controller="MenuItemsController">
+			<h4> Inventory <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button></h4>
+				<hr>
+		<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alerts[5].msg}}</alert>
+	</div>
+		<!--Alert box end-->
+
+
 
 		<div class="list-group clearfix">
 		<a href="#" class="list-group-item disabled">Add inventory item</a>
 		<div class="list-group-item clearfix">
 			<h4> Add inventory item</h4>
+			<!--Alert box -->
+			<script type="text/ng-template" id="alert.html">
+					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+						<div ng-transclude></div>
+					</div>
+			</script>
+
+			<div  data-ng-controller="MenuItemsController">
+				<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button>
+				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alerts[6].msg}}</alert>
+			</div>
+				<!--Alert box end-->
 			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 				<!--Add an inventory item-->
 				<form name="addInventoryItemForm" data-ng-submit="create(addInventoryItemForm.$valid)" class="signin form-horizontal" autocomplete="off">
@@ -56,6 +81,18 @@
 		<a href="#" class="list-group-item disabled">Search inventory item</a>
 		<div class="list-group-item clearfix">
 			<h4> Search inventory item </h4>
+			<!--Alert box -->
+			<script type="text/ng-template" id="alert.html">
+					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+						<div ng-transclude></div>
+					</div>
+			</script>
+
+			<div  data-ng-controller="MenuItemsController">
+				<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button>
+				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alerts[7].msg}}</alert>
+			</div>
+				<!--Alert box end-->
 			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 				<form name="searchInventoryForm" data-ng-submit="searchInventory(searchInventoryForm.$valid)" class="signin form-horizontal" autocomplete="off">
 					<!--Search for a menu item-->
@@ -67,15 +104,13 @@
 					<div class = "text-center form-group">
 						<button type = "submit" style="width:200px" class = "btn btn-large btn-primary"><!--ng-submit="inventory.findOne()"--> Search</button>
 					</div>
-                </form>
+                	</form>
 
 				<!--Delete or update if item found-->
 
 				<!--Update the item -->
 				<div ng-show="successFind" class="text-center">
-
 					<form name="updateInventoryForm" data-ng-submit="updateInventory(updateInventoryForm.$valid)" class="signin form-horizontal" autocomplete="off">
-
                             <h4>Update inventory item</h4>
 
 							<!--Fields to update-->
@@ -101,14 +136,13 @@
                                     <option value='units'>units</option>
                                 </select>
                             </div>
-
                             <div class = "text-center form-group">
                                 <button type = "submit" style="width:200px" class = "btn btn-large btn-primary" ng-click="showme=false"> Update</button>
                             </div>
                         </form>
-					   <button class = "btn btn-large btn-primary" style="width:200px" data-ng-hide="showme" ng-click = "hideInventory=true; deleteInventoryItem()" >Delete</button>
+			<button class = "btn btn-large btn-primary" style="width:200px" data-ng-hide="showme" ng-click = "hideInventory=true; deleteInventoryItem()" >Delete</button>
 
-					</div>
+		</div>
 
 					<!--Error/Success message for delete/update-->
 					<div data-ng-show="errorMessage" class="text-center text-danger">
@@ -124,8 +158,20 @@
 		<!---Edit quantity of items-->
 	<div class="list-group clearfix" >
 		<a href="#" class="list-group-item disabled">Inventory Quantity</a>
-			<div  class="text-center" class="list-group-item clearfix">
+			<div   class="list-group-item clearfix">
 				<h4> Edit quantity of items </h4>
+				<!--Alert box -->
+				<script type="text/ng-template" id="alert.html">
+						<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+							<div ng-transclude></div>
+						</div>
+				</script>
+
+				<div  data-ng-controller="MenuItemsController">
+					<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button>
+					<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alerts[8].msg}}</alert>
+				</div>
+					<!--Alert box end-->
 				<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 					<div>
 						<!--Error/Success message for delete/update-->
