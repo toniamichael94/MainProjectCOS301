@@ -11,8 +11,20 @@
 *
 -->
 <section ng-init="checkUser()" class="row" data-ng-controller="superuserController">
-    <h4> Branding settings </h4>
-    <hr>
+
+  <!--ALERT BOX FOR HELP-->
+			<script type="text/ng-template" id="alert.html">
+					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+						<div ng-transclude></div>
+					</div>
+			</script>
+
+			<div  data-ng-controller="MenuItemsController">
+				<h4> Branding settings <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
+        <hr>
+				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert18.msg}}</alert>
+			</div>
+	<!--END ALERT BOX -->
 
   <!-- Display branding settings section -->
     <div class="list-group clearfix">
@@ -21,6 +33,18 @@
         </a>
         <!--&lt;!&ndash; set canteen name &ndash;&gt;-->
         <div class="list-group-item clearfix">
+
+          <!--ALERT BOX FOR HELP-->
+        			<script type="text/ng-template" id="alert.html">
+        					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+        						<div ng-transclude></div>
+        					</div>
+        			</script>
+
+        			<div  data-ng-controller="MenuItemsController">
+        				<h4> Set canteen name<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
+        				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert19.msg}}</alert>
+        			</div>
 
             <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
                 <form name="setCanteenNameForm" data-ng-submit="setCanteenName(setCanteenNameForm.$valid)" class="signin form-horizontal" autocomplete="off">
@@ -44,11 +68,25 @@
         </div>
         <!--&lt;!&ndash; upload branding image &ndash;&gt;-->
         <div class="list-group-item clearfix">
-            <h4>Upload image for branding  </h4>
+
+            <!--ALERT BOX FOR HELP-->
+                <script type="text/ng-template" id="alert.html">
+                    <div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+                      <div ng-transclude></div>
+                    </div>
+                </script>
+
+                <div  data-ng-controller="MenuItemsController">
+                  <h4>Upload image for branding   <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
+                  <alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert20.msg}}</alert>
+                </div>
+            <!--END ALERT BOX -->
+
 
             <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
                 <form name="uploadImageForm" action="/users/superuserUploadImage" enctype="multipart/form-data" method="post" class="signin form-horizontal" autocomplete="off">
                     <fieldset>
+                        <label> Select image for branding </label>
                         <input type="file" id="upload" name="upload" data-ng-model="upload" class="form-control"/> <br>
                         <div class="text-center form-group"><br>
                             <button type="submit"  style="width:220px"s class="btn btn-large btn-primary">Upload Image</button>
