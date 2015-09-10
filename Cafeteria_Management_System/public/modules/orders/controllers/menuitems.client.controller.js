@@ -5,15 +5,16 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 	function($scope, $rootScope, $http, $stateParams, $location, $cookies, Authentication, MenuItems) {
 		$scope.authentication = Authentication;
 		$scope.alertUser = false; // used for user alerts - help page...
+		$scope.viewImage = true;
 
 //filter the catagories
 		$scope.filterCat = function(catName){
-			console.log('cat');
+		//	console.log('cat');
 			$scope.category = catName;
 
 			$http.get('/loadMenuItems').success(function(response) {
 			var count = 0;
-			console.log(response.message)
+			//console.log(response.message)
 			var newArray = [];
 			for(var cat in response.message){
 					if(response.message[cat].category[0].localeCompare(catName) === 0) {
@@ -129,19 +130,19 @@ $scope.closeAlert = function(index) {
 	$scope.removedIngredients =[];
 	$scope.removeIngredient = function(index)
 	{
-		console.log('REMOVE:'+index + ' ' + $scope.loadedIngredients.ingredients[index]);
+		//console.log('REMOVE:'+index + ' ' + $scope.loadedIngredients.ingredients[index]);
 		$scope.removedIngredients[index] = 0;
-		console.log('Removed ingredients:'+$scope.removedIngredients);
+		//console.log('Removed ingredients:'+$scope.removedIngredients);
 
 	};
 
 	/*Undo the remove ingredient function*/
 	$scope.undoRemoveIngredient = function(index)
 	{
-		console.log('UNDOREMOVE:'+index + ' ' + $scope.loadedIngredients.ingredients[index]);
+		//console.log('UNDOREMOVE:'+index + ' ' + $scope.loadedIngredients.ingredients[index]);
 		delete $scope.removedIngredients[index];
 
-		console.log('Removed ingredients:'+$scope.removedIngredients);
+		//console.log('Removed ingredients:'+$scope.removedIngredients);
 		//console.log('Removed ingredients:'+ $scope.removedIngredients);
 		//var found = false;
 		//for(var ingredient in $scope.removedIngredients)
@@ -185,7 +186,7 @@ $scope.closeAlert = function(index) {
 					$scope.loadedIngredients.quantities[removedIngredient] = '';
 				}
 			}
-			console.log('After removed:'+$scope.loadedIngredients.ingredients);
+			//console.log('After removed:'+$scope.loadedIngredients.ingredients);
 			var errorIngredient = false;
 
 			/*Perform check to see if any of the ingredient or quantity fields are empty.*/
@@ -227,17 +228,17 @@ $scope.closeAlert = function(index) {
 					}
 				}
 			}
-			console.log('error:'+errorIngredient);
-			console.log('here');
+		//	console.log('error:'+errorIngredient);
+		//	console.log('here');
 
 			/*Perform check for duplicate ingredients in loaded ingredients and the extra added ingredients*/
 			if(!errorIngredient)
 			{
 				for(var k = 0; k < ($scope.addedUpdateIngredients.ingredients.length); k++)
-				{console.log('here2');
+				{//console.log('here2');
 					for(var g = 0; g < ($scope.loadedIngredients.ingredients.length); g++)
 					{
-						console.log('addedIngredient:'+$scope.addedUpdateIngredients.ingredients[k]+' loaded:'+$scope.loadedIngredients.ingredients[g]);
+					//	console.log('addedIngredient:'+$scope.addedUpdateIngredients.ingredients[k]+' loaded:'+$scope.loadedIngredients.ingredients[g]);
 						if($scope.addedUpdateIngredients.ingredients[k].localeCompare($scope.loadedIngredients.ingredients[g])===0)
 						{
 							errorIngredient = true;
@@ -247,8 +248,8 @@ $scope.closeAlert = function(index) {
 				}
 			}
 			/*Perform check to see if the menu item has at least one ingredient*/
-			console.log($scope.loadedIngredients.ingredients);
-			console.log($scope.addedUpdateIngredients.ingredients);
+			//console.log($scope.loadedIngredients.ingredients);
+			//console.log($scope.addedUpdateIngredients.ingredients);
 
 		/*Perform check to see if the menu item has at least one ingredient*/
 		/*if(!errorIngredient)
@@ -337,7 +338,7 @@ $scope.closeAlert = function(index) {
 		*/
 		$scope.favourite = function(itemName)
 		{
-			console.log('item'+itemName);
+			//console.log('item'+itemName);
 		};
 
 
@@ -492,7 +493,7 @@ $scope.closeAlert = function(index) {
         //Filter Menu items for burger bar search bar
         $scope.searchBurgerBar = function (row) {
             var itemN = $scope.menuNameSearch.toLowerCase();
-            console.log('row');
+          //  console.log('row');
            // console.log('item'+ row.itemName);
             if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('Burger Bar') !== -1)) {
                // console.log('IFFFFFFFFFFFFFFFF');
@@ -503,7 +504,7 @@ $scope.closeAlert = function(index) {
         //Filter Menu items for daily lunch search bar
         $scope.searchDailyBar = function (row) {
             var itemN = $scope.menuNameSearch.toLowerCase();
-            console.log('row');
+            //console.log('row');
             // console.log('item'+ row.itemName);
             if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('Daily Lunches') !== -1)) {
                 // console.log('IFFFFFFFFFFFFFFFF');
@@ -515,7 +516,7 @@ $scope.closeAlert = function(index) {
         //Filter Menu items for drinks search bar
         $scope.searchDrinks = function (row) {
             var itemN = $scope.menuNameSearch.toLowerCase();
-            console.log('row');
+          //  console.log('row');
             // console.log('item'+ row.itemName);
             if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('Drinks') !== -1)) {
                 // console.log('IFFFFFFFFFFFFFFFF');
@@ -525,7 +526,7 @@ $scope.closeAlert = function(index) {
         //Filter Menu items for extra's search bar
         $scope.searchExtraBar = function (row) {
             var itemN = $scope.menuNameSearch.toLowerCase();
-            console.log('row');
+            //console.log('row');
             // console.log('item'+ row.itemName);
             if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('Extra') !== -1)) {
                 // console.log('IFFFFFFFFFFFFFFFF');
@@ -535,7 +536,7 @@ $scope.closeAlert = function(index) {
         //Filter Menu items for side search bar
         $scope.searchSideBar = function (row) {
             var itemN = $scope.menuNameSearch.toLowerCase();
-            console.log('row');
+          //  console.log('row');
             // console.log('item'+ row.itemName);
             if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('On The Side') !== -1)) {
                 // console.log('IFFFFFFFFFFFFFFFF');
@@ -545,7 +546,7 @@ $scope.closeAlert = function(index) {
         //Filter Menu items for resale search bar
         $scope.searchResaleBar = function (row) {
             var itemN = $scope.menuNameSearch.toLowerCase();
-            console.log('row');
+          //  console.log('row');
             // console.log('item'+ row.itemName);
             if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('Resale Items') !== -1)) {
                 // console.log('IFFFFFFFFFFFFFFFF');
@@ -555,7 +556,7 @@ $scope.closeAlert = function(index) {
         //Filter Menu items for salad bar search bar
         $scope.searchSaladBar = function (row) {
             var itemN = $scope.menuNameSearch.toLowerCase();
-            console.log('row');
+          //  console.log('row');
             // console.log('item'+ row.itemName);
             if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('Salad Bar') !== -1)) {
                 // console.log('IFFFFFFFFFFFFFFFF');
@@ -565,7 +566,7 @@ $scope.closeAlert = function(index) {
         //Filter Menu items for sweet treats search bar
         $scope.searchSweetBar = function (row) {
             var itemN = $scope.menuNameSearch.toLowerCase();
-            console.log('row');
+          //  console.log('row');
             // console.log('item'+ row.itemName);
             if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('Sweet Treats') !== -1)) {
                 // console.log('IFFFFFFFFFFFFFFFF');
@@ -575,7 +576,7 @@ $scope.closeAlert = function(index) {
         //Filter Menu items for toasted sandwiches search bar
         $scope.searchToastBar = function (row) {
             var itemN = $scope.menuNameSearch.toLowerCase();
-            console.log('row');
+            //console.log('row');
             // console.log('item'+ row.itemName);
             if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('Toasted Sandwiches') !== -1)) {
                 // console.log('IFFFFFFFFFFFFFFFF');
@@ -586,7 +587,7 @@ $scope.closeAlert = function(index) {
         //Filter Menu items for tramezzini search bar
         $scope.searchTramBar = function (row) {
             var itemN = $scope.menuNameSearch.toLowerCase();
-            console.log('row');
+          //  console.log('row');
             // console.log('item'+ row.itemName);
             if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('Tramezzinis') !== -1)) {
                 // console.log('IFFFFFFFFFFFFFFFF');
@@ -606,7 +607,7 @@ $scope.closeAlert = function(index) {
 			{
 				if(displayItems[item].itemName.length >1)
 					displayItems[item].itemName = displayItems[item].itemName.charAt(0).toUpperCase() + displayItems[item].itemName.slice(1);
-				console.log(displayItems[item].itemName);
+		//		console.log(displayItems[item].itemName);
 			}
 
 
@@ -632,7 +633,7 @@ $scope.closeAlert = function(index) {
 	/*loadMenuCategories
 	*/
 	$scope.loadMenuCategories = function(){
-		console.log('loading menu Categories');
+		//console.log('loading menu Categories');
 		$http.get('/loadMenuCategories').success(function(response) {
 		$scope.menuCatagory = response.message;
 		$scope.cat = response.message;
@@ -685,7 +686,7 @@ $scope.closeAlert = function(index) {
 		{
 			$scope.successFind = null;
 			$scope.menuNameSearch=$scope.menuNameSearch.toLowerCase();
-			console.log('Delete:'+$scope.menuNameSearch);
+		//	console.log('Delete:'+$scope.menuNameSearch);
 			var reqObj = {itemName:$scope.menuNameSearch};
 			$http.post('/orders/deleteMenuItem',reqObj).success(function(response){
 				$scope.successMessage = response.message;
@@ -790,9 +791,10 @@ $scope.closeAlert = function(index) {
 			$rootScope.$broadcast('plateUpdated');
 		};
 
-	$scope.view = true;
+
         $scope.viewImage = function() {
-            $scope.view = $scope.view === false ? true: false;
+
+            $scope.viewImage = $scope.viewImage === false ? true: false;
         };
 
         $scope.checkCMUser = function(){
