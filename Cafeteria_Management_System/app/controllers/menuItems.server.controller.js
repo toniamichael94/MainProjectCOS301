@@ -120,7 +120,7 @@ exports.createMenuCategory = function(req, res) {
 
 			return res.status(200).send({message: "sucess" });
 		}else {
-		return res.status(400).send({message: "The category already exist" }); // menu  catagory already exixts
+		return res.status(400).send({message: "The category already exists" }); // menu  catagory already exixts
 		}
  });
 };
@@ -268,7 +268,7 @@ exports.hasAuthorization = function(req, res, next) {
 /***
  * Upload image
  */
- 
+
 exports.uploadImage = function(req, res){
 	var form = new formidable.IncomingForm();
 	console.log('About to parse image');
