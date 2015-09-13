@@ -5,7 +5,11 @@
 \usepackage{caption}
 \usepackage{array}
 \usepackage{tabu}
+\usepackage[tt]{titlepic}
+\renewcommand\thesection{\arabic{section}}
 %% Title Page 
+\titlepic{ \centering\includegraphics[width=0.7\textwidth]{../images/dddd.png} }
+%\documentclass[12pt]{article}
 \title{\Huge User Manual \\ 
 	Cafeteria Management System: Resolve}
 \author{
@@ -14,7 +18,8 @@
 	Elana Kuun (12029522) \\
 	Semaka Malapane (13081129) \\
 	Antonia Michael (13014171) \\
-	Isabel Nel (13070305)}
+	Isabel Nel (13070305) \\ \\
+	https://github.com/toniamichael94/MainProjectCOS301}
 
 \date{\today}
 
@@ -385,7 +390,7 @@ This page serves to indicate the current meal items that the user has on their p
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{screenshots/viewOrder2.png}
-    \caption{One can increase the quantity of items ordered by editing the quantity filed indicated} 
+    \caption{One can increase the quantity of items ordered by editing the quantity field indicated} 
 \end{figure}
 \begin{figure}[H]
   \centering
@@ -514,7 +519,7 @@ This is the page where the cafeteria manager adds menu items so that these can b
 \end{figure}
 
 \subsection{Cashier: The "Process Orders" Page}
-This page is for use by the cashier. Orders that are "open" will be displayed on the page. Orders can be marked as ready, paid or collected. When the order is marked as ready, the button will disappear and the employee will be sent an email informing them to come collect their order. When the employee paid button is clicked, the cashier will choose whether it was a cash or credit purchase and the amount will be deducted accordingly from the user's account.
+This page is for use by the cashier. Orders that are "open" will be displayed on the page. Orders can be marked as ready, paid or collected. When the order is marked as ready, the button will disappear and the employee will be sent an email informing them to come collect their order. When the "Employee Paid" button is clicked, the cashier will choose whether it was a cash or credit purchase and the amount will be deducted accordingly from the user's account.
 
 \begin{figure}[H]
   \centering
