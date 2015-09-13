@@ -4,17 +4,17 @@
 var menuItemsModule = angular.module('menuItems').controller('MenuItemsController', ['$scope', '$rootScope','$http', '$stateParams', '$location', '$cookies', 'Authentication', 'MenuItems',
 	function($scope, $rootScope, $http, $stateParams, $location, $cookies, Authentication, MenuItems) {
 		$scope.authentication = Authentication;
-
 		$scope.alertUser = false; // used for user alerts - help page...
+		$scope.viewImage = true;
 
 //filter the catagories
 		$scope.filterCat = function(catName){
-			console.log('cat');
+		//	console.log('cat');
 			$scope.category = catName;
 
 			$http.get('/loadMenuItems').success(function(response) {
 			var count = 0;
-			console.log(response.message)
+			//console.log(response.message)
 			var newArray = [];
 			for(var cat in response.message){
 					if(response.message[cat].category[0].localeCompare(catName) === 0) {
@@ -36,45 +36,53 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 							$scope.menuItems[itemName].stock= $scope.checkStock(newArray[itemName]);
 				}
 			}
-
-
 		}).error(function(response) {
 			$scope.menuCatagory = 'Error loading menu Categories';
 		});
 	};
 
-
-
-
-		$scope.helpAlert = function(){
+//Help alert function when user wants help variable set to true
+$scope.helpAlert = function(){
 			$scope.alertUser = true;
-		}
+};
 
-		$scope.toggleCollapsibleMenu = function() {
+$scope.toggleCollapsibleMenu = function() {
 			$scope.isCollapsed = !$scope.isCollapsed;
-		};
+};
 
-		$scope.alerts = [
-	    { type: 'warning', msg: 'Page help: To order a menu item - click the add to plate botton and then click the on my plate button to confirm your order. To navigate between menu categories - use the navigation bar and click on the appropriate button (Menu contains all the menu catagories)' }, // this needs to explain what to do on the menu page
-	    { type: 'warning', msg: 'This page contains all the settings to add menu items and menu catagories to the menu page.' },
-			{ type: 'warning', msg: 'Type in a menu catagory to add to your menu. (a menu catagory will appear in the menu navigation bar on the menu page and menu items can be placed under a menu catagory)' },
-			{ type: 'warning', msg: 'This section will add a menu item to the menu page. NOTE - you need to have ingredients (wich is stored as inventory) - this can be added by clicking on your name in the navigation bar and choosing the manage inventory setting which will take you to a page to add inventory' },
-			{ type: 'warning', msg: 'To search for a menu item, simply type in the name and click search' },
-			{ type: 'warning', msg: 'Manage inventory page will allow you to add inventory, remove and update inventory' },
-			{ type: 'warning', msg: 'Add the name of the ingredient you want to add, together with the amount of the ingredient you are adding and the unit the ingredient is messured in the respective boxes below' },
-			{ type: 'warning', msg: 'To search for an inventory item, type in the name of the item and the option to edit will appear' },
-			{ type: 'warning', msg: 'First click on display inventory and then edit the inventory as needed.' },
-			{ type: 'warning', msg: 'This page shows the orders you clicked, to remove a order click remove to increase the quantity of your order use the arrows in the textbox, to add more items to your order, go to the menu page and click add toplate on the appropriate button associated with the menu item you want.Preferences can be gives for example no tamato or extra sause.' }
-	  ];
+	/*Alert Messages for help page*/
+	$scope.alert1 = {type: 'warning', msg: 'Page help: To order a menu item click the add to plate botton and then click the on my plate button to confirm your order. To navigate between menu categories - use the navigation bar and click on the appropriate button (Menu contains all the menu catagories)'};
+	$scope.alert2 = {type: 'warning', msg: 'Page help: This page contains all the settings to add menu items and menu catagories to the menu page.'};
+	$scope.alert3 = {type: 'warning', msg: 'Page help: Type in a menu catagory to add to your menu. (a menu catagory will appear in the menu navigation bar on the menu page and menu items can be placed under a menu catagory)' };
+	$scope.alert4 = {type: 'warning', msg: 'Page help: This section will add a menu item to the menu page. NOTE - you need to have ingredients (wich is stored as inventory) - this can be added by clicking on your name in the navigation bar and choosing the manage inventory setting which will take you to a page to add inventory' };
+	$scope.alert5 =	{type: 'warning', msg: 'Page help: To search for a menu item, simply type in the name and click search' };
+	$scope.alert6 = {type: 'warning', msg: 'Page help: Manage inventory page will allow you to add inventory, remove and update inventory' };
+	$scope.alert7 = {type: 'warning', msg: 'Page help: Add the name of the ingredient you want to add, together with the amount of the ingredient you are adding and the unit the ingredient is messured in the respective boxes below' };
+	$scope.alert8 = {type: 'warning', msg: 'Page help: To search for an inventory item, type in the name of the item and the option to edit will appear' };
+	$scope.alert9 =	{type: 'warning', msg: 'Page help: First click on display inventory and then edit the inventory as needed.' };
+	$scope.alert10 = {type: 'warning', msg: 'Page help: This page shows the orders you clicked, to remove a order click remove to increase the quantity of your order use the arrows in the textbox, to add more items to your order, go to the menu page and click add toplate on the appropriate button associated with the menu item you want.Preferences can be gives for example no tamato or extra sause.' };
+	$scope.alert11 = {type: 'warning', msg: 'Page help: To edit your profile click on your name in the top navigation bar and then click on edit profile which will direct you to a page to edit your profile settings'};
+	$scope.alert12 = {type: 'warning', msg: 'Page help: To edit your profile simply edit the text boxes and or check boxes end then click save profile'};
+	$scope.alert13 = {type: 'warning', msg: 'Page help: This page is only accesable by the Super User and Admin User, here you can set user roles, change an employee id, remove an employee and set the system wide spending limit.'};
+	$scope.alert14 = {type: 'warning', msg: 'Page help: You can only assign a role to an existing user, thus the user must have already registered. If a user is regestered you can change the role of the user, by tying the user name in the respective textbox and select the appropriate role and click set role - a success mesage will indicate a sucessfull role set.'};
+	$scope.alert15 = {type: 'warning', msg: 'Page help: An employee id can be changed by typing in the current employee id and then typing the new employee id in the respective text boxes and then click on change employee id button.'};
+	$scope.alert16 = {type: 'warning', msg: 'Page help: To remove an employee type the employee id in the respective textbox and click on the remove employee button .'};
+	$scope.alert17 = {type: 'warning', msg: 'Page help: To set the system wide limit enter the new limit in the respective textbox and click on the set system wide limit button .'};
+	$scope.alert18 = {type: 'warning', msg: 'Page help: This page contains the braniding settings needed to brand the canteen, it includes: setting the canteen name and setting the canteen logo image for the home page.'};
+	$scope.alert19 = {type: 'warning', msg: 'Page help: To set the canteen name type the desired nam in the respective text box and then click on the set canteen name button, the page will refresh and the new canteen name will be visible in the browser tab, the home navigation bar and the home page .'};
+	$scope.alert20 = {type: 'warning', msg: 'Page help: To upload an image for branding, click on the browse button and then select the desired image and then click on open, thereafter click on the upload image button - the image will now be visable on the canteen home page .'};
+	$scope.alert21 = {type: 'warning', msg: 'Page help: Tis is the login page - you need to be registered to log in, if you are not registered navigate to the sighnup button on the navigation bar on the right and click on it and follow the regestration instructions. If you have forgotten your password click on forgot password link and an e-mail with your password will be send to you.'};
+	$scope.alert22 = {type: 'warning', msg: 'Page help: Tis This is the sign up page, if you are not yet registered then you need to fill in your details below and then click the sighn up button. If youare registered navigate to the sighn in button that can be found on the navigation bar and log into your account'};
+	$scope.alert23 = {type: 'warning', msg: 'Page help: This page will help you reset your password, type in your username and an e-mail will be sent to the e-mail account that is associated with your username'};
+	$scope.alert24 = {type: 'warning', msg: 'Page help: '};
+	$scope.alert25 = {type: 'warning', msg: 'Page help: WELCOME! these buttons will help you navigate through this website, whenever you do not know what to do click on the button that looks like this one you just clicked and help will be right there! To start have a look at our menu page that can be found by clicking on the button that says Menu in the top navigation bar ;-)'};
 
-	  $scope.addAlert = function() {
-	    $scope.alerts.push({msg: 'Another alert!'});
-	  };
+	/*End of Alert messages */
 
-	  $scope.closeAlert = function(index) {
-	    $scope.alerts.splice(index, 1);
+//close alert will take alert box away
+$scope.closeAlert = function(index) {
 			$scope.alertUser = false;
-	  };
+};
 
 
 
@@ -122,32 +130,16 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 	$scope.removedIngredients =[];
 	$scope.removeIngredient = function(index)
 	{
-		console.log('REMOVE:'+index + ' ' + $scope.loadedIngredients.ingredients[index]);
+		//console.log('REMOVE:'+index + ' ' + $scope.loadedIngredients.ingredients[index]);
 		$scope.removedIngredients[index] = 0;
-		console.log('Removed ingredients:'+$scope.removedIngredients);
+		//console.log('Removed ingredients:'+$scope.removedIngredients);
 
 	};
 
 	/*Undo the remove ingredient function*/
 	$scope.undoRemoveIngredient = function(index)
 	{
-		console.log('UNDOREMOVE:'+index + ' ' + $scope.loadedIngredients.ingredients[index]);
 		delete $scope.removedIngredients[index];
-
-		console.log('Removed ingredients:'+$scope.removedIngredients);
-		//console.log('Removed ingredients:'+ $scope.removedIngredients);
-		//var found = false;
-		//for(var ingredient in $scope.removedIngredients)
-		//{
-			//if($scope.removedIngredients[ingredient] === index)
-			//{
-				//$scope.removedIngredients[ingredient] = '';
-				//found = true;
-			//}
-		//}
-
-		//console.log('Removed ingredients:'+ $scope.removedIngredients);
-
 	};
 
 
@@ -161,10 +153,6 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 			{
 				delete $scope.loadedIngredients.ingredients[removedIngredient];
 				delete $scope.loadedIngredients.quantities[removedIngredient];
-				//$scope.removedIngredients.ingredients.splice(index, 1);
-
-				//$scope.loadedIngredients.ingredients.splice(removedIngredient,1);
-				//$scope.loadedIngredients.quantities.splice(removedIngredient,1);
 			}
 
 		}
@@ -178,7 +166,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 					$scope.loadedIngredients.quantities[removedIngredient] = '';
 				}
 			}
-			console.log('After removed:'+$scope.loadedIngredients.ingredients);
+			//console.log('After removed:'+$scope.loadedIngredients.ingredients);
 			var errorIngredient = false;
 
 			/*Perform check to see if any of the ingredient or quantity fields are empty.*/
@@ -220,17 +208,17 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 					}
 				}
 			}
-			console.log('error:'+errorIngredient);
-			console.log('here');
+		//	console.log('error:'+errorIngredient);
+		//	console.log('here');
 
 			/*Perform check for duplicate ingredients in loaded ingredients and the extra added ingredients*/
 			if(!errorIngredient)
 			{
 				for(var k = 0; k < ($scope.addedUpdateIngredients.ingredients.length); k++)
-				{console.log('here2');
+				{//console.log('here2');
 					for(var g = 0; g < ($scope.loadedIngredients.ingredients.length); g++)
 					{
-						console.log('addedIngredient:'+$scope.addedUpdateIngredients.ingredients[k]+' loaded:'+$scope.loadedIngredients.ingredients[g]);
+					//	console.log('addedIngredient:'+$scope.addedUpdateIngredients.ingredients[k]+' loaded:'+$scope.loadedIngredients.ingredients[g]);
 						if($scope.addedUpdateIngredients.ingredients[k].localeCompare($scope.loadedIngredients.ingredients[g])===0)
 						{
 							errorIngredient = true;
@@ -240,8 +228,8 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 				}
 			}
 			/*Perform check to see if the menu item has at least one ingredient*/
-			console.log($scope.loadedIngredients.ingredients);
-			console.log($scope.addedUpdateIngredients.ingredients);
+			//console.log($scope.loadedIngredients.ingredients);
+			//console.log($scope.addedUpdateIngredients.ingredients);
 
 		/*Perform check to see if the menu item has at least one ingredient*/
 		/*if(!errorIngredient)
@@ -330,7 +318,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		*/
 		$scope.favourite = function(itemName)
 		{
-			console.log('item'+itemName);
+			//console.log('item'+itemName);
 		};
 
 
@@ -429,7 +417,9 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 
 		/*CreateMenuCatagory */
 	 $scope.createMenuCatagory = function(isValid) {
+		 $scope.success=false;
 		 if (isValid){
+
 			 //console.log('You have validated!');
 			 if($scope.categoryName == null){
 				// console.log('invalid')
@@ -442,16 +432,19 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 				 //console.log($scope.categoryName);
 				 $http.post('/orders/createMenuCategory', name).success(function(response) {
 				 // If successful show success message and clear form
-				 if(response.message.localeCompare('The category already exist') == 0){
-					 $scope.success = false;
+				 if(response.message.localeCompare('The category already exists') == 0){
+					 $scope.success = null;
+
 					 $scope.error = true;//response.message;
-					 $scope.error = 'The category already exist';
+					 $scope.error = 'The category already exists';
 					 //console.log("already exist");
 				 }else{
 					 //console.log('responce : ' + response.message);
-					 $scope.error = false;
+
+					// $scope.error.clear;//
+					 $scope.error = null;
 					 $scope.success = true;//response.message;
-					 $scope.sucess = 'Catagory added to the menu.';
+					 $scope.success = 'Catagory added to the menu.';
 			 	 }
 				 }).error(function(response) {
 					 //console.log("error");
@@ -485,7 +478,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
         //Filter Menu items for burger bar search bar
         $scope.searchBurgerBar = function (row) {
             var itemN = $scope.menuNameSearch.toLowerCase();
-            console.log('row');
+          //  console.log('row');
            // console.log('item'+ row.itemName);
             if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('Burger Bar') !== -1)) {
                // console.log('IFFFFFFFFFFFFFFFF');
@@ -496,7 +489,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
         //Filter Menu items for daily lunch search bar
         $scope.searchDailyBar = function (row) {
             var itemN = $scope.menuNameSearch.toLowerCase();
-            console.log('row');
+            //console.log('row');
             // console.log('item'+ row.itemName);
             if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('Daily Lunches') !== -1)) {
                 // console.log('IFFFFFFFFFFFFFFFF');
@@ -508,7 +501,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
         //Filter Menu items for drinks search bar
         $scope.searchDrinks = function (row) {
             var itemN = $scope.menuNameSearch.toLowerCase();
-            console.log('row');
+          //  console.log('row');
             // console.log('item'+ row.itemName);
             if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('Drinks') !== -1)) {
                 // console.log('IFFFFFFFFFFFFFFFF');
@@ -518,7 +511,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
         //Filter Menu items for extra's search bar
         $scope.searchExtraBar = function (row) {
             var itemN = $scope.menuNameSearch.toLowerCase();
-            console.log('row');
+            //console.log('row');
             // console.log('item'+ row.itemName);
             if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('Extra') !== -1)) {
                 // console.log('IFFFFFFFFFFFFFFFF');
@@ -528,7 +521,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
         //Filter Menu items for side search bar
         $scope.searchSideBar = function (row) {
             var itemN = $scope.menuNameSearch.toLowerCase();
-            console.log('row');
+          //  console.log('row');
             // console.log('item'+ row.itemName);
             if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('On The Side') !== -1)) {
                 // console.log('IFFFFFFFFFFFFFFFF');
@@ -538,7 +531,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
         //Filter Menu items for resale search bar
         $scope.searchResaleBar = function (row) {
             var itemN = $scope.menuNameSearch.toLowerCase();
-            console.log('row');
+          //  console.log('row');
             // console.log('item'+ row.itemName);
             if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('Resale Items') !== -1)) {
                 // console.log('IFFFFFFFFFFFFFFFF');
@@ -548,7 +541,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
         //Filter Menu items for salad bar search bar
         $scope.searchSaladBar = function (row) {
             var itemN = $scope.menuNameSearch.toLowerCase();
-            console.log('row');
+          //  console.log('row');
             // console.log('item'+ row.itemName);
             if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('Salad Bar') !== -1)) {
                 // console.log('IFFFFFFFFFFFFFFFF');
@@ -558,7 +551,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
         //Filter Menu items for sweet treats search bar
         $scope.searchSweetBar = function (row) {
             var itemN = $scope.menuNameSearch.toLowerCase();
-            console.log('row');
+          //  console.log('row');
             // console.log('item'+ row.itemName);
             if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('Sweet Treats') !== -1)) {
                 // console.log('IFFFFFFFFFFFFFFFF');
@@ -568,7 +561,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
         //Filter Menu items for toasted sandwiches search bar
         $scope.searchToastBar = function (row) {
             var itemN = $scope.menuNameSearch.toLowerCase();
-            console.log('row');
+            //console.log('row');
             // console.log('item'+ row.itemName);
             if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('Toasted Sandwiches') !== -1)) {
                 // console.log('IFFFFFFFFFFFFFFFF');
@@ -579,7 +572,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
         //Filter Menu items for tramezzini search bar
         $scope.searchTramBar = function (row) {
             var itemN = $scope.menuNameSearch.toLowerCase();
-            console.log('row');
+          //  console.log('row');
             // console.log('item'+ row.itemName);
             if ((angular.lowercase(row.itemName)).contains(itemN) && (angular.lowercase(row.category).indexOf('Tramezzinis') !== -1)) {
                 // console.log('IFFFFFFFFFFFFFFFF');
@@ -599,7 +592,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 			{
 				if(displayItems[item].itemName.length >1)
 					displayItems[item].itemName = displayItems[item].itemName.charAt(0).toUpperCase() + displayItems[item].itemName.slice(1);
-				console.log(displayItems[item].itemName);
+		//		console.log(displayItems[item].itemName);
 			}
 
 
@@ -625,7 +618,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 	/*loadMenuCategories
 	*/
 	$scope.loadMenuCategories = function(){
-		console.log('loading menu Categories');
+		//console.log('loading menu Categories');
 		$http.get('/loadMenuCategories').success(function(response) {
 		$scope.menuCatagory = response.message;
 		$scope.cat = response.message;
@@ -678,7 +671,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		{
 			$scope.successFind = null;
 			$scope.menuNameSearch=$scope.menuNameSearch.toLowerCase();
-			console.log('Delete:'+$scope.menuNameSearch);
+		//	console.log('Delete:'+$scope.menuNameSearch);
 			var reqObj = {itemName:$scope.menuNameSearch};
 			$http.post('/orders/deleteMenuItem',reqObj).success(function(response){
 				$scope.successMessage = response.message;
@@ -783,12 +776,19 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 			$rootScope.$broadcast('plateUpdated');
 		};
 
+
 	$scope.view = true;
         $scope.viewImage = function(itemName) {
             if(itemName)
                 $scope.view = $scope.view === false ? true: false;
+ 
+/* merge conflict - not sure which one to keep 
+        $scope.viewImage = function() {
+
+            $scope.viewImage = $scope.viewImage === false ? true: false;
+*/ 
         };
-        
+
         $scope.checkCMUser = function(){
             if(!Authentication.user) {
                 $location.path('/');

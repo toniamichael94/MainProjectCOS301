@@ -11,7 +11,7 @@
       <div  data-ng-controller="MenuItemsController">
         <h4>Menu<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
         <hr>
-        <alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alerts[0].msg}}</alert>
+        <alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert1.msg}}</alert>
       </div>
  <!--END ALERT BOX -->
 
@@ -67,7 +67,7 @@
   <!-- DYNAMIC filter: -->
   <div class="list-group clearfix" >
 
-      <a href="" class="list-group-item heading"><h4> {{category}}</h4></a>
+      <a href="" class="list-group-item heading"><h4> {{selectedCategory}}</h4></a>
       <div class="list-group-item clearfix" ng-repeat ="item in menuItems"  ><h3>
           {{item.itemName}}  <span style="float:right;" > R {{item.price}} <button type="button" class="btn btn-primary" data-ng-show="item.stock" data-ng-click="addToPlate(item.itemName)"> Add to plate </button></span>  </h3> <br> <h5> {{item.description}}
             <form>

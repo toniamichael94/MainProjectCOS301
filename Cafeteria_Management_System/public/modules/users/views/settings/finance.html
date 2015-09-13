@@ -14,8 +14,22 @@
 
 <section ng-init="checkUser()" class="row" data-ng-controller="FinanceController">
 
-	<h4> View Employee Bills </h4>
-	<hr>
+
+	<!--ALERT BOX FOR HELP-->
+			<script type="text/ng-template" id="alert.html">
+					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+						<div ng-transclude></div>
+					</div>
+			</script>
+
+			<div  data-ng-controller="MenuItemsController">
+				<h4>View Employee Bills<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
+				<hr>
+				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert24.msg}}</alert>
+			</div>
+ <!--END ALERT BOX -->
+
+
       <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 
         <form name="userForm" data-ng-submit="getUserOrders()" class="signin form-horizontal" autocomplete="on">
@@ -48,7 +62,7 @@
                 </div>
             </fieldset>
         </form>
- 
+
 		<button type="button" data-ng-click="generateReport()"> Generate Report</button>
     </div>
 </section>

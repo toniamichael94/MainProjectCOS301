@@ -11,8 +11,21 @@
 *
 -->
 <section ng-init="checkUser()" class="row" data-ng-controller="superuserController">
-	<h4> Administrative settings </h4>
-	<hr>
+
+	<!--ALERT BOX FOR HELP-->
+			<script type="text/ng-template" id="alert.html">
+					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+						<div ng-transclude></div>
+					</div>
+			</script>
+
+			<div  data-ng-controller="MenuItemsController">
+				<h4> Administrative settings <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
+				<hr>
+				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert13.msg}}</alert>
+			</div>
+ <!--END ALERT BOX -->
+
 	<div class="list-group clearfix">
 		<a href="#" class="list-group-item disabled">
 			Admin settings
@@ -24,7 +37,20 @@
 
 </div>
 <div class="list-group-item clearfix">
-	<h4> Assign Roles </h4>
+
+	<!--ALERT BOX FOR HELP-->
+			<script type="text/ng-template" id="alert.html">
+					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+						<div ng-transclude></div>
+					</div>
+			</script>
+
+			<div  data-ng-controller="MenuItemsController">
+				<h4> Assign Roles <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
+				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert14.msg}}</alert>
+			</div>
+	<!--END ALERT BOX -->
+
 	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 	<form name="userForm" data-ng-submit="assignRoles(userForm.$valid)"  class="signin form-horizontal" autocomplete="on">
 		<fieldset>
@@ -63,7 +89,20 @@
 
 <!-- change employee ID-->
 <div class="list-group-item clearfix">
-    <h4> Change employee ID </h4>
+
+	<!--ALERT BOX FOR HELP-->
+			<script type="text/ng-template" id="alert.html">
+					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+						<div ng-transclude></div>
+					</div>
+			</script>
+
+			<div  data-ng-controller="MenuItemsController">
+				<h4> Change employee ID <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
+				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert15.msg}}</alert>
+			</div>
+	<!--END ALERT BOX -->
+
     <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
         <form name="userForm" data-ng-submit="changeEmployeeID(userForm.$valid)" class="signin form-horizontal" autocomplete="on">
             <fieldset>
@@ -98,7 +137,20 @@
 
 <!-- remove employee -->
 <div class="list-group-item clearfix">
-    <h4> Remove employee </h4>
+
+	<!--ALERT BOX FOR HELP-->
+			<script type="text/ng-template" id="alert.html">
+					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+						<div ng-transclude></div>
+					</div>
+			</script>
+
+			<div  data-ng-controller="MenuItemsController">
+				<h4> Remove employee <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
+				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert16.msg}}</alert>
+			</div>
+	<!--END ALERT BOX -->
+
     <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
         <form name="userForm" data-ng-submit="removeEmployee(userForm.$valid)" class="signin form-horizontal" autocomplete="on">
             <fieldset>
@@ -127,13 +179,25 @@
 </div>
 
 <div class="list-group-item clearfix">
-	<h4> Set system wide spending limit </h4>
+
+	<!--ALERT BOX FOR HELP-->
+			<script type="text/ng-template" id="alert.html">
+					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+						<div ng-transclude></div>
+					</div>
+			</script>
+
+			<div  data-ng-controller="MenuItemsController">
+				<h4> Set system wide spending limit (ZAR)<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
+				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert17.msg}}</alert>
+			</div>
+	<!--END ALERT BOX -->
 
     <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 		<form name="setLimitForm"  style="width:220px" data-ng-submit="setSystemWideLimit(userForm.$valid)" class="signin form-horizontal" autocomplete="off">
 			<fieldset>
 		<div class="form-group">
-			<label for="limit">Set System wide spending limit</label>
+			<label for="limit">Set System wide spending limit (ZAR)</label>
 			<input type="number" id="limit" name="limit" data-ng-model="limit" class="form-control" min = 0>
 		</div>
 		<div class="text-center form-group">
