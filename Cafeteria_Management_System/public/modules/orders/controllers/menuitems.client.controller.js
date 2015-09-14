@@ -6,25 +6,35 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		$scope.authentication = Authentication;
 		$scope.alertUser = false; // used for user alerts - help page...
 		$scope.viewImage = true;
+		$scope.menuItems = [];
+		$scope.selectedCategory = [];
+		if($cookies.selectedCategory)
+			$scope.selectedCategory = JSON.parse($cookies.selectedCategory);
 
 //filter the catagories
 		$scope.filterCat = function(catName){
 		//	console.log('cat');
-			$scope.category = catName;
-
+		//	$scope.selectedCategory = catName;
+				$cookies.selectedCategory = JSON.stringify(catName);
+				$scope.selectedCategory = JSON.parse($cookies.selectedCategory);
 			$http.get('/loadMenuItems').success(function(response) {
 			var count = 0;
 			//console.log(response.message)
 			var newArray = [];
 			for(var cat in response.message){
-					if(response.message[cat].category[0].localeCompare(catName) === 0) {
+					if(response.message[cat].category[0].localeCompare($scope.selectedCategory) === 0) {
 						newArray[count] = response.message[cat];
 						count = count+1;
 
 					}
 			}
 			$scope.menuItems = newArray;
-			$location.path('/menu-item');
+
+			if($location.url().localeCompare('/menu-item') === 0){
+				// then you are already in this directory...
+			}else{
+			$location.path('/menu-item'); // else change directories....
+		}
 			var inStock = true;
 
 			for(var itemName in newArray){
