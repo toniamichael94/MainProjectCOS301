@@ -8,8 +8,6 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		$scope.viewImage = true;
 		$scope.menuItems = [];
 		$scope.selectedCategory = [];
-		if($cookies.selectedCategory)
-			$scope.selectedCategory = JSON.parse($cookies.selectedCategory);
 
 //filter the catagories
 		$scope.filterCat = function(catName){
@@ -50,6 +48,12 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 			$scope.menuCatagory = 'Error loading menu Categories';
 		});
 	};
+
+	if($cookies.selectedCategory){
+		$scope.selectedCategory = JSON.parse($cookies.selectedCategory);
+		$scope.filterCat($scope.selectedCategory);
+	}
+
 
 //Help alert function when user wants help variable set to true
 $scope.helpAlert = function(){
@@ -791,12 +795,12 @@ $scope.closeAlert = function(index) {
         $scope.viewImage = function(itemName) {
             if(itemName)
                 $scope.view = $scope.view === false ? true: false;
- 
-/* merge conflict - not sure which one to keep 
+
+/* merge conflict - not sure which one to keep
         $scope.viewImage = function() {
 
             $scope.viewImage = $scope.viewImage === false ? true: false;
-*/ 
+*/
         };
 
         $scope.checkCMUser = function(){
