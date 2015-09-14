@@ -36,7 +36,7 @@
 							<input type="text" id="menuItemAdd" name="menuItemAdd" class="form-control" data-ng-model="categoryName" placeholder="Menu Category Name">
 						</div>  <div class=" text-center form-group">
 							<button type = "submit" style="width:200px" class = "btn btn-large btn-primary">Add</button>
-							<!-- Show error message or sucess message--></div>
+							<!-- Show error message or sucess message for adding a menu category--></div>
 							<div data-ng-show="success" class="text-center text-success">
 								<strong>Item added successfully.</strong>
 							</div>
@@ -149,29 +149,27 @@
 						</div>
 				</script>
 
-				<div  data-ng-controller="MenuItemsController">
+				   <div   data-ng-controller="MenuItemsController">
 					<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button>
 					<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert5.msg}}</alert>
 				</div>
 					<!--Alert box end-->
-				<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
-                    <div class = "text-center form-group">
-					<form name="searchMenuItemsForm" data-ng-submit="searchMenu(searchMenuItemsForm.$valid)" class="text-center form-group signin form-horizontal" autocomplete="off">
-						<!--Search for a menu item--><div class = "text-center form-group">
+
+					<form name="searchMenuItemsForm" data-ng-submit="searchMenu(searchMenuItemsForm.$valid)" class="signin form-horizontal" autocomplete="off">
+				   <div class = "form-group   signin form-horizontal">
 							<input type="text" id="menuItemNameSearch" style="width:200px" name ="menuItemNameSearch" class = "form-control" data-ng-model="menuNameSearch" placeholder="Item name">
                             </div>
-
-                        <div class = "text-center form-group">
-							<button type = "submit" style="width:200px" class = "btn btn-large btn-primary">Search</button>
-                        </div>
-					</form>
+                        <div class = "form-group text-center">
+                            <button type = "submit" style="width:200px" class = "btn btn-large btn-primary">Search</button>
+                       </div>
+                    </form>
 
 			   <!-- ********************Upload image if item is found*******************-->
 			    <form name="uploadImageForm" action="/orders/uploadImage" enctype="multipart/form-data" method="post" class="signin form-horizontal" autocomplete="off">
 				    <fieldset>  <div class="text-center form-group" data-ng-show="successFind"><br>
-				      <input type="file" id="upload" name="upload" ng-click="showme=true;" data-ng-hide="showme" data-ng-model="upload" class="form-control"/> <br>
+				      <input type="file" id="upload" name="upload"   data-ng-hide="showme" data-ng-model="upload" class="form-control"/> <br>
 
-				        <button type="submit" style="width:220px"s ng-click="showme=true;" data-ng-hide="showme" class="btn btn-large btn-primary">Upload Image</button> <br>
+				        <button type="submit" style="width:220px"  data-ng-hide="showme" class="btn btn-large btn-primary">Upload Image</button> <br>
 				      </div>
 				    </fieldset>
 			    </form>
@@ -183,7 +181,7 @@
                       </div>
 					<div  class = " text-center form-group" data-ng-show="successFind">
 						<button class = "btn btn-large btn-primary"  style="width:200px" data-ng-hide="showme" ng-click = "deleteMenuItem()">Delete</button>
-                        </div></form></div>
+                        </div></form>
 					<!--Show if update -->
 					<div ng-show="showme" class="text-center text-success">
                         <form name="updateMenuItemForm" data-ng-submit="updateMenuItem(updateMenuItemForm.$valid)" class="text-center form-group signin form-horizontal" autocomplete="off">
@@ -254,7 +252,7 @@
 							</div>
 
                         </form>
-					</div>
+
 					<!--<p>IaddedUpdateIngredients</p>
 
 						<pre>{{ addedUpdateIngredients | json }}</pre>-->

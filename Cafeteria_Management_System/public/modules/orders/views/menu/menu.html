@@ -72,11 +72,11 @@
           {{item.itemName}}  <span style="float:right;" > R {{item.price}} <button type="button" class="btn btn-primary" data-ng-show="item.stock" data-ng-click="addToPlate(item.itemName)"> Add to plate </button></span>  </h3> <br> <h5> {{item.description}}
           <form>
               <span data-ng-show="!item.stock" style="color:red"><h3>Not in stock </h3></span>
-          </form></h5>
+          </form></h5> 
           <button type="button" class="btn btn-primary" data-ng-click="viewImage()"> <span class="glyphicon glyphicon-camera"></span> image </button>
-        <!--  <span ng-hide="viewImage === fasle">
+        <!--  <span ng-hide="viewImage === false">
           	<img alt="image" class="img-responsive text-center" src={{item.imagePath}} />
-          </span> -->
+          </span> --> 
       </div>
 
   </div>

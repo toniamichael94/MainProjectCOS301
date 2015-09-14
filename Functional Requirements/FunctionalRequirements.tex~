@@ -1,18 +1,18 @@
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,12pt]{report}
 \usepackage[hidelinks]{hyperref}
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{caption}
 \usepackage{array}
 \usepackage{tabu}
-
+\usepackage[tt]{titlepic}
 %% Title Page 
 \begin{document}
+   \titlepic{ \centering\includegraphics[width=0.7\textwidth]{../images/dddd.png} }
 \title{\Huge Functional Requirements Document Specification \\ 
 	 Project: \\ 
 	Cafeteria Management System: Resolve}
-\author{
-         \underline{T-RISE}\\
+\author{ 
           Rendani Dau (13381467) \\
 	Elana Kuun (12029522) \\
 	Semaka Malapane (13081129) \\
@@ -372,12 +372,12 @@ The service contract and activity diagram for markAsReady follow. markAsReady fa
 The service contract and activity diagram for addToPlate follow. addToPlate falls under the use case for PlaceOrder (refer to page 27- figure 27 to view this use case diagram). This is where a user can select items from the menu and save them on their plate via the addToPlate button. The user can then view these via the "On my plate" page and can also edit these.
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{../images/AddToPlateActivity.png}
+    \includegraphics[width=1.0\textwidth]{../images/AddToPlateActivity.jpg}
     \caption{The activity diagram for adding a menu item to plate} 
 \end{figure}
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{../images/addToPlateServicee.png}
+    \includegraphics[width=1.0\textwidth]{../images/addToPlateServicee.jpg}
     \caption{The service contract for adding a menu item to plate} 
 \end{figure}
 

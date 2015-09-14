@@ -61,7 +61,7 @@ $scope.toggleCollapsibleMenu = function() {
 };
 
 	/*Alert Messages for help page*/
-	$scope.alert1 = {type: 'warning', msg: 'Page help: To order a menu item - click the add to plate botton and then click the on my plate button to confirm your order. To navigate between menu categories - use the navigation bar and click on the appropriate button (Menu contains all the menu catagories)'};
+	$scope.alert1 = {type: 'warning', msg: 'Page help: To order a menu item click the add to plate botton and then click the on my plate button to confirm your order. To navigate between menu categories - use the navigation bar and click on the appropriate button (Menu contains all the menu catagories)'};
 	$scope.alert2 = {type: 'warning', msg: 'Page help: This page contains all the settings to add menu items and menu catagories to the menu page.'};
 	$scope.alert3 = {type: 'warning', msg: 'Page help: Type in a menu catagory to add to your menu. (a menu catagory will appear in the menu navigation bar on the menu page and menu items can be placed under a menu catagory)' };
 	$scope.alert4 = {type: 'warning', msg: 'Page help: This section will add a menu item to the menu page. NOTE - you need to have ingredients (wich is stored as inventory) - this can be added by clicking on your name in the navigation bar and choosing the manage inventory setting which will take you to a page to add inventory' };
@@ -149,23 +149,7 @@ $scope.closeAlert = function(index) {
 	/*Undo the remove ingredient function*/
 	$scope.undoRemoveIngredient = function(index)
 	{
-		//console.log('UNDOREMOVE:'+index + ' ' + $scope.loadedIngredients.ingredients[index]);
 		delete $scope.removedIngredients[index];
-
-		//console.log('Removed ingredients:'+$scope.removedIngredients);
-		//console.log('Removed ingredients:'+ $scope.removedIngredients);
-		//var found = false;
-		//for(var ingredient in $scope.removedIngredients)
-		//{
-			//if($scope.removedIngredients[ingredient] === index)
-			//{
-				//$scope.removedIngredients[ingredient] = '';
-				//found = true;
-			//}
-		//}
-
-		//console.log('Removed ingredients:'+ $scope.removedIngredients);
-
 	};
 
 
@@ -179,10 +163,6 @@ $scope.closeAlert = function(index) {
 			{
 				delete $scope.loadedIngredients.ingredients[removedIngredient];
 				delete $scope.loadedIngredients.quantities[removedIngredient];
-				//$scope.removedIngredients.ingredients.splice(index, 1);
-
-				//$scope.loadedIngredients.ingredients.splice(removedIngredient,1);
-				//$scope.loadedIngredients.quantities.splice(removedIngredient,1);
 			}
 
 		}
@@ -447,7 +427,9 @@ $scope.closeAlert = function(index) {
 
 		/*CreateMenuCatagory */
 	 $scope.createMenuCatagory = function(isValid) {
+		 $scope.success=false;
 		 if (isValid){
+
 			 //console.log('You have validated!');
 			 if($scope.categoryName == null){
 				// console.log('invalid')
@@ -460,16 +442,19 @@ $scope.closeAlert = function(index) {
 				 //console.log($scope.categoryName);
 				 $http.post('/orders/createMenuCategory', name).success(function(response) {
 				 // If successful show success message and clear form
-				 if(response.message.localeCompare('The category already exist') == 0){
-					 $scope.success = false;
+				 if(response.message.localeCompare('The category already exists') == 0){
+					 $scope.success = null;
+
 					 $scope.error = true;//response.message;
-					 $scope.error = 'The category already exist';
+					 $scope.error = 'The category already exists';
 					 //console.log("already exist");
 				 }else{
 					 //console.log('responce : ' + response.message);
-					 $scope.error = false;
+
+					// $scope.error.clear;//
+					 $scope.error = null;
 					 $scope.success = true;//response.message;
-					 $scope.sucess = 'Catagory added to the menu.';
+					 $scope.success = 'Catagory added to the menu.';
 			 	 }
 				 }).error(function(response) {
 					 //console.log("error");
@@ -802,9 +787,16 @@ $scope.closeAlert = function(index) {
 		};
 
 
+	$scope.view = true;
+        $scope.viewImage = function(itemName) {
+            if(itemName)
+                $scope.view = $scope.view === false ? true: false;
+ 
+/* merge conflict - not sure which one to keep 
         $scope.viewImage = function() {
 
             $scope.viewImage = $scope.viewImage === false ? true: false;
+*/ 
         };
 
         $scope.checkCMUser = function(){
