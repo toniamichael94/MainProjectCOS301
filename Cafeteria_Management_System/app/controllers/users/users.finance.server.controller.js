@@ -21,32 +21,31 @@ var _ = require('lodash'),
 
 	
 exports.generateReport = function(req, res){
-	console.log('in generate report');
-		console.log('rendering');
-		User.findOne({username: req.body.username}, function(err, user){
-			if(err || !user) return res.status(400).send({message: 'Could not generate report!'});
-			Order.find({username: req.body.username, created: {$gt: req.body.start, $lt: req.body.end}}, function(err, orders){
-				if(err) return res.status(400).send({message: 'Could not generate report!'});
-				
-				//Read the sample html file for pdf format
-				var sample = fs.readFileSync(path.resolve(__dirname, '../../reportTemplates/sample.html'), 'utf8');
-				//Render PDF with the given details
-				jsreport.render({
-					template:{ content: sample,
-						helpers: 'function mult(a,b){ return a*b; }',
-						engine: 'handlebars'},
-					data: {
-						date: new Date().getDate(),
-						to: { name: user.displayName, mail: user.email},
-						items: orders
-					}
-				}).then(function(out) {
-					//if(err) return res.status(400).send({message: 'Could not render report!'})
-					console.log('in render function');
-					out.stream.pipe(res);
-				});
+	User.findOne({username: req.body.username}, function(err, user){
+		if(err || !user) return res.status(400).send({message: 'Could not generate report!'});
+		Order.find({username: req.body.username, created: {$gt: req.body.start, $lt: req.body.end}}, function(err, orders){
+			if(err) return res.status(400).send({message: 'Could not generate report!'});
+			
+			//Read the sample html file for pdf format
+			var sample = fs.readFileSync(path.resolve(__dirname, '../../reportTemplates/sample.html'), 'utf8');
+			//Render PDF with the given details
+			console.log('rendering');
+			jsreport.render({
+				template:{ content: sample,
+					helpers: 'function mult(a,b){ return a*b; }',//'function total(order){return 10;}'],
+					engine: 'handlebars'},
+				data: {
+					date: new Date().getDate(),
+					to: { name: user.displayName, mail: user.email},
+					items: orders
+				}
+			}).then(function(out) {
+				//if(err) return res.status(400).send({message: 'Could not render report!'})
+				console.log('in render function');
+				out.stream.pipe(res);
 			});
-		
 		});
+	
+	});
 	
 };
