@@ -22,7 +22,7 @@ angular.module('users').controller('FinanceController', ['$scope', '$http', '$lo
                     });
             }
         };*/
-
+	
       /*
         $scope.getUserOrders = function(){
             var reqObj = {username: $scope.username};

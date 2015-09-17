@@ -238,7 +238,25 @@
             }
 
         </style>
+		<div id="invoice" class="paid">
 
+            <div class="this-is">
+                <strong>Invoice</strong>
+            </div><!-- invoice headline -->
+
+			<!-- invoice header -->
+            <header id="header">
+                <div class="invoice-intro">
+                    <h1>{{title}}</h1>
+                    <p>{{description}}</p>
+                </div>
+
+                <dl class="invoice-meta">    
+                    <dt class="invoice-date">Date of Invoice</dt>
+                    <dd>{{date}}</dd>
+                </dl>
+            </header>
+            
 		 <section id="parties">
 
                 <div class="invoice-to">
@@ -247,7 +265,7 @@
                         <a class="url fn">{{to.name}}</a>
                         <div class="org">{{to.description}}</div>
                         <a class="email">{{to.mail}}</a>
-                                
+                        <p>Period: {{start}} to {{end}}</p>
                         <!--div class="adr">
                             <div class="street-address">{{:to.address}}</div>
                             <span class="locality">{{:to.city}}</span>
@@ -293,13 +311,14 @@
                     </table>
 			</div>
 			<div class="invoice-totals">
-                    <table>
+					<p id='asd'></p>
+                    <table onload="getTotal({{items}})">
                         <caption>Totals:</caption>
                         <tbody>
                             <tr>
                                 <th>Total:</th>
                                 <td></td>
-                                <td>R0</td>
+                                <td>R {{total}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -307,5 +326,13 @@
                 </div><!-- e: invoice totals -->
 
 			</section><!-- e: invoice financials -->
+			 <footer id="footer">
+                <p>
+                    {{footer}}
+                </p>
+            </footer>
+
+
+        </div><!-- e: invoice -->
 	</body>
 </html>
