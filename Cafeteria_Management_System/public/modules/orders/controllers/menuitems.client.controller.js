@@ -8,8 +8,9 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		$scope.viewImage = true;
 		$scope.menuItems = [];
 		$scope.selectedCategory = [];
+        $scope.view = true;
 
-//filter the catagories
+//filter the categories
 		$scope.filterCat = function(catName){
 		//	console.log('cat');
 		//	$scope.selectedCategory = catName;
@@ -49,10 +50,10 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		});
 	};
 
-	if($cookies.selectedCategory){
+	/*if($cookies.selectedCategory){
 		$scope.selectedCategory = JSON.parse($cookies.selectedCategory);
 		$scope.filterCat($scope.selectedCategory);
-	}
+	}*/
 
 
 //Help alert function when user wants help variable set to true
@@ -483,10 +484,10 @@ $scope.closeAlert = function(index) {
 
         //Filter Menu items for search bar
         $scope.searchBar = function (row) {
-          /*  var itemN = $scope.menuNameSearch.toLowerCase();
+            var itemN = $scope.menuNameSearch.toLowerCase();
             if ((angular.lowercase(row.itemName)).contains(itemN)) {
                 return (angular.lowercase(row.itemName));
-            }*/
+            }
         };
 
         //Filter Menu items for burger bar search bar
@@ -790,17 +791,9 @@ $scope.closeAlert = function(index) {
 			$rootScope.$broadcast('plateUpdated');
 		};
 
-
-	$scope.view = true;
         $scope.viewImage = function(itemName) {
             if(itemName)
                 $scope.view = $scope.view === false ? true: false;
-
-/* merge conflict - not sure which one to keep
-        $scope.viewImage = function() {
-
-            $scope.viewImage = $scope.viewImage === false ? true: false;
-*/
         };
 
         $scope.checkCMUser = function(){

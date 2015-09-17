@@ -137,8 +137,7 @@
 	</div>
 
 	<!-- Search, delete, and update menu items -->
-	<div class="list-group clearfix"  data-ng-controller="MenuItemsController">
-
+	<div class="list-group clearfix "    data-ng-controller="MenuItemsController">
 		<a href="#" class="list-group-item disabled">Search menu item</a>
 			<div class="list-group-item clearfix">
 				<h4> Search menu item </h4>
@@ -154,10 +153,10 @@
 					<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert5.msg}}</alert>
 				</div>
 					<!--Alert box end-->
-
-					<form name="searchMenuItemsForm" data-ng-submit="searchMenu(searchMenuItemsForm.$valid)" class="signin form-horizontal" autocomplete="off">
-				   <div class = "form-group   signin form-horizontal">
-							<input type="text" id="menuItemNameSearch" style="width:200px" name ="menuItemNameSearch" class = "form-control" data-ng-model="menuNameSearch" placeholder="Item name">
+                <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2"  data-ng-controller="MenuItemsController">
+					<form name="searchMenuItemsForm" data-ng-submit="searchMenu(searchMenuItemsForm.$valid)"  class="text-center form-group signin form-horizontal"  autocomplete="off">
+				   <div class = "form-group text-center ">
+							<input type="text" id="menuItemNameSearch" style="width:200px" name ="menuItemNameSearch" class = "form-control " data-ng-model="menuNameSearch" placeholder="Item name">
                             </div>
                         <div class = "form-group text-center">
                             <button type = "submit" style="width:200px" class = "btn btn-large btn-primary">Search</button>
@@ -169,7 +168,7 @@
 				    <fieldset>  <div class="text-center form-group" data-ng-show="successFind"><br>
 				      <input type="file" id="upload" name="upload"   data-ng-hide="showme" data-ng-model="upload" class="form-control"/> <br>
 
-				        <button type="submit" style="width:220px"  data-ng-hide="showme" class="btn btn-large btn-primary">Upload Image</button> <br>
+				        <button type="submit" style="width:200px"  data-ng-hide="showme" class="btn btn-large btn-primary">Upload Image</button> <br>
 				      </div>
 				    </fieldset>
 			    </form>
@@ -267,7 +266,7 @@
                         <div data-ng-show="errorMessage" class="text-center text-danger">
                             <strong data-ng-bind="errorMessage"></strong>
                         </div>
-
+</div>
 				</div>
 			</div>
 	</div>
