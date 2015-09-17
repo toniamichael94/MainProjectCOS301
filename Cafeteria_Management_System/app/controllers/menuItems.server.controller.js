@@ -273,7 +273,6 @@ exports.uploadImage = function(req, res){
 	var form = new formidable.IncomingForm();
 	console.log('About to parse image');
 	console.log(req);
-
 	form.parse(req, function(error, fields, files){
 		var newPath = './public/modules/core/img/' + files.upload.name;
 		console.log('image parsed');
@@ -285,7 +284,7 @@ exports.uploadImage = function(req, res){
 				console.log(errorHandler.getErrorMessage(err));
 				fs.unlink(newPath);
 				fs.rename(files.upload.path, newPath);
-				return res.status(400).send({message: 'Error with the image path!'});
+				//return res.status(400).send({message: 'Error with the image path!'});
 			}
 			MenuItem.update({itemName: req.body.itemName}, {imagePath: newPath},  function(erro, numAffected){
         		if(erro) return res.status(400).send({
@@ -299,7 +298,26 @@ exports.uploadImage = function(req, res){
 		});
 	});
 };
-
+/*
+exports.uploadImage = function(req, res){
+    var form = new formidable.IncomingForm();
+    console.log('About to parse image');
+    console.log(req);
+    form.parse(req, function(error, fields, files){
+        console.log('image parsed');
+        if(error){
+            return res.status(400).send({message: errorHandler.getErrorMessage(error)});
+        }
+        fs.rename(files.upload.path, './public/modules/core/img/brand/logo.png', function(err){
+            if(err){
+                console.log(errorHandler.getErrorMessage(err));
+                fs.unlink('./public/modules/core/img/brand/logo.png');
+                fs.rename(files.upload.path, './public/modules/core/img/brand/logo.png');
+            }
+            res.redirect('/');
+        });
+    });
+};*/
 /*
  * search menu item
  */
