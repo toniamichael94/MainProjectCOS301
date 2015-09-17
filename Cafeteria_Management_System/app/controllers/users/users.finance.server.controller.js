@@ -9,6 +9,7 @@ var _ = require('lodash'),
 	passport = require('passport'),
 	User = mongoose.model('User'),
 	Config = mongoose.model('Config'),
+	Order = mongoose.model('Order'),
     formidable = require('formidable'),
     fs = require('fs'),
 	path = require('path'),
@@ -22,21 +23,30 @@ var _ = require('lodash'),
 exports.generateReport = function(req, res){
 	console.log('in generate report');
 		console.log('rendering');
-		var sample = fs.readFileSync(path.resolve(__dirname, '../../reportTemplates/sample.html'), 'utf8');
-		jsreport.render({
-			template:{ content: sample},
-			data: {
-				number: '1',
-				date: '01-01-2014',
-				dueDate: '01-20-2014',
-				to: { name: 'John Lemon' , description: '', mail: 'john.lemon@finmail.com'},
-				items : [ { name: 'Designing online portal', quantity: 1, price : 1000}, 
-							{ name: 'Implementing online portal', quantity: 1, price : 8000},
-							{ name: 'Testing online portal', quantity: 1, price : 2000} ]
-			}
-		}).then(function(out) {
-			console.log('in render function');
-			out.stream.pipe(res);
+		User.findOne({username: req.body.username}, function(err, user){
+			if(err || !user) return res.status(400).send({message: 'Could not generate report!'});
+			Order.find({username: req.body.username, created: {$gt: req.body.start, $lt: req.body.end}}, function(err, orders){
+				if(err) return res.status(400).send({message: 'Could not generate report!'});
+				
+				//Read the sample html file for pdf format
+				var sample = fs.readFileSync(path.resolve(__dirname, '../../reportTemplates/sample.html'), 'utf8');
+				//Render PDF with the given details
+				jsreport.render({
+					template:{ content: sample,
+						helpers: 'function mult(a,b){ return a*b; }',
+						engine: 'handlebars'},
+					data: {
+						date: new Date().getDate(),
+						to: { name: user.displayName, mail: user.email},
+						items: orders
+					}
+				}).then(function(out) {
+					//if(err) return res.status(400).send({message: 'Could not render report!'})
+					console.log('in render function');
+					out.stream.pipe(res);
+				});
+			});
+		
 		});
 	
 };

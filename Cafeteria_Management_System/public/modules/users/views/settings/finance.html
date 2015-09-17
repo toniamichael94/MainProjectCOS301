@@ -39,7 +39,11 @@
                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                     <label for="username">Employee Id</label>
                     <input type="text" id="username" name="username" class="form-control" data-ng-model="username"  placeholder=EmployeeID>
-                </div>
+					<label for="startDate"> From: </label>
+					<input type="date" id="startDate" name="startDate" class="form-control" data-ng-model="startDate"/>
+					<label for="endDate"> To: </label>
+					<input type="date" id="endDate" name="endDate" class="form-control" data-ng-model="endDate"/>
+				</div>
                 <div class="text-center form-group">
                     <button type="submit" class="btn btn-large btn-primary" >Display Bill</button>
                 </div>

@@ -58,18 +58,17 @@ angular.module('users').controller('FinanceController', ['$scope', '$http', '$lo
 		
 		$scope.generateReport = function(){
 			console.log('asdasda');
-			$http.post('users/finance/generateReport',{},{responseType:'arraybuffer'}).success(function(response){
-//				document.location = response;
+			$http.post('users/finance/generateReport',{username: $scope.username, start: $scope.startDate, end: $scope.endDate},{responseType:'arraybuffer'}).success(function(response){
 				
 				var file = new Blob([response], {type: 'application/pdf'});
 				var fileURL = URL.createObjectURL(file);
 				
-				var fileName = "test.pdf";
-				var a = document.createElement("a");
+				var fileName = 'test.pdf';
+				var a = document.createElement('a');
 				document.body.appendChild(a);
-				a.style = "display: none";
+				a.setAttribute('style', 'display: none');
 
-				a.href = fileURL;
+				a.href =  fileURL;
                 a.download = fileName;
                 a.click();
 				

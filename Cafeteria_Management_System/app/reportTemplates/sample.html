@@ -272,23 +272,40 @@
                         <caption>Your Invoice</caption>
                         <thead>
                             <tr>
+								<th>Date </th>
                                 <th>Item & Description</th>
                                 <th>Quantity</th>
-                                <th>Price (GPL)</th>
+                                <th>Price</th>
+								<th>Sub-Total</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {{for items}}
+							{{#each items}}
                             <tr>
-                                <th>{{name}}</th>
+								<td>{{created}}</td>
+                                <td>{{itemName}}</td>
                                 <td>{{quantity}}</td>
                                 <td>R{{price}}</td>
+								<td>R{{mult price quantity}}</td>
                             </tr>
-                            {{/for}}
+                            {{/each}}
                         </tbody>
                     </table>
-				</div>
-			
-			 </section>
+			</div>
+			<div class="invoice-totals">
+                    <table>
+                        <caption>Totals:</caption>
+                        <tbody>
+                            <tr>
+                                <th>Total:</th>
+                                <td></td>
+                                <td>R0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+         
+                </div><!-- e: invoice totals -->
+
+			</section><!-- e: invoice financials -->
 	</body>
 </html>
