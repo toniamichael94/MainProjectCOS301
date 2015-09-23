@@ -61,4 +61,32 @@ module.exports.getJavaScriptAssets = function(includeTests) {
 module.exports.getCSSAssets = function() {
     var output = this.getGlobbedFiles(this.assets.lib.css.concat(this.assets.css), 'public/');
     return output;
+    /*Config.findOne({
+     value: them
+     }, function (err, theme) {
+     if (!theme) {
+     var output = this.getGlobbedFiles(this.assets.lib.css, 'public');
+     console.log('DEFAULT : ' + output);
+     return output;
+     /*return res.status(400).send({
+     message: 'Theme not found'
+     });*/
+    /*}
+     else{
+     var output = this.getGlobbedFiles(this.assets.lib.css.concat(this.assets.css), 'public');
+     console.log('Heeeeeeeeeeere' + output);
+     return output;
+     /*return res.status(200).send({
+     message: 'This inventory item has been found',
+     foundInventoryItem: inventory
+     });*/
+    /* }
+     });*/
+    // if(theme == 'default')
+    //     var output = this.getGlobbedFiles(this.assets.lib.css, 'public');
+    // else
+    // var output = this.getGlobbedFiles(this.assets.lib.css.concat(this.assets.css), 'public');
+
+//	return output;
 };
+
