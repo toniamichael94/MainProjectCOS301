@@ -37,13 +37,13 @@
  \hline
  \textbf{Document Title} & User Manual \\
  \hline
- \textbf{Document Identification}  & Document 0.0.5  \\
+ \textbf{Document Identification}  & Document 0.0.6  \\
  \hline
  \textbf{Author}  & Rendani Dau, Isabel Nel, Elana Kuun, Semaka Malapane, Antonia Michael \\
  \hline
  \textbf{Version} & 0.0.6 \\
  \hline
- \textbf{Document Status} & Sixth Version - edited according to feedback and added new content\\
+ \textbf{Document Status} & Sixth Version - edited according to feedback, edited cashier page/ images, added reporting and dynamic categories and updated older images\\
  \hline
  \end{tabu}
 
@@ -497,7 +497,7 @@ This page is available to the cafeteria manager under the dropdown menu on the n
 \end{figure}
 
 \subsection{Cafeteria Manager: The "Manage Menu" Page}
-This is the page where the cafeteria manager adds menu items so that these can be displayed on the menu page found under the menu tab. The items can also be updated, deleted and searched for.
+This is the page where the cafeteria manager adds menu items so that these can be displayed on the menu page found under the menu tab. The items can also be updated, deleted and searched for. The cafeteria manager can also add categories to the dynamic menu page.
 
 \begin{figure}[H]
   \centering
@@ -523,6 +523,22 @@ This is the page where the cafeteria manager adds menu items so that these can b
     \caption{The manage menu page - Cafeteria Manager can delete menu items}
 \end{figure}
 
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/beforePasta.png}
+    \caption{The menu page indicating a navigation bar of dynamically added categories. The cafeteria manager can proceed to add more categories as is shown in the successive screenshot }
+\end{figure}
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/addPasta.png}
+    \caption{The manage menu page - Cafeteria Manager can add new menu categories}
+\end{figure}
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/afterPasta.png}
+    \caption{The menu page - the added category is now displayed on the navigation pane}
+\end{figure}
+
 \subsection{Cashier: The "Process Orders" Page}
 This page is for use by the cashier. Orders that are "open" will be displayed on the page. Orders can be marked as ready, paid or collected. When the order is marked as ready, the button will disappear and the employee will be sent an email informing them to come collect their order. When the "Employee Paid" button is clicked, the cashier will choose whether it was a cash or credit purchase and the amount will be deducted accordingly from the user's account.
 
@@ -531,12 +547,7 @@ This page is for use by the cashier. Orders that are "open" will be displayed on
     \includegraphics[width=1.0\textwidth]{screenshots/cashier.png}
     \caption{The process orders page - The cashier is authorized to facilitate these transactions}
 \end{figure}
-
-\begin{figure}[H]
-  \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/cashierReady.png}
-    \caption{The process orders page - The cashier can mark orders as ready which will send a notification email to the user}
-\end{figure}
+ %make a graphic for ready button disappearing
 
 \begin{figure}[H]
   \centering
@@ -544,8 +555,43 @@ This page is for use by the cashier. Orders that are "open" will be displayed on
     \caption{The process orders page - The cashier can select the appropriate radio button as to whether the employee is paying with cash or credit.}
 \end{figure}
 
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/noPaymentMethSelected.png}
+    \caption{The process orders page - If the cashier does not select a payment method, an error message will be alerted}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/empPaid.png}
+    \caption{The process orders page - The order will be removed from the page when the cashier clicks the "Employee paid" button. Order 3 - The hotdog is now removed from the page due to this}
+\end{figure}
+
 \subsection{Financial Manager: The "View Employee Bills" Page}
-There is a field labelled "Employee Id" and it is in here where a user will type in the employee ID 
+There is a field labelled "Employee Id" and it is in here where a user will type in the employee ID of the employee whose bill the finance manager would like to view. The date ranges can also be selected here.
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/bill1.png}
+    \caption{The View Employee Bills Page - The employee ID of the employee whose bill would like to be viewed is entered in the box as shown.}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/bill2.png}
+    \caption{The View Employee Bills Page - The date ranges can be specified by using the drop down calender}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/bill3.png}
+    \caption{The View Employee Bills Page - Once the "Display Bill" button is clicked, the pdf will be dowloaded and the invoice will look as shown.}
+\end{figure}
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/bill1.png}
+    \caption{The View Employee Bills Page - The employee ID of the employee whose bill would like to be viewed is entered in the box as shown.}
+\end{figure}
 
 \section{Troubleshooting}
 \subsection{Problems with setting up the system}
