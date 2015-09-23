@@ -170,10 +170,14 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 		};
 
         $scope.checkUser = function(){
-            if(($scope.user && Authentication.user.roles[0] !== 'superuser') || ($scope.user && Authentication.user.roles[0] !== 'superuser') || (!$scope.user))
+            if((!$scope.user) || ($scope.user && (Authentication.user.roles[0] !== 'superuser' || Authentication.user.roles[0] !== 'admin')))
                 $location.path('/');
         };
 
+        $scope.checkAUser = function(){
+            if(($scope.user && Authentication.user.roles[0] !== 'admin') || ($scope.user && Authentication.user.roles[0] !== 'admin') || (!$scope.user))
+                $location.path('/');
+        };
         // Loading the items from the inventory to display in the add ingredients of the menu items being added
         $scope.loadEmployees = function(){
             $http.get('/loadEmployees').success(function(response) {

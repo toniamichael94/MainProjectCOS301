@@ -76,13 +76,8 @@ angular.module('users').controller('FinanceController', ['$scope', '$http', '$lo
 			});
 		};
 
-
-
         $scope.checkUser = function(){
-            if(!Authentication.user){
-                $location.path('/');
-            }
-            else if(Authentication.user.roles[0] !== 'finance'){
+            if((!Authentication.user) || (Authentication.user && Authentication.user.roles[0] !== 'finance')){
                 $location.path('/');
             }
         };

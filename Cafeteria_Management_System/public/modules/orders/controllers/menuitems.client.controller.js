@@ -484,6 +484,7 @@ $scope.closeAlert = function(index) {
 
         //Filter Menu items for search bar
         $scope.searchBar = function (row) {
+
             var itemN = $scope.menuNameSearch.toLowerCase();
             if ((angular.lowercase(row.itemName)).contains(itemN)) {
                 return (angular.lowercase(row.itemName));

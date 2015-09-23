@@ -18,6 +18,10 @@ angular.module('orders').config(['$stateProvider',
 			url: '/menu',
 			templateUrl: 'modules/orders/views/menu/menu.html'
 		}).
+        state('notifications', {
+            url: '/notifications',
+            templateUrl: 'modules/orders/views/placedorders/notifications.html'
+        }).
 		state('menuTramazini', {
 			url: '/menu/tramezzinis',
 			templateUrl: 'modules/orders/views/menu/menu-Tramezzinis.html'

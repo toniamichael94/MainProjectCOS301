@@ -60,7 +60,9 @@
 					<li>
 						<a href="/#!/settings/profile"> Edit Profile</a>
 					</li>
-
+                    <li>
+                        <a href="/#!/notifications"> Notifications</a>
+                    </li>
                     <li data-ng-show="authentication.user.roles[0] === 'superuser'">
                         <a href="/#!/settings/adminSettings"> Administrative settings</a>
                     </li>
@@ -68,7 +70,7 @@
                         <a href="/#!/settings/brandingSettings"> Branding settings</a>
                     </li>
                     <li data-ng-show="authentication.user.roles[0] === 'admin'">
-                        <a href="/#!/settings/adminSettingsAdminRole"> Administrative settings</a>
+                        <a href="/#!/settings/adminSettings"> Administrative settings</a>
                     </li>
                     <li data-ng-show="authentication.user.roles[0] === 'admin'">
                         <a href="/#!/settings/brandingSettings"> Branding settings</a>
@@ -90,6 +92,7 @@
 					<li data-ng-show="authentication.user.provider === 'local'">
 						<a href="/#!/settings/password"> Change Password</a>
 					</li>
+
 					<li class="divider"></li>
 					<li>
 						<a data-ng-href="/auth/signout" data-ng-click="signout()">Signout</a>

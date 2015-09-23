@@ -21,7 +21,7 @@
 
 
     <h4>Placed Orders:</h4>
-	<div data-ng-init="getOrders()" >
+	<div data-ng-init="getOrders(); checkUser()" >
 		<div class="list-group-item clearfix " ng-repeat="order in orderNums track by $index">
 			<b>   <div class="text-center ">
 				<span  class="text-success ">Order number: {{order.orderNum}} </span>  

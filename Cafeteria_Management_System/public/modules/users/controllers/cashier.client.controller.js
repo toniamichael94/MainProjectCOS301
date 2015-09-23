@@ -70,10 +70,10 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
 				alert(response.message);
             });
         };
-		
+
         $scope.checkUser = function(){
-            if((($scope.user && Authentication.user.roles[0] !== 'cashier') || (!$scope.user)) && $location.path('/#!/cashier'))
+            if((Authentication.user && Authentication.user.roles[0] !== 'cashier') || (!Authentication.user))
                 $location.path('/');
-        }
+        };
 	}
 ]);
