@@ -4,6 +4,9 @@ module.exports = function(app) {
 	var users = require('../../app/controllers/users.server.controller');
 	var menuItems = require('../../app/controllers/menuItems.server.controller');
 
+	//Reporting for menu Items
+		app.route('/orders/generatePopularReport').post(menuItems.generatePopularReport);
+
 	//Display Menu Items
 	app.route('/loadMenuItems').get(menuItems.loadMenuItems);
 	app.route('/loadMenuCategories').get(menuItems.loadMenuCategories);

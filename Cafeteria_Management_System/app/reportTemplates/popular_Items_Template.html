@@ -1,0 +1,101 @@
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<style>
+    .toolbar {
+                padding: 20px;
+            }
+
+            body {
+                padding: 20px;
+            }
+
+            .btn {
+                background-color: #0078e7;
+                color: white;
+                border: 0 none rgba(0, 0, 0, 0);
+                border-radius: 2px;
+                padding: 5px;
+    }
+    @media print
+    {
+        .no-print, .no-print *
+        {
+            display: none !important;
+        }
+    }
+</style>
+</head>
+<body style="height:100%">
+<div class="no-print">
+    <input class='btn' type='button' value='print' id='printCommand'/>
+</div>
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<script>
+
+$(function () {
+
+    $("#printCommand").click(function() {
+       $("#container").find(".highcharts-button").hide();
+       var printTemplate = {
+          content: $("#container").html(),
+          recipe: "phantom-pdf",
+          phantom: {
+              printDelay: 1000
+          }
+       };
+       jsreport.render(printTemplate);
+       $("#container").find(".highcharts-button").show();
+
+    });
+
+   var data =  {{:~toJSON(#data)}};
+    $('#container').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Basic drilldown'
+        },
+        xAxis: {
+            type: 'category'
+        },
+
+        legend: {
+            enabled: false
+        },
+
+        plotOptions: {
+            series: {
+                borderWidth: 0,
+                dataLabels: {
+                    enabled: true
+                }
+            }
+        },
+
+        series: [{
+            name: 'Things',
+            colorByPoint: true,
+            data: [{
+                name: 'Animals',
+                y: 5,
+                drilldown: 'animals'
+            }, {
+                name: 'Fruits',
+                y: 2,
+                drilldown: 'fruits'
+            }, {
+                name: 'Cars',
+                y: 4,
+                drilldown: 'cars'
+            }]
+        }],
+        drilldown: {
+            series: data.items
+        }
+    });
+});
+</script>
+</body>
+</html>

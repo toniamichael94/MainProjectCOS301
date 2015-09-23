@@ -754,6 +754,32 @@ $scope.closeAlert = function(index) {
 		};
 
 
+		/*
+			Reporting for menuItems
+		*/
+
+		$scope.generatePopularReport = function(){
+			console.log('Generate report');
+			$http.post('orders/generatePopularReport',{numItems: $scope.numMenuItems, start: $scope.startDate, end: $scope.endDate},{responseType:'arraybuffer'}).success(function(response){
+
+
+			/*	var file = new Blob([response], {type: 'application/pdf'});
+				var fileURL = URL.createObjectURL(file);
+
+				var fileName = 'test.pdf';
+				var a = document.createElement('a');
+				document.body.appendChild(a);
+				a.setAttribute('style', 'display: none');
+
+				a.href =  fileURL;
+								a.download = fileName;
+								a.click();*/
+
+			}).error(function(response){
+				console.log(response);
+			});
+		};
+
 
 		$scope.addToPlate = function(itemName){
 			var _price;
@@ -807,7 +833,6 @@ $scope.closeAlert = function(index) {
         };
 	}
 ]);
-
 
 
 /*Add ingredients button*/

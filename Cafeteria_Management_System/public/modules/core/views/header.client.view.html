@@ -83,6 +83,10 @@
 					<li data-ng-show="authentication.user.roles[0] === 'cafeteriaManager'">
                         <a href="/#!/manageInventory"> Manage Inventory </a>
                     </li>
+					<!--View statistics-->
+					<li data-ng-show="authentication.user.roles[0]=== 'cafeteriaManager'">
+						<a href = "/#!/statistics">Statistics</a>
+					</li>
                     <li data-ng-show="authentication.user.roles[0] === 'cashier'">
                         <a href="/#!/cashier"> Process Orders </a>
                     </li>

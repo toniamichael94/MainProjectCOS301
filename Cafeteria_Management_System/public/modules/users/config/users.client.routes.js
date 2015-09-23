@@ -65,6 +65,10 @@ angular.module('users').config(['$stateProvider',
             url: '/manageCafeteria',
             templateUrl: 'modules/orders/views/menu/manageCafeteria.html'
         }).
+		state('statistics', {
+            url: '/statistics',
+            templateUrl: 'modules/orders/views/menu/statistics.html'
+        }).
         state('cashier', {
             url: '/cashier',
             templateUrl: 'modules/users/views/settings/cashier.html'
