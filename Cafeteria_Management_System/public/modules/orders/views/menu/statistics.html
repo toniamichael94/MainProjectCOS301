@@ -29,11 +29,15 @@
 			</div>
 				<!--Alert box end-->
 			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2"  data-ng-controller="MenuItemsController">
-				<form name="addMenuCatagoryForm" data-ng-submit="createMenuCatagory(addMenuCatagoryForm.$valid)" class="signin form-horizontal" autocomplete="off">
+				<form name="popularReportForm" data-ng-submit="generatePopularReport()" class="signin form-horizontal" autocomplete="off">
 					<fieldset>
 						<div class="form-group">
 							<label for="menuCatagory">Number of menu items</label>
-							<input type="number" id="numMenuItems" name="numPopularMenuItems" class="form-control" data-ng-model="numPopularMenuItems">
+							<input type="number" id="numMenuItems" name="numPopularMenuItems" class="form-control" data-ng-model="numMenuItems">
+							<label for="startDate"> From: </label>
+							<input type="date" id="startDate" name="startDate" class="form-control" data-ng-model="startDate"/>
+							<label for="endDate"> To: </label>
+							<input type="date" id="endDate" name="endDate" class="form-control" data-ng-model="endDate"/>
 						</div>  <div class=" text-center form-group">
 							<button type = "submit" style="width:200px" class = "btn btn-large btn-primary">Submit</button>
 							<!-- Show error message or sucess message for adding a menu category--></div>

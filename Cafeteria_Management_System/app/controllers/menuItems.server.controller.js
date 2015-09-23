@@ -298,6 +298,15 @@ exports.uploadImage = function(req, res){
 		});
 	});
 };
+
+/*
+Reporting for menu items
+*/
+
+exports.generatePopularReport = function(req,res)
+{
+ 	console.log('Generate report');
+};
 /*
 exports.uploadImage = function(req, res){
     var form = new formidable.IncomingForm();
