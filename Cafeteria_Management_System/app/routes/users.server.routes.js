@@ -21,6 +21,7 @@ module.exports = function(app) {
     app.route('/users/superuserSetSystemWideLimit').post(users.setSystemWideLimit);
 
 	app.route('/users/superuserSetCanteenName').post(users.setCanteenName);
+	app.route('/users/superuserSetThemeName').post(users.setThemeName);
 	app.route('/users/superuserUploadImage').post(users.uploadImage);
 
     //loading employees from db
