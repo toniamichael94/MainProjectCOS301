@@ -244,6 +244,31 @@ exports.setCanteenName = function(req, res){
 };
 
 /*
+ * Set Theme  Name
+ */
+exports.setThemeName = function(req, res){
+    console.log('Theme name ' + req.body.value);
+    Config.update({name: 'Theme name'}, {value: req.body.value}, function(err, numAffected){
+        if(err) return res.status(400).send({
+            message: errorHandler.getErrorMessage(err)
+        });
+        else if (numAffected < 1){
+            var config = new Config();
+            config.name = 'Theme name';
+            config.value = req.body.value;
+
+            config.save(function(err){
+                if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
+                res.status(200).send({message: 'Theme has been successfully changed.'});
+            });
+        }
+        else{
+            res.status(200).send({message: 'Theme has been successfully changed.'});
+        }
+    });
+};
+
+/*
  * Upload main image for branding
  * Last Edited by {Rendani Dau}
  */

@@ -169,8 +169,24 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
                 }
 		};
 
+        //Set theme name
+        $scope.setCanteenName = function(isValid){
+            if(isValid){
+                $scope.success = $scope.error = null;
+                $scope.successFour = $scope.errorFour = null;
+
+                var reqObj = {name: 'Theme name', value: $scope.themeName};
+                //console.log($scope.canteenName);
+                $http.post('users/superuserSetThemeName', reqObj).success(function (response) {
+                    $scope.successFour = response.message;
+                }).error(function (response) {
+                    $scope.errorFour = response.message;
+                });
+            }
+        };
+
         $scope.checkUser = function(){
-            if((!$scope.user) || ($scope.user && (Authentication.user.roles[0] !== 'superuser' || Authentication.user.roles[0] !== 'admin')))
+            if((!$scope.user) || ($scope.user && (Authentication.user.roles[0] !== 'superuser' || Authentication.user.roles[0] !== 'superuser')))
                 $location.path('/');
         };
 
