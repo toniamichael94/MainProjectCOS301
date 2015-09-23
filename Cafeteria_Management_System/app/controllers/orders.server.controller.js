@@ -18,7 +18,6 @@ var mongoose = require('mongoose'),
 /********************************************
  *Added by {Rendani Dau}
  */
- 
  exports.placeOrder = function(req, res){
 	if(req.body.plate.length > 0){
 		var order = req.body.plate;
@@ -32,10 +31,6 @@ var mongoose = require('mongoose'),
 		
 		Order.find({}, function(err, result){
 			var orderNum = 1;
-				
-			
-			
-				
 			if(result.length !== 0)
 			{
 				//Reset the order numbers if it is the next day
