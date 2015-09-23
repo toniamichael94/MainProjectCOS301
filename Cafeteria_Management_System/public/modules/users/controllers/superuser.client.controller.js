@@ -170,7 +170,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 		};
 
         //Set theme name
-        $scope.setCanteenName = function(isValid){
+        $scope.setThemeName = function(isValid){
             if(isValid){
                 $scope.success = $scope.error = null;
                 $scope.successFour = $scope.errorFour = null;
