@@ -66,6 +66,41 @@
                 </form>
             </div>
         </div>
+
+        <!--theme stuff-->
+        <div class="list-group-item clearfix">
+            <!--ALERT BOX FOR HELP FIX alert box-->
+            <script type="text/ng-template" id="alert.html">
+                <div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+                    <div ng-transclude></div>
+                </div>
+            </script>
+
+            <div  data-ng-controller="superuserController">
+                <h4> Set theme<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
+                <alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert19.msg}}</alert>
+            </div>
+
+            <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
+                <form name="setThemeForm" data-ng-submit="setTheme(setThemeForm.$valid)" class="signin form-horizontal" autocomplete="off">
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="themeName">Set theme name</label>
+                            <input type="text" id="themeName" name="themeName" data-ng-model="themeName" class="form-control" min = 0>
+                        </div>
+                        <div class="text-center form-group">
+                            <button type="submit"  style="width:220px" class="btn btn-large btn-primary" onclick= "location.reload(true)">Set Theme Name</button>
+                        </div>
+                        <div data-ng-show="successFour" class="text-center text-success">
+                            <strong>{{successFour}}</strong>
+                        </div>
+                        <div data-ng-show="errorFour" class="text-center text-danger">
+                            <strong data-ng-bind="errorFour">{{errorFour}}</strong>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
         <!--&lt;!&ndash; upload branding image &ndash;&gt;-->
         <div class="list-group-item clearfix">
 
