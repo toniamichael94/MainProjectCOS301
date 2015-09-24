@@ -13,7 +13,7 @@
 %\documentclass[12pt]{article}
 \title{ \rule{\textwidth}{1pt}  \\ \Huge User Manual \\ 
 	\Large Cafeteria Management System: Resolve Solution Partners (Pty) Limited \\
-	\small Client: Gareth Botha and Jaco Pieters}
+	\small Client: Gareth Botha and Jaco Pieterse}
 
 \author{
          \underline{T-RISE}\\
@@ -72,7 +72,7 @@
  0.0.5& 28 August 2015 &  Fifth draft containing  & Rendani Dau, \\ & & screenshots of the & Elana Kuun, \\ & & of different page & Semaka Malapane, \\ & & and their functionality &  Antonia Michael \\ & & & Isabel Nel \\   [1ex]  
   \hline 
  & & & \\
- 0.0.6& 22 Septemer &  Sixth draft containing  & Rendani Dau, \\ & & edited according to & Elana Kuun, \\ & & feedback given & Semaka Malapane, \\ & & and add new content &  Antonia Michael \\ & & & Isabel Nel \\   [1ex]  
+ 0.0.6& 22 September &  Sixth draft containing  & Rendani Dau, \\ & & edited according to & Elana Kuun, \\ & & feedback given & Semaka Malapane, \\ & & and add new content &  Antonia Michael \\ & & & Isabel Nel \\   [1ex]  
 \hline
  \end{tabular}
 \end{table}
@@ -104,17 +104,22 @@ The Cafeteria Management System is a system designed to assist users to order fo
 
 %%--------------------------------------SYSTEM CONFIGURATION ----------------------------------------
 \section{System Configuration}
-The system requires a Windows/Unix based host to run the server. This host must have NodeJS, MongoDB, Express server, Bower and grunt  installed (the installation of these technologies will be discussed later in the document). In addition, the host must be connected to the internet in order to allow any required dependencies to be installed and set up for the operating system environment. The configuration of the server requires an active email account to facilitate communication between the system and end users. \\ 
+The system requires a Windows/Unix based host to run the server. This host must have the associated technologies installed (the installation of these technologies will be discussed below). The host must be connected to the internet in order to allow any required dependencies to be installed and set up for the operating system environment. The configuration of the server requires an active email account to facilitate communication between the system and end users. \\ 
 \\
-End users will only require a PC equipped with a web browser such as Mozilla, Chrome or Internet Explorer, as well as an active internet connection.
+End users will only require a PC equipped with a web browser such as Mozilla, Chrome or Internet Explorer, as well as an active internet connection. The types of data that will communicated and stored will be data of the NoSQL database MongoDB. The menu items that the cafeteria manager will add to the menu, will be stored in the database, to be communicated/displayed on the menu page. The inventory items that these menu items entail will be stored too. The categories that can be added to the menu by the cafeteria manager will also be stored in the database in order to populate the navigation bar, the actual dynamic pages and various other places in which these are displayed. The user's sign up informtation will also be stored and will be communicated on the profile page of the user. The branding information such as menu item images, the cover image, the theme, and the canteen name will also be  stored to be communicated on various pages. Other settings that the superuser can configure, such as the system limit and the roles of the users will be stored and used for determining the privileges associated with the various roles and the checks done on the users' personal spending limits.
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/ServerClients.png}
+    \caption{Overview of System - Servers and Clients} 
+\end{figure}
 
 %%--------------------------------------INSTALLATION  ----------------------------------------
 \section{Installation}
 
 %%------------------------PREREQUISITES ----------------------------
 \subsection{Prerequisites}
-For the programmer, who will maintain the code: \\
-The Cafeteria Management System requires NodeJS and MongoDB to run. These are free and open source software and can be obtained from the following sites:\\
+For the programmer, who will maintain the code: \\ \\
+\\The  Cafeteria Management System must have the associated technologies, NodeJS, MongoDB, AngularJs, Express, Bower and grunt installed on the host (the installation of these technologies will be discussed below). These are free and open source software and can be obtained from the following sites:\\
 \url{https://nodejs.org/download/} \\
 \url{https://www.mongodb.org/downloads} \\
 The applications are available for both Windows and Unix environments and include setup guides on their respective web pages.\\
@@ -364,7 +369,7 @@ If a menu item is not in stock it will be written in red on the menu item that i
 \\
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/searchCheese.png}
+    \includegraphics[width=1.0\textwidth]{screenshots/beforePasta.png}
     \caption{The menu page from which a user can order food} 
 \end{figure}
 On the menu page there is also a breadcrumb which indicates the different meal categories to make the search more efficient. There is also a search bar on all these pages. 
@@ -523,7 +528,7 @@ This is the page where the cafeteria manager adds menu items so that these can b
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/deleteHam.png}
+    \includegraphics[width=1.0\textwidth]{screenshots/deleteMenu.png}
     \caption{The manage menu page - Cafeteria Manager can delete menu items}
 \end{figure}
 
@@ -591,11 +596,7 @@ There is a field labelled "Employee Id" and it is in here where a user will type
     \includegraphics[width=1.0\textwidth]{screenshots/bill3.png}
     \caption{The View Employee Bills Page - Once the "Display Bill" button is clicked, the pdf will be dowloaded and the invoice will look as shown.}
 \end{figure}
-\begin{figure}[H]
-  \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/bill1.png}
-    \caption{The View Employee Bills Page - The employee ID of the employee whose bill would like to be viewed is entered in the box as shown.}
-\end{figure}
+
 
 \section{Troubleshooting}
 \subsection{Problems with setting up the system}
