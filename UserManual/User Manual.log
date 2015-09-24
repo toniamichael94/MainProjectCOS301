@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.23)  24 SEP 2015 15:17
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.23)  24 SEP 2015 15:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -371,7 +371,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 107--114
 
  []
 
-[5]
+[5] [6]
 Underfull \hbox (badness 10000) in paragraph at lines 121--126
 
  []
@@ -381,12 +381,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 121--126
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 121--126
-
- []
-
-[6 <./screenshots/ServerClients.png>]
+[7 <./screenshots/ServerClients.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 133--142
 
  []
@@ -412,15 +407,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 151--154
 
  []
 
-[7]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 155.
 
- (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 155.
-
+ [8]
 Underfull \hbox (badness 10000) in paragraph at lines 174--177
 
  []
@@ -430,13 +424,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 174--177
 
  []
 
-<screenshots/MongoDB.png, id=200, 509.65407pt x 257.46187pt>
+<screenshots/MongoDB.png, id=205, 509.65407pt x 257.46187pt>
 File: screenshots/MongoDB.png Graphic file (type png)
 
 <use screenshots/MongoDB.png>
 Package pdftex.def Info: screenshots/MongoDB.png used on input line 180.
 (pdftex.def)             Requested size: 390.0pt x 197.02446pt.
- [8]
+
 Underfull \hbox (badness 10000) in paragraph at lines 184--185
 
  []
@@ -452,12 +446,12 @@ File: screenshots/gruntOutput.png Graphic file (type png)
 <use screenshots/gruntOutput.png>
 Package pdftex.def Info: screenshots/gruntOutput.png used on input line 192.
 (pdftex.def)             Requested size: 390.0pt x 224.92075pt.
-
+ [9 <./screenshots/MongoDB.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 196--198
 
  []
 
-[9 <./screenshots/MongoDB.png> <./screenshots/gruntOutput.png>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 203--204
 
  []
@@ -467,7 +461,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 207--209
 
  []
 
-
+[10 <./screenshots/gruntOutput.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 210--213
 
  []
@@ -482,7 +476,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 218--220
 
  []
 
-[10]
+
 Underfull \hbox (badness 10000) in paragraph at lines 221--222
 
  []
@@ -493,43 +487,41 @@ File: screenshots/signUp.PNG Graphic file (type png)
 <use screenshots/signUp.PNG>
 Package pdftex.def Info: screenshots/signUp.PNG used on input line 230.
 (pdftex.def)             Requested size: 390.0pt x 115.48132pt.
-
-<screenshots/signUpPage.PNG, id=221, 788.9475pt x 472.01344pt>
+ [11]
+<screenshots/signUpPage.PNG, id=225, 788.9475pt x 472.01344pt>
 File: screenshots/signUpPage.PNG Graphic file (type png)
 
 <use screenshots/signUpPage.PNG>
 Package pdftex.def Info: screenshots/signUpPage.PNG used on input line 238.
 (pdftex.def)             Requested size: 390.0pt x 233.32686pt.
- [11 <./screenshots/signUp.PNG>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 242--245
 
  []
 
-
+[12 <./screenshots/signUp.PNG> <./screenshots/signUpPage.PNG>]
 Underfull \hbox (badness 10000) in paragraph at lines 246--247
 
  []
 
-<screenshots/signIn.png, id=228, 1026.83624pt x 300.3722pt>
+<screenshots/signIn.png, id=235, 1026.83624pt x 300.3722pt>
 File: screenshots/signIn.png Graphic file (type png)
 
 <use screenshots/signIn.png>
 Package pdftex.def Info: screenshots/signIn.png used on input line 256.
 (pdftex.def)             Requested size: 390.0pt x 114.08302pt.
- [12 <./screenshots/signUpPage.PNG>]
 File: screenshots/signIn.png Graphic file (type png)
-
-<use screenshots/signIn.png>
+ <use screenshots/signIn.png>
 Package pdftex.def Info: screenshots/signIn.png used on input line 264.
 (pdftex.def)             Requested size: 390.0pt x 114.08302pt.
-
-<screenshots/ForgotPass.png, id=236, 1606.0pt x 903.375pt>
+ [13 <./screenshots/signIn.png>] <screenshots/ForgotPass.png, id=243, 1606.0pt 
+x 903.375pt>
 File: screenshots/ForgotPass.png Graphic file (type png)
 
 <use screenshots/ForgotPass.png>
 Package pdftex.def Info: screenshots/ForgotPass.png used on input line 273.
 (pdftex.def)             Requested size: 390.0pt x 219.37833pt.
- [13 <./screenshots/signIn.png>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 277--278
 
  []
@@ -854,7 +846,7 @@ Here is how much of TeX's memory you used:
  10317 multiletter control sequences out of 15000+600000
  10230 words of font info for 36 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 36i,13n,38p,1221b,504s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,13n,38p,2024b,504s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texliv
@@ -862,7 +854,7 @@ e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on "User Manual.pdf" (42 pages, 7054438 bytes).
+Output written on "User Manual.pdf" (42 pages, 7053664 bytes).
 PDF statistics:
  510 PDF objects out of 1000 (max. 8388607)
  403 compressed objects within 5 object streams
