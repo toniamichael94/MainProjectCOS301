@@ -7,53 +7,85 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		$scope.alertUser = false; // used for user alerts - help page...
 		$scope.viewImage = true;
 		$scope.menuItems = [];
-		$scope.selectedCategory = [];
+		$scope.selectedCategory = JSON.stringify('all');
         $scope.view = true;
 
-//filter the categories
-		$scope.filterCat = function(catName){
-		//	console.log('cat');
-		//	$scope.selectedCategory = catName;
-				$cookies.selectedCategory = JSON.stringify(catName);
-				$scope.selectedCategory = JSON.parse($cookies.selectedCategory);
-			$http.get('/loadMenuItems').success(function(response) {
-			var count = 0;
-			//console.log(response.message)
-			var newArray = [];
-			for(var cat in response.message){
-					if(response.message[cat].category[0].localeCompare($scope.selectedCategory) === 0) {
-						newArray[count] = response.message[cat];
-						count = count+1;
+				//filter the categories
+			$scope.filterCat = function(catName){
+						$cookies.selectedCategory = JSON.stringify(catName);
+						$scope.selectedCategory = JSON.parse($cookies.selectedCategory);
 
-					}
+							if(!$scope.selectedCategory){
+								// do nothing
+							}else if($scope.selectedCategory.localeCompare('all') === 0){
+									$http.get('/loadMenuItems').success(function(response){
+									var displayItems = response.message;
+
+									for(var item in displayItems){
+										if(displayItems[item].itemName.length >1)
+											displayItems[item].itemName = displayItems[item].itemName.charAt(0).toUpperCase() + displayItems[item].itemName.slice(1);
+									}
+
+									$scope.menuItems = response.message;
+									var inStock = true;
+
+									for(var itemName in response.message){
+										$scope.menuItems[itemName].stock = true;
+										// now check if the inventory items are indeed available
+										if(response.message[itemName].itemInStock === false){ // then item is marked as out of stock by cafeteria manager for reasons other than inventory
+													$scope.menuItems[itemName].stock = false;
+										}else{ // check the inventory if all items are available
+													$scope.menuItems[itemName].stock= $scope.checkStock(response.message[itemName]);
+										}
+									}
+								}).error(function(response) {
+									$scope.menuItems = 'Error loading menu Items';
+								});
+
+								if($location.url().localeCompare('/menu-item') === 0){
+									$location.path('/menu');
+								}
+
+							}else{
+								$http.get('/loadMenuItems').success(function(response) {
+								var count = 0;
+								var newArray = [];
+								for(var cat in response.message){
+										if(response.message[cat].category[0].localeCompare($scope.selectedCategory) === 0) {
+											newArray[count] = response.message[cat];
+											count = count+1;
+										}
+								}
+								$scope.menuItems = newArray;
+
+								if($location.url().localeCompare('/menu-item') === 0){
+									// then you are already in this directory...
+								}else{
+								$location.path('/menu-item'); // else change directories....
+							}
+								var inStock = true;
+
+								for(var itemName in newArray){
+									$scope.menuItems[itemName].stock = true;
+									// now check if the inventory items are indeed available
+									if(newArray[itemName].itemInStock === false){ // then item is marked as out of stock by cafeteria manager for reasons other than inventory
+												$scope.menuItems[itemName].stock = false;
+									}else{ // check the inventory if all items are available
+												$scope.menuItems[itemName].stock= $scope.checkStock(newArray[itemName]);
+									}
+								}
+							}).error(function(response) {
+								$scope.menuCatagory = 'Error loading menu Categories';
+							});
+						}
+
+					};
+
+			if($cookies.selectedCategory){
+					$scope.selectedCategory = JSON.parse($cookies.selectedCategory);
+					$scope.filterCat($scope.selectedCategory);
 			}
-			$scope.menuItems = newArray;
 
-			if($location.url().localeCompare('/menu-item') === 0){
-				// then you are already in this directory...
-			}else{
-			$location.path('/menu-item'); // else change directories....
-		}
-			var inStock = true;
-
-			for(var itemName in newArray){
-				$scope.menuItems[itemName].stock = true;
-				// now check if the inventory items are indeed available
-				if(newArray[itemName].itemInStock === false){ // then item is marked as out of stock by cafeteria manager for reasons other than inventory
-							$scope.menuItems[itemName].stock = false;
-				}else{ // check the inventory if all items are available
-							$scope.menuItems[itemName].stock= $scope.checkStock(newArray[itemName]);
-				}
-			}
-		}).error(function(response) {
-			$scope.menuCatagory = 'Error loading menu Categories';
-		});
-	};
-
-	/*if($cookies.selectedCategory){
-		$scope.selectedCategory = JSON.parse($cookies.selectedCategory);
-		$scope.filterCat($scope.selectedCategory);
-	}*/
 
 
 //Help alert function when user wants help variable set to true
@@ -599,6 +631,8 @@ $scope.closeAlert = function(index) {
 
 		//get menu items from database on the server side
 		$scope.loadMenuItems = function(){
+			$cookies.selectedCategory = JSON.stringify('all');
+			$scope.selectedCategory = JSON.parse($cookies.selectedCategory);
 			$http.get('/loadMenuItems').success(function(response) {
 
 		  //console.log(response.message); // testing
@@ -613,7 +647,6 @@ $scope.closeAlert = function(index) {
 
 
 			$scope.menuItems = response.message;
-
 			var inStock = true;
 			//var notInStock = 'Not in stock';
 
@@ -630,6 +663,7 @@ $scope.closeAlert = function(index) {
 			$scope.menuItems = 'Error loading menu Items';
 		});
 	};
+
 
 	/*loadMenuCategories
 	*/
