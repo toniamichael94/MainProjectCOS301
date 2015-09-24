@@ -7,12 +7,14 @@
 \usepackage{tabu}
 \usepackage[tt]{titlepic}
 \renewcommand\thesection{\arabic{section}}
-%% Title Page 
+
+%% ------------------------- Title Page ----------------------------
 \titlepic{ \centering\includegraphics[width=0.7\textwidth]{../images/dddd.png} }
 %\documentclass[12pt]{article}
-\title{\Huge User Manual \\ 
-	Cafeteria Management System: Resolve Solution Partners (Pty) Limited }
-\title{\Small Client: Gareth Botha and Jaco Pieterse }
+\title{ \rule{\textwidth}{1pt}  \\ \Huge User Manual \\ 
+	\Large Cafeteria Management System: Resolve Solution Partners (Pty) Limited \\
+	\small Client: Gareth Botha and Jaco Pieters}
+
 \author{
          \underline{T-RISE}\\
           Rendani Dau (13381467) \\
@@ -20,18 +22,20 @@
 	Semaka Malapane (13081129) \\
 	Antonia Michael (13014171) \\
 	Isabel Nel (13070305) \\ \\
-	https://github.com/toniamichael94/MainProjectCOS301}
+	https://github.com/toniamichael94/MainProjectCOS301 \\ }
 
-\date{\today}
+\date{\today \\ \rule{\textwidth}{1pt}}
+
 
 \begin{document}
 \maketitle
 \break
 
-%% Make table of contents
+%%------------------- Make table of contents-------------------
 \tableofcontents
 \break
 
+%%-----------------------------Version table-------------------
 
  \begin{tabu} to 0.8\textwidth { | X[l] | X[l] | }
  \hline
@@ -198,11 +202,11 @@ Access to the Cafeteria Management System is through a standard web browser. Dif
 When the CMS is started initially with an empty database there will be no users in the database and this includes no administrative users.  \\
 Thus, to generate the administrative users, on the first startup of the system, one should navigate to the sign in page and sign in with empty credentials. If the system is started for the first time with an empty database, on sign in with empty credentials (proceeding to submit the signin form without filling in username or password) administrative users will be created. \\
 
-\textbf{The system will have a super user:} \\
+\textbf{The system will have a Super User:} \\
 Employee ID: SuperUser \\
 Password: SuperUser \\
 
-\textbf{And the system will also have an admin user:} \\
+\textbf{And the system will also have an Admin User:} \\
 Employee ID: AdminUser \\
 Password: AdminUser \\
 
