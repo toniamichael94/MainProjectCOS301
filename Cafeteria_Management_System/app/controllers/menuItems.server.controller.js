@@ -334,20 +334,50 @@ exports.generatePopularReport = function(req,res)
 		if(err) return res.status(400).send({message: 'Could not generate report!'});
 
 		var items = new Array();
+		var itemNames = new Array();
+		var itemQuantity = new Array();
 
-		//Initialise the array
 		for(var i = 0; i < orders.length; i++)
 		{
 			items[orders[i].itemName] = 0;
 		}
 
+		//Store the item name and quantity in a parallel array
 		for(var i = 0; i < orders.length; i++)
 		{
-			items[orders[i].itemName] = items[orders[i].itemName]+orders[i].quantity;
+			items[orders[i].itemName] = items[orders[i].itemName] + orders[i].quantity;
 		}
 
-		console.log(items);
+		var j = 0;
+		for (var key in items)
+		{
+			itemNames[j] = key;
+			itemQuantity[j] = items[key];
+			j++;
+		}
 
+		var max = itemQuantity[0];
+		for(var i = 0; i < itemNames.length-1; i++)
+		{
+			for(var j = i+1; j < itemNames.length; j++)
+			{console.log('here');
+				if(itemQuantity[j] > itemQuantity[i])
+				{
+					console.log(itemNames[j]+": "+itemQuantity[j]);
+					console.log(itemNames[i]+": "+itemQuantity[i]);
+					var numTemp = itemQuantity[i];
+					var nameTemp = itemNames[i];
+
+					itemQuantity[i] = itemQuantity[j];
+					itemNames[i] = itemNames[j];
+
+					itemQuantity[j] = numTemp;
+					itemNames[j] = nameTemp;
+				}
+			}
+		}
+
+	
 
 /*
 		//Read the sample html file for pdf format
