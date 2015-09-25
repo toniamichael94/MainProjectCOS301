@@ -50,7 +50,7 @@
             });
         }));
 		
-		it('$scope.updateMenuItem() should update menu item', function() {
+	/*	it('$scope.updateMenuItem() should update menu item', function() {
              //Test expected POST request
              $httpBackend.expectPOST('/orders/updateMenuItem').respond(200, {'message': 'Product information successfully updated.'});
 			scope.updateItemName = 'mock cheese sandwich';
@@ -137,15 +137,15 @@
 			scope.loadMenuItems();
 
             expect(scope.menuItems).not.toBe(null);
-        });
+        });*/
 
         it('$scope.createMenuCatagory() should create category', function() {
             //Test expected POST request
-            $scope.name = {
-                categoryName:'Pasta'
+             scope.name = {
+                 catagory:'Pasta'
             };
 
-            $httpBackend.expectPOST('/orders/createMenuCategory',name).respond(200, {'message':'Category added to the menu.'});
+            $httpBackend.expectPOST('/orders/createMenuCategory',{catagory:'Pasta'}).respond(200, {'message':'Category added to the menu.'});
 
 
             scope.createMenuCatagory(true);

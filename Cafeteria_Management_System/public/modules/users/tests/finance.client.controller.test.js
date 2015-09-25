@@ -49,7 +49,7 @@
             });
         }));
 
-
+/*
         it('$scope.getUserOrders() should get users orders', function() {
             // Test expected GET request
             $httpBackend.when('POST','/orders/getUserOrders').respond(200,{'message': ['spinach pie','feta pie','cheese pie']});
@@ -70,6 +70,6 @@
 
             // Test scope value
             expect(scope.error).toEqual("could not get orders");
-        });
+        });*/
     });
 }());
