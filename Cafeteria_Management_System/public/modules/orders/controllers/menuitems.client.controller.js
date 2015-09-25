@@ -676,7 +676,7 @@ $scope.closeAlert = function(index) {
 	}).error(function(response) {
 		$scope.menuItems = 'Error loading menu Items';
 	});
-};
+	};
 
 
 
@@ -715,9 +715,9 @@ $scope.closeAlert = function(index) {
 		/*
 		Delete a menu item
 		*/
-		$scope.deleteMenuItemName = '';
-
-		$scope.deleteMenuItem = function(menuItemName)
+		//$scope.deleteMenuItemName = '';
+		//$scope.successMessage = $scope.errorMessage = '';
+		$scope.deleteMenuItem = function()
 		{
 			$scope.successFind = null;
 			$scope.menuNameSearch=$scope.menuNameSearch.toLowerCase();

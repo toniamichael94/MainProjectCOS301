@@ -162,11 +162,11 @@
 
             expect(scope.menuItems).toEqual('Error loading menu Items');
         });
-
+		
 
         it('$scope.deleteMenuItem() should delete menu item', function() {
-             //Test expected GET request
-            $httpBackend.expectGET('/orders/deleteMenuItem').respond(200, {'message': 'Item deleted'});
+             //Test expected POST request
+			$httpBackend.expectPOST('/orders/deleteMenuItem',{itemName: 'mock search'}).respond(200, {'message': 'Item deleted'});
             scope.menuNameSearch = 'mock search';
             scope.deleteMenuItem();
 
@@ -175,14 +175,14 @@
 
         it('$scope.deleteMenuItem() should NOT delete menu item', function() {
              //Test expected GET request
-            $httpBackend.expectGET('/orders/deleteMenuItem').respond(400, {'message': 'Item could not be deleted'});
+            $httpBackend.expectPOST('/orders/deleteMenuItem').respond(400, {'message': 'Item could not be deleted'});
             scope.menuNameSearch = 'mock search';
-            scope.deleteMenuItem();
+            scope.deleteMenuItem('');
 
-            expect(scope.errorMessage).toEqual(''Item could not be deleted'');
+            expect(scope.errorMessage).toEqual('Item could not be deleted');
         });
 
-        /*it('$scope.addToPlate() should add menu item to plate', function() {
+        it('$scope.addToPlate() should add menu item to plate', function() {
             scope.addToPlate();
 
             expect($cookies.plate).;
