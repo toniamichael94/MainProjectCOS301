@@ -39,7 +39,10 @@
 \break
 
 %%-----------------------------Version table-------------------
-
+\begin{figure}[H]
+  \centering
+   \includegraphics[width=0.3\textwidth]{../images/cmslogo.jpg} 
+\end{figure}
  \begin{tabu} to 0.8\textwidth { | X[l] | X[l] | }
  \hline
  \textbf{Document Title} & User Manual \\

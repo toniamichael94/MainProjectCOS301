@@ -107,6 +107,10 @@ The authentication controller allows existing users to log in and new users to s
   	\$scope.signin = function()\\ \\
 	 -Usage\\
  	Method that allows an existing user to sign in.
+ 	\item Get system wide limit
+ 	\$scope.getSystemLimit = function()\\ \\
+ 	-Usage\\
+ 	This function retrieves the system wide limit.
  \end{itemize}	
 \end{enumerate}
 
@@ -178,9 +182,9 @@ The authentication controller allows existing users to log in and new users to s
 \item Methods: 
 	\begin{itemize}
 		\item Assign roles \\ \$scope.assignRoles = function(Boolean isValid)   \\ \\
-		Usage: Superuser can assign cashier, cafeteria manager, finance manager and admin roles
-		\item Assign roles admin role \\ \$scope.assignRolesAdminRole = function(Boolean isValid) \\ \\
-		Usage: Admin user also has access to the assign roles functionality and serves as a back up superuser
+		Usage: Superuser can assign cashier, cafeteria manager, finance manager and admin roles.
+		\item Assign roles as admin \\ \$scope.assignRolesAdminRole = function(Boolean isValid) \\ \\
+		Usage: This function enables the admin user to assign roles. The admin user serves as a back up superuser.
 		\item Change employee ID \\ \$scope.changeEmployeeID = function(Boolean isValid)\\ \\
 		Usage: The superuser can change the employee ID of the users if the user signed up with the incorrect ID or if the company changes the IDs.
 		\item Remove employee \\ \$scope.removeEmployee = function(Boolean isValid)  
@@ -193,7 +197,10 @@ The authentication controller allows existing users to log in and new users to s
 		 \item Set canteen name \\ \$scope.setCanteenName = function(Boolean isValid) 
 		\\ \\ Usage: The canteen name is configurable from the superuser's branding settings page.
 		\item Check user \\ \$scope.checkUser = function() 
-		\\ \\Usage: This is a security function that checks to make sure that the authorized superuser is accessing the page and if this is not the case, the user will be redirected to the home page
+		\\ \\Usage: This is a security function that checks to make sure that the authorized superuser is accessing the page and if this is not the case, the user will be redirected to the home page.
+		\item Check admin user\\
+		\$scope.checkAUser = function()
+		\\ \\Usage: This is a security function that checks if the user that is accessing the page is an admin user, if this is not the case the user will be redirected to the home page.
 		\item Load employees \\ \$scope.loadEmployees = function() 
 		\\ \\Usage: This function is used to dynamically populate the drop down menu for the change employee ID functionality
 	\end{itemize}
@@ -224,10 +231,11 @@ The authentication controller allows existing users to log in and new users to s
     function(\$scope, \$http, \$location, \$stateParams, Authentication)  
 \item Methods:
 	\begin{itemize}
-		\item  Get user orders \\  \$scope.getUserOrders = function() 
-		\\ \\ Usage: Function to obtain the orders placed by the users via adding to plate from the menu page and proceeding to place that order. The finance manager will enter the employee ID of the user in the textbox displayed on the page and the orders placed by that user will be displayed on that page.
 		\item Check user \\ \$scope.checkUser = function() 
 	\\ \\ Usage: This is a security function that checks to make sure that the authorized cashier is accessing the page and if this is not the case, the user will be redirected to the home page
+	\item Generate report\\
+	\$scope.generateReport = function()
+	\\ \\Usage: This function generates an invoice for a certain user.
 	\end{itemize}	
 \end{enumerate}
 
@@ -503,6 +511,14 @@ The menuitems client controller handles all the functionality concerning the men
 		\$scope.checkCMUser = function()\\
 		-Usage\\ \\
 		This method checks whether the current user has permision to view the page, and redirects to the home page if they do not.
+		\item Filter category\\
+		\$scope.filterCat = function(catName)\\
+		-Usage\\ \\
+		This method receives a category name and filters the menu according to that category.
+		\item Help alert\\
+		\$scope.helpAlert = function\\
+		-Usage\\ \\
+		This function sets the help variable to true, to indicate that a user wants help alerts.
 	\end{itemize}
 	
 \end{enumerate}
