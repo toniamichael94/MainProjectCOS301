@@ -227,7 +227,7 @@ Test Case 2: \$scope.deleteMenuItem should fail to delete item from menu \\
 The tests for this file can be found in finance.client.controller.tests.js.
 Pre Conditions: User has been found, user ID exits in the database \\
 Post Conditions: Report has been downloaded in pdf format\\
-Test Case 1: should render jsreport: Pass \\
+Test Case 1: \$scope.generateReport should render jsreport: Pass \\
 
 \subsubsection{Place order Module - orders.client.controller.js, cashier.client.controller.js , finance.client.controller.js}
 \begin{enumerate}

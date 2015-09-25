@@ -40,14 +40,14 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
 		
 		$scope.markAsReady = function(username, orderNumber){
 			
-			$http.post('orders/markAsReady',{uname : username, orderNum : orderNumber}).success(function(response){
+			$http.post('orders/markAsReady',{uname : username, orderNumber : orderNumber}).success(function(response){
 				$scope.success = response.message;
 			}).error(function(response){
 				$scope.error = response.message;
 			}); location.reload(true);
 		};
 
-        $scope.markAsCollected = function(username, itemName,orderNumber){
+     /*   $scope.markAsCollected = function(username, itemName,orderNumber){
             console.log(username  + ' ' +itemName + orderNumber);
 
             $http.post('orders/markAsCollected',{uname : username, orderNum: orderNumber,item : itemName}).success(function(response){
@@ -56,7 +56,7 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
 
             }); location.reload(true);
         };
-
+*/
         $scope.markAsPaid = function(order){
 			if(order.paymentMethod === ''){
 				alert('Please select a payment method');
@@ -64,7 +64,7 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
 			}
 			
 			
-			$http.post('orders/markAsPaid',{username : order.username, orderNum: order.orderNum, method: order.paymentMethod }).success(function(response){
+			$http.post('orders/markAsPaid',{username : order.username, orderNumber: order.orderNum, method: order.paymentMethod }).success(function(response){
 				location.reload(true);
             }).error(function(response){
 				alert(response.message);
