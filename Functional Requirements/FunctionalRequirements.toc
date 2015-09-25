@@ -1,4 +1,4 @@
-\contentsline {section}{\numberline {1}Introduction}{3}{section.0.1}
+\contentsline {section}{\numberline {1}Introduction}{4}{section.0.1}
 \contentsline {section}{\numberline {2}Vision}{4}{section.0.2}
 \contentsline {section}{\numberline {3}Background}{4}{section.0.3}
 \contentsline {section}{\numberline {4}Functional Requirements and Application Design}{5}{section.0.4}
@@ -6,9 +6,9 @@
 \contentsline {subsection}{\numberline {4.2}Use Case Prioritization}{5}{subsection.0.4.2}
 \contentsline {subsubsection}{Critical}{5}{section*.3}
 \contentsline {subsubsection}{Important}{6}{section*.4}
-\contentsline {section}{\numberline {5}Modular System}{6}{section.0.5}
+\contentsline {section}{\numberline {5}Modular System}{7}{section.0.5}
 \contentsline {subsection}{\numberline {5.1}High level use case diagram of the CMS}{7}{subsection.0.5.1}
-\contentsline {subsection}{\numberline {5.2}Authentication Module}{7}{subsection.0.5.2}
+\contentsline {subsection}{\numberline {5.2}Authentication Module}{8}{subsection.0.5.2}
 \contentsline {subsubsection}{Forgot Password }{8}{section*.7}
 \contentsline {subsubsection}{Validate User credentials }{10}{section*.10}
 \contentsline {subsubsection}{Register }{12}{section*.13}
@@ -45,4 +45,9 @@
 \contentsline {subsubsection}{setSystemWideLimit}{51}{section*.95}
 \contentsline {subsubsection}{setCanteenName}{53}{section*.98}
 \contentsline {subsubsection}{uploadImage}{54}{section*.101}
-\contentsline {section}{\numberline {6}Comment}{56}{section.0.6}
+\contentsline {subsection}{\numberline {5.8}Reporting Module}{56}{subsection.0.5.8}
+\contentsline {subsubsection}{Generate Statistics }{57}{section*.105}
+\contentsline {subsubsection}{Send Notifications}{58}{section*.108}
+\contentsline {subsubsection}{View History }{60}{section*.111}
+\contentsline {subsubsection}{View User Bill }{62}{section*.114}
+\contentsline {section}{\numberline {6}Comment}{64}{section.0.6}
