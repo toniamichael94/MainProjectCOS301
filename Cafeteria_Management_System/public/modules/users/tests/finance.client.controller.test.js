@@ -49,14 +49,8 @@
             });
         }));
 
-<<<<<<< HEAD
 /*
-        it('$scope.getUserOrders() should get users orders', function() {
-=======
-		//Will be revisited
-       /* it('$scope.generateReport() should generate invoice for specific user', function() {
->>>>>>> 9fee45876e857f37d58f0744bc75643e72bf19e1
-            // Test expected GET request
+        it('$scope.getUserOrders() should get users orders', function() { 
             scope.username = 'Timmy';
 			scope.startDate = '2015/01/01';
 			scope.endDate = '2015/08/01';
@@ -77,12 +71,8 @@
             
 
             // Test scope value
-<<<<<<< HEAD
-            expect(scope.error).toEqual("could not get orders");
-        });*/
-=======
+
             expect(scope.error).toEqual('Please fill in all fields');
         });
->>>>>>> 9fee45876e857f37d58f0744bc75643e72bf19e1
     });
 }());
