@@ -155,7 +155,7 @@
 
             $httpBackend.expectPOST('/orders/createMenuCategory').respond(400, {'message':'The category already exists '});
 
-            scope.categoryName = '';
+            scope.categoryName = 'Pasta';
             scope.createMenuCatagory(true);
             $httpBackend.flush();
 
@@ -172,7 +172,7 @@
 
             expect(scope.menuItems).toEqual('Error loading menu Items');
         });
- 
+
 
 /*
         it('$scope.deleteMenuItem() should delete menu item', function() {

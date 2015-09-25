@@ -8,6 +8,7 @@
 \renewcommand\thesection{\arabic{section}}
 \usepackage[tt]{titlepic}
 %% Title Page 
+\titlepic{ \centering\includegraphics[width=0.7\textwidth]{../images/dddd.png} }
 \title{ \rule{\textwidth}{1pt}  \\ \Huge Testing Document \\ 
 	\Large Cafeteria Management System: Resolve Solution Partners (Pty) Limited \\
 	\small Client: Gareth Botha and Jaco Pieterse}
@@ -222,14 +223,14 @@ Test Case 1: \$scope.checkStock should successfully perform a check: Pass \\
 8.) Delete Menu Items \\
 Pre conditions : Menu item exists in the database \\
 Post conditions: Menu item successfully deleted or error message returned \\
-Test Case 1: \$scope.deleteMenuItem should delete item from menu \\
-Test Case 2: \$scope.deleteMenuItem should fail to delete item from menu \\
+Test Case 1: \$scope.deleteMenuItem should delete menu item \\
+Test Case 2: \$scope.deleteMenuItem should NOT delete menu item\\
 
 \subsubsection{ Reporting module- finance.client.controller.js}
 The tests for this file can be found in finance.client.controller.tests.js.
 Pre Conditions: User has been found, user ID exits in the database \\
 Post Conditions: Report has been downloaded in pdf format\\
-Test Case 1: \$scope.generateReport should render jsreport: Pass \\
+Test Case 1: \$scope.generateReport should not generate report if missing fields: Pass \\
 
 \subsubsection{Place order Module - orders.client.controller.js, cashier.client.controller.js , finance.client.controller.js}
 \begin{enumerate}
