@@ -49,27 +49,30 @@
             });
         }));
 
-
-        it('$scope.getUserOrders() should get users orders', function() {
+		//Will be revisited
+       /* it('$scope.generateReport() should generate invoice for specific user', function() {
             // Test expected GET request
-            $httpBackend.when('POST','/orders/getUserOrders').respond(200,{'message': ['spinach pie','feta pie','cheese pie']});
+            scope.username = 'Timmy';
+			scope.startDate = '2015/01/01';
+			scope.endDate = '2015/08/01';
+			$httpBackend.when('POST','users/finance/generateReport').respond(200);
 
-            scope.getUserOrders();
+            scope.generateReport();
             $httpBackend.flush();
 
             // Test scope value
-            expect(scope.success).toEqual(['spinach pie','feta pie','cheese pie']);
+            expect(scope.success).toEqual('Report generated');
         });
-
-        it('$scope.getUserOrders() should not get users orders', function() {
+		*/
+		
+        it('$scope.generateReport() should not generate report if missing fields', function() {
             // Test expected GET request
-            $httpBackend.when('POST','/orders/getUserOrders').respond(400,"could not get orders" );
-
-            scope.getUserOrders();
-            $httpBackend.flush();
+            scope.username = ''; scope.startDate = ''; scope.endDate = '';
+            scope.generateReport();
+            
 
             // Test scope value
-            expect(scope.error).toEqual("could not get orders");
+            expect(scope.error).toEqual('Please fill in all fields');
         });
     });
 }());
