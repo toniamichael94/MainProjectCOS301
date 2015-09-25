@@ -473,7 +473,7 @@ $scope.closeAlert = function(index) {
 			}
 		};
 
-		/*CreateMenuCatagory */
+		/*CreateMenuCategory */
 	 $scope.createMenuCatagory = function(isValid) {
 		 $scope.success=false;
 		 if (isValid){
@@ -482,7 +482,7 @@ $scope.closeAlert = function(index) {
 			 if($scope.categoryName == null){
 				// console.log('invalid')
 				 $scope.error = true;
-				 $scope.error = 'No catagory added, Please fill in the textbox to add a category';
+				 $scope.error = 'No category added, Please fill in the textbox to add a category';
 			 }else{
 				 var name = {
 					 catagory:  $scope.categoryName
@@ -502,7 +502,7 @@ $scope.closeAlert = function(index) {
 					// $scope.error.clear;//
 					 $scope.error = null;
 					 $scope.success = true;//response.message;
-					 $scope.success = 'Catagory added to the menu.';
+					 $scope.success = 'Category added to the menu.';
 			 	 }
 				 }).error(function(response) {
 					 //console.log("error");
@@ -687,7 +687,7 @@ $scope.closeAlert = function(index) {
 	}).error(function(response) {
 		$scope.menuItems = 'Error loading menu Items';
 	});
-};
+	};
 
 
 
@@ -726,9 +726,9 @@ $scope.closeAlert = function(index) {
 		/*
 		Delete a menu item
 		*/
-		$scope.deleteMenuItemName = '';
-
-		$scope.deleteMenuItem = function(menuItemName)
+		//$scope.deleteMenuItemName = '';
+		//$scope.successMessage = $scope.errorMessage = '';
+		$scope.deleteMenuItem = function()
 		{
 			$scope.successFind = null;
 			$scope.menuNameSearch=$scope.menuNameSearch.toLowerCase();

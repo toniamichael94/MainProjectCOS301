@@ -108,7 +108,9 @@ angular.module('orders').controller('OrdersController', ['$scope', '$rootScope',
 								error = true;
 								});
 						}//end for
-
+						
+						$scope.subTotal();
+						$rootScope.$broadcast('plateUpdated');
 						$scope.success = response.message;
 					}).error(function(response) {
 						console.log('error' + response.message);
@@ -134,6 +136,7 @@ angular.module('orders').controller('OrdersController', ['$scope', '$rootScope',
 					}
 				}
 				location.reload(true);
+				//$scope.subTotal();
 				//$rootScope.$broadcast('plateUpdated');
 			}
 		};

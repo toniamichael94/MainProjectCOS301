@@ -9,19 +9,23 @@
 \usepackage[tt]{titlepic}
 %% Title Page 
 \begin{document}
-   \titlepic{ \centering\includegraphics[width=0.7\textwidth]{../images/dddd.png} }
+\titlepic{ \centering\includegraphics[width=0.7\textwidth]{../images/dddd.png} }
+%\documentclass[12pt]{article}
 \title{ \rule{\textwidth}{1pt}  \\ \Huge User Manual \\ 
 	\Large Cafeteria Management System: Resolve Solution Partners (Pty) Limited \\
 	\small Client: Gareth Botha and Jaco Pieterse}
-\author{ 
+\author{
+         \underline{T-RISE}\\
           Rendani Dau (13381467) \\
 	Elana Kuun (12029522) \\
 	Semaka Malapane (13081129) \\
 	Antonia Michael (13014171) \\
-	Isabel Nel (13070305)\\ \\
+	Isabel Nel (13070305) \\ \\
 	https://github.com/toniamichael94/MainProjectCOS301}
 
 \date{\today \\ \rule{\textwidth}{1pt}}
+ 
+ 
 %\documentclass[12pt]{article}
 
 
@@ -40,9 +44,9 @@
 \hline
  \textbf{Author}  & Rendani Dau, Elana Kuun, Semaka Malapane, Antonia Michael, Isabel Nel \\
 \hline
-\textbf{Version} & 0.0.5 \\
+\textbf{Version} & 0.0.6 \\
 \hline
-\textbf{Document Status} & Fifth Version - edited the whole document thoroughly, added to and edited the place order module \\
+\textbf{Document Status} & Sixth Version - Added the reporting module\\
 \hline
 \end{tabu}
 
@@ -66,6 +70,9 @@
 & & & \\
  0.0.5 & 25 August 2015 &  Fifth draft adding and & Rendani Dau, \\ & & editing Place Order  & Elana Kuun, \\ & & module  & Semaka Malapane, \\ & & &  Antonia Michael \\ & & & Isabel Nel \\   [1ex] 
 \hline
+& & & \\
+ 0.0.6 & 25 September 2015 &  Sixth draft adding and & Rendani Dau, \\ & & editing Reporting  & Elana Kuun, \\ & & module  & Semaka Malapane, \\ & & &  Antonia Michael \\ & & & Isabel Nel \\   [1ex] 
+\hline
  \end{tabular}
 \end{table}
 
@@ -83,13 +90,15 @@ This document contains the functional requirements specification, architecture r
 The vision of this project is to implement a flexible, pluggable, fully functional software application that will be maintainable, with detailed supporting documentation and an instruction manual for the Cafeteria Management System. This system will assist in managing the cafeteria's inventory/stock, placing orders made by employees, generating bills, and sending the appropriate information to the right parties.  
 
 %%---------------------------------- BACKGROUND -----------------------------------------
-\section{Background}
-As specified in the project proposal document from Resolve, the cafeteria is currently cash only and does not accept bank cards or electronic payments. This makes it inconvenient for employees as they have to have cash on hand if they want to purchase anything from the cafeteria. Employees might choose to buy somewhere else where they can use another form of payment. The employees have to use fuel and time, and this does not bring in the maximum amount of income to the cafeteria, hindering its growth and improvement.\\
+\section{Background} 
+\subsection{The current situation/ problems the client currently experience}
+As specified in the project proposal document from Resolve, the cafeteria is currently cash only and does not accept bank cards or electronic payments. This is it inconvenient for employees as they have to carry around cash if they want to purchase anything from the cafeteria. Employees may choose to go to an external food outlet where they can pay with their preferred method of payment, which uses time and fuel. Thus, this means the cafeteria does not achieve the maximum amount of income which hinders its growth and improvement.\\ A problem with the cafeteria itself is that certain meal items are hardly in stock due to either lack of ingredients to make the meal or under estimating the quantity of the meal item required.
 
-Resolve is therefore looking for a means to accept payments from employees for the canteen using their employee access cards or access card numbers. The amount spent at the cafeteria can then be deducted from their salary at the end of the month.\\
-
-After our first meeting with the client, they brought to our attention that at times the cafeteria does not have enough stock to provide some of the menu items, therefore the managing of inventory and stock will also be part of the system. The system will also predict what inventory/stock needs to be bought for the next week in order to avoid shortcomings. At the end of each month, the bill for that month will be sent to either payroll or to the employee. This option is configurable from the user's profile. The employee can also set a spending limit for each month. The system will also have a maximum limit that users cannot exceed.
- 
+\subsection{How the aforementioned problems will be alleviated by the CMS}
+The Cafeteria Management System will provide a means to accept payments from employees, at the canteen, using their employee access cards or access card numbers, with an amount being deducted from their salary at the end of the month.  The option of cash payments ,however, will not be discarded. At the end of each month, the bill for the month will be sent to either payroll, to the employee, or to both. This option is thus configurable from the user's profile. The employee can also set a spending limit for each month. There will also be a system wide limit that users cannot exceed.
+\\
+The system will predict which inventory items needs to be bought for the next week in order to avoid the "out of stock" situation described above. The system will also enforce that the cafeteria manager 
+\\
 %%--------------------------------------- FUNCTIONAL REQUIREMENTS--------------------------------
 \section{Functional Requirements and Application Design}
 In this section we will discuss the functional requirements. \\
@@ -106,6 +115,7 @@ Below is a list of all the use cases we have identified:
 \item Place Order
 \item Manage Cafeteria
 \item Manage Inventory 
+\item Reporting
 
 \end{itemize}
 
@@ -137,6 +147,10 @@ This use case is considered important because the user must be able edit their p
 
 \item \textbf{ Manage System} \\
 This use case is considered important because this is where the super user will configure the maximum spending limit, assign roles such as a cashier, change employee IDs as well as branding functionality such as setting the canteen name and uploading a canteen photo for the home page.
+
+
+\item \textbf{Reporting} \\
+This use case is considered important because the system can still function without it but it is needed to meet the requirements. It deals with checking how much a user spent in a particular period of time and how much the user needs to pay back and has paid back. This is where the finance person can check who owes how much to the cafeteria or who has spent how much in a given time frame. 
 
 \end{itemize}
 
@@ -639,8 +653,76 @@ The service contract and activity diagram for uploadImage to follow. uploadImage
 \end{figure}
 
 
+%%-----REPORTING MODULE-----
+\subsection{Reporting Module}
+
+In this module, the functionality provided consists of checking how much the user spent for a given time period, creating statistics of how much of the inventory items was used up and popular menu items.
+In addition, the reporting module also encompasses notifications that are sent to the user when their order is ready (via email and on their profile). 
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/ReportingUseCaseDiagram.jpg}
+    \caption{The main use case diagram for Reporting} 
+\end{figure}
+
+Another crutial part of the authentication module is to verify if a user may have access to certain pages given his/her role which will also contribute to the security of the data stored on our system and to control which user has access to which functionality.
+
+\subsubsection{Generate Statistics }
+The service contract and activity diagram for generateStatistics follow. generateStatistics falls under the use case for Reporting (refer to page ??? - figure ??? to view this use case diagram). Here, the cafeteria manager can generate statistics to see which inventory items are used most and which menu items are more popular to ensure that they can utilise their inventory items to the max and make more of the liked products for maximum profit.
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/generateStatisticsAcivity.jpg}
+    \caption{The activity diagram for generateStatistics} 
+\end{figure}
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/generateStatistics.jpg}
+    \caption{The service contract for generateStatistics} 
+\end{figure}
+
+\subsubsection{Send Notifications}
+The service contract and activity diagram for sendNotifications follow. sendNotifications falls under the use case for Reporting (refer to page ??? - figure ??? to view this use case diagram). Here, when an order is ready, the cashier can let the client know their order is ready by sending them a notification (via email or on their profile).
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/sendNotificationsActivity.jpg}
+    \caption{The activity diagram for sendNotifications} 
+\end{figure}
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/sendNotifications.jpg}
+    \caption{The service contract for sendNotifications} 
+\end{figure}
+
+\subsubsection{View History }
+The service contract and activity diagram for viewHistory follow. viewHistory falls under the use case for Reporting (refer to page ??? - figure ??? to view this use case diagram). Here, the user can check on their profile what orders they have placed in the past - for refence when trying to decide what they like and what they don't or just to check what they have ordered before so they don't order it again.
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/viewHistoryActivity.jpg}
+    \caption{The activity diagram for viewHistory}
+\end{figure}
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/viewHistory.jpg}
+    \caption{The service contract for viewHistory}
+\end{figure}
+
+\subsubsection{View User Bill }
+The service contract and activity diagram for viewUserBill follow. generateStatistics falls under the use case for Reporting (refer to page ??? - figure ??? to view this use case diagram). Here, the finance person can check a user's bill for a certain time period. They can then see how much the user owes (to deduct it from their salary at the end of the month).
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/viewUserBillActivity.jpg}
+    \caption{The activity diagram for viewUserBill} 
+\end{figure}
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/viewUserBill.jpg}
+    \caption{The service contract for viewUserBill} 
+\end{figure}
+
 \section{Comment}
 No comment for this version update.
 
 \end{document}
-

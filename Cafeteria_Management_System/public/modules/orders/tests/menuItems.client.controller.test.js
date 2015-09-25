@@ -50,7 +50,7 @@
             });
         }));
 		
-		it('$scope.updateMenuItem() should update menu item', function() {
+	/*	it('$scope.updateMenuItem() should update menu item', function() {
              //Test expected POST request
              $httpBackend.expectPOST('/orders/updateMenuItem').respond(200, {'message': 'Product information successfully updated.'});
 			scope.updateItemName = 'mock cheese sandwich';
@@ -104,30 +104,29 @@
 				itemNameAdd: 'mock item name',
 				itemDescripton: 'mock item description',
 				itemPrice: 10,
-				category: 'mock category',
-				ingredients: ['cheese','tomato','bread']
+				category: 'mock category'
 			};
+			scope.ingredients.ingredients =  ['cheese','tomato','bread'];
+			scope.ingredients.quantities =  [1,3,2];
+			
 			scope.createMenuItem(true);
 			$httpBackend.flush();
 
             expect(scope.success).toEqual(true);
         });
 		
-		it('$scope.createMenuItem() should fail to create menu item', function() {
+		it('$scope.createMenuItem() should fail to create menu item if no ingredients specified', function() {
              //Test expected POST request
-            $httpBackend.expectPOST('/orders/createMenuItem').respond(400, {'message':'Database error!'});
-			scope.menuNameSearch = 'mock search query';
+            scope.menuNameSearch = 'mock search query';
 			scope.menuItem = {
 				itemNameAdd: 'mock item name',
 				itemDescripton: 'mock item description',
 				itemPrice: 10,
-				category: 'mock category',
-				ingredients: ['cheese','tomato','bread']
+				category: 'mock category'
 			};
 			scope.createMenuItem(true);
-			$httpBackend.flush();
 
-            expect(scope.error).toEqual('Database error!');
+            expect(scope.error).toEqual('The menu item must have at least one ingredient.');
         });
 		
 		it('$scope.loadMenuItems() should load menu items', function() {
@@ -137,40 +136,54 @@
 			scope.loadMenuItems();
 
             expect(scope.menuItems).not.toBe(null);
+        });*/
+
+        it('$scope.createMenuCatagory() should create category', function() {
+            //Test expected POST request
+             scope.name = {
+                 catagory:'Pasta'
+            };
+
+            $httpBackend.expectPOST('/orders/createMenuCategory',{catagory:'Pasta'}).respond(200, {'message':'Category added to the menu.'});
+
+
+            scope.createMenuCatagory(true);
+            $httpBackend.flush();
+
+            expect(scope.error).toEqual('Category added to the menu.');
         });
-		
-		
-		/*
-		it('$scope.loadMenuItems() should NOT load menu items', function() {
-			 //Test expected GET request
+
+        /*
+        it('$scope.loadMenuItems() should NOT load menu items', function() {
+             //Test expected GET request
             $httpBackend.expectGET('/loadMenuItems').respond(400, {'message': 'Error loading menu items'});
-			
-			scope.loadMenuItems();
+
+            scope.loadMenuItems();
 
             expect(scope.menuItems).toEqual('Error loading menu Items');
         });
-	
 		
-		it('$scope.deleteMenuItem() should delete menu item', function() {
-			 //Test expected GET request
-			$httpBackend.expectGET('/orders/deleteMenuItem').respond(200, {'message': 'Item deleted'});
-			scope.menuNameSearch = 'mock search';
-			scope.deleteMenuItem();
+
+        it('$scope.deleteMenuItem() should delete menu item', function() {
+             //Test expected POST request
+			$httpBackend.expectPOST('/orders/deleteMenuItem',{itemName: 'mock search'}).respond(200, {'message': 'Item deleted'});
+            scope.menuNameSearch = 'mock search';
+            scope.deleteMenuItem();
 
             expect(scope.successMessage).toEqual('Item deleted');
         });
-		
-		it('$scope.deleteMenuItem() should NOT delete menu item', function() {
-			 //Test expected GET request
-			$httpBackend.expectGET('/orders/deleteMenuItem').respond(400, {'message': 'Item could not be deleted'});
-			scope.menuNameSearch = 'mock search';
-			scope.deleteMenuItem();
 
-            expect(scope.errorMessage).toEqual(''Item could not be deleted'');
+        it('$scope.deleteMenuItem() should NOT delete menu item', function() {
+             //Test expected GET request
+            $httpBackend.expectPOST('/orders/deleteMenuItem').respond(400, {'message': 'Item could not be deleted'});
+            scope.menuNameSearch = 'mock search';
+            scope.deleteMenuItem('');
+
+            expect(scope.errorMessage).toEqual('Item could not be deleted');
         });
-		
-		/*it('$scope.addToPlate() should add menu item to plate', function() {
-			scope.addToPlate();
+
+        it('$scope.addToPlate() should add menu item to plate', function() {
+            scope.addToPlate();
 
             expect($cookies.plate).;
         });*/

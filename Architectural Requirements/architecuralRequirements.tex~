@@ -7,7 +7,7 @@
 \usepackage{array}
 \usepackage{tabu}
 \usepackage[tt]{titlepic}
-%% Title Page 
+%%------------------------------ Title Page -----------------------------------------------
 \titlepic{ \centering\includegraphics[width=0.7\textwidth]{../images/dddd.png} }
 %\documentclass[12pt]{article}
 \title{ \rule{\textwidth}{1pt}  \\ \Huge User Manual \\ 
@@ -23,11 +23,12 @@
 	https://github.com/toniamichael94/MainProjectCOS301}
 
 \date{\today \\ \rule{\textwidth}{1pt}}
+
 \begin{document}
 \maketitle
 \break
 
-%% Make table of contents
+%% -------------------------------Make table of contents----------------------
 \tableofcontents
 \break
 
@@ -56,6 +57,8 @@
  0.0.2 & 30 July 2015 & Second draft & Rendani Dau, \\ & & contains edited & Isabel Nel, \\ & & architectural & Elana Kuun, \\ & & requirements & Semaka Malapane, \\ & & & Antonia Michael \\   [1ex] 
  \hline\hline
  0.0.2 & 25 August 2015 & Third draft & Rendani Dau, \\ & & contains edited & Isabel Nel, \\ & & architectural & Elana Kuun, \\ & & requirements & Semaka Malapane, \\ & & & Antonia Michael \\   [1ex] 
+ \hline\hline
+ 0.0.2 & 24 September 2015 & Third draft & Rendani Dau, \\ & & contains edited & Isabel Nel, \\ & & architectural & Elana Kuun, \\ & & requirements & Semaka Malapane, \\ & & & Antonia Michael \\   [1ex] 
  \hline
  \end{tabular}
 \end{table}
@@ -74,13 +77,14 @@ The vision of this project is to implement a fully functional software applicati
 
 %%---------------------------------- BACKGROUND -----------------------------------------
 \section{Background}
-As specified in the project proposal document from Resolve, the cafeteria is currently cash only and does not accept bank cards or electronic payments. This makes it inconvenient for employees as they have to carry around cash if they want to purchase anything from the cafeteria. Employees may choose to go to an external food outlet where they can pay with their preferred method of payment, which uses time and fuel. Lastly, this means the cafeteria does not achieve the maximum amount of income which hinders its growth and improvement.\\
+\subsection{The current situation/ problems the client currently experience}
+As specified in the project proposal document from Resolve, the cafeteria is currently cash only and does not accept bank cards or electronic payments. This is it inconvenient for employees as they have to carry around cash if they want to purchase anything from the cafeteria. Employees may choose to go to an external food outlet where they can pay with their preferred method of payment, which uses time and fuel. Thus, this means the cafeteria does not achieve the maximum amount of income which hinders its growth and improvement.\\ A problem with the cafeteria itself is that certain meal items are hardly in stock due to either lack of ingredients to make the meal or under estimating the quantity of the meal item required.
 
-Resolve is therefore looking for a means to accept payments from employees  using their employee access cards or access card numbers, with an amount being deducted from their salary at the end of the month.\\
-
-Resolve proposed the Cafeteria Management System to assist with this problem.
-After our first meeting with the client, they brought to our attention that at times the cafeteria does not have enough stock to provide some of the menu items, thus managing the inventory will also be part of the system. The system will predict which inventory items needs to be bought for the next week in order to avoid such a problem. At the end of each month, the bill for the month will be sent to either payroll or to the employee, or both. This option is configurable from the user's profile. The employee can also set a spending limit for each month. There will also be a system wide limit that users cannot exceed.
-
+\subsection{How the aforementioned problems will be alleviated by the CMS}
+The Cafeteria Management System will provide a means to accept payments from employees, at the canteen, using their employee access cards or access card numbers, with an amount being deducted from their salary at the end of the month.  The option of cash payments ,however, will not be discarded. At the end of each month, the bill for the month will be sent to either payroll, to the employee, or to both. This option is thus configurable from the user's profile. The employee can also set a spending limit for each month. There will also be a system wide limit that users cannot exceed.
+\\
+The system will predict which inventory items needs to be bought for the next week in order to avoid the "out of stock" situation described above. The system will also enforce that the cafeteria manager 
+\\
 \section{Architecture Requirements}
 The software architecture requirements include the access and integration requirements, quality
 requirements, and architectural constraints. These points will be thoroughly discussed below.
