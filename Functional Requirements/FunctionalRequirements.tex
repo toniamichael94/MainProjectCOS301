@@ -10,9 +10,9 @@
 %% Title Page 
 \begin{document}
    \titlepic{ \centering\includegraphics[width=0.7\textwidth]{../images/dddd.png} }
-\title{ \rule{\textwidth}{1pt}  \\ \Huge User Manual \\ 
-	\Large Cafeteria Management System: Resolve Solution Partners (Pty) Limited \\
-	\small Client: Gareth Botha and Jaco Pieterse}
+\title{\Huge Functional Requirements Document Specification \\ 
+	 Project: \\ 
+	Cafeteria Management System: Resolve}
 \author{ 
           Rendani Dau (13381467) \\
 	Elana Kuun (12029522) \\
@@ -21,7 +21,8 @@
 	Isabel Nel (13070305)\\ \\
 	https://github.com/toniamichael94/MainProjectCOS301}
 
-\date{\today \\ \rule{\textwidth}{1pt}}
+\date{\today}
+ 
 %\documentclass[12pt]{article}
 
 
@@ -40,9 +41,9 @@
 \hline
  \textbf{Author}  & Rendani Dau, Elana Kuun, Semaka Malapane, Antonia Michael, Isabel Nel \\
 \hline
-\textbf{Version} & 0.0.5 \\
+\textbf{Version} & 0.0.6 \\
 \hline
-\textbf{Document Status} & Fifth Version - edited the whole document thoroughly, added to and edited the place order module \\
+\textbf{Document Status} & Sixth Version - Added the reporting module\\
 \hline
 \end{tabu}
 
@@ -65,6 +66,9 @@
  \hline
 & & & \\
  0.0.5 & 25 August 2015 &  Fifth draft adding and & Rendani Dau, \\ & & editing Place Order  & Elana Kuun, \\ & & module  & Semaka Malapane, \\ & & &  Antonia Michael \\ & & & Isabel Nel \\   [1ex] 
+\hline
+& & & \\
+ 0.0.6 & 25 September 2015 &  Sixth draft adding and & Rendani Dau, \\ & & editing Reporting  & Elana Kuun, \\ & & module  & Semaka Malapane, \\ & & &  Antonia Michael \\ & & & Isabel Nel \\   [1ex] 
 \hline
  \end{tabular}
 \end{table}
@@ -106,6 +110,7 @@ Below is a list of all the use cases we have identified:
 \item Place Order
 \item Manage Cafeteria
 \item Manage Inventory 
+\item Reporting
 
 \end{itemize}
 
@@ -137,6 +142,10 @@ This use case is considered important because the user must be able edit their p
 
 \item \textbf{ Manage System} \\
 This use case is considered important because this is where the super user will configure the maximum spending limit, assign roles such as a cashier, change employee IDs as well as branding functionality such as setting the canteen name and uploading a canteen photo for the home page.
+
+
+\item \textbf{Reporting} \\
+This use case is considered important because the system can still function without it but it is needed to meet the requirements. It deals with checking how much a user spent in a particular period of time and how much the user needs to pay back and has paid back. This is where the finance person can check who owes how much to the cafeteria or who has spent how much in a given time frame. 
 
 \end{itemize}
 
@@ -639,8 +648,76 @@ The service contract and activity diagram for uploadImage to follow. uploadImage
 \end{figure}
 
 
+%%-----REPORTING MODULE-----
+\subsection{Reporting Module}
+
+In this module, the functionality provided consists of checking how much the user spent for a given time period, creating statistics of how much of the inventory items was used up and popular menu items.
+In addition, the reporting module also encompasses notifications that are sent to the user when their order is ready (via email and on their profile). 
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/ReportingUseCaseDiagram.jpg}
+    \caption{The main use case diagram for Reporting} 
+\end{figure}
+
+Another crutial part of the authentication module is to verify if a user may have access to certain pages given his/her role which will also contribute to the security of the data stored on our system and to control which user has access to which functionality.
+
+\subsubsection{Generate Statistics }
+The service contract and activity diagram for generateStatistics follow. generateStatistics falls under the use case for Reporting (refer to page ??? - figure ??? to view this use case diagram). Here, the cafeteria manager can generate statistics to see which inventory items are used most and which menu items are more popular to ensure that they can utilise their inventory items to the max and make more of the liked products for maximum profit.
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/generateStatisticsActivity.jpg}
+    \caption{The activity diagram for generateStatistics} 
+\end{figure}
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/generateStatistics.jpg}
+    \caption{The service contract for generateStatistics} 
+\end{figure}
+
+\subsubsection{Send Notifications}
+The service contract and activity diagram for sendNotifications follow. sendNotifications falls under the use case for Reporting (refer to page ??? - figure ??? to view this use case diagram). Here, when an order is ready, the cashier can let the client know their order is ready by sending them a notification (via email or on their profile).
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/sendNotificationsActivity.jpg}
+    \caption{The activity diagram for sendNotifications} 
+\end{figure}
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/sendNotifications.jpg}
+    \caption{The service contract for sendNotifications} 
+\end{figure}
+
+\subsubsection{View History }
+The service contract and activity diagram for viewHistory follow. viewHistory falls under the use case for Reporting (refer to page ??? - figure ??? to view this use case diagram). Here, the user can check on their profile what orders they have placed in the past - for refence when trying to decide what they like and what they don't or just to check what they have ordered before so they don't order it again.
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/viewHistoryActivity.jpg}
+    \caption{The activity diagram for viewHistory}
+\end{figure}
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/viewHistory.jpg}
+    \caption{The service contract for viewHistory}
+\end{figure}
+
+\subsubsection{View User Bill }
+The service contract and activity diagram for viewUserBill follow. generateStatistics falls under the use case for Reporting (refer to page ??? - figure ??? to view this use case diagram). Here, the finance person can check a user's bill for a certain time period. They can then see how much the user owes (to deduct it from their salary at the end of the month).
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/viewUserBillActivity.jpg}
+    \caption{The activity diagram for viewUserBill} 
+\end{figure}
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/viewUserBill.jpg}
+    \caption{The service contract for viewUserBill} 
+\end{figure}
+
 \section{Comment}
 No comment for this version update.
 
 \end{document}
-
