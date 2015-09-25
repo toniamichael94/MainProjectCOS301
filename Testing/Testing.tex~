@@ -69,7 +69,7 @@
 & & & \\
  \hline 
  & & & \\
- 0.0.6& 24 September 2015 &  Sixth draft adding Testing for  & Rendani Dau, \\ & & reporting, and and & Elana Kuun, \\ & & menu items & Semaka Malapane, \\ & & controllers and updates &  Antonia Michael \\ & & & Isabel Nel \\   [1ex] 
+ 0.0.6 & 24 September 2015 &  Sixth draft adding Testing for  & Rendani Dau, \\ & & reporting, and and & Elana Kuun, \\ & & menu items & Semaka Malapane, \\ & & controllers and updates &  Antonia Michael \\ & & & Isabel Nel \\   [1ex] 
  \hline
  \end{tabular}
 \end{table} 
@@ -223,6 +223,12 @@ Post conditions: Menu item successfully deleted or error message returned \\
 Test Case 1: \$scope.deleteMenuItem should delete item from menu \\
 Test Case 2: \$scope.deleteMenuItem should fail to delete item from menu \\
 
+\subsubsection{ Reporting module- finance.client.controller.js}
+The tests for this file can be found in finance.client.controller.tests.js.
+Pre Conditions: User has been found, user ID exits in the database \\
+Post Conditions: Report has been downloaded in pdf format\\
+Test Case 1: should render jsreport: Pass \\
+
 \subsubsection{Place order Module - orders.client.controller.js, cashier.client.controller.js , finance.client.controller.js}
 \begin{enumerate}
 
@@ -300,12 +306,6 @@ Pre Conditions: Name has been filled in\\
 Post Conditions: Item saved to database/ Error message sent: Pass \\
 Test Case 1: should be able to save without problems: Pass\\
 Test Case 2:  should be able to show an error when try to save without name: Pass\\
-
-\subsubsection{ Reporting module- users.finance.server.controller.js}
-The tests for this file can be found in users.finance.server.controller.tests.js.
-Pre Conditions: User has been found, user ID exits in the database \\
-Post Conditions: Report has been downloaded in pdf format\\
-Test Case 1: should render jsreport: Pass \\
 
 \subsubsection{ Authentication module- test.server.routes.js}
 The tests for this file can be found in test.server.routes.test.js.
