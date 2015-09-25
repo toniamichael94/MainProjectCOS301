@@ -104,30 +104,29 @@
 				itemNameAdd: 'mock item name',
 				itemDescripton: 'mock item description',
 				itemPrice: 10,
-				category: 'mock category',
-				ingredients: ['cheese','tomato','bread']
+				category: 'mock category'
 			};
+			scope.ingredients.ingredients =  ['cheese','tomato','bread'];
+			scope.ingredients.quantities =  [1,3,2];
+			
 			scope.createMenuItem(true);
 			$httpBackend.flush();
 
             expect(scope.success).toEqual(true);
         });
 		
-		it('$scope.createMenuItem() should fail to create menu item', function() {
+		it('$scope.createMenuItem() should fail to create menu item if no ingredients specified', function() {
              //Test expected POST request
-            $httpBackend.expectPOST('/orders/createMenuItem').respond(400, {'message':'Database error!'});
-			scope.menuNameSearch = 'mock search query';
+            scope.menuNameSearch = 'mock search query';
 			scope.menuItem = {
 				itemNameAdd: 'mock item name',
 				itemDescripton: 'mock item description',
 				itemPrice: 10,
-				category: 'mock category',
-				ingredients: ['cheese','tomato','bread']
+				category: 'mock category'
 			};
 			scope.createMenuItem(true);
-			$httpBackend.flush();
 
-            expect(scope.error).toEqual('Database error!');
+            expect(scope.error).toEqual('The menu item must have at least one ingredient.');
         });
 		
 		it('$scope.loadMenuItems() should load menu items', function() {

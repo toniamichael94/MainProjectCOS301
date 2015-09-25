@@ -57,6 +57,11 @@ angular.module('users').controller('FinanceController', ['$scope', '$http', '$lo
         };*/
 		
 		$scope.generateReport = function(){
+			if($scope.username === '' || $scope.startDate === '' || $scope.endDate === '')
+			{
+				$scope.error = 'Please fill in all fields'
+				return;
+			}
 			$http.post('users/finance/generateReport',{username: $scope.username, start: $scope.startDate, end: $scope.endDate},{responseType:'arraybuffer'}).success(function(response){
 				
 				var file = new Blob([response], {type: 'application/pdf'});
@@ -70,9 +75,9 @@ angular.module('users').controller('FinanceController', ['$scope', '$http', '$lo
 				a.href =  fileURL;
                 a.download = fileName;
                 a.click();
-				
+				$scope.success = 'Report generated';
 			}).error(function(response){
-				console.log(response);
+				$scope.error = response.message;
 			});
 		};
 
