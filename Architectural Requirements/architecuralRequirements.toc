@@ -1,12 +1,14 @@
 \contentsline {section}{\numberline {1}Introduction}{3}{section.0.1}
 \contentsline {section}{\numberline {2}Vision}{3}{section.0.2}
 \contentsline {section}{\numberline {3}Background}{3}{section.0.3}
+\contentsline {subsection}{\numberline {3.1}The current situation/ problems the client currently experience}{3}{subsection.0.3.1}
+\contentsline {subsection}{\numberline {3.2}How the aforementioned problems will be alleviated by the CMS}{3}{subsection.0.3.2}
 \contentsline {section}{\numberline {4}Architecture Requirements}{4}{section.0.4}
 \contentsline {section}{\numberline {5}Architectural Responsibilities}{4}{section.0.5}
 \contentsline {section}{\numberline {6}Quality Requirements: Core}{5}{section.0.6}
 \contentsline {subsection}{\numberline {6.1}Security}{5}{subsection.0.6.1}
 \contentsline {subsubsection}{Reasons for security as a quality requirement}{5}{section*.3}
-\contentsline {subsubsection}{Strategies to achieve this quality requirement}{5}{section*.4}
+\contentsline {subsubsection}{Strategies to achieve this quality requirement}{6}{section*.4}
 \contentsline {subsubsection}{Pattern to achieve these strategies}{6}{section*.5}
 \contentsline {subsection}{\numberline {6.2}Usability}{6}{subsection.0.6.2}
 \contentsline {subsubsection}{Reasons for usability as a quality requirement}{6}{section*.6}
@@ -26,16 +28,16 @@
 \contentsline {subsubsection}{Patterns to achieve these strategies}{11}{section*.17}
 \contentsline {subsection}{\numberline {6.6}Scalability}{11}{subsection.0.6.6}
 \contentsline {subsubsection}{Reasons for scalability as a quality requirement}{11}{section*.18}
-\contentsline {subsubsection}{Strategies to achieve this quality requirement}{11}{section*.19}
+\contentsline {subsubsection}{Strategies to achieve this quality requirement}{12}{section*.19}
 \contentsline {subsubsection}{Patterns to achieve these strategies}{12}{section*.20}
 \contentsline {subsubsection}{Strategies to achieve this quality requirement}{12}{section*.21}
 \contentsline {subsection}{\numberline {6.7}Nice-To-Have}{12}{subsection.0.6.7}
-\contentsline {subsubsection}{Performance}{12}{section*.22}
+\contentsline {subsubsection}{Performance}{13}{section*.22}
 \contentsline {subsubsection}{Flexibility}{13}{section*.23}
 \contentsline {subsubsection}{Integrability}{13}{section*.24}
 \contentsline {subsubsection}{Testability}{13}{section*.25}
 \contentsline {section}{\numberline {7}Access and Integration Requirements}{13}{section.0.7}
-\contentsline {subsection}{\numberline {7.1}Access Channel Requirements}{13}{subsection.0.7.1}
+\contentsline {subsection}{\numberline {7.1}Access Channel Requirements}{14}{subsection.0.7.1}
 \contentsline {subsubsection}{Human Access Channels}{14}{section*.26}
 \contentsline {paragraph}{Superuser\\}{14}{section*.27}
 \contentsline {paragraph}{Admin User\\}{14}{section*.28}

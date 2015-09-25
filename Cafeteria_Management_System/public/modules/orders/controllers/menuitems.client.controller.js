@@ -495,7 +495,7 @@ $scope.closeAlert = function(index) {
 			 	 }
 				 }).error(function(response) {
 					 //console.log("error");
-					 $scope.error ="The category already exist ";
+					 $scope.error ="The category already exists ";
 				 });
 				 }
 			 }

@@ -1,12 +1,14 @@
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,12pt]{report}
 \usepackage[hidelinks]{hyperref}
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{caption}
 \usepackage{array}
 \usepackage{tabu}
+\renewcommand\thesection{\arabic{section}}
+\usepackage[tt]{titlepic}
 %% Title Page 
-\title{ \rule{\textwidth}{1pt}  \\ \Huge User Manual \\ 
+\title{ \rule{\textwidth}{1pt}  \\ \Huge Testing Document \\ 
 	\Large Cafeteria Management System: Resolve Solution Partners (Pty) Limited \\
 	\small Client: Gareth Botha and Jaco Pieterse}
 \author{
@@ -243,12 +245,12 @@ Pre Conditions: The user facilitating the orders is the cashier and is hence on 
 Post Conditions: The order has been marked as ready or closed.The user is notified when order is ready\\
 Test Case 1: \$scope.markAsReady() should let user know order is ready: Pass\\
 Test Case 2: \$scope.markAsReady() should not let user know order is ready when incorrect parameters sent to function: Pass \\
-Test Case 3: \$scope.markAsCollected() should  mark the order as collected successfully: Pass \\
-Test Case 4: \$scope.markAsCollected() should not mark the order as collected successfully: Pass \\
-Test Case 5: \$scope.markAsPaid() should  mark the order as paid successfully: Pass \\
-Test Case 6: \$scope.markAsPaid() should  mark the order as collected successfully: Pass \\
-Test Case 7: \$scope.getOrders() should get a list of orders where status is open: Pass \\
-Test Case 8: \$scope.getOrders() should not get a list of orders where status is closed: Pass \\
+%Test Case 3: \$scope.markAsCollected() should  mark the order as collected successfully: Pass \\
+%Test Case 4: \$scope.markAsCollected() should not mark the order as collected successfully: Pass \\
+Test Case 4: \$scope.markAsPaid() should  mark the order as paid successfully: Pass \\
+Test Case 5: \$scope.markAsPaid() should  mark the order as collected successfully: Pass \\
+Test Case 6: \$scope.getOrders() should get a list of orders where status is open: Pass \\
+Test Case 7: \$scope.getOrders() should not get a list of orders where status is closed: Pass \\
 
 \item The third set of tests can be found in finance.client.controller.test.js.\\
 Pre Conditions: The user facilitating the orders is the finance manager and is hence on the process orders page that is only accessible to the finance manager. \\ The employee ID has been entered and is valid\\

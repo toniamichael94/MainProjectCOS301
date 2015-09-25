@@ -1,19 +1,21 @@
 \BOOKMARK [1][-]{section.0.1}{Introduction}{}% 1
 \BOOKMARK [1][-]{section.0.2}{Vision}{}% 2
 \BOOKMARK [1][-]{section.0.3}{Background}{}% 3
-\BOOKMARK [1][-]{section.0.4}{Architecture Requirements}{}% 4
-\BOOKMARK [1][-]{section.0.5}{Architectural Responsibilities}{}% 5
-\BOOKMARK [1][-]{section.0.6}{Quality Requirements: Core}{}% 6
-\BOOKMARK [2][-]{subsection.0.6.1}{Security}{section.0.6}% 7
-\BOOKMARK [2][-]{subsection.0.6.2}{Usability}{section.0.6}% 8
-\BOOKMARK [2][-]{subsection.0.6.3}{Reliability}{section.0.6}% 9
-\BOOKMARK [2][-]{subsection.0.6.4}{Auditability}{section.0.6}% 10
-\BOOKMARK [2][-]{subsection.0.6.5}{Maintainability}{section.0.6}% 11
-\BOOKMARK [2][-]{subsection.0.6.6}{Scalability}{section.0.6}% 12
-\BOOKMARK [2][-]{subsection.0.6.7}{Nice-To-Have}{section.0.6}% 13
-\BOOKMARK [1][-]{section.0.7}{Access and Integration Requirements}{}% 14
-\BOOKMARK [2][-]{subsection.0.7.1}{Access Channel Requirements}{section.0.7}% 15
-\BOOKMARK [2][-]{subsection.0.7.2}{Protocols}{section.0.7}% 16
-\BOOKMARK [2][-]{subsection.0.7.3}{Architecture Constraints}{section.0.7}% 17
-\BOOKMARK [1][-]{section.0.8}{Architectural Patterns}{}% 18
-\BOOKMARK [1][-]{section.0.9}{Bibliography}{}% 19
+\BOOKMARK [2][-]{subsection.0.3.1}{The current situation/ problems the client currently experience}{section.0.3}% 4
+\BOOKMARK [2][-]{subsection.0.3.2}{How the aforementioned problems will be alleviated by the CMS}{section.0.3}% 5
+\BOOKMARK [1][-]{section.0.4}{Architecture Requirements}{}% 6
+\BOOKMARK [1][-]{section.0.5}{Architectural Responsibilities}{}% 7
+\BOOKMARK [1][-]{section.0.6}{Quality Requirements: Core}{}% 8
+\BOOKMARK [2][-]{subsection.0.6.1}{Security}{section.0.6}% 9
+\BOOKMARK [2][-]{subsection.0.6.2}{Usability}{section.0.6}% 10
+\BOOKMARK [2][-]{subsection.0.6.3}{Reliability}{section.0.6}% 11
+\BOOKMARK [2][-]{subsection.0.6.4}{Auditability}{section.0.6}% 12
+\BOOKMARK [2][-]{subsection.0.6.5}{Maintainability}{section.0.6}% 13
+\BOOKMARK [2][-]{subsection.0.6.6}{Scalability}{section.0.6}% 14
+\BOOKMARK [2][-]{subsection.0.6.7}{Nice-To-Have}{section.0.6}% 15
+\BOOKMARK [1][-]{section.0.7}{Access and Integration Requirements}{}% 16
+\BOOKMARK [2][-]{subsection.0.7.1}{Access Channel Requirements}{section.0.7}% 17
+\BOOKMARK [2][-]{subsection.0.7.2}{Protocols}{section.0.7}% 18
+\BOOKMARK [2][-]{subsection.0.7.3}{Architecture Constraints}{section.0.7}% 19
+\BOOKMARK [1][-]{section.0.8}{Architectural Patterns}{}% 20
+\BOOKMARK [1][-]{section.0.9}{Bibliography}{}% 21

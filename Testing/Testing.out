@@ -1,21 +1,13 @@
-\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
-\BOOKMARK [1][-]{section.2}{Vision}{}% 2
-\BOOKMARK [1][-]{section.3}{Background}{}% 3
-\BOOKMARK [1][-]{section.4}{Test Plan}{}% 4
-\BOOKMARK [2][-]{subsection.4.1}{Introduction}{section.4}% 5
-\BOOKMARK [2][-]{subsection.4.2}{Technologies used for testing}{section.4}% 6
-\BOOKMARK [2][-]{subsection.4.3}{How to run the unit tests}{section.4}% 7
-\BOOKMARK [2][-]{subsection.4.4}{Testing approach - Client Side}{section.4}% 8
-\BOOKMARK [2][-]{subsection.4.5}{Testing approach - Server Side}{section.4}% 9
-\BOOKMARK [2][-]{subsection.4.6}{Tests conducted/ Test coverage - Client Side}{section.4}% 10
-\BOOKMARK [3][-]{subsubsection.4.6.1}{Profile Module - settings.client.controller.js}{subsection.4.6}% 11
-\BOOKMARK [3][-]{subsubsection.4.6.2}{Authentication Module - authentication.client.controller.js }{subsection.4.6}% 12
-\BOOKMARK [3][-]{subsubsection.4.6.3}{Manage System Module - superuser.client.controller.js }{subsection.4.6}% 13
-\BOOKMARK [3][-]{subsubsection.4.6.4}{Manage Cafeteria Module - menuItems.client.controller.js }{subsection.4.6}% 14
-\BOOKMARK [3][-]{subsubsection.4.6.5}{Place order Module - orders.client.controller.js, cashier.client.controller.js , finance.client.controller.js}{subsection.4.6}% 15
-\BOOKMARK [2][-]{subsection.4.7}{Tests conducted/ Test coverage - Server Side}{section.4}% 16
-\BOOKMARK [3][-]{subsubsection.4.7.1}{Authentication Module - user.server.model.js}{subsection.4.7}% 17
-\BOOKMARK [3][-]{subsubsection.4.7.2}{Manage Inventory Module - inventory.server.model.js}{subsection.4.7}% 18
-\BOOKMARK [3][-]{subsubsection.4.7.3}{Place Orders Module - menuItem.server.model.js}{subsection.4.7}% 19
-\BOOKMARK [3][-]{subsubsection.4.7.4}{Database Storage Test - test.server.model.js}{subsection.4.7}% 20
-\BOOKMARK [3][-]{subsubsection.4.7.5}{ Authentication module- test.server.routes.js}{subsection.4.7}% 21
+\BOOKMARK [1][-]{section.0.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.0.2}{Vision}{}% 2
+\BOOKMARK [1][-]{section.0.3}{Background}{}% 3
+\BOOKMARK [2][-]{subsection.0.3.1}{The current situation/ problems the client currently experience}{section.0.3}% 4
+\BOOKMARK [2][-]{subsection.0.3.2}{How the aforementioned problems will be alleviated by the CMS}{section.0.3}% 5
+\BOOKMARK [1][-]{section.0.4}{Test Plan}{}% 6
+\BOOKMARK [2][-]{subsection.0.4.1}{Introduction}{section.0.4}% 7
+\BOOKMARK [2][-]{subsection.0.4.2}{Technologies used for testing}{section.0.4}% 8
+\BOOKMARK [2][-]{subsection.0.4.3}{How to run the unit tests}{section.0.4}% 9
+\BOOKMARK [2][-]{subsection.0.4.4}{Testing approach - Client Side}{section.0.4}% 10
+\BOOKMARK [2][-]{subsection.0.4.5}{Testing approach - Server Side}{section.0.4}% 11
+\BOOKMARK [2][-]{subsection.0.4.6}{Tests conducted/ Test coverage - Client Side}{section.0.4}% 12
+\BOOKMARK [2][-]{subsection.0.4.7}{Tests conducted/ Test coverage - Server Side}{section.0.4}% 13

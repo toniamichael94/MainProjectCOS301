@@ -50,7 +50,7 @@
         }));
 
 /*
-        it('$scope.getUserOrders() should get users orders', function() { 
+        it('$scope.getUserOrders() should get users orders', function() {
             scope.username = 'Timmy';
 			scope.startDate = '2015/01/01';
 			scope.endDate = '2015/08/01';

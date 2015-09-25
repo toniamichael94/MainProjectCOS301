@@ -36,13 +36,13 @@
  \hline
  \textbf{Document Title} & Architectural Specification Document \\
  \hline
- \textbf{Document Identification}  & Document 0.0.3 \\
+ \textbf{Document Identification}  & Document 0.0.4 \\
  \hline
  \textbf{Author}  & Rendani Dau, Isabel Nel, Elana Kuun, Semaka Malapane, Antonia Michael \\
  \hline
- \textbf{Version} & 0.0.3\\
+ \textbf{Version} & 0.0.4\\
  \hline
- \textbf{Document Status} & Third Version - contains updated architectural requirements \\
+ \textbf{Document Status} & Fourth Version - contains updated architectural requirements \\
  \hline
  \end{tabu}
 
@@ -58,7 +58,7 @@
  \hline\hline
  0.0.2 & 25 August 2015 & Third draft & Rendani Dau, \\ & & contains edited & Isabel Nel, \\ & & architectural & Elana Kuun, \\ & & requirements & Semaka Malapane, \\ & & & Antonia Michael \\   [1ex] 
  \hline\hline
- 0.0.2 & 24 September 2015 & Third draft & Rendani Dau, \\ & & contains edited & Isabel Nel, \\ & & architectural & Elana Kuun, \\ & & requirements & Semaka Malapane, \\ & & & Antonia Michael \\   [1ex] 
+ 0.0.2 & 24 September 2015 & Fourth draft & Rendani Dau, \\ & & contains edited & Isabel Nel, \\ & & architectural & Elana Kuun, \\ & & requirements & Semaka Malapane, \\ & & & Antonia Michael \\   [1ex] 
  \hline
  \end{tabular}
 \end{table}
