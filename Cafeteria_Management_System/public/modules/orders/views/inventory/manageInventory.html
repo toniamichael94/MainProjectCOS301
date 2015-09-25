@@ -139,9 +139,9 @@
                             <div class = "text-center form-group">
                                 <button type = "submit" style="width:200px" class = "btn btn-large btn-primary" ng-click="showme=false"> Update</button>
                             </div>
-                        </form>
-			<button class = "btn btn-large btn-primary" style="width:200px" data-ng-hide="showme" ng-click = "hideInventory=true; deleteInventoryItem()" >Delete</button>
-
+                        </form> <form class="signin form-horizontal"><div class = "text-center form-group">
+			<button type = "submit" class = "btn btn-large btn-primary" style="width:200px" data-ng-hide="showme" ng-click = "hideInventory=true; deleteInventoryItem()" >Delete</button>
+            </div> </form>
 		</div>
 
 					<!--Error/Success message for delete/update-->
@@ -179,9 +179,9 @@
 						<strong data-ng-bind="message"></strong>
                     </div>
 						<form data-ng-show ="showInventory" ng-hide="hideInventory"  class="signin form-horizontal" autocomplete="off">
-							<fieldset>
+							<fieldset> <div class = "text-center form-group">
 							<button ng-click = "updateInventoryQuantity()" style="width:200px" class = "btn btn-large btn-primary" ng-show="showInventory" data-ng-hide="hideInventory">Save</button>
-								<div   ng-repeat = "invenProduct in allInventory.inventoryProduct track by $index" >
+							</div>	<div   ng-repeat = "invenProduct in allInventory.inventoryProduct track by $index" >
 									<label ng-bind = 'allInventory.inventoryProduct[$index]'>{{invenProduct.productName}}</label>
 									<input class="form-control" type = "number" min =0 ng-model = 'allInventory.inventoryQuantity[$index]'/>
 									<br>
@@ -195,10 +195,10 @@
                             <p></p>
 							</fieldset>
 						</form>
-
+                        <form class="signin form-horizontal">
 						<!--Dynamically show inventory items to edit quantity-->
-						<button  align="center" style="width:200px" ng-hide="displayed" data-ng-show="hideInventory" data-ng-click="addFormFieldInventory(); showInventory = true" class = "btn btn-large btn-primary">Display inventory</button>
-						<!--<button ng-show="displayed" ng-click="addFormFieldInventory()" class = "btn btn-large btn-primary" onclick="location.reload(true)">Refresh</button>-->
+                        <div class = "text-center form-group">	<button   style="width:200px" ng-hide="displayed" data-ng-show="hideInventory" data-ng-click="addFormFieldInventory(); showInventory = true" class = "btn btn-large btn-primary">Display inventory</button>
+						</div></form><!--<button ng-show="displayed" ng-click="addFormFieldInventory()" class = "btn btn-large btn-primary" onclick="location.reload(true)">Refresh</button>-->
 					</div>
 				</div>
 			</div>

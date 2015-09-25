@@ -270,28 +270,7 @@ exports.hasAuthorization = function(req, res, next) {
 /***
  * Upload image
  */
-/*
-(function (req, res, next) {
 
-    var form = new formidable.IncomingForm();
-    //Formidable uploads to operating systems tmp dir by default
-    form.uploadDir = "./img";       //set upload directory
-    form.keepExtensions = true;     //keep file extension
-
-    form.parse(req, function(err, fields, files) {
-        res.writeHead(200, {'content-type': 'text/plain'});
-        res.write('received upload:\n\n');
-        console.log("form.bytesReceived");
-        //Formidable changes the name of the uploaded file
-        //Rename the file to its original name
-        fs.rename(files.fileUploaded.path, './img/'+files.fileUploaded.name, function(err) {
-            if (err)
-                throw err;
-            console.log('renamed complete');
-        });
-        res.end();
-    });
-    */
 exports.uploadImage = function(req, res){
 	var form = new formidable.IncomingForm();
 	console.log('About to parse image');
@@ -302,15 +281,13 @@ exports.uploadImage = function(req, res){
 		if(error){
 			return res.status(400).send({message: errorHandler.getErrorMessage(error)});
 		}
-		fs.rename(files.upload.path, newPath, function(err){
-			if(err)
-                throw err;
-			/*{
+		fs.rename(files.upload.path, newPath , function(err){
+			if(err){
 				console.log(errorHandler.getErrorMessage(err));
 				fs.unlink(newPath);
 				fs.rename(files.upload.path, newPath);
-				return res.status(400).send({message: 'Error with the image path!'});
-			}*/
+				//return res.status(400).send({message: 'Error with the image path!'});
+			}
 			MenuItem.update({itemName: req.body.itemName}, {imagePath: newPath},  function(erro, numAffected){
         		if(erro) return res.status(400).send({
             			message: errorHandler.getErrorMessage(erro)
@@ -318,7 +295,7 @@ exports.uploadImage = function(req, res){
         		else if (numAffected < 1){
             			return res.status(400).send({message: 'Image not uploaded! Error!'});
         		}
-            });
+    });
 			res.redirect('/');
 		});
 	});
@@ -334,20 +311,71 @@ exports.generatePopularReport = function(req,res)
 		if(err) return res.status(400).send({message: 'Could not generate report!'});
 
 		var items = new Array();
+		var itemNames = new Array();
+		var itemQuantity = new Array();
 
-		//Initialise the array
 		for(var i = 0; i < orders.length; i++)
 		{
 			items[orders[i].itemName] = 0;
 		}
 
+		//Store the item name and quantity in a parallel array
 		for(var i = 0; i < orders.length; i++)
 		{
-			items[orders[i].itemName] = items[orders[i].itemName]+orders[i].quantity;
+			items[orders[i].itemName] = items[orders[i].itemName] + orders[i].quantity;
 		}
 
-		console.log(items);
+		var j = 0;
+		for (var key in items)
+		{
+			itemNames[j] = key;
+			itemQuantity[j] = items[key];
+			j++;
+		}
 
+		var max = itemQuantity[0];
+		for(var i = 0; i < itemNames.length-1; i++)
+		{
+			for(var j = i+1; j < itemNames.length; j++)
+			{
+				if(itemQuantity[j] > itemQuantity[i])
+				{
+					var numTemp = itemQuantity[i];
+					var nameTemp = itemNames[i];
+
+					itemQuantity[i] = itemQuantity[j];
+					itemNames[i] = itemNames[j];
+
+					itemQuantity[j] = numTemp;
+					itemNames[j] = nameTemp;
+				}
+			}
+		}
+
+
+		if(itemNames.length > req.body.numItems)
+		{
+			if(itemQuantity[req.body.numItems-1]==itemQuantity[req.body.numItems])
+			{
+				console.log('here');
+				console.log(itemNames[req.body.numItems]);
+
+				var i = req.body.numItems+1;
+				while(i < itemQuantity.length && itemQuantity[i-1] == itemQuantity[i])
+					i++;
+				itemNames.splice(i, itemNames.length-i);
+				itemQuantity.splice(i, itemQuantity.length-i);
+			}
+			else
+			 {
+				 itemNames.splice(req.body.numItems, itemNames.length-req.body.numItems);
+				 itemQuantity.splice(req.body.numItems, itemQuantity.length-req.body.numItems);
+			}
+		}
+
+		console.log('Arrays after splice');
+		console.log(itemNames);
+		console.log(itemQuantity);
 
 /*
 		//Read the sample html file for pdf format

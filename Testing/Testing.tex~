@@ -6,9 +6,9 @@
 \usepackage{array}
 \usepackage{tabu}
 %% Title Page 
-\title{\Huge Testing Spec\\ 
-	 Project: \\ 
-	Cafeteria Management System: Resolve}
+\title{ \rule{\textwidth}{1pt}  \\ \Huge User Manual \\ 
+	\Large Cafeteria Management System: Resolve Solution Partners (Pty) Limited \\
+	\small Client: Gareth Botha and Jaco Pieterse}
 \author{
          \underline{T-RISE}\\
           Rendani Dau (13381467) \\
@@ -94,7 +94,7 @@ After our first meeting with the client, they brought to our attention that at t
 \section{Test Plan}
 
 \subsection{Introduction}
-The scope of the testing: This document will be used be the Team T_RISE to elaborate and substantiate the unit tests conducted for the various use cases/ modules of the Resolve Cafeteria Management System. Unit tests using mocks and Integration tests using actual data from the system have been conducted and will be explained in the document below. Tests for the server side functionality as well as the client side functionality were executed.
+The scope of the testing: This document will be used be the Team T-RISE to elaborate and substantiate the unit tests conducted for the various use cases/ modules of the Resolve Cafeteria Management System. Unit tests using mocks and Integration tests using actual data from the system have been conducted and will be explained in the document below. Tests for the server side functionality as well as the client side functionality were executed.
 
 \subsection{Technologies used for testing}
 Testing was done during the construction of the various functions to ensure that the code is working at all times, and that only fully working functions are used in other functions going forward. PhantomJS was used to run the Mocha, Karma and Jasmine tests automatically, hence the tests for the different files could be run consecutively without being manually executed separately. The reason the testing frameworks were used was due to the simple set up that it required and due to its compatibility with PhantomJs. In addition the syntax of these was simple and intuitive.  Karma in particular is the official Angular Js test runner, hence it was used. Mocha, is based on node.js and hence was used for this reason. 

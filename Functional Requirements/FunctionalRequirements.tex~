@@ -5,13 +5,14 @@
 \usepackage{caption}
 \usepackage{array}
 \usepackage{tabu}
+\renewcommand\thesection{\arabic{section}}
 \usepackage[tt]{titlepic}
 %% Title Page 
 \begin{document}
    \titlepic{ \centering\includegraphics[width=0.7\textwidth]{../images/dddd.png} }
-\title{\Huge Functional Requirements Document Specification \\ 
-	 Project: \\ 
-	Cafeteria Management System: Resolve}
+\title{ \rule{\textwidth}{1pt}  \\ \Huge User Manual \\ 
+	\Large Cafeteria Management System: Resolve Solution Partners (Pty) Limited \\
+	\small Client: Gareth Botha and Jaco Pieterse}
 \author{ 
           Rendani Dau (13381467) \\
 	Elana Kuun (12029522) \\
