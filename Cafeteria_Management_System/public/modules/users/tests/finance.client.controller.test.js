@@ -49,9 +49,8 @@
             });
         }));
 
-		//Will be revisited
-       /* it('$scope.generateReport() should generate invoice for specific user', function() {
-            // Test expected GET request
+/*
+        it('$scope.getUserOrders() should get users orders', function() { 
             scope.username = 'Timmy';
 			scope.startDate = '2015/01/01';
 			scope.endDate = '2015/08/01';
@@ -72,6 +71,7 @@
             
 
             // Test scope value
+
             expect(scope.error).toEqual('Please fill in all fields');
         });
     });
