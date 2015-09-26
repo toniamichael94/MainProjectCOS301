@@ -51,27 +51,27 @@
             });
         }));
 
-/*
-        it('$scope.markAsReady() should let user know order is ready', function() {
-            // Test expected GET request
-            $httpBackend.expectPOST('orders/markAsReady',{uname : 'tonia', orderNumber : '7'}).respond(200, {'message': 'order marked as ready'});
 
-            scope.markAsReady('tonia','7');
+        it('$scope.markAsReady() should mark order as ready', function() {
+            // Test expected GET request
+            $httpBackend.expectPOST('orders/markAsReady',{username : 'tonia', orderNumber : 7}).respond(200, {'message': 'order marked as ready'});
+			
+			//Prevent refresh function from crashing test
+			$window.location.reload = function(bool) {};
+			
+            scope.markAsReady('tonia',7);
             $httpBackend.flush();
 
             // Test scope value
             expect(scope.success).toEqual('order marked as ready');
         });
 
-        it('$scope.markAsReady() should not let user know order is ready when incorrect parameters sent to function', function() {
-            // Test expected GET request
-            $httpBackend.expectPOST('orders/markAsReady',{uname : 'tonia'}).respond(400, {'message': 'error occurred'});
-
-            scope.markAsReady('tonia');
-            $httpBackend.flush();
-
+        it('$scope.markAsReady() should not mark order as ready when incorrect parameters sent to function', function() {
+            
+			scope.markAsReady('tonia');
+            
             // Test scope value
-            expect(scope.error).toEqual('error occurred');
+            expect(scope.error).toEqual('Invalid parameters');
         });
 
   /*    Should be deleted as we dont use markAsCollected anymore  

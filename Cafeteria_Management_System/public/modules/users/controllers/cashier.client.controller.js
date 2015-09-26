@@ -40,6 +40,11 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
 		
 		$scope.markAsReady = function(_username, _orderNumber){
 			//console.log(_username + ' ' + _orderNumber);
+			if(_username === '' || _orderNumber === '' || _orderNumber === null || _username === null || _orderNumber === undefined || _username === undefined)
+			{
+				$scope.error = 'Invalid parameters';
+				return;
+			}	
 			$http.post('orders/markAsReady',{username : _username, orderNumber: _orderNumber}).success(function(response){
 				$scope.success = response.message;
 				$window.location.reload();
