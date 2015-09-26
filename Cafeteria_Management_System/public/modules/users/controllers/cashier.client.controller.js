@@ -39,10 +39,11 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
 		};
 		
 		$scope.markAsReady = function(_username, _orderNumber){
-			//console.log(_username + ' ' + _orderNumber);
+			$scope.success = $scope.error = null;
+			
 			if(_username === '' || _orderNumber === '' || _orderNumber === null || _username === null || _orderNumber === undefined || _username === undefined)
 			{
-				$scope.error = 'Invalid parameters';
+				alert('Invalid parameters');
 				return;
 			}	
 			$http.post('orders/markAsReady',{username : _username, orderNumber: _orderNumber}).success(function(response){
@@ -64,11 +65,11 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
         };
 */
         $scope.markAsPaid = function(order){
+			$scope.success = $scope.error = null;
 			if(order.paymentMethod === ''){
 				alert('Please select a payment method');
 				return;
 			}
-			
 			
 			$http.post('orders/markAsPaid',{username : order.username, orderNumber: order.orderNumber, method: order.paymentMethod }).success(function(response){
 				$scope.success = response.message;

@@ -66,12 +66,12 @@
             expect(scope.success).toEqual('order marked as ready');
         });
 
-        it('$scope.markAsReady() should not mark order as ready when incorrect parameters sent to function', function() {
+        it('$scope.markAsReady() should NOT mark order as ready when incorrect parameters sent to function', function() {
             
 			scope.markAsReady('tonia');
             
             // Test scope value
-            expect(scope.error).toEqual('Invalid parameters');
+            expect(scope.success).toBe(null);
         });
 
   /*    Should be deleted as we dont use markAsCollected anymore  
@@ -110,18 +110,16 @@
             // Test scope value
             expect(scope.success).toEqual('Order paid');
         });
-
-		//Will be revisited
-        /*it('$scope.markAsPaid() should NOT mark order as paid if no payment method specified', function() {
+		
+        it('$scope.markAsPaid() should NOT mark order as paid if no payment method specified', function() {
             // Test expected GET request
             var ord = {username:"tonia", orderNum: 7, item:"spinach tart"};
             
             scope.markAsPaid(ord);
-            $httpBackend.flush();
-
+            
             // Test scope value
-            // expect(scope.success).toEqual('Order collected');
-        });*/
+            expect(scope.success).toBe(null);
+        });
 	
         it('$scope.getOrders() should get a list of orders where status is open', function() {
             // Test expected GET request
