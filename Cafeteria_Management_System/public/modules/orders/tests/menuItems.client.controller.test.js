@@ -50,7 +50,7 @@
             });
         }));
 		
-	/*	it('$scope.updateMenuItem() should update menu item', function() {
+		/*it('$scope.updateMenuItem() should update menu item', function() {
              //Test expected POST request
              $httpBackend.expectPOST('/orders/updateMenuItem').respond(200, {'message': 'Product information successfully updated.'});
 			scope.updateItemName = 'mock cheese sandwich';
@@ -137,6 +137,7 @@
 
             expect(scope.menuItems).not.toBe(null);
         });
+		
         it('$scope.createMenuCatagory() should create category', function() {
 
             $httpBackend.expectPOST('/orders/createMenuCategory').respond(200, {'message':'Category added to the menu.'});
@@ -174,7 +175,7 @@
         });
 
 
-/*
+
         it('$scope.deleteMenuItem() should delete menu item', function() {
              //Test expected POST request
 			$httpBackend.expectPOST('/orders/deleteMenuItem',{itemName: 'mock search'}).respond(200, {'message': 'Item deleted'});
@@ -192,7 +193,7 @@
 
             expect(scope.errorMessage).toEqual('Item could not be deleted');
         });
-
+/*
         it('$scope.addToPlate() should add menu item to plate', function() {
             scope.addToPlate();
 
