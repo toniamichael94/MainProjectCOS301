@@ -13,7 +13,7 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
 				for(var i = 0; i < $scope.orders.length; i++){
 					$scope.orders[i].paymentMethod = "cash";
 				}
-				console.log('aaaa');
+				
 				var currOrder = -1, currentCount = -1;
 				
 				var j = 0;
@@ -22,11 +22,11 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
 					$scope.orderNums.push();
 					currentCount++;
 					var arrObj = {orderNum: 0, username: '', items: [], status: '', paymentMethod: ''};
-					arrObj.orderNum = $scope.orders[j].orderNumber;
+					arrObj.orderNumber = $scope.orders[j].orderNumber;
 					arrObj.username = $scope.orders[j].username;
 					arrObj.status = $scope.orders[j].status;
 					$scope.orderNums[currentCount] = arrObj;
-					console.log($scope.orderNums[j]);
+					console.log('status ' + arrObj.status);
 					while(j < $scope.orders.length && currOrder == $scope.orders[j].orderNumber){
 						$scope.orderNums[currentCount].items.push($scope.orders[j]);
 						j++;
@@ -38,13 +38,14 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
 			});
 		};
 		
-		$scope.markAsReady = function(username, orderNumber){
-			
-			$http.post('orders/markAsReady',{uname : username, orderNumber : orderNumber}).success(function(response){
+		$scope.markAsReady = function(_username, _orderNumber){
+			//console.log(_username + ' ' + _orderNumber);
+			$http.post('orders/markAsReady',{username : _username, orderNumber: _orderNumber}).success(function(response){
 				$scope.success = response.message;
+				$window.location.reload();
 			}).error(function(response){
 				$scope.error = response.message;
-			}); location.reload(true);
+			}); 
 		};
 
      /*   $scope.markAsCollected = function(username, itemName,orderNumber){
@@ -64,9 +65,10 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
 			}
 			
 			
-			$http.post('orders/markAsPaid',{username : order.username, orderNumber: order.orderNum, method: order.paymentMethod }).success(function(response){
-				location.reload(true);
-            }).error(function(response){
+			$http.post('orders/markAsPaid',{username : order.username, orderNumber: order.orderNumber, method: order.paymentMethod }).success(function(response){
+				$scope.success = response.message;
+				$window.location.reload(true);
+			}).error(function(response){
 				alert(response.message);
             });
         };

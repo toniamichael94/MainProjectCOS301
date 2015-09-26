@@ -110,10 +110,10 @@ var mongoose = require('mongoose'),
  };
  
  exports.markAsReady = function(req, res){
-	Order.update({orderNumber: req.body.orderNum}, {status: 'ready'}, { multi: true }, function(err, numAffected){
+	Order.update({orderNumber: req.body.orderNumber}, {status: 'ready'}, { multi: true }, function(err, numAffected){
 		if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
-		console.log(numAffected);
-		sendEmail(req.body.uname, req.body.orderNum);
+		console.log('Num Affected ' + numAffected);
+		sendEmail(req.body.username, req.body.orderNumber);
 		res.status(200).send({message: 'order marked as ready'});
 	});
 
@@ -125,8 +125,8 @@ exports.markAsPaid = function(req, res){
 	console.log(req.body);
 	if(req.body.method === 'credit'){
 		console.log('hello');
-		Order.find({orderNumber: req.body.orderNum}, function(err, orders) {
-			if(err){ console.log('Error1' + err); return;}
+		Order.find({orderNumber: req.body.orderNumber}, function(err, orders) {
+			if(err){ console.log('Error1' + err); return res.status(400).send({message: 'Order not marked as paid'});}
 			console.log('helo2');
 			var total = 0;
 			console.log('length' + orders.length);
@@ -137,7 +137,7 @@ exports.markAsPaid = function(req, res){
 			User.findOne({username: req.body.username}, function(err, user){
 				if(err){ 
 					console.log('Error2' + err);
-					return;
+					return res.status(400).send({message: 'Order not marked as Paid'});;
 				}
 				
 				if(user.limit - user.currentBalance < total)
@@ -145,10 +145,10 @@ exports.markAsPaid = function(req, res){
 				
 				user.currentBalance = user.currentBalance + total;
 				user.save(function(err, user){
-				if(err){ console.log('Error3' + err); return;}
-						Order.update({orderNumber: req.body.orderNum}, {status: 'closed'}, { multi: true }, function(err, numAffected){
+				if(err){ console.log('Error3' + err); return res.status(400).send({message: 'Order not marked as paid'});}
+						Order.update({orderNumber: req.body.orderNumber}, {status: 'closed'}, { multi: true }, function(err, numAffected){
 							if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
-								console.log(numAffected);
+							//console.log(numAffected);
 							res.status(200).send({message: 'order marked as paid/closed'});
 						});
 				});
@@ -156,27 +156,12 @@ exports.markAsPaid = function(req, res){
 		});
 	}
 	else{
-		Order.update({orderNumber: req.body.orderNum}, {status: 'closed'}, { multi: true }, function(err, numAffected){
+		Order.update({orderNumber: req.body.orderNumber}, {status: 'closed'}, { multi: true }, function(err, numAffected){
 			if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
 			console.log(numAffected);
 			res.status(200).send({message: 'order marked as paid/closed'});
 		});
 	}
-	/*
-    console.log('dgefrgwergtwe'); //console.log(req.body);
-    Order.find({orderNumber: req.body.orderNumber },function(err, numAffected2) {
-        console.log(numAffected2);
-        console.log(numAffected2.length);
-        for(var item in numAffected2){
-            console.log(numAffected2[item].orderNumber);
-            Order.update({orderNumber: numAffected2[item].orderNumber, itemName: numAffected2[item].itemName }, {status: 'closed'},  function(err2, numAffected) {
-                console.log('hhhh');
-            });
-        }
-
-    });
-
-*/
 };
 
 exports.markAsCollected = function(req, res){
