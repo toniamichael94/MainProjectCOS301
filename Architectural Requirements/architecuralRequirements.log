@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.23)  13 SEP 2015 11:05
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.23)  25 SEP 2015 17:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -238,22 +238,22 @@ Package: titlepic 2009/08/03 1.1 Package to display a picture on the title page
 (./architecuralRequirements.aux)
 \openout1 = `architecuralRequirements.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
 \AtBeginShipoutBox=\box33
-Package hyperref Info: Link coloring OFF on input line 26.
+Package hyperref Info: Link coloring OFF on input line 27.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -263,9 +263,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count108
 )
-LaTeX Info: Redefining \ref on input line 26.
-LaTeX Info: Redefining \pageref on input line 26.
-LaTeX Info: Redefining \nameref on input line 26.
+LaTeX Info: Redefining \ref on input line 27.
+LaTeX Info: Redefining \pageref on input line 27.
+LaTeX Info: Redefining \nameref on input line 27.
 
 (./architecuralRequirements.out) (./architecuralRequirements.out)
 \@outlinefile=\write3
@@ -303,14 +303,14 @@ e
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 27.
+(Font)              <14.4> on input line 28.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 27.
+(Font)              <7> on input line 28.
 
-<../images/dddd.png, id=80, 509.905pt x 365.365pt>
+<../images/dddd.png, id=88, 509.905pt x 365.365pt>
 File: ../images/dddd.png Graphic file (type png)
  <use ../images/dddd.png>
-Package pdftex.def Info: ../images/dddd.png used on input line 27.
+Package pdftex.def Info: ../images/dddd.png used on input line 28.
 (pdftex.def)             Requested size: 272.99881pt x 195.62166pt.
 
 [1
@@ -331,133 +331,128 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.32 \break
+l.33 \break
             [1
 
 ] [2]
-Underfull \hbox (badness 10000) in paragraph at lines 77--78
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 79--80
+Underfull \hbox (badness 10000) in paragraph at lines 84--88
 
  []
 
 [3]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 92.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 96.
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 92.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 96.
  [4] [5] [6]
 [7] [8] [9] [10] [11]
-Underfull \hbox (badness 10000) in paragraph at lines 287--288
+Underfull \hbox (badness 10000) in paragraph at lines 291--292
 
  []
 
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 315--316
+[12] [13]
+Underfull \hbox (badness 10000) in paragraph at lines 319--320
 
  []
 
-[13] [14] [15] [16] [17]
-Underfull \hbox (badness 10000) in paragraph at lines 415--417
+[14] [15] [16] [17]
+Underfull \hbox (badness 10000) in paragraph at lines 419--421
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 415--417
+Underfull \hbox (badness 10000) in paragraph at lines 419--421
 
  []
 
 [18]
-Overfull \hbox (88.94902pt too wide) in paragraph at lines 421--422
+Overfull \hbox (88.94902pt too wide) in paragraph at lines 425--426
 []\OT1/cmr/m/it/12 Basic MVC Ar-chi-tec-ture\OT1/cmr/m/n/12 . [On-line]. Avail-
 able: <http://www.tutorialspoint.com/struts[]2/ 
  []
 
 
-Overfull \hbox (91.99637pt too wide) in paragraph at lines 423--424
+Overfull \hbox (91.99637pt too wide) in paragraph at lines 427--428
 []\OT1/cmr/m/n/12 Beal, V. n.d. \OT1/cmr/m/it/12 Linux Server\OT1/cmr/m/n/12 . 
 [On-line]. Avail-able: <http://www.webopedia.com/TERM/L/ 
  []
 
 
-Overfull \hbox (37.60107pt too wide) in paragraph at lines 425--426
+Overfull \hbox (37.60107pt too wide) in paragraph at lines 429--430
 \OT1/cmr/m/it/12 How To Con-vince Your Man-age-ment\OT1/cmr/m/n/12 . [On-line].
  Avail-able: <http://www.adam-
  []
 
 
-Overfull \hbox (10.92834pt too wide) in paragraph at lines 429--431
+Overfull \hbox (10.92834pt too wide) in paragraph at lines 433--435
 \OT1/cmr/m/it/12 sums for er-ror de-tec-tion \OT1/cmr/m/n/12 [On-line]. Avail-a
 ble: <http://noahdavids.org/self-
  []
 
 
-Overfull \hbox (30.25624pt too wide) in paragraph at lines 432--433
+Overfull \hbox (30.25624pt too wide) in paragraph at lines 436--437
 []\OT1/cmr/m/it/12 Git --loval-branding-on-the-cheap\OT1/cmr/m/n/12 . [On-line]
 . Avail-able: <http://git-scm.com/>
  []
 
 
-Overfull \hbox (94.06361pt too wide) in paragraph at lines 434--435
+Overfull \hbox (94.06361pt too wide) in paragraph at lines 438--439
 []\OT1/cmr/m/it/12 JavaServer Faces Tech-nol-ogy\OT1/cmr/m/n/12 . [On-line]. Av
 ail-able: <http://www.oracle.com/technetwork/ 
  []
 
 
-Overfull \hbox (1.51955pt too wide) in paragraph at lines 437--438
+Overfull \hbox (1.51955pt too wide) in paragraph at lines 441--442
 \OT1/cmr/m/n/12 Avail-able: <http://tools.ietf.org/html/rfc2554> [Ac-cessed 9 M
 arch 2015] 
  []
 
 
-Overfull \hbox (26.24667pt too wide) in paragraph at lines 439--440
+Overfull \hbox (26.24667pt too wide) in paragraph at lines 443--444
 []\OT1/cmr/m/it/12 Securing FTP us-ing SSH \OT1/cmr/m/n/12 [On-line]. Avail-abl
 e: <http://nurdletech.com/linux-
  []
 
 
-Overfull \hbox (35.3744pt too wide) in paragraph at lines 441--442
+Overfull \hbox (35.3744pt too wide) in paragraph at lines 445--446
 []\OT1/cmr/m/it/12 PostgreSQL: About\OT1/cmr/m/n/12 . [On-line]. Avail-able: <h
 ttp://www.postgresql.org/about/>
  []
 
 
-Overfull \hbox (84.7852pt too wide) in paragraph at lines 443--444
+Overfull \hbox (84.7852pt too wide) in paragraph at lines 447--448
 []\OT1/cmr/m/it/12 Software En-gi-neer-ing\OT1/cmr/m/n/12 . [On-line]. Avail-ab
 le: <http://sesolution.blogspot.com/p/software-
  []
 
 
-Overfull \hbox (91.88899pt too wide) in paragraph at lines 445--446
+Overfull \hbox (91.88899pt too wide) in paragraph at lines 449--450
 \OT1/cmr/m/n/12 Pre-to-ria: Pre-to-ria. Avail-able: <http://www.cs.up.ac.za/mod
 ules/courses/download.php? 
  []
 
 [19]
-Overfull \hbox (91.88899pt too wide) in paragraph at lines 447--448
+Overfull \hbox (91.88899pt too wide) in paragraph at lines 451--452
 \OT1/cmr/m/n/12 Pre-to-ria: Pre-to-ria. Avail-able: <http://www.cs.up.ac.za/mod
 ules/courses/download.php? 
  []
 
 
-Overfull \hbox (95.61394pt too wide) in paragraph at lines 449--450
+Overfull \hbox (95.61394pt too wide) in paragraph at lines 453--454
 \OT1/cmr/m/n/12 [On-line]. Avail-able: <http://blogs.msdn.com/b/sqlexpress/arch
 ive/2010/04/21/database-
  []
 
 
-Overfull \hbox (10.73195pt too wide) in paragraph at lines 449--450
+Overfull \hbox (10.73195pt too wide) in paragraph at lines 453--454
 \OT1/cmr/m/n/12 size-limit-increased-to-10gb-in-sql-server-2008-r2-express.aspx
 > [Ac-cessed
  []
 
 
-Overfull \hbox (57.60278pt too wide) in paragraph at lines 451--452
+Overfull \hbox (57.60278pt too wide) in paragraph at lines 455--456
 []\OT1/cmr/m/it/12 Usability Eval-u-a-tion Ba-sics\OT1/cmr/m/n/12 . [On-line]. 
 Avail-able: <http://www.usability.gov/what-
  []
@@ -465,46 +460,47 @@ Avail-able: <http://www.usability.gov/what-
 Missing character: There is no Ã in font cmr12!
 Missing character: There is no ¤ in font cmr12!
 
-Overfull \hbox (3.22925pt too wide) in paragraph at lines 453--454
+Overfull \hbox (3.22925pt too wide) in paragraph at lines 457--458
 \OT1/cmr/m/n/12 ee-jee-and-not-j2ee-instead-of-spring-in-new-enterprise-java-pr
 ojects-in-
  []
 
 
-Overfull \hbox (29.40155pt too wide) in paragraph at lines 455--456
+Overfull \hbox (29.40155pt too wide) in paragraph at lines 459--460
 []\OT1/cmr/m/it/12 Welcome to Apache Maven\OT1/cmr/m/n/12 . [On-line]. Avail-ab
 le: <http://maven.apache.org/>
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 464.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 468.
 [20]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 464.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 468.
  (./architecuralRequirements.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 464.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 464.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 468.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 468.
 Package rerunfilecheck Info: File `architecuralRequirements.out' has not change
 d.
-(rerunfilecheck)             Checksum: 4E50F70042942DE132E72EFF169C23E5;1189.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 464.
+(rerunfilecheck)             Checksum: BD9D6AA127BBF6528D3B51C4BE56722C;1421.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 468.
  ) 
 Here is how much of TeX's memory you used:
- 7039 strings out of 495028
- 107306 string characters out of 6181497
- 191237 words of memory out of 5000000
- 10130 multiletter control sequences out of 15000+600000
- 9930 words of font info for 35 fonts, out of 8000000 for 9000
+ 7044 strings out of 495028
+ 107391 string characters out of 6181497
+ 193305 words of memory out of 5000000
+ 10133 multiletter control sequences out of 15000+600000
+ 10230 words of font info for 36 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 36i,13n,38p,659b,397s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,13n,38p,762b,443s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on architecuralRequirements.pdf (21 pages, 250452 bytes).
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on architecuralRequirements.pdf (21 pages, 263932 bytes).
 PDF statistics:
- 276 PDF objects out of 1000 (max. 8388607)
- 243 compressed objects within 3 object streams
- 78 named destinations out of 1000 (max. 500000)
- 158 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 293 PDF objects out of 1000 (max. 8388607)
+ 259 compressed objects within 3 object streams
+ 80 named destinations out of 1000 (max. 500000)
+ 174 words of extra memory for PDF output out of 10000 (max. 10000000)
 

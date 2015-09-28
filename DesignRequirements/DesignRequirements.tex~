@@ -38,13 +38,13 @@
  \hline
 \textbf{Document Title} & Design Requirements Document \\
  \hline
- \textbf{Document Identification}  & Document 0.0.2 \\
+ \textbf{Document Identification}  & Document 0.0.3 \\
 \hline
  \textbf{Author}  & Rendani Dau, Elana Kuun, Semaka Malapane, Antonia Michael, Isabel Nel \\
 \hline
-\textbf{Version} & 0.0.2 \\
+\textbf{Version} & 0.0.3 \\
 \hline
-\textbf{Document Status} & Second Version - added the function templates for the client controllers \\
+\textbf{Document Status} & Third Version - added reporting and dynamic pages functionality \\
 \hline
 \end{tabu}
 
@@ -54,10 +54,13 @@
  \hline
  \textbf{Version} & \textbf{Date} & \textbf{Summary} & \textbf{Authors} \\ [0.5ex] 
  \hline\hline
- 0.0.1 & 29 May 2015 &  First draft contains first two use cases  & Rendani Dau, \\ & & template methods and  & Elana Kuun, \\ & &  declarations& Semaka Malapane, \\ & & & Antonia Michael \\ & & & Isabel Nel, \\ & & & \\
+ 0.0.1 & 29 May 2015 &  First draft contains first two use cases  & Rendani Dau, \\ & & template methods and  & Elana Kuun, \\ & &  declarations& Semaka Malapane, \\ & & & Antonia Michael \\ & & & Isabel Nel \\ & & & \\
  \hline 
  & & & \\
  0.0.2 & 27 August 2015 &  Second draft adding all the client & Rendani Dau, \\ & & and controllers for & Elana Kuun, \\ & & the updated system & Semaka Malapane, \\ & & &  Antonia Michael \\ & & & Isabel Nel \\   [1ex] 
+ \hline 
+ & & & \\
+ 0.0.3 & 24 September 2015 &  Third draft adding all the reporting & Rendani Dau, \\ & & and dynamic pages & Elana Kuun, \\ & &  functionality  & Semaka Malapane, \\ & & &  Antonia Michael \\ & & & Isabel Nel \\   [1ex] 
  \hline  
  \end{tabular}
 \end{table}
@@ -77,14 +80,14 @@ The vision of this project is to implement a flexible, pluggable, fully function
 
 %%---------------------------------- BACKGROUND -----------------------------------------
 \section{Background}
-As specified in the project proposal document from Resolve - the cafeteria is currently cash only and does not accept bank cards or electronic payments. This makes it inconvenient for employees as they have to carry around cash if they want to purchase anything from the cafeteria. Hence, this is equivalent to purchasing from an external food outlet where they can also pay with their preferred method of payment. The employees have to hence use up fuel and time and lastly this does not bring in the maximum amount of income to the cafeteria, hindering its growth and improvement.\\
+\subsection{The current situation/ problems the client currently experience}
+As specified in the project proposal document from Resolve, the cafeteria is currently cash only and does not accept bank cards or electronic payments. This is it inconvenient for employees as they have to carry around cash if they want to purchase anything from the cafeteria. Employees may choose to go to an external food outlet where they can pay with their preferred method of payment, which uses time and fuel. Thus, this means the cafeteria does not achieve the maximum amount of income which hinders its growth and improvement.\\ A problem with the cafeteria itself is that certain meal items are hardly in stock due to either lack of ingredients to make the meal or under estimating the quantity of the meal item required.
 
-Resolve is therefore looking for a means to accept payments from employees for the canteen using their employee access cards or access card numbers, with an amount being deducted from their salary at the end of the month.\\
-
-Resolve proposed the Cafeteria Management System to assist with this problem.
-After our first meeting with the client, they brought to our attention that at times the cafeteria does not even have enough stock to provide some of the menu items, thus the managing of inventory or stock will also be part of the system. The system will also predict what inventory/stock needs to be bought for the next week in order to avoid such a problem. At the end of each month, the bill for the month will be sent to either payroll or to the employee. This option is configurable from the user's profile. The employee can also set a spending limit for each month for control purposes. The system will have its own maximum, such that users cannot set a limit that exeeds this. 
-
-
+\subsection{How the aforementioned problems will be alleviated by the CMS}
+The Cafeteria Management System will provide a means to accept payments from employees, at the canteen, using their employee access cards or access card numbers, with an amount being deducted from their salary at the end of the month.  The option of cash payments ,however, will not be discarded. At the end of each month, the bill for the month will be sent to either payroll, to the employee, or to both. This option is thus configurable from the user's profile. The employee can also set a spending limit for each month. There will also be a system wide limit that users cannot exceed.
+\\
+The system will predict which inventory items needs to be bought for the next week in order to avoid the "out of stock" situation described above. The system will also enforce that the cafeteria manager 
+\\
 %%-------------DESIGN--------------------------------------
 \section{Standards and conventions}
 
@@ -107,6 +110,10 @@ The authentication controller allows existing users to log in and new users to s
   	\$scope.signin = function()\\ \\
 	 -Usage\\
  	Method that allows an existing user to sign in.
+ 	\item Get system wide limit
+ 	\$scope.getSystemLimit = function()\\ \\
+ 	-Usage\\
+ 	This function retrieves the system wide limit.
  \end{itemize}	
 \end{enumerate}
 
@@ -178,9 +185,9 @@ The authentication controller allows existing users to log in and new users to s
 \item Methods: 
 	\begin{itemize}
 		\item Assign roles \\ \$scope.assignRoles = function(Boolean isValid)   \\ \\
-		Usage: Superuser can assign cashier, cafeteria manager, finance manager and admin roles
-		\item Assign roles admin role \\ \$scope.assignRolesAdminRole = function(Boolean isValid) \\ \\
-		Usage: Admin user also has access to the assign roles functionality and serves as a back up superuser
+		Usage: Superuser can assign cashier, cafeteria manager, finance manager and admin roles.
+		\item Assign roles as admin \\ \$scope.assignRolesAdminRole = function(Boolean isValid) \\ \\
+		Usage: This function enables the admin user to assign roles. The admin user serves as a back up superuser.
 		\item Change employee ID \\ \$scope.changeEmployeeID = function(Boolean isValid)\\ \\
 		Usage: The superuser can change the employee ID of the users if the user signed up with the incorrect ID or if the company changes the IDs.
 		\item Remove employee \\ \$scope.removeEmployee = function(Boolean isValid)  
@@ -193,7 +200,10 @@ The authentication controller allows existing users to log in and new users to s
 		 \item Set canteen name \\ \$scope.setCanteenName = function(Boolean isValid) 
 		\\ \\ Usage: The canteen name is configurable from the superuser's branding settings page.
 		\item Check user \\ \$scope.checkUser = function() 
-		\\ \\Usage: This is a security function that checks to make sure that the authorized superuser is accessing the page and if this is not the case, the user will be redirected to the home page
+		\\ \\Usage: This is a security function that checks to make sure that the authorized superuser is accessing the page and if this is not the case, the user will be redirected to the home page.
+		\item Check admin user\\
+		\$scope.checkAUser = function()
+		\\ \\Usage: This is a security function that checks if the user that is accessing the page is an admin user, if this is not the case the user will be redirected to the home page.
 		\item Load employees \\ \$scope.loadEmployees = function() 
 		\\ \\Usage: This function is used to dynamically populate the drop down menu for the change employee ID functionality
 	\end{itemize}
@@ -224,10 +234,11 @@ The authentication controller allows existing users to log in and new users to s
     function(\$scope, \$http, \$location, \$stateParams, Authentication)  
 \item Methods:
 	\begin{itemize}
-		\item  Get user orders \\  \$scope.getUserOrders = function() 
-		\\ \\ Usage: Function to obtain the orders placed by the users via adding to plate from the menu page and proceeding to place that order. The finance manager will enter the employee ID of the user in the textbox displayed on the page and the orders placed by that user will be displayed on that page.
 		\item Check user \\ \$scope.checkUser = function() 
 	\\ \\ Usage: This is a security function that checks to make sure that the authorized cashier is accessing the page and if this is not the case, the user will be redirected to the home page
+	\item Generate report\\
+	\$scope.generateReport = function()
+	\\ \\Usage: This function generates an invoice for a certain user.
 	\end{itemize}	
 \end{enumerate}
 
@@ -503,6 +514,14 @@ The menuitems client controller handles all the functionality concerning the men
 		\$scope.checkCMUser = function()\\
 		-Usage\\ \\
 		This method checks whether the current user has permision to view the page, and redirects to the home page if they do not.
+		\item Filter category\\
+		\$scope.filterCat = function(catName)\\
+		-Usage\\ \\
+		This method receives a category name and filters the menu according to that category.
+		\item Help alert\\
+		\$scope.helpAlert = function\\
+		-Usage\\ \\
+		This function sets the help variable to true, to indicate that a user wants help alerts.
 	\end{itemize}
 	
 \end{enumerate}

@@ -9,13 +9,14 @@
 \renewcommand\thesection{\arabic{section}}
 
 %% ------------------------- Title Page ----------------------------
-\titlepic{ \centering\includegraphics[width=0.7\textwidth]{../images/dddd.png} }
+\titlepic{ \centering\includegraphics[width=0.7\textwidth]{../images/dddd.png}  }
+
 %\documentclass[12pt]{article}
 \title{ \rule{\textwidth}{1pt}  \\ \Huge User Manual \\ 
 	\Large Cafeteria Management System: Resolve Solution Partners (Pty) Limited \\
 	\small Client: Gareth Botha and Jaco Pieterse}
 
-\author{
+\author{ 
          \underline{T-RISE}\\
           Rendani Dau (13381467) \\
 	Elana Kuun (12029522) \\
@@ -23,7 +24,9 @@
 	Antonia Michael (13014171) \\
 	Isabel Nel (13070305) \\ \\
 	https://github.com/toniamichael94/MainProjectCOS301 \\ }
+ 
 
+ 
 \date{\today \\ \rule{\textwidth}{1pt}}
 
 
@@ -36,7 +39,10 @@
 \break
 
 %%-----------------------------Version table-------------------
-
+\begin{figure}[H]
+  \centering
+   \includegraphics[width=0.3\textwidth]{../images/cmslogo.jpg} 
+\end{figure}
  \begin{tabu} to 0.8\textwidth { | X[l] | X[l] | }
  \hline
  \textbf{Document Title} & User Manual \\
@@ -81,8 +87,9 @@
 \pagebreak
 %%now begin document
 %%---------------------------------  INTRODUCTION -------------------------------------------
-\section{Introduction}
-This document contains the user manual for the Resolve Cafeteria Management System that will be created for Software Engineering (COS 301) at the University of Pretoria 2015, by the group T-RISE. 
+
+\section{Introduction} 
+This document contains the user manual for the Resolve Cafeteria Management System that will be created for Software Engineering (COS 301) at the University of Pretoria 2015, by the group T-RISE.
 
 %% ------------------------------ VISION ------------------------------------------------------
 \section{Vision}
@@ -106,7 +113,7 @@ The Cafeteria Management System is a system designed to assist users to order fo
 \section{System Configuration}
 The system requires a Windows/Unix based host to run the server. This host must have the associated technologies installed (the installation of these technologies will be discussed below). The host must be connected to the internet in order to allow any required dependencies to be installed and set up for the operating system environment. The configuration of the server requires an active email account to facilitate communication between the system and end users. \\ 
 \\
-End users will only require a PC equipped with a web browser such as Mozilla, Chrome or Internet Explorer, as well as an active internet connection. The types of data that will communicated and stored will be data of the NoSQL database MongoDB. The menu items that the cafeteria manager will add to the menu as well as images thereof, will be stored in the database, to be communicated/displayed on the menu page. The inventory items that these menu items entail will be stored too. The categories that can be added to the menu by the cafeteria manager will also be stored in the database in order to populate the navigation bar, the actual dynamic pages and various other places in which these are displayed. The cafeteria manager is the only user who is able to retrieve the menu and inventory data, in order to edit or delete it. The other users will just be able to view the menu data on the menu page. The user's sign up informtation will also be stored and will be communicated on the profile page of the user. Each user will only have access to their own information. The superuser, however, willbe able to search for users and update their IDs or delete them from the system. The branding information such as the cover image, the theme, and the canteen name will also be  stored to be communicated on various pages. The superuser is the only user who be able to edit and add this information. Other settings that the superuser can configure, such as the system limit and the roles of the users will be stored and used for determining the privileges associated with the various roles and the checks done on the users' personal spending limits. The finance manager will have access to the order history of each user in order to view their bills and invoices. The cashier will also have access to the orders placed in order to process them i.e. mark an order as ready and as paid. All the crucial information such as the order history and other changes made will be stored in an auditing table.
+End users will only require a PC equipped with a web browser such as Mozilla, Chrome or Internet Explorer, as well as an active internet connection. The types of data that will communicated and stored will be data of the NoSQL database MongoDB. The menu items that the cafeteria manager will add to the menu as well as images thereof, will be stored in the database, to be communicated/displayed on the menu page. The inventory items that these menu items entail will be stored too. The categories that can be added to the menu by the cafeteria manager will also be stored in the database in order to populate the navigation bar, the actual dynamic pages and various other places in which these are displayed. The cafeteria manager is the only user who is able to retrieve the menu and inventory data, in order to edit or delete it. The other users will just be able to view the menu data on the menu page. The user's sign up informtation will also be stored and will be communicated on the profile page of the user. Each user will only have access to their own information. The superuser, however, willbe able to search for users and update their IDs or delete them from the system. The branding information such as the cover image, the theme, and the canteen name will also be  stored to be communicated on various pages. The superuser is the only user who be able to edit and add this information. Other settings that the superuser can configure, such as the system limit and the roles of the users will be stored and used for determining the privileges associated with the various roles and the checks done on the users' personal spending limits. The finance manager will have access to the order history of each user in order to view their bills and invoices. The cashier will also have access to the orders placed in order to process them i.e. mark an order as ready and as completed. All the crucial information such as the order history and other changes made will be stored in an auditing table.
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{screenshots/ServerClients.png}
