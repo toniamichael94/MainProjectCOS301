@@ -712,6 +712,28 @@ $scope.searchBarDynamic = function(row){
 			Reporting for menuItems
 		*/
 
+		$scope.loadAllMenuItems = function(){
+						$http.get('/loadMenuItems').success(function(response) {
+								console.log("MENU ITEMS");
+								console.log(response.message);
+
+								$scope.menuItems = response.message;
+								var itemsArray = new Array();
+								var counter = 0;
+
+								for(var itemName in response.message){
+									itemsArray[counter] = response.message[itemName];
+									counter++;
+								}
+
+
+								$scope.menuItems = itemsArray;
+
+						}).error(function(response) {
+						$scope.inventoryItems = 'Error loading menu Items';
+					});
+		};
+
 		$scope.generateSoldReport = function(){
 				console.log('Generate popular report');
 				$http.post('orders/generateSoldReport',{numItems: $scope.numMenuItems, start: $scope.startDate, end: $scope.endDate},{responseType:'arraybuffer'}).success(function(response){
