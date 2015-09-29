@@ -22,6 +22,7 @@ module.exports = function(app) {
 
 	app.route('/users/superuserSetCanteenName').post(users.setCanteenName);
 	app.route('/users/superuserSetThemeName').post(users.setThemeName);
+	app.route('/config/theme').post(users.getTheme);
 	app.route('/users/superuserUploadImage').post(users.uploadImage);
 
     //loading employees from db
