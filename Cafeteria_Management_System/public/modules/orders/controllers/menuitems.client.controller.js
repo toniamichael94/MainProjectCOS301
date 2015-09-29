@@ -712,10 +712,11 @@ $scope.searchBarDynamic = function(row){
 			Reporting for menuItems
 		*/
 
+		/*This function stores all the names of the menu items in an array so that
+			it can be displayed in an HTML page*/
+
 		$scope.loadAllMenuItems = function(){
 						$http.get('/loadMenuItems').success(function(response) {
-								console.log("MENU ITEMS");
-								console.log(response.message);
 
 								$scope.menuItems = response.message;
 								var itemsArray = new Array();
@@ -726,7 +727,6 @@ $scope.searchBarDynamic = function(row){
 									counter++;
 								}
 
-
 								$scope.menuItems = itemsArray;
 
 						}).error(function(response) {
@@ -734,8 +734,9 @@ $scope.searchBarDynamic = function(row){
 					});
 		};
 
+		/*This function generates a report that shows the amount of the selected
+			items sold over time.*/
 		$scope.generateSoldReport = function(){
-				console.log('Generate popular report');
 				$http.post('orders/generateSoldReport',{numItems: $scope.numMenuItems, start: $scope.startDate, end: $scope.endDate},{responseType:'arraybuffer'}).success(function(response){
 
 
@@ -756,8 +757,16 @@ $scope.searchBarDynamic = function(row){
 				});
 		};
 
+		/*This function adds the selected item to be displayed in the soldReport*/
+		$scope.addSoldItem = function()
+		{
+				console.log("in sold item");
+				console.log("HERE:"+$scope.soldItem);
+		};
+
+		/*This funtion generates a report that shows the most popular menu itmes over
+			a period of time*/
 		$scope.generatePopularReport = function(){
-			console.log('Generate popular report');
 			$http.post('orders/generatePopularReport',{numItems: $scope.numMenuItems, start: $scope.startDate, end: $scope.endDate},{responseType:'arraybuffer'}).success(function(response){
 
 

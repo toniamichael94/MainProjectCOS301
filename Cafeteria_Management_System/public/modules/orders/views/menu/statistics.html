@@ -85,9 +85,12 @@
 					<div class="form-group">
 						<label for="menuCatagory" ng-init = "loadAllMenuItems()">Menu items</label>
 
-						<select  class="form-control" ng-model = 'menuItems[$index]'/>
-								<option  ng-repeat="item in menuItems" >{{item.itemName}}</option>
+						<div ng-model = 'menuItems[$index]'>
+						<select  class="form-control" ng-model = 'soldItem'/>
+								<option  ng-repeat="item in menuItems">{{item.itemName}}</option>
 						</select><br>
+						<button style="width:200px" class = "btn btn-large btn-primary" ng-click = "addSoldItem()">Add item</button>
+					</div>
 
 						<label for="startDate"> From: </label>
 						<input type="date" id="startDate" name="startDate" class="form-control" data-ng-model="startDate"/>
