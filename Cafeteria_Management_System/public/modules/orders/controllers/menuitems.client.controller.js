@@ -708,7 +708,84 @@ $scope.searchBarDynamic = function(row){
 			return -1;
 		};
 
+		/*
+			Reporting for menuItems
+		*/
 
+		/*This function stores all the names of the menu items in an array so that
+			it can be displayed in an HTML page*/
+
+		$scope.loadAllMenuItems = function(){
+						$http.get('/loadMenuItems').success(function(response) {
+
+								$scope.menuItems = response.message;
+								var itemsArray = new Array();
+								var counter = 0;
+
+								for(var itemName in response.message){
+									itemsArray[counter] = response.message[itemName];
+									counter++;
+								}
+
+								$scope.menuItems = itemsArray;
+
+						}).error(function(response) {
+						$scope.inventoryItems = 'Error loading menu Items';
+					});
+		};
+
+		/*This function generates a report that shows the amount of the selected
+			items sold over time.*/
+		$scope.generateSoldReport = function(){
+				$http.post('orders/generateSoldReport',{numItems: $scope.numMenuItems, start: $scope.startDate, end: $scope.endDate},{responseType:'arraybuffer'}).success(function(response){
+
+
+				 var file = new Blob([response], {type: 'application/pdf'});
+					var fileURL = URL.createObjectURL(file);
+
+					var fileName = 'test.pdf';
+					var a = document.createElement('a');
+					document.body.appendChild(a);
+					a.setAttribute('style', 'display: none');
+
+					a.href =  fileURL;
+									a.download = fileName;
+									a.click();
+
+				}).error(function(response){
+					console.log(response);
+				});
+		};
+
+		/*This function adds the selected item to be displayed in the soldReport*/
+		$scope.addSoldItem = function()
+		{
+				console.log("in sold item");
+				console.log("HERE:"+$scope.soldItem);
+		};
+
+		/*This funtion generates a report that shows the most popular menu itmes over
+			a period of time*/
+		$scope.generatePopularReport = function(){
+			$http.post('orders/generatePopularReport',{numItems: $scope.numMenuItems, start: $scope.startDate, end: $scope.endDate},{responseType:'arraybuffer'}).success(function(response){
+
+
+			 var file = new Blob([response], {type: 'application/pdf'});
+				var fileURL = URL.createObjectURL(file);
+
+				var fileName = 'test.pdf';
+				var a = document.createElement('a');
+				document.body.appendChild(a);
+				a.setAttribute('style', 'display: none');
+
+				a.href =  fileURL;
+								a.download = fileName;
+								a.click();
+
+			}).error(function(response){
+				console.log(response);
+			});
+		};
 
 		$scope.addToPlate = function(itemName){
 			var _price;
