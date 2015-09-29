@@ -3,6 +3,7 @@
  * Module dependencies.
  */
 var _ = require('lodash'),
+    http = require('http'),
     glob = require('glob');
 /**
  * Load app configurations
@@ -55,11 +56,35 @@ module.exports.getJavaScriptAssets = function(includeTests) {
     }
     return output;
 };
+
 /**
  * Get the modules CSS files
  */
-module.exports.getCSSAssets = function() {
-    var output = this.getGlobbedFiles(this.assets.lib.css.concat(this.assets.css), 'public/');
+module.exports.getCSSAssets = function(s) {
+    /*http.post('/config/theme', function(response){
+        var success = response.message;
+        console.log("GET CSS ASSETS")
+        console.log(response.message);
+        console.log(response);
+    });*/
+    /*http.post('/config/theme').success(function(response){
+        var success = response.message;
+        console.log("GET CSS ASSETS")
+        console.log(response.message);
+        console.log(response);
+    }).error(function(response){
+        var error = response.message;
+        console.log("GET CSS ASSETS ERROR")
+        console.log(response.message);
+        console.log(response);
+    });*/
+
+    //var output = this.getGlobbedFiles(this.assets.lib.css.concat(this.assets.css), 'public/');
+    console.log("hhhhhhhhhhhhhhhhhhhhhhhheeee"+ s);
+    if(s!='bbbb')
+        var output = this.getGlobbedFiles(this.assets.lib.css, 'public');
+    else
+        var output = this.getGlobbedFiles(this.assets.lib.css.concat(this.assets.css), 'public/');
     return output;
     /*Config.findOne({
      value: them

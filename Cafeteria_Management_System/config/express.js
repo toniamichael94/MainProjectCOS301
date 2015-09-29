@@ -19,8 +19,6 @@ var fs = require('fs'),
 		session: session
 	}),
 	flash = require('connect-flash'),
-   // mongoose = require('mongoose'),
-	//Config = require('./app/models/config.server.model.js'),//('./config'),
 	config = require('./config'),
 	consolidate = require('consolidate'),
 	path = require('path');
@@ -57,6 +55,20 @@ module.exports = function(db) {
 
     // Initialize express app
     var app = express();
+   /* var success;  
+       app.post('/config/theme', function(response ){
+            success = response.message;
+            console.log("GET CSS ASSETS")
+            console.log(response.message);
+        });*/
+    var success;
+    app.post('/config/theme', function(response ){
+        success = response.message;
+        console.log("GET CSS ASSETS")
+        console.log(response.message);
+    });
+
+
 // Globbing model files
     config.getGlobbedFiles('./app/models/**/*.js').forEach(function(modelPath) {
         require(path.resolve(modelPath));
@@ -67,7 +79,7 @@ module.exports = function(db) {
     app.locals.keywords = config.app.keywords;
     app.locals.facebookAppId = config.facebook.clientID;
     app.locals.jsFiles = config.getJavaScriptAssets();
-    app.locals.cssFiles = config.getCSSAssets();
+    app.locals.cssFiles = config.getCSSAssets(success);
 // Passing the request url to environment locals
     app.use(function(req, res, next) {
         res.locals.url = req.protocol + '://' + req.headers.host + req.url;
