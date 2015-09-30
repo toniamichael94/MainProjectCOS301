@@ -8,7 +8,7 @@ var mongoose = require('mongoose'),
 	MenuItem = mongoose.model('MenuItem'),
 	OrderItem = mongoose.model('Order'),
 	InventoryItem = mongoose.model('Inventory'),
-	MenuCatagory = mongoose.model('MenuCatagory'),
+	MenuCategory = mongoose.model('MenuCatagory'),
 	Order = mongoose.model('Order'),
 	path = require('path'),
 	formidable = require('formidable'),
@@ -69,7 +69,7 @@ MenuItem.find({}, function(err, items) {
 
 exports.loadMenuCategories = function(req, res) {
 console.log('---------------------------------');
-MenuCatagory.find({}, function(err, items) {
+MenuCategory.find({}, function(err, items) {
 
 	if(err ) {
 		console.log('Error = ' + err);
@@ -102,28 +102,26 @@ exports.createMenuItem = function(req, res) {
 };
 
 exports.createMenuCategory = function(req, res) {
-	//console.log('YOU ARE HERE-------------');
-
-	MenuCatagory.find({name : req.body.catagory}, function(error, model) {
+	MenuCategory.find({name : req.body.category}, function(error, model) {
 
 	var v = model;
 	//console.log(v);
 	if(model.length < 1){ // then no such category exists we can create one
-		var catagory = new MenuCatagory({
-			name : req.body.catagory
+		var category = new MenuCategory({
+			name : req.body.category
 		});
 
 
-		catagory.save(function(err, catagory) {
+		category.save(function(err, category) {
 			if (err){
 				return console.error(err);
 			}
-				console.dir(catagory);
+				console.dir(category);
 			});
 
 			return res.status(200).send({message: "sucess" });
 		}else {
-		return res.status(400).send({message: "The category already exists" }); // menu  catagory already exixts
+		return res.status(400).send({message: "The category already exists" });
 		}
  });
 };
@@ -212,6 +210,38 @@ exports.delete = function(req, res) {
 		}
 	});
 };
+
+/**
+ * Search menu category
+ */
+
+ exports.searchMenuCategory = function(req, res){
+	 if (req.body.categoryName) {
+			 MenuCategory.findOne({
+					 name: req.body.categoryName
+			 }, function (err, category) {
+					 if (!category) {
+							 return res.status(400).send({
+									 message: 'Category not found.'
+							 });
+					 }   else if(category){
+							 return res.status(200).send({
+									 message: 'Found category',
+				foundcategory: category
+							 });
+					 }
+			 });
+	 }
+	 else {
+			 return res.status(400).send({
+					 message: 'The category name field must not be blank.'
+			 });
+	 }
+ };
+
+ exports.updateMenuCategory = function(req, res){
+	 console.log("in update");
+ };
 
 /**
  * Create a Menu item

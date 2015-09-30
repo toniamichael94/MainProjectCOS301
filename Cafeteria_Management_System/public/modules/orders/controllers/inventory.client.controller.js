@@ -4,48 +4,48 @@
 angular.module('inventory').controller('InventoryController', ['$scope', '$http', '$stateParams', '$location', 'Authentication', 'Inventory',
 	function($scope, $http, $stateParams, $location, Authentication, Inventory) {
 		$scope.authentication = Authentication;
-	
+
 		/*
 			Dynamically add fields to the inventory page to update the quantity.
 		*/
 		$scope.allInventory = {inventoryProduct:[],inventoryQuantity:[]};
-		$scope.addFormFieldInventory = function() {			
+		$scope.addFormFieldInventory = function() {
 			$http.get('/loadInventoryItems').success(function(response) {
 			$scope.inventoryItems = response.message;
 			var itemsArray = new Array();
 			var counter = 0;
 
 			for(var itemName in response.message){
-				itemsArray[counter] = response.message[itemName];			
+				itemsArray[counter] = response.message[itemName];
 				counter++;
 			}
-			
+
 
 			$scope.inventoryItems = itemsArray;
 			console.log($scope.inventoryItems.length);
 			$scope.previousQuantity = {prevQuantity:[]};
 			$scope.allInventory = {inventoryProduct:[],inventoryQuantity:[]};
-			
+
 				for(var i = 0; i !== $scope.inventoryItems.length; i++)
 				{
 					$scope.allInventory.inventoryProduct.push($scope.inventoryItems[i].productName +' ' +$scope.inventoryItems[i].unit);
 					$scope.allInventory.inventoryQuantity.push($scope.inventoryItems[i].quantity);
-					$scope.previousQuantity.prevQuantity.push($scope.inventoryItems[i].quantity);	
-					console.log($scope.allInventory.inventoryProduct[i]);					
-				}		
+					$scope.previousQuantity.prevQuantity.push($scope.inventoryItems[i].quantity);
+					console.log($scope.allInventory.inventoryProduct[i]);
+				}
 			$scope.showInventory = true;
 			$scope.hideInventory = false;
 
 				}).error(function(response) {
 				$scope.inventoryItems = 'Error loading inventory Items';
 			});
-				    
-			
-			
-		 
+
+
+
+
 		};
-		
-		
+
+
 		/*
 		Update the quantity of an inventory item
 		*/
@@ -53,16 +53,16 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 		{
 				var error = false;
 				$scope.message = "";
-				
+
 			for(var i = 0; i !== $scope.allInventory.inventoryProduct.length; i++)
 			{
-				
+
 				if($scope.allInventory.inventoryQuantity[i] !== $scope.previousQuantity.prevQuantity[i])
 				{
 					var space = $scope.allInventory.inventoryProduct[i].lastIndexOf(" ");
 					var name = $scope.allInventory.inventoryProduct[i].substring(0,space);
 					console.log(name);
-					
+
 					var reqObj = {productName:name, quantity:$scope.allInventory.inventoryQuantity[i]};
 					$http.post('/orders/updateInventoryQuantity',reqObj).success(function(response){
 						if(!error)
@@ -72,42 +72,29 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 					}).error(function(response){
 						$scope.message = response.message;
 						error = true;
-					});	
+					});
 				}
 			}
-			
-			
-			
+
+
+
 		};
-		
+
 		/*
 		Delete an inventory item
 		*/
 		$scope.deleteInventoryName = '';
-		
+
 		$scope.deleteInventoryItem = function(inventoryItemName)
 		{
-			$scope.successFind = null;	
+			$scope.successFind = null;
 			$scope.errorMessage = $scope.successMessage = null;
 			$scope.itemNameSearch=$scope.itemNameSearch.toLowerCase();
 			var reqObj = {productName:$scope.itemNameSearch};
-			$http.post('/orders/deleteInventoryItem',reqObj).success(function(response){
-				
-			/*	for(var item in $scope.allInventory.inventoryProduct)
-					{
-						var space = $scope.allInventory.inventoryProduct[item].lastIndexOf(" ");
-						var name = $scope.allInventory.inventoryProduct[item].substring(0,space);
-						
-						if(name == $scope.itemNameSearch.toLowerCase())
-						{
-							delete $scope.allInventory.inventoryProduct[item];
-							delete $scope.allInventory.inventoryQuantity[item];					
-						}
-					}*/
-				
-				
+			$http.post('/orders/deleteInventoryItem',reqObj).success(function(response){			
+
 				$scope.successMessage = response.message;
-				$scope.itemNameSearch = null;				
+				$scope.itemNameSearch = null;
 			}).error(function(response){
 				$scope.errorMessage = response.message;
 			});
@@ -121,19 +108,19 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 			var counter = 0;
 
 			for(var itemName in response.message){
-				itemsArray[counter] = response.message[itemName];			
+				itemsArray[counter] = response.message[itemName];
 				counter++;
 			}
-			
+
 
 			$scope.inventoryItems = itemsArray;
-			
+
 
 				}).error(function(response) {
 				$scope.inventoryItems = 'Error loading inventory Items';
 			});
 		};
-		
+
 		//create new inventory item
 		$scope.create = function(isValid) {
       if (isValid) {
@@ -192,54 +179,54 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 		};
 
         // Search inventory
-        $scope.searchInventory = function(isValid) {			
+        $scope.searchInventory = function(isValid) {
             if(isValid){
                 $scope.successFind = $scope.errorFind = null;
 				$scope.successMessage = $scope.errorMessage = null;
                 var reqObj = {productName: $scope.itemNameSearch.toLowerCase()};
-                $http.post('/orders/search', reqObj).success(function(response){					
-                    $scope.successFind = response.message;	
-					
+                $http.post('/orders/search', reqObj).success(function(response){
+                    $scope.successFind = response.message;
+
 					//Fill in the fields for the update function
 					$scope.itemUpdateName = $scope.itemNameSearch;
 					$scope.updateQuantity = response.foundInventoryItem.quantity;
 					$scope.updateUnit = response.foundInventoryItem.unit;
-					
-                }).error(function(response){					
+
+                }).error(function(response){
                     $scope.errorFind = response.message;
 					$scope.errorMessage=response.message;
                 });
             }
         };
 
-        //Update inventory 
+        //Update inventory
         $scope.updateInventory = function(isValid) {
             if (isValid) {
-				$scope.successFind = null;				
+				$scope.successFind = null;
                 $scope.successMessage = $scope.errorMessage = null;
 				$scope.itemUpdateName = $scope.itemUpdateName.toLowerCase();
                 var reqObj = {oldProdName: $scope.itemNameSearch.toLowerCase(), newProdName: $scope.itemUpdateName, quantity:$scope.updateQuantity, unit: $scope.updateUnit};
 
                 $http.post('/orders/updateInventory', reqObj).success(function(response) {
-					
+
 					for(var item in $scope.allInventory.inventoryProduct)
 					{
 						var space = $scope.allInventory.inventoryProduct[item].lastIndexOf(" ");
 						var name = $scope.allInventory.inventoryProduct[item].substring(0,space);
-						
+
 						if(name == $scope.itemNameSearch.toLowerCase())
 						{
 							$scope.allInventory.inventoryProduct[item] = $scope.itemUpdateName;
-							$scope.allInventory.inventoryQuantity[item] = $scope.updateQuantity;							
+							$scope.allInventory.inventoryQuantity[item] = $scope.updateQuantity;
 						}
 					}
-                   
+
                     $scope.successMessage = response.message;
                     $scope.itemNameSearch = $scope.itemUpdateName = $scope.updateUnit = $scope.updateQuantity = null;
 					$scope.itemNameSearch = '';
                 }).error(function(response) {
                     $scope.errorMessage = response.message;
-					
+
                 });
             }
         };

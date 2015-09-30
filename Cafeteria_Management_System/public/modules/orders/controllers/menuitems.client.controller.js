@@ -489,7 +489,7 @@ $scope.closeAlert = function(index) {
 				 $scope.error = 'No category added, Please fill in the textbox to add a category';
 			 }else{
 				 var name = {
-					 catagory:  $scope.categoryName
+					 category:  $scope.categoryName.toLowerCase()
 				 };
 				 //console.log($scope.categoryName);
 				 $http.post('/orders/createMenuCategory', name).success(function(response) {
@@ -696,6 +696,34 @@ $scope.searchBarDynamic = function(row){
 		};
 
 
+		/*Search, update, and delete a menu category*/
+			$scope.searchMenuCategory = function(isValid){
+			if(isValid){
+					$scope.successFind = $scope.errorFind = null;
+					$scope.successMessage = $scope.errorMessage = null;
+					var reqObj = {categoryName: $scope.categoryNameSearch.toLowerCase()};
+					$http.post('/searchMenuCategory', reqObj).success(function(response){
+					$scope.successFind = response.message;
+
+					//Fill in the fields for the update function
+					$scope.categoryUpdateName = $scope.icategoryNameSearch;
+
+					}).error(function(response){
+							$scope.errorFind = response.message;
+							$scope.errorMessage=response.message;
+					});
+			}
+		};
+
+		$scope.updateMenuCategory = function(isValid){
+				if(isValid){
+					$scope.successFind = null;
+	        $scope.successMessage = $scope.errorMessage = null;
+					$scope.categoryUpdateName = $scope.categoryUpdateName.toLowerCase();
+					var reqObj = {oldCategoryName: $scope.categoryUpdateName, newCategoryName: $scope.categoryNameUpdate};
+					console.log(reqObj);
+				}
+		};
 
 		/*
 		 * Add to plate. Last edited by {Rendani Dau}
@@ -759,10 +787,10 @@ $scope.searchBarDynamic = function(row){
 		};
 
 		/*This function adds the selected item to be displayed in the soldReport*/
+		$scope.soldItems = new Array();
 		$scope.addSoldItem = function()
 		{
-				console.log("in sold item");
-				console.log("HERE:"+$scope.soldItem);
+				$scope.soldItems.push($scope.soldItem);
 		};
 
 		/*This funtion generates a report that shows the most popular menu itmes over
@@ -848,10 +876,6 @@ $scope.searchBarDynamic = function(row){
         };
 	}
 ]);
-
-
-
-/*Add ingredients button*/
 
 //Directive that returns an element which adds input boxes
 menuItemsModule.directive('addmoreingredients', function(){

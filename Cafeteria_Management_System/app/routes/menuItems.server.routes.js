@@ -15,10 +15,14 @@ module.exports = function(app) {
 	// check inventory items:
 	app.route('/inventoryItems').get(menuItems.inventoryItems);
 	app.route('/inventoryItems').post(menuItems.inventoryItems);
+
+	//Search functions
     app.route('/menu/search').post(menuItems.searchMenu);
+		app.route('/searchMenuCategory').post(menuItems.searchMenuCategory);
 
      //Update
 	app.route('/orders/updateMenuItem').post(menuItems.updateMenuItem);
+	app.route('/updateMenuCategory').post(menuItems.updateMenuCategory);
 	//Add image
 	app.route('/orders/uploadImage').post(menuItems.uploadImage);
 	//Delete

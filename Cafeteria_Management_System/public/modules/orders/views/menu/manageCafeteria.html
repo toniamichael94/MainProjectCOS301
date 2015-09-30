@@ -50,6 +50,70 @@
   </div>
   <br>
 
+	<!--Search delete and update a menu category-->
+	<div class="list-group clearfix">
+		<a href="#" class="list-group-item disabled">Search menu category</a>
+		<div class="list-group-item clearfix">
+			<h4> Search category </h4>
+			<!--Alert box -->
+		<!--	<script type="text/ng-template" id="alert.html">
+					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+						<div ng-transclude></div>
+					</div>
+			</script>
+
+			<div  data-ng-controller="MenuItemsController">
+				<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button>
+				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert8.msg}}</alert>
+			</div>
+				<!--Alert box end-->
+			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2" data-ng-controller = "MenuItemsController">
+				<form name="searchMenuCategoryForm" data-ng-submit="searchMenuCategory(searchMenuCategoryForm.$valid)" class="signin form-horizontal" autocomplete="off">
+					<!--Search for a menu item-->
+
+					<div class = "form-group">
+						<input type="text" id="categoryNameSearchID" name ="categoryNameSearch" class = "form-control" data-ng-model="categoryNameSearch" placeholder="Category name" required>
+					</div>
+
+					<div class = "text-center form-group">
+						<button type = "submit" style="width:200px" class = "btn btn-large btn-primary">Search</button>
+					</div>
+    </form>
+
+				<!--Delete or update if item found-->
+
+				<!--Update the item -->
+				<div ng-show="successFind" class="text-center">
+					<form name="updateMenuCategoryForm" data-ng-submit="updateMenuCategory(updateMenuCategoryForm.$valid)" class="signin form-horizontal" autocomplete="off">
+                            <h4>Update category</h4>
+
+														<!--Fields to update-->
+                            <div class="form-group">
+                                <label for="updateCategory">Category name</label>
+                                <input type="text" id="categoryNameID" name="categoryName" class="form-control" data-ng-model="categoryNameUpdate">
+                            </div>
+
+                            <div class = "text-center form-group">
+                                <button type = "submit" style="width:200px" class = "btn btn-large btn-primary" ng-click="showme=false"> Update</button>
+                            </div>
+                        </form> <form class="signin form-horizontal"><div class = "text-center form-group">
+			<button type = "submit" class = "btn btn-large btn-primary" style="width:200px" data-ng-hide="showme" ng-click = "deleteMenuCategory()" >Delete</button>
+            </div> </form>
+		</div>
+
+					<!--Error/Success message for delete/update-->
+					<div data-ng-show="errorMessage" class="text-center text-danger">
+						<strong data-ng-bind="errorMessage"></strong>
+                    </div>
+                    <div data-ng-show="successMessage" class="text-center text-success">
+						<strong data-ng-bind="successMessage"></strong>
+                    </div>
+			</div>
+		</div>
+	</div>
+	<!--End of search delete and update-->
+
+	<!--Add an item to the menu-->
 	<div class="list-group clearfix">
 		<a href="#" class="list-group-item disabled">Add product to menu</a>
 		<div class="list-group-item clearfix">
