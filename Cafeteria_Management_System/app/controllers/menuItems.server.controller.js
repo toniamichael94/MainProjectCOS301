@@ -240,7 +240,7 @@ exports.delete = function(req, res) {
  };
 
  exports.updateMenuCategory = function(req, res){
-	 console.log("in update");
+	 console.log("In update:"+req.body.oldCategoryName+" "+req.body.newCategoryName);
  };
 
 /**

@@ -721,7 +721,19 @@ $scope.searchBarDynamic = function(row){
 	        $scope.successMessage = $scope.errorMessage = null;
 					$scope.categoryNameUpdate = $scope.categoryNameUpdate.toLowerCase();
 					var reqObj = {oldCategoryName: $scope.oldCategoryName, newCategoryName: $scope.categoryNameUpdate};
-					console.log(reqObj);
+
+					  $http.post('/updateMenuCategory', reqObj).success(function(response) {
+
+							$scope.successMessage = response.message;
+							$scope.categoryNameSearch = $scope.categoryNameUpdate = null;
+							$scope.categoryNameSearch = '';
+
+						}).error(function(response) {
+								$scope.errorMessage = response.message;
+
+
+						});
+
 				}
 		};
 
