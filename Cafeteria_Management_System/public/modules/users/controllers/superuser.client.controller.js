@@ -64,13 +64,16 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 				};
 
         //Change user's employee ID
+		$scope.currentEmp_id;
         $scope.changeEmployeeID = function(isValid) {
             if (isValid) {
+				console.log($scope.currentEmp_id);
                 $scope.successOne = $scope.errorOne = null;
                 var reqObj = {currentUserID: $scope.currentEmp_id, newUserID: $scope.newEmp_id};
                 $scope.r = $window.confirm("Are you sure?");
-
+				
                 if($scope.r === true) {
+					
                     $http.post('/users/superuserChangeEmployeeID', reqObj).success(function (response) {
                         // If successful show success message and clear form
                         $scope.successOne = response.message;
@@ -211,5 +214,28 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
                 $scope.employees = 'Error loading employees';
             });
         };
+		//Load audit type
+		$scope.auditTypes = [];
+		$scope.getAuditTypes = function(){
+			$http.get('/users/superuserGetAuditTypes').success(function(response){
+				$scope.auditTypes.push('all');
+				$scope.auditTypes = $scope.auditTypes.concat(response.message);
+			}).error(function(response){
+				$scope.error = response.message;
+			});
+		};
+		
+		//Load audits
+		$scope.audits = [];
+		$scope.current_auditType;
+		$scope.getAudits = function(isValid){
+			if(isValid){
+				$http.post('/users/superuserGetAudits', {type: $scope.current_auditType}).success(function(response){
+					$scope.audits = response.message;
+				}).error(function(response){
+					$scope.error = response.message;
+				});
+			}
+		};
     }
 ]);

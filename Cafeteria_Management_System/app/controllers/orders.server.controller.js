@@ -11,13 +11,28 @@ var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
 	Order = mongoose.model('Order'),
 	User = mongoose.model('User'),
+	Audit = mongoose.model('Audit'),
 	_ = require('lodash'),
 	configs = require('../../config/config'),
 	nodemailer = require('nodemailer');
 
-/********************************************
- *Added by {Rendani Dau}
- */
+function audit(_type, data){
+	console.log(data);
+	var _audit = {
+		event: _type,
+		details: JSON.stringify({
+			username: data[0].username,
+			orderNumber: data[0].orderNumber
+		})
+	};
+	Audit.create(_audit, function(err){
+		if(err){ 
+			console.log('Audit not created for ' + _type);
+			console.log(errorHandler.getErrorMessage(err));
+		}
+	});
+}
+
  exports.placeOrder = function(req, res){
 	if(req.body.plate.length > 0){
 		var order = req.body.plate;
@@ -61,23 +76,9 @@ var mongoose = require('mongoose'),
 				if(err) return res.status(400).send({
 					message: errorHandler.getErrorMessage(err)
 				});
-					res.status(200).send({message: 'Order has been made'});
-				
-					//Code to update balance when order has been placed
-					/*User.update({username: req.user.username}, {$inc: { currentBalance : total}}, function(err, numAffected){
-						if(err){
-							//Temporary - Measures to take will be discussed
-							console.log(errorHandler.getErrorMessage(err));
-						}
-						if(numAffected < 0){
-							//Temporary - MEasures to take will be discussed
-							console.log('No user charged');
-						}
-						
-						res.status(200).send({message: 'Order has been made'});
-
-					});*/
-				});
+				audit('Create order', order);
+				res.status(200).send({message: 'Order has been made'});
+			});
 		});	
 	}
  };
@@ -107,7 +108,7 @@ var mongoose = require('mongoose'),
 			if(err) console.log('Email not sent' + err); 
 		});
 	});
- };
+ }
  
  exports.markAsReady = function(req, res){
 	Order.update({orderNumber: req.body.orderNumber}, {status: 'ready'}, { multi: true }, function(err, numAffected){
@@ -118,13 +119,10 @@ var mongoose = require('mongoose'),
 	});
 
  };
- 
-//,itemName:req.body.itemName
 
 exports.markAsPaid = function(req, res){
 	console.log(req.body);
 	if(req.body.method === 'credit'){
-		console.log('hello');
 		Order.find({orderNumber: req.body.orderNumber}, function(err, orders) {
 			if(err){ console.log('Error1' + err); return res.status(400).send({message: 'Order not marked as paid'});}
 			console.log('helo2');
@@ -137,7 +135,7 @@ exports.markAsPaid = function(req, res){
 			User.findOne({username: req.body.username}, function(err, user){
 				if(err){ 
 					console.log('Error2' + err);
-					return res.status(400).send({message: 'Order not marked as Paid'});;
+					return res.status(400).send({message: 'Order not marked as Paid'});
 				}
 				
 				if(user.limit - user.currentBalance < total)
@@ -167,19 +165,6 @@ exports.markAsPaid = function(req, res){
 exports.markAsCollected = function(req, res){
     console.log('dgefrgwergtwe'); //console.log(req.body);
 	res.status(200).send();
-  /* Order.find({orderNumber: req.body.orderNumber },function(err, numAffected2) {
-        console.log(numAffected2);
-        console.log(numAffected2.length);
-        for(var item in numAffected2){
-            console.log(numAffected2[item].orderNumber);
-            Order.update({orderNumber: numAffected2[item].orderNumber, itemName: numAffected2[item].itemName }, {status: 'closed'},  function(err2, numAffected) {
-                console.log('hhhh');
-            });
-        }
-
-    });
-*/
-
 };
 
  //Get orders with a POST request
@@ -239,9 +224,6 @@ exports.getUserOrders = function(req, res){
 		res.status(200).send({message: items});
 	});
  };
-/**
- *END {Rendani Dau}
- */ 
  
 /**
  * Create a Order

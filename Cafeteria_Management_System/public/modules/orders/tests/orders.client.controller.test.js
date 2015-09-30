@@ -13,7 +13,8 @@
             $stateParams,
             $location,
             Authentication,
-            $cookies;
+            $cookies,
+			$window;
 
         beforeEach(function() {
             jasmine.addMatchers({
@@ -35,7 +36,7 @@
         // The injector ignores leading and trailing underscores here (i.e. _$httpBackend_).
         // This allows us to inject a service but then attach it to a variable
         // with the same name as the service.
-        beforeEach(inject(function($controller, $rootScope, _$location_, _$stateParams_, _$httpBackend_, _$cookies_, Authentication) {
+        beforeEach(inject(function($controller, $rootScope, _$location_, _$stateParams_, _$httpBackend_, _$cookies_, _$window_, Authentication) {
             // Set a new global scope
             scope = $rootScope.$new();
              scope.authentication = Authentication;
@@ -44,26 +45,40 @@
             $httpBackend = _$httpBackend_;
             $location = _$location_;
             $cookies = _$cookies_;
-
+			$window = _$window_;
+			
             // Initialize the SettingsController controller
             OrdersController = $controller('OrdersController', {
                 $scope: scope
             });
         }));
+		
+		it('$scope.removeFromPlate should remove item from plate', function(){
+			$cookies.plate = JSON.stringify([{itemName: 'sandwhich'},{itemName: 'burger'},{itemName: 'Pie'}]);
+			
+			//Prevent refresh function from crashing test
+			$window.location.reload = function(bool) {};
+			
+			scope.removeFromPlate('sandwhich');
+			
+			// Test scope value
+            expect($cookies.plate).toEqual(JSON.stringify([{itemName: 'burger'},{itemName: 'Pie'}]));
+		});
+/*
+		it('$scope.placeOrder() should place order', function() {
+			//Test expected POST request
+			$httpBackend.expectPOST('/orders/placeOrder',{plate : { itemName: ''}, paymentMeth: 'credit' }).respond(400, {'message': 'Order has not been made'});
 
-   /*
-
-         it('$scope.placeOrder() should not place order', function() {
-           //Test expected POST request
-
-            $httpBackend.expectPOST('/orders/placeOrder',{plate : { itemName: ''}, paymentMeth: 'credit' }).respond(400, {'message': 'Order has not been made'});
-
+			scope.plate = [{itemName: 'sandwhich'}];
+			scope.paymentMethod = 'cash';
+			
+			
             scope.placeOrder();
             $httpBackend.flush();
 
             expect(scope.success).toEqual('Order has not been made');
         });
-
+/*
     it('$scope.placeOrder() should place order', function() {
     //Test expected POST request
 

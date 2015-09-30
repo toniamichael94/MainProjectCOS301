@@ -75,6 +75,9 @@
                     <li data-ng-show="authentication.user.roles[0] === 'admin'">
                         <a href="/#!/settings/brandingSettings"> Branding settings</a>
                     </li>
+					<li data-ng-show="authentication.user.roles[0] === 'superuser'">
+                        <a href="/#!/settings/audits"> Audits </a>
+                    </li>
 					<!--Edit, add, or remove menu items-->
                     <li data-ng-show="authentication.user.roles[0] === 'cafeteriaManager'">
                         <a href="/#!/manageCafeteria"> Manage Menu </a>
