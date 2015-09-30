@@ -135,7 +135,8 @@ $scope.toggleCollapsibleMenu = function() {
 	$scope.alert23 = {type: 'warning', msg: 'Page help: This page will help you reset your password, type in your username and an e-mail will be sent to the e-mail account that is associated with your username'};
 	$scope.alert24 = {type: 'warning', msg: 'Page help: '};
 	$scope.alert25 = {type: 'warning', msg: 'Page help: WELCOME! these buttons will help you navigate through this website, whenever you do not know what to do click on the button that looks like this one you just clicked and help will be right there! To start have a look at our menu page that can be found by clicking on the button that says Menu in the top navigation bar ;-)'};
-
+	$scope.alert26 = {type: 'warning', msg: 'Page help: This page will display logs of all actions performed in the system.'};
+	$scope.alert27 = {type: 'warning', msg: 'Page help: This page will generate invoices for the specified user'};
 	/*End of Alert messages */
 
 //close alert will take alert box away

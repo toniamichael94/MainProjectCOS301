@@ -57,5 +57,10 @@ var audit, audit2;
 				done();
 			});
 		});
+		
+		after(function(done) {
+			Audit.remove().exec();
+			done();
+		});
 	});
  });
