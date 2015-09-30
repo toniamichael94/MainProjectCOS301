@@ -706,7 +706,7 @@ $scope.searchBarDynamic = function(row){
 					$scope.successFind = response.message;
 
 					//Fill in the fields for the update function
-					$scope.categoryUpdateName = $scope.icategoryNameSearch;
+					$scope.oldCategoryName = $scope.categoryNameSearch;
 
 					}).error(function(response){
 							$scope.errorFind = response.message;
@@ -719,8 +719,8 @@ $scope.searchBarDynamic = function(row){
 				if(isValid){
 					$scope.successFind = null;
 	        $scope.successMessage = $scope.errorMessage = null;
-					$scope.categoryUpdateName = $scope.categoryUpdateName.toLowerCase();
-					var reqObj = {oldCategoryName: $scope.categoryUpdateName, newCategoryName: $scope.categoryNameUpdate};
+					$scope.categoryNameUpdate = $scope.categoryNameUpdate.toLowerCase();
+					var reqObj = {oldCategoryName: $scope.oldCategoryName, newCategoryName: $scope.categoryNameUpdate};
 					console.log(reqObj);
 				}
 		};
