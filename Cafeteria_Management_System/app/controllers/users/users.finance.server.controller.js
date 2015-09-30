@@ -22,7 +22,7 @@ var _ = require('lodash'),
 	
 exports.generateReport = function(req, res){
 	User.findOne({username: req.body.username}, function(err, user){
-		if(err || !user) return res.status(400).send({message: 'Could not generate report!'});
+		if(err || user === null) return res.status(400).send({message: 'Could not generate report!'});
 		Order.find({username: req.body.username, created: {$gt: req.body.start, $lt: req.body.end}}, function(err, orders){
 			if(err) return res.status(400).send({message: 'Could not generate report!'});
 			
