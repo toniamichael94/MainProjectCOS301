@@ -136,7 +136,8 @@ exports.read = function(req, res) {
 
 /* Update menu item*/
 exports.updateMenuItem = function(req,res){
-		MenuItem.update({itemName: req.body.itemName}, {itemName: req.body.updateItemName, price:req.body.price, description: req.body.description, category:req.body.category, ingredients: req.body.ingredients/*, imagePath: req.body.iPath*/},  function(err, numAffected){
+		MenuItem.update({itemName: req.body.itemName}, {itemName: req.body.updateItemName, price:req.body.price, description: req.body.description, category:req.body.category, ingredients: req.body.ingredients/*, imagePath: req.body.iPath*/},
+			function(err, numAffected){
         if(err) return res.status(400).send({
             message: errorHandler.getErrorMessage(err)
         });
@@ -150,6 +151,7 @@ exports.updateMenuItem = function(req,res){
         }
     });
 	};
+
 
 /**
  * Update a menuitem
@@ -240,7 +242,40 @@ exports.delete = function(req, res) {
  };
 
  exports.updateMenuCategory = function(req, res){
-	 console.log("In update:"+req.body.oldCategoryName+" "+req.body.newCategoryName);
+	 MenuCategory.update({name: req.body.oldCategoryName}, {name: req.body.newCategoryName},
+		function(err, numAffected){
+			if(err) return res.status(400).send({
+					message: errorHandler.getErrorMessage(err)
+			});
+			else if (numAffected < 1){
+					res.status(400).send({message: 'Error updating category.'});
+			}
+			else{
+						//if(req.body.newCategoryName.length > 1)
+							//var item = req.body.newCategoryName.charAt(0).toUpperCase() + req.body.newCategoryName.slice(1);
+
+					res.status(200).send({message: 'Category successfully updated.'});
+					var req = {oldCategoryName: req.body.oldCategoryName, newCategoryName: req.body.newCategoryName};
+					//updateCategoryMenuItems(req);
+			}
+	});
+ };
+
+ exports.updateCategoryMenuItems = function (req, res){
+	 MenuItem.update({category: req.body.oldCategoryName}, {category: req.body.newCategoryName,},
+		 function(err, numAffected){
+			 if(err) return res.status(400).send({
+					 message: errorHandler.getErrorMessage(err)
+			 });
+			 else if (numAffected < 1){
+					 res.status(400).send({message: 'Error updating the menu items.'});
+			 }
+			 else{
+		 if(req.body.newCategoryName.length > 1)
+			 var item = req.body.itemName.charAt(0).toUpperCase() + req.body.itemName.slice(1);
+					 res.status(200).send({message: 'Menu items successfully updated.'});
+			 }
+	 });
  };
 
 /**
