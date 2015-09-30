@@ -158,6 +158,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 
 		//Set canteen name
 		$scope.setCanteenName = function(isValid){
+            console.log("Name CLIENT");
 			if(isValid){
 				$scope.success = $scope.error = null;
 				$scope.successTwo = $scope.errorTwo = null;
@@ -173,19 +174,20 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 		};
 
         //Set theme name
-        $scope.setThemeName = function(isValid){
-            if(isValid){
-                $scope.success = $scope.error = null;
+        $scope.setThemeName = function(){
+                console.log("THEME CLIENT");
                 $scope.successFour = $scope.errorFour = null;
 
                 var reqObj = {name: 'Theme name', value: $scope.themeName};
-                //console.log($scope.canteenName);
-                $http.post('users/superuserSetThemeName', reqObj).success(function (response) {
+                console.log($scope.themeName);var p= $scope.themeName;
+                $http.post('/users/superuserSetThemeName', reqObj).success(function (response) {
                     $scope.successFour = response.message;
+
+                    console.log('successssssssssssssssssssssss ' + response.message);
                 }).error(function (response) {
                     $scope.errorFour = response.message;
+                    console.log('error ' + response.message);
                 });
-            }
         };
 
         $scope.checkUser = function(){

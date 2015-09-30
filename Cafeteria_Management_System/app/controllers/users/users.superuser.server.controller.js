@@ -304,7 +304,7 @@ exports.setCanteenName = function(req, res){
  * Set Theme  Name
  */
 exports.setThemeName = function(req, res){
-    console.log('Theme name ' + req.body.value);
+    console.log('Theme name2 ' + req.body.value);
     Config.update({name: 'Theme name'}, {value: req.body.value}, function(err, numAffected){
         if(err) return res.status(400).send({
             message: errorHandler.getErrorMessage(err)
@@ -368,6 +368,24 @@ exports.loadEmployees = function(req, res){
             console.log('LOAD');
             //console.log(employees);
             res.status(200).send({message: itemMap});
+        }
+    });
+};
+
+/**
+ * Get the theme
+ * Last edited by {Semaka Malapane and Antonia Michael}
+ */
+exports.getTheme = function(req,res){
+    console.log("get css assets!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    console.log(req);
+    Config.findOne({name: 'Theme name'}, function (err, row) {
+        if (err) {
+            return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+        } else {
+            return  res.status(200).send({message: row.value});
         }
     });
 };

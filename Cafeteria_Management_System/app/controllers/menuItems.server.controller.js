@@ -10,6 +10,7 @@ var mongoose = require('mongoose'),
 	InventoryItem = mongoose.model('Inventory'),
 	MenuCatagory = mongoose.model('MenuCatagory'),
 	Order = mongoose.model('Order'),
+	path = require('path'),
 	formidable = require('formidable'),
 	fs = require('fs'),
 	jsreport = require('jsreport'),
@@ -305,6 +306,10 @@ exports.uploadImage = function(req, res){
 Reporting for menu items
 */
 
+exports.generateSoldReport = function(req,res){
+
+};
+
 exports.generatePopularReport = function(req,res)
 {
 	Order.find({created: {$gt: req.body.start, $lt: req.body.end}}, function(err, orders){
@@ -376,6 +381,26 @@ exports.generatePopularReport = function(req,res)
 		console.log('Arrays after splice');
 		console.log(itemNames);
 		console.log(itemQuantity);
+
+		var sample = fs.readFileSync(path.resolve(__dirname, '../reportTemplates/popular_Items_Template.html'), 'utf8');
+		jsreport.render({
+			template:{ content: sample,
+			//	helpers: 'function mult(a,b){ return a*b; }',//'function total(order){return 10;}'],
+				engine: 'handlebars'},
+			data: {
+				title: 'Popular items' ,
+				description: req.body.numItems + '  most popular items from '+ req.body.start +' to '+req.body.end,
+				footer: 'Resolve Cafeteria Management System',
+				date: today.getDate() + '-' + (today.getMonth()+1)+ '-' + today.getFullYear(),
+				start: req.body.start,
+				end: req.body.end,
+				items: orders
+			}
+		}).then(function(out) {
+			//if(err) return res.status(400).send({message: 'Could not render report!'})
+			console.log('in render function');
+			out.stream.pipe(res);
+		});
 
 /*
 		//Read the sample html file for pdf format

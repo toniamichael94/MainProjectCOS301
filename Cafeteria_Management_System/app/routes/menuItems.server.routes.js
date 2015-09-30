@@ -6,6 +6,7 @@ module.exports = function(app) {
 
 	//Reporting for menu Items
 		app.route('/orders/generatePopularReport').post(menuItems.generatePopularReport);
+		app.route('/orders/generateSoldReport').post(menuItems.generateSoldReport);
 
 	//Display Menu Items
 	app.route('/loadMenuItems').get(menuItems.loadMenuItems);
