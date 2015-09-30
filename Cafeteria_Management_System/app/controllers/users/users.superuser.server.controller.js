@@ -162,7 +162,7 @@ exports.changeEmployeeID = function(req, res) {
  */
 exports.getAudits = function(req, res){
 	if(req.body.type === 'all'){
-		Audit.find({}, function(err, audits){
+		Audit.find({date: {$gte: req.body.from, $lte: req.body.to}}, function(err, audits){
 			if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
 			res.status(200).send({message: audits});
 		});

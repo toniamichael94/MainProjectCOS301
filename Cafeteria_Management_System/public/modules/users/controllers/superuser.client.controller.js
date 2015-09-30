@@ -230,9 +230,14 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 		//Load audits
 		$scope.audits = [];
 		$scope.current_auditType;
+		$scope.curent_toDate;
+		$scope.curent_fromDate;
 		$scope.getAudits = function(isValid){
 			if(isValid){
-				$http.post('/users/superuserGetAudits', {type: $scope.current_auditType}).success(function(response){
+				var toDate = new Date($scope.current_toDate);
+				toDate.setHours(23,59,59);
+				
+				$http.post('/users/superuserGetAudits', {type: $scope.current_auditType, from:$scope.current_fromDate, to: toDate}).success(function(response){
 					$scope.audits = response.message;
 				}).error(function(response){
 					$scope.error = response.message;

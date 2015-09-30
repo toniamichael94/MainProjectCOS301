@@ -28,16 +28,27 @@
         <a href="#" class="list-group-item disabled">
             Audits
         </a>
-	<div data-ng-init="getAuditTypes()" class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
+	<div data-ng-init="getAuditTypes()" class="">
                 <form name="getAuditsForm" data-ng-submit="getAudits(getAuditsForm.$valid)" class="signin form-horizontal" autocomplete="off">
 				<fieldset>
-                        <div class="form-group">
+                        <div class="row">
+							<div class="col-xs-offset-2 col-xs-8 col-md-offset-2 col-md-2">
                             <label for="type">Audit details for:</label>
 							<select id='type' data-ng-model='current_auditType' class="form-control" required="true">
 								<option ng-repeat="type in auditTypes" value="{{type}}"> {{type}}</option>
 							</select>
-							<button type="submit" class="btn btn-large btn-primary">Get Audits</button>
+							</div>
+							<div class="col-xs-offset-2 col-xs-8 col-md-offset-0 col-md-2">
+							<label for="current_fromDate">From: </label><input type="date" name="current_fromDate" data-ng-model="current_fromDate" class="form-control" required="true"/>
+							</div>
+							<div class="col-xs-offset-2 col-xs-8 col-md-offset-0 col-md-2">
+							<label for="current_toDate">To: </label><input type="date" name="current_toDate" data-ng-model="current_toDate" class="form-control" required="true"/>
+							</div><br/>
+							<div class="col-xs-offset-2 col-xs-8 col-md-offset-0 col-md-2">
+							<button type="submit" class="btn btn-primary">Get Audits</button>
+							</div>
 						</div>
+						
                         
                         <div data-ng-show="success" class="text-center text-success">
                             <strong>{{success}}</strong>
