@@ -180,7 +180,6 @@ exports.update = function(req, res) {
 	*/
 	exports.deleteMenuItem=function(req,res)
 	{
-		console.log('Delete:'+req.body.itemName);
 		MenuItem.remove({itemName: req.body.itemName}, function(err, numAffected){
         if(err) return res.status(400).send({
             message: errorHandler.getErrorMessage(err)
@@ -249,7 +248,6 @@ exports.delete = function(req, res) {
 			});
 			else if (numAffected < 1){
 					res.status(400).send({message: 'Error updating category.'});
-					console.log("ERROR:"+req.body.oldCategory+" "+req.body.newCategoryName);
 			}
 			else{
 						//if(req.body.newCategoryName.length > 1)
@@ -257,7 +255,6 @@ exports.delete = function(req, res) {
 
 					res.status(200).send({message: 'Successfully updated.'});
 					var categoryNames = {oldCategoryName: req.body.oldCategoryName, newCategoryName: req.body.newCategoryName};
-					//exports.updateCategoryMenuItems(categoryNames);
 			}
 	});
  };
@@ -279,6 +276,37 @@ exports.delete = function(req, res) {
 			 }
 	 });
  };
+
+/*Delete a menu category*/
+exports.deleteMenuCategory = function (req,res){
+	console.log("DELETE "+req.body.categoryName);
+	MenuCategory.remove({name: req.body.categoryName}, function(err, numAffected){
+	if(err) return res.status(400).send({
+		message: errorHandler.getErrorMessage(err)
+	});
+	else if (numAffected < 1){
+		res.status(400).send({message: 'Error deleting the category ' + req.body.categoryName});
+	}
+	else{
+				MenuItem.remove({category: req.body.categoryName}, function(err, numAffected){
+				if(err) return res.status(400).send({
+					message: errorHandler.getErrorMessage(err)
+				});
+				else if (numAffected < 1){
+					res.status(400).send({message: 'Error deleting the menu items in the category ' + req.body.categoryName});
+				}
+
+				else{
+					res.status(200).send({message: 'Successfully deleted category.'});
+			}
+		});
+
+
+		}
+	});
+
+
+};
 
 /**
  * Create a Menu item

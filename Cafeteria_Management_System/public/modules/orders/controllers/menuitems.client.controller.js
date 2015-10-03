@@ -747,6 +747,22 @@ $scope.searchBarDynamic = function(row){
 				}
 		};
 
+		/*Delete a menu category*/
+		$scope.deleteMenuCategory = function(){
+			$scope.successFind = null;
+			$scope.successMessage = $scope.errorMessage = null;
+			$scope.categoryNameSearch=$scope.categoryNameSearch.toLowerCase();
+		//	console.log('Delete:'+$scope.menuNameSearch);
+			var reqObj = {categoryName: $scope.categoryNameSearch};
+			$http.post('/orders/deleteMenuCategory',reqObj).success(function(response){
+					$scope.successMessage = response.message;
+					$scope.categoryNameSearch = $scope.newCategoryName = null;
+					$scope.categoryNameSearch = '';
+			}).error(function(response){
+				$scope.errorMessage = response.message;
+			});
+		};
+
 		/*
 		 * Add to plate. Last edited by {Rendani Dau}
 		 */
