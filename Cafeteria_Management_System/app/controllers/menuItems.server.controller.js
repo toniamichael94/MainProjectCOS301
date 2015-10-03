@@ -249,31 +249,33 @@ exports.delete = function(req, res) {
 			});
 			else if (numAffected < 1){
 					res.status(400).send({message: 'Error updating category.'});
+					console.log("ERROR:"+req.body.oldCategory+" "+req.body.newCategoryName);
 			}
 			else{
 						//if(req.body.newCategoryName.length > 1)
 							//var item = req.body.newCategoryName.charAt(0).toUpperCase() + req.body.newCategoryName.slice(1);
 
-					res.status(200).send({message: 'Category successfully updated.'});
-					var req = {oldCategoryName: req.body.oldCategoryName, newCategoryName: req.body.newCategoryName};
-					//updateCategoryMenuItems(req);
+					res.status(200).send({message: 'Successfully updated.'});
+					var categoryNames = {oldCategoryName: req.body.oldCategoryName, newCategoryName: req.body.newCategoryName};
+					//exports.updateCategoryMenuItems(categoryNames);
 			}
 	});
  };
 
+/*Update the category name for all the menu items*/
  exports.updateCategoryMenuItems = function (req, res){
-	 MenuItem.update({category: req.body.oldCategoryName}, {category: req.body.newCategoryName,},
+	 console.log("OLD CATEGORY:"+req.body.oldCategoryName + " NEW CAT:"+req.body.newCategoryName);
+	 MenuItem.update({category: req.body.oldCategoryName}, {category: req.body.newCategoryName}, {multi:true},
 		 function(err, numAffected){
 			 if(err) return res.status(400).send({
 					 message: errorHandler.getErrorMessage(err)
 			 });
 			 else if (numAffected < 1){
 					 res.status(400).send({message: 'Error updating the menu items.'});
+					 console.log('here');
 			 }
 			 else{
-		 if(req.body.newCategoryName.length > 1)
-			 var item = req.body.itemName.charAt(0).toUpperCase() + req.body.itemName.slice(1);
-					 res.status(200).send({message: 'Menu items successfully updated.'});
+					 res.status(200).send({message: 'Sucessfully updated.'});
 			 }
 	 });
  };

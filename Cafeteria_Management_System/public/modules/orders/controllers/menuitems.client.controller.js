@@ -706,7 +706,7 @@ $scope.searchBarDynamic = function(row){
 					$scope.successFind = response.message;
 
 					//Fill in the fields for the update function
-					$scope.oldCategoryName = $scope.categoryNameSearch;
+					$scope.oldCategoryName = $scope.categoryNameSearch.toLowerCase();
 
 					}).error(function(response){
 							$scope.errorFind = response.message;
@@ -719,19 +719,29 @@ $scope.searchBarDynamic = function(row){
 				if(isValid){
 					$scope.successFind = null;
 	        $scope.successMessage = $scope.errorMessage = null;
-					$scope.categoryNameUpdate = $scope.categoryNameUpdate.toLowerCase();
-					var reqObj = {oldCategoryName: $scope.oldCategoryName, newCategoryName: $scope.categoryNameUpdate};
+					$scope.newCategoryName = $scope.newCategoryName.toLowerCase();
+						console.log($scope.oldCategoryName+" "+$scope.newCategoryName);
+					var reqObj = {oldCategoryName: $scope.oldCategoryName, newCategoryName: $scope.newCategoryName};
 
 					  $http.post('/updateMenuCategory', reqObj).success(function(response) {
 
 							$scope.successMessage = response.message;
-							$scope.categoryNameSearch = $scope.categoryNameUpdate = null;
+							$scope.categoryNameSearch = $scope.newCategoryName = null;
 							$scope.categoryNameSearch = '';
+
+							/*Upate the category names for all menu items*/
+							$http.post('/updateCategoryMenuItems', reqObj).success(function(response) {
+
+								$scope.successMessage = response.message;
+								$scope.categoryNameSearch = $scope.newCategoryName = null;
+								$scope.categoryNameSearch = '';
+
+							}).error(function(response) {
+									$scope.errorMessage = response.message;
+							});
 
 						}).error(function(response) {
 								$scope.errorMessage = response.message;
-
-
 						});
 
 				}

@@ -23,6 +23,8 @@ module.exports = function(app) {
      //Update
 	app.route('/orders/updateMenuItem').post(menuItems.updateMenuItem);
 	app.route('/updateMenuCategory').post(menuItems.updateMenuCategory);
+	app.route('/updateCategoryMenuItems').post(menuItems.	updateCategoryMenuItems);
+
 	//Add image
 	app.route('/orders/uploadImage').post(menuItems.uploadImage);
 	//Delete
