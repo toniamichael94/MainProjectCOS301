@@ -507,6 +507,7 @@ $scope.closeAlert = function(index) {
 					 $scope.error = null;
 					 $scope.success = true;//response.message;
 					 $scope.success = 'Category added to the menu.';
+					 $scope.categoryName ='';
 			 	 }
 				 }).error(function(response) {
 					 //console.log("error");
@@ -515,8 +516,6 @@ $scope.closeAlert = function(index) {
 				 }
 			 }
 		 };
-		//  console.log($scope.menuCatagory);
-		 // first we need to check that the field has data
 
 
 		/*Removing add ingredients option*/
@@ -594,9 +593,10 @@ $scope.searchBarDynamic = function(row){
 		$http.get('/loadMenuCategories').success(function(response) {
 		$scope.menuCatagory = response.message;
 		$scope.cat = response.message;
+		console.log($scope.cat);
 
 	}).error(function(response) {
-		$scope.menuItems = 'Error loading menu Items';
+		$scope.menuItems = 'Error loading categories';
 	});
 	};
 
@@ -637,13 +637,10 @@ $scope.searchBarDynamic = function(row){
 		/*
 		Delete a menu item
 		*/
-		//$scope.deleteMenuItemName = '';
-		//$scope.successMessage = $scope.errorMessage = '';
 		$scope.deleteMenuItem = function()
 		{
 			$scope.successFind = null;
 			$scope.menuNameSearch=$scope.menuNameSearch.toLowerCase();
-		//	console.log('Delete:'+$scope.menuNameSearch);
 			var reqObj = {itemName:$scope.menuNameSearch};
 			$http.post('/orders/deleteMenuItem',reqObj).success(function(response){
 				$scope.successMessage = response.message;
@@ -707,6 +704,12 @@ $scope.searchBarDynamic = function(row){
 
 					//Fill in the fields for the update function
 					$scope.oldCategoryName = $scope.categoryNameSearch.toLowerCase();
+					$scope.newCategoryName = $scope.categoryNameSearch.toLowerCase();
+
+					$scope.categoryActive = response.foundcategory.active;
+
+
+					console.log("FOUND:"+$scope.categoryActive);
 
 					}).error(function(response){
 							$scope.errorFind = response.message;
@@ -720,8 +723,8 @@ $scope.searchBarDynamic = function(row){
 					$scope.successFind = null;
 	        $scope.successMessage = $scope.errorMessage = null;
 					$scope.newCategoryName = $scope.newCategoryName.toLowerCase();
-						console.log($scope.oldCategoryName+" "+$scope.newCategoryName);
-					var reqObj = {oldCategoryName: $scope.oldCategoryName, newCategoryName: $scope.newCategoryName};
+						console.log("Active:"+$scope.categoryActive);
+					var reqObj = {oldCategoryName: $scope.oldCategoryName, newCategoryName: $scope.newCategoryName, active: $scope.categoryActive};
 
 					  $http.post('/updateMenuCategory', reqObj).success(function(response) {
 

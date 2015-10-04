@@ -91,7 +91,7 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 			$scope.errorMessage = $scope.successMessage = null;
 			$scope.itemNameSearch=$scope.itemNameSearch.toLowerCase();
 			var reqObj = {productName:$scope.itemNameSearch};
-			$http.post('/orders/deleteInventoryItem',reqObj).success(function(response){			
+			$http.post('/orders/deleteInventoryItem',reqObj).success(function(response){
 
 				$scope.successMessage = response.message;
 				$scope.itemNameSearch = null;
