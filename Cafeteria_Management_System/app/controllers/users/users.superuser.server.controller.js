@@ -13,8 +13,8 @@ var _ = require('lodash'),
     formidable = require('formidable'),
     fs = require('fs'),
 	configs = require('../../../config/config'),
-	nodemailer = require('nodemailer');
-
+	nodemailer = require('nodemailer'),
+  fs = require('fs');
 function audit(_type, data){
 	var _audit = {
 		event: _type,
@@ -303,8 +303,64 @@ exports.setCanteenName = function(req, res){
 /*
  * Set Theme  Name
  */
-exports.setThemeName = function(req, res){
+exports.setThemeName = function(req, res) {
     console.log('Theme name2 ' + req.body.value);
+    var name = req.body.value;
+
+    //find old value to check what current colour is
+   Config.findOne({name: 'Theme name'}, function (err, row) {
+        if (err) {
+            return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+        } else {
+
+/*
+    if (name == "orange" && row.value=="red") { //users.css is orange, currently using red!!!!!!!!!!!!!!!!!!!!!!
+      //var  stats = fs.lstatSync('public/modules/users/css/orangeUsers.css');
+        console.log('You want orange, curently its red ' );
+        // Is it a directory?
+      //  if (stats.isDirectory()) {
+            // Yes it is
+            fs.rename('public/modules/users/css/orangeUsers.txt', 'public/modules/users/css/tmp.css', function (err) {
+                if (err) console.log('ERROR: ' + err);else console.log("Changed:"  );
+            });
+            fs.rename('public/modules/users/css/users.css', 'public/modules/users/css/redUsers.txt', function (err) {
+                if (err) console.log('ERROR: ' + err);else console.log("Changed:"  );
+            });
+            fs.rename('public/modules/users/css/tmp.css', 'public/modules/users/css/users.css', function (err) {
+                if (err) console.log('ERROR: ' + err);else console.log("Changed:"  );
+            });
+      //  }
+
+
+    }  else if (name == "orange" && row.value=="") { //users.css is orange
+
+            fs.rename('public/modules/users/css/orangeUsers.css', 'public/modules/users/css/users.css', function (err) {
+                if (err) console.log('ERROR: ' + err);else console.log("Changed:"  );
+            });
+    }else  if (name == "red" && row.value=="orange") { //users.css is orange, currently using red!!!!!!!!!!!!!!!!!!!!!!
+        //var  stats = fs.lstatSync('public/modules/users/css/orangeUsers.css');
+
+        // Is it a directory?
+        //  if (stats.isDirectory()) {
+        // Yes it is
+        console.log('You want red, curently its orange ' );
+        fs.rename('public/modules/users/css/redUsers.txt', 'public/modules/users/css/tmp.css', function (err) {
+            if (err) console.log('ERROR: ' + err);else console.log("Changed:"  );
+        });
+        fs.rename('public/modules/users/css/users.css', 'public/modules/users/css/orangeUsers.txt', function (err) {
+            if (err) console.log('ERROR: ' + err);else console.log("Changed:"  );
+        });
+        fs.rename('public/modules/users/css/tmp.css', 'public/modules/users/css/users.css', function (err) {
+            if (err) console.log('ERROR: ' + err);else console.log("Changed:"  );
+        });
+        //  }
+
+
+    } else{ res.status(200).send({message: 'Something went wrong....'});}
+        */  }  return  res.status(200).send({message: row.value});
+    });
     Config.update({name: 'Theme name'}, {value: req.body.value}, function(err, numAffected){
         if(err) return res.status(400).send({
             message: errorHandler.getErrorMessage(err)
