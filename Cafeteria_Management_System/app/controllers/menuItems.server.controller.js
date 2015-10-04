@@ -68,8 +68,8 @@ MenuItem.find({}, function(err, items) {
 
 
 exports.loadMenuCategories = function(req, res) {
-console.log('---------------------------------');
-MenuCategory.find({}, function(err, items) {
+console.log('---------------------------------HERE');
+MenuCategory.find({active: 'true'}, function(err, items) {
 
 	if(err ) {
 		console.log('Error = ' + err);
@@ -267,7 +267,7 @@ exports.delete = function(req, res) {
 			 if(err) return res.status(400).send({
 					 message: errorHandler.getErrorMessage(err)
 			 });
-			 else if (numAffected < 1 && req.body.oldCategoryName !== req.body.newCategoryName){
+			 else if (numAffected < 1 && (req.body.oldCategoryName !== req.body.newCategoryName)){
 					 res.status(400).send({message: 'Menu items were not affected.'});
 			 }
 			 else{
