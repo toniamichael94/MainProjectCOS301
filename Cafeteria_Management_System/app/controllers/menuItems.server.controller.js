@@ -406,7 +406,7 @@ exports.uploadImage = function(req, res){
 Reporting for menu items
 */
 
-exports.generateSoldReport = function(req,res){
+/*exports.generateSoldReport = function(req,res){
 
 };
 
@@ -482,26 +482,46 @@ exports.generatePopularReport = function(req,res)
 		console.log(itemNames);
 		console.log(itemQuantity);
 
+		var itemData = new Array();
+
+		for(var i = 0; i != itemNames.length; i++)
+		{
+			itemData.push({name: itemNames[i], y: itemQuantity[i], drilldown: itemNames[i]});
+		}
+
 		var sample = fs.readFileSync(path.resolve(__dirname, '../reportTemplates/popular_Items_Template.html'), 'utf8');
 		jsreport.render({
 			template:{ content: sample,
 			//	helpers: 'function mult(a,b){ return a*b; }',//'function total(order){return 10;}'],
 				engine: 'handlebars'},
 			data: {
-				title: 'Popular items' ,
-				description: req.body.numItems + '  most popular items from '+ req.body.start +' to '+req.body.end,
-				footer: 'Resolve Cafeteria Management System',
-				date: today.getDate() + '-' + (today.getMonth()+1)+ '-' + today.getFullYear(),
-				start: req.body.start,
-				end: req.body.end,
-				items: orders
+				chart: {type: 'column'},
+				title: {text: 'Popular items'},
+				xAxis:{type: 'category'},
+				legend: {enabled: false},
+				plotOptions:{
+					series: {
+						borderWidth: 0,
+						dataLabels:{
+							enabled:true
+						}
+					}
+				},
+				series: [{
+					name:'Menu Items',
+					colorByPoint:true,
+					data:itemData
+				}],
+				drilldown: {
+            series: data
+        }
 			}
 		}).then(function(out) {
 			//if(err) return res.status(400).send({message: 'Could not render report!'})
 			console.log('in render function');
 			out.stream.pipe(res);
 		});
-
+*/
 /*
 		//Read the sample html file for pdf format
 		var sample = fs.readFileSync(path.resolve(__dirname, '../../reportTemplates/sample.html'), 'utf8');
