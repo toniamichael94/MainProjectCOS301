@@ -406,7 +406,7 @@ exports.uploadImage = function(req, res){
 Reporting for menu items
 */
 
-/*exports.generateSoldReport = function(req,res){
+exports.generateSoldReport = function(req,res){
 
 };
 
@@ -521,7 +521,7 @@ exports.generatePopularReport = function(req,res)
 			console.log('in render function');
 			out.stream.pipe(res);
 		});
-*/
+
 /*
 		//Read the sample html file for pdf format
 		var sample = fs.readFileSync(path.resolve(__dirname, '../../reportTemplates/sample.html'), 'utf8');
