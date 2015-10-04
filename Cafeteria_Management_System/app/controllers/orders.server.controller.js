@@ -11,14 +11,28 @@ var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
 	Order = mongoose.model('Order'),
 	User = mongoose.model('User'),
+	Audit = mongoose.model('Audit'),
 	_ = require('lodash'),
 	configs = require('../../config/config'),
 	nodemailer = require('nodemailer');
 
-/********************************************
- *Added by {Rendani Dau}
- */
- 
+function audit(_type, data){
+	console.log(data);
+	var _audit = {
+		event: _type,
+		details: JSON.stringify({
+			username: data[0].username,
+			orderNumber: data[0].orderNumber
+		})
+	};
+	Audit.create(_audit, function(err){
+		if(err){ 
+			console.log('Audit not created for ' + _type);
+			console.log(errorHandler.getErrorMessage(err));
+		}
+	});
+}
+
  exports.placeOrder = function(req, res){
 	if(req.body.plate.length > 0){
 		var order = req.body.plate;
@@ -32,8 +46,27 @@ var mongoose = require('mongoose'),
 		
 		Order.find({}, function(err, result){
 			var orderNum = 1;
-			if(result.length !== 0){
-				orderNum = result[result.length-1].orderNumber + 1;
+			if(result.length !== 0)
+			{
+				//Reset the order numbers if it is the next day
+				if(result.length > 1)
+				{
+					var today = new Date();
+					var lastOrderDay = result[result.length-1].created;	
+					console.log("Today:"+today);
+					console.log("LOR__:"+lastOrderDay);
+					console.log("");
+					console.log("Today's date:"+today.getDate());
+					console.log("LOrder  Date:"+lastOrderDay.getDate());			
+			
+					if(today.getDate() > lastOrderDay.getDate())
+					{
+						orderNum = 1;
+						console.log("New start date");
+					}
+					else orderNum = result[result.length-1].orderNumber + 1;//Previous order number +1
+				}
+				else orderNum = result[result.length-1].orderNumber + 1;//Previous order number +1
 			}
 			
 			for(var i = 0; i < order.length; i++)
@@ -43,36 +76,13 @@ var mongoose = require('mongoose'),
 				if(err) return res.status(400).send({
 					message: errorHandler.getErrorMessage(err)
 				});
-					res.status(200).send({message: 'Order has been made'});
-				
-					//Code to update balance when order has been placed
-					/*User.update({username: req.user.username}, {$inc: { currentBalance : total}}, function(err, numAffected){
-						if(err){
-							//Temporary - Measures to take will be discussed
-							console.log(errorHandler.getErrorMessage(err));
-						}
-						if(numAffected < 0){
-							//Temporary - MEasures to take will be discussed
-							console.log('No user charged');
-						}
-						
-						res.status(200).send({message: 'Order has been made'});
-
-					});*/
-				});
+				audit('Create order', order);
+				res.status(200).send({message: 'Order has been made'});
+			});
 		});	
 	}
  };
  
- exports.markAsReady = function(req, res){
-	Order.update({orderNumber: req.body.orderNum}, {status: 'ready'}, { multi: true }, function(err, numAffected){
-		if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
-		console.log(numAffected);
-		sendEmail(req.body.uname, req.body.orderNum);
-		res.status(200).send({message: 'order marked as ready'});
-	});
-
- };
  /*
   * Helper function to email user about order
   * Last Edited by: Rendani Dau
@@ -98,41 +108,63 @@ var mongoose = require('mongoose'),
 			if(err) console.log('Email not sent' + err); 
 		});
 	});
+ }
+ 
+ exports.markAsReady = function(req, res){
+	Order.update({orderNumber: req.body.orderNumber}, {status: 'ready'}, { multi: true }, function(err, numAffected){
+		if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
+		console.log('Num Affected ' + numAffected);
+		sendEmail(req.body.username, req.body.orderNumber);
+		res.status(200).send({message: 'order marked as ready'});
+	});
+
  };
-//,itemName:req.body.itemName
 
 exports.markAsPaid = function(req, res){
-    console.log('dgefrgwergtwe'); //console.log(req.body);
-    Order.find({orderNumber: req.body.orderNumber },function(err, numAffected2) {
-        console.log(numAffected2);
-        console.log(numAffected2.length);
-        for(var item in numAffected2){
-            console.log(numAffected2[item].orderNumber);
-            Order.update({orderNumber: numAffected2[item].orderNumber, itemName: numAffected2[item].itemName }, {status: 'closed'},  function(err2, numAffected) {
-                console.log('hhhh');
-            });
-        }
-
-    });
-
-
+	console.log(req.body);
+	if(req.body.method === 'credit'){
+		Order.find({orderNumber: req.body.orderNumber}, function(err, orders) {
+			if(err){ console.log('Error1' + err); return res.status(400).send({message: 'Order not marked as paid'});}
+			console.log('helo2');
+			var total = 0;
+			console.log('length' + orders.length);
+			for(var order in orders){
+				total+= orders[order].price * orders[order].quantity;
+			}
+			console.log('total' + total);
+			User.findOne({username: req.body.username}, function(err, user){
+				if(err){ 
+					console.log('Error2' + err);
+					return res.status(400).send({message: 'Order not marked as Paid'});
+				}
+				
+				if(user.limit - user.currentBalance < total)
+					return res.status(400).send({message: 'User has insufficient credit'});
+				
+				user.currentBalance = user.currentBalance + total;
+				user.save(function(err, user){
+				if(err){ console.log('Error3' + err); return res.status(400).send({message: 'Order not marked as paid'});}
+						Order.update({orderNumber: req.body.orderNumber}, {status: 'closed'}, { multi: true }, function(err, numAffected){
+							if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
+							//console.log(numAffected);
+							res.status(200).send({message: 'order marked as paid/closed'});
+						});
+				});
+			});	
+		});
+	}
+	else{
+		Order.update({orderNumber: req.body.orderNumber}, {status: 'closed'}, { multi: true }, function(err, numAffected){
+			if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
+			console.log(numAffected);
+			res.status(200).send({message: 'order marked as paid/closed'});
+		});
+	}
 };
 
 exports.markAsCollected = function(req, res){
     console.log('dgefrgwergtwe'); //console.log(req.body);
-    Order.find({orderNumber: req.body.orderNumber },function(err, numAffected2) {
-        console.log(numAffected2);
-        console.log(numAffected2.length);
-        for(var item in numAffected2){
-            console.log(numAffected2[item].orderNumber);
-            Order.update({orderNumber: numAffected2[item].orderNumber, itemName: numAffected2[item].itemName }, {status: 'closed'},  function(err2, numAffected) {
-                console.log('hhhh');
-            });
-        }
-
-    });
-
-
+	res.status(200).send();
 };
 
  //Get orders with a POST request
@@ -192,9 +224,6 @@ exports.getUserOrders = function(req, res){
 		res.status(200).send({message: items});
 	});
  };
-/**
- *END {Rendani Dau}
- */ 
  
 /**
  * Create a Order

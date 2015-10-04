@@ -1,27 +1,19 @@
 
 <section data-ng-controller="MenuItemsController" data-ng-init="loadMenuItems()">
 
-        <h4>Menu</h4>
-        <hr>
+    <!--ALERT BOX FOR HELP-->
+        <script type="text/ng-template" id="alert.html">
+            <div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+              <div ng-transclude></div>
+            </div>
+        </script>
 
-      <!-- Display all the meals -->
-      <!-- nav- breadcrum for menu page-->
-      <ol class="breadcrumb">
-        <li class="active">All Menu Items</li>
-        <li><a href="/#!/menu/toastedSandwiches">Toasted Sandwiches</a></li>
-        <li><a href="/#!/menu/tramezzinis">Tramezzinis</a></li>
-        <li><a href="/#!/menu/burgerBar">Burger Bar</a></li>
-        <li><a href="/#!/menu/dailyLunch">Daily Lunches</a></li>
-        <li><a href="/#!/menu/saladBar">Salad Bar</a></li>
-        <li><a href="/#!/menu/sweetTreats">Sweet Treats</a></li>
-        <li><a href="/#!/menu/resaleItems">Resale Items</a></li>
-        <li><a href="/#!/menu/onTheSide">On The Side</a></li>
-        <li><a href="/#!/menu/extra">Extras</a></li>
-        <li><a href="/#!/menu/drinks">Drinks</a></li>
-        <li><a href="/#!/menu/dailySpecials">Daily Specials</a></li>
-      </ol>
-
-      <div class="container">
+        <div  data-ng-controller="MenuItemsController">
+          <h4>Menu<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
+          <hr>
+          <alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert1.msg}}</alert>
+        </div>
+   <!--END ALERT BOX -->
 
   <!-- Menu nav -->
   <div class="container " data-ng-controller="HeaderController">
@@ -35,18 +27,16 @@
     			<span class="icon-bar"></span>
     		</button>
 
-    	<a href="/#!/" class="navbar-brand" ><span class="glyphicon glyphicon-apple"></span> Menu</a>
-    	</div>
-
-      <div id="navbar" class="collapse navbar-collapse navbar-right" ng-init="loadMenuCategories()"collapse="!isCollapsed" role="navigation">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#">All Menu Items</a></li>
-          <li ng-repeat="item in menuCatagory"><a href="#">{{item.name}}</a></li>
-          <li><a href="#">Menu2</a></li>
-        </ul>
-      </div><!--/.nav-collapse -->
-    </div><!--/.container-fluid -->
-  </nav>
+      	<a href="/#!/menu"  class="navbar-brand" ><span class="glyphicon glyphicon-apple"></span> Menu</a>
+      	</div>
+        <!--loadMenuCategories()-->
+        <div id="navbar" class="collapse navbar-collapse navbar-right" ng-init="loadMenuCategories()"collapse="!isCollapsed" role="navigation">
+          <ul class="nav navbar-nav">
+            <li ng-repeat="item in menuCatagory"><a  ng-click="filterCat(item.name)"href="">{{item.name}}</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div><!--/.container-fluid -->
+    </nav>
   </div>
 
     <!--Search for a menu product-->
@@ -57,17 +47,8 @@
                         <div class = "form-group">
                             <input type="text" id="menuNameSearch" name ="menuNameSearch" class = "form-control" data-ng-model="menuNameSearch" placeholder="Meal Name">
                         </div>
-                        <!--<div class = "text-center form-group">
-                            <button type = "submit" class = "btn btn-large btn-primary">&lt;!&ndash;ng-submit="inventory.findOne()"&ndash;&gt; Search</button>
-                        </div>-->
-                    </form><!--
-            &lt;!&ndash;Success/Error message&ndash;&gt;
-            <div data-ng-show="successOne" class="text-center text-success">
-                <strong data-ng-bind="successOne">{{successOne}}</strong>
-            </div>
-            <div data-ng-show="errorOne" class="text-center text-danger">
-                <strong data-ng-bind="errorOne">{{errorOne}}</strong>
-            </div>-->
+
+                    </form>
         </div>
     </div>
 
@@ -82,194 +63,21 @@
 		</div>
     </div>
 
-    <!-- Display Special of the day -->
-    <div class="list-group clearfix">
-        <a href="/#!/menu/daylySpecials" class="list-group-item heading">
-            <h4> Daily Specials</h4>
-        </a>
-        <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:special"><h3>
-            {{item.itemName}}  <span style="float:right;" > R {{item.price}} <button type="button" class="btn btn-primary" data-ng-show="item.stock" data-ng-click="addToPlate(item.itemName)"> Add to plate </button></span>  </h3> <br> <h5> {{item.description}}
-            <form>
-                <span data-ng-show="!item.stock" style="color:red"><h3>Not in stock </h3></span>
-            </form>
-        </h5>
-        </div>
-    </div>
 
-      <!-- Display Toasted Sandwiches -->
-        <div class="list-group clearfix">
-      		<a href="/#!/menu/toastedSandwiches" class="list-group-item heading">
-      		 <h4> Toasted Sandwiches </h4>
-      	 </a>
+  <!-- DYNAMIC filter: -->
+  <div class="list-group clearfix"  ng-repeat="cat in menuCatagory">
 
-       <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:toastedSandwiches"><h3>
-           {{item.itemName}}  <span style="float:right;" > R {{item.price}} <button type="button" class="btn btn-primary" data-ng-show="item.stock" data-ng-click="addToPlate(item.itemName)"> Add to plate </button></span> </h3> <br> <h5> {{item.description}}
-            <form>
+      <a href="#/" class="list-group-item heading"><h4> {{cat.name}}</h4></a>
+      <div class="list-group-item clearfix" ng-repeat ="item in menuItems"  ng-show="cat.name === item.category[0]"><h3>
+          {{item.itemName}}  <span style="float:right;" > R {{item.price}} <button type="button" class="btn btn-primary" data-ng-show="item.stock" data-ng-click="addToPlate(item.itemName)"> Add to plate </button></span>  </h3> <br> <h5> {{item.description}}
+          <form>
               <span data-ng-show="!item.stock" style="color:red"><h3>Not in stock </h3></span>
-            </form>
-        </h5>
+          </form></h5>
+          <button type="button" class="btn btn-primary" data-ng-click="viewImage(item.itemName)"> <span class="glyphicon glyphicon-camera"></span> image </button>
+        <span ng-hide="view">
+          	<img alt="image" class="img-responsive text-center" src={{item.imagePath}} />
+          </span>
       </div>
-      </div>
 
-     <!-- Display Tramezzinis -->
-     <div class="list-group clearfix">
-       <a href="/#!/menu/tramezzinis" class="list-group-item heading">
-        <h4>Tramezzinis</h4>
-      </a>
-
-    <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:tramezzinis">
-        <h3> {{item.itemName}}
-        <span style="float:right;" > R {{item.price}} <button type="button" class="btn btn-primary" data-ng-show="item.stock" data-ng-click="addToPlate(item.itemName)"> Add to plate </button></span> </h3> <br> <h5> {{item.description}}
-        <span data-ng-show="!item.stock" style="color:red"><h3>Not in stock </h3></span>
-	 </h5>
-   </div>
-   </div>
-
-
-  <!-- Display Burger Bar -->
-  <div class="list-group clearfix">
-    <a href="/#!/menu/burgerBar" class="list-group-item heading">
-     <h4>Burger Bar</h4>
-   </a>
-
- <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:burgerBar"><h3>
-     {{item.itemName}}  <span style="float:right;" > R {{item.price}} <button type="button" class="btn btn-primary" data-ng-show="item.stock" data-ng-click="addToPlate(item.itemName)"> Add to plate </button></span> </h3> <br> <h5> {{item.description}}
-      <form>
-        <span data-ng-show="!item.stock" style="color:red"><h3>Not in stock </h3></span>
-
-      </form>
-  </h5>
- </div>
- </div>
-
- <!-- Display Daily Lunches -->
- <div class="list-group clearfix">
-   <a href="/#!/menu/dailyLunch" class="list-group-item heading">
-    <h4>Daily Lunches</h4>
-  </a>
-
-
-<div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:dailyLunch"><h3>
-    {{item.itemName}}  <span style="float:right;" > R {{item.price}} <button type="button" class="btn btn-primary" data-ng-show="item.stock" data-ng-click="addToPlate(item.itemName)"> Add to plate </button></span> </h3> <br> <h5> {{item.description}}
-     <form>
-       <span data-ng-show="!item.stock" style="color:red"><h3>Not in stock </h3></span>
-     </form>
- </h5>
-</div>
-</div>
-
-<!-- Display Salad Bar -->
-<div class="list-group clearfix">
-  <a href="/#!/menu/saladBar" class="list-group-item heading">
-   <h4>Salad Bar</h4>
- </a>
-
-
-<div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:saladBar"><h3>
-    {{item.itemName}}  <span style="float:right;" > R {{item.price}} <button type="button" class="btn btn-primary" data-ng-show="item.stock" data-ng-click="addToPlate(item.itemName)"> Add to plate </button></span> </h3> <br> <h5> {{item.description}}
-    <form>
-      <span data-ng-show="!item.stock" style="color:red"><h3>Not in stock </h3></span>
-    </form> </h5>
-</div>
-</div>
-
-<!-- Display Sweet Treats -->
-<div class="list-group clearfix">
-  <a href="/#!/menu/sweetTreats" class="list-group-item heading">
-   <h4>Sweet Treats</h4>
- </a>
-
-
-<div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:sweetTreat"><h3>
-    {{item.itemName}}  <span style="float:right;" > R {{item.price}} <button type="button" class="btn btn-primary" data-ng-show="item.stock" data-ng-click="addToPlate(item.itemName)"> Add to plate </button></span> </h3> <br> <h5> {{item.description}}
-    <form>
-      <span data-ng-show="!item.stock" style="color:red"><h3>Not in stock </h3></span>
-    </form>
-</h5>
-</div>
-</div>
-
-<!-- Display Resale Items -->
-<div class="list-group clearfix">
-  <a href="/#!/menu/resaleItems" class="list-group-item heading">
-   <h4>Resale Items</h4>
- </a>
-
-
-<div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:resaleItem"><h3>
-    {{item.itemName}}  <span style="float:right;" > R {{item.price}} <button type="button" class="btn btn-primary" data-ng-show="item.stock" data-ng-click="addToPlate(item.itemName)"> Add to plate </button></span> </h3> <br> <h5> {{item.description}}
-    <form>
-      <span data-ng-show="!item.stock" style="color:red"><h3>Not in stock </h3></span>
-</form></h5>
-</div>
-</div>
-
-<!-- Display  On The Side -->
-<div class="list-group clearfix">
-  <a href="/#!/menu/onTheSide" class="list-group-item heading">
-   <h4>On The Side</h4>
- </a>
-
-
-<div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:onSide"><h3>
-    {{item.itemName}}  <span style="float:right;" > R {{item.price}} <button type="button" class="btn btn-primary" data-ng-show="item.stock" data-ng-click="addToPlate(item.itemName)"> Add to plate </button></span> </h3> <br> <h5> {{item.description}}
-    <form>
-      <span data-ng-show="!item.stock" style="color:red"><h3>Not in stock </h3></span>
-    </form>
-</h5>
-</div>
-</div>
-
-<!-- Display  Extra's -->
-<div class="list-group clearfix">
-    <a href="/#!/menu/extra" class="list-group-item heading">
-        <h4>Extra's</h4>
-    </a>
-
-
-    <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:extra"><h3>
-        {{item.itemName}}  <span style="float:right;" > R {{item.price}} <button type="button" class="btn btn-primary" data-ng-show="item.stock" data-ng-click="addToPlate(item.itemName)"> Add to plate </button></span> </h3> <br> <h5> {{item.description}}
-        <form>
-            <span data-ng-show="!item.stock" style="color:red"><h3>Not in stock </h3></span>
-        </form>  </h5>
-    </div>
-</div>
-
-<!-- Display  Drinks -->
-<div class="list-group clearfix">
-    <a href="/#!/menu/drinks" class="list-group-item heading">
-        <h4>Drinks</h4>
-    </a>
-
-
-    <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:drinks"><h3>
-        {{item.itemName}}  <span style="float:right;" > R {{item.price}} <button type="button" class="btn btn-primary" data-ng-show="item.stock" data-ng-click="addToPlate(item.itemName)"> Add to plate </button></span> </h3> <br> <h5> {{item.description}}
-        <form>
-            <span data-ng-show="!item.stock" style="color:red"><h3>Not in stock </h3></span>
-        </form>  </h5>
-    </div>
-</div>
-
-    <!-- Show all the items on the menu list, description, and price>
-			<form name="chooseOrderForm" data-ng-submit="addToPlate()" class="signin form-horizontal" autocomplete="off" data-ng-init="loadMenuItems()">
-				<div data-ng-repeat="order in orders" data-ng-href="#!/orders/{{order._id}}" class="list-group-item">
-					<h4 class="list-group-item-heading" data-ng-bind="order.name"> </h4>
-					<input type = "checkbox">
-					<input type="number" min = 0>
-				</div>
-					<br>
-				<div class="text-center form-group">
-					<button type="submit" class="btn btn-primary" onclick="location.reload(true)">Add to plate</button>
-				</div>
-
-				<!--Success/error message>
-				<div data-ng-show="success" class="text-center text-success">
-					<strong>Action completed successfully.</strong>
-				</div>
-				<div data-ng-show="error" class="text-center text-danger">
-					<strong data-ng-bind="error"></strong>
-				</div>
-
-	</form-->
-
+  </div>
 </section>

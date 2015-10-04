@@ -13,8 +13,19 @@
 
 <section class="row" data-ng-controller="AuthenticationController">
 
-	<h4> Sign Up </h4>
-  <hr>
+	<!--ALERT BOX FOR HELP-->
+			<script type="text/ng-template" id="alert.html">
+					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+						<div ng-transclude></div>
+					</div>
+			</script>
+
+			<div  data-ng-controller="MenuItemsController">
+				<h4> Sign Up <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
+				<hr>
+				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert22.msg}}</alert>
+			</div>
+	<!--END ALERT BOX -->
 
 	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 		<form name="userForm" data-ng-submit="signup()" class="signin form-horizontal" novalidate autocomplete="off">
@@ -49,8 +60,9 @@
                     </div>
                 </div>
 				<div class="form-group">
-					<label for="limit">Spending limit (ZAR)</label>
-					<input type="number" id="limit" name="limit" class="form-control" data-ng-model="credentials.limit" min = 0>
+					<label for="limit">Spending limit (ZAR)  </label>
+                    <b><p class="text-center text-info" data-ng-init="getSystemLimit()">Current maximum spending limit: {{success}}</p></b>
+                    <input type="number" id="limit" name="limit" class="form-control" data-ng-model="credentials.limit" min = 0>
 				</div>
 
 				<div class="form-group">

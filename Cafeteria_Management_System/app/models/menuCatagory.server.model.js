@@ -11,7 +11,11 @@ var mongoose = require('mongoose'),
         type: String,
         unique: 'Config type exists',
         required: 'Please fill config name'
-      }
+      },
+			active:{
+				type: Boolean,
+				default: true
+			}
   });
 
   mongoose.model('MenuCatagory', MenuCatagorySchema);

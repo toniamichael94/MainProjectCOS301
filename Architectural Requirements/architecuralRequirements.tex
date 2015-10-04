@@ -1,33 +1,34 @@
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,12pt]{report}
 \usepackage[hidelinks]{hyperref}
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{caption}
+\renewcommand\thesection{\arabic{section}}
 \usepackage{array}
 \usepackage{tabu}
-
-%% Title Page 
-\title{\Huge Architectural Requirements Document Specification \\ 
-	 Project: \\ 
-	Cafeteria Management System: Resolve}
-\author{
+\usepackage[tt]{titlepic}
+%%------------------------------ Title Page -----------------------------------------------
+\titlepic{ \centering\includegraphics[width=0.7\textwidth]{../images/dddd.png} }
+%\documentclass[12pt]{article}
+\title{ \rule{\textwidth}{1pt}  \\ \Huge Architectural Requirements \\ 
+	\Large Cafeteria Management System: Resolve Solution Partners (Pty) Limited \\
+	\small Client: Gareth Botha and Jaco Pieterse}
+  \author{
          \underline{T-RISE}\\
           Rendani Dau (13381467) \\
 	Elana Kuun (12029522) \\
 	Semaka Malapane (13081129) \\
 	Antonia Michael (13014171) \\
-	Isabel Nel (13070305)}
+	Isabel Nel (13070305) \\ \\
+	https://github.com/toniamichael94/MainProjectCOS301}
 
-\date{\today}
-
-
-%\documentclass[12pt]{article}
+\date{\today \\ \rule{\textwidth}{1pt}}
 
 \begin{document}
 \maketitle
 \break
 
-%% Make table of contents
+%% -------------------------------Make table of contents----------------------
 \tableofcontents
 \break
 
@@ -35,13 +36,13 @@
  \hline
  \textbf{Document Title} & Architectural Specification Document \\
  \hline
- \textbf{Document Identification}  & Document 0.0.2 \\
+ \textbf{Document Identification}  & Document 0.0.4 \\
  \hline
  \textbf{Author}  & Rendani Dau, Isabel Nel, Elana Kuun, Semaka Malapane, Antonia Michael \\
  \hline
- \textbf{Version} & 0.0.2\\
+ \textbf{Version} & 0.0.4\\
  \hline
- \textbf{Document Status} & Second Version - contains edited architectural requirements  \\
+ \textbf{Document Status} & Fourth Version - contains updated architectural requirements \\
  \hline
  \end{tabu}
 
@@ -54,6 +55,10 @@
  0.0.1 & 29 May 2015 & First draft & Rendani Dau, \\ & & contains & Isabel Nel, \\ & & architectural & Elana Kuun, \\ & & requirements & Semaka Malapane, \\ & & & Antonia Michael \\   [1ex] 
  \hline\hline
  0.0.2 & 30 July 2015 & Second draft & Rendani Dau, \\ & & contains edited & Isabel Nel, \\ & & architectural & Elana Kuun, \\ & & requirements & Semaka Malapane, \\ & & & Antonia Michael \\   [1ex] 
+ \hline\hline
+ 0.0.2 & 25 August 2015 & Third draft & Rendani Dau, \\ & & contains edited & Isabel Nel, \\ & & architectural & Elana Kuun, \\ & & requirements & Semaka Malapane, \\ & & & Antonia Michael \\   [1ex] 
+ \hline\hline
+ 0.0.2 & 24 September 2015 & Fourth draft & Rendani Dau, \\ & & contains edited & Isabel Nel, \\ & & architectural & Elana Kuun, \\ & & requirements & Semaka Malapane, \\ & & & Antonia Michael \\   [1ex] 
  \hline
  \end{tabular}
 \end{table}
@@ -72,13 +77,14 @@ The vision of this project is to implement a fully functional software applicati
 
 %%---------------------------------- BACKGROUND -----------------------------------------
 \section{Background}
-As specified in the project proposal document from Resolve, the cafeteria is currently cash only and does not accept bank cards or electronic payments. This makes it inconvenient for employees as they have to carry around cash if they want to purchase anything from the cafeteria. Employees may choose to go to an external food outlet where they can pay with their preferred method of payment, which uses time and fuel. Lastly, this means the cafeteria does not achieve the maximum amount of income which hinders its growth and improvement.\\
+\subsection{The current situation/ problems the client currently experience}
+As specified in the project proposal document from Resolve, the cafeteria is currently cash only and does not accept bank cards or electronic payments. This is it inconvenient for employees as they have to carry around cash if they want to purchase anything from the cafeteria. Employees may choose to go to an external food outlet where they can pay with their preferred method of payment, which uses time and fuel. Thus, this means the cafeteria does not achieve the maximum amount of income which hinders its growth and improvement.\\ A problem with the cafeteria itself is that certain meal items are hardly in stock due to either lack of ingredients to make the meal or under estimating the quantity of the meal item required.
 
-Resolve is therefore looking for a means to accept payments from employees  using their employee access cards or access card numbers, with an amount being deducted from their salary at the end of the month.\\
-
-Resolve proposed the Cafeteria Management System to assist with this problem.
-After our first meeting with the client, they brought to our attention that at times the cafeteria does not have enough stock to provide some of the menu items, thus managing the inventory will also be part of the system. The system will predict which inventory items needs to be bought for the next week in order to avoid such a problem. At the end of each month, the bill for the month will be sent to either payroll or to the employee, or both. This option is configurable from the user's profile. The employee can also set a spending limit for each month. There will also be a system wide limit that users cannot exceed.
-
+\subsection{How the aforementioned problems will be alleviated by the CMS}
+The Cafeteria Management System will provide a means to accept payments from employees, at the canteen, using their employee access cards or access card numbers, with an amount being deducted from their salary at the end of the month.  The option of cash payments ,however, will not be discarded. At the end of each month, the bill for the month will be sent to either payroll, to the employee, or to both. This option is thus configurable from the user's profile. The employee can also set a spending limit for each month. There will also be a system wide limit that users cannot exceed.
+\\
+The system will predict which inventory items needs to be bought for the next week in order to avoid the "out of stock" situation described above. The system will also enforce that the cafeteria manager 
+\\
 \section{Architecture Requirements}
 The software architecture requirements include the access and integration requirements, quality
 requirements, and architectural constraints. These points will be thoroughly discussed below.
@@ -87,23 +93,27 @@ requirements, and architectural constraints. These points will be thoroughly dis
 \section{Architectural Responsibilities}
 \begin{itemize}
 
-\item The system must allow a user to view the menu without being logged in.
-\item The system must allow a user to select items from the menu and place an order.
+\item The system must allow a user to view the menu and select items from the menu without being logged in.
+\item The system must allow a user to select items from the menu and place an order when logged in.
 \item The system should not process an order unless a user is logged in.
 \item On placement of an order the system should send the order details to the cashier.
-\item The system should notify the user when their order is ready.
-\item The system should send a bill to payroll, the user, or both once a month (depending on the preference of the user).
+\item The cashier should be the only party able to notify the user when their order is ready.
+\item The cashier should mark the order as paid and collected or just collected when the user collects their order.
+\item The system should either send the monthly bill to payroll, the user's personal e-mail address, depending on the preference of the user.
 \item The system should allow a user to manage their profile by editing their personal details, password, financial preferences, and spending limit
 \item The system should allow configuration and branding by a superuser or an admin user.
-\item The system should have the functionality to manage the inventory and the cafeteria (such as the items on the menu).
-\item The system should provide cashier functionality.
+\item The system should have the functionality to manage the inventory and the cafeteria (such as the items on the menu and the menu categories). 
+\item The system should restrict users to only set their personal maximum monthly spending limits within a range set by the superuser.
+\item The system should display the balance of the user on their profile page. 
+\item The system should restrict, with the user's consent, that only the financial manager is allowed to view the monthly bill of the user.
 \item The system should provide for multiple deployment.
 \item The system must be usable, scalable, reliable, and auditable.
+\item The system must be maintainable.
 
 \end{itemize}
 
 %% ---------------------------------  QUALITY REQUIREMENTS -------------------------------------
-\section{Quality Requirements}
+\section{Quality Requirements: Core}
 
 %%--------------SECURITY------------------
 \subsection{Security}
@@ -125,11 +135,9 @@ requirements, and architectural constraints. These points will be thoroughly dis
 \begin{itemize}
  \item Layering
 \end{itemize}
-<<<<<<< HEAD
+
 Layering can enforce security due to separation into layers, in which different users have different levels of access to the layers, depending on their roles in the system
-=======
-Layering can enforce security due to seperation into layers in which different users have different levels of access to the layers depending on their roles in the system.
->>>>>>> 9dd3e3002c13a292df5dd40b40f6dd1c9ba144a2
+
 Layering can be used within the subsections of MVC, i.e. the Control and Model layer can be layered to further divide concerns and restrict different users' access on those layers, providing tighter security.
 
 %%-------------USABILITY------------------
@@ -144,7 +152,7 @@ Layering can be used within the subsections of MVC, i.e. the Control and Model l
  \begin{itemize}
  \item Various goals of usability requirements are firstly, that the interface is intuitive, i.e. easy to navigate and understand, that the buttons and icons are self explanatory for the primary users.
  \item The interface must also not be a cluttered, frustrating and overwhelming one. 
- \itemEase of learning is also an important goal. Users who are unfamiliar with the system, but who have used similar systems in the past, should find the system easy to work with.
+ \item Ease of learning is also an important goal. Users who are unfamiliar with the system, but who have used similar systems in the past, should find the system easy to work with.
  \item The system must also be task efficient, i.e. if users access this space regularly, long tedious processes and other admin must be avoided.
 \item Also, the colour schemes, functionality and interactiveness of the interface and system must contribute to this task efficiency. 
 \item Different usability tests can be conducted such as handing out paper prototypes of different interface designs, and questionnaires getting feedback from the sample of people that were consulted in the survey. Problems with the different interfaces can be picked up during the usability testing phase, as indicated by the sample of users consulted, such that the final product will be much more user friendly. \url{(http://www.usability.gov/what-and-why/usability-evaluation.html)}
@@ -210,7 +218,7 @@ that alters the system in any way.
 	\item \textbf{Isolation:} Keeps process/transactions separate from one another until they are finished.
 	\item \textbf{Durability:} The system must keep a backup of its current state so as to roll back to it if
 	    the system where to experience a system failure, crash or corruption of data due
-	    to a security breach.
+	    to a security breach. (Solms, 2014)
 	\end{itemize}
  \end{itemize}
 
@@ -221,6 +229,31 @@ that alters the system in any way.
 \end{itemize} 
  MVC is a suitable pattern because it provides auditability through logging all filter inputs and outputs (off queues). Layering is a suitable pattern because each separate layer can be audited and monitored individually, rather than auditing the system as a whole.
   
+
+%%-------------Maintainability------------------
+\subsection{Maintainability}
+\subsubsection{Reasons for maintainability as a quality requirement}
+\begin{itemize}
+\item  Maintainability refers to how easily the software can be modified to adapt to a new environment, fix bugs, and improve performance. 
+\item Due to the fact that this system is generic enough to be deployed at any cafeteria, this means that a potentially wide range of programmers will be accessing the code and for this reason it is of utmost importance that the code will be easy to grasp and easy to make changes to / maintain.
+\item Developers other than those who created the system should be able to add new features, bug fixes, and make changes without investing a significant amount of time and effort in restructuring code and learning/ understanding the code. High level users of the system should also be able to maintain the system without needing to change the code. 
+
+\item Current examples of this requirement in the CMS system are as follows: Firstly, the cafeteria manager can dynamically add menu categories to the menu page and secondly the superuser is able to change various branding options such as the canteen name, the cover image, and the system limit.
+\item In addition, the superuser can also change other settings such as being able to change employee IDs as well as assigning roles to various users. There is also an admin user of the system in case the superuser is fired, resigns or deceased.
+\item This in turn is not just improving the maintainability of the system, but also the usability of the system.
+ \end{itemize}
+\subsubsection{Strategies to achieve this quality requirement}
+\begin{itemize}
+\item Spreading the load across time - queuing (Solms, 2014),
+\item Fault detection - deadlock detection (Solms, 2014).
+\item Service component publication - naming service and having an interface/contract repository (Solms, 2014).
+\item Security tactics such as minimising accessibility (Solms, 2014).
+\end{itemize}
+
+\subsubsection{Patterns to achieve these strategies} 
+MVC is used to achieve maintainability due to its clean separation of concerns, and organized structure, making it easier for a different programmer to get a high level understanding of the code.  
+ 
+
 %%-------------SCALABILITY------------------
 %\item Scalability
 \subsection{Scalability}
@@ -245,33 +278,6 @@ that alters the system in any way.
 We chose this pattern here due to the concurrency of the system, meaning that a large number of users must be able to access the system at a time.
 %\end{enumerate}
 
-%%-------------INTEGRABILITY------------------
-%\item Integrability
-\subsection{Integrability}
-\subsubsection{Reasons for integrability as a quality requirement}
-\begin{itemize}
-\item  Integrability refers to how separate components of the system work together. Different modules of the cafeteria management system are developed separately, for the system to work these components need to work together correctly. Many activities in the cafeteria management work together and it is important that the functions are performed correctly. For example, a user placing an order affects the inventory, and what is still available to order.
-\end{itemize}
-
-\subsubsection{Strategies to achieve this quality requirement}
-Integration testing is used to ensure that all the modules work together and loose coupling is achieved through dependency injection.
-\begin{itemize}
-\item 
-\end{itemize}
-
-%\item Integrability
-
-
-%%-------------TESTABILITY------------------
-%\item Testability
-\subsection{Testability}
-\subsubsection{Reasons for testability as a quality requirement}
-\begin{itemize}
-\item  It is important to ensure that a software system is adequately tested at various levels. In other words, testing is based on the 
-concept of incremental development - as you are busy building the system each aspect needs to be thorougly tested to ensure the functionality works correctly, before you move on to build the next step - this will make sure that at all times the software is functional with very little flaws (those flaws can refer to logical mistakes and possible untested sections still being built).
-\item Testing a system goes hand in hand with other quality requirements such as maintainability, reliability and security. All the quality requirements works together to ensure a product of high quality gets produced at the end of the project.
-\end{itemize}
-
 \subsubsection{Strategies to achieve this quality requirement}
 \begin{itemize}
 \item Unit tests will be conducted, each section of the software needs to be thoroughly tested using unit tests with mock objects ensuring that it works as expected, this includes unit testing on both the client side and the server side.
@@ -291,8 +297,12 @@ Listed below are the nice to have quality requirements related to the Cafeteria 
 \subsubsection{Flexibility}
 \item  Flexibility refers to the ability of a system to respond in a time and cost efficient manner to internal or external changes that affects the quality of its service. The system should be able to increase or sustain the quality of its service when responding to these changes.
 
-\subsubsection{Maintainability}
-\item  Maintainability refers to how easily the software can be modified to adapt to a new environment, fix bugs, and improve performance. Other developers should be able to add new features, bug fixes, and make changes without investing a significant amount of time and effort. Users of the system should also be able to maintain it by making certain changes to the system. Some aspects of the cafeteria management system such as the branding, the colours, and the menu section needs to be configurable by a user. This is a desirable quality requirement to have as it means that the system can be changed, adapted, and improved, and thus be used for a longer time.
+\subsubsection{Integrability}  
+\item  Integrability refers to the ability of the different components of the system to be compatible and pluggable with each other as well as with the components of separate systems. The modules of the cafeteria management system are developed as separate pluggable modules to enforce Integrability. The different modules are integrated together to achieve different functionality, for example a user views the menu (Manage Cafeteria Module), and then proceeds to select a menu item and place an order (Place Order Module). 
+ 
+\subsubsection{Testability} 
+\item  It is important to ensure that a software system is adequately tested at various levels. In other words, testing is based on the 
+concept of incremental development - during the construction of the system, each added component needs to be thourougly tested to ensure that the functionality works correctly, before it is integrated with the other system components. 
 \end{itemize}
 
 
@@ -338,34 +348,38 @@ The integration channels will also be accessible by the mobile applications, suc
 \item The system will also have to integrate with the server to pass information to and from the database.
 \end{itemize}
 
+%%------------------PROTOCOLS -----------------------------
 \subsection{Protocols}
+
+%%-------HTTP------------
 \subsubsection{HTTP - Hypertext Transfer Protocol}
 Integration with this protocol will occur at a high level and typically be handled by libraries or browser-clients etc.
 \textbf{To be used for:	}
 	\begin{itemize}
-	\item{All data transferred between users and the server on which the system is hosted, this will be done via the HTTP GET and 
-	         POST requests where we will request data from the database  to be displayed and post data to the database to be 
-		stored .}
-	\item{Transfer of miscellaneous data such as HTTP error codes to ensure both servers and clients are aware of the state of 	
-		data transfers and its results - in a case of an error we will configure the system to try and rectify the problem first then 
-		when no correction could be made the user will be notified accordingly }
+	\item{All data transferred between users and the server on which the system is hosted, this will be done via the HTTP GET 		and POST requests where we will request data from the database  to be displayed and post data to the database 
+		to be stored .}
+	\item{Transfer of miscellaneous data such as HTTP error codes to ensure both servers and clients are aware of the state 			of data transfers and its results - in a case of an error we will configure the system to try and rectify the problem 	 		first then when no correction could be made the user will be notified accordingly }
 	\end{itemize}
-	
+
+%%----------TCP----------
 \subsubsection{TCP - Transmission Control Protocol}
  For establishing network connections between the user computers and the system server. Streams of data can then be exchanged between the connected hosts. Error detection, faulty transmission of data, resending of data etc. will all be done using TCP (Davids). Integration with this protocol will occur at a high level and will typically be handled by libraries or operating system functions.
  
+%%------------SMTP--------
 \subsubsection{SMTP - Simple Mail Transfer Protocol}
 This protocol will be used to handle e-mail communication, specifically notifications to users when their orders are ready, as well as the sending of bills to both users and payroll. It addresses Security as a quality requirement since it incorporates SMTP-Authentication defined by RFC 2554 (Meyers, 1999) which enhances the security of the protocol.
 
 %% ----------------ARCHITECTURE CONSTRAINTS-------------------------
 \subsection{Architecture Constraints}
 
+%%--------------TECHNOLOGIES---------------
 \subsubsection{Technologies}
 Technologies we will be using in the creation of the Cafeteria Management System includes the following: 
 
 \begin{itemize}
  \item \textbf{HTML}: The Software system will be mainly web-based a large part will be made out of HTML5.
- \item \textbf{JavaScript together with AngularJS  and NodeJS}: this will enable us to add extra functionality to our web page and modularise the system thus also helping us to implement dependency injection. For creating reports we can also import ReportingJS to create visually pleasing reports that is logically structured.
+
+ \item \textbf{JavaScript together with AngularJS  and NodeJS}: this will enable us to add extra functionality to our web page and modularise the system thus also helping us to implement dependency injection. For creating reports we will be using \textbf{JSReport} to generate professional invoices displaying the user's bills.
 
  \item \textbf{CSS together with BootStrap}: which will allow us to style our page and also make it responsive
 
@@ -374,27 +388,23 @@ extremely well with NodeJS.
 
  \item \textbf{Express server}: will be set up as our server that will host the system.
 
-\item \textbf{MEAN stack}: The MEAN stack is a JavaScript solution that helps you  build fast, robust, and maintainable 	 production web applications using  MongoDB, Express, AngularJS, and 	 Node.js.
-
+\item \textbf{MEAN stack}: The MEAN stack is a JavaScript solution that helps you  build fast, robust, and maintainable 	 production web applications using  MongoDB, Express, AngularJS, and  Node.js.
 
  \item \textbf{Phone gap}: Phone gap will be used to convert our web page into a usable application which will then look like the online webpage that will run like a web interface in the background but  will seem like a mobile application to the user that will be accessible from multiple platforms.
 
-\item \textbf{Git and GitHub}: A version control software and a repository website that will be used to host the source code of the Cafeteria Management System. Reasons for the use of Git is its ease of use and because it is free and open source.
+\item \textbf{GitHub}: A version control software and a repository website that will be used to host the source code of the Cafeteria Management System. Reasons for the use of Git is its ease of use, ability to view the entire history of the repo, branch remotely to fix bugs and simultaneously work on various files.  
  \url{(http://git-scm.com/)}.
 
-\end{itemize}
-The above mentioned technologies will be our basis we will create our system on, but as we are busy building the Cafeteria Management System we will add other technologies as needed. 
+\end{itemize} 
 
 \subsubsection{Operating Systems}
-The Cafeteria Management System will be able to run on all operating systems with a modern web browser such as Mozilla Firefox, Google Chrome or Internet Explorer installed given there is an internet connection, since the application will be hosted on a remote server, it can be accessed from anywhere in the world.
-
+The Cafeteria Management System will be able to run on all operating systems with standard web browsers such as Mozilla Firefox or Google Chrome.
 \section{Architectural Patterns}
-For the design of The Cafeteria Management System, two patterns are considered: the \textbf{MVC (Model-View-Controller) pattern} and the \textbf{Layering architectural pattern}. For concurrency, the \textbf{Master-Slave pattern} is used.\\
-The top layers of the Model and the Controller are interfaces for the MVC architecture and the layers below provide the functionality.\\
+For the design of The Cafeteria Management System, the main pattern being used is the  \textbf{MVC (Model-View-Controller) pattern} and the \textbf{Layering architectural pattern}.  Each module of the system has controllers associated with it on the client side as well as server side controllers which are used to access the models containing the declarations of the collections. 
 MVC is considered because:
 	\begin{itemize}
 	\item It provides modularity (i.e. the system's concerns are separated, thus easier to implement). (Solms, 2014)
-	\item It allows for better maintainability (one can maintain the Model, View and Controller separately). (Solms, 2014)				\item Testability (it is easier to test because of separated concerns, so the source of any problems are easy to identify). 	
+	\item It allows for better maintainability (one can maintain the Model, View and Controller separately). (Solms, 2014)			\item Testability (it is easier to test because of separated concerns, so the source of any problems are easy to identify). 	
 	(Solms, 2014)
 	\item Reuse (it is possible to take any component and reuse it where necessary). (Solms, 2014)
 	\end{itemize} 
@@ -403,19 +413,12 @@ Layering allows the Cafeteria Management System to have pluggable layers, which 
 		\item Improved cohesion. (Solms, 2014)
 		\item Reduced complexity of the system. (Solms, 2014)
 		\item Improved testability (which will allow for easier debugging). (Solms, 2014)
-		\item Improved reuse and maintainability of the source code, because all the layers are individual and separate from 	
-		one another. (Solms, 2014)
+		\item Improved reuse and maintainability of the source code, because all the layers are individual and separate 		
+		from 	one another. (Solms, 2014)
 		\end{itemize}
 However, it should be mentioned that Layering has a performance overhead associated with it, as well as higher maintenance costs associated with the lower layers, because they impact the higher levels. (Solms, 2014). Given the benefits, however, the authors feel that the reduced performance and maintenance costs are a good compromise for reduced complexity and testability.\\
-\\
-For concurrency, the Master-Slave architectural pattern (Solms, 2014) is considered, because the system needs to accommodate a large number of users at a time.
-
-%%-------------------SUPPORTING DOCUMENTATION -----------------------------
-\section{Other Supporting Documentation}
-
-On the GitHub repository the rest of the supporting documentation for the Cafeteria Management System can be found together with the actual implementation of the work. \\\\
- \url{https://github.com/toniamichael94/MainProjectCOS301}
-
+\\ 
+ 
 \newpage
 \section{Bibliography}
 		\begin{itemize}

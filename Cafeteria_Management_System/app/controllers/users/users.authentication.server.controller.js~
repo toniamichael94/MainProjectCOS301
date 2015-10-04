@@ -135,6 +135,32 @@ console.log('USER FOUND ');
 User.find({roles : 'admin'}, function(error, model2) {
 var v = model2;
 if(model2.length < 1){
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+	console.log('NO USER FOUND - create default admin user');
+	var adminUser = new User({
+		firstName : 'Admin',
+		lastName : 'User',
+		username : 'AdminUser',
+		password : 'AdminUser',
+		email : 'email@address.com',
+		recipientEmailAddress : 'email@address.com',
+		roles : 'admin',
+		provider : 'local',
+		limit : '500'
+
+		// now set default system limit
+		//set default system wyde limit
+
+	});
+
+
+	adminUser.save(function(err, superUser) {
+		if (err) //error.superUser = err;//return console.error(err);
+			console.dir(superUser);
+=======
+>>>>>>> phase4
 console.log('NO USER FOUND - create default admin user');
 var adminUser = new User({
 firstName : 'Admin',
@@ -150,8 +176,14 @@ limit : '500'
 //set default system wyde limit
 });
 adminUser.save(function(err, superUser) {
+<<<<<<< HEAD
 if (err) error.superUser = err; return console.error(err);
 console.dir(superUser);
+=======
+if (err) //error.superUser = err; return console.error(err);
+console.dir(superUser);
+>>>>>>> b793946139ceb9594ff189c9ac45d45ec0b62ce4
+>>>>>>> phase4
 });
 }else {
 console.log('USER FOUND ');

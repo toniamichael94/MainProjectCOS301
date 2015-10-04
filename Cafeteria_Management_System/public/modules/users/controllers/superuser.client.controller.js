@@ -10,6 +10,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 		// Assign a role to user - as the super user
 		$scope.assignRoles = function(isValid) {
 		  if (isValid) {
+			//	BootstrapDialog.confirm('Hi Apple, are you sure?');
 			$scope.success = $scope.error = null;
 			var reqObj = {userID: $scope.emp_id, role: $scope.role};
               $scope.r = $window.confirm("Are you sure?");
@@ -63,13 +64,16 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 				};
 
         //Change user's employee ID
+		$scope.currentEmp_id;
         $scope.changeEmployeeID = function(isValid) {
             if (isValid) {
+				console.log($scope.currentEmp_id);
                 $scope.successOne = $scope.errorOne = null;
                 var reqObj = {currentUserID: $scope.currentEmp_id, newUserID: $scope.newEmp_id};
                 $scope.r = $window.confirm("Are you sure?");
-
+				
                 if($scope.r === true) {
+					
                     $http.post('/users/superuserChangeEmployeeID', reqObj).success(function (response) {
                         // If successful show success message and clear form
                         $scope.successOne = response.message;
@@ -154,6 +158,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 
 		//Set canteen name
 		$scope.setCanteenName = function(isValid){
+            console.log("Name CLIENT");
 			if(isValid){
 				$scope.success = $scope.error = null;
 				$scope.successTwo = $scope.errorTwo = null;
@@ -168,11 +173,32 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
                 }
 		};
 
+        //Set theme name
+        $scope.setThemeName = function(){
+                console.log("THEME CLIENT");
+                $scope.successFour = $scope.errorFour = null;
+
+                var reqObj = {name: 'Theme name', value: $scope.themeName};
+                console.log($scope.themeName);var p= $scope.themeName;
+                $http.post('/users/superuserSetThemeName', reqObj).success(function (response) {
+                    $scope.successFour = response.message;
+
+                    console.log('successssssssssssssssssssssss ' + response.message);
+                }).error(function (response) {
+                    $scope.errorFour = response.message;
+                    console.log('error ' + response.message);
+                });
+        };
+
         $scope.checkUser = function(){
-            if(($scope.user && Authentication.user.roles[0] !== 'superuser') || ($scope.user && Authentication.user.roles[0] !== 'superuser') || (!$scope.user))
+            if((!$scope.user) || ($scope.user && (Authentication.user.roles[0] !== 'superuser' || Authentication.user.roles[0] !== 'superuser')))
                 $location.path('/');
         };
 
+        $scope.checkAUser = function(){
+            if(($scope.user && Authentication.user.roles[0] !== 'admin') || ($scope.user && Authentication.user.roles[0] !== 'admin') || (!$scope.user))
+                $location.path('/');
+        };
         // Loading the items from the inventory to display in the add ingredients of the menu items being added
         $scope.loadEmployees = function(){
             $http.get('/loadEmployees').success(function(response) {
@@ -190,5 +216,33 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
                 $scope.employees = 'Error loading employees';
             });
         };
+		//Load audit type
+		$scope.auditTypes = [];
+		$scope.getAuditTypes = function(){
+			$http.get('/users/superuserGetAuditTypes').success(function(response){
+				$scope.auditTypes.push('all');
+				$scope.auditTypes = $scope.auditTypes.concat(response.message);
+			}).error(function(response){
+				$scope.error = response.message;
+			});
+		};
+		
+		//Load audits
+		$scope.audits = [];
+		$scope.current_auditType;
+		$scope.curent_toDate;
+		$scope.curent_fromDate;
+		$scope.getAudits = function(isValid){
+			if(isValid){
+				var toDate = new Date($scope.current_toDate);
+				toDate.setHours(23,59,59);
+				
+				$http.post('/users/superuserGetAudits', {type: $scope.current_auditType, from:$scope.current_fromDate, to: toDate}).success(function(response){
+					$scope.audits = response.message;
+				}).error(function(response){
+					$scope.error = response.message;
+				});
+			}
+		};
     }
 ]);

@@ -14,39 +14,47 @@
 
 <section ng-init="checkUser()" class="row" data-ng-controller="FinanceController">
 
-	<h4> View Employee Bills </h4>
-	<hr>
+
+	<!--ALERT BOX FOR HELP-->
+			<script type="text/ng-template" id="alert.html">
+					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+						<div ng-transclude></div>
+					</div>
+			</script>
+
+			<div  data-ng-controller="MenuItemsController">
+				<h4>View Employee Bills<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
+				<hr>
+				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert27.msg}}</alert>
+			</div>
+ <!--END ALERT BOX -->
+
+
       <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 
-        <form name="userForm" data-ng-submit="getUserOrders()" class="signin form-horizontal" autocomplete="on">
+        <form name="userForm" data-ng-submit="generateReport()" class="signin form-horizontal" autocomplete="on">
             <fieldset>
 
                 <div class="form-group">
                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                     <label for="username">Employee Id</label>
                     <input type="text" id="username" name="username" class="form-control" data-ng-model="username"  placeholder=EmployeeID>
-                </div>
+					<label for="startDate"> From: </label>
+					<input type="date" id="startDate" name="startDate" class="form-control" data-ng-model="startDate"/>
+					<label for="endDate"> To: </label>
+					<input type="date" id="endDate" name="endDate" class="form-control" data-ng-model="endDate"/>
+				</div>
                 <div class="text-center form-group">
-                    <button type="submit" class="btn btn-large btn-primary" >Display Bill</button>
+                    <button type="submit" class="btn btn-large btn-primary">Display Bill</button>
                 </div>
-                <div data-ng-show="success" data-ng-bind="success" class="text-center text-success" >
-                    JJJJJJ
-                    <div ng-repeat="order in orders track by order.username">
-                        {{order.itemName}}
-                    </div>
-                    <!--div class="list-group-item clearfix" ng-repeat="order in success">
-                        <h4> <b>
-                            <span class="text-warning">Employee ID: {{order.username}} </span>
-                        </b> </h4>
-                        <h4><b><p class="text-warning">{{order.itemName}} : R{{order.price}}</p></b></h4>
-                        <p> Quantity: {{order.quantity}} </p>
-                                    <p >  </p>
-                    </div-->
+                <div data-ng-show="success" data-ng-bind="success" class="text-center text-success">
+                    <strong data-ng-bind="success"></strong>
                 </div>
                 <div data-ng-show="error" class="text-center text-danger">
                     <strong data-ng-bind="error"></strong>
                 </div>
             </fieldset>
         </form>
-    </div>
+
+   </div>
 </section>

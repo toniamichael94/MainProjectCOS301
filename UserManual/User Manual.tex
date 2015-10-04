@@ -1,43 +1,59 @@
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,12pt]{report}
 \usepackage[hidelinks]{hyperref}
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{caption}
 \usepackage{array}
 \usepackage{tabu}
-%% Title Page 
-\title{\Huge User Manual \\ 
-	Cafeteria Management System: Resolve}
-\author{
+\usepackage[tt]{titlepic}
+\renewcommand\thesection{\arabic{section}}
+
+%% ------------------------- Title Page ----------------------------
+\titlepic{ \centering\includegraphics[width=0.7\textwidth]{../images/dddd.png}  }
+
+%\documentclass[12pt]{article}
+\title{ \rule{\textwidth}{1pt}  \\ \Huge User Manual \\ 
+	\Large Cafeteria Management System: Resolve Solution Partners (Pty) Limited \\
+	\small Client: Gareth Botha and Jaco Pieterse}
+
+\author{ 
          \underline{T-RISE}\\
           Rendani Dau (13381467) \\
 	Elana Kuun (12029522) \\
 	Semaka Malapane (13081129) \\
 	Antonia Michael (13014171) \\
-	Isabel Nel (13070305)}
+	Isabel Nel (13070305) \\ \\
+	https://github.com/toniamichael94/MainProjectCOS301 \\ }
+ 
 
-\date{\today}
+ 
+\date{\today \\ \rule{\textwidth}{1pt}}
+
 
 \begin{document}
 \maketitle
 \break
 
-%% Make table of contents
+%%------------------- Make table of contents-------------------
 \tableofcontents
 \break
 
-
+%%-----------------------------Version table-------------------
+\begin{figure}[H]
+  \centering
+   \includegraphics[width=0.3\textwidth]{../images/cmslogo.jpg} 
+\end{figure}
  \begin{tabu} to 0.8\textwidth { | X[l] | X[l] | }
  \hline
  \textbf{Document Title} & User Manual \\
  \hline
- \textbf{Document Identification}  & Document 0.0.4  \\
+ \textbf{Document Identification}  & Document 0.0.6  \\
  \hline
  \textbf{Author}  & Rendani Dau, Isabel Nel, Elana Kuun, Semaka Malapane, Antonia Michael \\
  \hline
- \textbf{Version} & 0.0.4 \\
+ \textbf{Version} & 0.0.6 \\
  \hline
- \textbf{Document Status} & Fourth Version - contains Troubleshooting section and extra content\\
+ \textbf{Document Status} & Sixth Version - edited according to feedback, edited cashier page/ images, added reporting and dynamic categories and updated older images\\
  \hline
  \end{tabu}
 
@@ -57,47 +73,60 @@
  \hline
  & & & \\
  0.0.4& 3 August 2015 &  Fourth draft Added  & Rendani Dau, \\ & & Troubleshooting & Elana Kuun, \\ & & Section & Semaka Malapane, \\ & &  &  Antonia Michael \\ & & & Isabel Nel \\   [1ex]  
- \hline
+  \hline 
+ & & & \\
+ 0.0.5& 28 August 2015 &  Fifth draft containing  & Rendani Dau, \\ & & screenshots of the & Elana Kuun, \\ & & of different page & Semaka Malapane, \\ & & and their functionality &  Antonia Michael \\ & & & Isabel Nel \\   [1ex]  
+  \hline 
+ & & & \\
+ 0.0.6& 22 September &  Sixth draft containing  & Rendani Dau, \\ & & edited according to & Elana Kuun, \\ & & feedback given & Semaka Malapane, \\ & & and add new content &  Antonia Michael \\ & & & Isabel Nel \\   [1ex]  
+\hline
  \end{tabular}
 \end{table}
 
 \pagebreak
-
+\pagebreak
 %%now begin document
 %%---------------------------------  INTRODUCTION -------------------------------------------
-\section{Introduction}
-This document contains the user manual for the Resolve Cafeteria Management System that will be created for Software Engineering (COS 301) at the University of Pretoria 2015, by the group T-RISE. 
+
+\section{Introduction} 
+This document contains the user manual for the Resolve Cafeteria Management System that will be created for Software Engineering (COS 301) at the University of Pretoria 2015, by the group T-RISE.
 
 %% ------------------------------ VISION ------------------------------------------------------
 \section{Vision}
 The vision of this project is to implement a fully functional software application that will be maintainable, with detailed supporting documentation and an instruction manual for the Cafeteria Management System. This system will, amongst others, assist in executing orders from the cafeteria, managing the cafeteria's inventory, generating bills, and perform various reporting tasks. 
 
 %%---------------------------------- INTRO -----------------------------------------
-\section{Introduction}
-As specified in the project proposal document from Resolve, the cafeteria is currently cash only and does not accept bank cards or electronic payments. This makes it inconvenient for employees as they have to carry around cash if they want to purchase anything from the cafeteria. Employees may choose to go to an external food outlet where they can pay with their preferred method of payment, which uses time and fuel. Lastly, this means the cafeteria does not achieve the maximum amount of income which hinders its growth and improvement.\\
+\section{Background}
+\subsection{The current situation/ problems the client currently experience}
+As specified in the project proposal document from Resolve, the cafeteria is currently cash only and does not accept bank cards or electronic payments. This is it inconvenient for employees as they have to carry around cash if they want to purchase anything from the cafeteria. Employees may choose to go to an external food outlet where they can pay with their preferred method of payment, which uses time and fuel. Thus, this means the cafeteria does not achieve the maximum amount of income which hinders its growth and improvement.\\ A problem with the cafeteria itself is that certain meal items are hardly in stock due to either lack of ingredients to make the meal or under estimating the quantity of the meal item required.
 
-Resolve is therefore looking for a means to accept payments from employees  using their employee access cards or access card numbers, with an amount being deducted from their salary at the end of the month.\\
-
-Resolve proposed the Cafeteria Management System to assist with this problem.
-After our first meeting with the client, they brought to our attention that at times the cafeteria does not have enough stock to provide some of the menu items, thus managing the inventory will also be part of the system. The system will predict which inventory items needs to be bought for the next week in order to avoid such a problem. At the end of each month, the bill for the month will be sent to either payroll or to the employee, or both. This option is configurable from the user's profile. The employee can also set a spending limit for each month. There will also be a system wide limit that users cannot exceed.
-
+\subsection{How the aforementioned problems will be alleviated by the CMS}
+The Cafeteria Management System will provide a means to accept payments from employees, at the canteen, using their employee access cards or access card numbers, with an amount being deducted from their salary at the end of the month.  The option of cash payments ,however, will not be discarded. At the end of each month, the bill for the month will be sent to either payroll, to the employee, or to both. This option is thus configurable from the user's profile. The employee can also set a spending limit for each month. There will also be a system wide limit that users cannot exceed.
+\\
+The system will predict which inventory items needs to be bought for the next week in order to avoid the "out of stock" situation described above. The system will also enforce that the cafeteria manager 
+\\
 %%---------------------------------- SYSTEM OVERVIEW -----------------------------------------
 \section{System Overview}
 The Cafeteria Management System is a system designed to assist users to order food efficiently from their office's canteen and to be notified when their order is ready for collection. The system will also assist cafeteria staff with keeping track of the orders in real time as well as managing inventory. The system will also provide for configuring the branding settings of the cafeteria. The system is intended to be used in a corporate environment whereby users have the option to allow their cafeteria expenses to be deducted from their salary or immediately pay for orders. In addition, the system will allow management to view the bill reports of the different users. All users will also be able to access their spending history, set favourites and other similar functionality which will all be explained in this user manual. \\
 
 %%--------------------------------------SYSTEM CONFIGURATION ----------------------------------------
 \section{System Configuration}
-The system requires a Windows/Unix based host to run the server. This host must have NodeJS, MongoDB, Express server, Bower and grunt  installed (the installation of these technologies will be discussed later in the document). In addition, the host must be connected to the internet in order to allow any required dependencies to be installed and set up for the operating system environment. The configuration of the server requires an active email account to facilitate communication between the system and end users. \\ 
+The system requires a Windows/Unix based host to run the server. This host must have the associated technologies installed (the installation of these technologies will be discussed below). The host must be connected to the internet in order to allow any required dependencies to be installed and set up for the operating system environment. The configuration of the server requires an active email account to facilitate communication between the system and end users. \\ 
 \\
-End users will only require a PC equipped with a web browser such as Mozilla, Chrome or Internet Explorer, as well as an active internet connection.
+End users will only require a PC equipped with a web browser such as Mozilla, Chrome or Internet Explorer, as well as an active internet connection. The types of data that will communicated and stored will be data of the NoSQL database MongoDB. The menu items that the cafeteria manager will add to the menu as well as images thereof, will be stored in the database, to be communicated/displayed on the menu page. The inventory items that these menu items entail will be stored too. The categories that can be added to the menu by the cafeteria manager will also be stored in the database in order to populate the navigation bar, the actual dynamic pages and various other places in which these are displayed. The cafeteria manager is the only user who is able to retrieve the menu and inventory data, in order to edit or delete it. The other users will just be able to view the menu data on the menu page. The user's sign up informtation will also be stored and will be communicated on the profile page of the user. Each user will only have access to their own information. The superuser, however, will be able to search for users and update their IDs or delete them from the system. The branding information such as the cover image, the theme, and the canteen name will also be  stored to be communicated on various pages. The superuser is the only user who be able to edit and add this information. Other settings that the superuser can configure, such as the system limit and the roles of the users will be stored and used for determining the privileges associated with the various roles and the checks done on the users' personal spending limits. The finance manager will have access to the order history of each user in order to view their bills and invoices. The cashier will also have access to the orders placed in order to process them i.e. mark an order as ready and as completed. All the crucial information such as the order history and other changes made will be stored in an auditing table.
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/ServerClients.png}
+    \caption{Overview of System - Servers and Clients} 
+\end{figure}
 
 %%--------------------------------------INSTALLATION  ----------------------------------------
 \section{Installation}
 
 %%------------------------PREREQUISITES ----------------------------
 \subsection{Prerequisites}
-For the programmer, who will maintain the code: \\
-The Cafeteria Management System requires NodeJS and MongoDB to run. These are free and open source software and can be obtained from the following sites:\\
+For the programmer, who will maintain the code: \\ 
+\\The  Cafeteria Management System must have the associated technologies, NodeJS, MongoDB, AngularJs, Express, Bower and grunt installed on the host (the installation of these technologies will be discussed below). These are free and open source software and can be obtained from the following sites:\\
 \url{https://nodejs.org/download/} \\
 \url{https://www.mongodb.org/downloads} \\
 The applications are available for both Windows and Unix environments and include setup guides on their respective web pages.\\
@@ -183,13 +212,13 @@ Access to the Cafeteria Management System is through a standard web browser. Dif
 %%--------------------------------ADMINISTRATIVE USERS -------------------------
 \subsection{Administrative Users}
 When the CMS is started initially with an empty database there will be no users in the database and this includes no administrative users.  \\
-Thus, to generate the administrative users, on the first startup of the system, one should navigate to the sign in page and sign in with empty credentials. If the system is started for the first time with an empty database, on sign in with empty credentials (proceeding to submit the sign in form without filling in username or password) administrative users will be created. \\
+Thus, to generate the administrative users, on the first startup of the system, one should navigate to the sign in page and sign in with empty credentials. If the system is started for the first time with an empty database, on sign in with empty credentials (proceeding to submit the signin form without filling in username or password) administrative users will be created. \\
 
-\textbf{The system will have a super user:} \\
+\textbf{The system will have a Super User:} \\
 Employee ID: SuperUser \\
 Password: SuperUser \\
 
-\textbf{And the system will also have an admin user:} \\
+\textbf{And the system will also have an Admin User:} \\
 Employee ID: AdminUser \\
 Password: AdminUser \\
 
@@ -205,7 +234,7 @@ Once the user has clicked the "Sign Up" option on the navigation pane, the user 
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/signUp.png}
+    \includegraphics[width=1.0\textwidth]{screenshots/signUp.PNG}
     \caption{Sign Up - red circled button should be clicked to sign up} 
 \end{figure}
 
@@ -213,7 +242,7 @@ When the button is clicked, the CMS will direct the user to the signup page wher
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/signUpPage.png}
+    \includegraphics[width=1.0\textwidth]{screenshots/signUpPage.PNG}
     \caption{Sign Up Page - details to be filled in - all fields are required} 
 \end{figure}
 
@@ -282,7 +311,7 @@ The Navigation pane will be displayed as follows if the user has not logged in:
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/HomePage.png}
+    \includegraphics[width=1.0\textwidth]{screenshots/HomePage.PNG}
     \caption{Home Page - user not logged in } 
 \end{figure}
 
@@ -307,7 +336,7 @@ The user will now view a drop down menu with various options displayed on it. Th
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/HomePage2.png}
+    \includegraphics[width=1.0\textwidth]{screenshots/HomePage2.PNG}
     \caption{Home Page - user not logged in } 
 \end{figure}
 
@@ -347,7 +376,7 @@ If a menu item is not in stock it will be written in red on the menu item that i
 \\
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/searchCheese.png}
+    \includegraphics[width=1.0\textwidth]{screenshots/beforePasta.png}
     \caption{The menu page from which a user can order food} 
 \end{figure}
 On the menu page there is also a breadcrumb which indicates the different meal categories to make the search more efficient. There is also a search bar on all these pages. 
@@ -372,12 +401,22 @@ On the menu page there is also a breadcrumb which indicates the different meal c
 
 %%------------------------ON MY PLATE PAGE----------------------
 \subsection{The "On my plate" Page} 
-This page serves to indicate the current meal items that the user has ordered, and these can be removed on this page via the appropriately labelled button. The tab in the navigation bar also indicates an amount which is the amount of meal items ordered.
+This page serves to indicate the current meal items that the user has on their plate. The user can also specify any preferences, if any, for each item on their plate, as well as the quantities of each item they wish to order. The total will dynamically increase/decrease accordingly when they add/remove items or change the quantities.
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/addedOnPlate.png}
+    \includegraphics[width=1.0\textwidth]{screenshots/viewOrder1.png}
     \caption{On my plate page - The meal you selected on the menu page is displayed here (Navigate here via the navigation bar)} 
+\end{figure}
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/viewOrder2.png}
+    \caption{One can increase the quantity of items ordered by editing the quantity field indicated} 
+\end{figure}
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/viewOrder3.png}
+    \caption{One can remove orders as well as specify preferences by clicking in the indicated areas} 
 \end{figure}
 
 %%----------------------EDIT PROFILE PAGE ----------------------
@@ -474,7 +513,7 @@ This page is available to the cafeteria manager under the dropdown menu on the n
 \end{figure}
 
 \subsection{Cafeteria Manager: The "Manage Menu" Page}
-This is the page where the cafeteria manager adds menu items so that these can be displayed on the menu page found under the menu tab. The items can also be updated, deleted and searched for.
+This is the page where the cafeteria manager adds menu items so that these can be displayed on the menu page found under the menu tab. The items can also be updated, deleted and searched for. The cafeteria manager can also add categories to the dynamic menu page.
 
 \begin{figure}[H]
   \centering
@@ -496,15 +535,75 @@ This is the page where the cafeteria manager adds menu items so that these can b
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/deleteHam.png}
+    \includegraphics[width=1.0\textwidth]{screenshots/deleteMenu.png}
     \caption{The manage menu page - Cafeteria Manager can delete menu items}
 \end{figure}
 
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/beforePasta.png}
+    \caption{The menu page indicating a navigation bar of dynamically added categories. The cafeteria manager can proceed to add more categories as is shown in the successive screenshot }
+\end{figure}
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/addPasta.png}
+    \caption{The manage menu page - Cafeteria Manager can add new menu categories}
+\end{figure}
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/afterPasta.png}
+    \caption{The menu page - the added category is now displayed on the navigation pane}
+\end{figure}
+
 \subsection{Cashier: The "Process Orders" Page}
-This page is for the use of the cashier. Orders can be marked as ready via the checkboxes and can also be marked as completed or paid and completed. The option "Send notification" is available for the cashier to send an email to the users when their order is ready for collection.
+This page is for use by the cashier. Orders that are "open" will be displayed on the page. Orders can be marked as ready, paid or collected. When the order is marked as ready, the button will disappear and the employee will be sent an email informing them to come collect their order. When the "Employee Paid" button is clicked, the cashier will choose whether it was a cash or credit purchase and the amount will be deducted accordingly from the user's account.
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/cashier.png}
+    \caption{The process orders page - The cashier is authorized to facilitate these transactions}
+\end{figure}
+ %make a graphic for ready button disappearing
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/cashierCredit.png}
+    \caption{The process orders page - The cashier can select the appropriate radio button as to whether the employee is paying with cash or credit.}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/noPaymentMethSelected.png}
+    \caption{The process orders page - If the cashier does not select a payment method, an error message will be alerted}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/empPaid.png}
+    \caption{The process orders page - The order will be removed from the page when the cashier clicks the "Employee paid" button. Order 3 - The hotdog is now removed from the page due to this}
+\end{figure}
 
 \subsection{Financial Manager: The "View Employee Bills" Page}
-There is a field labelled "Employee Id" and it is in here where a user will type in the employee ID 
+There is a field labelled "Employee Id" and it is in here where a user will type in the employee ID of the employee whose bill the finance manager would like to view. The date ranges can also be selected here.
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/bill1.png}
+    \caption{The View Employee Bills Page - The employee ID of the employee whose bill would like to be viewed is entered in the box as shown.}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/bill2.png}
+    \caption{The View Employee Bills Page - The date ranges can be specified by using the drop down calender}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/bill3.png}
+    \caption{The View Employee Bills Page - Once the "Display Bill" button is clicked, the pdf will be dowloaded and the invoice will look as shown.}
+\end{figure}
+
 
 \section{Troubleshooting}
 \subsection{Problems with setting up the system}

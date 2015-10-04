@@ -16,17 +16,22 @@ module.exports = function(app) {
 	app.route('/users/superuserAssignRoles').post(users.assignRoles);
 
 	app.route('/users/adminUserAssignRoles').post(users.assignRolesAdminRole);
-
-
     app.route('/users/superuserChangeEmployeeID').post(users.changeEmployeeID);
     app.route('/users/superuserRemoveEmployee').post(users.removeEmployee);
     app.route('/users/superuserSetSystemWideLimit').post(users.setSystemWideLimit);
 
 	app.route('/users/superuserSetCanteenName').post(users.setCanteenName);
+	app.route('/users/superuserSetThemeName').post(users.setThemeName);
+	app.route('/config/theme').post(users.getTheme);
 	app.route('/users/superuserUploadImage').post(users.uploadImage);
-
+	app.route('/users/superuserGetAuditTypes').get(users.getAuditTypes);
+	app.route('/users/superuserGetAudits').post(users.getAudits);
+	
     //loading employees from db
     app.route('/loadEmployees').get(users.loadEmployees);
+	
+	//Setting up finance API
+	app.route('/users/finance/generateReport').post(users.generateReport);
 
 	// Setting up the users profile api
 	app.route('/users/me').get(users.me);

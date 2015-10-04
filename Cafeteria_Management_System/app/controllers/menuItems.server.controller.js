@@ -8,7 +8,12 @@ var mongoose = require('mongoose'),
 	MenuItem = mongoose.model('MenuItem'),
 	OrderItem = mongoose.model('Order'),
 	InventoryItem = mongoose.model('Inventory'),
-	MenuCatagory = mongoose.model('MenuCatagory'),
+	MenuCategory = mongoose.model('MenuCatagory'),
+	Order = mongoose.model('Order'),
+	path = require('path'),
+	formidable = require('formidable'),
+	fs = require('fs'),
+	jsreport = require('jsreport'),
 
 	_ = require('lodash');
 
@@ -54,7 +59,7 @@ MenuItem.find({}, function(err, items) {
 		console.log('Error = ' + err);
 		return res.status(400).send({message: err });}
 	else {
-		//console.log(items[0].ingredients.ingredients);	
+		//console.log(items[0].ingredients.ingredients);
 		res.status(200).send({message: items});
 	}
  });
@@ -63,16 +68,8 @@ MenuItem.find({}, function(err, items) {
 
 
 exports.loadMenuCategories = function(req, res) {
-console.log('---------------------------------');
-MenuCatagory.find({}, function(err, items) {
-	//console.log(items);
-	 //var itemMap = {};
-
-	 //items.forEach(function(item) {
-	//	 itemMap[item._id] = item;
-	// });
-	// console.log(itemMap); // testing
-	// res.send(itemMap);
+console.log('---------------------------------HERE');
+MenuCategory.find({active: 'true'}, function(err, items) {
 
 	if(err ) {
 		console.log('Error = ' + err);
@@ -105,28 +102,26 @@ exports.createMenuItem = function(req, res) {
 };
 
 exports.createMenuCategory = function(req, res) {
-	//console.log('YOU ARE HERE-------------');
-
-	MenuCatagory.find({name : req.body.catagory}, function(error, model) {
+	MenuCategory.find({name : req.body.category}, function(error, model) {
 
 	var v = model;
 	//console.log(v);
 	if(model.length < 1){ // then no such category exists we can create one
-		var catagory = new MenuCatagory({
-			name : req.body.catagory
+		var category = new MenuCategory({
+			name : req.body.category
 		});
 
 
-		catagory.save(function(err, catagory) {
+		category.save(function(err, category) {
 			if (err){
 				return console.error(err);
 			}
-				console.dir(catagory);
+				console.dir(category);
 			});
 
 			return res.status(200).send({message: "sucess" });
 		}else {
-		return res.status(400).send({message: "The category already exist" }); // menu  catagory already exixts
+		return res.status(400).send({message: "The category already exists" });
 		}
  });
 };
@@ -141,7 +136,8 @@ exports.read = function(req, res) {
 
 /* Update menu item*/
 exports.updateMenuItem = function(req,res){
-		MenuItem.update({itemName: req.body.itemName}, {itemName: req.body.updateItemName, price:req.body.price, description: req.body.description, category:req.body.category, ingredients: req.body.ingredients},  function(err, numAffected){
+		MenuItem.update({itemName: req.body.itemName}, {itemName: req.body.updateItemName, price:req.body.price, description: req.body.description, category:req.body.category, ingredients: req.body.ingredients/*, imagePath: req.body.iPath*/},
+			function(err, numAffected){
         if(err) return res.status(400).send({
             message: errorHandler.getErrorMessage(err)
         });
@@ -152,9 +148,11 @@ exports.updateMenuItem = function(req,res){
 			if(req.body.itemName.length > 1)
 				var item = req.body.itemName.charAt(0).toUpperCase() + req.body.itemName.slice(1);
             res.status(200).send({message: 'Menu item successfully updated.'});
+
         }
     });
 	};
+
 
 /**
  * Update a menuitem
@@ -183,7 +181,6 @@ exports.update = function(req, res) {
 	*/
 	exports.deleteMenuItem=function(req,res)
 	{
-		console.log('Delete:'+req.body.itemName);
 		MenuItem.remove({itemName: req.body.itemName}, function(err, numAffected){
         if(err) return res.status(400).send({
             message: errorHandler.getErrorMessage(err)
@@ -214,6 +211,106 @@ exports.delete = function(req, res) {
 			res.jsonp(menuitem);
 		}
 	});
+};
+
+/**
+ * Search menu category
+ */
+
+ exports.searchMenuCategory = function(req, res){
+	 if (req.body.categoryName) {
+			 MenuCategory.findOne({
+					 name: req.body.categoryName
+			 }, function (err, category) {
+					 if (!category) {
+							 return res.status(400).send({
+									 message: 'Category not found.'
+							 });
+					 }   else if(category){
+							 return res.status(200).send({
+									 message: 'Found category',
+				foundcategory: category
+							 });
+					 }
+			 });
+	 }
+	 else {
+			 return res.status(400).send({
+					 message: 'The category name field must not be blank.'
+			 });
+	 }
+ };
+
+ exports.updateMenuCategory = function(req, res){
+	 MenuCategory.update({name: req.body.oldCategoryName}, {name: req.body.newCategoryName, active: req.body.active},
+		function(err, numAffected){
+			if(err) return res.status(400).send({
+					message: errorHandler.getErrorMessage(err)
+			});
+			else if (numAffected < 1){
+					res.status(400).send({message: 'Error updating category.'});
+			}
+			else{
+						//if(req.body.newCategoryName.length > 1)
+							//var item = req.body.newCategoryName.charAt(0).toUpperCase() + req.body.newCategoryName.slice(1);
+
+					res.status(200).send({message: 'Successfully updated.'});
+					var categoryNames = {oldCategoryName: req.body.oldCategoryName, newCategoryName: req.body.newCategoryName};
+			}
+	});
+ };
+
+/*Update the category name for all the menu items*/
+ exports.updateCategoryMenuItems = function (req, res){
+	 MenuItem.update({category: req.body.oldCategoryName}, {category: req.body.newCategoryName}, {multi:true},
+		 function(err, numAffected){
+			 if(err) return res.status(400).send({
+					 message: errorHandler.getErrorMessage(err)
+			 });
+			 else if (numAffected < 1 && (req.body.oldCategoryName !== req.body.newCategoryName)){
+					 res.status(400).send({message: 'Menu items were not affected.'});
+			 }
+			 else{
+					 res.status(200).send({message: 'Sucessfully updated the category.'});
+			 }
+	 });
+ };
+
+/*Delete a menu category*/
+exports.deleteMenuCategory = function (req,res){
+	MenuCategory.remove({name: req.body.categoryName}, function(err, numAffected){
+	if(err) return res.status(400).send({
+		message: errorHandler.getErrorMessage(err)
+	});
+	else if (numAffected < 1){
+
+		/*Display name with a capital letter*/
+		if(req.body.categoryName.length > 1)
+		{
+			var cat = req.body.categoryName.charAt(0).toUpperCase() + req.body.categoryName.slice(1);
+			res.status(400).send({message: cat + ' was successfully delted. No menu items were deleted.'});
+		}
+		else	res.status(400).send({message: req.body.categoryName + ' was successfully delted. No menu items were deleted.'});
+	}
+	else{
+				MenuItem.remove({category: req.body.categoryName}, function(err, numAffected){
+				if(err) return res.status(400).send({
+					message: errorHandler.getErrorMessage(err)
+				});
+				else if (numAffected < 1){
+					res.status(400).send({message: 'Error deleting the menu items in the category ' + req.body.categoryName});
+				}
+
+				else{
+					res.status(200).send({message: 'Successfully deleted category.'});
+			}
+		});
+
+
+		}
+	});
+
+
 };
 
 /**
@@ -270,10 +367,218 @@ exports.hasAuthorization = function(req, res, next) {
 	}
 	next();
 };
+
+/***
+ * Upload image
+ */
+
+exports.uploadImage = function(req, res){
+	var form = new formidable.IncomingForm();
+	console.log('About to parse image');
+	console.log(req);
+	form.parse(req, function(error, fields, files){
+		var newPath = './public/modules/core/img/' + files.upload.name;
+		console.log('image parsed');
+		if(error){
+			return res.status(400).send({message: errorHandler.getErrorMessage(error)});
+		}
+		fs.rename(files.upload.path, newPath , function(err){
+			if(err){
+				console.log(errorHandler.getErrorMessage(err));
+				fs.unlink(newPath);
+				fs.rename(files.upload.path, newPath);
+				//return res.status(400).send({message: 'Error with the image path!'});
+			}
+			MenuItem.update({itemName: req.body.itemName}, {imagePath: newPath},  function(erro, numAffected){
+        		if(erro) return res.status(400).send({
+            			message: errorHandler.getErrorMessage(erro)
+        		});
+        		else if (numAffected < 1){
+            			return res.status(400).send({message: 'Image not uploaded! Error!'});
+        		}
+    });
+			res.redirect('/');
+		});
+	});
+};
+
+/*
+Reporting for menu items
+*/
+
+exports.generateSoldReport = function(req,res){
+
+};
+
+exports.generatePopularReport = function(req,res)
+{
+	Order.find({created: {$gt: req.body.start, $lt: req.body.end}}, function(err, orders){
+		if(err) return res.status(400).send({message: 'Could not generate report!'});
+
+		var items = new Array();
+		var itemNames = new Array();
+		var itemQuantity = new Array();
+
+		for(var i = 0; i < orders.length; i++)
+		{
+			items[orders[i].itemName] = 0;
+		}
+
+		//Store the item name and quantity in a parallel array
+		for(var i = 0; i < orders.length; i++)
+		{
+			items[orders[i].itemName] = items[orders[i].itemName] + orders[i].quantity;
+		}
+
+		var j = 0;
+		for (var key in items)
+		{
+			itemNames[j] = key;
+			itemQuantity[j] = items[key];
+			j++;
+		}
+
+		var max = itemQuantity[0];
+		for(var i = 0; i < itemNames.length-1; i++)
+		{
+			for(var j = i+1; j < itemNames.length; j++)
+			{
+				if(itemQuantity[j] > itemQuantity[i])
+				{
+					var numTemp = itemQuantity[i];
+					var nameTemp = itemNames[i];
+
+					itemQuantity[i] = itemQuantity[j];
+					itemNames[i] = itemNames[j];
+
+					itemQuantity[j] = numTemp;
+					itemNames[j] = nameTemp;
+				}
+			}
+		}
+
+
+		if(itemNames.length > req.body.numItems)
+		{
+			if(itemQuantity[req.body.numItems-1]==itemQuantity[req.body.numItems])
+			{
+				console.log('here');
+				console.log(itemNames[req.body.numItems]);
+
+				var i = req.body.numItems+1;
+				while(i < itemQuantity.length && itemQuantity[i-1] == itemQuantity[i])
+					i++;
+				itemNames.splice(i, itemNames.length-i);
+				itemQuantity.splice(i, itemQuantity.length-i);
+			}
+			else
+			 {
+				 itemNames.splice(req.body.numItems, itemNames.length-req.body.numItems);
+				 itemQuantity.splice(req.body.numItems, itemQuantity.length-req.body.numItems);
+			}
+		}
+
+		console.log('Arrays after splice');
+		console.log(itemNames);
+		console.log(itemQuantity);
+
+		var itemData = new Array();
+
+		for(var i = 0; i != itemNames.length; i++)
+		{
+			itemData.push({name: itemNames[i], y: itemQuantity[i], drilldown: itemNames[i]});
+		}
+
+		var sample = fs.readFileSync(path.resolve(__dirname, '../reportTemplates/popular_Items_Template.html'), 'utf8');
+		jsreport.render({
+			template:{ content: sample,
+			//	helpers: 'function mult(a,b){ return a*b; }',//'function total(order){return 10;}'],
+				engine: 'handlebars'},
+			data: {
+				chart: {type: 'column'},
+				title: {text: 'Popular items'},
+				xAxis:{type: 'category'},
+				legend: {enabled: false},
+				plotOptions:{
+					series: {
+						borderWidth: 0,
+						dataLabels:{
+							enabled:true
+						}
+					}
+				},
+				series: [{
+					name:'Menu Items',
+					colorByPoint:true,
+					data:itemData
+				}],
+				drilldown: {
+            series: data
+        }
+			}
+		}).then(function(out) {
+			//if(err) return res.status(400).send({message: 'Could not render report!'})
+			console.log('in render function');
+			out.stream.pipe(res);
+		});
+
+/*
+		//Read the sample html file for pdf format
+		var sample = fs.readFileSync(path.resolve(__dirname, '../../reportTemplates/sample.html'), 'utf8');
+		//Render PDF with the given details
+		console.log('rendering');
+		var today = new Date();//.getDate();
+
+		var total = 0;
+		for(var j = 0; j < orders.length; j++)
+			{total += orders[j].price * orders[j].quantity;}
+
+
+		jsreport.render({
+			template:{ content: sample,
+				helpers: 'function mult(a,b){ return a*b; }',//'function total(order){return 10;}'],
+				engine: 'handlebars'},
+			data: {
+				title: 'Spending History for user ' + user.displayName,
+				description: 'Generated by finance',
+				footer: 'Resolve Cafeteria Management System',
+				date: today.getDate() + '-' + (today.getMonth()+1)+ '-' + today.getFullYear(),
+				to: { name: user.displayName, mail: user.email},
+				start: req.body.start,
+				end: req.body.end,
+				items: orders,
+				total: total
+			}
+		}).then(function(out) {
+			//if(err) return res.status(400).send({message: 'Could not render report!'})
+			console.log('in render function');
+			out.stream.pipe(res);
+		});*/
+	});
+};
+/*
+exports.uploadImage = function(req, res){
+    var form = new formidable.IncomingForm();
+    console.log('About to parse image');
+    console.log(req);
+    form.parse(req, function(error, fields, files){
+        console.log('image parsed');
+        if(error){
+            return res.status(400).send({message: errorHandler.getErrorMessage(error)});
+        }
+        fs.rename(files.upload.path, './public/modules/core/img/brand/logo.png', function(err){
+            if(err){
+                console.log(errorHandler.getErrorMessage(err));
+                fs.unlink('./public/modules/core/img/brand/logo.png');
+                fs.rename(files.upload.path, './public/modules/core/img/brand/logo.png');
+            }
+            res.redirect('/');
+        });
+    });
+};*/
 /*
  * search menu item
  */
-
 exports.searchMenu=function(req,res){
     console.log('searchMenu'+ req.body.itemName );
     if (req.body.itemName) {

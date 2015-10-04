@@ -1,0 +1,57 @@
+\contentsline {section}{\numberline {1}Introduction}{3}{section.0.1}
+\contentsline {section}{\numberline {2}Vision}{3}{section.0.2}
+\contentsline {section}{\numberline {3}Background}{3}{section.0.3}
+\contentsline {subsection}{\numberline {3.1}The current situation/ problems the client currently experience}{3}{subsection.0.3.1}
+\contentsline {subsection}{\numberline {3.2}How the aforementioned problems will be alleviated by the CMS}{3}{subsection.0.3.2}
+\contentsline {section}{\numberline {4}Architecture Requirements}{4}{section.0.4}
+\contentsline {section}{\numberline {5}Architectural Responsibilities}{4}{section.0.5}
+\contentsline {section}{\numberline {6}Quality Requirements: Core}{5}{section.0.6}
+\contentsline {subsection}{\numberline {6.1}Security}{5}{subsection.0.6.1}
+\contentsline {subsubsection}{Reasons for security as a quality requirement}{5}{section*.3}
+\contentsline {subsubsection}{Strategies to achieve this quality requirement}{6}{section*.4}
+\contentsline {subsubsection}{Pattern to achieve these strategies}{6}{section*.5}
+\contentsline {subsection}{\numberline {6.2}Usability}{6}{subsection.0.6.2}
+\contentsline {subsubsection}{Reasons for usability as a quality requirement}{6}{section*.6}
+\contentsline {subsubsection}{Strategies to achieve this quality requirement}{6}{section*.7}
+\contentsline {subsubsection}{Patterns to achieve these strategies}{7}{section*.8}
+\contentsline {subsection}{\numberline {6.3}Reliability}{7}{subsection.0.6.3}
+\contentsline {subsubsection}{Reasons for reliability as a quality requirement}{7}{section*.9}
+\contentsline {subsubsection}{Strategies to achieve this quality requirement}{8}{section*.10}
+\contentsline {subsubsection}{Patterns to achieve these strategies}{8}{section*.11}
+\contentsline {subsection}{\numberline {6.4}Auditability}{9}{subsection.0.6.4}
+\contentsline {subsubsection}{Reasons for auditability as a quality requirement}{9}{section*.12}
+\contentsline {subsubsection}{Strategies to achieve this quality requirement}{9}{section*.13}
+\contentsline {subsubsection}{Patterns to achieve these strategies}{10}{section*.14}
+\contentsline {subsection}{\numberline {6.5}Maintainability}{10}{subsection.0.6.5}
+\contentsline {subsubsection}{Reasons for maintainability as a quality requirement}{10}{section*.15}
+\contentsline {subsubsection}{Strategies to achieve this quality requirement}{11}{section*.16}
+\contentsline {subsubsection}{Patterns to achieve these strategies}{11}{section*.17}
+\contentsline {subsection}{\numberline {6.6}Scalability}{11}{subsection.0.6.6}
+\contentsline {subsubsection}{Reasons for scalability as a quality requirement}{11}{section*.18}
+\contentsline {subsubsection}{Strategies to achieve this quality requirement}{12}{section*.19}
+\contentsline {subsubsection}{Patterns to achieve these strategies}{12}{section*.20}
+\contentsline {subsubsection}{Strategies to achieve this quality requirement}{12}{section*.21}
+\contentsline {subsection}{\numberline {6.7}Nice-To-Have}{12}{subsection.0.6.7}
+\contentsline {subsubsection}{Performance}{13}{section*.22}
+\contentsline {subsubsection}{Flexibility}{13}{section*.23}
+\contentsline {subsubsection}{Integrability}{13}{section*.24}
+\contentsline {subsubsection}{Testability}{13}{section*.25}
+\contentsline {section}{\numberline {7}Access and Integration Requirements}{13}{section.0.7}
+\contentsline {subsection}{\numberline {7.1}Access Channel Requirements}{14}{subsection.0.7.1}
+\contentsline {subsubsection}{Human Access Channels}{14}{section*.26}
+\contentsline {paragraph}{Superuser\\}{14}{section*.27}
+\contentsline {paragraph}{Admin User\\}{14}{section*.28}
+\contentsline {paragraph}{ Cafeteria Manager\\}{14}{section*.29}
+\contentsline {paragraph}{ Cashier\\}{14}{section*.30}
+\contentsline {paragraph}{ Normal User\\}{15}{section*.31}
+\contentsline {paragraph}{ Finance \\}{15}{section*.32}
+\contentsline {subsubsection}{System Access Channels}{15}{section*.33}
+\contentsline {subsection}{\numberline {7.2}Protocols}{15}{subsection.0.7.2}
+\contentsline {subsubsection}{HTTP - Hypertext Transfer Protocol}{15}{section*.34}
+\contentsline {subsubsection}{TCP - Transmission Control Protocol}{16}{section*.35}
+\contentsline {subsubsection}{SMTP - Simple Mail Transfer Protocol}{16}{section*.36}
+\contentsline {subsection}{\numberline {7.3}Architecture Constraints}{16}{subsection.0.7.3}
+\contentsline {subsubsection}{Technologies}{16}{section*.37}
+\contentsline {subsubsection}{Operating Systems}{17}{section*.38}
+\contentsline {section}{\numberline {8}Architectural Patterns}{17}{section.0.8}
+\contentsline {section}{\numberline {9}Bibliography}{19}{section.0.9}

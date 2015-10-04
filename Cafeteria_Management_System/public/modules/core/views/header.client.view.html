@@ -27,14 +27,14 @@
 
 		<ul class="nav navbar-nav">
 			<li >
-				<a href="/#!/orders/menu">
+				<a href="/#!/orders/menu" data-ng-controller="MenuItemsController" ng-click="dynamicFilter()">
 					<span class="glyphicon glyphicon-apple"> Menu</span>
 				</a>
 			</li>
 		</ul>
 		<ul class="nav navbar-nav" >
 			<li >
-				<a href="/#!/placeOrder/viewOrders">
+				<a href="/#!/placeOrder/viewOrders" ng-controller="MenuItemsController" ng-click=NavClicked()>
 					<span class="glyphicon glyphicon-cutlery"> On my plate ({{onMyPlateNum}})</span>
 				</a>
 			</li>
@@ -60,7 +60,9 @@
 					<li>
 						<a href="/#!/settings/profile"> Edit Profile</a>
 					</li>
-
+                    <li>
+                        <a href="/#!/notifications"> Notifications</a>
+                    </li>
                     <li data-ng-show="authentication.user.roles[0] === 'superuser'">
                         <a href="/#!/settings/adminSettings"> Administrative settings</a>
                     </li>
@@ -68,10 +70,16 @@
                         <a href="/#!/settings/brandingSettings"> Branding settings</a>
                     </li>
                     <li data-ng-show="authentication.user.roles[0] === 'admin'">
-                        <a href="/#!/settings/adminSettingsAdminRole"> Administrative settings</a>
+                        <a href="/#!/settings/adminSettings"> Administrative settings</a>
                     </li>
                     <li data-ng-show="authentication.user.roles[0] === 'admin'">
                         <a href="/#!/settings/brandingSettings"> Branding settings</a>
+                    </li>
+					<li data-ng-show="authentication.user.roles[0] === 'superuser'">
+                        <a href="/#!/settings/audits"> Audits </a>
+                    </li>
+					<li data-ng-show="authentication.user.roles[0] === 'admin'">
+                        <a href="/#!/settings/audits"> Audits </a>
                     </li>
 					<!--Edit, add, or remove menu items-->
                     <li data-ng-show="authentication.user.roles[0] === 'cafeteriaManager'">
@@ -81,6 +89,10 @@
 					<li data-ng-show="authentication.user.roles[0] === 'cafeteriaManager'">
                         <a href="/#!/manageInventory"> Manage Inventory </a>
                     </li>
+					<!--View statistics-->
+					<li data-ng-show="authentication.user.roles[0]=== 'cafeteriaManager'">
+						<a href = "/#!/statistics">Statistics</a>
+					</li>
                     <li data-ng-show="authentication.user.roles[0] === 'cashier'">
                         <a href="/#!/cashier"> Process Orders </a>
                     </li>
@@ -90,6 +102,7 @@
 					<li data-ng-show="authentication.user.provider === 'local'">
 						<a href="/#!/settings/password"> Change Password</a>
 					</li>
+
 					<li class="divider"></li>
 					<li>
 						<a data-ng-href="/auth/signout" data-ng-click="signout()">Signout</a>

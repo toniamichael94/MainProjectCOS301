@@ -57,6 +57,10 @@ angular.module('users').config(['$stateProvider',
             url: '/settings/brandingSettings',
             templateUrl: 'modules/users/views/settings/brandingSuperUser.html'
         }).
+		state('auditSettings', {
+			url: '/settings/audits',
+			templateUrl: 'modules/users/views/settings/audits.html'
+		}).
         state('cafeteriaManager', {
             url: '/manageInventory',
             templateUrl: 'modules/orders/views/inventory/manageInventory.html'
@@ -64,6 +68,10 @@ angular.module('users').config(['$stateProvider',
 		 state('manageCafeteria', {
             url: '/manageCafeteria',
             templateUrl: 'modules/orders/views/menu/manageCafeteria.html'
+        }).
+		state('statistics', {
+            url: '/statistics',
+            templateUrl: 'modules/orders/views/menu/statistics.html'
         }).
         state('cashier', {
             url: '/cashier',

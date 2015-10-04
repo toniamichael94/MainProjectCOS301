@@ -1,44 +1,18 @@
-\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
-\BOOKMARK [1][-]{section.2}{Vision}{}% 2
-\BOOKMARK [1][-]{section.3}{Background}{}% 3
-\BOOKMARK [1][-]{section.4}{Functional Requirements and Application Design}{}% 4
-\BOOKMARK [2][-]{subsection.4.1}{Use Cases }{section.4}% 5
-\BOOKMARK [2][-]{subsection.4.2}{Use Case Prioritization}{section.4}% 6
-\BOOKMARK [3][-]{subsubsection.4.2.1}{Critical}{subsection.4.2}% 7
-\BOOKMARK [3][-]{subsubsection.4.2.2}{Important}{subsection.4.2}% 8
-\BOOKMARK [1][-]{section.5}{Modular System}{}% 9
-\BOOKMARK [2][-]{subsection.5.1}{High level use case diagram of the CMS}{section.5}% 10
-\BOOKMARK [2][-]{subsection.5.2}{Authentication Module}{section.5}% 11
-\BOOKMARK [3][-]{subsubsection.5.2.1}{Forgot Password }{subsection.5.2}% 12
-\BOOKMARK [3][-]{subsubsection.5.2.2}{Validate User credentials }{subsection.5.2}% 13
-\BOOKMARK [3][-]{subsubsection.5.2.3}{Register }{subsection.5.2}% 14
-\BOOKMARK [3][-]{subsubsection.5.2.4}{Set email}{subsection.5.2}% 15
-\BOOKMARK [3][-]{subsubsection.5.2.5}{Set Password}{subsection.5.2}% 16
-\BOOKMARK [3][-]{subsubsection.5.2.6}{Set Limit}{subsection.5.2}% 17
-\BOOKMARK [3][-]{subsubsection.5.2.7}{Set Employee ID }{subsection.5.2}% 18
-\BOOKMARK [3][-]{subsubsection.5.2.8}{Set Financial Preferences }{subsection.5.2}% 19
-\BOOKMARK [2][-]{subsection.5.3}{Manage Cafeteria Module}{section.5}% 20
-\BOOKMARK [3][-]{subsubsection.5.3.1}{addMenuItem}{subsection.5.3}% 21
-\BOOKMARK [3][-]{subsubsection.5.3.2}{deleteMenuItem}{subsection.5.3}% 22
-\BOOKMARK [3][-]{subsubsection.5.3.3}{searchMenuItem}{subsection.5.3}% 23
-\BOOKMARK [3][-]{subsubsection.5.3.4}{updateMenuItem}{subsection.5.3}% 24
-\BOOKMARK [2][-]{subsection.5.4}{Place Orders Module}{section.5}% 25
-\BOOKMARK [3][-]{subsubsection.5.4.1}{CheckProductAvailability}{subsection.5.4}% 26
-\BOOKMARK [3][-]{subsubsection.5.4.2}{checkLimit}{subsection.5.4}% 27
-\BOOKMARK [2][-]{subsection.5.5}{Manage Inventory Module}{section.5}% 28
-\BOOKMARK [3][-]{subsubsection.5.5.1}{addInventory}{subsection.5.5}% 29
-\BOOKMARK [3][-]{subsubsection.5.5.2}{searchInventory}{subsection.5.5}% 30
-\BOOKMARK [3][-]{subsubsection.5.5.3}{deleteInventory}{subsection.5.5}% 31
-\BOOKMARK [3][-]{subsubsection.5.5.4}{updateInventory}{subsection.5.5}% 32
-\BOOKMARK [2][-]{subsection.5.6}{Manage Profile Module}{section.5}% 33
-\BOOKMARK [3][-]{subsubsection.5.6.1}{setFinancialPreferences}{subsection.5.6}% 34
-\BOOKMARK [3][-]{subsubsection.5.6.2}{changePassword}{subsection.5.6}% 35
-\BOOKMARK [3][-]{subsubsection.5.6.3}{changeEmail}{subsection.5.6}% 36
-\BOOKMARK [3][-]{subsubsection.5.6.4}{changeLimit}{subsection.5.6}% 37
-\BOOKMARK [2][-]{subsection.5.7}{Manage System Module}{section.5}% 38
-\BOOKMARK [3][-]{subsubsection.5.7.1}{assignRoles}{subsection.5.7}% 39
-\BOOKMARK [3][-]{subsubsection.5.7.2}{changeEmployeeID}{subsection.5.7}% 40
-\BOOKMARK [3][-]{subsubsection.5.7.3}{setSystemWideLimit}{subsection.5.7}% 41
-\BOOKMARK [3][-]{subsubsection.5.7.4}{setCanteenName}{subsection.5.7}% 42
-\BOOKMARK [3][-]{subsubsection.5.7.5}{uploadImage}{subsection.5.7}% 43
-\BOOKMARK [1][-]{section.6}{Comment}{}% 44
+\BOOKMARK [1][-]{section.0.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.0.2}{Vision}{}% 2
+\BOOKMARK [1][-]{section.0.3}{Background}{}% 3
+\BOOKMARK [2][-]{subsection.0.3.1}{The current situation/ problems the client currently experience}{section.0.3}% 4
+\BOOKMARK [2][-]{subsection.0.3.2}{How the aforementioned problems will be alleviated by the CMS}{section.0.3}% 5
+\BOOKMARK [1][-]{section.0.4}{Functional Requirements and Application Design}{}% 6
+\BOOKMARK [2][-]{subsection.0.4.1}{Use Cases }{section.0.4}% 7
+\BOOKMARK [2][-]{subsection.0.4.2}{Use Case Prioritization}{section.0.4}% 8
+\BOOKMARK [1][-]{section.0.5}{Modular System}{}% 9
+\BOOKMARK [2][-]{subsection.0.5.1}{High level use case diagram of the CMS}{section.0.5}% 10
+\BOOKMARK [2][-]{subsection.0.5.2}{Authentication Module}{section.0.5}% 11
+\BOOKMARK [2][-]{subsection.0.5.3}{Manage Cafeteria Module}{section.0.5}% 12
+\BOOKMARK [2][-]{subsection.0.5.4}{Place Orders Module}{section.0.5}% 13
+\BOOKMARK [2][-]{subsection.0.5.5}{Manage Inventory Module}{section.0.5}% 14
+\BOOKMARK [2][-]{subsection.0.5.6}{Manage Profile Module}{section.0.5}% 15
+\BOOKMARK [2][-]{subsection.0.5.7}{Manage System Module}{section.0.5}% 16
+\BOOKMARK [2][-]{subsection.0.5.8}{Reporting Module}{section.0.5}% 17
+\BOOKMARK [1][-]{section.0.6}{Comment}{}% 18

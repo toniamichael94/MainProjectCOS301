@@ -5,7 +5,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 		$scope.authentication = Authentication;
 		// If user is signed in then redirect back home
 		if ($scope.authentication.user) $location.path('/');
-		
+
 		$scope.signup = function() {
 
 				$http.post('/auth/signup', $scope.credentials).success(function(response) {
@@ -19,6 +19,26 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 				});
 		};
 
+        //Get system wide limit
+        $scope.getSystemLimit = function(){
+            $http.get('/users/getSystemLimit').success(function(response){
+                angular.element(document.querySelector('#limit')).attr('max', parseInt(response.val));
+                $scope.success = response.val;
+            }).error(function(response){
+                console.log(response.message);
+            });
+        };
+/*
+        $scope.loadSystemLimit = function(){
+            $http.get('/users/getSystemLimit').success(function(response) {
+                // If successful show success message and clear form
+                $scope.limit = response.message.value;
+
+            }).error(function(response) {
+                $scope.limit = 'error';
+            });
+        };
+*/
 		$scope.signin = function() {
 			//console.log('checking for superUser role');
 			$http.post('/auth/checkSuperUser');

@@ -1,0 +1,116 @@
+<section class="row">
+	<!--ALERT BOX FOR HELP-->
+		<script type="text/ng-template" id="alert.html">
+			<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+				<div ng-transclude></div>
+			</div>
+		</script>
+
+		<div  data-ng-controller="MenuItemsController">
+			<h4>Statistics<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
+				<hr>
+				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alerts[1].msg}}</alert>
+		</div>
+ <!--END ALERT BOX -->
+
+	<!--Most popular items-->
+	<div class="list-group clearfix">
+	<a href="#" class="list-group-item disabled">Display most popular menu items</a>
+		<div class="list-group-item clearfix">
+			<!--Alert box -->
+			<script type="text/ng-template" id="alert.html">
+					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+						<div ng-transclude></div>
+					</div>
+			</script>
+
+			<div  data-ng-controller="MenuItemsController">
+				<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button>
+				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert3.msg}}</alert>
+			</div>
+				<!--Alert box end-->
+			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2"  data-ng-controller="MenuItemsController">
+				<form name="popularReportForm" data-ng-submit="generatePopularReport()" class="signin form-horizontal" autocomplete="off">
+					<fieldset>
+						<div class="form-group">
+							<label for="menuCatagory">Number of menu items</label>
+							<input type="number" min = 0 id="numMenuItems" name="numPopularMenuItems" class="form-control" data-ng-model="numMenuItems">
+							<label for="startDate"> From: </label>
+							<input type="date" id="startDate" name="startDate" class="form-control" data-ng-model="startDate"/>
+							<label for="endDate"> To: </label>
+							<input type="date" id="endDate" name="endDate" class="form-control" data-ng-model="endDate"/>
+						</div>  <div class=" text-center form-group">
+							<button type = "submit" style="width:200px" class = "btn btn-large btn-primary">Submit</button>
+							<!-- Show error message or sucess message for adding a menu category--></div>
+							<div data-ng-show="success" class="text-center text-success">
+								<strong>Report successfully generated.</strong>
+							</div>
+							<div data-ng-show="error" class="text-center text-danger">
+								<strong data-ng-bind="error"></strong>
+							</div>
+					</fieldset>
+				</form>
+
+	  </div>
+  </div>
+
+	</div>
+
+<!--Selected items-->
+	<div  data-ng-controller="MenuItemsController">
+		<h4>Statistics<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
+			<hr>
+			<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alerts[1].msg}}</alert>
+	</div>
+<!--END ALERT BOX -->
+
+<div class="list-group clearfix">
+<a href="#" class="list-group-item disabled">Items bought over time</a>
+	<div class="list-group-item clearfix">
+		<!--Alert box -->
+		<script type="text/ng-template" id="alert.html">
+				<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+					<div ng-transclude></div>
+				</div>
+		</script>
+
+		<div  data-ng-controller="MenuItemsController">
+			<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button>
+			<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert3.msg}}</alert>
+		</div>
+			<!--Alert box end-->
+		<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2"  data-ng-controller="MenuItemsController">
+			<form name="popularReportForm" data-ng-submit="generatePopularReport()" class="signin form-horizontal" autocomplete="off">
+				<fieldset>
+					<div class="form-group">
+						<label for="menuCatagory" ng-init = "loadAllMenuItems()">Menu items</label>
+
+						<div ng-model = 'menuItems[$index]'>
+						<select ng-model = 'soldItem' class="form-control"/>
+								<option  ng-repeat="item in menuItems">{{item.itemName}}</option>
+						</select><br>
+						<button style="width:200px" class = "btn btn-large btn-primary" ng-click = "addSoldItem()">Add item</button>
+					</div>
+
+					<textarea ng-bind = 'soldItems'></textarea>
+
+						<label for="startDate"> From: </label>
+						<input type="date" id="startDate" name="startDate" class="form-control" data-ng-model="startDate"/>
+						<label for="endDate"> To: </label>
+						<input type="date" id="endDate" name="endDate" class="form-control" data-ng-model="endDate"/>
+					</div>  <div class=" text-center form-group">
+						<button type = "submit" style="width:200px" class = "btn btn-large btn-primary">Submit</button>
+						<!-- Show error or sucess message--></div>
+						<div data-ng-show="success" class="text-center text-success">
+							<strong>Report successfully generated.</strong>
+						</div>
+						<div data-ng-show="error" class="text-center text-danger">
+							<strong data-ng-bind="error"></strong>
+						</div>
+				</fieldset>
+			</form>
+
+	</div>
+</div>
+
+</div>

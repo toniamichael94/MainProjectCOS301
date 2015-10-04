@@ -8,6 +8,7 @@ angular.module('users').controller('FinanceController', ['$scope', '$http', '$lo
         // If user is not signed in then redirect back home
         if (!$scope.authentication) $location.path('/');
 
+
         // Search a user profile
         /*$scope.searchEmployee = function(isValid) {
             if(isValid){
@@ -21,7 +22,8 @@ angular.module('users').controller('FinanceController', ['$scope', '$http', '$lo
                     });
             }
         };*/
-
+	
+      /*
         $scope.getUserOrders = function(){
             var reqObj = {username: $scope.username};
             var orders = new Array();
@@ -52,13 +54,41 @@ angular.module('users').controller('FinanceController', ['$scope', '$http', '$lo
                 $scope.error = true;//response.message;
                 $scope.error = "could not get orders";//response.message;
             });
-        };
+        };*/
+		
+		$scope.generateReport = function(){
+			$scope.error = $scope.success = null;
+			if($scope.username === '' || $scope.startDate === '' || $scope.endDate === '')
+			{
+				$scope.error = 'Please fill in all fields'
+				return;
+			}
+			var toDate = new Date($scope.current_toDate);
+			toDate.setHours(23,59,59);
+			$scope.success = 'Please wait...';
+			
+			$http.post('users/finance/generateReport',{username: $scope.username, start: $scope.startDate, end: $scope.endDate},{responseType:'arraybuffer'}).success(function(response){
+				
+				var file = new Blob([response], {type: 'application/pdf'});
+				var fileURL = URL.createObjectURL(file);
+				
+				var fileName = 'test.pdf';
+				var a = document.createElement('a');
+				document.body.appendChild(a);
+				a.setAttribute('style', 'display: none');
+
+				a.href =  fileURL;
+                a.download = fileName;
+                a.click();
+				$scope.success = 'Report generated';
+			}).error(function(response){
+				$scope.success = '';
+				$scope.error = 'Could not generate report';
+			});
+		};
 
         $scope.checkUser = function(){
-            if(!Authentication.user){
-                $location.path('/');
-            }
-            else if(Authentication.user.roles[0] !== 'finance'){
+            if((!Authentication.user) || (Authentication.user && Authentication.user.roles[0] !== 'finance')){
                 $location.path('/');
             }
         };

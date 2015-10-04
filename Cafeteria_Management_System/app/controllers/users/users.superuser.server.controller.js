@@ -8,12 +8,25 @@ var _ = require('lodash'),
 	mongoose = require('mongoose'),
 	passport = require('passport'),
 	User = mongoose.model('User'),
+	Audit = mongoose.model('Audit'),
 	Config = mongoose.model('Config'),
     formidable = require('formidable'),
     fs = require('fs'),
 	configs = require('../../../config/config'),
 	nodemailer = require('nodemailer');
 
+function audit(_type, data){
+	var _audit = {
+		event: _type,
+		details: JSON.stringify(data)
+	};
+	Audit.create(_audit, function(err){
+		if(err){ 
+			console.log('Audit not created for ' + _type);
+			console.log(errorHandler.getErrorMessage(err));
+		}
+	});
+}
   /*
    * Assign Roles
    */
@@ -31,31 +44,36 @@ exports.assignRoles = function(req, res) {
         });
     }
 
-		User.update({username: req.body.userID}, {roles: [req.body.role]}, function(err, numAffected){
-			if(err) return res.status(400).send({
-				message: errorHandler.getErrorMessage(err)
-			});
-			else if (numAffected < 1){
-				res.status(400).send({message: 'No such employee ID!'});
-			}
-            else if(req.body.role === 'superuser'){
-                User.update({username: req.user.username}, {roles: ['user']}, function(err, numAffected){
-                    if(err) return res.status(400).send({
-                        message: errorHandler.getErrorMessage(err)
-                    });
-                    else if (numAffected < 1){
-                        res.status(400).send({message: 'Did not change superuser!'});
-                    }
-                    else{
-                        res.status(200).send({message: 'SU Changed'});
-                    }
-                });
-            }
-			else{
-				res.status(200).send({message: 'Role has been successfully assigned.'});
-			}
+	User.update({username: req.body.userID}, {roles: [req.body.role]}, function(err, numAffected){
+		if(err) return res.status(400).send({
+			message: errorHandler.getErrorMessage(err)
 		});
+		else if (numAffected < 1){
+			res.status(400).send({message: 'No such employee ID!'});
+		}
+		else if(req.body.role === 'superuser'){
+			User.update({username: req.user.username}, {roles: ['user']}, function(err, numAffected){
+				if(err) return res.status(400).send({
+					message: errorHandler.getErrorMessage(err)
+				});
+				else if (numAffected < 1){
+					res.status(400).send({message: 'Did not change superuser!'});
+				}
+				else{
+					res.status(200).send({message: 'SU Changed'});
+				}
+			});
+		}
+		else{
+			res.status(200).send({message: 'Role has been successfully assigned.'});
+		}
+		
+		
+		var dat = req.body.role + ' role has been assigned to ' + req.body.userID + ' by Superuser';
+		audit('Role change', dat);
+	});
 };
+
 
 /*
 * Set roles by the Admin user
@@ -102,6 +120,10 @@ exports.assignRolesAdminRole = function(req, res) {
 			else{
 				res.status(200).send({message: 'Role has been successfully assigned.'});
 			}
+			
+			
+			var dat = req.body.role + ' role has been assigned to ' + req.body.userID + ' by Admin user';
+			audit('Role change', dat);
 		});
 };
 
@@ -122,6 +144,9 @@ exports.changeEmployeeID = function(req, res) {
                 res.status(400).send({message: 'No such employee ID!'});
             }
             else {
+				var dat = 'EmployeeID changed from ' + req.body.currentUserID + ' to ' + req.body.newUserID;
+				
+				audit('EmployeeID change', dat);
                 res.status(200).send({message: 'Employee ID has been successfully changed.'});
             }
         });
@@ -130,6 +155,31 @@ exports.changeEmployeeID = function(req, res) {
     {
         res.status(400).send({message: 'The new employee id field cannot be empty!'});
     }
+};
+
+/*
+ * Audits
+ */
+exports.getAudits = function(req, res){
+	if(req.body.type === 'all'){
+		Audit.find({date: {$gte: req.body.from, $lte: req.body.to}}, function(err, audits){
+			if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
+			res.status(200).send({message: audits});
+		});
+	}
+	else
+		Audit.find({event: req.body.type}, function(err, audits){
+			if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
+			res.status(200).send({message: audits});
+		});
+};
+
+exports.getAuditTypes = function(req, res){
+	Audit.find().distinct('event', function(err, result){
+		if(err) return res.status(400).send({message: 'Could not get audit types'});
+		
+		return res.status(200).send({message: result});
+	});
 };
 
 /*
@@ -147,6 +197,8 @@ exports.removeEmployee = function(req, res) {
                 res.status(400).send({message: 'No such employee!'});
             }
             else {
+				var dat = 'Employee with EmployeeID ' + req.body.userID + ' has been removed from database';
+				audit('Employee removal', dat);
                 res.status(200).send({message: 'Employee has been successfully removed.'});
             }
         });
@@ -201,6 +253,8 @@ exports.setSystemWideLimit = function(req, res){
 					res.status(200).send({message: 'Limit has been successfully changed. No users updated!'});
 				else
 					res.status(200).send({message: 'Limit has been successfully changed. ' + numAffected + ' users have been updated'});
+				var dat = 'The system wide limit has been changed to ' + req.body.value;
+				audit('Admin settings change', dat);
 				sendEmail(req.body.value);
 			});
 			});
@@ -211,6 +265,8 @@ exports.setSystemWideLimit = function(req, res){
 					res.status(200).send({message: 'Limit has been successfully changed. No users updated!'});
 				else
 					res.status(200).send({message: 'Limit has been successfully changed. ' + numAffected + ' users have been updated'});
+				var dat = 'The system wide limit has been changed to R' + req.body.value;
+				audit('Admin settings change', dat);
 				sendEmail(req.body.value);
 			});
 		}
@@ -237,9 +293,36 @@ exports.setCanteenName = function(req, res){
 			});
 		}
 		else{
+			var dat = 'The canteen name has been changed to ' + req.body.value;
+			audit('Branding settings change', dat);
 			res.status(200).send({message: 'Canteen name has been successfully changed.'});
 		}
 	});
+};
+
+/*
+ * Set Theme  Name
+ */
+exports.setThemeName = function(req, res){
+    console.log('Theme name2 ' + req.body.value);
+    Config.update({name: 'Theme name'}, {value: req.body.value}, function(err, numAffected){
+        if(err) return res.status(400).send({
+            message: errorHandler.getErrorMessage(err)
+        });
+        else if (numAffected < 1){
+            var config = new Config();
+            config.name = 'Theme name';
+            config.value = req.body.value;
+
+            config.save(function(err){
+                if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
+                res.status(200).send({message: 'Theme has been successfully changed.'});
+            });
+        }
+        else{
+            res.status(200).send({message: 'Theme has been successfully changed.'});
+        }
+    });
 };
 
 /*
@@ -262,6 +345,8 @@ exports.uploadImage = function(req, res){
 				fs.rename(files.upload.path, './public/modules/core/img/brand/logo.png');
 			}
 			res.redirect('/');
+			var dat = 'The main image has been changed';
+			audit('Branding settings change', dat);
 		});
 	});
 };
@@ -283,6 +368,24 @@ exports.loadEmployees = function(req, res){
             console.log('LOAD');
             //console.log(employees);
             res.status(200).send({message: itemMap});
+        }
+    });
+};
+
+/**
+ * Get the theme
+ * Last edited by {Semaka Malapane and Antonia Michael}
+ */
+exports.getTheme = function(req,res){
+    console.log("get css assets!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    console.log(req);
+    Config.findOne({name: 'Theme name'}, function (err, row) {
+        if (err) {
+            return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+        } else {
+            return  res.status(200).send({message: row.value});
         }
     });
 };

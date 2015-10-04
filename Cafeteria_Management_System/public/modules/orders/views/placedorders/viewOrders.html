@@ -1,8 +1,16 @@
 <section data-ng-controller="OrdersController" >
+				<!--Alert box -->
+				<script type="text/ng-template" id="alert.html">
+						<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+							<div ng-transclude></div>
+						</div>
+				</script>
 
+				<div  data-ng-controller="MenuItemsController">
+					<h4>On My plate <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button></h4><hr>
+					<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert10.msg}}</alert>
+				</div>
 
-	<h4>On My plate </h4>
-        <hr>
 
 		<a href="#" class="list-group-item disabled">Review and confirm your order</a>
 		<div class="list-group-item clearfix">
@@ -19,10 +27,6 @@
                 </p>
 			</div>
 			<div>
-				<span data-ng-show="showRadio()"> Payment method: 
-					<input type="radio" name="paymentMethod" data-ng-model="paymentMethod" value="cash"> Cash</input>
-					<input type="radio" name="paymentMethod" data-ng-model="paymentMethod" value="credit"> Credit</input>
-				</span>
 				<h4></h3><span style="float: right">Total: {{orderTotal}} </span></h4>
 			</div>
 			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2"  data-ng-controller="MenuItemsController">
