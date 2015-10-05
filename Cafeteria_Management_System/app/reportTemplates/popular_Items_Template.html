@@ -1,6 +1,9 @@
 <html>
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/drilldown.js"></script>
 <style>
     .toolbar {
                 padding: 20px;
@@ -77,22 +80,10 @@ $(function () {
         series: [{
             name: 'Things',
             colorByPoint: true,
-            data: [{
-                name: 'Animals',
-                y: 5,
-                drilldown: 'animals'
-            }, {
-                name: 'Fruits',
-                y: 2,
-                drilldown: 'fruits'
-            }, {
-                name: 'Cars',
-                y: 4,
-                drilldown: 'cars'
-            }]
+            data: items
         }],
         drilldown: {
-            series: data.items
+            series: data.items.itemData
         }
     });
 });

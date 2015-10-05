@@ -283,7 +283,6 @@ exports.deleteMenuCategory = function (req,res){
 		message: errorHandler.getErrorMessage(err)
 	});
 	else if (numAffected < 1){
-
 		/*Display name with a capital letter*/
 		if(req.body.categoryName.length > 1)
 		{
@@ -298,7 +297,7 @@ exports.deleteMenuCategory = function (req,res){
 					message: errorHandler.getErrorMessage(err)
 				});
 				else if (numAffected < 1){
-					res.status(400).send({message: 'Error deleting the menu items in the category ' + req.body.categoryName});
+					res.status(200).send({message: 'Category ' + req.body.categoryName + ' successfully deleted. No menu items were affected.'});
 				}
 
 				else{
@@ -407,7 +406,7 @@ Reporting for menu items
 */
 
 exports.generateSoldReport = function(req,res){
-
+	
 };
 
 exports.generatePopularReport = function(req,res)
@@ -486,7 +485,7 @@ exports.generatePopularReport = function(req,res)
 
 		for(var i = 0; i != itemNames.length; i++)
 		{
-			itemData.push({name: itemNames[i], y: itemQuantity[i], drilldown: itemNames[i]});
+			itemData.push({id: itemNames[i], data: itemQuantity[i]});
 		}
 
 		var sample = fs.readFileSync(path.resolve(__dirname, '../reportTemplates/popular_Items_Template.html'), 'utf8');
@@ -495,26 +494,9 @@ exports.generatePopularReport = function(req,res)
 			//	helpers: 'function mult(a,b){ return a*b; }',//'function total(order){return 10;}'],
 				engine: 'handlebars'},
 			data: {
-				chart: {type: 'column'},
-				title: {text: 'Popular items'},
-				xAxis:{type: 'category'},
-				legend: {enabled: false},
-				plotOptions:{
-					series: {
-						borderWidth: 0,
-						dataLabels:{
-							enabled:true
-						}
-					}
-				},
-				series: [{
-					name:'Menu Items',
-					colorByPoint:true,
-					data:itemData
-				}],
-				drilldown: {
-            series: data
-        }
+				title: 'Popular items',
+				items:itemData
+
 			}
 		}).then(function(out) {
 			//if(err) return res.status(400).send({message: 'Could not render report!'})
