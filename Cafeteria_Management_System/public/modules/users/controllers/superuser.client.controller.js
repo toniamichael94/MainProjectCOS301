@@ -176,7 +176,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
         //Set theme name
         $scope.setThemeName = function(){
                 console.log("THEME CLIENT");
-                $scope.successFour = $scope.errorFive = null;
+                $scope.successFive = $scope.errorFive = null;
 
                 var reqObj = {name: 'Theme name', value: $scope.themeName};
                 console.log($scope.themeName);var p= $scope.themeName;
