@@ -331,6 +331,19 @@ exports.setThemeName = function(req, res) {
                         if (err) console.log('ERROR: ' + err);
                         else console.log('Changed:'  );
                     });
+                 //public/modules/orders/css/orders.css
+                 fs.rename('public/modules/orders/css/orangeOrders.txt', 'public/modules/orders/css/tmp2.css', function (err) {
+                     if (err) console.log('ERROR: ' + err);
+                     else console.log('Changed:'  );
+                 });
+                 fs.rename('public/modules/orders/css/orders.css', 'public/modules/orders/css/redOrders.txt', function (err) {
+                     if (err) console.log('ERROR: ' + err);
+                     else console.log('Changed:'  );
+                 });
+                 fs.rename('public/modules/orders/css/tmp2.css', 'public/modules/orders/css/orders.css', function (err) {
+                     if (err) console.log('ERROR: ' + err);
+                     else console.log('Changed:'  );
+                 });
              }
              /*else if (name === 'orange' && row.value==='')
              { //users.css is orange
@@ -338,7 +351,7 @@ exports.setThemeName = function(req, res) {
                         if (err) console.log('ERROR: ' + err);else console.log('Changed:'  );
                     });
              }*/
-             else  if (name === 'red' && row.value==='orange')
+             if (name === 'red' && row.value==='orange')
              {
                 console.log('You want red, curently its orange ' );
                 fs.rename('public/modules/users/css/redUsers.txt', 'public/modules/users/css/tmp.css', function (err) {
@@ -350,12 +363,25 @@ exports.setThemeName = function(req, res) {
                 fs.rename('public/modules/users/css/tmp.css', 'public/modules/users/css/users.css', function (err) {
                     if (err) console.log('ERROR: ' + err);else console.log('Changed:'  );
                 });
+                 //public/modules/orders/css/orders.css
+                 fs.rename('public/modules/orders/css/redOrders.txt', 'public/modules/orders/css/tmp2.css', function (err) {
+                     if (err) console.log('ERROR: ' + err);
+                     else console.log('Changed:'  );
+                 });
+                 fs.rename('public/modules/orders/css/orders.css', 'public/modules/orders/css/orangeOrders.txt', function (err) {
+                     if (err) console.log('ERROR: ' + err);
+                     else console.log('Changed:'  );
+                 });
+                 fs.rename('public/modules/orders/css/tmp2.css', 'public/modules/orders/css/orders.css', function (err) {
+                     if (err) console.log('ERROR: ' + err);
+                     else console.log('Changed:'  );
+                 });
              }
-             else
+             /*else
              {
                  console.log('Something went wrong....'+row.value);
                  return res.status(400).send({message: 'Something went wrong....'+row.value});
-             }
+             }*/
         }
        Config.update({name: 'Theme name'}, {value: req.body.value}, function(err, numAffected){
            if(err) return res.status(400).send({
