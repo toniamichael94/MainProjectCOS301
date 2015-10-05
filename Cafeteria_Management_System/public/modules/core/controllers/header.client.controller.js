@@ -31,7 +31,7 @@ angular.module('core').controller('HeaderController', ['$scope', '$rootScope', '
 				$scope.canteenName = 'Canteen Name';
 			});
 		};
-		
+
 		$scope.signout = function(){
 			if($cookies.plate){
 				var j = [];
