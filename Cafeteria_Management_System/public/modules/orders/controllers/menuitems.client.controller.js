@@ -508,6 +508,8 @@ $scope.closeAlert = function(index) {
 					 $scope.success = true;//response.message;
 					 $scope.success = 'Category added to the menu.';
 					 $scope.categoryName ='';
+
+
 			 	 }
 				 }).error(function(response) {
 					 //console.log("error");
@@ -593,7 +595,6 @@ $scope.searchBarDynamic = function(row){
 		$http.get('/loadMenuCategories').success(function(response) {
 		$scope.menuCatagory = response.message;
 		$scope.cat = response.message;
-		console.log($scope.cat);
 
 	}).error(function(response) {
 		$scope.menuItems = 'Error loading categories';
@@ -807,7 +808,7 @@ $scope.searchBarDynamic = function(row){
 		/*This function generates a report that shows the amount of the selected
 			items sold over time.*/
 		$scope.generateSoldReport = function(){
-				$http.post('orders/generateSoldReport',{numItems: $scope.numMenuItems, start: $scope.startDate, end: $scope.endDate},{responseType:'arraybuffer'}).success(function(response){
+				$http.post('orders/generateSoldReport',{items: $scope.soldItems, start: $scope.startDateSold, end: $scope.endDateSold},{responseType:'arraybuffer'}).success(function(response){
 
 
 				 var file = new Blob([response], {type: 'application/pdf'});
@@ -834,6 +835,17 @@ $scope.searchBarDynamic = function(row){
 				$scope.soldItems.push($scope.soldItem);
 		};
 
+		$scope.removeSoldItem = function()
+		{
+			var index = -1;
+			for(var i = 0; i != $scope.soldItems.length; i++)
+				if($scope.soldItems[i] == $scope.removeItem)
+					index = i;
+
+				if(index >= 0)
+					$scope.soldItems.splice(index,1);
+
+		};
 		/*This funtion generates a report that shows the most popular menu itmes over
 			a period of time*/
 		$scope.generatePopularReport = function(){

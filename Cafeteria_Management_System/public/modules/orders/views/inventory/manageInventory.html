@@ -180,10 +180,11 @@
 						<form data-ng-show ="showInventory" ng-hide="
 						"  class="signin form-horizontal" autocomplete="off">
 							<fieldset> <div class = "text-center form-group">
-							<button ng-click = "updateInventoryQuantity()" style="width:200px" class = "btn btn-large btn-primary" ng-show="showInventory" data-ng-hide="hideInventory">Save</button>
-							</div>	<div   ng-repeat = "invenProduct in allInventory.inventoryProduct track by $index" >
-									<label ng-bind = 'allInventory.inventoryProduct[$index]'>{{invenProduct.productName}}</label>
-									<input class="form-control" type = "number" min =0 ng-model = 'allInventory.inventoryQuantity[$index]'/>
+							<button data-ng-click = "updateInventoryQuantity()" style="width:200px" class = "btn btn-large btn-primary" ng-show="showInventory" data-ng-hide="hideInventory">Save</button>
+							</div>
+								<div  data-ng-repeat = "invenProduct in allInventory.inventoryProduct track by $index" >
+									<label data-ng-bind = 'allInventory.inventoryProduct[$index]'>{{invenProduct.productName}}</label>
+									<input class="form-control" type = "number" min =0 data-ng-model = 'allInventory.inventoryQuantity[$index]'/>
 									<br>
 								</div>
 

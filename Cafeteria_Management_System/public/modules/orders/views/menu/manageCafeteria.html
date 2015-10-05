@@ -69,8 +69,8 @@
 				<!--Alert box end-->
 			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2" data-ng-controller = "MenuItemsController">
 				<form name="searchMenuCategoryForm" data-ng-submit="searchMenuCategory(searchMenuCategoryForm.$valid)" class="signin form-horizontal" autocomplete="off">
-					<!--Search for a menu item-->
 
+					<!--Search for a category-->
 					<div class = "form-group">
 						<input type="text" id="categoryNameSearchID" name ="categoryNameSearch" class = "form-control" data-ng-model="categoryNameSearch" placeholder="Category name" required>
 					</div>
@@ -80,14 +80,13 @@
 					</div>
     </form>
 
-				<!--Delete or update if item found-->
-
-				<!--Update the item -->
+				<!--Delete or update if category found-->
+				<!--Update the category -->
 				<div ng-show="successFind" class="text-center">
 					<form name="updateMenuCategoryForm" data-ng-submit="updateMenuCategory(updateMenuCategoryForm.$valid)" class="signin form-horizontal" autocomplete="off">
                             <h4>Update category</h4>
 
-														<!--Fields to update-->
+														<!--Category fields to update-->
                             <div class="form-group">
                                 <label for="updateCategory">Category name</label>
                                 <input type="text" id="categoryNameID" name="categoryName" class="form-control" data-ng-model="newCategoryName">
@@ -100,13 +99,17 @@
 																<option value="false">Inactive</option>
 															</select>
 														</div>
-
                             <div class = "text-center form-group">
                                 <button type = "submit" style="width:200px" class = "btn btn-large btn-primary" ng-click="showme=false"> Update</button>
                             </div>
-                        </form> <form class="signin form-horizontal"><div class = "text-center form-group">
-			<button type = "submit" class = "btn btn-large btn-primary" style="width:200px" data-ng-hide="showme" ng-click = "deleteMenuCategory()" >Delete</button>
-            </div> </form>
+                        </form>
+												
+												<!--Delete a menu category-->
+											 <form class="signin form-horizontal">
+												 <div class = "text-center form-group">
+												 	<button type = "submit" class = "btn btn-large btn-primary" style="width:200px" data-ng-hide="showme" ng-click = "deleteMenuCategory();" >Delete</button>
+												</div>
+											</form>
 		</div>
 
 					<!--Error/Success message for delete/update-->
@@ -156,12 +159,16 @@
 							<input type="number" min = 0 id="itemPrice" name="itemPrice" class="form-control" data-ng-model="menuItem.itemPrice" placeholder="Price">
 						</div>
 
-						<div class = "form-group" ng-init="loadMenuCategories()">
-						<label for="itemCategory">Category</label>
-							<select id ="itemCategory" name ="itemCategory" class = "form-control" data-ng-model ="menuItem.itemCategory" >
-								<option ng-repeat="item in menuCatagory" value={{item.name}}>{{item.name}}</option>
 
-							</select>
+
+						<div class = "form-group" ng-init="showCat=true; loadMenuCategories()">
+						<label data-ng-click="showCat=false;">No show</label>
+							<label for="itemCategory" ng-click="showCat=true; loadMenuCategories()">Category</label>
+							<div data-ng-hide="showCat==false" data-ng-show="showCat==true">
+								<select id ="itemCategory" name ="itemCategory" class = "form-control" data-ng-model ="menuItem.itemCategory" >
+									<option ng-repeat="item in menuCatagory" value={{item.name}}>{{item.name}}</option>
+								</select>
+							</div>
 						</div>
 
 
@@ -274,8 +281,8 @@
 
 							<div class = "form-group" ng-init="loadMenuCategories()">
 								<label for="itemCategory">Category</label>
-								<select id ="itemCategory" name ="itemCategory" class = "form-control" data-ng-model ="menuItem.itemCategory" >
-								<option ng-repeat="item in menuCatagory" value={{item.name}}>{{item.name}}</option>
+								<select  id ="itemCategory" name ="itemCategory" class = "form-control" data-ng-model ="menuItem.itemCategory" data-ng-bind ="menuItem.itemCategory"  >
+								<option  ng-repeat="item in menuCatagory" value={{item.name}}>{{item.name}}</option>
 								</select>
 							</div>
 

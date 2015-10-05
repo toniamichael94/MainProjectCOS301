@@ -85,21 +85,26 @@
 					<div class="form-group">
 						<label for="menuCatagory" ng-init = "loadAllMenuItems()">Menu items</label>
 
-						<div ng-model = 'menuItems[$index]'>
-						<select ng-model = 'soldItem' class="form-control"/>
-								<option  ng-repeat="item in menuItems">{{item.itemName}}</option>
+						<div data-ng-model = 'menuItems[$index]'>
+						<select data-ng-model = 'soldItem' class="form-control"/>
+								<option  data-ng-repeat="item in menuItems">{{item.itemName}}</option>
 						</select><br>
-						<button style="width:200px" class = "btn btn-large btn-primary" ng-click = "addSoldItem()">Add item</button>
+						<button style="width:200px" class = "btn btn-large btn-primary" data-ng-click = "addSoldItem()">Add item</button>
 					</div>
 
-					<textarea ng-bind = 'soldItems'></textarea>
+					<label>Added items</label>
+					<select data-ng-model = 'removeItem' class="form-control">
+							<option  data-ng-repeat="item in soldItems" value = {{item}}>{{item}}</option>
+					</select><br>
+					<button style="width:200px" class = "btn btn-large btn-primary" data-ng-click = "removeSoldItem()">Remove item</button>
+					<br>
 
 						<label for="startDate"> From: </label>
-						<input type="date" id="startDate" name="startDate" class="form-control" data-ng-model="startDate"/>
+						<input type="date" id="startDate" name="startDate" class="form-control" data-ng-model="startDateSold"/>
 						<label for="endDate"> To: </label>
-						<input type="date" id="endDate" name="endDate" class="form-control" data-ng-model="endDate"/>
+						<input type="date" id="endDate" name="endDate" class="form-control" data-ng-model="endDateSold"/>
 					</div>  <div class=" text-center form-group">
-						<button type = "submit" style="width:200px" class = "btn btn-large btn-primary">Submit</button>
+						<button type = "submit" style="width:200px" class = "btn btn-large btn-primary" data-ng-click="generateSoldReport()">Submit</button>
 						<!-- Show error or sucess message--></div>
 						<div data-ng-show="success" class="text-center text-success">
 							<strong>Report successfully generated.</strong>
