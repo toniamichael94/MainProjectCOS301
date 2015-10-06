@@ -407,7 +407,37 @@ Reporting for menu items
 
 exports.generateSoldReport = function(req,res){
 		Order.find({created: {$gt: req.body.start, $lt: req.body.end}}, function(err, orders){
-			console.log(orders);
+			console.log("Before splice:"+orders.length);
+			if(orders.length > 0)
+			{
+					var found = false;
+					var counter =0;
+				
+					for(order in orders)
+					{
+							found = false;
+							for(var j = 0; j != req.body.items.length; j++)
+							{
+								if(order.itemName === req.body.items[j])
+								{
+									found = true;
+									break;
+								}
+							}
+
+							if(!found)
+								orders.splice(counter,1);
+							counter++;
+						}
+
+					console.log("After splice:"+orders.length);
+					//Display orders as a report
+				}
+				else{
+					//output on report that no orders for this time
+				}
+
+
 
 	});
 };
