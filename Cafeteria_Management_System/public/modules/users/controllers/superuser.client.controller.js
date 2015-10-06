@@ -71,9 +71,9 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
                 $scope.successOne = $scope.errorOne = null;
                 var reqObj = {currentUserID: $scope.currentEmp_id, newUserID: $scope.newEmp_id};
                 $scope.r = $window.confirm("Are you sure?");
-				
+
                 if($scope.r === true) {
-					
+
                     $http.post('/users/superuserChangeEmployeeID', reqObj).success(function (response) {
                         // If successful show success message and clear form
                         $scope.successOne = response.message;
@@ -225,7 +225,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 				$scope.error = response.message;
 			});
 		};
-		
+
 		//Load audits
 		$scope.audits = [];
 		$scope.current_auditType;
@@ -235,7 +235,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 			if(isValid){
 				var toDate = new Date($scope.current_toDate);
 				toDate.setHours(23,59,59);
-				
+
 				$http.post('/users/superuserGetAudits', {type: $scope.current_auditType, from:$scope.current_fromDate, to: toDate}).success(function(response){
 					$scope.audits = response.message;
 				}).error(function(response){
