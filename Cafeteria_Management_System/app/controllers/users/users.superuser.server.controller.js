@@ -321,30 +321,7 @@ exports.setThemeName = function(req, res) {
                     value:'orange'
                 }
             }
-            if (name === 'orange' && row.value==='red')
-             { //users.css is orange, currently using red!!!!!!!!!!!!!!!!!!!!!!
-                 fse.copy('public/modules/users/css/orangeUsers.txt', 'public/modules/users/css/users.css', function (err) {
-                     if (err) console.log('ERROR: ' + err);
-                     else console.log('Changed:'  );
-                 });
-                 //public/modules/orders/css/orders.css
-                 fse.copy('public/modules/orders/css/orangeOrders.txt', 'public/modules/orders/css/orders.css', function (err) {
-                     if (err) console.log('ERROR: ' + err);
-                     else console.log('Changed:'  );
-                 });
-             }
-             else if (name === 'green' && row.value==='red')
-            {
-                fse.copy('public/modules/users/css/greenUsers.txt', 'public/modules/users/css/users.css', function (err) {
-                    if (err) console.log('ERROR: ' + err);
-                    else console.log('Changed:'  );
-                });
-                fse.copy('public/modules/orders/css/greenOrders.txt', 'public/modules/orders/css/orders.css', function (err) {
-                    if (err) console.log('ERROR: ' + err);
-                    else console.log('Changed:'  );
-                });
-            }
-            else if (name === 'green' && row.value==='orange')
+            if (name === 'green' )
             { //users.css is orange, currently using red!!!!!!!!!!!!!!!!!!!!!!
                 console.log('You want orange, curently users.css contains red ' );
                 fse.copy('public/modules/users/css/greenUsers.txt', 'public/modules/users/css/users.css', function (err) {
@@ -357,7 +334,7 @@ exports.setThemeName = function(req, res) {
                     else console.log('Changed:'  );
                 });
             }
-            else if (name === 'orange' && row.value==='green')
+            else if (name === 'orange' )
             { //users.css is orange, currently using red!!!!!!!!!!!!!!!!!!!!!!
                 console.log('You want orange, curently users.css contains red ' );
                 fse.copy('public/modules/users/css/orangeUsers.txt', 'public/modules/users/css/users.css', function (err) {
@@ -370,19 +347,7 @@ exports.setThemeName = function(req, res) {
                     else console.log('Changed:'  );
                 });
             }
-             else if (name === 'red' && row.value==='orange')
-             {
-                console.log('You want red, curently its orange ' );
-                fse.copy('public/modules/users/css/redUsers.txt', 'public/modules/users/css/users.css', function (err) {
-                    if (err) console.log('ERROR: ' + err);else console.log('Changed:'  );
-                });
-                 //public/modules/orders/css/orders.css
-                 fse.copy('public/modules/orders/css/redOrders.txt', 'public/modules/orders/css/orders.css', function (err) {
-                     if (err) console.log('ERROR: ' + err);
-                     else console.log('Changed:'  );
-                 });
-             }
-            else if (name === 'red' && row.value==='green')
+            else if (name === 'red')
             {
                 console.log('You want red, curently its orange ' );
                 fse.copy('public/modules/users/css/redUsers.txt', 'public/modules/users/css/users.css', function (err) {
@@ -396,7 +361,7 @@ exports.setThemeName = function(req, res) {
             }
             else
             {
-                console.log('You want red, curently its orange ' );
+                console.log('ERROR' );
             }
             /*else(name === 'default' && row.value==='green')
              {
