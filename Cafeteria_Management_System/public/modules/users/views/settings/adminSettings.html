@@ -110,10 +110,10 @@
                     <!--label for="currentEmp_id">Current Employee ID</label>
                     <input type="text" id="currentEmp_id" name="currentEmp_id" class="form-control" data-ng-model="currentEmp_id" placeholder="Current Employee ID"-->
                     <label>Current Employee ID </label>
-                    <div ng-init="loadEmployees()" data-ng-controller="superuserController" >
-                        <select id="currentEmp_id" name="currentEmp_id" class="form-control" data-ng-model = 'currentEmp_id'/>
-                        <option ng-repeat="employee in employees" value=employee.username> {{employee.username}}</option>
-                        </select><br>
+                    <div ng-init="loadEmployees()" >
+                    <select id="currentEmp_id" name="currentEmp_id" class="form-control" data-ng-model='currentEmp_id'/>
+                        <option ng-repeat="employee in employees" value="{{employee.username}}"> {{employee.username}}</option>
+                    </select><br>
                     </div>
 
                 </div>
