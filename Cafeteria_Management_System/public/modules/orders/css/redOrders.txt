@@ -12,9 +12,7 @@
     right: 10px;
     position: absolute;
 }
-
 /*Button*/
-
 .btn {
     border: 0 none;
     font-weight: 700;
@@ -24,26 +22,21 @@
 .btn:focus, .btn:active:focus, .btn.active:focus {
     outline: 0 none;
 }
-
 .btn-primary {
-    background: #FF9100;
+    background: green;
     color: #ffffff;
 }
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
     background: #787878;
 }
 .btn-primary:active, .btn-primary.active {
-    background: #FF9100;
+    background: green;
     box-shadow: none;
 }
-
 .btn-lg.round {
     border-radius: 15px;
 }
-
 /*Button end*/
-
-
 /*checkboxes inline */
 .checkbox input[type=checkbox]:checked + label:after {
     font-family: 'Glyphicons Halflings';
@@ -55,26 +48,19 @@
     font-size: 9px;
 }
 /*end checkboxes inline */
-
 /*breadcrumb */
 .breadcrumb{
     font-size: 12px;
 }
-
 .nav {
-    /*	font-size: 12px;*/
+    /* font-size: 12px;*/
 }
-
 .navbar-nav > li{
     padding-left:0px;
     padding-right:0px;
     background-color: inherit;
-
-
-
 }
-.heading { background-color: #E8E8E8  ; }
-
+.heading { background-color: #E8E8E8 ; }
 /*navbar */
 .navbar-inverse { background-color: red}
 .navbar-inverse .navbar-nav>.active>a:hover,.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus { background-color: #787878}
@@ -103,10 +89,8 @@
 }
 /*nav bar end */
 #alertUser{
-
     padding-top: 5.8px;
     padding-bottom: 5.8px;
     padding-left: 5.8px;
     padding-right: 5.8px;
-
 }
