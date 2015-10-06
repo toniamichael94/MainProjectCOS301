@@ -315,7 +315,12 @@ exports.setThemeName = function(req, res) {
             });
         }
         else
-        {
+        {    if(row===null)
+            {
+                row={
+                    value:'orange'
+                }
+            }
              if (name === 'orange' && row.value==='red')
              { //users.css is orange, currently using red!!!!!!!!!!!!!!!!!!!!!!
                 console.log('You want orange, curently users.css contains red ' );
