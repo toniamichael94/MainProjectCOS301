@@ -591,11 +591,11 @@ $scope.searchBarDynamic = function(row){
 	/*loadMenuCategories
 	*/
 	$scope.loadMenuCategories = function(){
-		//console.log('loading menu Categories');
+		console.log('loading menu Categories');
 		$http.get('/loadMenuCategories').success(function(response) {
 		$scope.menuCatagory = response.message;
 		$scope.cat = response.message;
-
+	console.log(response.message);
 	}).error(function(response) {
 		$scope.menuItems = 'Error loading categories';
 	});
