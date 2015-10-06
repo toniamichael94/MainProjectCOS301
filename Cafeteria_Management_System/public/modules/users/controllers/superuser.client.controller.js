@@ -135,7 +135,27 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 
         //Set system limit
 		$scope.setSystemWideLimit = function(isValid){
-			if(isValid){
+            if(isValid){
+                $scope.success = $scope.error = null;
+                $scope.successTwo = $scope.errorTwo = null;
+
+                var reqObj = {name: 'System wide limit', value: $scope.limit};
+                //$scope.r = $window.confirm("Are you sure?");
+
+                bootbox.alert("Hello world!");
+                if($scope.r === true) {
+                    //console.log($scope.limit);
+                    $http.post('users/superuserSetSystemWideLimit', reqObj).success(function (response) {
+                        $scope.successTwo = response.message;
+                    }).error(function (response) {
+                        $scope.errorTwo = response.message;
+                    });
+                }
+                else{
+                    $scope.limit = null;
+                }
+            }
+            /*if(isValid){
 				$scope.success = $scope.error = null;
 				$scope.successTwo = $scope.errorTwo = null;
 
@@ -153,7 +173,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
                 else{
                     $scope.limit = null;
                 }
-			}
+			}*/
 		};
 
 		//Set canteen name
@@ -184,6 +204,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
                     $scope.successFive = "Colour scheme changed successfully";
 
                 }).error(function (response) {
+                    $scope.r = $window.alert("Invalid theme! Choose between red, orange, green, blue and default");
                     $scope.errorFive = response.message;
                     console.log('error ' + response.message);
                 });

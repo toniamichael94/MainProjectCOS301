@@ -305,7 +305,7 @@ exports.setCanteenName = function(req, res){
  */
 exports.setThemeName = function(req, res) {
     console.log('Theme name2 ' + req.body.value);
-    var name = req.body.value;
+    var name = toLowerCase(req.body.value);
 
     //find old value to check what current colour is
    Config.findOne({name: 'Theme name'}, function (err, row) {
