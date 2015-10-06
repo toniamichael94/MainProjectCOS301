@@ -64,7 +64,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 				};
 
         //Change user's employee ID
-		$scope.currentEmp_id;
+		//$scope.currentEmp_id;
         $scope.changeEmployeeID = function(isValid) {
             if (isValid) {
 				console.log($scope.currentEmp_id);
