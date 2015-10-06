@@ -4,7 +4,7 @@
 angular.module('orders').controller('OrdersController', ['$scope', '$rootScope','$http', '$stateParams', '$location', '$cookies', '$window', 'Authentication', 'Orders',
 	function($scope, $rootScope, $http, $stateParams, $location, $cookies, $window, Authentication, Orders) {
 		$scope.authentication = Authentication;
-			
+
 		$scope.plate = [];
 		if($cookies.plate)
 			$scope.plate = JSON.parse($cookies.plate);
@@ -108,7 +108,7 @@ angular.module('orders').controller('OrdersController', ['$scope', '$rootScope',
 								error = true;
 								});
 						}//end for
-						
+
 						$scope.subTotal();
 						$rootScope.$broadcast('plateUpdated');
 						$scope.success = response.message;
@@ -125,11 +125,12 @@ angular.module('orders').controller('OrdersController', ['$scope', '$rootScope',
 
 		//Remove from plate
 		$scope.removeFromPlate = function(itemName){
+			itemName = itemName.toLowerCase();
 			if($cookies.plate){
 				var plate = JSON.parse($cookies.plate);
 
 				for(var i = 0; i < plate.length; i++){
-					if(plate[i].itemName === itemName){
+					if(plate[i].itemName === itemName.toLowerCase()){
 						plate.splice(i,1);
 						$cookies.plate = JSON.stringify(plate);
 						break;

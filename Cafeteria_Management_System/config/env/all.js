@@ -15,9 +15,10 @@ module.exports = {
 			css: [
 				'public/lib/bootstrap/dist/css/bootstrap.css',
 				'public/lib/bootstrap/dist/css/bootstrap-theme.css',
+
 				'public/lib/angular-carousel/dist/angular-carousel.min.css',
 				'public/lib/angular-carousel/dist/angular-carousel.css'
-
+				'public/lib/angular-loading-bar/build/loading-bar.css'
 			],
 			js: [
 				'public/lib/angular/angular.js',
@@ -34,13 +35,7 @@ module.exports = {
 				'public/lib/ng-bootstrap-alerts/dist/index.min.js',
 				'public/lib/angular-carousel/dist/angular-carousel.min.js',
 				'public/lib/angular-carousel/dist/angular-carousel.js'
-
-
-
-
-
-
-
+				'public/lib/angular-loading-bar/build/loading-bar.js'
 
 			]
 		},

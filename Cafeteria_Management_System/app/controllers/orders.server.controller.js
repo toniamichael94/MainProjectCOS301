@@ -20,13 +20,10 @@ function audit(_type, data){
 	console.log(data);
 	var _audit = {
 		event: _type,
-		details: JSON.stringify({
-			username: data[0].username,
-			orderNumber: data[0].orderNumber
-		})
+		details: JSON.stringify(data)
 	};
 	Audit.create(_audit, function(err){
-		if(err){ 
+		if(err){
 			console.log('Audit not created for ' + _type);
 			console.log(errorHandler.getErrorMessage(err));
 		}
@@ -40,10 +37,10 @@ function audit(_type, data){
 		var availBalance = req.user.limit - req.user.currentBalance;
 		for(var j = 0; j < order.length; j++)
 			total += order[j].price * order[j].quantity;
-		
+
 		if(total > availBalance && req.body.paymentMethod === 'credit')
 			return res.status(400).send({message: 'You have insufficient credit to make purchase. Available balance: R' + availBalance});
-		
+
 		Order.find({}, function(err, result){
 			var orderNum = 1;
 			if(result.length !== 0)
@@ -52,13 +49,13 @@ function audit(_type, data){
 				if(result.length > 1)
 				{
 					var today = new Date();
-					var lastOrderDay = result[result.length-1].created;	
+					var lastOrderDay = result[result.length-1].created;
 					console.log("Today:"+today);
 					console.log("LOR__:"+lastOrderDay);
 					console.log("");
 					console.log("Today's date:"+today.getDate());
-					console.log("LOrder  Date:"+lastOrderDay.getDate());			
-			
+					console.log("LOrder  Date:"+lastOrderDay.getDate());
+
 					if(today.getDate() > lastOrderDay.getDate())
 					{
 						orderNum = 1;
@@ -68,10 +65,10 @@ function audit(_type, data){
 				}
 				else orderNum = result[result.length-1].orderNumber + 1;//Previous order number +1
 			}
-			
+
 			for(var i = 0; i < order.length; i++)
 				order[i].orderNumber = orderNum;
-			
+
 			Order.create(order, function(err){
 				if(err) return res.status(400).send({
 					message: errorHandler.getErrorMessage(err)
@@ -79,22 +76,22 @@ function audit(_type, data){
 				audit('Create order', order);
 				res.status(200).send({message: 'Order has been made'});
 			});
-		});	
+		});
 	}
  };
- 
+
  /*
   * Helper function to email user about order
   * Last Edited by: Rendani Dau
   */
  function sendEmail(uname, orderNum){
 	User.findOne({username: uname}, function(err, user){
-		if(err){ 
+		if(err){
 			console.log(err);
 			return;
 		}
 		var smtpTransport = nodemailer.createTransport(configs.mailer.options);
-		
+
 		var mailOptions = {
 			from: configs.mailer.from,
 			subject: 'Your Order Is Ready'
@@ -104,17 +101,21 @@ function audit(_type, data){
 								'Your order with order number ' + orderNum +  ' is ready for collection.\n'+
 								'You can collect your order at the cafeteria.\n\n'+
 								'The CMS Team';
-		smtpTransport.sendMail(mailOptions, function(err){ 
-			if(err) console.log('Email not sent' + err); 
+		smtpTransport.sendMail(mailOptions, function(err){
+			if(err) console.log('Email not sent' + err);
 		});
 	});
  }
- 
+
  exports.markAsReady = function(req, res){
 	Order.update({orderNumber: req.body.orderNumber}, {status: 'ready'}, { multi: true }, function(err, numAffected){
 		if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
 		console.log('Num Affected ' + numAffected);
 		sendEmail(req.body.username, req.body.orderNumber);
+		//Audit functionality
+		var data = 'Order ' + req.body.orderNumber + ' has been marked as ready';
+		audit('Cashier action', data);
+		//********************
 		res.status(200).send({message: 'order marked as ready'});
 	});
 
@@ -133,30 +134,38 @@ exports.markAsPaid = function(req, res){
 			}
 			console.log('total' + total);
 			User.findOne({username: req.body.username}, function(err, user){
-				if(err){ 
+				if(err){
 					console.log('Error2' + err);
 					return res.status(400).send({message: 'Order not marked as Paid'});
 				}
-				
+
 				if(user.limit - user.currentBalance < total)
 					return res.status(400).send({message: 'User has insufficient credit'});
-				
+
 				user.currentBalance = user.currentBalance + total;
 				user.save(function(err, user){
-				if(err){ console.log('Error3' + err); return res.status(400).send({message: 'Order not marked as paid'});}
-						Order.update({orderNumber: req.body.orderNumber}, {status: 'closed'}, { multi: true }, function(err, numAffected){
-							if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
-							//console.log(numAffected);
-							res.status(200).send({message: 'order marked as paid/closed'});
-						});
+					if(err){ console.log('Error3' + err); return res.status(400).send({message: 'Order not marked as paid'});}
+					Order.update({orderNumber: req.body.orderNumber}, {status: 'closed'}, { multi: true }, function(err, numAffected){
+						if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
+						//console.log(numAffected);
+						//Audit functionality
+						var data = 'Order ' + req.body.orderNumber + ' has been marked as paid. ' + user.username + ' has been debited R' + total;
+						audit('Cashier action', data);
+						//********************
+						res.status(200).send({message: 'order marked as paid/closed'});
+					});
 				});
-			});	
+			});
 		});
 	}
 	else{
 		Order.update({orderNumber: req.body.orderNumber}, {status: 'closed'}, { multi: true }, function(err, numAffected){
 			if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
 			console.log(numAffected);
+			//Audit functionality
+			var data = 'Order ' + req.body.orderNumber + ' has been marked as paid.';
+			audit('Cashier action', data);
+			//********************
 			res.status(200).send({message: 'order marked as paid/closed'});
 		});
 	}
@@ -173,7 +182,7 @@ exports.markAsCollected = function(req, res){
 		if(err) return res.status(400).send({
 			message: errorHandler.getErrorMessage(err)
 		});
-		
+
 		res.status(200).send({message: items});
 	});
  };
@@ -220,11 +229,11 @@ exports.getUserOrders = function(req, res){
 		if(err) return res.status(400).send({
 			message: errorHandler.getErrorMessage(err)
 		});
-		
+
 		res.status(200).send({message: items});
 	});
  };
- 
+
 /**
  * Create a Order
  *

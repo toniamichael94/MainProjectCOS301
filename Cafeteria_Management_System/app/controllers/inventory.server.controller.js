@@ -7,9 +7,21 @@ var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
 	Inventory = mongoose.model('Inventory'),
 	MenuItem = mongoose.model('MenuItem'),
-	_ = require('lodash');
+	_ = require('lodash'),
+	Audit = mongoose.model('Audit');
 
-
+function audit(type, data){
+	var _audit = {
+		event: type,
+		details: JSON.stringify(data)
+	};
+	Audit.create(_audit, function(err){
+		if(err){ 
+			console.log('Audit not created for ' + _type);
+			console.log(errorHandler.getErrorMessage(err));
+		}
+	});
+}
 /*
 * Loading the inventory items from the database
 */
@@ -42,6 +54,8 @@ exports.create = function(req, res) {
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
+			var data = JSON.stringify(inventoryItem) + 'has been added';
+			audit('Inventory update', data);
 			res.jsonp(inventoryItem);
 		}
 	});
@@ -169,6 +183,8 @@ exports.decreaseInventory = function(req,res)
         }
         else{
             res.status(200).send({message: 'Product information successfully updated.'});
+			var data = req.body.productName + ' decreased by ' + req.body.quantity;
+			audit('Inventory update', data);
         }
     });
 };
@@ -187,6 +203,8 @@ exports.updateInventory = function(req, res) {
         }
         else{
             res.status(200).send({message: 'Product information successfully updated.'});
+			var data = req.body.oldProdName + 'updated. New values: ' + req.body.newProdName + ' ' + req.body.quantity + ' ' + req.body.unit;
+			audit('Inventory update', data);
         }
     });
 };
@@ -207,7 +225,9 @@ updateInventoryQuantity
         }
         else{
             res.status(200).send({message: 'Item successfully updated.'});
-        }
+			var data = req.body.productName + ' Quantity updated to ' + req.body.quantity;
+			audit('Inventory update', data);
+		}
     });
 	};
 
@@ -245,6 +265,8 @@ updateInventoryQuantity
 			else{
 
 				res.status(200).send({message: req.body.productName + ' successfully deleted.'});
+				var data = req.body.productName + ' has been deleted';
+				audit('Inventory update', data);
 				}
 			});
 

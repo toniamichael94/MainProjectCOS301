@@ -65,14 +65,13 @@ angular.module('users').controller('FinanceController', ['$scope', '$http', '$lo
 			}
 			var toDate = new Date($scope.current_toDate);
 			toDate.setHours(23,59,59);
-			$scope.success = 'Please wait...';
 			
-			$http.post('users/finance/generateReport',{username: $scope.username, start: $scope.startDate, end: $scope.endDate},{responseType:'arraybuffer'}).success(function(response){
+			$http.post('users/finance/generateReportUser',{username: $scope.username, start: $scope.startDate, end: $scope.endDate},{responseType:'arraybuffer'}).success(function(response){
 				
 				var file = new Blob([response], {type: 'application/pdf'});
 				var fileURL = URL.createObjectURL(file);
 				
-				var fileName = 'test.pdf';
+				var fileName = 'invoice.pdf';
 				var a = document.createElement('a');
 				document.body.appendChild(a);
 				a.setAttribute('style', 'display: none');
@@ -85,6 +84,26 @@ angular.module('users').controller('FinanceController', ['$scope', '$http', '$lo
 				$scope.success = '';
 				$scope.error = 'Could not generate report';
 			});
+		};
+		
+		$scope.generateReportAll = function(){
+			$http.post('users/finance/generateReportAll',{start: $scope.startDateTwo, end: $scope.endDateTwo},{responseType:'arraybuffer'}).success(function(response){
+				var file = new Blob([response], {type: 'application/pdf'});
+				var fileURL = URL.createObjectURL(file);
+				
+				var fileName = 'report.pdf';
+				var a = document.createElement('a');
+				document.body.appendChild(a);
+				a.setAttribute('style', 'display: none');
+
+				a.href =  fileURL;
+                a.download = fileName;
+                a.click();
+				$scope.successTwo = 'Report generated';
+			}).error(function(response){
+				$scope.successTwo = '';
+				$scope.errorTwo = 'Could not generate report';
+			})
 		};
 
         $scope.checkUser = function(){

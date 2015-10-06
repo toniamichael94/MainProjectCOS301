@@ -61,12 +61,12 @@ module.exports = function(db) {
             console.log("GET CSS ASSETS")
             console.log(response.message);
         });*/
-    var success;
+   /* var success;
     app.post('/config/theme', function(response ){
         success = response.message;
         console.log("GET CSS ASSETS")
         console.log(response.message);
-    });
+    });*/
 
 
 // Globbing model files
@@ -79,7 +79,7 @@ module.exports = function(db) {
     app.locals.keywords = config.app.keywords;
     app.locals.facebookAppId = config.facebook.clientID;
     app.locals.jsFiles = config.getJavaScriptAssets();
-    app.locals.cssFiles = config.getCSSAssets(success);
+    app.locals.cssFiles = config.getCSSAssets();
 // Passing the request url to environment locals
     app.use(function(req, res, next) {
         res.locals.url = req.protocol + '://' + req.headers.host + req.url;

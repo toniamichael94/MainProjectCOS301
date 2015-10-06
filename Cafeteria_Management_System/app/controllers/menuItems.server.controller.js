@@ -14,9 +14,21 @@ var mongoose = require('mongoose'),
 	formidable = require('formidable'),
 	fs = require('fs'),
 	jsreport = require('jsreport'),
-
+	Audit = mongoose.model('Audit'),
 	_ = require('lodash');
 
+function audit(type, data){
+	var _audit = {
+		event: type,
+		details: JSON.stringify(data)
+	};
+	Audit.create(_audit, function(err){
+		if(err){ 
+			console.log('Audit not created for ' + _type);
+			console.log(errorHandler.getErrorMessage(err));
+		}
+	});
+}
 exports.inventoryItems = function(req, res) {
 	var menuItem = req.body;
 	//console.log('****** in the server ready to check inventory ' + req.body.ingredientName);
@@ -118,7 +130,10 @@ exports.createMenuCategory = function(req, res) {
 			}
 				console.dir(category);
 			});
-
+			//Audit functionality
+			var data = req.body.category + ' has been added to menu categories';
+			audit('Menu update', data);
+			//*********************
 			return res.status(200).send({message: "sucess" });
 		}else {
 		return res.status(400).send({message: "The category already exists" });
@@ -147,7 +162,17 @@ exports.updateMenuItem = function(req,res){
         else{
 			if(req.body.itemName.length > 1)
 				var item = req.body.itemName.charAt(0).toUpperCase() + req.body.itemName.slice(1);
-            res.status(200).send({message: 'Menu item successfully updated.'});
+            //Audit ffunctionality
+			var data = req.body.itemName + ' has been updated to: ' + JSON.stringify({
+					name: req.body.updateItemName,
+					price: req.body.price,
+					description: req.body.description,
+					category: req.body.category,
+					ingredients: req.body.ingredients
+				});
+			audit('Menu update', data);
+			//***********************
+			res.status(200).send({message: 'Menu item successfully updated.'});
 
         }
     });
@@ -191,7 +216,11 @@ exports.update = function(req, res) {
         else{
 			if(req.body.itemName.length > 1)
 				var item = req.body.itemName.charAt(0).toUpperCase() + req.body.itemName.slice(1);
-            res.status(200).send({message: item + ' successfully deleted.'});
+			//Audit functionality
+			var data = req.body.itemName + ' has been deleted from Menu';
+			audit('Menu update', data);
+            //********************
+			res.status(200).send({message: item + ' successfully deleted.'});
         }
     });
 	};
@@ -253,7 +282,10 @@ exports.delete = function(req, res) {
 			else{
 						//if(req.body.newCategoryName.length > 1)
 							//var item = req.body.newCategoryName.charAt(0).toUpperCase() + req.body.newCategoryName.slice(1);
-
+					//Audit functionality
+					var data = req.body.oldCategoryName + ' has been updated to ' + req.body.newCategoryName + '. active: ' + req.body.active;
+					audit('Menu update', data);
+					//*******************
 					res.status(200).send({message: 'Successfully updated.'});
 					var categoryNames = {oldCategoryName: req.body.oldCategoryName, newCategoryName: req.body.newCategoryName};
 			}
@@ -271,7 +303,11 @@ exports.delete = function(req, res) {
 					 res.status(400).send({message: 'Menu items were not affected.'});
 			 }
 			 else{
-					 res.status(200).send({message: 'Sucessfully updated the category.'});
+					//Audit functionality
+					var data = numAffected + ' menu items\' categories have been updated to ' + req.body.newCategoryName;
+					audit('Menu update', data);
+					//*******************
+					res.status(200).send({message: 'Sucessfully updated the category.'});
 			 }
 	 });
  };
@@ -283,7 +319,6 @@ exports.deleteMenuCategory = function (req,res){
 		message: errorHandler.getErrorMessage(err)
 	});
 	else if (numAffected < 1){
-
 		/*Display name with a capital letter*/
 		if(req.body.categoryName.length > 1)
 		{
@@ -298,10 +333,14 @@ exports.deleteMenuCategory = function (req,res){
 					message: errorHandler.getErrorMessage(err)
 				});
 				else if (numAffected < 1){
-					res.status(400).send({message: 'Error deleting the menu items in the category ' + req.body.categoryName});
+					res.status(200).send({message: 'Category ' + req.body.categoryName + ' successfully deleted. No menu items were affected.'});
 				}
 
 				else{
+					//Audit functionality
+					var data = req.body.categoryName + ' has been removed';
+					audit('Menu update', data);
+					//********************
 					res.status(200).send({message: 'Successfully deleted category.'});
 			}
 		});
@@ -326,6 +365,8 @@ exports.createMenuItem = function(req, res) {
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
+			var data = JSON.stringify(menuitem) + ' has been added';
+			audit('Menu update', data);
 			res.jsonp(menuitem);
 		}
 	});
@@ -407,7 +448,40 @@ Reporting for menu items
 */
 
 exports.generateSoldReport = function(req,res){
+		Order.find({created: {$gt: req.body.start, $lt: req.body.end}}, function(err, orders){
+			console.log("Before splice:"+orders.length);
+			if(orders.length > 0)
+			{
+					var found = false;
+					var counter =0;
+				
+					for(order in orders)
+					{
+							found = false;
+							for(var j = 0; j != req.body.items.length; j++)
+							{
+								if(order.itemName === req.body.items[j])
+								{
+									found = true;
+									break;
+								}
+							}
 
+							if(!found)
+								orders.splice(counter,1);
+							counter++;
+						}
+
+					console.log("After splice:"+orders.length);
+					//Display orders as a report
+				}
+				else{
+					//output on report that no orders for this time
+				}
+
+
+
+	});
 };
 
 exports.generatePopularReport = function(req,res)
@@ -486,7 +560,7 @@ exports.generatePopularReport = function(req,res)
 
 		for(var i = 0; i != itemNames.length; i++)
 		{
-			itemData.push({name: itemNames[i], y: itemQuantity[i], drilldown: itemNames[i]});
+			itemData.push({id: itemNames[i], data: itemQuantity[i]});
 		}
 
 		var sample = fs.readFileSync(path.resolve(__dirname, '../reportTemplates/popular_Items_Template.html'), 'utf8');
@@ -495,65 +569,15 @@ exports.generatePopularReport = function(req,res)
 			//	helpers: 'function mult(a,b){ return a*b; }',//'function total(order){return 10;}'],
 				engine: 'handlebars'},
 			data: {
-				chart: {type: 'column'},
-				title: {text: 'Popular items'},
-				xAxis:{type: 'category'},
-				legend: {enabled: false},
-				plotOptions:{
-					series: {
-						borderWidth: 0,
-						dataLabels:{
-							enabled:true
-						}
-					}
-				},
-				series: [{
-					name:'Menu Items',
-					colorByPoint:true,
-					data:itemData
-				}],
-				drilldown: {
-            series: data
-        }
+				title: 'Popular items',
+				items:itemData
+
 			}
 		}).then(function(out) {
 			//if(err) return res.status(400).send({message: 'Could not render report!'})
 			console.log('in render function');
 			out.stream.pipe(res);
 		});
-
-/*
-		//Read the sample html file for pdf format
-		var sample = fs.readFileSync(path.resolve(__dirname, '../../reportTemplates/sample.html'), 'utf8');
-		//Render PDF with the given details
-		console.log('rendering');
-		var today = new Date();//.getDate();
-
-		var total = 0;
-		for(var j = 0; j < orders.length; j++)
-			{total += orders[j].price * orders[j].quantity;}
-
-
-		jsreport.render({
-			template:{ content: sample,
-				helpers: 'function mult(a,b){ return a*b; }',//'function total(order){return 10;}'],
-				engine: 'handlebars'},
-			data: {
-				title: 'Spending History for user ' + user.displayName,
-				description: 'Generated by finance',
-				footer: 'Resolve Cafeteria Management System',
-				date: today.getDate() + '-' + (today.getMonth()+1)+ '-' + today.getFullYear(),
-				to: { name: user.displayName, mail: user.email},
-				start: req.body.start,
-				end: req.body.end,
-				items: orders,
-				total: total
-			}
-		}).then(function(out) {
-			//if(err) return res.status(400).send({message: 'Could not render report!'})
-			console.log('in render function');
-			out.stream.pipe(res);
-		});*/
 	});
 };
 /*

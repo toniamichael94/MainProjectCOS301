@@ -176,12 +176,12 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
         //Set theme name
         $scope.setThemeName = function(){
                 console.log("THEME CLIENT");
-                $scope.successFour = $scope.errorFive = null;
+                $scope.successFive = $scope.errorFive = null;
 
                 var reqObj = {name: 'Theme name', value: $scope.themeName};
                 console.log($scope.themeName);var p= $scope.themeName;
                 $http.post('/users/superuserSetThemeName', reqObj).success(function (response) {
-                    $scope.successFive = "Colour scheme changed to "+ response.message;
+                    $scope.successFive = "Colour scheme changed successfully";
 
                 }).error(function (response) {
                     $scope.errorFive = response.message;

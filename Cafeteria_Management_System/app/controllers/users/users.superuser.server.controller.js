@@ -11,11 +11,11 @@ var _ = require('lodash'),
 	Audit = mongoose.model('Audit'),
 	Config = mongoose.model('Config'),
     formidable = require('formidable'),
-    fs = require('fs'),
 	configs = require('../../../config/config'),
 	nodemailer = require('nodemailer'),
-  fs = require('fs');
-function audit(_type, data){
+  fs = require('fs'),
+  fse = require('fs-extra');
+ function audit(_type, data){
 	var _audit = {
 		event: _type,
 		details: JSON.stringify(data)
@@ -313,71 +313,87 @@ exports.setThemeName = function(req, res) {
             return res.status(400).send({
                 message: errorHandler.getErrorMessage(err)
             });
-        } else {
-
-/*
-    if (name == "orange" && row.value=="red") { //users.css is orange, currently using red!!!!!!!!!!!!!!!!!!!!!!
-      //var  stats = fs.lstatSync('public/modules/users/css/orangeUsers.css');
-        console.log('You want orange, curently its red ' );
-        // Is it a directory?
-      //  if (stats.isDirectory()) {
-            // Yes it is
-            fs.rename('public/modules/users/css/orangeUsers.txt', 'public/modules/users/css/tmp.css', function (err) {
-                if (err) console.log('ERROR: ' + err);else console.log("Changed:"  );
-            });
-            fs.rename('public/modules/users/css/users.css', 'public/modules/users/css/redUsers.txt', function (err) {
-                if (err) console.log('ERROR: ' + err);else console.log("Changed:"  );
-            });
-            fs.rename('public/modules/users/css/tmp.css', 'public/modules/users/css/users.css', function (err) {
-                if (err) console.log('ERROR: ' + err);else console.log("Changed:"  );
-            });
-      //  }
-
-
-    }  else if (name == "orange" && row.value=="") { //users.css is orange
-
-            fs.rename('public/modules/users/css/orangeUsers.css', 'public/modules/users/css/users.css', function (err) {
-                if (err) console.log('ERROR: ' + err);else console.log("Changed:"  );
-            });
-    }else  if (name == "red" && row.value=="orange") { //users.css is orange, currently using red!!!!!!!!!!!!!!!!!!!!!!
-        //var  stats = fs.lstatSync('public/modules/users/css/orangeUsers.css');
-
-        // Is it a directory?
-        //  if (stats.isDirectory()) {
-        // Yes it is
-        console.log('You want red, curently its orange ' );
-        fs.rename('public/modules/users/css/redUsers.txt', 'public/modules/users/css/tmp.css', function (err) {
-            if (err) console.log('ERROR: ' + err);else console.log("Changed:"  );
-        });
-        fs.rename('public/modules/users/css/users.css', 'public/modules/users/css/orangeUsers.txt', function (err) {
-            if (err) console.log('ERROR: ' + err);else console.log("Changed:"  );
-        });
-        fs.rename('public/modules/users/css/tmp.css', 'public/modules/users/css/users.css', function (err) {
-            if (err) console.log('ERROR: ' + err);else console.log("Changed:"  );
-        });
-        //  }
-
-
-    } else{ res.status(200).send({message: 'Something went wrong....'});}
-        */  }  return  res.status(200).send({message: row.value});
-    });
-    Config.update({name: 'Theme name'}, {value: req.body.value}, function(err, numAffected){
-        if(err) return res.status(400).send({
-            message: errorHandler.getErrorMessage(err)
-        });
-        else if (numAffected < 1){
-            var config = new Config();
-            config.name = 'Theme name';
-            config.value = req.body.value;
-
-            config.save(function(err){
-                if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
-                res.status(200).send({message: 'Theme has been successfully changed.'});
-            });
         }
-        else{
-            res.status(200).send({message: 'Theme has been successfully changed.'});
+        else
+        {    if(row===null)
+            {
+                row={
+                    value:'orange'
+                }
+            }
+            if (name === 'green' )
+            { //users.css is orange, currently using red!!!!!!!!!!!!!!!!!!!!!!
+                console.log('You want orange, curently users.css contains red ' );
+                fse.copy('public/modules/users/css/greenUsers.txt', 'public/modules/users/css/users.css', function (err) {
+                    if (err) console.log('ERROR: ' + err);
+                    else console.log('Changed:'  );
+                });
+                //public/modules/orders/css/orders.css
+                fse.copy('public/modules/orders/css/greenOrders.txt', 'public/modules/orders/css/orders.css', function (err) {
+                    if (err) console.log('ERROR: ' + err);
+                    else console.log('Changed:'  );
+                });
+            }
+            else if (name === 'orange' )
+            { //users.css is orange, currently using red!!!!!!!!!!!!!!!!!!!!!!
+                console.log('You want orange, curently users.css contains red ' );
+                fse.copy('public/modules/users/css/orangeUsers.txt', 'public/modules/users/css/users.css', function (err) {
+                    if (err) console.log('ERROR: ' + err);
+                    else console.log('Changed:'  );
+                });
+                //public/modules/orders/css/orders.css
+                fse.copy('public/modules/orders/css/orangeOrders.txt', 'public/modules/orders/css/orders.css', function (err) {
+                    if (err) console.log('ERROR: ' + err);
+                    else console.log('Changed:'  );
+                });
+            }
+            else if (name === 'red')
+            {
+                console.log('You want red, curently its orange ' );
+                fse.copy('public/modules/users/css/redUsers.txt', 'public/modules/users/css/users.css', function (err) {
+                    if (err) console.log('ERROR: ' + err);else console.log('Changed:'  );
+                });
+                //public/modules/orders/css/orders.css
+                fse.copy('public/modules/orders/css/redOrders.txt', 'public/modules/orders/css/orders.css', function (err) {
+                    if (err) console.log('ERROR: ' + err);
+                    else console.log('Changed:'  );
+                });
+            }
+            else
+            {
+                console.log('ERROR' );
+            }
+            /*else(name === 'default' && row.value==='green')
+             {
+                 console.log('You want red, curently its orange ' );
+                 fs.rename('public/modules/users/css/users.css', 'public/modules/users/css/greenUsers.txt', function (err) {
+                     if (err) console.log('ERROR: ' + err);else console.log('Changed:'  );
+                 });
+                 fs.rename('public/modules/orders/css/orders.css', 'public/modules/orders/css/greenOrders.txt', function (err) {
+                     if (err) console.log('ERROR: ' + err);
+                     else console.log('Changed:'  );
+                 });
+             }*/
         }
+       Config.update({name: 'Theme name'}, {value: req.body.value}, function(err, numAffected){
+           if(err) return res.status(400).send({
+               message: errorHandler.getErrorMessage(err)
+           });
+           else if (numAffected < 1){
+               var config = new Config();
+               config.name = 'Theme name';
+               config.value = req.body.value;
+
+               config.save(function(err){
+                   if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
+                   return res.status(200).send({message: 'Theme has been successfully changed.'});
+               });
+           }
+           else{
+               return res.status(200).send({message: 'Theme has been successfully changed.'});
+           }
+       });
+       //return res.status(200).send({message: name});
     });
 };
 
@@ -433,7 +449,7 @@ exports.loadEmployees = function(req, res){
  * Last edited by {Semaka Malapane and Antonia Michael}
  */
 exports.getTheme = function(req,res){
-    console.log("get css assets!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    console.log('get css assets!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
     console.log(req);
     Config.findOne({name: 'Theme name'}, function (err, row) {
         if (err) {
