@@ -14,9 +14,21 @@ var mongoose = require('mongoose'),
 	formidable = require('formidable'),
 	fs = require('fs'),
 	jsreport = require('jsreport'),
-
+	Audit = mongoose.model('Audit'),
 	_ = require('lodash');
 
+function audit(type, data){
+	var _audit = {
+		event: type,
+		details: JSON.stringify(data)
+	};
+	Audit.create(_audit, function(err){
+		if(err){ 
+			console.log('Audit not created for ' + _type);
+			console.log(errorHandler.getErrorMessage(err));
+		}
+	});
+}
 exports.inventoryItems = function(req, res) {
 	var menuItem = req.body;
 	//console.log('****** in the server ready to check inventory ' + req.body.ingredientName);
@@ -118,7 +130,10 @@ exports.createMenuCategory = function(req, res) {
 			}
 				console.dir(category);
 			});
-
+			//Audit functionality
+			var data = req.body.category + ' has been added to menu categories';
+			audit('Menu update', data);
+			//*********************
 			return res.status(200).send({message: "sucess" });
 		}else {
 		return res.status(400).send({message: "The category already exists" });
@@ -147,7 +162,17 @@ exports.updateMenuItem = function(req,res){
         else{
 			if(req.body.itemName.length > 1)
 				var item = req.body.itemName.charAt(0).toUpperCase() + req.body.itemName.slice(1);
-            res.status(200).send({message: 'Menu item successfully updated.'});
+            //Audit ffunctionality
+			var data = req.body.itemName + ' has been updated to: ' + JSON.stringify({
+					name: req.body.updateItemName,
+					price: req.body.price,
+					description: req.body.description,
+					category: req.body.category,
+					ingredients: req.body.ingredients
+				});
+			audit('Menu update', data);
+			//***********************
+			res.status(200).send({message: 'Menu item successfully updated.'});
 
         }
     });
@@ -191,7 +216,11 @@ exports.update = function(req, res) {
         else{
 			if(req.body.itemName.length > 1)
 				var item = req.body.itemName.charAt(0).toUpperCase() + req.body.itemName.slice(1);
-            res.status(200).send({message: item + ' successfully deleted.'});
+			//Audit functionality
+			var data = req.body.itemName + ' has been deleted from Menu';
+			audit('Menu update', data);
+            //********************
+			res.status(200).send({message: item + ' successfully deleted.'});
         }
     });
 	};
@@ -253,7 +282,10 @@ exports.delete = function(req, res) {
 			else{
 						//if(req.body.newCategoryName.length > 1)
 							//var item = req.body.newCategoryName.charAt(0).toUpperCase() + req.body.newCategoryName.slice(1);
-
+					//Audit functionality
+					var data = req.body.oldCategoryName + ' has been updated to ' + req.body.newCategoryName + '. active: ' + req.body.active;
+					audit('Menu update', data);
+					//*******************
 					res.status(200).send({message: 'Successfully updated.'});
 					var categoryNames = {oldCategoryName: req.body.oldCategoryName, newCategoryName: req.body.newCategoryName};
 			}
@@ -271,7 +303,11 @@ exports.delete = function(req, res) {
 					 res.status(400).send({message: 'Menu items were not affected.'});
 			 }
 			 else{
-					 res.status(200).send({message: 'Sucessfully updated the category.'});
+					//Audit functionality
+					var data = numAffected + ' menu items\' categories have been updated to ' + req.body.newCategoryName;
+					audit('Menu update', data);
+					//*******************
+					res.status(200).send({message: 'Sucessfully updated the category.'});
 			 }
 	 });
  };
@@ -301,6 +337,10 @@ exports.deleteMenuCategory = function (req,res){
 				}
 
 				else{
+					//Audit functionality
+					var data = req.body.categoryName + ' has been removed';
+					audit('Menu update', data);
+					//********************
 					res.status(200).send({message: 'Successfully deleted category.'});
 			}
 		});
@@ -325,6 +365,8 @@ exports.createMenuItem = function(req, res) {
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
+			var data = JSON.stringify(menuitem) + ' has been added';
+			audit('Menu update', data);
 			res.jsonp(menuitem);
 		}
 	});

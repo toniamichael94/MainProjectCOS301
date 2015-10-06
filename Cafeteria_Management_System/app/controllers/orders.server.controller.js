@@ -20,10 +20,7 @@ function audit(_type, data){
 	console.log(data);
 	var _audit = {
 		event: _type,
-		details: JSON.stringify({
-			username: data[0].username,
-			orderNumber: data[0].orderNumber
-		})
+		details: JSON.stringify(data)
 	};
 	Audit.create(_audit, function(err){
 		if(err){
@@ -115,6 +112,10 @@ function audit(_type, data){
 		if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
 		console.log('Num Affected ' + numAffected);
 		sendEmail(req.body.username, req.body.orderNumber);
+		//Audit functionality
+		var data = 'Order ' + req.body.orderNumber + ' has been marked as ready';
+		audit('Cashier action', data);
+		//********************
 		res.status(200).send({message: 'order marked as ready'});
 	});
 
@@ -143,12 +144,16 @@ exports.markAsPaid = function(req, res){
 
 				user.currentBalance = user.currentBalance + total;
 				user.save(function(err, user){
-				if(err){ console.log('Error3' + err); return res.status(400).send({message: 'Order not marked as paid'});}
-						Order.update({orderNumber: req.body.orderNumber}, {status: 'closed'}, { multi: true }, function(err, numAffected){
-							if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
-							//console.log(numAffected);
-							res.status(200).send({message: 'order marked as paid/closed'});
-						});
+					if(err){ console.log('Error3' + err); return res.status(400).send({message: 'Order not marked as paid'});}
+					Order.update({orderNumber: req.body.orderNumber}, {status: 'closed'}, { multi: true }, function(err, numAffected){
+						if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
+						//console.log(numAffected);
+						//Audit functionality
+						var data = 'Order ' + req.body.orderNumber + ' has been marked as paid. ' + user.username + ' has been debited R' + total;
+						audit('Cashier action', data);
+						//********************
+						res.status(200).send({message: 'order marked as paid/closed'});
+					});
 				});
 			});
 		});
@@ -157,6 +162,10 @@ exports.markAsPaid = function(req, res){
 		Order.update({orderNumber: req.body.orderNumber}, {status: 'closed'}, { multi: true }, function(err, numAffected){
 			if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
 			console.log(numAffected);
+			//Audit functionality
+			var data = 'Order ' + req.body.orderNumber + ' has been marked as paid.';
+			audit('Cashier action', data);
+			//********************
 			res.status(200).send({message: 'order marked as paid/closed'});
 		});
 	}

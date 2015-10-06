@@ -31,7 +31,8 @@ module.exports = function(app) {
     app.route('/loadEmployees').get(users.loadEmployees);
 	
 	//Setting up finance API
-	app.route('/users/finance/generateReport').post(users.generateReport);
+	app.route('/users/finance/generateReportUser').post(users.generateReportUser);
+	app.route('/users/finance/generateReportAll').post(users.generateReportAll);
 
 	// Setting up the users profile api
 	app.route('/users/me').get(users.me);
