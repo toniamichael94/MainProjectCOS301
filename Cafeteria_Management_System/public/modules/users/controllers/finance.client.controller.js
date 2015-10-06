@@ -71,7 +71,7 @@ angular.module('users').controller('FinanceController', ['$scope', '$http', '$lo
 				var file = new Blob([response], {type: 'application/pdf'});
 				var fileURL = URL.createObjectURL(file);
 				
-				var fileName = 'test.pdf';
+				var fileName = 'invoice.pdf';
 				var a = document.createElement('a');
 				document.body.appendChild(a);
 				a.setAttribute('style', 'display: none');
@@ -87,11 +87,22 @@ angular.module('users').controller('FinanceController', ['$scope', '$http', '$lo
 		};
 		
 		$scope.generateReportAll = function(){
-			$http.post('users/finance/generateReportAll').success(function(response){
-				console.log(response);
-			}).error(function(response){
+			$http.post('users/finance/generateReportAll',{start: $scope.startDateTwo, end: $scope.endDateTwo},{responseType:'arraybuffer'}).success(function(response){
+				var file = new Blob([response], {type: 'application/pdf'});
+				var fileURL = URL.createObjectURL(file);
 				
-				console.log(response);
+				var fileName = 'report.pdf';
+				var a = document.createElement('a');
+				document.body.appendChild(a);
+				a.setAttribute('style', 'display: none');
+
+				a.href =  fileURL;
+                a.download = fileName;
+                a.click();
+				$scope.successTwo = 'Report generated';
+			}).error(function(response){
+				$scope.successTwo = '';
+				$scope.errorTwo = 'Could not generate report';
 			})
 		};
 
