@@ -4,19 +4,18 @@
   "description": "Full-Stack JavaScript with MongoDB, Express, AngularJS, and Node.js",
   "dependencies": {
     "bootstrap": "~3",
-    "angular": "~1.2.29",
+    "angular": "~1.2",
     "angular-resource": "~1.2",
     "angular-mocks": "~1.2",
-    "angular-carousel": "~0.3.13",
     "angular-cookies": "~1.2",
     "angular-animate": "~1.2",
     "angular-touch": "~1.2",
     "angular-sanitize": "~1.2",
-    "angular-bootstrap": "~0.12.0",
+    "angular-bootstrap": "~0.11.2",
     "angular-ui-utils": "~0.1.1",
     "angular-ui-router": "~0.2.11",
     "bootbox": "~4.4.0",
     "jquery": "~2.1.4",
-	"angular-loading-bar": "~0.8.0"
+"angular-loading-bar":"~0.8.0"
   }
 }
