@@ -350,7 +350,7 @@ exports.setThemeName = function(req, res) {
                      else console.log('Changed:'  );
                  });
              }
-            if (name === 'orange' && row.value==='green')
+            else if (name === 'orange' && row.value==='green')
             { //users.css is orange, currently using red!!!!!!!!!!!!!!!!!!!!!!
                 console.log('You want orange, curently users.css contains red ' );
                 fs.rename('public/modules/users/css/orangeUsers.txt', 'public/modules/users/css/tmp.css', function (err) {
@@ -379,7 +379,7 @@ exports.setThemeName = function(req, res) {
                     else console.log('Changed:'  );
                 });
             }
-            if (name === 'green' && row.value==='red')
+            else if (name === 'green' && row.value==='red')
             { //users.css is orange, currently using red!!!!!!!!!!!!!!!!!!!!!!
                 console.log('You want orange, curently users.css contains red ' );
                 fs.rename('public/modules/users/css/greenUsers.txt', 'public/modules/users/css/tmp.css', function (err) {
@@ -408,7 +408,7 @@ exports.setThemeName = function(req, res) {
                     else console.log('Changed:'  );
                 });
             }
-            if (name === 'green' && row.value==='orange')
+            else if (name === 'green' && row.value==='orange')
             { //users.css is orange, currently using red!!!!!!!!!!!!!!!!!!!!!!
                 console.log('You want orange, curently users.css contains red ' );
                 fs.rename('public/modules/users/css/greenUsers.txt', 'public/modules/users/css/tmp.css', function (err) {
@@ -437,7 +437,7 @@ exports.setThemeName = function(req, res) {
                     else console.log('Changed:'  );
                 });
             }
-             if (name === 'red' && row.value==='orange')
+             else if (name === 'red' && row.value==='orange')
              {
                 console.log('You want red, curently its orange ' );
                 fs.rename('public/modules/users/css/redUsers.txt', 'public/modules/users/css/tmp.css', function (err) {
@@ -463,7 +463,7 @@ exports.setThemeName = function(req, res) {
                      else console.log('Changed:'  );
                  });
              }
-            if (name === 'red' && row.value==='green')
+            else if (name === 'red' && row.value==='green')
             {
                 console.log('You want red, curently its orange ' );
                 fs.rename('public/modules/users/css/redUsers.txt', 'public/modules/users/css/tmp.css', function (err) {
@@ -488,6 +488,10 @@ exports.setThemeName = function(req, res) {
                     if (err) console.log('ERROR: ' + err);
                     else console.log('Changed:'  );
                 });
+            }
+            else
+            {
+                console.log('You want red, curently its orange ' );
             }
             /*else(name === 'default' && row.value==='green')
              {
