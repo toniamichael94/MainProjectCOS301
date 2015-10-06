@@ -5,11 +5,11 @@ angular.module('core').controller('HeaderController', ['$scope', '$rootScope', '
 		$scope.authentication = Authentication;
 		$scope.isCollapsed = false;
 		$scope.menu = Menus.getMenu('topbar');
-		
+
 		$scope.onMyPlateNum = 0;
 		if($cookies.plate)
 			$scope.onMyPlateNum = JSON.parse($cookies.plate).length;
-		
+
 		$rootScope.$on('plateUpdated',  function(){
 			if($cookies.plate)
 				$scope.onMyPlateNum = JSON.parse($cookies.plate).length;

@@ -64,16 +64,16 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 				};
 
         //Change user's employee ID
-		$scope.currentEmp_id;
+		//$scope.currentEmp_id;
         $scope.changeEmployeeID = function(isValid) {
             if (isValid) {
 				console.log($scope.currentEmp_id);
                 $scope.successOne = $scope.errorOne = null;
                 var reqObj = {currentUserID: $scope.currentEmp_id, newUserID: $scope.newEmp_id};
                 $scope.r = $window.confirm("Are you sure?");
-				
+
                 if($scope.r === true) {
-					
+
                     $http.post('/users/superuserChangeEmployeeID', reqObj).success(function (response) {
                         // If successful show success message and clear form
                         $scope.successOne = response.message;
@@ -135,7 +135,27 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 
         //Set system limit
 		$scope.setSystemWideLimit = function(isValid){
-			if(isValid){
+            if(isValid){
+                $scope.success = $scope.error = null;
+                $scope.successTwo = $scope.errorTwo = null;
+
+                var reqObj = {name: 'System wide limit', value: $scope.limit};
+                //$scope.r = $window.confirm("Are you sure?");
+
+                bootbox.alert("Hello world!");
+                if($scope.r === true) {
+                    //console.log($scope.limit);
+                    $http.post('users/superuserSetSystemWideLimit', reqObj).success(function (response) {
+                        $scope.successTwo = response.message;
+                    }).error(function (response) {
+                        $scope.errorTwo = response.message;
+                    });
+                }
+                else{
+                    $scope.limit = null;
+                }
+            }
+            /*if(isValid){
 				$scope.success = $scope.error = null;
 				$scope.successTwo = $scope.errorTwo = null;
 
@@ -153,7 +173,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
                 else{
                     $scope.limit = null;
                 }
-			}
+			}*/
 		};
 
 		//Set canteen name
@@ -181,9 +201,10 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
                 var reqObj = {name: 'Theme name', value: $scope.themeName};
                 console.log($scope.themeName);var p= $scope.themeName;
                 $http.post('/users/superuserSetThemeName', reqObj).success(function (response) {
-                    $scope.successFive = "Colour scheme changed to "+ response.message;
+                    $scope.successFive = "Colour scheme changed successfully";
 
                 }).error(function (response) {
+                    $scope.r = $window.alert("Invalid theme! Choose between red, orange, green, blue and default");
                     $scope.errorFive = response.message;
                     console.log('error ' + response.message);
                 });
@@ -225,7 +246,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 				$scope.error = response.message;
 			});
 		};
-		
+
 		//Load audits
 		$scope.audits = [];
 		$scope.current_auditType;
@@ -235,7 +256,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 			if(isValid){
 				var toDate = new Date($scope.current_toDate);
 				toDate.setHours(23,59,59);
-				
+
 				$http.post('/users/superuserGetAudits', {type: $scope.current_auditType, from:$scope.current_fromDate, to: toDate}).success(function(response){
 					$scope.audits = response.message;
 				}).error(function(response){
