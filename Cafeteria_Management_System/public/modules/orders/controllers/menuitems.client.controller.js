@@ -870,11 +870,12 @@ $scope.searchBarDynamic = function(row){
 		};
 
 		$scope.addToPlate = function(itemName){
+			itemName = itemName.toLowerCase();
 			var _price;
 			var _ingredients = [];
 			var _quantities = [];
 			for(var j = 0; j < $scope.menuItems.length; j++){
-				if(itemName === $scope.menuItems[j].itemName){
+				if(itemName === $scope.menuItems[j].itemName.toLowerCase()){
 					_price = $scope.menuItems[j].price;
 					_ingredients = $scope.menuItems[j].ingredients.ingredients;
 					_quantities = $scope.menuItems[j].ingredients.quantities;
