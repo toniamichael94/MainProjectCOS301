@@ -7,7 +7,7 @@
 		</script>
 
 		<div  data-ng-controller="MenuItemsController">
-			<h4>Statistics<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
+			<h4>Menu Statistics<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
 				<hr>
 				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alerts[1].msg}}</alert>
 		</div>
@@ -15,7 +15,7 @@
 
 	<!--Most popular items-->
 	<div class="list-group clearfix">
-	<a href="#" class="list-group-item disabled">Display most popular menu items</a>
+	<a href="#" class="list-group-item disabled">Display sales of menu items</a>
 		<div class="list-group-item clearfix">
 			<!--Alert box -->
 			<script type="text/ng-template" id="alert.html">
@@ -32,16 +32,14 @@
 			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2"  data-ng-controller="MenuItemsController">
 				<form name="popularReportForm" data-ng-submit="generatePopularReport()" class="signin form-horizontal" autocomplete="off">
 					<fieldset>
-						<div class="form-group">
-							<label for="menuCatagory">Number of menu items to display</label>
-							<input type="number" min = 0 id="numMenuItems" name="numPopularMenuItems" class="form-control" data-ng-model="numMenuItems">
+						<div class="form-group">					
 							<label for="startDate"> From: </label>
 							<input type="date" id="startDate" name="startDate" class="form-control" data-ng-model="startDate"/>
 							<label for="endDate"> To: </label>
 							<input type="date" id="endDate" name="endDate" class="form-control" data-ng-model="endDate"/>
 						</div>  <div class=" text-center form-group">
 							<button type = "submit" style="width:200px" class = "btn btn-large btn-primary">Submit</button>
-							<!-- Show error message or sucess message for adding a menu category--></div>
+							<!-- Show error message or sucess message for generating report--></div>
 							<div data-ng-show="success" class="text-center text-success">
 								<strong>Report successfully generated.</strong>
 							</div>
@@ -74,10 +72,10 @@
 		</div>
 			<!--Alert box end-->
 		<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2"  data-ng-controller="MenuItemsController">
-			<form name="popularReportForm" data-ng-submit="generatePopularReport()" class="signin form-horizontal" autocomplete="off">
+			<form name="popularReportForm" data-ng-submit="generateSoldReport()" class="signin form-horizontal" autocomplete="off">
 				<fieldset>
 					<div class="form-group">
-						<label for="menuCatagory" ng-init = "loadAllMenuItems()">Menu items</label>
+						<label for="menuItems" ng-init = "loadAllMenuItems()">Menu items</label>
 
 						<div data-ng-model = 'menuItems[$index]'>
 						<select data-ng-model = 'soldItem' class="form-control"/>
@@ -98,7 +96,7 @@
 						<label for="endDate"> To: </label>
 						<input type="date" id="endDate" name="endDate" class="form-control" data-ng-model="endDateSold"/>
 					</div>  <div class=" text-center form-group">
-						<button type = "submit" style="width:200px" class = "btn btn-large btn-primary" data-ng-click="generateSoldReport()">Submit</button>
+						<button type = "submit" style="width:200px" class = "btn btn-large btn-primary">Submit</button>
 						<!-- Show error or sucess message--></div>
 						<div data-ng-show="success" class="text-center text-success">
 							<strong>Report successfully generated.</strong>

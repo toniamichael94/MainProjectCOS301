@@ -35,6 +35,10 @@ var OrderSchema = new Schema({
 		type: Number,
 		required: 'Please fill in quantity'
 	},
+	category:{
+		type: String,
+		required: 'No category for menu item.'
+	},
     preferences: {
         type: String,
         default: 'none'

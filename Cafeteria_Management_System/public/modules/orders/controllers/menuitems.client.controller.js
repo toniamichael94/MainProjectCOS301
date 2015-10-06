@@ -849,7 +849,7 @@ $scope.searchBarDynamic = function(row){
 		/*This funtion generates a report that shows the most popular menu itmes over
 			a period of time*/
 		$scope.generatePopularReport = function(){
-			$http.post('orders/generatePopularReport',{numItems: $scope.numMenuItems, start: $scope.startDate, end: $scope.endDate},{responseType:'arraybuffer'}).success(function(response){
+			$http.post('orders/generatePopularReport',{start: $scope.startDate, end: $scope.endDate},{responseType:'arraybuffer'}).success(function(response){
 
 
 			 var file = new Blob([response], {type: 'application/pdf'});
@@ -872,11 +872,15 @@ $scope.searchBarDynamic = function(row){
 		$scope.addToPlate = function(itemName){
 			itemName = itemName.toLowerCase();
 			var _price;
+			var _category;
 			var _ingredients = [];
 			var _quantities = [];
 			for(var j = 0; j < $scope.menuItems.length; j++){
+				console.log("itemName:"+itemName+ " MenuItems:"+$scope.menuItems[j].itemName);
+				console.log("CategoryMenuItems:"+$scope.menuItems[j].category);
 				if(itemName === $scope.menuItems[j].itemName.toLowerCase()){
 					_price = $scope.menuItems[j].price;
+					_category = $scope.menuItems[j].category;
 					_ingredients = $scope.menuItems[j].ingredients.ingredients;
 					_quantities = $scope.menuItems[j].ingredients.quantities;
 					break;
@@ -887,6 +891,7 @@ $scope.searchBarDynamic = function(row){
 				price: _price,
 				ingredients: _ingredients,
 				quantities: _quantities,
+				category: _category,
 				quantity: 1
 			};
 
