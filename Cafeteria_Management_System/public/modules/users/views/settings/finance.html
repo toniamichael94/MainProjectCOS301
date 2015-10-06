@@ -57,4 +57,22 @@
         </form>
 
    </div>
+   <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
+
+        <form name="userForm" data-ng-submit="generateReportAll()" class="signin form-horizontal" autocomplete="on">
+            <fieldset>
+
+                <div class="text-center form-group">
+                    <button type="submit" class="btn btn-large btn-primary">Display Bill</button>
+                </div>
+                <div data-ng-show="success" data-ng-bind="success" class="text-center text-success">
+                    <strong data-ng-bind="success"></strong>
+                </div>
+                <div data-ng-show="error" class="text-center text-danger">
+                    <strong data-ng-bind="error"></strong>
+                </div>
+            </fieldset>
+        </form>
+
+   </div>
 </section>
