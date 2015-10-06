@@ -65,9 +65,8 @@ angular.module('users').controller('FinanceController', ['$scope', '$http', '$lo
 			}
 			var toDate = new Date($scope.current_toDate);
 			toDate.setHours(23,59,59);
-			$scope.success = 'Please wait...';
 			
-			$http.post('users/finance/generateReportAll',{username: $scope.username, start: $scope.startDate, end: $scope.endDate},{responseType:'arraybuffer'}).success(function(response){
+			$http.post('users/finance/generateReportUser',{username: $scope.username, start: $scope.startDate, end: $scope.endDate},{responseType:'arraybuffer'}).success(function(response){
 				
 				var file = new Blob([response], {type: 'application/pdf'});
 				var fileURL = URL.createObjectURL(file);
@@ -85,6 +84,15 @@ angular.module('users').controller('FinanceController', ['$scope', '$http', '$lo
 				$scope.success = '';
 				$scope.error = 'Could not generate report';
 			});
+		};
+		
+		$scope.generateReportAll = function(){
+			$http.post('users/finance/generateReportAll').success(function(response){
+				console.log(response);
+			}).error(function(response){
+				
+				console.log(response);
+			})
 		};
 
         $scope.checkUser = function(){

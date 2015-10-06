@@ -63,5 +63,13 @@ exports.generateReportUser = function(req, res){
 };
 
 exports.generateReportAll = function(req, res){
-	
+	/*User.find({}, function(err, users){
+		if(err) return res.status(400);
+		var result = [], resultCount = 0;*/
+		Order.aggregate([{ $group: {_id: '$username', total: {$sum: {$multiply: ['$price', '$quantity']}}}}
+		], function(err, docs){
+			console.log(docs);
+			res.status(200).send({message: docs});
+		});
+	/*});*/
 };
