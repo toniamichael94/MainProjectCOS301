@@ -11,11 +11,11 @@ var _ = require('lodash'),
 	Audit = mongoose.model('Audit'),
 	Config = mongoose.model('Config'),
     formidable = require('formidable'),
-    fs = require('fs'),
 	configs = require('../../../config/config'),
 	nodemailer = require('nodemailer'),
-  fs = require('fs');
-function audit(_type, data){
+  fs = require('fs'),
+  fse = require('fs-extra');
+ function audit(_type, data){
 	var _audit = {
 		event: _type,
 		details: JSON.stringify(data)
@@ -321,89 +321,25 @@ exports.setThemeName = function(req, res) {
                     value:'orange'
                 }
             }
-             if (name === 'orange' && row.value==='red')
+            if (name === 'orange' && row.value==='red')
              { //users.css is orange, currently using red!!!!!!!!!!!!!!!!!!!!!!
-                console.log('You want orange, curently users.css contains red ' );
-                    fs.rename('public/modules/users/css/orangeUsers.txt', 'public/modules/users/css/tmp.css', function (err) {
-                        if (err) console.log('ERROR: ' + err);
-                        else console.log('Changed:'  );
-                    });
-                    fs.rename('public/modules/users/css/users.css', 'public/modules/users/css/redUsers.txt', function (err) {
-                        if (err) console.log('ERROR: ' + err);
-                        else console.log('Changed:'  );
-                    });
-                    fs.rename('public/modules/users/css/tmp.css', 'public/modules/users/css/users.css', function (err) {
-                        if (err) console.log('ERROR: ' + err);
-                        else console.log('Changed:'  );
-                    });
+                 fse.copy('public/modules/users/css/orangeUsers.txt', 'public/modules/users/css/users.css', function (err) {
+                     if (err) console.log('ERROR: ' + err);
+                     else console.log('Changed:'  );
+                 });
                  //public/modules/orders/css/orders.css
-                 fs.rename('public/modules/orders/css/orangeOrders.txt', 'public/modules/orders/css/tmp2.css', function (err) {
-                     if (err) console.log('ERROR: ' + err);
-                     else console.log('Changed:'  );
-                 });
-                 fs.rename('public/modules/orders/css/orders.css', 'public/modules/orders/css/redOrders.txt', function (err) {
-                     if (err) console.log('ERROR: ' + err);
-                     else console.log('Changed:'  );
-                 });
-                 fs.rename('public/modules/orders/css/tmp2.css', 'public/modules/orders/css/orders.css', function (err) {
+                 fse.copy('public/modules/orders/css/orangeOrders.txt', 'public/modules/orders/css/orders.css', function (err) {
                      if (err) console.log('ERROR: ' + err);
                      else console.log('Changed:'  );
                  });
              }
-            else if (name === 'orange' && row.value==='green')
-            { //users.css is orange, currently using red!!!!!!!!!!!!!!!!!!!!!!
-                console.log('You want orange, curently users.css contains red ' );
-                fs.rename('public/modules/users/css/orangeUsers.txt', 'public/modules/users/css/tmp.css', function (err) {
+             else if (name === 'green' && row.value==='red')
+            {
+                fse.copy('public/modules/users/css/greenUsers.txt', 'public/modules/users/css/users.css', function (err) {
                     if (err) console.log('ERROR: ' + err);
                     else console.log('Changed:'  );
                 });
-                fs.rename('public/modules/users/css/users.css', 'public/modules/users/css/greenUsers.txt', function (err) {
-                    if (err) console.log('ERROR: ' + err);
-                    else console.log('Changed:'  );
-                });
-                fs.rename('public/modules/users/css/tmp.css', 'public/modules/users/css/users.css', function (err) {
-                    if (err) console.log('ERROR: ' + err);
-                    else console.log('Changed:'  );
-                });
-                //public/modules/orders/css/orders.css
-                fs.rename('public/modules/orders/css/orangeOrders.txt', 'public/modules/orders/css/tmp2.css', function (err) {
-                    if (err) console.log('ERROR: ' + err);
-                    else console.log('Changed:'  );
-                });
-                fs.rename('public/modules/orders/css/orders.css', 'public/modules/orders/css/greenOrders.txt', function (err) {
-                    if (err) console.log('ERROR: ' + err);
-                    else console.log('Changed:'  );
-                });
-                fs.rename('public/modules/orders/css/tmp2.css', 'public/modules/orders/css/orders.css', function (err) {
-                    if (err) console.log('ERROR: ' + err);
-                    else console.log('Changed:'  );
-                });
-            }
-            else if (name === 'green' && row.value==='red')
-            { //users.css is orange, currently using red!!!!!!!!!!!!!!!!!!!!!!
-                console.log('You want orange, curently users.css contains red ' );
-                fs.rename('public/modules/users/css/greenUsers.txt', 'public/modules/users/css/tmp.css', function (err) {
-                    if (err) console.log('ERROR: ' + err);
-                    else console.log('Changed:'  );
-                });
-                fs.rename('public/modules/users/css/users.css', 'public/modules/users/css/redUsers.txt', function (err) {
-                    if (err) console.log('ERROR: ' + err);
-                    else console.log('Changed:'  );
-                });
-                fs.rename('public/modules/users/css/tmp.css', 'public/modules/users/css/users.css', function (err) {
-                    if (err) console.log('ERROR: ' + err);
-                    else console.log('Changed:'  );
-                });
-                //public/modules/orders/css/orders.css
-                fs.rename('public/modules/orders/css/greenOrders.txt', 'public/modules/orders/css/tmp2.css', function (err) {
-                    if (err) console.log('ERROR: ' + err);
-                    else console.log('Changed:'  );
-                });
-                fs.rename('public/modules/orders/css/orders.css', 'public/modules/orders/css/redOrders.txt', function (err) {
-                    if (err) console.log('ERROR: ' + err);
-                    else console.log('Changed:'  );
-                });
-                fs.rename('public/modules/orders/css/tmp2.css', 'public/modules/orders/css/orders.css', function (err) {
+                fse.copy('public/modules/orders/css/greenOrders.txt', 'public/modules/orders/css/orders.css', function (err) {
                     if (err) console.log('ERROR: ' + err);
                     else console.log('Changed:'  );
                 });
@@ -411,28 +347,25 @@ exports.setThemeName = function(req, res) {
             else if (name === 'green' && row.value==='orange')
             { //users.css is orange, currently using red!!!!!!!!!!!!!!!!!!!!!!
                 console.log('You want orange, curently users.css contains red ' );
-                fs.rename('public/modules/users/css/greenUsers.txt', 'public/modules/users/css/tmp.css', function (err) {
-                    if (err) console.log('ERROR: ' + err);
-                    else console.log('Changed:'  );
-                });
-                fs.rename('public/modules/users/css/users.css', 'public/modules/users/css/orangeUsers.txt', function (err) {
-                    if (err) console.log('ERROR: ' + err);
-                    else console.log('Changed:'  );
-                });
-                fs.rename('public/modules/users/css/tmp.css', 'public/modules/users/css/users.css', function (err) {
+                fse.copy('public/modules/users/css/greenUsers.txt', 'public/modules/users/css/users.css', function (err) {
                     if (err) console.log('ERROR: ' + err);
                     else console.log('Changed:'  );
                 });
                 //public/modules/orders/css/orders.css
-                fs.rename('public/modules/orders/css/greenOrders.txt', 'public/modules/orders/css/tmp2.css', function (err) {
+                fse.copy('public/modules/orders/css/greenOrders.txt', 'public/modules/orders/css/orders.css', function (err) {
                     if (err) console.log('ERROR: ' + err);
                     else console.log('Changed:'  );
                 });
-                fs.rename('public/modules/orders/css/orders.css', 'public/modules/orders/css/orangeOrders.txt', function (err) {
+            }
+            else if (name === 'orange' && row.value==='green')
+            { //users.css is orange, currently using red!!!!!!!!!!!!!!!!!!!!!!
+                console.log('You want orange, curently users.css contains red ' );
+                fse.copy('public/modules/users/css/orangeUsers.txt', 'public/modules/users/css/users.css', function (err) {
                     if (err) console.log('ERROR: ' + err);
                     else console.log('Changed:'  );
                 });
-                fs.rename('public/modules/orders/css/tmp2.css', 'public/modules/orders/css/orders.css', function (err) {
+                //public/modules/orders/css/orders.css
+                fse.copy('public/modules/orders/css/orangeOrders.txt', 'public/modules/orders/css/orders.css', function (err) {
                     if (err) console.log('ERROR: ' + err);
                     else console.log('Changed:'  );
                 });
@@ -440,25 +373,11 @@ exports.setThemeName = function(req, res) {
              else if (name === 'red' && row.value==='orange')
              {
                 console.log('You want red, curently its orange ' );
-                fs.rename('public/modules/users/css/redUsers.txt', 'public/modules/users/css/tmp.css', function (err) {
-                    if (err) console.log('ERROR: ' + err);else console.log('Changed:'  );
-                });
-                fs.rename('public/modules/users/css/users.css', 'public/modules/users/css/orangeUsers.txt', function (err) {
-                    if (err) console.log('ERROR: ' + err);else console.log('Changed:'  );
-                });
-                fs.rename('public/modules/users/css/tmp.css', 'public/modules/users/css/users.css', function (err) {
+                fse.copy('public/modules/users/css/redUsers.txt', 'public/modules/users/css/users.css', function (err) {
                     if (err) console.log('ERROR: ' + err);else console.log('Changed:'  );
                 });
                  //public/modules/orders/css/orders.css
-                 fs.rename('public/modules/orders/css/redOrders.txt', 'public/modules/orders/css/tmp2.css', function (err) {
-                     if (err) console.log('ERROR: ' + err);
-                     else console.log('Changed:'  );
-                 });
-                 fs.rename('public/modules/orders/css/orders.css', 'public/modules/orders/css/orangeOrders.txt', function (err) {
-                     if (err) console.log('ERROR: ' + err);
-                     else console.log('Changed:'  );
-                 });
-                 fs.rename('public/modules/orders/css/tmp2.css', 'public/modules/orders/css/orders.css', function (err) {
+                 fse.copy('public/modules/orders/css/redOrders.txt', 'public/modules/orders/css/orders.css', function (err) {
                      if (err) console.log('ERROR: ' + err);
                      else console.log('Changed:'  );
                  });
@@ -466,25 +385,11 @@ exports.setThemeName = function(req, res) {
             else if (name === 'red' && row.value==='green')
             {
                 console.log('You want red, curently its orange ' );
-                fs.rename('public/modules/users/css/redUsers.txt', 'public/modules/users/css/tmp.css', function (err) {
-                    if (err) console.log('ERROR: ' + err);else console.log('Changed:'  );
-                });
-                fs.rename('public/modules/users/css/users.css', 'public/modules/users/css/greenUsers.txt', function (err) {
-                    if (err) console.log('ERROR: ' + err);else console.log('Changed:'  );
-                });
-                fs.rename('public/modules/users/css/tmp.css', 'public/modules/users/css/users.css', function (err) {
+                fse.copy('public/modules/users/css/redUsers.txt', 'public/modules/users/css/users.css', function (err) {
                     if (err) console.log('ERROR: ' + err);else console.log('Changed:'  );
                 });
                 //public/modules/orders/css/orders.css
-                fs.rename('public/modules/orders/css/redOrders.txt', 'public/modules/orders/css/tmp2.css', function (err) {
-                    if (err) console.log('ERROR: ' + err);
-                    else console.log('Changed:'  );
-                });
-                fs.rename('public/modules/orders/css/orders.css', 'public/modules/orders/css/greenOrders.txt', function (err) {
-                    if (err) console.log('ERROR: ' + err);
-                    else console.log('Changed:'  );
-                });
-                fs.rename('public/modules/orders/css/tmp2.css', 'public/modules/orders/css/orders.css', function (err) {
+                fse.copy('public/modules/orders/css/redOrders.txt', 'public/modules/orders/css/orders.css', function (err) {
                     if (err) console.log('ERROR: ' + err);
                     else console.log('Changed:'  );
                 });

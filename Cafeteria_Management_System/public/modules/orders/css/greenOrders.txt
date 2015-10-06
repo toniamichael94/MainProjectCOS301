@@ -26,14 +26,14 @@
 }
 
 .btn-primary {
-    background: #FF9100;
+    background: green;
     color: #ffffff;
 }
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
     background: #787878;
 }
 .btn-primary:active, .btn-primary.active {
-    background: #FF9100;
+    background: green;
     box-shadow: none;
 }
 
@@ -76,10 +76,10 @@
 .heading { background-color: #E8E8E8  ; }
 
 /*navbar */
-.navbar-inverse { background-color: red}
+.navbar-inverse { background-color: green}
 .navbar-inverse .navbar-nav>.active>a:hover,.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus { background-color: #787878}
 .navbar-inverse .navbar-nav>.active>a,.navbar-inverse .navbar-nav>.open>a,.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover,.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus { background-color: #787878}
-.dropdown-menu { background-color: red}
+.dropdown-menu { background-color: green}
 .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus { background-color: #787878}
 .navbar-inverse { background-image: none; }
 .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus { background-image: none; }
