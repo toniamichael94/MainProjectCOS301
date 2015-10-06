@@ -91,8 +91,13 @@
                     </li>
 					<!--View statistics-->
 					<li data-ng-show="authentication.user.roles[0]=== 'cafeteriaManager'">
-						<a href = "/#!/statistics">Statistics</a>
+						<a href = "/#!/menuItemsStatistics">Menu items statistics</a>
 					</li>
+
+					<li data-ng-show="authentication.user.roles[0]=== 'cafeteriaManager'">
+						<a href = "/#!/inventoryStatistics">Inventory statistics</a>
+					</li>
+
                     <li data-ng-show="authentication.user.roles[0] === 'cashier'">
                         <a href="/#!/cashier"> Process Orders </a>
                     </li>

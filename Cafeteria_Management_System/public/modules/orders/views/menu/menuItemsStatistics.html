@@ -33,7 +33,7 @@
 				<form name="popularReportForm" data-ng-submit="generatePopularReport()" class="signin form-horizontal" autocomplete="off">
 					<fieldset>
 						<div class="form-group">
-							<label for="menuCatagory">Number of menu items</label>
+							<label for="menuCatagory">Number of menu items to display</label>
 							<input type="number" min = 0 id="numMenuItems" name="numPopularMenuItems" class="form-control" data-ng-model="numMenuItems">
 							<label for="startDate"> From: </label>
 							<input type="date" id="startDate" name="startDate" class="form-control" data-ng-model="startDate"/>
@@ -57,15 +57,9 @@
 	</div>
 
 <!--Selected items-->
-	<div  data-ng-controller="MenuItemsController">
-		<h4>Statistics<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
-			<hr>
-			<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alerts[1].msg}}</alert>
-	</div>
-<!--END ALERT BOX -->
 
 <div class="list-group clearfix">
-<a href="#" class="list-group-item disabled">Items bought over time</a>
+<a href="#" class="list-group-item disabled">Compare menu items bought over time</a>
 	<div class="list-group-item clearfix">
 		<!--Alert box -->
 		<script type="text/ng-template" id="alert.html">

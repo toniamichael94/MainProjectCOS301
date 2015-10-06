@@ -23,7 +23,7 @@ function audit(type, data){
 		details: JSON.stringify(data)
 	};
 	Audit.create(_audit, function(err){
-		if(err){ 
+		if(err){
 			console.log('Audit not created for ' + _type);
 			console.log(errorHandler.getErrorMessage(err));
 		}
@@ -454,8 +454,8 @@ exports.generateSoldReport = function(req,res){
 			{
 					var found = false;
 					var counter =0;
-				
-					for(order in orders)
+
+					for(var order in orders)
 					{
 							found = false;
 							for(var j = 0; j != req.body.items.length; j++)
@@ -476,7 +476,7 @@ exports.generateSoldReport = function(req,res){
 					//Display orders as a report
 				}
 				else{
-					//output on report that no orders for this time
+					//output on report that there are no orders for this time
 				}
 
 
