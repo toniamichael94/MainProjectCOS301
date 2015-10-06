@@ -1,16 +1,16 @@
 @media (min-width: 992px) {
-	.nav-users {
-		position: fixed;
-	}
+    .nav-users {
+        position: fixed;
+    }
 }
 .remove-account-container {
-	display: inline-block;
-	position: relative;
+    display: inline-block;
+    position: relative;
 }
 .btn-remove-account {
-	top: 10px;
-	right: 10px;
-	position: absolute;
+    top: 10px;
+    right: 10px;
+    position: absolute;
 }
 
 /*Button*/
@@ -58,17 +58,17 @@
 
 /*breadcrumb */
 .breadcrumb{
-	font-size: 12px;
+    font-size: 12px;
 }
 
 .nav {
-/*	font-size: 12px;*/
+    /*	font-size: 12px;*/
 }
 
 .navbar-nav > li{
-  padding-left:0px;
-  padding-right:0px;
-	background-color: inherit;
+    padding-left:0px;
+    padding-right:0px;
+    background-color: inherit;
 
 
 
@@ -97,16 +97,16 @@
 .navbar-inverse .navbar-nav>.dropdown>a .caret { border-bottom-color: #787878}
 .navbar-inverse .navbar-nav>.dropdown>a:hover .caret { border-bottom-color: #FFFFFF}
 .container{
-	 text-align:left;
-	 vertical-align: top;
-	 padding-left: 0px;
+    text-align:left;
+    vertical-align: top;
+    padding-left: 0px;
 }
 /*nav bar end */
 #alertUser{
 
-	padding-top: 5.8px;
-	padding-bottom: 5.8px;
-	padding-left: 5.8px;
-	padding-right: 5.8px;
+    padding-top: 5.8px;
+    padding-bottom: 5.8px;
+    padding-left: 5.8px;
+    padding-right: 5.8px;
 
 }
