@@ -846,10 +846,33 @@ $scope.searchBarDynamic = function(row){
 					$scope.soldItems.splice(index,1);
 
 		};
+
+		$scope.generateReport = function(){
+			$http.post('orders/generateReport',{start: $scope.startDateReport, end: $scope.endDateReport},{responseType:'arraybuffer'}).success(function(response){
+
+
+			 var file = new Blob([response], {type: 'application/pdf'});
+				var fileURL = URL.createObjectURL(file);
+
+				var fileName = 'test.pdf';
+				var a = document.createElement('a');
+				document.body.appendChild(a);
+				a.setAttribute('style', 'display: none');
+
+				a.href =  fileURL;
+								a.download = fileName;
+								a.click();
+
+			}).error(function(response){
+				console.log(response);
+			});
+
+		};
+
 		/*This funtion generates a report that shows the most popular menu itmes over
 			a period of time*/
 		$scope.generatePopularReport = function(){
-			$http.post('orders/generatePopularReport',{start: $scope.startDate, end: $scope.endDate},{responseType:'arraybuffer'}).success(function(response){
+			$http.post('orders/generatePopularReport',{start: $scope.startDate, end: $scope.endDate, numItems: $scope.numItems},{responseType:'arraybuffer'}).success(function(response){
 
 
 			 var file = new Blob([response], {type: 'application/pdf'});

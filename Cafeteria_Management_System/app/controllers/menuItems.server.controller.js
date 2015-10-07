@@ -484,10 +484,61 @@ exports.generateSoldReport = function(req,res){
 	});
 };
 
+exports.generateReport = function(req,res){
+	Order.find({created: {$gt: req.body.start, $lt: req.body.end}}, function(err, orders){
+		if(err) return res.status(400).send({message: 'Could not generate report!'});
+
+		var itemDetails = new Array();
+
+		for(var i = 0; i < orders.length; i++)
+		{
+			itemDetails[orders[i].itemName] = {itemName: orders[i].itemName, price:orders[i].price, category:orders[i].category, quantity:0};
+		}
+
+		for(var i = 0; i < orders.length; i++)
+		{
+			itemDetails[orders[i].itemName].quantity = itemDetails[orders[i].itemName].quantity + orders[i].quantity;
+		}
+
+		var category = new Array();
+
+		for (var item in itemDetails)
+		{
+			category[itemDetails[item].category] = {category:itemDetails[item].category, items:[]};
+		}
+
+
+		for(var item in itemDetails)
+		{
+			category[itemDetails[item].category].items.push(itemDetails[item]);
+		}
+
+		console.log("CATEGORY:"+category);
+
+		var sample = fs.readFileSync(path.resolve(__dirname, '../reportTemplates/popular_Items_Template.html'), 'utf8');
+		jsreport.render({
+			template:{ content: sample,
+			//	helpers: 'function mult(a,b){ return a*b; }',//'function total(order){return 10;}'],
+				engine: 'handlebars'},
+			data: {
+				title: 'Popular items',
+				items:itemData
+
+			}
+		}).then(function(out) {
+			//if(err) return res.status(400).send({message: 'Could not render report!'})
+			console.log('in render function');
+			out.stream.pipe(res);
+		});
+	});
+};
+
 exports.generatePopularReport = function(req,res)
 {
 	Order.find({created: {$gt: req.body.start, $lt: req.body.end}}, function(err, orders){
 		if(err) return res.status(400).send({message: 'Could not generate report!'});
+		if(req.body.numItems == undefined)
+			req.body.numItems = 2;
 
 		var items = new Array();
 		var itemNames = new Array();
