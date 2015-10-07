@@ -523,7 +523,6 @@ exports.generateReport = function(req,res){
 			data: {
 				title: 'Popular items',
 				items:itemData
-
 			}
 		}).then(function(out) {
 			//if(err) return res.status(400).send({message: 'Could not render report!'})
