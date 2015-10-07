@@ -15,6 +15,10 @@ var OrderSchema = new Schema({
 		required: 'Please fill in employee ID',
 		trim: true
 	},
+        active:{
+                type: Boolean,
+                default: true
+        },
 	created: {
 		type: Date,
 		default: Date.now
