@@ -205,7 +205,38 @@ exports.getAuditTypes = function(req, res){
  * Last Edited by {Semaka Malapane and Tonia Michael}
  */
 exports.removeEmployee = function(req, res) {
-    if(req.body.userID) {
+  if(req.body.userID) {
+        User.update({username: [req.body.userID]}, {active: false}, function (err, numAffected) {
+            console.log('deactivate user id ' + req.body.userID);
+            if (err) return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+            else if (numAffected < 1) {
+                return res.status(400).send({message: 'No such employee!'});
+            }
+            else {
+		var dat = 'Employee with EmployeeID ' + req.body.userID + ' has been removed from database';
+		audit('Employee removal', dat);
+                Order.update({username: [req.body.userID]}, {active: false}, function (err, numAffected) {
+                    if (err) return res.status(400).send({
+                        message: errorHandler.getErrorMessage(err)
+                    });
+                    else if (numAffected < 1) {
+                        res.status(400).send({message: 'Employee has no orders placed but has been removed in the user database!'});
+                    }
+                    /*else {
+                        res.status(200).send({message: 'Employee has been successfully removed.'});
+                    }*/
+                });
+                return res.status(200).send({message: 'Employee has been successfully removed.'});
+            }
+        });
+    }
+    else
+    {
+        res.status(400).send({message: 'The employee id field cannot be empty!'});
+    }
+    /*if(req.body.userID) {
         User.remove({username: [req.body.userID]}, function (err, numAffected) {
             console.log('remove user id ' + req.body.userID);
             if (err) return res.status(400).send({
@@ -224,7 +255,7 @@ exports.removeEmployee = function(req, res) {
     else
     {
         res.status(400).send({message: 'The employee id field cannot be empty!'});
-    }
+    }*/
 };
 
 /*
