@@ -1,13 +1,13 @@
 <!--
-*   profile Page - casher
+*   profile Page - cashier
 *   - This document contains the profile page the whole CMS
 *
 *   Authors: T-RISE (COS 301 team 2015)
-             		Antonia Michael (13014171)
-                Isabel Nel (13070305)
-							  Elana Kuun (12029522)
-								Rendani Dau (13381467)
-								Semaka Malapane (13081129)
+    Antonia Michael (13014171)
+    Isabel Nel (13070305)
+    Elana Kuun (12029522)
+    Rendani Dau (13381467)
+    Semaka Malapane (13081129)
 *
 -->
 
@@ -39,7 +39,7 @@
 				</div>
 			<!--button style="width:200px" type="button" class="btn btn-primary" data-ng-click="markAsCollected(order.username)"> Order collected </button> </span-->
 			<button style="width:200px" type="button" class="btn btn-primary" data-ng-click="markAsPaid(order)"> Employee paid  </button></span>
-			<button style="width:200px" type="button" class="btn btn-success" data-ng-click="markAsReady(order.username,order.orderNumber)" data-ng-hide="(order.status === 'ready')"> Order Ready </button>
+			<button style="width:200px" type="button" class="btn btn-success" data-ng-click="ready(order.username,order.orderNumber)" data-ng-hide="(order.status === 'ready')"> Order Ready </button>
 			</div>
 		</div>
 	</div>
