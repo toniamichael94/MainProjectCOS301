@@ -513,6 +513,8 @@ exports.generateReport = function(req,res){
 			category[itemDetails[item].category].items.push(itemDetails[item]);
 		}
 
+		for(var cat in category)
+			console.log(category[cat]);
 		console.log("CATEGORY:"+category);
 
 		var sample = fs.readFileSync(path.resolve(__dirname, '../reportTemplates/popular_Items_Template.html'), 'utf8');
