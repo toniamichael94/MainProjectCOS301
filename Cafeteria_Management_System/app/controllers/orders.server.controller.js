@@ -69,7 +69,7 @@ function audit(_type, data){
 
 			for(var i = 0; i < order.length; i++)
 				order[i].orderNumber = orderNum;
-
+				console.log("order:"+order);
 			Order.create(order, function(err){
 				if(err) return res.status(400).send({
 					message: errorHandler.getErrorMessage(err)
@@ -144,7 +144,7 @@ function audit(_type, data){
  }
 
  exports.markAsReady = function(req, res){
-	Order.update({orderNumber: req.body.orderNumber}, {status: 'ready'}, { multi: true }, function(err, numAffected){
+	Order.update({orderNumber: req.body.orderNumber, created: req.body.created, username: req.body.username}, {status: 'ready'}, { multi: true }, function(err, numAffected){
 		if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
 		console.log('Num Affected ' + numAffected);
 		sendEmail(req.body.username, req.body.orderNumber);
@@ -164,7 +164,7 @@ function audit(_type, data){
 exports.markAsPaid = function(req, res){
 	console.log(req.body);
 	if(req.body.method === 'credit'){
-		Order.find({orderNumber: req.body.orderNumber}, function(err, orders) {
+		Order.find({orderNumber: req.body.orderNumber, created: req.body.created, username: req.body.username}, function(err, orders) {
 			if(err){ console.log('Error1' + err); return res.status(400).send({message: 'Order not marked as paid'});}
 			console.log('helo2');
 			var total = 0;
@@ -173,6 +173,7 @@ exports.markAsPaid = function(req, res){
 				total+= orders[order].price * orders[order].quantity;
 			}
 			console.log('total' + total);
+			
 			User.findOne({username: req.body.username}, function(err, user){
 				if(err){
 					console.log('Error2' + err);
@@ -182,8 +183,10 @@ exports.markAsPaid = function(req, res){
 				if(user.limit - user.currentBalance < total)
 					return res.status(400).send({message: 'User has insufficient credit'});
 
-				user.currentBalance = user.currentBalance + total;
-				user.save(function(err, user){
+				var currBalance = user.currentBalance + total;
+				console.log('new currBalance ' + currBalance);
+				User.update({username: req.body.username},{$set: {currentBalance: currBalance}},function(err, numAffected){
+					console.log('NumAffected: ' + numAffected);
 					if(err){ console.log('Error3' + err); return res.status(400).send({message: 'Order not marked as paid'});}
 					Order.update({orderNumber: req.body.orderNumber}, {status: 'closed'}, { multi: true }, function(err, numAffected){
 						if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
@@ -199,7 +202,7 @@ exports.markAsPaid = function(req, res){
 		});
 	}
 	else{
-		Order.update({orderNumber: req.body.orderNumber}, {status: 'closed'}, { multi: true }, function(err, numAffected){
+		Order.update({orderNumber: req.body.orderNumber, created: req.body.created, username: req.body.username}, {status: 'closed'}, { multi: true }, function(err, numAffected){
 			if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
 			console.log(numAffected);
 			//Audit functionality

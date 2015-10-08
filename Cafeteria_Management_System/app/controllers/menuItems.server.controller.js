@@ -23,7 +23,7 @@ function audit(type, data){
 		details: JSON.stringify(data)
 	};
 	Audit.create(_audit, function(err){
-		if(err){ 
+		if(err){
 			console.log('Audit not created for ' + _type);
 			console.log(errorHandler.getErrorMessage(err));
 		}
@@ -416,30 +416,31 @@ exports.hasAuthorization = function(req, res, next) {
 exports.uploadImage = function(req, res){
 	var form = new formidable.IncomingForm();
 	console.log('About to parse image');
-	console.log(req);
+	//console.log(req);
 	form.parse(req, function(error, fields, files){
-		var newPath = './public/modules/core/img/' + files.upload.name;
-		console.log('image parsed');
+		var newPath = './public/modules/core/img/' + fields.itemName + '.png';
+		console.log(fields);
 		if(error){
 			return res.status(400).send({message: errorHandler.getErrorMessage(error)});
 		}
-		fs.rename(files.upload.path, newPath , function(err){
-			if(err){
-				console.log(errorHandler.getErrorMessage(err));
-				fs.unlink(newPath);
-				fs.rename(files.upload.path, newPath);
-				//return res.status(400).send({message: 'Error with the image path!'});
-			}
-			MenuItem.update({itemName: req.body.itemName}, {imagePath: newPath},  function(erro, numAffected){
-        		if(erro) return res.status(400).send({
-            			message: errorHandler.getErrorMessage(erro)
-        		});
-        		else if (numAffected < 1){
-            			return res.status(400).send({message: 'Image not uploaded! Error!'});
-        		}
-    });
-			res.redirect('/');
-		});
+			fs.rename(files.upload.path, newPath , function(err){
+				if(err){
+					console.log(errorHandler.getErrorMessage(err));
+					fs.unlink(newPath);
+					fs.rename(files.upload.path, newPath);
+					//return res.status(400).send({message: 'Error with the image path!'});
+				}
+				MenuItem.update({itemName: fields.itemName}, {imagePath: newPath},  function(erro, numAffected){
+					if(erro) return res.status(400).send({
+							message: errorHandler.getErrorMessage(erro)
+					});
+					else if (numAffected < 1){
+							return res.status(400).send({message: 'Image not uploaded! Error!'});
+					}
+					res.status(200).send({message: 'Image uploaded.'});
+				});
+				
+			});
 	});
 };
 
@@ -454,8 +455,8 @@ exports.generateSoldReport = function(req,res){
 			{
 					var found = false;
 					var counter =0;
-				
-					for(order in orders)
+
+					for(var order in orders)
 					{
 							found = false;
 							for(var j = 0; j != req.body.items.length; j++)
@@ -476,7 +477,7 @@ exports.generateSoldReport = function(req,res){
 					//Display orders as a report
 				}
 				else{
-					//output on report that no orders for this time
+					//output on report that there are no orders for this time
 				}
 
 
@@ -484,10 +485,88 @@ exports.generateSoldReport = function(req,res){
 	});
 };
 
+exports.generateReport = function(req,res){
+	Order.find({created: {$gt: req.body.start, $lt: req.body.end}}, function(err, orders){
+		if(err) return res.status(400).send({message: 'Could not generate report!'});
+
+		var itemDetails = new Array();
+
+		for(var i = 0; i < orders.length; i++)
+		{
+			itemDetails[orders[i].itemName] = {itemName: orders[i].itemName, price:orders[i].price, category:orders[i].category, quantity:0};
+		}
+
+		for(var i = 0; i < orders.length; i++)
+		{
+			itemDetails[orders[i].itemName].quantity = itemDetails[orders[i].itemName].quantity + orders[i].quantity;
+		}
+
+		/*Create an associative array: category
+		For example:
+		{category: 'toasted sandwiches',
+		items:
+				[{itemName:'toasted sandwhich',
+					price: 25,
+					category: 'toasted cheese',
+					quantity:2}],
+			numOrders: 2}
+			{category: resale items',
+				items:
+				[{itemName: 'coke light',
+				price: 8,
+				category: 'resale items',
+				quantity: 4}],
+				numOrders: 4}
+		*/
+		var category = new Array();
+
+		for (var item in itemDetails)
+		{
+			category[itemDetails[item].category] = {category:itemDetails[item].category, items:[]};
+		}
+
+
+		for(var item in itemDetails)
+		{
+			category[itemDetails[item].category].items.push(itemDetails[item]);
+			category[itemDetails[item].category].numOrders = 0;
+		}
+
+		for(var cat in category)
+		{
+			for(var item in category[cat].items)
+			{
+				console.log("item:"+category[cat].items[item].quantity);
+				category[cat].numOrders = category[cat].numOrders + category[cat].items[item].quantity;
+			}
+		}
+
+		for(var cat in category)
+			console.log(category[cat]);
+
+		var sample = fs.readFileSync(path.resolve(__dirname, '../reportTemplates/popular_Items_Template.html'), 'utf8');
+		jsreport.render({
+			template:{ content: sample,
+			//	helpers: 'function mult(a,b){ return a*b; }',//'function total(order){return 10;}'],
+				engine: 'handlebars'},
+			data: {
+				title: 'Popular items',
+				items:itemData
+			}
+		}).then(function(out) {
+			//if(err) return res.status(400).send({message: 'Could not render report!'})
+			console.log('in render function');
+			out.stream.pipe(res);
+		});
+	});
+};
+
 exports.generatePopularReport = function(req,res)
 {
 	Order.find({created: {$gt: req.body.start, $lt: req.body.end}}, function(err, orders){
 		if(err) return res.status(400).send({message: 'Could not generate report!'});
+		if(req.body.numItems == undefined)
+			req.body.numItems = 2;
 
 		var items = new Array();
 		var itemNames = new Array();

@@ -1,11 +1,15 @@
 'use strict';
 
 
-angular.module('core').controller('HomeController', ['$scope', 'Authentication',
-	function($scope, Authentication) {
+angular.module('core').controller('HomeController', ['$scope', '$animate','Authentication',
+	function($scope, $animate, Authentication) {
 		// This provides Authentication context.
 		$scope.authentication = Authentication;
-		$scope.myInterval = 50;
+		
+		//Disable animate for carousel
+		$animate.enabled(false);
+		
+		$scope.myInterval = 2000;
 		 $scope.noWrapSlides = false;
 		 var slides = $scope.slides = [];
 

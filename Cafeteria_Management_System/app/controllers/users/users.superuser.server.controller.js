@@ -10,6 +10,7 @@ var _ = require('lodash'),
 	User = mongoose.model('User'),
 	Audit = mongoose.model('Audit'),
 	Config = mongoose.model('Config'),
+	Order = mongoose.model('Order'),
     formidable = require('formidable'),
 	configs = require('../../../config/config'),
 	nodemailer = require('nodemailer'),
@@ -141,13 +142,30 @@ exports.changeEmployeeID = function(req, res) {
                 message: errorHandler.getErrorMessage(err)
             });
             else if (numAffected < 1) {
-                res.status(400).send({message: 'No such employee ID!'});
+                return res.status(400).send({message: 'No such employee ID!'});
             }
             else {
 				var dat = 'EmployeeID changed from ' + req.body.currentUserID + ' to ' + req.body.newUserID;
 				
 				audit('EmployeeID change', dat);
-                res.status(200).send({message: 'Employee ID has been successfully changed.'});
+
+                Order.update({username: [req.body.currentUserID]}, {username: req.body.newUserID}, {multi: true }, function (err, numAffected) {
+                    console.log('current user id ' + req.body.currentUserID);
+                    console.log('new user id ' + req.body.newUserID);
+                    if (err) return res.status(400).send({
+                        message: errorHandler.getErrorMessage(err)
+                    });
+                    else if (numAffected < 1) {
+                        res.status(400).send({message: 'Employee has no orders placed - EmployeeID updated in user database!'});
+                    }
+                    /*else {
+                        //var dat = 'EmployeeID changed from ' + req.body.currentUserID + ' to ' + req.body.newUserID;
+
+                        //audit('EmployeeID change', dat);
+                        res.status(200).send({message: 'Employee ID has been successfully changed.'});
+                    }*/
+                });
+                return res.status(200).send({message: 'Employee ID has been successfully changed.'});
             }
         });
     }
@@ -187,9 +205,40 @@ exports.getAuditTypes = function(req, res){
  * Last Edited by {Semaka Malapane and Tonia Michael}
  */
 exports.removeEmployee = function(req, res) {
-    if(req.body.userID) {
+  if(req.body.userID) {
         User.update({username: [req.body.userID]}, {active: false}, function (err, numAffected) {
             console.log('deactivate user id ' + req.body.userID);
+            if (err) return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+            else if (numAffected < 1) {
+                return res.status(400).send({message: 'No such employee!'});
+            }
+            else {
+		var dat = 'Employee with EmployeeID ' + req.body.userID + ' has been removed from database';
+		audit('Employee removal', dat);
+                Order.update({username: [req.body.userID]}, {active: false}, function (err, numAffected) {
+                    if (err) return res.status(400).send({
+                        message: errorHandler.getErrorMessage(err)
+                    });
+                    else if (numAffected < 1) {
+                        res.status(400).send({message: 'Employee has no orders placed but has been removed in the user database!'});
+                    }
+                    /*else {
+                        res.status(200).send({message: 'Employee has been successfully removed.'});
+                    }*/
+                });
+                return res.status(200).send({message: 'Employee has been successfully removed.'});
+            }
+        });
+    }
+    else
+    {
+        res.status(400).send({message: 'The employee id field cannot be empty!'});
+    }
+    /*if(req.body.userID) {
+        User.remove({username: [req.body.userID]}, function (err, numAffected) {
+            console.log('remove user id ' + req.body.userID);
             if (err) return res.status(400).send({
                 message: errorHandler.getErrorMessage(err)
             });
@@ -217,7 +266,7 @@ exports.removeEmployee = function(req, res) {
     else
     {
         res.status(400).send({message: 'The employee id field cannot be empty!'});
-    }
+    }*/
 };
 
 /*
@@ -465,7 +514,7 @@ exports.setThemeName = function(req, res) {
 exports.uploadImage = function(req, res){
 	var form = new formidable.IncomingForm();
 	console.log('About to parse image');
-    console.log(req);
+    //console.log(req);
 	form.parse(req, function(error, fields, files){
 		console.log('image parsed');
 		if(error){

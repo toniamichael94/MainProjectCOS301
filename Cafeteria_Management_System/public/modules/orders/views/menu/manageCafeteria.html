@@ -156,7 +156,7 @@
 
 						<div class="form-group">
 							<label for="itemPrice">Price</label>
-							<input type="number" min = 0 id="itemPrice" name="itemPrice" class="form-control" data-ng-model="menuItem.itemPrice" placeholder="Price">
+							<input type="number" min = 0 id="itemPrice"  step="any"  name="itemPrice" class="form-control" data-ng-model="menuItem.itemPrice" placeholder="Price">
 						</div>
 
 
@@ -243,10 +243,10 @@
                     </form>
 
 			   <!-- ********************Upload image if item is found*******************-->
-			    <form name="uploadImageForm" action="/orders/uploadImage" enctype="multipart/form-data" method="post" class="signin form-horizontal" autocomplete="off">
+			    <form name="uploadImageForm" action="/orders/uploadImage" enctype="multipart/form-data" method="post" class="signin form-horizontal" autocomplete="off" onsubmit="return false">
 				    <fieldset>  <div class="text-center form-group" data-ng-show="successFind"><br>
 				      <input type="file" id="upload" name="upload"   data-ng-hide="showme" data-ng-model="upload" class="form-control"/> <br>
-
+					  <input type="text" id="itemName" name="itemName" style="display: none" data-ng-model="foundItem.itemName" />
 				        <button type="submit" style="width:200px"  data-ng-hide="showme" class="btn btn-large btn-primary">Upload Image</button> <br>
 				      </div>
 				    </fieldset>
@@ -271,7 +271,7 @@
 
 							<div class="form-group">
                                 <label for="itemUpdatePrice">Price</label>
-                                <input type="text" id="itemUpdatePrice" style="width:200px"  name="itemUpdatePrice" class="form-control" data-ng-model="updateItemPrice">
+                                <input type="text" id="itemUpdatePrice"  step='any'  style="width:200px"  name="itemUpdatePrice" class="form-control" data-ng-model="updateItemPrice">
                             </div>
 
 							<div class="form-group">

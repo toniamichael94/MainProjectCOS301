@@ -1,6 +1,7 @@
 'use strict';
 
 // Cashier controller
+<<<<<<< HEAD
 angular.module('users').controller('cashierController', ['$scope', '$rootScope', '$http', '$stateParams', '$location', '$window', 'Authentication',
     function($scope, $rootScope, $http, $stateParams, $location, $window, Authentication) {
         $scope.authentication = Authentication;
@@ -14,6 +15,68 @@ angular.module('users').controller('cashierController', ['$scope', '$rootScope',
                 for(var i = 0; i < $scope.orders.length; i++){
                         $scope.orders[i].paymentMethod = "cash";
                 }
+=======
+angular.module('users').controller('cashierController', ['$scope', '$http', '$stateParams', '$location', '$window', 'Authentication',
+	function($scope, $http, $stateParams, $location, $window, Authentication) {
+		$scope.authentication = Authentication;
+		
+		$scope.orderNums = new Array();
+		
+		$scope.getOrders = function(){
+			$http.post('/orders/getOrderList').success(function(response){
+				console.log(response.message);
+				$scope.orders = response.message;
+				for(var i = 0; i < $scope.orders.length; i++){
+					$scope.orders[i].paymentMethod = "cash";
+				}
+				
+				var currOrder = -1, currentCount = -1;
+				
+				var j = 0;
+				while(j < $scope.orders.length){
+					currOrder = $scope.orders[j].orderNumber;
+					$scope.orderNums.push();
+					currentCount++;
+					var arrObj = {orderNum: 0, username: '', items: [], status: '', paymentMethod: '', created: ''};
+					arrObj.orderNumber = $scope.orders[j].orderNumber;
+					arrObj.created = $scope.orders[j].created;
+					arrObj.username = $scope.orders[j].username;
+					arrObj.status = $scope.orders[j].status;
+					$scope.orderNums[currentCount] = arrObj;
+					console.log('status ' + arrObj.status);
+					while(j < $scope.orders.length && currOrder == $scope.orders[j].orderNumber){
+						$scope.orderNums[currentCount].items.push($scope.orders[j]);
+						j++;
+					}
+				}
+			}).error(function(response){
+				console.log('error' + response.message);
+                $scope.error=response.message;
+			});
+		};
+		
+		$scope.markAsReady = function(_username, _orderNumber, _created){
+			$scope.success = $scope.error = null;
+			
+			if(_username === '' || _orderNumber === '' || _orderNumber === null || _username === null || _orderNumber === undefined || _username === undefined)
+			{
+				alert('Invalid parameters');
+				return;
+			}
+			console.log(_username + ' ' + _orderNumber + ' ' + _created);
+			$http.post('orders/markAsReady',{username : _username, orderNumber: _orderNumber, created: _created}).success(function(response){
+				$scope.success = response.message;
+				$window.location.reload();
+			}).error(function(response){
+				$scope.error = response.message;
+			}); 
+		};
+
+     /*   $scope.markAsCollected = function(username, itemName,orderNumber){
+            console.log(username  + ' ' +itemName + orderNumber);
+
+            $http.post('orders/markAsCollected',{uname : username, orderNum: orderNumber,item : itemName}).success(function(response){
+>>>>>>> 3226290084170f2a2de1c2079f7f6025f9ab6c69
 
                 var currOrder = -1, currentCount = -1;
 
@@ -59,6 +122,7 @@ angular.module('users').controller('cashierController', ['$scope', '$rootScope',
                 $scope.error = response.message;
             }); 
         };
+<<<<<<< HEAD
 
         $scope.getUserNotifications = function(){
             $scope.success = $scope.error = null;
@@ -94,6 +158,21 @@ angular.module('users').controller('cashierController', ['$scope', '$rootScope',
             }).error(function(response){
                 console.log('Error getting notifications');
                 $scope.error = response.message;
+=======
+*/
+        $scope.markAsPaid = function(order){
+			$scope.success = $scope.error = null;
+			if(order.paymentMethod === ''){
+				alert('Please select a payment method');
+				return;
+			}
+			
+			$http.post('orders/markAsPaid',{username : order.username, orderNumber: order.orderNumber, method: order.paymentMethod, created: order.created }).success(function(response){
+				$scope.success = response.message;
+				$window.location.reload(true);
+			}).error(function(response){
+				alert(response.message);
+>>>>>>> 3226290084170f2a2de1c2079f7f6025f9ab6c69
             });
         };
 
