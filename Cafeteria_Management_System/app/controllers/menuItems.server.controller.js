@@ -500,6 +500,23 @@ exports.generateReport = function(req,res){
 			itemDetails[orders[i].itemName].quantity = itemDetails[orders[i].itemName].quantity + orders[i].quantity;
 		}
 
+		/*Create an associative array: category
+		For example:
+		{category: 'toasted sandwiches',
+		items:
+				[{itemName:'toasted sandwhich',
+					price: 25,
+					category: 'toasted cheese',
+					quantity:2}],
+			numOrders: 2}
+			{category: resale items',
+				items:
+				[{itemName: 'coke light',
+				price: 8,
+				category: 'resale items',
+				quantity: 4}],
+				numOrders: 4}
+		*/
 		var category = new Array();
 
 		for (var item in itemDetails)
@@ -511,11 +528,20 @@ exports.generateReport = function(req,res){
 		for(var item in itemDetails)
 		{
 			category[itemDetails[item].category].items.push(itemDetails[item]);
+			category[itemDetails[item].category].numOrders = 0;
+		}
+
+		for(var cat in category)
+		{
+			for(var item in category[cat].items)
+			{
+				console.log("item:"+category[cat].items[item].quantity);
+				category[cat].numOrders = category[cat].numOrders + category[cat].items[item].quantity;
+			}
 		}
 
 		for(var cat in category)
 			console.log(category[cat]);
-		console.log("CATEGORY:"+category);
 
 		var sample = fs.readFileSync(path.resolve(__dirname, '../reportTemplates/popular_Items_Template.html'), 'utf8');
 		jsreport.render({
