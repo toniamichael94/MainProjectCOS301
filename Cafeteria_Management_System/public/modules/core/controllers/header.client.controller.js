@@ -7,6 +7,7 @@ angular.module('core').controller('HeaderController', ['$scope', '$rootScope', '
 		$scope.menu = Menus.getMenu('topbar');
 
 		$scope.onMyPlateNum = 0;
+		$scope.newMessages = 0;
 		if($cookies.plate)
 			$scope.onMyPlateNum = JSON.parse($cookies.plate).length;
 
@@ -17,7 +18,25 @@ angular.module('core').controller('HeaderController', ['$scope', '$rootScope', '
 				$scope.onMyPlateNum = 0;
 		});
 
-
+                $rootScope.$on('newMess',  function(){
+			console.log('NEW MESSAGE SENT THROUGH');
+			    $http.post('/orders/getNrNotifications').success(function(response){
+				console.log("Notification " + response.message);
+				 $scope.newMessages = response.message;
+			    }).error(function(response){
+				console.log('Error getting number of notifications');
+				$scope.newMessages = response.message;
+				console.log(response.message);
+				//$scope.error = response.message;
+			    });
+			console.log('should be: ' + $scope.newMessages);
+			 //$scope.newMessages = 1;
+		});
+                
+                $rootScope.$on('messRead',  function(){
+                    $scope.newMessages = 0;
+		});
+                
 		$scope.toggleCollapsibleMenu = function() {
 			$scope.isCollapsed = !$scope.isCollapsed;
 		};
