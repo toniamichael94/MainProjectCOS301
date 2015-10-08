@@ -453,7 +453,7 @@ exports.setThemeName = function(req, res) {
 exports.uploadImage = function(req, res){
 	var form = new formidable.IncomingForm();
 	console.log('About to parse image');
-    console.log(req);
+    //console.log(req);
 	form.parse(req, function(error, fields, files){
 		console.log('image parsed');
 		if(error){

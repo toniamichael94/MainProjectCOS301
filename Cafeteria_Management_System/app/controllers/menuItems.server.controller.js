@@ -416,30 +416,31 @@ exports.hasAuthorization = function(req, res, next) {
 exports.uploadImage = function(req, res){
 	var form = new formidable.IncomingForm();
 	console.log('About to parse image');
-	console.log(req);
+	//console.log(req);
 	form.parse(req, function(error, fields, files){
-		var newPath = './public/modules/core/img/' + files.upload.name;
-		console.log('image parsed');
+		var newPath = './public/modules/core/img/' + fields.itemName + '.png';
+		console.log(fields);
 		if(error){
 			return res.status(400).send({message: errorHandler.getErrorMessage(error)});
 		}
-		fs.rename(files.upload.path, newPath , function(err){
-			if(err){
-				console.log(errorHandler.getErrorMessage(err));
-				fs.unlink(newPath);
-				fs.rename(files.upload.path, newPath);
-				//return res.status(400).send({message: 'Error with the image path!'});
-			}
-			MenuItem.update({itemName: req.body.itemName}, {imagePath: newPath},  function(erro, numAffected){
-        		if(erro) return res.status(400).send({
-            			message: errorHandler.getErrorMessage(erro)
-        		});
-        		else if (numAffected < 1){
-            			return res.status(400).send({message: 'Image not uploaded! Error!'});
-        		}
-    });
-			res.redirect('/');
-		});
+			fs.rename(files.upload.path, newPath , function(err){
+				if(err){
+					console.log(errorHandler.getErrorMessage(err));
+					fs.unlink(newPath);
+					fs.rename(files.upload.path, newPath);
+					//return res.status(400).send({message: 'Error with the image path!'});
+				}
+				MenuItem.update({itemName: fields.itemName}, {imagePath: newPath},  function(erro, numAffected){
+					if(erro) return res.status(400).send({
+							message: errorHandler.getErrorMessage(erro)
+					});
+					else if (numAffected < 1){
+							return res.status(400).send({message: 'Image not uploaded! Error!'});
+					}
+					res.status(200).send({message: 'Image uploaded.'});
+				});
+				
+			});
 	});
 };
 

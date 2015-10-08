@@ -480,6 +480,7 @@ $scope.closeAlert = function(index) {
 
 						//$scope.showme = true;
 						 $scope.successFind = response.message;
+						 console.log(response.message);
 						//Set the values for the item being updated.
 						$scope.foundItem = response.menuItem;
 						$scope.updateItemName = $scope.foundItem.itemName;
@@ -496,7 +497,26 @@ $scope.closeAlert = function(index) {
             }
 						console.log('nope...');
         };
-
+		
+		$scope.uploadImage = function(isValid){
+			if(isValid){
+				var fd = new FormData();
+				fd.append('file', $scope.upload);
+				fd.append('data', $scope.foundItem.itemName);
+				
+				$http.post(url, fd, {
+					headers : {
+						'Content-Type' : undefined
+					},
+					transformRequest : angular.identity
+				}).success(function(data){
+					console.log(data);
+				}).error(function(data){
+					console.log(data);
+				});
+				//console.log()
+			}
+		}
 		/*Functions for creating a new menu item*/
 
 		 /* Create new Menu Item*/
