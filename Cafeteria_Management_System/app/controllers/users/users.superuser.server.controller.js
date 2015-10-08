@@ -282,7 +282,7 @@ exports.removeEmployee = function(req, res) {
             }
             else {
 				/*var dat = 'Employee with EmployeeID ' + req.body.userID + ' has been removed from database';
-				audit('Employee removal', dat);*/
+				audit('Employee removal', dat);
                 res.status(200).send({message: 'Employee has been successfully reactivated.'});
             }
         });
