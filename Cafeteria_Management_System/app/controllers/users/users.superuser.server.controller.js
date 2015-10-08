@@ -188,18 +188,29 @@ exports.getAuditTypes = function(req, res){
  */
 exports.removeEmployee = function(req, res) {
     if(req.body.userID) {
-        User.remove({username: [req.body.userID]}, function (err, numAffected) {
-            console.log('remove user id ' + req.body.userID);
+        User.update({username: [req.body.userID]}, {active: false}, function (err, numAffected) {
+            console.log('deactivate user id ' + req.body.userID);
             if (err) return res.status(400).send({
                 message: errorHandler.getErrorMessage(err)
             });
             else if (numAffected < 1) {
-                res.status(400).send({message: 'No such employee!'});
+                return res.status(400).send({message: 'No such employee!'});
             }
             else {
 				var dat = 'Employee with EmployeeID ' + req.body.userID + ' has been removed from database';
 				audit('Employee removal', dat);
-                res.status(200).send({message: 'Employee has been successfully removed.'});
+                Order.update({username: [req.body.userID]}, {active: false}, function (err, numAffected) {
+                    if (err) return res.status(400).send({
+                        message: errorHandler.getErrorMessage(err)
+                    });
+                    else if (numAffected < 1) {
+                        res.status(400).send({message: 'Employee has no orders placed but has been removed in the user database!'});
+                    }
+                    /*else {
+                        res.status(200).send({message: 'Employee has been successfully removed.'});
+                    }*/
+                });
+                return res.status(200).send({message: 'Employee has been successfully removed.'});
             }
         });
     }
@@ -209,6 +220,55 @@ exports.removeEmployee = function(req, res) {
     }
 };
 
+/*
+ * Activate Employee
+ * Last Edited by {Semaka Malapane}
+ */
+/*exports.activateEmployee = function(req, res) {
+    if(req.body.userID) {
+        User.update({username: [req.body.userID]}, {active: true}, function (err, numAffected) {
+            console.log('reactivate user id ' + req.body.userID);
+            if (err) return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+            else if (numAffected < 1) {
+                res.status(400).send({message: 'No such employee - employee needs to sign up!'});
+            }
+            else {
+				/*var dat = 'Employee with EmployeeID ' + req.body.userID + ' has been removed from database';
+				audit('Employee removal', dat);*/
+                res.status(200).send({message: 'Employee has been successfully reactivated.'});
+            }
+        });
+    }
+    else
+    {
+        res.status(400).send({message: 'The employee id field cannot be empty!'});
+    }
+};*/
+
+/*
+* Set System Wide Limit
+* Last Edited by {Semaka Malapane}
+*/
+//Helper function to notify all users of CMS
+/*function sendMessage(newLimit){
+	User.find({}, function(err, users){
+		users.forEach(function(user){
+			
+			var mailOptions = {
+				//from: configs.mailer.from,
+				subject: 'System Wide Spending Limit Updated'
+			};
+			mailOptions.to = user.email;
+			mailOptions.text = '<p> Dear ' + user.displayName + ',<br> <br> ' +
+									'Please note the system limit for the Cafeteria Management System has been changed to R' + newLimit + '. <br>'+
+									'Please go to edit profile if you\'d like to adjust your limit.<br> <br>'+
+									'The CMS Team <br> </p>';
+                       
+		});
+	});
+}*/
 /*
 * Set System Wide Limit
 * Last Edited by {Rendani Dau}
@@ -268,6 +328,7 @@ exports.setSystemWideLimit = function(req, res){
 				var dat = 'The system wide limit has been changed to R' + req.body.value;
 				audit('Admin settings change', dat);
 				sendEmail(req.body.value);
+				//sendMessage(req.body.value);
 			});
 		}
 	});
