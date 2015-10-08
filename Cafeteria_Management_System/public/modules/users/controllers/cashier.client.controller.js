@@ -51,7 +51,7 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
 			console.log(_username + ' ' + _orderNumber + ' ' + _created);
 			$http.post('orders/markAsReady',{username : _username, orderNumber: _orderNumber, created: _created}).success(function(response){
 				$scope.success = response.message;
-				//$window.location.reload();
+				$window.location.reload();
 			}).error(function(response){
 				$scope.error = response.message;
 			}); 
