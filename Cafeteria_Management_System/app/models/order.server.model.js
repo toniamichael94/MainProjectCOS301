@@ -15,6 +15,10 @@ var OrderSchema = new Schema({
 		required: 'Please fill in employee ID',
 		trim: true
 	},
+        active:{
+                type: Boolean,
+                default: true
+        },
 	created: {
 		type: Date,
 		default: Date.now
@@ -34,6 +38,10 @@ var OrderSchema = new Schema({
 	quantity: {
 		type: Number,
 		required: 'Please fill in quantity'
+	},
+	category:{
+		type: String,
+		required: 'No category for menu item.'
 	},
     preferences: {
         type: String,

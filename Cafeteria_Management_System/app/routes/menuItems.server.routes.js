@@ -7,6 +7,7 @@ module.exports = function(app) {
 	//Reporting for menu Items
 		app.route('/orders/generatePopularReport').post(menuItems.generatePopularReport);
 		app.route('/orders/generateSoldReport').post(menuItems.generateSoldReport);
+		app.route('/orders/generateReport').post(menuItems.generateReport);
 
 	//Display Menu Items
 	app.route('/loadMenuItems').get(menuItems.loadMenuItems);
@@ -34,7 +35,7 @@ module.exports = function(app) {
 
 	//create order
 	app.route('/orders/createMenuItem').post(menuItems.createMenuItem);
-	
+
 	//create menu category
 	app.route('/orders/createMenuCategory').post(menuItems.createMenuCategory);
 

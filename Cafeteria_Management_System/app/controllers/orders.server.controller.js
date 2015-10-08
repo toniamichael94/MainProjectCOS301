@@ -68,7 +68,7 @@ function audit(_type, data){
 
 			for(var i = 0; i < order.length; i++)
 				order[i].orderNumber = orderNum;
-
+				console.log("order:"+order);
 			Order.create(order, function(err){
 				if(err) return res.status(400).send({
 					message: errorHandler.getErrorMessage(err)

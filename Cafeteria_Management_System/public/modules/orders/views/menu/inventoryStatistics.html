@@ -6,8 +6,8 @@
 			</div>
 		</script>
 
-		<div  data-ng-controller="MenuItemsController">
-			<h4>Statistics<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
+		<div  data-ng-controller="InventoryController">
+			<h4>Inventory Statistics<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
 				<hr>
 				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alerts[1].msg}}</alert>
 		</div>
@@ -15,7 +15,7 @@
 
 	<!--Most popular items-->
 	<div class="list-group clearfix">
-	<a href="#" class="list-group-item disabled">Display most popular menu items</a>
+	<a href="#" class="list-group-item disabled">Display most used inventory items</a>
 		<div class="list-group-item clearfix">
 			<!--Alert box -->
 			<script type="text/ng-template" id="alert.html">
@@ -24,17 +24,17 @@
 					</div>
 			</script>
 
-			<div  data-ng-controller="MenuItemsController">
+			<div  data-ng-controller="InventoryController">
 				<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button>
 				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert3.msg}}</alert>
 			</div>
 				<!--Alert box end-->
-			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2"  data-ng-controller="MenuItemsController">
-				<form name="popularReportForm" data-ng-submit="generatePopularReport()" class="signin form-horizontal" autocomplete="off">
+			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2"  data-ng-controller="InventoryController">
+				<form name="mostUsedReportForm" data-ng-submit="generateMostUsedReport()" class="signin form-horizontal" autocomplete="off">
 					<fieldset>
 						<div class="form-group">
-							<label for="menuCatagory">Number of menu items</label>
-							<input type="number" min = 0 id="numMenuItems" name="numPopularMenuItems" class="form-control" data-ng-model="numMenuItems">
+							<label for="inventoryItems">Compare inventory items</label>
+							<input type="number" min = 0 id="numInventoryItems" name="numInventoryItems" class="form-control" data-ng-model="numInventoryItems">
 							<label for="startDate"> From: </label>
 							<input type="date" id="startDate" name="startDate" class="form-control" data-ng-model="startDate"/>
 							<label for="endDate"> To: </label>
@@ -57,15 +57,9 @@
 	</div>
 
 <!--Selected items-->
-	<div  data-ng-controller="MenuItemsController">
-		<h4>Statistics<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
-			<hr>
-			<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alerts[1].msg}}</alert>
-	</div>
-<!--END ALERT BOX -->
 
 <div class="list-group clearfix">
-<a href="#" class="list-group-item disabled">Items bought over time</a>
+<a href="#" class="list-group-item disabled">Compare inventory items</a>
 	<div class="list-group-item clearfix">
 		<!--Alert box -->
 		<script type="text/ng-template" id="alert.html">
@@ -74,17 +68,18 @@
 				</div>
 		</script>
 
-		<div  data-ng-controller="MenuItemsController">
+		<div  data-ng-controller="InventoryController">
 			<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button>
 			<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert3.msg}}</alert>
 		</div>
 			<!--Alert box end-->
+
+			<!--Generate most use report-->
 		<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2"  data-ng-controller="MenuItemsController">
-			<form name="popularReportForm" data-ng-submit="generatePopularReport()" class="signin form-horizontal" autocomplete="off">
+			<form name="popularReportForm" data-ng-submit="generateMostUsedReport()" class="signin form-horizontal" autocomplete="off">
 				<fieldset>
 					<div class="form-group">
-						<label for="menuCatagory" ng-init = "loadAllMenuItems()">Menu items</label>
-
+						<label for="compareInventoryItems" ng-init = "loadInventoryItems()">Inventory Items</label>
 						<div data-ng-model = 'menuItems[$index]'>
 						<select data-ng-model = 'soldItem' class="form-control"/>
 								<option  data-ng-repeat="item in menuItems">{{item.itemName}}</option>
