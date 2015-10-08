@@ -184,7 +184,7 @@
 							</div>
 								<div  data-ng-repeat = "invenProduct in allInventory.inventoryProduct track by $index" >
 									<label data-ng-bind = 'allInventory.inventoryProduct[$index]'>{{invenProduct.productName}}</label>
-									<input class="form-control" type = "number" min =0 data-ng-model = 'allInventory.inventoryQuantity[$index]'/>
+									<input class="form-control"  step='any' type = "number" min =0 data-ng-model = 'allInventory.inventoryQuantity[$index]'/>
 									<br>
 								</div>
 
