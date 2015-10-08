@@ -1,26 +1,12 @@
 'use strict';
 
 // Cashier controller
-<<<<<<< HEAD
-angular.module('users').controller('cashierController', ['$scope', '$rootScope', '$http', '$stateParams', '$location', '$window', 'Authentication',
-    function($scope, $rootScope, $http, $stateParams, $location, $window, Authentication) {
-        $scope.authentication = Authentication;
-
-        $scope.orderNums = new Array();
-        $scope.notifications = new Array();
-        
-        $scope.getOrders = function(){
-            $http.post('/orders/getOrderList').success(function(response){
-                $scope.orders = response.message;
-                for(var i = 0; i < $scope.orders.length; i++){
-                        $scope.orders[i].paymentMethod = "cash";
-                }
-=======
 angular.module('users').controller('cashierController', ['$scope', '$http', '$stateParams', '$location', '$window', 'Authentication',
 	function($scope, $http, $stateParams, $location, $window, Authentication) {
 		$scope.authentication = Authentication;
 		
 		$scope.orderNums = new Array();
+        	$scope.notifications = new Array();
 		
 		$scope.getOrders = function(){
 			$http.post('/orders/getOrderList').success(function(response){
@@ -76,7 +62,6 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
             console.log(username  + ' ' +itemName + orderNumber);
 
             $http.post('orders/markAsCollected',{uname : username, orderNum: orderNumber,item : itemName}).success(function(response){
->>>>>>> 3226290084170f2a2de1c2079f7f6025f9ab6c69
 
                 var currOrder = -1, currentCount = -1;
 
@@ -101,7 +86,7 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
                 $scope.error=response.message;
             });
         };
-
+*/
         $scope.markAsReady = function(_username, _orderNumber){
             $scope.success = $scope.error = null;
 
@@ -111,7 +96,7 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
                 return;
             }	
             $http.post('orders/markAsReady',{username : _username, orderNumber: _orderNumber}).success(function(response){
-                console.log("Ready " + response.message);
+                //console.log("Ready " + response.message);
                 //$('div.notification').text(response.message);
                 $scope.success = response.message;
                 $scope.newMessage();
@@ -122,7 +107,6 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
                 $scope.error = response.message;
             }); 
         };
-<<<<<<< HEAD
 
         $scope.getUserNotifications = function(){
             $scope.success = $scope.error = null;
@@ -158,8 +142,8 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
             }).error(function(response){
                 console.log('Error getting notifications');
                 $scope.error = response.message;
-=======
-*/
+	    });
+
         $scope.markAsPaid = function(order){
 			$scope.success = $scope.error = null;
 			if(order.paymentMethod === ''){
@@ -172,7 +156,6 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
 				$window.location.reload(true);
 			}).error(function(response){
 				alert(response.message);
->>>>>>> 3226290084170f2a2de1c2079f7f6025f9ab6c69
             });
         };
 
