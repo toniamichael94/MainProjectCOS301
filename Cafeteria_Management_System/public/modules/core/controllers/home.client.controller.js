@@ -5,7 +5,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 	function($scope, Authentication) {
 		// This provides Authentication context.
 		$scope.authentication = Authentication;
-		$scope.myInterval = 50;
+		$scope.myInterval = 2000;
 		 $scope.noWrapSlides = false;
 		 var slides = $scope.slides = [];
 
