@@ -22,51 +22,10 @@ angular.module('orders').config(['$stateProvider',
             url: '/notifications',
             templateUrl: 'modules/orders/views/placedorders/notifications.html'
         }).
-		state('menuTramazini', {
-			url: '/menu/tramezzinis',
-			templateUrl: 'modules/orders/views/menu/menu-Tramezzinis.html'
+		state('menuItemsStats', {
+		  url: '/reporting/menuItemsStats',
+			templateUrl: 'modules/orders/views/reporting/menuItemsStats.html'
 		}).
-		state('menuToastedSandwiches', {
-			url: '/menu/toastedSandwiches',
-			templateUrl: 'modules/orders/views/menu/menu-ToastedSandwiches.html'
-		}).
-		state('menuBurgerBar', {
-			url: '/menu/burgerBar',
-			templateUrl: 'modules/orders/views/menu/menu-burgerBar.html'
-		}).
-		state('menuDailyLunch', {
-			url: '/menu/dailyLunch',
-			templateUrl: 'modules/orders/views/menu/menu-dailyLunch.html'
-		}).
-		state('menuSaladBar', {
-			url: '/menu/saladBar',
-			templateUrl: 'modules/orders/views/menu/menu-saladBar.html'
-		}).
-		state('menuSweetTreats', {
-			url: '/menu/sweetTreats',
-			templateUrl: 'modules/orders/views/menu/menu-sweetTreats.html'
-		}).
-		state('menuResaleItems', {
-			url: '/menu/resaleItems',
-			templateUrl: 'modules/orders/views/menu/menu-resaleItems.html'
-		}).
-		state('menuOnThSide', {
-			url: '/menu/onTheSide',
-			templateUrl: 'modules/orders/views/menu/menu-onTheSide.html'
-		}).
-		state('menuExtra', {
-			url: '/menu/extra',
-			templateUrl: 'modules/orders/views/menu/menu-extra.html'
-		}).
-  	state('menuDrinks', {
-       url: '/menu/drinks',
-       templateUrl: 'modules/orders/views/menu/menu-drinks.html'
-    }).
-		state('dailySpecials', {
-       url: '/menu/dailySpecials',
-       templateUrl: 'modules/orders/views/menu/menu-specialOfTheDay.html'
-    }).
-		//-----------------end of menu page routes
 		// view Orders page / on my plate page
 		state('createOrder', {
 			url: '/orders/create',

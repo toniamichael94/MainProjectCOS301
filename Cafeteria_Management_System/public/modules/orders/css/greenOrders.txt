@@ -110,3 +110,26 @@
 	padding-right: 5.8px;
 
 }
+
+
+/* Graph Styling */
+
+.toolbar {
+							 padding: 20px;
+					 }
+
+					 body {
+							 padding: 20px;
+					 }
+
+
+	 
+	 @media print
+	 {
+			 .no-print, .no-print *
+			 {
+					 display: none !important;
+			 }
+	 }
+
+/*End of graph styling */
