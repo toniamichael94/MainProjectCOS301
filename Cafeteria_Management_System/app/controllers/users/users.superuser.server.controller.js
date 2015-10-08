@@ -255,9 +255,6 @@ exports.removeEmployee = function(req, res) {
                     else if (numAffected < 1) {
                         res.status(400).send({message: 'Employee has no orders placed but has been removed in the user database!'});
                     }
-                    /*else {
-                        res.status(200).send({message: 'Employee has been successfully removed.'});
-                    }*/
                 });
                 return res.status(200).send({message: 'Employee has been successfully removed.'});
             }
@@ -300,24 +297,39 @@ exports.removeEmployee = function(req, res) {
 * Set System Wide Limit
 * Last Edited by {Semaka Malapane}
 */
-//Helper function to notify all users of CMS
+//Helper function to notify all users of CMS about system limit change
 /*function sendMessage(newLimit){
-	User.find({}, function(err, users){
+	User.findOne({}, function(err, user){
 		users.forEach(function(user){
-			
+			if(err){
+				console.log(err);
+				return;
+			}
 			var mailOptions = {
-				//from: configs.mailer.from,
-				subject: 'System Wide Spending Limit Updated'
+				subject: 'Your Order Is Ready'
 			};
-			mailOptions.to = user.email;
+			mailOptions.to = user.username;
 			mailOptions.text = '<p> Dear ' + user.displayName + ',<br> <br> ' +
-									'Please note the system limit for the Cafeteria Management System has been changed to R' + newLimit + '. <br>'+
-									'Please go to edit profile if you\'d like to adjust your limit.<br> <br>'+
-									'The CMS Team <br> </p>';
-                       
+										'Please note the system limit for the Cafeteria Management System has been changed to R' + newLimit + '. <br>'+
+										'Please go to edit profile if you\'d like to adjust your limit.<br> <br>'+
+										'The CMS Team <br> </p>';
+			var notification = new Notifications({
+				username: mailOptions.to,
+				subject: mailOptions.subject,
+				message: mailOptions.text
+			});
+			notification.save(function(err) {
+				if(err) {
+					console.log('ERROR!!!!!!!!!!');
+					console.log(notification);
+					return;
+				}
+				console.log('Notification has been created');
+			});
 		});
 	});
 }*/
+
 /*
 * Set System Wide Limit
 * Last Edited by {Rendani Dau}
