@@ -208,13 +208,16 @@ exports.decreaseInventory = function(req,res)
 
 		var end = req.body.year.toString().concat('-');
 		end = end.concat(endMonth+'-01');
-		console.log('start:'+start+' end:'+end);
+
+		var date = new Date();
+		console.log(date);
+		date = new Date(new Date().setDate(new Date().getDate()-30));
+		date = new Date(date);
+		console.log(date);
 
 		//Find all the orders for the specified month
 		Order.find({created: {$gte: start, $lt: end}}, function(err, orders){
 			if(err) return res.status(400).send({message: 'Could not generate report!'});
-			console.log("HERE!!!!");
-			console.log("orders:"+orders);
 
 			var sample = fs.readFileSync(path.resolve(__dirname, '../reportTemplates/popular_Items_Template.html'), 'utf8');
 			jsreport.render({
