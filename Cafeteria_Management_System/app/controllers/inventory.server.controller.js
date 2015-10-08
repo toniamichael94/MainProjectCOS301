@@ -7,6 +7,7 @@ var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
 	Inventory = mongoose.model('Inventory'),
 	MenuItem = mongoose.model('MenuItem'),
+	Order = mongoose.model('Order'),
 	_ = require('lodash'),
 	Audit = mongoose.model('Audit');
 
@@ -16,7 +17,7 @@ function audit(type, data){
 		details: JSON.stringify(data)
 	};
 	Audit.create(_audit, function(err){
-		if(err){ 
+		if(err){
 			console.log('Audit not created for ' + _type);
 			console.log(errorHandler.getErrorMessage(err));
 		}
@@ -188,6 +189,48 @@ exports.decreaseInventory = function(req,res)
         }
     });
 };
+
+	/*
+	Reporting
+	*/
+
+	exports.monthlyReport = function(req,res){
+		console.log('monthlyReport');
+		//Calcualte the start and end date
+		var start = req.body.year.toString().concat('-');
+		start = start.concat(req.body.month+'-01');
+
+		var endMonth;
+		if(req.body.month < 12)
+				endMonth = req.body.month+1;
+		else endMonth = 1;
+
+		var end = req.body.year.toString().concat('-');
+		end = end.concat(endMonth+'-01');
+		console.log('start:'+start+' end:'+end);
+
+		//Find all the orders for the specified month
+		Order.find({created: {$gt: start, $lt: end}}, function(err, orders){
+			if(err) return res.status(400).send({message: 'Could not generate report!'});
+			console.log("HERE!!!!");
+			console.log("orders:"+orders);
+
+			var sample = fs.readFileSync(path.resolve(__dirname, '../reportTemplates/popular_Items_Template.html'), 'utf8');
+			jsreport.render({
+				template:{ content: sample,
+				//	helpers: 'function mult(a,b){ return a*b; }',//'function total(order){return 10;}'],
+					engine: 'handlebars'},
+				data: {
+					title: 'Popular items',
+					items:itemData
+				}
+			}).then(function(out) {
+				//if(err) return res.status(400).send({message: 'Could not render report!'})
+				console.log('in render function');
+				out.stream.pipe(res);
+			});
+		});
+	};
 
  /* Update inventory
  * Last Edited by {Semaka Malapane and Tonia Michael}

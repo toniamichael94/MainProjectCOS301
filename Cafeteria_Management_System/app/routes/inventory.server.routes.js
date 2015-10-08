@@ -14,13 +14,17 @@ module.exports = function(app) {
 
     //update route
     app.route('/orders/updateInventory').post(inventory.updateInventory);
-	
+
+		//Reporting
+		app.route('/orders/monthlyReport').post(inventory.monthlyReport);
+
+
 	//update inventory quantity
 	app.route('/orders/updateInventoryQuantity').post(inventory.updateInventoryQuantity);
-	
+
 	//decrease inventory quantity
 	app.route('/orders/decreaseInventory').post(inventory.decreaseInventory);
-	
+
 	//Delete an inventory item
 	app.route('/orders/deleteInventoryItem').post(inventory.deleteInventoryItem);
 
