@@ -9,6 +9,7 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
 		
 		$scope.getOrders = function(){
 			$http.post('/orders/getOrderList').success(function(response){
+				console.log(response.message);
 				$scope.orders = response.message;
 				for(var i = 0; i < $scope.orders.length; i++){
 					$scope.orders[i].paymentMethod = "cash";
@@ -21,8 +22,9 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
 					currOrder = $scope.orders[j].orderNumber;
 					$scope.orderNums.push();
 					currentCount++;
-					var arrObj = {orderNum: 0, username: '', items: [], status: '', paymentMethod: ''};
+					var arrObj = {orderNum: 0, username: '', items: [], status: '', paymentMethod: '', created: ''};
 					arrObj.orderNumber = $scope.orders[j].orderNumber;
+					arrObj.created = $scope.orders[j].created;
 					arrObj.username = $scope.orders[j].username;
 					arrObj.status = $scope.orders[j].status;
 					$scope.orderNums[currentCount] = arrObj;
@@ -38,17 +40,18 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
 			});
 		};
 		
-		$scope.markAsReady = function(_username, _orderNumber){
+		$scope.markAsReady = function(_username, _orderNumber, _created){
 			$scope.success = $scope.error = null;
 			
 			if(_username === '' || _orderNumber === '' || _orderNumber === null || _username === null || _orderNumber === undefined || _username === undefined)
 			{
 				alert('Invalid parameters');
 				return;
-			}	
-			$http.post('orders/markAsReady',{username : _username, orderNumber: _orderNumber}).success(function(response){
+			}
+			console.log(_username + ' ' + _orderNumber + ' ' + _created);
+			$http.post('orders/markAsReady',{username : _username, orderNumber: _orderNumber, created: _created}).success(function(response){
 				$scope.success = response.message;
-				$window.location.reload();
+				//$window.location.reload();
 			}).error(function(response){
 				$scope.error = response.message;
 			}); 
@@ -71,7 +74,7 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
 				return;
 			}
 			
-			$http.post('orders/markAsPaid',{username : order.username, orderNumber: order.orderNumber, method: order.paymentMethod }).success(function(response){
+			$http.post('orders/markAsPaid',{username : order.username, orderNumber: order.orderNumber, method: order.paymentMethod, created: order.created }).success(function(response){
 				$scope.success = response.message;
 				$window.location.reload(true);
 			}).error(function(response){

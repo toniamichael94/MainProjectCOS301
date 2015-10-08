@@ -108,7 +108,7 @@ function audit(_type, data){
  }
 
  exports.markAsReady = function(req, res){
-	Order.update({orderNumber: req.body.orderNumber}, {status: 'ready'}, { multi: true }, function(err, numAffected){
+	Order.update({orderNumber: req.body.orderNumber, created: req.body.created, username: req.body.username}, {status: 'ready'}, { multi: true }, function(err, numAffected){
 		if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
 		console.log('Num Affected ' + numAffected);
 		sendEmail(req.body.username, req.body.orderNumber);
@@ -124,7 +124,7 @@ function audit(_type, data){
 exports.markAsPaid = function(req, res){
 	console.log(req.body);
 	if(req.body.method === 'credit'){
-		Order.find({orderNumber: req.body.orderNumber}, function(err, orders) {
+		Order.find({orderNumber: req.body.orderNumber, created: req.body.created, username: req.body.username}, function(err, orders) {
 			if(err){ console.log('Error1' + err); return res.status(400).send({message: 'Order not marked as paid'});}
 			console.log('helo2');
 			var total = 0;
@@ -159,7 +159,7 @@ exports.markAsPaid = function(req, res){
 		});
 	}
 	else{
-		Order.update({orderNumber: req.body.orderNumber}, {status: 'closed'}, { multi: true }, function(err, numAffected){
+		Order.update({orderNumber: req.body.orderNumber, created: req.body.created, username: req.body.username}, {status: 'closed'}, { multi: true }, function(err, numAffected){
 			if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
 			console.log(numAffected);
 			//Audit functionality
