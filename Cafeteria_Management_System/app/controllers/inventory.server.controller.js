@@ -201,16 +201,17 @@ exports.decreaseInventory = function(req,res)
 		start = start.concat(req.body.month+'-01');
 
 		var endMonth;
-		if(req.body.month < 12)
-				endMonth = req.body.month+1;
-		else endMonth = 1;
+		if(parseInt(req.body.month) < 12)
+				endMonth = parseInt(req.body.month)+1;
+		else if(parseInt(req.body.month) === 12)
+					endMonth = 1;
 
 		var end = req.body.year.toString().concat('-');
 		end = end.concat(endMonth+'-01');
 		console.log('start:'+start+' end:'+end);
 
 		//Find all the orders for the specified month
-		Order.find({created: {$gt: start, $lt: end}}, function(err, orders){
+		Order.find({created: {$gte: start, $lt: end}}, function(err, orders){
 			if(err) return res.status(400).send({message: 'Could not generate report!'});
 			console.log("HERE!!!!");
 			console.log("orders:"+orders);
