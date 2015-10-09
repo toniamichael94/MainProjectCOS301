@@ -1,5 +1,50 @@
-<section ng-init="checkUser()" class="row" data-ng-controller="OrdersController">
-<body>
-    uyurf657r
+<section class="row" ng-controller="cashierController">
+    <div  data-ng-controller="MenuItemsController">
+            <h4>Notifications <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button></h4><hr>
+            <alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert10.msg}}</alert>
+    </div>
+    <div data-ng-init="getUserNotifications()" >
+        <div class="list-group-item clearfix " ng-repeat="notification in notifications track by $index">
+            <div class="text-center ">
+
+                <h4><b><p class="text-warning"> Subject : {{notification.subject}}</p></b></h4>
+                Date : {{notification.date}}  <br>
+                {{notification.message}} 
+                <!--div class="list-group-item clearfix" ng-repeat="item in notification.message"> 
+                    <h4><b><p class="text-warning"> Subject : {{notification.subject}}</p></b></h4>
+                    Date : {{notification.date}}  <br>
+                    {{notification.message}} 
+                </div-->
+            </div>
+            <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
+                <div data-ng-show="success" class="text-center text-success">
+                    <strong>{{success}}</strong>
+                </div>
+                <div data-ng-show="error" class="text-center text-danger">
+                    <strong data-ng-bind="error">{{error}}</strong>
+                </div>
+            </div>
+            </section>
+            <!-- index.html >
+            <!-- SET THE CONTROLLER AND GET ALL TODOS >
+            <body ng-controller="mainController">
+                <div class="container">
+            <!-- TODO LIST >
+            <div id="todo-list" class="row">
+                <div class="col-sm-4 col-sm-offset-4">
+    
+            <!-- LOOP OVER THE TODOS IN $scope.todos >
+            <div class="checkbox" ng-repeat="todo in todos">
+                <label>
+                    <input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.text }}
+                </label>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
 </body>
-</section>
+</html-->
+

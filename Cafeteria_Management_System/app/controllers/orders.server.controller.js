@@ -10,6 +10,7 @@
 var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
 	Order = mongoose.model('Order'),
+	Notifications = mongoose.model('Notifications'),
 	User = mongoose.model('User'),
 	Audit = mongoose.model('Audit'),
 	_ = require('lodash'),
@@ -80,6 +81,41 @@ function audit(_type, data){
 	}
  };
 
+/*
+  * Helper function to email user about order
+  * Last Edited by: Semaka Malapane
+  */
+ function sendMessage(uname, orderNum){
+    User.findOne({username: uname}, function(err, user){
+        if(err){
+                console.log(err);
+                return;
+        }		
+        var mailOptions = {
+                subject: 'Your Order Is Ready'
+        };
+        mailOptions.to = user.username;
+        mailOptions.text = 'Dear ' + user.displayName + ',\n\n' +
+                                                        'Your order with order number ' + orderNum +  ' is ready for collection.\n'+
+                                                        'You can collect your order at the cafeteria.\n\n'+
+                                                        'The CMS Team';
+        var notification = new Notifications({
+                username: mailOptions.to,
+                subject: mailOptions.subject,
+                message: mailOptions.text
+        });
+
+        notification.save(function(err) {
+                if(err) {
+                        console.log('ERROR!!!!!!!!!!');
+                        console.log(notification);
+                        return;
+                }
+                console.log('Notification has been created');
+        });
+    });
+ }
+
  /*
   * Helper function to email user about order
   * Last Edited by: Rendani Dau
@@ -112,11 +148,15 @@ function audit(_type, data){
 		if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
 		console.log('Num Affected ' + numAffected);
 		sendEmail(req.body.username, req.body.orderNumber);
+                /*pusher.trigger('notifications', 'new_notification', {
+                    message: "hello world"
+                });*/
+		sendMessage(req.body.username, req.body.orderNumber);
 		//Audit functionality
 		var data = 'Order ' + req.body.orderNumber + ' has been marked as ready';
 		audit('Cashier action', data);
 		//********************
-		res.status(200).send({message: 'order marked as ready'});
+		res.status(200).send({message: 'Order marked as ready'});
 	});
 
  };
@@ -181,15 +221,52 @@ exports.markAsCollected = function(req, res){
 
  //Get orders with a POST request
  exports.getOrderList = function(req, res){
-	Order.find({$or: [{status: 'open'}, {status:'ready'}]}, function(err, items){
-		if(err) return res.status(400).send({
-			message: errorHandler.getErrorMessage(err)
-		});
-
-		res.status(200).send({message: items});
-	});
+//	Order.find({$and: [{active: true}, {$or: [{status: 'open'}, {status:'ready'}]}]}, function(err, items){
+    Order.find({$or: [{status: 'open'}, {status:'ready'}]}, function(err, items){
+        if(err) return res.status(400).send({
+            message: errorHandler.getErrorMessage(err)
+        });
+        res.status(200).send({message: items});
+    });
  };
 
+/*
+* Last edited by {Semaka Malapane}
+*/
+ //Get orders with a POST request
+ exports.getUserNotifications = function(req, res){
+    console.log('current user ' + req.user.username);
+    Notifications.find( {username: req.user.username}, function(err, notifications){
+        if(err) return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+        });
+        Notifications.update({username: req.user.username}, {status: 'read'}, { multi: true }, function(err, numAffected){
+            if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
+            console.log('mark as read ' + numAffected);
+            //res.status(200).send({message: 'order marked as paid/closed'});
+        });
+        res.status(200).send({message: notifications});
+    });
+ };
+
+/*
+* Last edited by {Semaka Malapane}
+*/
+ exports.getNrNotifications = function(req, res){
+	console.log('current user ' + req.user.username);
+	Notifications.count({$and: [{username: req.user.username}, {status: 'unread'}]}, function(err, num){
+		if(err){
+                    console.log('errrrroorrrr ');
+                    return res.status(400).send({
+			message: errorHandler.getErrorMessage(err)
+                    });
+                }
+                console.log('num' + num);
+                
+		res.status(200).send({message: num});
+	});
+ };
+ 
 /*
     Last edited by {Semaka Malapane}
  */
