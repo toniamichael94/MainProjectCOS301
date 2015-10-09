@@ -243,7 +243,7 @@
                     </form>
 
 			   <!-- ********************Upload image if item is found*******************-->
-			    <form name="uploadImageForm" action="/orders/uploadImage" enctype="multipart/form-data" method="post" class="signin form-horizontal" autocomplete="off" onsubmit="return false">
+			    <form name="uploadImageForm" action="/orders/uploadImage" enctype="multipart/form-data" method="post" class="signin form-horizontal" autocomplete="off">
 				    <fieldset>  <div class="text-center form-group" data-ng-show="successFind"><br>
 				      <input type="file" id="upload" name="upload"   data-ng-hide="showme" data-ng-model="upload" class="form-control"/> <br>
 					  <input type="text" id="itemName" name="itemName" style="display: none" data-ng-model="foundItem.itemName" />

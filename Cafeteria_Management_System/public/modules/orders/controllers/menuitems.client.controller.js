@@ -11,7 +11,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		$scope.selectedCategory = JSON.stringify('all');
 		$scope.navClicked = false;
 		$scope.menuNameSearch = "";
-
+		
 //filter the catagories
 //filter the categories
 		$scope.filterCat = function(catName){
@@ -674,7 +674,12 @@ $scope.searchBarDynamic = function(row){
 
 
 			$scope.menuItems = response.message;
-
+			
+			//hide image by default
+			for(var i = 0; i < $scope.menuItems.length; i++){
+				$scope.menuItems[i].displayImage = false;
+			}
+			
 			var inStock = true;
 			//var notInStock = 'Not in stock';
 
@@ -1040,16 +1045,9 @@ $scope.searchBarDynamic = function(row){
 		};
 
 
-	$scope.view = true;
-        $scope.viewImage = function(itemName) {
-            if(itemName)
-                $scope.view = $scope.view === false ? true: false;
-
-/* merge conflict - not sure which one to keep
-        $scope.viewImage = function() {
-
-            $scope.viewImage = $scope.viewImage === false ? true: false;
-*/
+		//$scope.view = true;
+        $scope.viewImage = function(item) {
+			item.displayImage = item.displayImage === false ? true : false;
         };
 
         $scope.checkCMUser = function(){
