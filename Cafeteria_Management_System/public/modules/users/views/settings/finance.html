@@ -41,7 +41,11 @@
                 <div class="form-group">
                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                     <label for="username">Employee Id</label>
-                    <input type="text" id="username" name="username" class="form-control" data-ng-model="username"  placeholder=EmployeeID>
+                    <div ng-init="loadEmployees()" >
+                        <select id="username" name="username" class="form-control" data-ng-model='username'/>
+                        <option ng-repeat="employee in employees" value="{{employee.username}}"> {{employee.username}}</option>
+                        </select><br>
+                    </div>
 					<label for="startDate"> From: </label>
 					<input type="date" id="startDate" name="startDate" class="form-control" data-ng-model="startDate"/>
 					<label for="endDate"> To: </label>

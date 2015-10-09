@@ -85,7 +85,24 @@ angular.module('users').controller('FinanceController', ['$scope', '$http', '$lo
 				$scope.error = 'Could not generate report';
 			});
 		};
-		
+
+        $scope.loadEmployees = function(){
+            $http.get('/loadEmployees').success(function(response) {
+                $scope.employees = response.message;
+                var empArr = [];
+                var counter = 0;
+
+                for(var empID in response.message){
+                    empArr[counter] = response.message[empID];
+                    counter++;
+                    console.log("Superuser: "+ empID);
+                }
+                $scope.employees = empArr;
+            }).error(function(response) {
+                $scope.employees = 'Error loading employees';
+            });
+        };
+
 		$scope.generateReportAll = function(){
 			$http.post('users/finance/generateReportAll',{start: $scope.startDateTwo, end: $scope.endDateTwo},{responseType:'arraybuffer'}).success(function(response){
 				var file = new Blob([response], {type: 'application/pdf'});
