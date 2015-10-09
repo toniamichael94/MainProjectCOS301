@@ -28,11 +28,12 @@
  <!--END ALERT BOX -->
 <!-- Displaying the user information -->
 <div class="list-group" data-ng-init="getUserHistory()">
+	
 	<a href="#" class="list-group-item disabled">
 		Current Month History
 	</a>
-	<div data-ng-show="itemHistory.length > 0">
-		<table class="table table-striped">
+	<div data-ng-show="itemHistory.length > 0" collapse="isCollapsed">
+		<table class="table table-bordered table-striped table-condensed">
 			<thead>
 				<th> Date </th>
 				<th> Order Number </th>
@@ -51,8 +52,8 @@
 				<td> R{{item.quantity * item.price}}</td>
 			</tr>
 			<tr>
-				<td colspan="5" class="text-right text-info">Total spent this Month: </td>
-				<td>R{{total}}<td>
+				<td colspan="5" class="text-right text-info info">Total spent this Month: </td>
+				<td>R{{total}}</td>
 			</tr>
 			</tbody>
 		</table>
