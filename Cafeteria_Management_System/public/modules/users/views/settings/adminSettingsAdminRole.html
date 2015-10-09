@@ -30,8 +30,12 @@
 		<fieldset>
 			<div class="form-group">
 				<label for="emp_id">Employee ID</label>
-				<input type="text" id="emp_id" name="emp_id" class="form-control" data-ng-model="emp_id" placeholder="Employee ID">
-			</div>
+                <div ng-init="loadEmployees()" >
+                    <select id="emp_id" name="emp_id" class="form-control" data-ng-model='emp_id'/>
+                    <option ng-repeat="employee in employees" value="{{employee.username}}"> {{employee.username}}</option>
+                    </select><br>
+                </div>
+            </div>
 			<div class="form-group">
 				<label for="role">Role</label>
 				<select id="role" name="role" class="form-control" data-ng-model="role">
@@ -66,13 +70,11 @@
             <fieldset>
                 <div class="form-group" >
                     <label for="currentEmp_id">Current Employee ID</label>
-                    <input type="text" id="currentEmp_id" name="currentEmp_id" class="form-control" data-ng-model="currentEmp_id" placeholder="Current Employee ID">
-                    <!--label>Current Employee ID </label>
-                    <div ng-init="loadEmployees()" data-ng-controller="SettingsController" >
-                        <select id="currentEmp_id" name="currentEmp_id" class="form-control" data-ng-model = 'currentEmp_id'/>
-                        <option ng-repeat="employee in employees" value="employee.username"> {{employee.username}}</option>
+                     <div ng-init="loadEmployees()" >
+                        <select id="currentEmp_id" name="currentEmp_id" class="form-control" data-ng-model='currentEmp_id'/>
+                        <option ng-repeat="employee in employees" value="{{employee.username}}"> {{employee.username}}</option>
                         </select><br>
-                    </div-->
+                    </div>
 
                 </div>
                 <div class="form-group">
