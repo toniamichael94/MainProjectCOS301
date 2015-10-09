@@ -77,8 +77,12 @@
                     <fieldset>
                         <div class="form-group">
                             <label for="themeName">Set theme name</label>
-                            <input type="text" id="themeName" name="themeName" data-ng-model="themeName" class="form-control" min = 0>
-                        </div>
+                            <select id="themeName" name="themeName" class="form-control" data-ng-model="themeName">
+                                <option value='orange'>orange</option>
+                                <option value='red'>red</option>
+                                <option value='green'>green</option>
+
+                            </select>    </div>
                         <div class="text-center form-group">
                             <button type="submit"  style="width:220px" class="btn btn-large btn-primary" onclick= "location.reload(true)">Set Theme Name</button>
                         </div>
