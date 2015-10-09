@@ -28,12 +28,12 @@
 				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert27.msg}}</alert>
 			</div>
  <!--END ALERT BOX -->
- 
- <div class="list-group clearfix">
-		<a href="#" class="list-group-item disabled">
-			Generate User Invoice
-		</a>
-	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
+    <div class="list-group clearfix">
+        <a href="#" class="list-group-item disabled">
+            Generate User Invoice
+        </a>
+  <div class="list-group-item clearfix">
+      <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 
         <form name="userForm" data-ng-submit="generateReport()" class="signin form-horizontal" autocomplete="on">
             <fieldset>
@@ -58,13 +58,13 @@
                 </div>
             </fieldset>
         </form>
-
+</div>
    </div>
    </div>
-   <div class="list-group clearfix">
-		<a href="#" class="list-group-item disabled">
-			Generate Spending Report
-		</a>
+               <a href="#" class="list-group-item disabled">
+                   Generate Spending Report
+               </a>
+           <div class="list-group-item clearfix">
    <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 
         <form name="userForm" data-ng-submit="generateReportAll(userForm.$valid)" class="signin form-horizontal" autocomplete="on">
@@ -86,7 +86,6 @@
                 </div>
             </fieldset>
         </form>
-
    </div>
-   </div>
+</div>
 </section>
