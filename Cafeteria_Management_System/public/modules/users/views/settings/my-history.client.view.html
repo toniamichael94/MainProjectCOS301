@@ -1,0 +1,65 @@
+
+<!--
+*   profile Page - Finance -- should be able to view monthly bill
+*   - This document contains the profile page the whole CMS
+*
+*   Authors: T-RISE (COS 301 team 2015)
+             		Antonia Michael (13014171)
+                Isabel Nel (13070305)
+							  Elana Kuun (12029522)
+								Rendani Dau (13381467)
+								Semaka Malapane (13081129)
+*
+-->
+
+<section class="row" data-ng-controller="SettingsController">
+	<!--ALERT BOX FOR HELP-->
+		<script type="text/ng-template" id="alert.html">
+				<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+					<div ng-transclude></div>
+				</div> 
+		</script>
+
+		<div  data-ng-controller="MenuItemsController">
+			<h4>History<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
+			<hr>
+			<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert11.msg}}</alert>
+		</div>
+ <!--END ALERT BOX -->
+<!-- Displaying the user information -->
+<div class="list-group" data-ng-init="getUserHistory()">
+	<a href="#" class="list-group-item disabled">
+		Current Month History
+	</a>
+	<div data-ng-show="itemHistory.length > 0">
+		<table class="table table-striped">
+			<thead>
+				<th> Date </th>
+				<th> Order Number </th>
+				<th> Item </th>
+				<th> Price </th>
+				<th> Quantity </th>
+				<th> Sub-total </th>
+			</thead>
+			<tbody>
+			<tr data-ng-repeat="item in itemHistory">
+				<td> {{item.date}} </td>
+				<td> {{item.orderNumber}} </td>
+				<td> {{item.itemName}} </td>
+				<td> R{{item.price}} </td>
+				<td> {{item.quantity}} </td>
+				<td> R{{item.quantity * item.price}}</td>
+			</tr>
+			<tr>
+				<td colspan="5" class="text-right text-info">Total spent this Month: </td>
+				<td>R{{total}}<td>
+			</tr>
+			</tbody>
+		</table>
+		<p>{{$scope.error}}</p>
+	</div>
+	<div data-ng-show="itemHistory.length === 0" class="text-center text-info">
+		<p>You have made no purchases this month. Head over to the menu to place an order.</p>
+	</div>
+</div>
+</section>

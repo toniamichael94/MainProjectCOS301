@@ -77,7 +77,35 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
                 });
             }
         };
-
+		
+		//Get User history
+		var days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+		var months = ['Jan','Feb','Mar','Apr','May','Jun','July','Aug','Sep','Oct','Nov','Dec'];
+		$scope.itemHistory = [];
+		$scope.getUserHistory = function(_startDate, _endDate){
+			var temp = new Date();
+			if(_startDate === undefined){
+				_startDate = new Date();
+				_startDate.setDate(1);
+				_startDate.setMilliseconds(0);
+				_startDate.setSeconds(0);
+				_startDate.setMinutes(0);
+				_startDate.setHours(0);
+				_endDate = new Date();
+			}
+			$http.post('/orders/getUserOrders',{startDate: _startDate, endDate: _endDate}).success(function(response){
+				$scope.itemHistory = response.message;
+				$scope.total = 0;
+				for(var item in $scope.itemHistory){
+					var temp = new Date($scope.itemHistory[item].created);
+					$scope.itemHistory[item].date = days[temp.getDay()] + ' ' + months[temp.getMonth()] + ' ' + temp.getDay() + ' ' + 
+														temp.getHours() + ':' + temp.getMinutes() + ':' + temp.getSeconds();
+					$scope.total += $scope.itemHistory[item].price * $scope.itemHistory[item].quantity;
+				}
+			}).error(function(response){
+				console.log(response.message);
+			});
+		};
         // Should this be taken out {Lana}
         $scope.loadEmployees = function(){
             $http.get('/loadEmployees').success(function(response) {

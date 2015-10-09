@@ -268,43 +268,27 @@ exports.markAsCollected = function(req, res){
  };
  
 /*
-    Last edited by {Semaka Malapane}
+    Last edited by {Rendani Dau}
  */
 exports.getUserOrders = function(req, res){
-    console.log('server req' + req);
-    console.log('username' + req.body.username);
-    if (req.body.username) {
-        Order.find({
-            username: req.body.username
-        }, function (err, items) {
-            console.log('err: ' + err);
-            if (items === '') {
-                return res.status(400).send({
-                    message: 'That user has no orders placed.'
-                });
-            }
-            else{ console.log('items: ' + items);
-                console.log('server res' + res);
-                res.status(200).send({message: items});
-            }
+    if (req.user.username !== '') {
+        Order.find({username: req.user.username, created: {$gt: req.body.startDate, $lt: req.body.endDate}}, function (err, items) {
+            if(err){ 
+			console.log(err);
+			return res.status(400).send({message: errorHandler.getErrorMessage(err)});
+			}
+			res.status(200).send({message: items});
         });
     }
     else {
         return res.status(400).send({
-            message: 'Username field must not be blank'
+            message: 'No user signed in'
         });
     }
-    /*Order.find({status: 'open'}, function(err, items){
-        if(err) return res.status(400).send({
-            message: errorHandler.getErrorMessage(err)
-        });
-    });*/
 };
 
  //Get orders with a GET request
  exports.getOrders = function(req, res){
-	//res.status(400).send({message: 'hello'});
-	console.log('heeeeelloooooooooooooooooooooo');
 	Order.find({status: 'open'}, function(err, items){
 		if(err) return res.status(400).send({
 			message: errorHandler.getErrorMessage(err)
