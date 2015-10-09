@@ -24,14 +24,14 @@
     outline: 0 none;
 }
 .btn-primary {
-    background:  green;
+    background: red;
     color: #ffffff;
 }
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
     background: #787878;
 }
 .btn-primary:active, .btn-primary.active {
-    background:  green;
+    background: red;
     box-shadow: none;
 }
 .btn-lg.round {
@@ -236,4 +236,3 @@ em { font-style: italic }
     font-weight: bold;
 }
 /*-------------------PDF INVOICE END-------------------*/
-
