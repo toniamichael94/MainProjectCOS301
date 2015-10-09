@@ -80,7 +80,7 @@ module.exports.getCSSAssets = function(s) {
     });*/
 
     //var output = this.getGlobbedFiles(this.assets.lib.css.concat(this.assets.css), 'public/');
-    console.log("hhhhhhhhhhhhhhhhhhhhhhhheeee"+ s);
+
     if(s=='bbbb')
         var output = this.getGlobbedFiles(this.assets.lib.css, 'public');
     else
