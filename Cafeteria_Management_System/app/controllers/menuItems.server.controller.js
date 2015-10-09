@@ -418,7 +418,7 @@ exports.uploadImage = function(req, res){
 	console.log('About to parse image');
 	//console.log(req);
 	form.parse(req, function(error, fields, files){
-		var newPath = './public/modules/core/img/' + fields.itemName + '.png';
+		var newPath = './public/modules/orders/img/' + fields.itemName + '.png';
 		console.log(fields);
 		if(error){
 			return res.status(400).send({message: errorHandler.getErrorMessage(error)});
@@ -430,14 +430,15 @@ exports.uploadImage = function(req, res){
 					fs.rename(files.upload.path, newPath);
 					//return res.status(400).send({message: 'Error with the image path!'});
 				}
-				MenuItem.update({itemName: fields.itemName}, {imagePath: newPath},  function(erro, numAffected){
+				var path = 'modules/orders/img/'+ fields.itemName + '.png';
+				MenuItem.update({itemName: fields.itemName}, {imagePath: path},  function(erro, numAffected){
 					if(erro) return res.status(400).send({
 							message: errorHandler.getErrorMessage(erro)
 					});
 					else if (numAffected < 1){
 							return res.status(400).send({message: 'Image not uploaded! Error!'});
 					}
-					res.status(200).send({message: 'Image uploaded.'});
+					res.redirect('/#!/manageCafeteria'); //.send({message: 'Image uploaded.'});
 				});
 				
 			});
