@@ -47,13 +47,13 @@
  \hline
  \textbf{Document Title} & User Manual \\
  \hline
- \textbf{Document Identification}  & Document 0.0.6  \\
+ \textbf{Document Identification}  & Document 0.0.7  \\
  \hline
  \textbf{Author}  & Rendani Dau, Isabel Nel, Elana Kuun, Semaka Malapane, Antonia Michael \\
  \hline
- \textbf{Version} & 0.0.6 \\
+ \textbf{Version} & 0.0.7 \\
  \hline
- \textbf{Document Status} & Sixth Version - edited according to feedback, edited cashier page/ images, added reporting and dynamic categories and updated older images\\
+ \textbf{Document Status} & Seventh Version - edited according to feedback, edited cashier page/ images, added reporting and dynamic categories and updated older images\\
  \hline
  \end{tabu}
 
@@ -79,6 +79,9 @@
   \hline 
  & & & \\
  0.0.6& 22 September &  Sixth draft containing  & Rendani Dau, \\ & & edited according to & Elana Kuun, \\ & & feedback given & Semaka Malapane, \\ & & and add new content &  Antonia Michael \\ & & & Isabel Nel \\   [1ex]  
+ \hline 
+ & & & \\
+ 0.0.7& 9 October &  Seventh draft containing  & Rendani Dau, \\ & & added audit, notifications, & Elana Kuun, \\ & & statistics, & Semaka Malapane, \\ & &  and themes &  Antonia Michael \\ & & & Isabel Nel \\   [1ex]  
 \hline
  \end{tabular}
 \end{table}
@@ -113,7 +116,7 @@ The Cafeteria Management System is a system designed to assist users to order fo
 \section{System Configuration}
 The system requires a Windows/Unix based host to run the server. This host must have the associated technologies installed (the installation of these technologies will be discussed below). The host must be connected to the internet in order to allow any required dependencies to be installed and set up for the operating system environment. The configuration of the server requires an active email account to facilitate communication between the system and end users. \\ 
 \\
-End users will only require a PC equipped with a web browser such as Mozilla, Chrome or Internet Explorer, as well as an active internet connection. The types of data that will communicated and stored will be data of the NoSQL database MongoDB. The menu items that the cafeteria manager will add to the menu as well as images thereof, will be stored in the database, to be communicated/displayed on the menu page. The inventory items that these menu items entail will be stored too. The categories that can be added to the menu by the cafeteria manager will also be stored in the database in order to populate the navigation bar, the actual dynamic pages and various other places in which these are displayed. The cafeteria manager is the only user who is able to retrieve the menu and inventory data, in order to edit or delete it. The other users will just be able to view the menu data on the menu page. The user's sign up informtation will also be stored and will be communicated on the profile page of the user. Each user will only have access to their own information. The superuser, however, willbe able to search for users and update their IDs or delete them from the system. The branding information such as the cover image, the theme, and the canteen name will also be  stored to be communicated on various pages. The superuser is the only user who be able to edit and add this information. Other settings that the superuser can configure, such as the system limit and the roles of the users will be stored and used for determining the privileges associated with the various roles and the checks done on the users' personal spending limits. The finance manager will have access to the order history of each user in order to view their bills and invoices. The cashier will also have access to the orders placed in order to process them i.e. mark an order as ready and as completed. All the crucial information such as the order history and other changes made will be stored in an auditing table.
+End users will only require a PC equipped with a web browser such as Mozilla, Chrome or Internet Explorer, as well as an active internet connection. The types of data that will communicated and stored will be data of the NoSQL database MongoDB. The menu items that the cafeteria manager will add to the menu as well as images thereof, will be stored in the database, to be communicated/displayed on the menu page. The inventory items that these menu items entail will be stored too. The categories that can be added to the menu by the cafeteria manager will also be stored in the database in order to populate the navigation bar, the actual dynamic pages and various other places in which these are displayed. The cafeteria manager is the only user who is able to retrieve the menu and inventory data, in order to edit or delete it. The other users will just be able to view the menu data on the menu page. The user's sign up informtation will also be stored and will be communicated on the profile page of the user. Each user will only have access to their own information. The superuser, however, will be able to search for users and update their IDs or delete them from the system. The branding information such as the cover image, the theme, and the canteen name will also be  stored to be communicated on various pages. The superuser is the only user who be able to edit and add this information. Other settings that the superuser can configure, such as the system limit and the roles of the users will be stored and used for determining the privileges associated with the various roles and the checks done on the users' personal spending limits. The superuser will also have access to the audit trail of all actions performed on the system. The finance manager will have access to the order history of each user in order to view their bills and invoices. The cashier will also have access to the orders placed in order to process them i.e. mark an order as ready and as completed. All the crucial information such as the order history and other changes made will be stored in an auditing table.
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{screenshots/ServerClients.png}
@@ -482,8 +485,20 @@ At the top of the page there is a section labelled assign roles, where different
     \caption{The admin page - superuser can set the monthly spending limit for the users} 
 \end{figure}
 
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/auditsAll.png}
+    \caption{The admin page - superuser can view the audit trail for all actions performed in the system for a specified period. } 
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/Menu_001.png}
+    \caption{The admin page - the dropdown menu for the field to select audit details contains the following actions, more specifically all the main actions a user can perform in the system} 
+\end{figure}
+
 \subsection{Superuser: The "Branding Settings" Page} 
-There are two sections on this page. One where the user can change the canteen name, by merely typing in a new name over the old name in the allocated textbox, and another where the superuser can upload a new cover photo for the system.
+There are two sections on this page. One where the user can change the canteen name, by merely typing in a new name over the old name in the allocated textbox, and another where the superuser can upload a new cover photo for the system. The superuser can also configure the colour scheme for the system.
 
 \begin{figure}[H]
   \centering
@@ -498,7 +513,7 @@ There are two sections on this page. One where the user can change the canteen n
 \end{figure}
 
 \subsection{Cafeteria Manager: The "Manage Inventory" Page}
-This page is available to the cafeteria manager under the dropdown menu on the navigation pane. This is where the cafeteria manager adds inventory items to be used when an actual meal is stored in the menu in order to keep track of stock to note when a specific meal item is out of stock. These inventory items can be deleted, updated and searched for.
+This page is available to the cafeteria manager under the dropdown menu on the navigation pane. This is where the cafeteria manager adds inventory items to be used when an actual meal is stored in the menu in order to keep track of stock to note when a specific meal item is out of stock. These inventory items can be deleted, updated and searched for. 
 
 \begin{figure}[H]
   \centering
