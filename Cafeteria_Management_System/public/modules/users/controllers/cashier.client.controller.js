@@ -108,10 +108,10 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
             }); 
         };
 
-        $scope.getUserNotifications = function(){
+        $scope.getUserNotifications = function() {
             $scope.success = $scope.error = null;
 
-            $http.post('/orders/getUserNotifications').success(function(response){
+            $http.post('/orders/getUserNotifications').success(function (response) {
                 console.log("Notification " + response.message);
                 //$('div.notification').text(response.message);
                 $scope.userNotification = response.message;
@@ -120,10 +120,10 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
                 var currentCount = -1;
 
                 var j = 0;
-                while(j < $scope.userNotification.length){
+                while (j < $scope.userNotification.length) {
                     //currNotification = $scope.userNotification[j].orderNumber;
                     $scope.notifications.push();
-                    currentCount++; 
+                    currentCount++;
                     var arrObj = {username: '', subject: '', message: '', date: Date.now()};
                     arrObj.username = $scope.userNotification[j].username;
                     arrObj.subject = $scope.userNotification[j].subject;
@@ -131,18 +131,19 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
                     arrObj.date = $scope.userNotification[j].date;
                     $scope.userNotification[currentCount] = arrObj;
                     //console.log('status ' + arrObj.status);
-                     console.log(currentCount);
-                    while(j < $scope.userNotification.length){// && currNotification === $scope.userNotification[j].orderNumber){                        
+                    console.log(currentCount);
+                    while (j < $scope.userNotification.length) {// && currNotification === $scope.userNotification[j].orderNumber){
                         console.log(currentCount);
                         $scope.notifications.push($scope.userNotification[j]);
                         j++;
                     }
                 }
                 $scope.success = null;//response.message;
-            }).error(function(response){
+            }).error(function (response) {
                 console.log('Error getting notifications');
                 $scope.error = response.message;
-	    });
+            });
+        }
 
         $scope.markAsPaid = function(order){
 			$scope.success = $scope.error = null;
