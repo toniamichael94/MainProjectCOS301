@@ -114,7 +114,7 @@ $scope.MenuItemsGraphPage = function(){
 					 text: 'Menu Item Statistics'
 			 },
 			 xAxis: {
-					 type: 'Category'
+					 type: 'category'
 			 },
 
 			 legend: {
@@ -136,32 +136,8 @@ $scope.MenuItemsGraphPage = function(){
 					 data: JSON.parse($cookies.container1Data1)
 			 }],
 			 drilldown: {
-					 series:[{
-                "id": "animals",
-                "data": [
-                    ["Cats", 4],
-                    ["Dogs", 2],
-                    ["Cows", 1],
-                    ["Sheep", 2],
-                    ["Pigs", 1]
-                ]
-            }, {
-                "id": "fruits",
-                "data": [
-                    ["Apples", 4],
-                    ["Oranges", 2]
-                ]
-            }, {
-                "id": "cars",
-                "data": [
-                    ["Toyota", 4],
-                    ["Opel", 2],
-                    ["Volkswagen", 2]
-                ]
-            }]
+					 series: JSON.parse($cookies.container1drilldownData)
 				 }
-
-
 });
 
 
@@ -948,8 +924,27 @@ $scope.searchBarDynamic = function(row){
 				$scope.container1Data[item.category].push(item);
 				$scope.container1Data[item.category].category = item.category;
 				$scope.container1Data[item.category].amount = $scope.container1Data[item.category].amount + item.quantity;
+				if($scope.container1Data[item.category].items[item.itemName]){
+						$scope.container1Data[item.category].items[item.itemName][0][1] = $scope.container1Data[item.category].items[item.itemName][0][1] + item.quantity;
+				}else{
+					$scope.container1Data[item.category].items[item.itemName] = [];
+						var tempArray = [];
+						tempArray[0] = item.itemName;
+						tempArray[1] = item.quantity;
+						$scope.container1Data[item.category].items[item.itemName].push(tempArray);
+				}
 
-			//console.log(item)
+		};
+
+		$scope.groupItems2 = function(item){
+			var tempArray = [];
+			var count = 0;
+			for(var items in item){
+					tempArray[count] = item[items][0];
+					count++;
+			}
+			return tempArray;
+
 		};
 
 		$scope.generateReport = function(){
@@ -957,14 +952,20 @@ $scope.searchBarDynamic = function(row){
 				var  containerData = [];
 
 				for(var i = 0; i < response.message.length; i++){
-
 					if($scope.container1Data[response.message[i].category]){
 						$scope.groupItems(response.message[i]);
-
 					}else {
 						$scope.container1Data[response.message[i].category] = [];
+						$scope.container1Data[response.message[i].category].items = [];
 						$scope.container1Data[response.message[i].category].amount = 0;
 						$scope.container1Data[response.message[i].category].category = response.message[i].category
+						// now generate the menu items
+						$scope.container1Data[response.message[i].category].items[response.message[i].itemName] = [];
+							var tempArray = [];
+							tempArray[0] = response.message[i].itemName;
+							tempArray[1] = response.message[i].quantity;
+							$scope.container1Data[response.message[i].category].items[response.message[i].itemName].push(tempArray);
+
 						$scope.container1Data[response.message[i].category].push(response.message[i]);
 						$scope.container1Data[response.message[i].category].amount = $scope.container1Data[response.message[i].category].amount + response.message[i].quantity;
 					}
@@ -981,27 +982,29 @@ $scope.searchBarDynamic = function(row){
 					count++;
 				}
 
+				count = 0;
+				for(var con in $scope.container1Data){
+				$scope.container1Data[con].items  = $scope.groupItems2($scope.container1Data[con].items);
+					$scope.container1drilldownData[count] = {
+						"id": $scope.container1Data[con].category,
+						"data": $scope.container1Data[con].items
+					};
+					count++;
+				}
 
-			console.log($scope.container1Data);
-			console.log(containerData)
 			$scope.container1Data1  = containerData;
 
 			$cookies.container1Data1 = JSON.stringify($scope.container1Data1);
 			$scope.container1Data1 = JSON.parse($cookies.container1Data1);
-
-				$location.path('/reporting/menuItemsStats');
+			$cookies.container1drilldownData = JSON.stringify($scope.container1drilldownData);
+			$scope.container1drilldownData = JSON.parse($cookies.container1drilldownData);
+			$location.path('/reporting/menuItemsStats');
 
 			}).error(function(response){
 				console.log(response);
 			});
 
 		};
-
-		if($cookies.container1Data1){
-			$scope.container1Data1 = JSON.parse($cookies.container1Data1);
-		}
-
-
 
 		/*This funtion generates a report that shows the most popular menu itmes over
 			a period of time*/
