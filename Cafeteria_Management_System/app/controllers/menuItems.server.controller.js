@@ -488,7 +488,6 @@ exports.generateSoldReport = function(req,res){
 
 exports.generateReport = function(req,res){
 	Order.find({created: {$gt: req.body.start, $lt: req.body.end}}, function(err, orders){
-		console.log(orders);
 		if(err){
 			return res.status(400).send({message: 'Could not generate report!'});
 		}else{
@@ -577,22 +576,13 @@ exports.generatePopularReport = function(req,res)
 		{
 			itemData.push({id: itemNames[i], data: itemQuantity[i]});
 		}
+		console.log(itemData);
+		if(err){
+			return res.status(400).send({message: 'Could not generate report!'});
+		}else{
+			return res.status(200).send({message: itemData});
+		}
 
-		var sample = fs.readFileSync(path.resolve(__dirname, '../reportTemplates/popular_Items_Template.html'), 'utf8');
-		jsreport.render({
-			template:{ content: sample,
-			//	helpers: 'function mult(a,b){ return a*b; }',//'function total(order){return 10;}'],
-				engine: 'handlebars'},
-			data: {
-				title: 'Popular items',
-				items:itemData
-
-			}
-		}).then(function(out) {
-			//if(err) return res.status(400).send({message: 'Could not render report!'})
-			console.log('in render function');
-			out.stream.pipe(res);
-		});
 	});
 };
 /*

@@ -15,6 +15,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		$scope.container1Data1 = [];
 		$scope.container1drilldownData = [];
 		$scope.container1drilldownData1 = [];
+		$scope.container2Data = [];
 
 //filter the catagories
 //filter the categories
@@ -107,29 +108,14 @@ $scope.MenuItemsGraphPage = function(){
 
 /*Container to create graph for container 1 - menu item stats*/
 	 $('#container1').highcharts({
-			 chart: {
-					 type: 'column'
-			 },
-			 title: {
-					 text: 'Menu Item Statistics'
-			 },
-			 xAxis: {
-					 type: 'category'
-			 },
-
-			 legend: {
-					 enabled: false
-			 },
-
-			 plotOptions: {
-					 series: {
-							 borderWidth: 0,
-							 dataLabels: {
-									 enabled: true
-							 }
-					 }
-			 },
-
+			 chart: { type: 'column' },
+			 title: { text: 'Menu Item Statistics'},
+			 xAxis: { type: 'category' },
+			 legend: { enabled: false },
+			 plotOptions: { series: { borderWidth: 0,
+				  											dataLabels: {enabled: true}
+					 										}
+			 							},
 			 series: [{
 					 name: 'Categories',
 					 colorByPoint: true,
@@ -138,6 +124,25 @@ $scope.MenuItemsGraphPage = function(){
 			 drilldown: {
 					 series: JSON.parse($cookies.container1drilldownData)
 				 }
+});
+
+$('#container2').highcharts({
+		chart: { type: 'column' },
+		title: { text: 'Most Popular Menu Items'},
+		xAxis: { type: 'category' },
+		legend: { enabled: false },
+		plotOptions: { series: { borderWidth: 0,
+														 dataLabels: {enabled: true}
+													 }
+								 },
+		series: [{
+				name: 'Categories',
+				colorByPoint: true,
+				data: JSON.parse($cookies.container2Data)
+		}],
+		drilldown: {
+				series: JSON.parse($cookies.container1drilldownData)
+			}
 });
 
 
@@ -1009,20 +1014,20 @@ $scope.searchBarDynamic = function(row){
 		/*This funtion generates a report that shows the most popular menu itmes over
 			a period of time*/
 		$scope.generatePopularReport = function(){
-			$http.post('orders/generatePopularReport',{start: $scope.startDate, end: $scope.endDate, numItems: $scope.numItems},{responseType:'arraybuffer'}).success(function(response){
+			$http.post('orders/generatePopularReport',{start: $scope.startDate, end: $scope.endDate, numItems: $scope.numItems},{responseType:'JSON'}).success(function(response){
 
-
-			 var file = new Blob([response], {type: 'application/pdf'});
-				var fileURL = URL.createObjectURL(file);
-
-				var fileName = 'test.pdf';
-				var a = document.createElement('a');
-				document.body.appendChild(a);
-				a.setAttribute('style', 'display: none');
-
-				a.href =  fileURL;
-								a.download = fileName;
-								a.click();
+				var count = 0;
+				for(var i = 0; i < response.message.length; i++){
+					$scope.container2Data[count] = {
+						name: response.message[i].id,
+						y: response.message[i].data,
+						drilldown: response.message[i].id
+					};
+					count++;
+				}
+				$cookies.container2Data = JSON.stringify($scope.container2Data);
+				$scope.container2Data = JSON.parse($cookies.container2Data);
+				$location.path('/reporting/mostPopularItems');
 
 			}).error(function(response){
 				console.log(response);
