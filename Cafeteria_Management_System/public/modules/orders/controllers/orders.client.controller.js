@@ -151,9 +151,9 @@ angular.module('orders').controller('OrdersController', ['$scope', '$rootScope',
 	            $scope.newMessage(); 
 	        };
 	        
-	        $scope.readMessage = function(){
+	        /*$scope.readMessage = function(){
 	            $rootScope.$broadcast('messRead');
-	        };
+	        };*/
 		/*
 		$scope.showRadio = function(){
 			return $scope.plate.length > 0
