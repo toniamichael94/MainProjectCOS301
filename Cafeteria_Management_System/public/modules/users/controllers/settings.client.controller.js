@@ -10,17 +10,18 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 		// If user is not signed in then redirect back home
 		if (!$scope.user) $location.path('/');
 
+//This function will initiate the graph arrays cookies
 		$scope.GraphPage = function(){
 
 			$scope.container1Data1[0] = {
-				name: "",
+				name: '',
 				y: 0,
-				drilldown:""
+				drilldown:''
 			};
 
 			$scope.container1drilldownData[0] = {
-				"id": "",
-				"data": [["", 0]]
+				'id': '',
+				'data': [['', 0]]
 			};
 
 
@@ -30,10 +31,12 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 			$scope.container1drilldownData = JSON.parse($cookies.container1drilldownData);
 	};
 
+	//if no such cookies exist it will make them
 		if(!$cookies.container2Data || (!$cookies.container1drilldownData && !	$cookies.container1Data1)){
 			$scope.GraphPage();
 		};
 
+//My History graoh will show all the orders listed in the users history for that month
 		$('#container1').highcharts({
 	 		 chart: { type: 'column' },
 	 		 title: { text: 'User History'},
@@ -44,7 +47,7 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 	 														}
 	 									},
 	 		 series: [{
-	 				 name: 'Categories',
+	 				 name: 'Items',
 	 				 colorByPoint: true,
 	 				 data: JSON.parse($cookies.container1Data1)
 	 		 }],
@@ -124,6 +127,7 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
             }
         };
 
+//helper function for graph data
 				$scope.groupItems = function(item){
 						$scope.container1Data[item.category].push(item);
 						$scope.container1Data[item.category].category = item.category;
@@ -140,6 +144,7 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 
 				};
 
+//helper function for graph data
 				$scope.groupItems2 = function(item){
 					var tempArray = [];
 					var count = 0;

@@ -13,7 +13,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 			//	BootstrapDialog.confirm('Hi Apple, are you sure?');
 			$scope.success = $scope.error = null;
 			var reqObj = {userID: $scope.emp_id, role: $scope.role};
-              $scope.r = $window.confirm("Are you sure?");
+              $scope.r = $window.confirm('Are you sure?');
 
               if($scope.r === true) {
                   $http.post('/users/superuserAssignRoles', reqObj).success(function (response) {
@@ -41,7 +41,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 				if (isValid) {
 				$scope.success = $scope.error = null;
 				var reqObj = {userID: $scope.emp_id, role: $scope.role};
-                $scope.r = $window.confirm("Are you sure?");
+                $scope.r = $window.confirm('Are you sure?');
 
                 if($scope.r === true) {
                     $http.post('/users/adminUserAssignRoles', reqObj).success(function (response) {
@@ -70,7 +70,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 				console.log($scope.currentEmp_id);
                 $scope.successOne = $scope.errorOne = null;
                 var reqObj = {currentUserID: $scope.currentEmp_id, newUserID: $scope.newEmp_id};
-                $scope.r = $window.confirm("Are you sure?");
+                $scope.r = $window.confirm('Are you sure?');
 
                 if($scope.r === true) {
 
@@ -93,7 +93,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
             if (isValid) {
                 $scope.successFour = $scope.errorFour = null;
                 var reqObj = {userID: $scope.empId};
-                $scope.r = $window.confirm("Are you sure?");
+                $scope.r = $window.confirm('Are you sure?');
 
                 if($scope.r === true) {
                     $http.post('/users/superuserRemoveEmployee', reqObj).success(function (response) {
@@ -142,7 +142,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
                 var reqObj = {name: 'System wide limit', value: $scope.limit};
                 //$scope.r = $window.confirm("Are you sure?");
 
-                bootbox.alert("Hello world!");
+                bootbox.alert('Hello world!');
                 if($scope.r === true) {
                     //console.log($scope.limit);
                     $http.post('users/superuserSetSystemWideLimit', reqObj).success(function (response) {
@@ -178,7 +178,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 
 		//Set canteen name
 		$scope.setCanteenName = function(isValid){
-            console.log("Name CLIENT");
+            console.log('Name CLIENT');
 			if(isValid){
 				$scope.success = $scope.error = null;
 				$scope.successTwo = $scope.errorTwo = null;
@@ -195,16 +195,16 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 
         //Set theme name
         $scope.setThemeName = function(){
-                console.log("THEME CLIENT");
+                console.log('THEME CLIENT');
                 $scope.successFive = $scope.errorFive = null;
 
                 var reqObj = {name: 'Theme name', value: $scope.themeName};
                 console.log($scope.themeName);var p= $scope.themeName;
                 $http.post('/users/superuserSetThemeName', reqObj).success(function (response) {
-                    $scope.successFive = "Colour scheme changed successfully";
+                    $scope.successFive = 'Colour scheme changed successfully';
 
                 }).error(function (response) {
-                    $scope.r = $window.alert("Invalid theme! Choose between red, orange, green, blue and default");
+                    $scope.r = $window.alert('Invalid theme! Choose between red, orange, green, blue and default');
                     $scope.errorFive = response.message;
                     console.log('error ' + response.message);
                 });
@@ -229,7 +229,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
                 for(var empID in response.message){
                     empArr[counter] = response.message[empID];
                     counter++;
-                    console.log("Superuser: "+ empID);
+                    console.log('Superuser: '+ empID);
                 }
                 $scope.employees = empArr;
             }).error(function(response) {

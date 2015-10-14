@@ -12,7 +12,7 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 		$scope.addFormFieldInventory = function() {
 			$http.get('/loadInventoryItems').success(function(response) {
 			$scope.inventoryItems = response.message;
-			var itemsArray = new Array();
+			var itemsArray = [];
 			var counter = 0;
 
 			for(var itemName in response.message){
@@ -48,19 +48,19 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 		//Montly report of inventory items used
 		$scope.monthlyReport = function()
 		{
-				$scope.error = "";
-				$scope.success = "";
+				$scope.error = '';
+				$scope.success = '';
 				var valid = true;
-				if($scope.month==undefined)
+				if($scope.month === undefined)
 				{
-					$scope.error = "Plase enter month";
+					$scope.error = 'Plase enter month';
 					valid = false;
 				}
 
 
-				if($scope.year.toString().length != 4)
+				if($scope.year.toString().length !== 4)
 				{
-						$scope.error = "Please provide a valid year.";
+						$scope.error = 'Please provide a valid year.';
 						valid = false;
 				}
 
@@ -94,14 +94,14 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 		$scope.updateInventoryQuantity = function()
 		{
 				var error = false;
-				$scope.message = "";
+				$scope.message = '';
 
 			for(var i = 0; i !== $scope.allInventory.inventoryProduct.length; i++)
 			{
 
 				if($scope.allInventory.inventoryQuantity[i] !== $scope.previousQuantity.prevQuantity[i])
 				{
-					var space = $scope.allInventory.inventoryProduct[i].lastIndexOf(" ");
+					var space = $scope.allInventory.inventoryProduct[i].lastIndexOf(' ');
 					var name = $scope.allInventory.inventoryProduct[i].substring(0,space);
 					console.log(name);
 
@@ -146,7 +146,7 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 		$scope.loadInventoryItems = function(){
 			$http.get('/loadInventoryItems').success(function(response) {
 			$scope.inventoryItems = response.message;
-			var itemsArray = new Array();
+			var itemsArray =[];
 			var counter = 0;
 
 			for(var itemName in response.message){
@@ -253,10 +253,10 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 
 					for(var item in $scope.allInventory.inventoryProduct)
 					{
-						var space = $scope.allInventory.inventoryProduct[item].lastIndexOf(" ");
+						var space = $scope.allInventory.inventoryProduct[item].lastIndexOf(' ');
 						var name = $scope.allInventory.inventoryProduct[item].substring(0,space);
 
-						if(name == $scope.itemNameSearch.toLowerCase())
+						if(name === $scope.itemNameSearch.toLowerCase())
 						{
 							$scope.allInventory.inventoryProduct[item] = $scope.itemUpdateName;
 							$scope.allInventory.inventoryQuantity[item] = $scope.updateQuantity;

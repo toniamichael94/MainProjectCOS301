@@ -77,9 +77,9 @@ angular.module('orders').controller('OrdersController', ['$scope', '$rootScope',
 								quantity = quantity*order.plate[i].quantity*-1;
 
 								var found = false;
-									for(var k = 0; k != ingredients.length; k++)
+									for(var k = 0; k !== ingredients.length; k++)
 									{
-										if(ingredients[k] == ingredient)
+										if(ingredients[k] === ingredient)
 										{
 											quantities[k] = quantities[k] + quantity;
 											found = true;
@@ -95,7 +95,7 @@ angular.module('orders').controller('OrdersController', ['$scope', '$rootScope',
 							}
 						}
 
-						for(var j = 0; j != ingredients.length; j++)
+						for(var j = 0; j !== ingredients.length; j++)
 						{
 							var reqObj = {productName:ingredients[j], quantity:quantities[j]};
 							$http.post('/orders/decreaseInventory',reqObj).success(function(response){
@@ -141,16 +141,16 @@ angular.module('orders').controller('OrdersController', ['$scope', '$rootScope',
 				//$rootScope.$broadcast('plateUpdated');
 			}
 		};
-		
+
 		$scope.newMessage = function(){
 	            $rootScope.$broadcast('newMess');
 	        };
-	        
+
 	        $scope.pOrder = function(){
 	            $scope.placeOrder();
-	            $scope.newMessage(); 
+	            $scope.newMessage();
 	        };
-	        
+
 	        /*$scope.readMessage = function(){
 	            $rootScope.$broadcast('messRead');
 	        };*/
