@@ -207,7 +207,7 @@ Test Case 1: \$scope.loadMenuItems() should load menu items: Pass \\
 Pre conditions: Category does not exist \\
 Post conditions: Created successfully, added to database\\
 Test Case 1: \$scope.createMenuCatagory() should create category: Pass \\
-Test Case 2: \$scope.createMenuCatagory() should fail to create category: Pass \\
+Test Case 2: \$scope.createMenuCatagory() should not create category: Pass \\
 
 6.) Load Menu Categories \\
 Pre conditions: One/ more than one menu category exists in the database \\
