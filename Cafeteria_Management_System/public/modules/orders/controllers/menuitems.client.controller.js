@@ -128,6 +128,9 @@ $scope.MenuItemsGraphPage = function(){
 
 };
 
+if(!$cookies.container2Data || (!$cookies.container1drilldownData && !	$cookies.container1Data1)){
+	$scope.MenuItemsGraphPage();
+}
 
 /*Container to create graph for container 1 - menu item stats*/
 	 $('#container1').highcharts({
