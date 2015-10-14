@@ -40,23 +40,6 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
                 $scope.error=response.message;
 			});
 		};
-		
-		$scope.markAsReady = function(_username, _orderNumber, _created){
-			$scope.success = $scope.error = null;
-			
-			if(_username === '' || _orderNumber === '' || _orderNumber === null || _username === null || _orderNumber === undefined || _username === undefined)
-			{
-				alert('Invalid parameters');
-				return;
-			}
-			console.log(_username + ' ' + _orderNumber + ' ' + _created);
-			$http.post('orders/markAsReady',{username : _username, orderNumber: _orderNumber, created: _created}).success(function(response){
-				$scope.success = response.message;
-				$window.location.reload();
-			}).error(function(response){
-				$scope.error = response.message;
-			}); 
-		};
 
      /*   $scope.markAsCollected = function(username, itemName,orderNumber){
             console.log(username  + ' ' +itemName + orderNumber);
@@ -97,10 +80,8 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
             }	
             $http.post('orders/markAsReady',{username : _username, orderNumber: _orderNumber}).success(function(response){
                 //console.log("Ready " + response.message);
-                //$('div.notification').text(response.message);
                 $scope.success = response.message;
                 $scope.newMessage();
-                //newMessage();
                 //$rootScope.$broadcast('newMess');
                 $window.location.reload();
             }).error(function(response){
@@ -113,7 +94,6 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
 
             $http.post('/orders/getUserNotifications').success(function (response) {
                 console.log("Notification " + response.message);
-                //$('div.notification').text(response.message);
                 $scope.userNotification = response.message;
 
                 //var currNotification = -1;
@@ -161,14 +141,6 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
         };
 
         $scope.newMessage = function(){
-            /*$http.post('/orders/getNrNotifications').success(function(response){
-                console.log("Number notification " + response.message);
-            }).error(function(response){
-                console.log('Error getting number of notifications');
-                console.log(response.message);
-                //$scope.error = response.message;
-            });*/
-                            
             $rootScope.$broadcast('newMess');
         };
         
@@ -191,7 +163,7 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
            }); location.reload(true);
        };
    */
-       $scope.markAsPaid = function(order){
+      /* $scope.markAsPaid = function(order){
             $scope.success = $scope.error = null;
             if(order.paymentMethod === ''){
                 alert('Please select a payment method');
@@ -204,7 +176,7 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
             }).error(function(response){
                 alert(response.message);
            });
-       };
+       };*/
 
        $scope.checkUser = function(){
             if((Authentication.user && Authentication.user.roles[0] !== 'cashier') || (!Authentication.user))
