@@ -17,6 +17,10 @@ angular.module('users').config(['$stateProvider',
 			url: '/settings/history',
 			templateUrl: 'modules/users/views/settings/my-history.client.view.html'
 		}).
+		state('historyGraph', {
+			url: '/settings/historyGraph',
+			templateUrl: 'modules/users/views/settings/historyGraph.html'
+		}).
 		state('password', {
 			url: '/settings/password',
 			templateUrl: 'modules/users/views/settings/change-password.client.view.html'

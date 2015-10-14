@@ -17,7 +17,7 @@
 		<script type="text/ng-template" id="alert.html">
 				<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
 					<div ng-transclude></div>
-				</div> 
+				</div>
 		</script>
 
 		<div  data-ng-controller="MenuItemsController">
@@ -27,8 +27,11 @@
 		</div>
  <!--END ALERT BOX -->
 <!-- Displaying the user information -->
+<button type="button" class="btn btn-large btn-primary" ng-click="visualHistory()">Visual Representation</button>
+<br> <br>
 <div class="list-group" data-ng-init="getUserHistory()">
-	
+
+
 	<a href="#" class="list-group-item disabled">
 		Current Month History
 	</a>
