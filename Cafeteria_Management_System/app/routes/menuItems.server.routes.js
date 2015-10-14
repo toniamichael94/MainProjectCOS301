@@ -8,6 +8,7 @@ module.exports = function(app) {
 		app.route('/orders/generatePopularReport').post(menuItems.generatePopularReport);
 		app.route('/orders/generateSoldReport').post(menuItems.generateSoldReport);
 		app.route('/orders/generateReport').post(menuItems.generateReport);
+			app.route('/orders/orders/inventoryReport').post(menuItems.inventoryReport);
 
 	//Display Menu Items
 	app.route('/loadMenuItems').get(menuItems.loadMenuItems);

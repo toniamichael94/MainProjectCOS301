@@ -95,6 +95,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		$scope.filterCat($scope.selectedCategory);
 	}
 
+
 	if($cookies.navClicked){
 		$scope.navClicked = JSON.parse($cookies.navClicked);
 	};
@@ -102,8 +103,37 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 
 $scope.MenuItemsGraphPage = function(){
 
-//	$location.path('/reporting/menuItemsStats');
+	$scope.container1Data1[0] = {
+		name: "",
+		y: 0,
+		drilldown:""
+	};
 
+	$scope.container1drilldownData[0] = {
+		"id": "",
+		"data": [["", 0]]
+	};
+	$cookies.container1Data1 = JSON.stringify($scope.container1Data1);
+	$scope.container1Data1 = JSON.parse($cookies.container1Data1);
+	$cookies.container1drilldownData = JSON.stringify($scope.container1drilldownData);
+	$scope.container1drilldownData = JSON.parse($cookies.container1drilldownData);
+
+};
+
+$scope.container1Data1[0] = {
+	name: "",
+	y: 0,
+	drilldown:""
+};
+
+$scope.container1drilldownData[0] = {
+	"id": "",
+	"data": [["", 0]]
+};
+$scope.container2Data[0] = {
+	name: "",
+	y: 0,
+	drilldown:""
 };
 
 /*Container to create graph for container 1 - menu item stats*/
@@ -139,10 +169,7 @@ $('#container2').highcharts({
 				name: 'Categories',
 				colorByPoint: true,
 				data: JSON.parse($cookies.container2Data)
-		}],
-		drilldown: {
-				series: JSON.parse($cookies.container1drilldownData)
-			}
+		}]
 });
 
 
@@ -1032,6 +1059,18 @@ $scope.searchBarDynamic = function(row){
 			}).error(function(response){
 				console.log(response);
 			});
+		};
+
+		$scope.inventoryReport = function(){
+			console.log('Hi')
+				$http.post('orders/inventoryReport',{start: $scope.startDateReport, end: $scope.endDateReport},{responseType:'JSON'}).success(function(response){
+					console.log(response);
+
+
+				}).error(function(response){
+					console.log(response);
+			});
+
 		};
 
 		$scope.addToPlate = function(itemName){
