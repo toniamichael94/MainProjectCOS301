@@ -1130,6 +1130,7 @@ $scope.searchBarDynamic = function(row){
             }
         };
 	}
+	}
 ]);
 
 //Directive that returns an element which adds input boxes
