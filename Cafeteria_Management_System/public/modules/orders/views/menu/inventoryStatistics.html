@@ -66,8 +66,6 @@
 
 		<!--Inventory items used over time-->
 		<div class="list-group clearfix">
-		<!--Inventory items used over time-->
-		<div class="list-group clearfix">
 		<a href="#" class="list-group-item disabled">Display the amount of the inventory items used</a>
 			<div class="list-group-item clearfix">
 				<!--Alert box -->
@@ -86,23 +84,7 @@
 					<form name="monthlyReportForm" data-ng-submit="monthlyReport(monthlyReportForm.$valid)" class="signin form-horizontal" autocomplete="off">
 						<fieldset>
 							<div class="form-group">
-								<label for="timePeriod">Month</label>
-								<select data-ng-model = 'month' class="form-control" required/>
-										<option  value = 1>January</option>
-										<option  value = 2>February</option>
-										<option  value = 3>March</option>
-										<option  value = 4>April</option>
-										<option  value = 5>May</option>
-										<option  value = 6>June</option>
-										<option  value = 7>July</option>
-										<option  value = 8>August</option>
-										<option  value = 9>September</option>
-										<option  value = 10>October</option>
-										<option  value = 11>November</option>
-										<option  value = 12>December</option>
-								</select><br>
-								<label for="year">Year</label>
-								<input type = "number" class="form-control" min=0 data-ng-model = "year" required/>
+							<label> Display the amount of inventory items used over the last 30 days. </label>
 							</div>  <div class=" text-center form-group">
 								<button type = "submit" style="width:200px" class = "btn btn-large btn-primary">Submit</button>
 								<!-- Show error message or sucess message for adding a menu category--></div>
@@ -114,7 +96,6 @@
 								</div>
 						</fieldset>
 					</form>
-
 		  </div>
 	  </div>
 
