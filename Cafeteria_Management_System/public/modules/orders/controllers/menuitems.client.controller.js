@@ -11,11 +11,11 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		$scope.selectedCategory = JSON.stringify('all');
 		$scope.navClicked = false;
 		$scope.menuNameSearch = "";
-		$scope.container1Data = [];
-		$scope.container1Data1 = [];
-		$scope.container1drilldownData = [];
-		$scope.container1drilldownData1 = [];
-		$scope.container2Data = [];
+		$scope.container1Data = []; // menu items stats data
+		$scope.container1Data1 = []; // menu items stats data
+		$scope.container1drilldownData = []; // menu items stats data
+		$scope.container1drilldownData1 = []; // menu items stats data
+		$scope.container2Data = []; // most popular items data
 
 //filter the catagories
 //filter the categories
@@ -100,7 +100,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		$scope.navClicked = JSON.parse($cookies.navClicked);
 	};
 
-
+// helper function to graphs initiating values and cookies
 $scope.MenuItemsGraphPage = function(){
 
 	$scope.container1Data1[0] = {
@@ -128,6 +128,7 @@ $scope.MenuItemsGraphPage = function(){
 
 };
 
+// if no such cookies exist create them
 if(!$cookies.container2Data || (!$cookies.container1drilldownData && !	$cookies.container1Data1)){
 	$scope.MenuItemsGraphPage();
 }
@@ -152,6 +153,7 @@ if(!$cookies.container2Data || (!$cookies.container1drilldownData && !	$cookies.
 				 }
 });
 
+//container 2 for most popular menu items
 $('#container2').highcharts({
 		chart: { type: 'column' },
 		title: { text: 'Most Popular Menu Items'},
@@ -948,6 +950,7 @@ $scope.searchBarDynamic = function(row){
 
 		};
 
+//helper function to graph data
 		$scope.groupItems = function(item){
 				$scope.container1Data[item.category].push(item);
 				$scope.container1Data[item.category].category = item.category;
@@ -964,6 +967,7 @@ $scope.searchBarDynamic = function(row){
 
 		};
 
+//helper function to graph data
 		$scope.groupItems2 = function(item){
 			var tempArray = [];
 			var count = 0;
@@ -975,6 +979,7 @@ $scope.searchBarDynamic = function(row){
 
 		};
 
+//generating the graph data for menu item statistics
 		$scope.generateReport = function(){
 			$http.post('orders/generateReport',{start: $scope.startDateReport, end: $scope.endDateReport},{responseType:'JSON'}).success(function(response){
 				var  containerData = [];
