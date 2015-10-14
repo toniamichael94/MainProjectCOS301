@@ -1,0 +1,20 @@
+<section data-ng-controller="OrdersController" >
+
+
+				<!--Alert box -->
+				<script type="text/ng-template" id="alert.html">
+						<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+							<div ng-transclude></div>
+						</div>
+				</script>
+
+				<div  data-ng-controller="MenuItemsController">
+					<h4>Contact Us <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button></h4><hr>
+					<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert28.msg}}</alert>
+				</div>
+
+        <!-- END ALERT BOX-->
+
+
+
+</section>
