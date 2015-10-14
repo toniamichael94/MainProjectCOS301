@@ -50,8 +50,24 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 		{
 				$scope.error = "";
 				$scope.success = "";
+				var valid = true;
+				if($scope.month==undefined)
+				{
+					$scope.error = "Plase enter month";
+					valid = false;
+				}
 
-				$http.post('orders/monthlyReport',{},{responseType:'arraybuffer'}).success(function(response){
+
+				if($scope.year.toString().length != 4)
+				{
+						$scope.error = "Please provide a valid year.";
+						valid = false;
+				}
+
+				if(valid)
+				{
+					$http.post('orders/monthlyReport',{month: $scope.month, year: $scope.year},{responseType:'arraybuffer'}).success(function(response){
+
 
 					 var file = new Blob([response], {type: 'application/pdf'});
 						var fileURL = URL.createObjectURL(file);
@@ -69,6 +85,7 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 						console.log(response);
 					});
 
+				}
 		};
 
 		/*
