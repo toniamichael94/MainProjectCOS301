@@ -141,6 +141,19 @@ angular.module('orders').controller('OrdersController', ['$scope', '$rootScope',
 				//$rootScope.$broadcast('plateUpdated');
 			}
 		};
+		
+		$scope.newMessage = function(){
+	            $rootScope.$broadcast('newMess');
+	        };
+	        
+	        $scope.pOrder = function(){
+	            $scope.placeOrder();
+	            $scope.newMessage(); 
+	        };
+	        
+	        /*$scope.readMessage = function(){
+	            $rootScope.$broadcast('messRead');
+	        };*/
 		/*
 		$scope.showRadio = function(){
 			return $scope.plate.length > 0

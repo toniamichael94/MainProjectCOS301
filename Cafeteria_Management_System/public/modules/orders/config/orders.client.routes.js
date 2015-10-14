@@ -26,6 +26,15 @@ angular.module('orders').config(['$stateProvider',
 		  url: '/reporting/menuItemsStats',
 			templateUrl: 'modules/orders/views/reporting/menuItemsStats.html'
 		}).
+		state('mostPopularItems', {
+			url: '/reporting/mostPopularItems',
+			templateUrl: 'modules/orders/views/reporting/mostPopularItems.html'
+		}).
+		state('contactUs', {
+			url: '/contactUs',
+			templateUrl: 'modules/orders/views/menu/contactUs.html'
+		}).
+
 		// view Orders page / on my plate page
 		state('createOrder', {
 			url: '/orders/create',

@@ -11,7 +11,12 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		$scope.selectedCategory = JSON.stringify('all');
 		$scope.navClicked = false;
 		$scope.menuNameSearch = "";
-		
+		$scope.container1Data = [];
+		$scope.container1Data1 = [];
+		$scope.container1drilldownData = [];
+		$scope.container1drilldownData1 = [];
+		$scope.container2Data = [];
+
 //filter the catagories
 //filter the categories
 		$scope.filterCat = function(catName){
@@ -90,6 +95,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		$scope.filterCat($scope.selectedCategory);
 	}
 
+
 	if($cookies.navClicked){
 		$scope.navClicked = JSON.parse($cookies.navClicked);
 	};
@@ -97,83 +103,69 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 
 $scope.MenuItemsGraphPage = function(){
 
-	$location.path('/reporting/menuItemsStats');
+	$scope.container1Data1[0] = {
+		name: "",
+		y: 0,
+		drilldown:""
+	};
+
+	$scope.container1drilldownData[0] = {
+		"id": "",
+		"data": [["", 0]]
+	};
+
+	$scope.container2Data[0] = {
+		name: "",
+		y: 0,
+		drilldown:""
+	};
+	$cookies.container1Data1 = JSON.stringify($scope.container1Data1);
+	$scope.container1Data1 = JSON.parse($cookies.container1Data1);
+	$cookies.container1drilldownData = JSON.stringify($scope.container1drilldownData);
+	$scope.container1drilldownData = JSON.parse($cookies.container1drilldownData);
+	$cookies.container2Data = JSON.stringify($scope.container2Data);
+	$scope.container2Data = JSON.parse($cookies.container2Data);
 
 };
 
+if(!$cookies.container2Data || (!$cookies.container1drilldownData && !	$cookies.container1Data1)){
+	$scope.MenuItemsGraphPage();
+}
 
-
-
-
-	var data =  JSON.stringify(data);
-	 $('#container').highcharts({
-			 chart: {
-					 type: 'column'
-			 },
-			 title: {
-					 text: 'Basic drilldown'
-			 },
-			 xAxis: {
-					 type: 'category'
-			 },
-
-			 legend: {
-					 enabled: false
-			 },
-
-			 plotOptions: {
-					 series: {
-							 borderWidth: 0,
-							 dataLabels: {
-									 enabled: true
-							 }
-					 }
-			 },
-
+/*Container to create graph for container 1 - menu item stats*/
+	 $('#container1').highcharts({
+			 chart: { type: 'column' },
+			 title: { text: 'Menu Item Statistics'},
+			 xAxis: { type: 'category' },
+			 legend: { enabled: false },
+			 plotOptions: { series: { borderWidth: 0,
+				  											dataLabels: {enabled: true}
+					 										}
+			 							},
 			 series: [{
-					 name: 'Things',
+					 name: 'Categories',
 					 colorByPoint: true,
-					 data: [{
-							 name: 'Animals',
-							 y: 5,
-							 drilldown: 'animals'
-					 }, {
-							 name: 'Fruits',
-							 y: 2,
-							 drilldown: 'fruits'
-					 }, {
-							 name: 'Cars',
-							 y: 4,
-							 drilldown: 'cars'
-					 }]
+					 data: JSON.parse($cookies.container1Data1)
 			 }],
 			 drilldown: {
-					 series:[{
-                "id": "animals",
-                "data": [
-                    ["Cats", 4],
-                    ["Dogs", 2],
-                    ["Cows", 1],
-                    ["Sheep", 2],
-                    ["Pigs", 1]
-                ]
-            }, {
-                "id": "fruits",
-                "data": [
-                    ["Apples", 4],
-                    ["Oranges", 2]
-                ]
-            }, {
-                "id": "cars",
-                "data": [
-                    ["Toyota", 4],
-                    ["Opel", 2],
-                    ["Volkswagen", 2]
-                ]
-            }]
+					 series: JSON.parse($cookies.container1drilldownData)
 				 }
+});
 
-
+$('#container2').highcharts({
+		chart: { type: 'column' },
+		title: { text: 'Most Popular Menu Items'},
+		xAxis: { type: 'category' },
+		legend: { enabled: false },
+		plotOptions: { series: { borderWidth: 0,
+														 dataLabels: {enabled: true}
+													 }
+								 },
+		series: [{
+				name: 'Categories',
+				colorByPoint: true,
+				data: JSON.parse($cookies.container2Data)
+		}]
 });
 
 
@@ -222,7 +214,7 @@ $scope.toggleCollapsibleMenu = function() {
 	$scope.alert27 = {type: 'warning', msg: 'Page help: This page will generate invoices for the specified user'};
 	$scope.alert29= {type: 'warning', msg: 'Page help: '};
   $scope.alert28 = {type: 'warning', msg: 'Page help: This field allows the superuser to change the colour scheme for the system'};
-  
+
 //close alert will take alert box away
 $scope.closeAlert = function(index) {
 			$scope.alertUser = false;
@@ -497,13 +489,13 @@ $scope.closeAlert = function(index) {
             }
 						console.log('nope...');
         };
-		
+
 		$scope.uploadImage = function(isValid){
 			if(isValid){
 				var fd = new FormData();
 				fd.append('file', $scope.upload);
 				fd.append('data', $scope.foundItem.itemName);
-				
+
 				$http.post(url, fd, {
 					headers : {
 						'Content-Type' : undefined
@@ -674,12 +666,12 @@ $scope.searchBarDynamic = function(row){
 
 
 			$scope.menuItems = response.message;
-			
+
 			//hide image by default
 			for(var i = 0; i < $scope.menuItems.length; i++){
 				$scope.menuItems[i].displayImage = false;
 			}
-			
+
 			var inStock = true;
 			//var notInStock = 'Not in stock';
 
@@ -956,21 +948,85 @@ $scope.searchBarDynamic = function(row){
 
 		};
 
+		$scope.groupItems = function(item){
+				$scope.container1Data[item.category].push(item);
+				$scope.container1Data[item.category].category = item.category;
+				$scope.container1Data[item.category].amount = $scope.container1Data[item.category].amount + item.quantity;
+				if($scope.container1Data[item.category].items[item.itemName]){
+						$scope.container1Data[item.category].items[item.itemName][0][1] = $scope.container1Data[item.category].items[item.itemName][0][1] + item.quantity;
+				}else{
+					$scope.container1Data[item.category].items[item.itemName] = [];
+						var tempArray = [];
+						tempArray[0] = item.itemName;
+						tempArray[1] = item.quantity;
+						$scope.container1Data[item.category].items[item.itemName].push(tempArray);
+				}
+
+		};
+
+		$scope.groupItems2 = function(item){
+			var tempArray = [];
+			var count = 0;
+			for(var items in item){
+					tempArray[count] = item[items][0];
+					count++;
+			}
+			return tempArray;
+
+		};
+
 		$scope.generateReport = function(){
-			$http.post('orders/generateReport',{start: $scope.startDateReport, end: $scope.endDateReport},{responseType:'arraybuffer'}).success(function(response){
+			$http.post('orders/generateReport',{start: $scope.startDateReport, end: $scope.endDateReport},{responseType:'JSON'}).success(function(response){
+				var  containerData = [];
+
+				for(var i = 0; i < response.message.length; i++){
+					if($scope.container1Data[response.message[i].category]){
+						$scope.groupItems(response.message[i]);
+					}else {
+						$scope.container1Data[response.message[i].category] = [];
+						$scope.container1Data[response.message[i].category].items = [];
+						$scope.container1Data[response.message[i].category].amount = 0;
+						$scope.container1Data[response.message[i].category].category = response.message[i].category
+						// now generate the menu items
+						$scope.container1Data[response.message[i].category].items[response.message[i].itemName] = [];
+							var tempArray = [];
+							tempArray[0] = response.message[i].itemName;
+							tempArray[1] = response.message[i].quantity;
+							$scope.container1Data[response.message[i].category].items[response.message[i].itemName].push(tempArray);
+
+						$scope.container1Data[response.message[i].category].push(response.message[i]);
+						$scope.container1Data[response.message[i].category].amount = $scope.container1Data[response.message[i].category].amount + response.message[i].quantity;
+					}
+				}
 
 
-			 var file = new Blob([response], {type: 'application/pdf'});
-				var fileURL = URL.createObjectURL(file);
+				var count = 0;
+				for(var con in $scope.container1Data ){
+					containerData[count] = {
+						name: $scope.container1Data[con].category,
+						y: $scope.container1Data[con].amount,
+						drilldown: $scope.container1Data[con].category
+					}
+					count++;
+				}
 
-				var fileName = 'test.pdf';
-				var a = document.createElement('a');
-				document.body.appendChild(a);
-				a.setAttribute('style', 'display: none');
+				count = 0;
+				for(var con in $scope.container1Data){
+				$scope.container1Data[con].items  = $scope.groupItems2($scope.container1Data[con].items);
+					$scope.container1drilldownData[count] = {
+						"id": $scope.container1Data[con].category,
+						"data": $scope.container1Data[con].items
+					};
+					count++;
+				}
 
-				a.href =  fileURL;
-								a.download = fileName;
-								a.click();
+			$scope.container1Data1  = containerData;
+
+			$cookies.container1Data1 = JSON.stringify($scope.container1Data1);
+			$scope.container1Data1 = JSON.parse($cookies.container1Data1);
+			$cookies.container1drilldownData = JSON.stringify($scope.container1drilldownData);
+			$scope.container1drilldownData = JSON.parse($cookies.container1drilldownData);
+			$location.path('/reporting/menuItemsStats');
 
 			}).error(function(response){
 				console.log(response);
@@ -981,24 +1037,36 @@ $scope.searchBarDynamic = function(row){
 		/*This funtion generates a report that shows the most popular menu itmes over
 			a period of time*/
 		$scope.generatePopularReport = function(){
-			$http.post('orders/generatePopularReport',{start: $scope.startDate, end: $scope.endDate, numItems: $scope.numItems},{responseType:'arraybuffer'}).success(function(response){
+			$http.post('orders/generatePopularReport',{start: $scope.startDate, end: $scope.endDate, numItems: $scope.numItems},{responseType:'JSON'}).success(function(response){
 
-
-			 var file = new Blob([response], {type: 'application/pdf'});
-				var fileURL = URL.createObjectURL(file);
-
-				var fileName = 'test.pdf';
-				var a = document.createElement('a');
-				document.body.appendChild(a);
-				a.setAttribute('style', 'display: none');
-
-				a.href =  fileURL;
-								a.download = fileName;
-								a.click();
+				var count = 0;
+				for(var i = 0; i < response.message.length; i++){
+					$scope.container2Data[count] = {
+						name: response.message[i].id,
+						y: response.message[i].data,
+						drilldown: response.message[i].id
+					};
+					count++;
+				}
+				$cookies.container2Data = JSON.stringify($scope.container2Data);
+				$scope.container2Data = JSON.parse($cookies.container2Data);
+				$location.path('/reporting/mostPopularItems');
 
 			}).error(function(response){
 				console.log(response);
 			});
+		};
+
+		$scope.inventoryReport = function(){
+			console.log('Hi')
+				$http.post('orders/inventoryReport',{start: $scope.startDateReport, end: $scope.endDateReport},{responseType:'JSON'}).success(function(response){
+					console.log(response);
+
+
+				}).error(function(response){
+					console.log(response);
+			});
+
 		};
 
 		$scope.addToPlate = function(itemName){

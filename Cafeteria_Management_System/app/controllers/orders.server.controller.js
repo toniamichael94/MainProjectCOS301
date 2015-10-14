@@ -75,12 +75,48 @@ function audit(_type, data){
 					message: errorHandler.getErrorMessage(err)
 				});
 				audit('Create order', order);
+				sendCreateMessage(req.user.username, order.orderNumber);
 				res.status(200).send({message: 'Order has been made'});
 			});
 		});
 	}
  };
 
+/*
+  * Helper function to send user a notification that their order has been placed
+  * Last Edited by: Semaka Malapane
+  */
+ function sendCreateMessage(uname, orderNum){
+    User.findOne({username: uname}, function(err, user){
+        if(err){
+                console.log(err);
+                return;
+        }		
+        var mailOptions = {
+                subject: 'Your Order Has Been Placed'
+        };
+        mailOptions.to = user.username;
+        mailOptions.text = 'Dear ' + user.displayName + ',\n\n' +
+                                                        'Your order with order number ' + orderNum +  ' has been placed.\n'+
+                                                        'You will be notified when your order is ready.\n\n'+
+                                                        'The CMS Team';
+        var notification = new Notifications({
+                username: mailOptions.to,
+                subject: mailOptions.subject,
+                message: mailOptions.text
+        });
+
+        notification.save(function(err) {
+                if(err) {
+                        console.log('ERROR!!!!!!!!!!');
+                        console.log(notification);
+                        return;
+                }
+                console.log('Notification has been created');
+        });
+    });
+ }
+ 
 /*
   * Helper function to email user about order
   * Last Edited by: Semaka Malapane

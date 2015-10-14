@@ -1,7 +1,5 @@
 <section data-ng-controller="OrdersController" >
 
-  <script src="https://code.highcharts.com/highcharts.js"></script>
-  <script src="https://code.highcharts.com/modules/drilldown.js"></script>
 
 				<!--Alert box -->
 				<script type="text/ng-template" id="alert.html">
@@ -11,14 +9,12 @@
 				</script>
 
 				<div  data-ng-controller="MenuItemsController">
-					<h4>Menu Item Statatistics <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button></h4><hr>
+					<h4>Contact Us <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button></h4><hr>
 					<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert28.msg}}</alert>
 				</div>
 
         <!-- END ALERT BOX-->
 
-
-      <div id="container1" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
 
 </section>
