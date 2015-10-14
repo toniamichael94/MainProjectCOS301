@@ -10,7 +10,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 		$scope.selectedCategory = [];
 		$scope.selectedCategory = JSON.stringify('all');
 		$scope.navClicked = false;
-		$scope.menuNameSearch = "";
+		$scope.menuNameSearch = '';
 		$scope.container1Data = []; // menu items stats data
 		$scope.container1Data1 = []; // menu items stats data
 		$scope.container1drilldownData = []; // menu items stats data
@@ -23,9 +23,9 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 					$cookies.selectedCategory = JSON.stringify(catName);
 					$scope.selectedCategory = JSON.parse($cookies.selectedCategory);
 
-						if(!$scope.selectedCategory){
-						//	$location.path('/menu');
-						}else if($scope.selectedCategory.localeCompare('all') === 0){
+						if($scope.selectedCategory){
+
+						 if($scope.selectedCategory.localeCompare('all') === 0){
 								$http.get('/loadMenuItems').success(function(response){
 								var displayItems = response.message;
 
@@ -66,9 +66,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 							}
 							$scope.menuItems = newArray;
 
-							if($location.url().localeCompare('/menu-item') === 0){
-								// then you are already in this directory...
-							}else{
+							if(!($location.url().localeCompare('/menu-item') === 0)){
 								if($scope.navClicked === false)
 									$location.path('/menu-item'); // else change directories....
 						}
@@ -88,7 +86,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 						});
 					}
 
-				};
+				}
 
 	if($cookies.selectedCategory){
 		$scope.selectedCategory = JSON.parse($cookies.selectedCategory);
@@ -104,20 +102,20 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 $scope.MenuItemsGraphPage = function(){
 
 	$scope.container1Data1[0] = {
-		name: "",
+		name: '',
 		y: 0,
-		drilldown:""
+		drilldown:''
 	};
 
 	$scope.container1drilldownData[0] = {
-		"id": "",
-		"data": [["", 0]]
+		'id': '',
+		'data': [['', 0]]
 	};
 
 	$scope.container2Data[0] = {
-		name: "",
+		name: '',
 		y: 0,
-		drilldown:""
+		drilldown:''
 	};
 	$cookies.container1Data1 = JSON.stringify($scope.container1Data1);
 	$scope.container1Data1 = JSON.parse($cookies.container1Data1);
@@ -321,7 +319,7 @@ $scope.closeAlert = function(index) {
 			{
 				for (var i = 0; i < $scope.addedUpdateIngredients.ingredients.length; i++)
 				{
-					if($scope.addedUpdateIngredients.ingredients[i] == '' || $scope.addedUpdateIngredients.quantities[i] == '' || $scope.addedUpdateIngredients.quantities[i] == null)
+					if($scope.addedUpdateIngredients.ingredients[i] === '' || $scope.addedUpdateIngredients.quantities[i] === '' || $scope.addedUpdateIngredients.quantities[i] === null)
 					{
 						errorIngredient = true;
 						$scope.errorMessage = 'Please fill in all the ingredients and quantities fields.';
@@ -395,14 +393,14 @@ $scope.closeAlert = function(index) {
 		/*Perform check to see if the menu item has at least one ingredient*/
 		var count = 0;
 		var i = 0;
-		while(count == 0 && i < $scope.addedUpdateIngredients.ingredients.length)
+		while(count === 0 && i < $scope.addedUpdateIngredients.ingredients.length)
 		{
-			if($scope.addedUpdateIngredients.ingredients[i] != null && $scope.addedUpdateIngredients.ingredients[i] !='')
+			if($scope.addedUpdateIngredients.ingredients[i] !== null && $scope.addedUpdateIngredients.ingredients[i] !=='')
 				count = 1;
 			i++;
 		}
 
-		if(count == 0)
+		if(count === 0)
 		{
 			errorIngredient = true;
 			$scope.errorMessage = 'The menu item must have at least one ingredient.';
@@ -446,7 +444,7 @@ $scope.closeAlert = function(index) {
 		{
 			$scope.addedUpdateIngredients.ingredients.splice(index, 1);
 			$scope.addedUpdateIngredients.quantities.splice(index, 1);
-		}
+		};
 
 
 /*==== end of update functions ===*/
@@ -510,7 +508,7 @@ $scope.closeAlert = function(index) {
 				});
 				//console.log()
 			}
-		}
+		};
 		/*Functions for creating a new menu item*/
 
 		 /* Create new Menu Item*/
@@ -523,7 +521,7 @@ $scope.closeAlert = function(index) {
 
 		for (var i = 0; i < $scope.ingredients.ingredients.length; i++)
 		{
-			if($scope.ingredients.ingredients[i] == '' || $scope.ingredients.quantities[i] == '' || $scope.ingredients.quantities[i] == null)
+			if($scope.ingredients.ingredients[i] === '' || $scope.ingredients.quantities[i] === '' || $scope.ingredients.quantities[i] === null)
 			{
 				errorIngredient = true;
 				$scope.error = 'Please fill in all the ingredients fields.';
@@ -549,7 +547,7 @@ $scope.closeAlert = function(index) {
 		/*Perform check to see if the menu item has at least one ingredient*/
 		if(!errorIngredient)
 		{
-			if($scope.ingredients.ingredients.length == 0)
+			if($scope.ingredients.ingredients.length === 0)
 			{
 				errorIngredient = true;
 				$scope.error = 'The menu item must have at least one ingredient.';
@@ -581,7 +579,7 @@ $scope.closeAlert = function(index) {
 		 if (isValid){
 
 			 //console.log('You have validated!');
-			 if($scope.categoryName == null){
+			 if($scope.categoryName === null){
 				// console.log('invalid')
 				 $scope.error = true;
 				 $scope.error = 'No category added, Please fill in the textbox to add a category';
@@ -592,7 +590,7 @@ $scope.closeAlert = function(index) {
 				 //console.log($scope.categoryName);
 				 $http.post('/orders/createMenuCategory', name).success(function(response) {
 				 // If successful show success message and clear form
-				 if(response.message.localeCompare('The category already exists') == 0){
+				 if(response.message.localeCompare('The category already exists') === 0){
 					 $scope.success = null;
 
 					 $scope.error = true;//response.message;
@@ -611,7 +609,7 @@ $scope.closeAlert = function(index) {
 			 	 }
 				 }).error(function(response) {
 					 //console.log("error");
-					 $scope.error ="The category already exists ";
+					 $scope.error ='The category already exists ';
 				 });
 				 }
 			 }
@@ -642,7 +640,7 @@ $scope.searchBarDynamic = function(row){
 	if ((angular.lowercase(row.itemName)).contains(itemN)) {
 			 return (angular.lowercase(row.itemName));
  }
-}
+};
 
 
 
@@ -813,7 +811,7 @@ $scope.searchBarDynamic = function(row){
 					$scope.categoryActive = response.foundcategory.active;
 
 
-					console.log("FOUND:"+$scope.categoryActive);
+					console.log('FOUND:'+$scope.categoryActive);
 
 					}).error(function(response){
 							$scope.errorFind = response.message;
@@ -827,7 +825,7 @@ $scope.searchBarDynamic = function(row){
 					$scope.successFind = null;
 	        $scope.successMessage = $scope.errorMessage = null;
 					$scope.newCategoryName = $scope.newCategoryName.toLowerCase();
-						console.log("Active:"+$scope.categoryActive);
+						console.log('Active:'+$scope.categoryActive);
 					var reqObj = {oldCategoryName: $scope.oldCategoryName, newCategoryName: $scope.newCategoryName, active: $scope.categoryActive};
 
 					  $http.post('/updateMenuCategory', reqObj).success(function(response) {
@@ -893,7 +891,7 @@ $scope.searchBarDynamic = function(row){
 						$http.get('/loadMenuItems').success(function(response) {
 
 								$scope.menuItems = response.message;
-								var itemsArray = new Array();
+								var itemsArray = [];
 								var counter = 0;
 
 								for(var itemName in response.message){
@@ -932,7 +930,7 @@ $scope.searchBarDynamic = function(row){
 		};
 
 		/*This function adds the selected item to be displayed in the soldReport*/
-		$scope.soldItems = new Array();
+		$scope.soldItems = [];
 		$scope.addSoldItem = function()
 		{
 				$scope.soldItems.push($scope.soldItem);
@@ -942,7 +940,7 @@ $scope.searchBarDynamic = function(row){
 		{
 			var index = -1;
 			for(var i = 0; i != $scope.soldItems.length; i++)
-				if($scope.soldItems[i] == $scope.removeItem)
+				if($scope.soldItems[i] === $scope.removeItem)
 					index = i;
 
 				if(index >= 0)
@@ -991,7 +989,7 @@ $scope.searchBarDynamic = function(row){
 						$scope.container1Data[response.message[i].category] = [];
 						$scope.container1Data[response.message[i].category].items = [];
 						$scope.container1Data[response.message[i].category].amount = 0;
-						$scope.container1Data[response.message[i].category].category = response.message[i].category
+						$scope.container1Data[response.message[i].category].category = response.message[i].category;
 						// now generate the menu items
 						$scope.container1Data[response.message[i].category].items[response.message[i].itemName] = [];
 							var tempArray = [];
@@ -1011,7 +1009,7 @@ $scope.searchBarDynamic = function(row){
 						name: $scope.container1Data[con].category,
 						y: $scope.container1Data[con].amount,
 						drilldown: $scope.container1Data[con].category
-					}
+					};
 					count++;
 				}
 
@@ -1019,8 +1017,8 @@ $scope.searchBarDynamic = function(row){
 				for(var con in $scope.container1Data){
 				$scope.container1Data[con].items  = $scope.groupItems2($scope.container1Data[con].items);
 					$scope.container1drilldownData[count] = {
-						"id": $scope.container1Data[con].category,
-						"data": $scope.container1Data[con].items
+						'id': $scope.container1Data[con].category,
+						'data': $scope.container1Data[con].items
 					};
 					count++;
 				}
@@ -1063,7 +1061,7 @@ $scope.searchBarDynamic = function(row){
 		};
 
 		$scope.inventoryReport = function(){
-			console.log('Hi')
+			console.log('Hi');
 				$http.post('orders/inventoryReport',{start: $scope.startDateReport, end: $scope.endDateReport},{responseType:'JSON'}).success(function(response){
 					console.log(response);
 
@@ -1081,8 +1079,8 @@ $scope.searchBarDynamic = function(row){
 			var _ingredients = [];
 			var _quantities = [];
 			for(var j = 0; j < $scope.menuItems.length; j++){
-				console.log("itemName:"+itemName+ " MenuItems:"+$scope.menuItems[j].itemName);
-				console.log("CategoryMenuItems:"+$scope.menuItems[j].category);
+				console.log('itemName:'+itemName+ ' MenuItems:'+$scope.menuItems[j].itemName);
+				console.log('CategoryMenuItems:'+$scope.menuItems[j].category);
 				if(itemName === $scope.menuItems[j].itemName.toLowerCase()){
 					_price = $scope.menuItems[j].price;
 					_category = $scope.menuItems[j].category;

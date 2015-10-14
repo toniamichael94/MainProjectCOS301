@@ -22,7 +22,7 @@ angular.module('users').controller('FinanceController', ['$scope', '$http', '$lo
                     });
             }
         };*/
-	
+
       /*
         $scope.getUserOrders = function(){
             var reqObj = {username: $scope.username};
@@ -55,22 +55,22 @@ angular.module('users').controller('FinanceController', ['$scope', '$http', '$lo
                 $scope.error = "could not get orders";//response.message;
             });
         };*/
-		
+
 		$scope.generateReport = function(){
 			$scope.error = $scope.success = null;
 			if($scope.username === '' || $scope.startDate === '' || $scope.endDate === '')
 			{
-				$scope.error = 'Please fill in all fields'
+				$scope.error = 'Please fill in all fields';
 				return;
 			}
 			var toDate = new Date($scope.current_toDate);
 			toDate.setHours(23,59,59);
-			
+
 			$http.post('users/finance/generateReportUser',{username: $scope.username, start: $scope.startDate, end: $scope.endDate},{responseType:'arraybuffer'}).success(function(response){
-				
+
 				var file = new Blob([response], {type: 'application/pdf'});
 				var fileURL = URL.createObjectURL(file);
-				
+
 				var fileName = 'invoice.pdf';
 				var a = document.createElement('a');
 				document.body.appendChild(a);
@@ -95,7 +95,7 @@ angular.module('users').controller('FinanceController', ['$scope', '$http', '$lo
                 for(var empID in response.message){
                     empArr[counter] = response.message[empID];
                     counter++;
-                    console.log("Superuser: "+ empID);
+                    console.log('Superuser: '+ empID);
                 }
                 $scope.employees = empArr;
             }).error(function(response) {
@@ -107,7 +107,7 @@ angular.module('users').controller('FinanceController', ['$scope', '$http', '$lo
 			$http.post('users/finance/generateReportAll',{start: $scope.startDateTwo, end: $scope.endDateTwo},{responseType:'arraybuffer'}).success(function(response){
 				var file = new Blob([response], {type: 'application/pdf'});
 				var fileURL = URL.createObjectURL(file);
-				
+
 				var fileName = 'report.pdf';
 				var a = document.createElement('a');
 				document.body.appendChild(a);
@@ -120,7 +120,7 @@ angular.module('users').controller('FinanceController', ['$scope', '$http', '$lo
 			}).error(function(response){
 				$scope.successTwo = '';
 				$scope.errorTwo = 'Could not generate report';
-			})
+			});
 		};
 
         $scope.checkUser = function(){

@@ -14,14 +14,14 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 		$scope.GraphPage = function(){
 
 			$scope.container1Data1[0] = {
-				name: "",
+				name: '',
 				y: 0,
-				drilldown:""
+				drilldown:''
 			};
 
 			$scope.container1drilldownData[0] = {
-				"id": "",
-				"data": [["", 0]]
+				'id': '',
+				'data': [['', 0]]
 			};
 
 
