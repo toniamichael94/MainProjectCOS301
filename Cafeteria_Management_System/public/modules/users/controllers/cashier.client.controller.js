@@ -5,8 +5,8 @@ angular.module('users').controller('cashierController', ['$scope', '$http', '$st
 	function($scope, $http, $stateParams, $location, $window, Authentication) {
 		$scope.authentication = Authentication;
 		
-		$scope.orderNums = new Array();
-        	$scope.notifications = new Array();
+		$scope.orderNums = [];
+        	$scope.notifications = [];
 		
 		$scope.getOrders = function(){
 			$http.post('/orders/getOrderList').success(function(response){
