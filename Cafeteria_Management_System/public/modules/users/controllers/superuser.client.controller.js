@@ -195,18 +195,34 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 
         //Set contact information
         $scope.setContactInfo = function(isValid){
-            console.log('SETTTTTTTT CONTACT INFOOOOOOOOOOOOO CLIENT');
+            console.log('SETTTTTTTT CONTACT INFOOOOOOOOOOOOO CLIENT'+$scope.contactName+$scope.contactNumber+$scope.contactEmail);
             if(isValid){
                 $scope.success = $scope.error = null;
-                $scope.successTwo = $scope.errorTwo = null;
 
-                var reqObj = {contactName: $scope.contactName, contactNumber: $scope.contactNumber, contactEmail: $scope.contactEmail};
-                //console.log($scope.canteenName);
-                $http.post('users/superuserSetContactInfo', reqObj).success(function (response) {
+                var reqObj =   {name:'Contact Name',value: $scope.contactName};
+                $http.post('users/superuserSetContactInfo1', reqObj).success(function (response) {
                     $scope.successSeven = response.message;
                 }).error(function (response) {
                     $scope.errorSeven= response.message;
                 });
+
+                var reqObj2 = {name:'Contact Number',value: $scope.contactNumber};
+                $http.post('users/superuserSetContactInfo2', reqObj2).success(function (response) {
+                    $scope.success = response.message;
+                }).error(function (response) {
+                    $scope.errorSeven= response.message;
+                });
+
+                var reqObj3 = {name:'Contact Email',value: $scope.contactEmail};
+                $http.post('users/superuserSetContactInfo3', reqObj3).success(function (response) {
+                    $scope.successSeven = response.message;
+                }).error(function (response) {
+                    $scope.errorSeven= response.message;
+                });
+                //var req2 ={name:'Contact Number',value: $scope.contactNumber};
+                //$http.post('users/superuserSetContactInfo', reqObj);
+                //var req3 ={name:'Contact Email',value: $scope.contactEmail};
+                //$http.post('users/superuserSetContactInfo', reqObj);
             }
         };
 
