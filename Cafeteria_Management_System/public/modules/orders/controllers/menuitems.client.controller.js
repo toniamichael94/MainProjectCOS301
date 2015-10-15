@@ -208,18 +208,25 @@ $scope.toggleCollapsibleMenu = function() {
 	$scope.alert21 = {type: 'warning', msg: 'Page help: Tis is the login page - you need to be registered to log in, if you are not registered navigate to the sighnup button on the navigation bar on the right and click on it and follow the regestration instructions. If you have forgotten your password click on forgot password link and an e-mail with your password will be send to you.'};
 	$scope.alert22 = {type: 'warning', msg: 'Page help: Tis This is the sign up page, if you are not yet registered then you need to fill in your details below and then click the sighn up button. If youare registered navigate to the sighn in button that can be found on the navigation bar and log into your account'};
 	$scope.alert23 = {type: 'warning', msg: 'Page help: This page will help you reset your password, type in your username and an e-mail will be sent to the e-mail account that is associated with your username'};
-	$scope.alert24 = {type: 'warning', msg: 'Page help: '};
+	$scope.alert24 = {type: 'warning', msg: 'Page help: This page gives you details about your order - e.g. if it is ready for collection - and any other changes that might take place in the system.'};
 	$scope.alert25 = {type: 'warning', msg: 'Page help: WELCOME! these buttons will help you navigate through this website, whenever you do not know what to do click on the button that looks like this one you just clicked and help will be right there! To start have a look at our menu page that can be found by clicking on the button that says Menu in the top navigation bar ;-)'};
 	$scope.alert26 = {type: 'warning', msg: 'Page help: This page will display logs of all actions performed in the system.'};
 	$scope.alert27 = {type: 'warning', msg: 'Page help: This page will generate invoices for the specified user'};
 	$scope.alert28 = {type: 'warning', msg: 'Page help: This field allows the superuser to change the colour scheme for the system'};
-	$scope.alert29 = {type: 'warning', msg: 'Page help: '};
+	$scope.alert29 = {type: 'warning', msg: 'Page help: This page shows you how to contact the Cafeteria Management and find out how everything works or to lodge complaints or maybe even give compliments.'};
 	$scope.alert30 = {type: 'warning', msg: 'Page help: To search for an menu category, type in the name of the category and the option to edit will appear'};
   	$scope.alert31 = {type: 'warning', msg: 'Page help: This page will give you the statistics of the menu items, the sold items and the most popular items'};
   	$scope.alert32 = {type: 'warning', msg: 'Page help: This allows user to search for statistics for the menu items sold in a given period of time'};
   	$scope.alert33 = {type: 'warning', msg: 'Page help: This allows user to view the most popular menu items sold by the cafeteria'};
   	$scope.alert34 = {type: 'warning', msg: 'Page help: This page will give the user the statistics for the used inventory'};
-  	$scope.alert35 = {type: 'warning', msg: 'Page help: This allows the user to select amount of inventory used in a given period of time'};
+  	$scope.alert35 = {type: 'warning', msg: 'Page help: This allows the you as the cafeteria manager to select amount of inventory used in a given period of time'};
+  	$scope.alert36 = {type: 'warning', msg: 'Page help: This page shows you the details of all the orders you made for the current month in tabular form'};
+  	$scope.alert37 = {type: 'warning', msg: 'Page help: This page shows you the details of all the orders you made for the current month in graph form'};
+  	$scope.alert38 = {type: 'warning', msg: 'Page help: This page allows you as the cashier to view people\'s orders and to process them accordingly'};
+  	$scope.alert39 = {type: 'warning', msg: 'Page help: This allows you as the finance manager to generate the invoice for a user with the given employee ID for a given period of time'};
+  	$scope.alert40 = {type: 'warning', msg: 'Page help: This allows you as the finance manager to generate the total amount spent for all the users for a given period of time'};
+  	$scope.alert41 = {type: 'warning', msg: 'Page help: This allows you to view the statistics of the menu items in graph format'};
+  	$scope.alert42 = {type: 'warning', msg: 'Page help: This allows you to view the statistics of the most popular items in graph format'};
   	};
   
 //close alert will take alert box away

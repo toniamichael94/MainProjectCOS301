@@ -22,6 +22,19 @@
 
     <h4>Placed Orders:</h4>
 	<div data-ng-init="getOrders(); checkUser()" >
+		<!--ALERT BOX FOR HELP-->
+		<script type="text/ng-template" id="alert.html">
+			<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+				<div ng-transclude></div>
+			</div> 
+		</script>
+
+		<div  data-ng-controller="MenuItemsController">
+			<h4>Profile<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
+			<hr>
+			<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert38.msg}}</alert>
+		</div>
+ 		<!--END ALERT BOX -->
 		<div class="list-group-item clearfix " ng-repeat="order in orderNums track by $index">
 			<b>   <div class="text-center ">
 				<span  class="text-success ">Order number: {{order.orderNumber}} </span>  
