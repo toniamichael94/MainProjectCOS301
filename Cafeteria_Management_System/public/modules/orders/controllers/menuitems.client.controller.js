@@ -185,15 +185,15 @@ $scope.toggleCollapsibleMenu = function() {
 };
 
 	/*Alert Messages for help page*/
-	$scope.alert1 = {type: 'warning', msg: 'Page help: To order a menu item click the add to plate botton and then click the on my plate button to confirm your order. To navigate between menu categories - use the navigation bar and click on the appropriate button (Menu contains all the menu catagories)'};
-	$scope.alert2 = {type: 'warning', msg: 'Page help: This page contains all the settings to add menu items and menu catagories to the menu page.'};
-	$scope.alert3 = {type: 'warning', msg: 'Page help: Type in a menu catagory to add to your menu. (a menu catagory will appear in the menu navigation bar on the menu page and menu items can be placed under a menu catagory)' };
+	$scope.alert1 = {type: 'warning', msg: 'Page help: To order a menu item click the add to plate button and then click the on my plate button to confirm your order. To navigate between menu categories - use the navigation bar and click on the appropriate button (Menu contains all the menu catagories)'};
+	$scope.alert2 = {type: 'warning', msg: 'Page help: This page contains all the settings to add menu items and menu categories to the menu page.'};
+	$scope.alert3 = {type: 'warning', msg: 'Page help: Type in a menu category to add to your menu. (a menu category will appear in the menu navigation bar on the menu page and menu items can be placed under a menu category)' };
 	$scope.alert4 = {type: 'warning', msg: 'Page help: This section will add a menu item to the menu page. NOTE - you need to have ingredients (wich is stored as inventory) - this can be added by clicking on your name in the navigation bar and choosing the manage inventory setting which will take you to a page to add inventory' };
 	$scope.alert5 =	{type: 'warning', msg: 'Page help: To search for a menu item, simply type in the name and click search' };
-	$scope.alert6 = {type: 'warning', msg: 'Page help: Manage inventory page will allow you to add inventory, remove and update inventory' };
+	$scope.alert6 = {type: 'warning', msg: 'Page help: Manage inventory page will allow you to add, remove and update inventory items' };
 	$scope.alert7 = {type: 'warning', msg: 'Page help: Add the name of the ingredient you want to add, together with the amount of the ingredient you are adding and the unit the ingredient is messured in the respective boxes below' };
 	$scope.alert8 = {type: 'warning', msg: 'Page help: To search for an inventory item, type in the name of the item and the option to edit will appear' };
-	$scope.alert9 =	{type: 'warning', msg: 'Page help: First click on display inventory and then edit the inventory as needed.' };
+	$scope.alert9 =	{type: 'warning', msg: 'Page help: First click on display inventory to see all the inventory items and then edit the quantity of the inventory item as needed.' };
 	$scope.alert10 = {type: 'warning', msg: 'Page help: This page shows the orders you clicked, to remove a order click remove to increase the quantity of your order use the arrows in the textbox, to add more items to your order, go to the menu page and click add toplate on the appropriate button associated with the menu item you want.Preferences can be gives for example no tamato or extra sause.' };
 	$scope.alert11 = {type: 'warning', msg: 'Page help: To edit your profile click on your name in the top navigation bar and then click on edit profile which will direct you to a page to edit your profile settings'};
 	$scope.alert12 = {type: 'warning', msg: 'Page help: To edit your profile simply edit the text boxes and or check boxes end then click save profile'};
