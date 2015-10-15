@@ -228,7 +228,6 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 
         //Set theme name
         $scope.setThemeName = function(){
-                console.log('THEME CLIENT');
                 $scope.successFive = $scope.errorFive = null;
 
                 var reqObj = {name: 'Theme name', value: $scope.themeName};
@@ -242,7 +241,16 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
                     console.log('error ' + response.message);
                 });
         };
-		
+        //getContactInfo
+        $scope.getContactInfo = function(){
+            $http.get('/users/superuserGetContactInfo').success(function(response){
+                console.log("response.val"+response.val);
+            $scope.success = response.val;
+        }).error(function(response){
+            console.log(response.message);
+        });
+
+        };
 		//Delete Carousel Image
 		$scope.deleteCarouselImage = function(isValid){
 			console.log('deleteing image');

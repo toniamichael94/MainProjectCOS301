@@ -670,7 +670,6 @@ exports.loadEmployees = function(req, res){
  * Last edited by {Semaka Malapane and Antonia Michael}
  */
 exports.getTheme = function(req,res){
-    console.log('get css assets!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
     console.log(req);
     Config.findOne({name: 'Theme name'}, function (err, row) {
         if (err) {
@@ -679,6 +678,32 @@ exports.getTheme = function(req,res){
             });
         } else {
             return  res.status(200).send({message: row.value});
+        }
+    });
+};
+/*
+exports.getContactInfo = function(req, res) {
+    console.log("helllloooooooooooooooooooooo tooooooooooooooooonnnnnnnnnnnniiiiaaa");
+    Config.findOne({name: 'Contact name'}, function (err, row) {
+        if (err) {
+            return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+        } else {
+            return  res.status(200).send({message: row.value});
+        }
+    });
+};
+*/
+exports.getContactInfo = function(req, res) {
+    console.log("helllloooooooooooooooooooooo tooooooooooooooooonnnnnnnnnnnniiiiaaa");
+    Config.findOne({name: 'Contact Name'}, function (err, row) {
+        if (err) {
+            return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+        } else {
+            return  res.status(200).json({val: row.value});
         }
     });
 };
