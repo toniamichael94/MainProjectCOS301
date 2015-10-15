@@ -96,6 +96,46 @@
                 </form>
             </div>
         </div>
+        <div class="list-group-item clearfix">
+
+            <!--ALERT BOX FOR HELP-->
+            <script type="text/ng-template" id="alert.html">
+                <div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+                    <div ng-transclude></div>
+                </div>
+            </script>
+
+            <div  data-ng-controller="MenuItemsController">
+                <h4> Set canteen contact information<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
+                <!--alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert20.msg}}</alert-->
+            </div>
+            <!--END ALERT BOX -->
+
+
+            <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
+                <form name="contactInfoForm" action="/users/superuserSetContactInfo" enctype="multipart/form-data" method="post" class="signin form-horizontal" autocomplete="off">
+                    <fieldset>
+                        <label> Contact Information </label>
+                        <div class="text-center form-group"><br>
+                                <input type="text" id="contactName" name="contactName" data-ng-model="contactName" class="form-control" min = 0>
+                            <br>
+                            <input type="text" id="contactNumber" name="contactNumber" data-ng-model="contactNumber" class="form-control" min = 0>
+                            <br>
+                            <input type="text" id="canteenEmail" name="canteenEmail" data-ng-model="canteenEmail" class="form-control" min = 0>
+                            <br>
+                            <button type="submit"  style="width:220px"s class="btn btn-large btn-primary">Submit</button>
+                            <br>
+                        </div>
+                    </fieldset>
+                    <div data-ng-show="successSeven" class="text-center text-success">
+                        <strong>{{successSeven}}</strong>
+                    </div>
+                    <div data-ng-show="errorSeven" class="text-center text-danger">
+                        <strong data-ng-bind="errorSeven">{{errorSeven}}</strong>
+                    </div>
+                </form>
+            </div>
+        </div>
         <!--&lt;!&ndash; upload branding image &ndash;&gt;-->
         <div class="list-group-item clearfix">
 
