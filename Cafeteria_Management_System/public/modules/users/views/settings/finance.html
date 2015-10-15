@@ -33,6 +33,19 @@
             Generate User Invoice
         </a>
   <div class="list-group-item clearfix">
+  	<!--ALERT BOX FOR HELP-->
+	<script type="text/ng-template" id="alert.html">
+		<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+			<div ng-transclude></div>
+		</div>
+	</script>
+
+	<div  data-ng-controller="MenuItemsController">
+		<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button>
+		<hr>
+		<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert39.msg}}</alert>
+	</div>
+ 	<!--END ALERT BOX -->
       <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 
         <form name="userForm" data-ng-submit="generateReport()" class="signin form-horizontal" autocomplete="on">
@@ -69,6 +82,19 @@
                    Generate Spending Report
                </a>
            <div class="list-group-item clearfix">
+   	<!--ALERT BOX FOR HELP-->
+	<script type="text/ng-template" id="alert.html">
+		<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+			<div ng-transclude></div>
+		</div>
+	</script>
+
+	<div  data-ng-controller="MenuItemsController">
+		<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button>
+		<hr>
+		<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert40.msg}}</alert>
+	</div>
+ 	<!--END ALERT BOX -->
    <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 
         <form name="userForm" data-ng-submit="generateReportAll(userForm.$valid)" class="signin form-horizontal" autocomplete="on">
