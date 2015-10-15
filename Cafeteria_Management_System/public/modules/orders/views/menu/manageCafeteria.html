@@ -9,12 +9,12 @@
 			<div  data-ng-controller="MenuItemsController">
 				<h4>Manage Menu<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
 				<hr>
-				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alerts[1].msg}}</alert>
+				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert1.msg}}</alert>
 			</div>
  <!--END ALERT BOX -->
 
 	<div class="list-group clearfix"  data-ng-controller="MenuItemsController">
-		<a href="#" class="list-group-item disabled">Add menu catagory</a>
+		<a href="#" class="list-group-item disabled">Add menu category</a>
 		<div class="list-group-item clearfix">
 			<!--Alert box -->
 			<script type="text/ng-template" id="alert.html">
@@ -56,7 +56,7 @@
 		<div class="list-group-item clearfix">
 			<h4> Search category </h4>
 			<!--Alert box -->
-		<!--	<script type="text/ng-template" id="alert.html">
+			<script type="text/ng-template" id="alert.html">
 					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
 						<div ng-transclude></div>
 					</div>
