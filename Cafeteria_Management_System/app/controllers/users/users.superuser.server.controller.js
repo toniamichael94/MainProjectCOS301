@@ -553,6 +553,8 @@ exports.uploadImage = function(req, res){
 						res.redirect('/');
 					});
 				}
+				else
+					return res.redirect('/');
 			});
 			var dat = 'The main image has been changed';
 			audit('Branding settings change', dat);

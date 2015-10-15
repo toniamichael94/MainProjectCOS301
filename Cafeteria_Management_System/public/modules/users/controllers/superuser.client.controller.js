@@ -262,6 +262,11 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 		$scope.current_auditType;
 		$scope.curent_toDate;
 		$scope.curent_fromDate;
+		
+		//Arrays for dates
+		var days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+		var months = ['Jan','Feb','Mar','Apr','May','Jun','July','Aug','Sep','Oct','Nov','Dec'];
+		
 		$scope.getAudits = function(isValid){
 			if(isValid){
 				var toDate = new Date($scope.current_toDate);
@@ -269,6 +274,12 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 
 				$http.post('/users/superuserGetAudits', {type: $scope.current_auditType, from:$scope.current_fromDate, to: toDate}).success(function(response){
 					$scope.audits = response.message;
+					//Set Readable Date for table
+					for(var audit in $scope.audits){
+					var temp = new Date($scope.audits[audit].date);
+					$scope.audits[audit].date = days[temp.getDay()] + ' ' + months[temp.getMonth()] + ' ' + temp.getDay() + ', ' + temp.getFullYear() + ' ' +
+															temp.getHours() + ':' + temp.getMinutes() + ':' + temp.getSeconds();
+					}
 				}).error(function(response){
 					$scope.error = response.message;
 				});

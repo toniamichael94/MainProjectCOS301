@@ -95,78 +95,68 @@
                     </fieldset>
                 </form>
             </div>
-        </div>
+        </div><br/>
         <!--&lt;!&ndash; upload branding image &ndash;&gt;-->
-        <div class="list-group-item clearfix">
-
-            <!--ALERT BOX FOR HELP-->
-                <script type="text/ng-template" id="alert.html">
-                    <div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-                      <div ng-transclude></div>
-                    </div>
-                </script>
-
-                <div  data-ng-controller="MenuItemsController">
-                  <h4>Manage Carousel Images <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
-                  <alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert20.msg}}</alert>
-                </div>
-            <!--END ALERT BOX -->
-				<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
-					<form name="imageUploadForm" action="/users/superuserUploadImage" enctype="multipart/form-data" method="post" class="signinform-horizontal">
-						<fieldset>
-						<label> Select Slide: </label>
-						<select name="carouselImageNum" id="carouselImageNum" class="form-control" required="true">
-							<option value="1">Carousel slide 1</option>
-							<option value="2">Carousel slide 2</option>
-							<option value="3">Carousel slide 3</option>
-							<option value="4">Carousel slide 4</option>
-						</select>
-						<label> Caption: </label><input type="text" name="crouselImageCaption" id="carouselImageCaption" class="form-control"/>
-						<label>Choose image: </label><input type="file" name="upload" id="upload" class="form-control"/> <br/>
-						<button type="submit" style="width:220px" class="btn btn-primary">Upload</button>
-						</fieldset>
-					</form>
+    
+	<a href="#" class="list-group-item disabled">
+		Manage Carousel Images
+	</a>
+		<div class="list-group-item clearfix">
+		<!--ALERT BOX FOR HELP-->
+			<script type="text/ng-template" id="alert.html">
+				<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+				  <div ng-transclude></div>
 				</div>
-				
-				<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
-					<form name="deleteCarouselImageForm" data-ng-submit="deleteCarouselImage(deleteCarouselImageForm.$valid)" >
-						<fieldset>
-						<select name="carouselImageNum" id="carouselImageNum" class="form-control" required="true" data-ng-model="imageToDelete">
-							<option value="1">Carousel slide 1</option>
-							<option value="2">Carousel slide 2</option>
-							<option value="3">Carousel slide 3</option>
-							<option value="4">Carousel slide 4</option>
-						</select>
-						<button type="submit" style="width:220px" class="btn btn-primary">Delete</button>
-						<div data-ng-show="success" class="text-center text-success">
-                            <strong>{{success}}</strong>
-                        </div>
-                        <div data-ng-show="error" class="text-center text-danger">
-                            <strong data-ng-bind="error">{{error}}</strong>
-                        </div>
-						</fieldset>
-					</form>
-				
-				</div>
+			</script>
 
-            <!--div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
-                <form name="uploadImageForm" action="/users/superuserUploadImage" enctype="multipart/form-data" method="post" class="signin form-horizontal" autocomplete="off">
-                    <fieldset>
-                        <label> Select image for branding </label>
-                        <input type="file" id="upload" name="upload" data-ng-model="upload" class="form-control"/> <br>
-                        <div class="text-center form-group"><br>
-                            <button type="submit"  style="width:220px"s class="btn btn-large btn-primary">Upload Image</button>
-                            <br>
-                        </div>
-                    </fieldset>
-                    <div data-ng-show="successFour" class="text-center text-success">
-                        <strong>{{successFour}}</strong>
-                    </div>
-                    <div data-ng-show="errorFour" class="text-center text-danger">
-                        <strong data-ng-bind="errorFour">{{errorFour}}</strong>
-                    </div>
-                </form>
-            </div-->
-        </div>
-    </div>
+			<div  data-ng-controller="MenuItemsController">
+			  <h4>Upload Image <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
+			  <alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert20.msg}}</alert>
+			</div>
+		<!--END ALERT BOX -->
+			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
+				<form name="imageUploadForm" action="/users/superuserUploadImage" enctype="multipart/form-data" method="post" class="signinform-horizontal">
+					<fieldset>
+					<label> Select Slide: </label>
+					<select name="carouselImageNum" id="carouselImageNum" class="form-control" required="true">
+						<option value="1">Carousel slide 1</option>
+						<option value="2">Carousel slide 2</option>
+						<option value="3">Carousel slide 3</option>
+						<option value="4">Carousel slide 4</option>
+					</select>
+					<label> Caption: </label><input type="text" name="crouselImageCaption" id="carouselImageCaption" class="form-control"/>
+					<label>Choose image: </label><input type="file" name="upload" id="upload" class="form-control"/> <br/>
+					<button type="submit" style="width:220px" class="btn btn-primary">Upload</button>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+		<div class="list-group-item clearfix">
+			<div  data-ng-controller="MenuItemsController">
+			  <h4>Delete Image <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
+			  <alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert20.msg}}</alert>
+			</div>
+			
+			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
+				<form name="deleteCarouselImageForm" data-ng-submit="deleteCarouselImage(deleteCarouselImageForm.$valid)" >
+					<fieldset>
+					<select name="carouselImageNum" id="carouselImageNum" class="form-control" required="true" data-ng-model="imageToDelete">
+						<option value="1">Carousel slide 1</option>
+						<option value="2">Carousel slide 2</option>
+						<option value="3">Carousel slide 3</option>
+						<option value="4">Carousel slide 4</option>
+					</select> <br/>
+					<button type="submit" style="width:220px" class="btn btn-primary">Delete</button>
+					<div data-ng-show="success" class="text-center text-success">
+						<strong>{{success}}</strong>
+					</div>
+					<div data-ng-show="error" class="text-center text-danger">
+						<strong data-ng-bind="error">{{error}}</strong>
+					</div>
+					</fieldset>
+				</form>
+			
+			</div>
+		</div>
+	</div>
 </section>
