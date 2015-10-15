@@ -34,3 +34,10 @@ console.log('in server');
 
 	//console.log(canteenName);
 };
+
+exports.loadCaptions = function(req, res){
+	Config.find({$or: [{name: 'Carousel-caption1'},{name: 'Carousel-caption2'},{name: 'Carousel-caption3'},{name: 'Carousel-caption4'}]}, function(err, captions){
+		console.log(captions);
+		res.status(200).send({message: captions});
+	});
+};
