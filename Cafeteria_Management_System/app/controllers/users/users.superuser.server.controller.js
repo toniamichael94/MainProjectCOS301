@@ -425,78 +425,99 @@ exports.setCanteenName = function(req, res){
  * Set contact info
  * Last Edited by {Antonia Michael}
  */
-exports.setContactInfo1 = function(req, res){ console.log('cont name ' + req.body.value);
-    Config.update({name: 'Contact Name'}, {value: req.body.value}, function(err, numAffected){
-        console.log("in server funct"+ req.body.value);
-        if(err) return res.status(400).send({
-            message: errorHandler.getErrorMessage(err)
-        });
-        else if (numAffected < 1){  console.log("in if statement funct"+ req.body.value);
-            var config = new Config();
-            config.name = 'Contact Name';
-            config.value = req.body.value;
-
-            config.save(function(err){
-                if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
-                res.status(200).send({message: 'Contact name has been successfully changed.'});
+exports.setContactInfo1 = function(req, res){
+    if(req.body.value===null)
+    {
+        req.body.value='No name added';
+    }
+    else {
+        Config.update({name: 'Contact Name'}, {value: req.body.value}, function (err, numAffected) {
+            console.log("in server funct" + req.body.value);
+            if (err) return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
             });
-        }
-        else{
-            var dat = 'The contact name has been changed to ' + req.body.value;
-            audit('Branding settings change', dat);
-            res.status(200).send({message: 'Contact info has been successfully changed.'});
-        }
-    });
-};
-    exports.setContactInfo2 = function(req, res){ console.log('cont name ' + req.body.value);
-    Config.update({name: 'Contact Number'}, {value: req.body.value}, function(err, numAffected){
-        console.log("in server funct"+ req.body.value);
-        if(err) return res.status(400).send({
-            message: errorHandler.getErrorMessage(err)
-        });
-        else if (numAffected < 1){  console.log("in if statement funct"+ req.body.value);
+            else if (numAffected < 1) {
+                console.log("in if statement funct" + req.body.value);
+                var config = new Config();
+                config.name = 'Contact Name';
+                config.value = req.body.value;
 
-            var config2 = new Config();
-             config2.name = 'Contact Number';
-             config2.value = req.body.value;
-
-             config2.save(function(err){
-             if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
-             res.status(200).send({message: 'Contact info has been successfully changed.'});
-             });
-
-        }
-        else{
-            var dat = 'The contact number has been changed to ' + req.body.value;
-            audit('Branding settings change', dat);
-            res.status(200).send({message: 'Contact name has been successfully changed.'});
-        }
-    });
-    };
-exports.setContactInfo3 = function(req, res){ console.log('cont name ' + req.body.value);
-    Config.update({name: 'Contact Email'}, {value: req.body.value}, function(err, numAffected){
-        console.log("in server funct"+ req.body.value);
-        if(err) return res.status(400).send({
-            message: errorHandler.getErrorMessage(err)
-        });
-        else if (numAffected < 1){  console.log("in if statement funct"+ req.body.value);
-
-            var config3 = new Config();
-            config3.name = 'Contact Email';
-            config3.value = req.body.value;
-
-            config3.save(function(err){
-                if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
+                config.save(function (err) {
+                    if (err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
+                    res.status(200).send({message: 'Contact name has been successfully changed.'});
+                });
+            }
+            else {
+                var dat = 'The contact name has been changed to ' + req.body.value;
+                audit('Branding settings change', dat);
                 res.status(200).send({message: 'Contact info has been successfully changed.'});
-            });
+            }
+        });
+    }
+};
+    exports.setContactInfo2 = function(req, res){
+        if(req.body.value===null)
+        {
+            req.body.value='No number added';
+        }
+        else {
+            Config.update({name: 'Contact Number'}, {value: req.body.value}, function (err, numAffected) {
+                console.log("in server funct" + req.body.value);
+                if (err) return res.status(400).send({
+                    message: errorHandler.getErrorMessage(err)
+                });
+                else if (numAffected < 1) {
+                    console.log("in if statement funct" + req.body.value);
 
+                    var config2 = new Config();
+                    config2.name = 'Contact Number';
+                    config2.value = req.body.value;
+
+                    config2.save(function (err) {
+                        if (err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
+                        res.status(200).send({message: 'Contact info has been successfully changed.'});
+                    });
+
+                }
+                else {
+                    var dat = 'The contact number has been changed to ' + req.body.value;
+                    audit('Branding settings change', dat);
+                    res.status(200).send({message: 'Contact name has been successfully changed.'});
+                }
+            });
         }
-        else{
-            var dat = 'The contact email has been changed to ' + req.body.value;
-            audit('Branding settings change', dat);
-            res.status(200).send({message: 'Contact name has been successfully changed.'});
-        }
-    });
+    };
+exports.setContactInfo3 = function(req, res){
+    if(req.body.value===null)
+    {
+        req.body.value='No number added';
+    }
+    else {
+        Config.update({name: 'Contact Email'}, {value: req.body.value}, function (err, numAffected) {
+            console.log("in server funct" + req.body.value);
+            if (err) return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+            else if (numAffected < 1) {
+                console.log("in if statement funct" + req.body.value);
+
+                var config3 = new Config();
+                config3.name = 'Contact Email';
+                config3.value = req.body.value;
+
+                config3.save(function (err) {
+                    if (err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
+                    res.status(200).send({message: 'Contact info has been successfully changed.'});
+                });
+
+            }
+            else {
+                var dat = 'The contact email has been changed to ' + req.body.value;
+                audit('Branding settings change', dat);
+                res.status(200).send({message: 'Contact name has been successfully changed.'});
+            }
+        });
+    }
 };
 /*
  * Set Theme  Name
@@ -682,7 +703,14 @@ exports.getTheme = function(req,res){
     });
 };
 exports.getContactInfo = function(req, res) {
+
     Config.findOne({name: 'Contact Name'}, function (err, row) {
+        if(row===null)
+        {
+            row={
+                value:'No name added'
+            }
+        }
         if (err) {
             return res.status(400).send({
                 message: errorHandler.getErrorMessage(err)
@@ -693,7 +721,14 @@ exports.getContactInfo = function(req, res) {
     });
 };
 exports.getContactInfo2 = function(req, res) {
+
     Config.findOne({name: 'Contact Number'}, function (err, row) {
+        if(row===null)
+        {
+            row={
+                value:'No number added'
+            }
+        }
         if (err) {
             return res.status(400).send({
                 message: errorHandler.getErrorMessage(err)
@@ -705,7 +740,14 @@ exports.getContactInfo2 = function(req, res) {
 };
 
 exports.getContactInfo3 = function(req, res) {
+
     Config.findOne({name: 'Contact Email'}, function (err, row) {
+        if(row===null)
+        {
+            row={
+                value:'No name added'
+            }
+        }
         if (err) {
             return res.status(400).send({
                 message: errorHandler.getErrorMessage(err)

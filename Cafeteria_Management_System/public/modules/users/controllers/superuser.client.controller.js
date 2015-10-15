@@ -208,7 +208,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 
                 var reqObj2 = {name:'Contact Number',value: $scope.contactNumber};
                 $http.post('users/superuserSetContactInfo2', reqObj2).success(function (response) {
-                    $scope.success = response.message;
+                    $scope.successSeven = response.message;
                 }).error(function (response) {
                     $scope.errorSeven= response.message;
                 });
