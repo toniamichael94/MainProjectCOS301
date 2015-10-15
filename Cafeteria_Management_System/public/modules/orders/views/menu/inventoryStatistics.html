@@ -1,9 +1,21 @@
 <section class="row">
 
-		<div>
-			<h4>Inventory Statistics<h4>
-		</div>
+	<div>
+		<h4>Inventory Statistics<h4>
+	</div>
 
+	<!--Alert box -->
+	<script type="text/ng-template" id="alert.html">
+		<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+			<div ng-transclude></div>
+		</div>
+	</script>
+	
+	<div  data-ng-controller="MenuItemsController">
+		<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button>
+		<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert34.msg}}</alert>
+	</div>
+	<!--Alert box end-->
 
 	<!--Inventory items used over time-->
 	<div class="list-group clearfix">
@@ -18,7 +30,7 @@
 
 			<div  data-ng-controller="MenuItemsController">
 				<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button>
-				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert3.msg}}</alert>
+				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert35.msg}}</alert>
 			</div>
 				<!--Alert box end-->
 			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2"  data-ng-controller="InventoryController">
