@@ -534,7 +534,7 @@ exports.uploadImage = function(req, res){
 		}
 		//console.log(files);
 		//res.redirect('/');
-		var imageName = 'carousel-' + fields.carouselImageNum + '.png'
+		var imageName = 'carousel-' + fields.carouselImageNum + '.png';
 		fs.rename(files.upload.path, './public/modules/core/img/brand/' + imageName, function(err){
 			if(err){
 				console.log(errorHandler.getErrorMessage(err));
