@@ -29,21 +29,21 @@
 			<div>
 				</h3><h4><span style="float: right" data-ng-show="plate.length > 0">Total: {{orderTotal}} </span></h4>
 			</div>
-			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2"  data-ng-controller="MenuItemsController">
+			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2"  data-ng-controller="MenuItemsController" data-ng-show="plate.length > 0 || success">
 				<!--p> Placed order </p> <input class = "form-control" type = number min = 0> <input type = "checkbox" checked = true-->
-                <div class="text-center form-group" data-ng-show="plate.length > 0">
+                <div class="text-center form-group" data-ng-show="!success">
 				<button class = "btn btn-large btn-primary" data-ng-click='pOrder()'> Place order </button>
 				</div>
 
-			<div data-ng-show="success" class="text-center text-success">
-				<strong>{{success}}</strong>
+				<div data-ng-show="success" class="text-center text-success">
+					<strong>{{success}}</strong>
+				</div>
+				<div data-ng-show="error" class="text-center text-danger">
+					<strong data-ng-bind="error">{{error}}</strong>
+				</div>
 			</div>
-			<div data-ng-show="error" class="text-center text-danger">
-				<strong data-ng-bind="error">{{error}}</strong>
-			</div>
-			</div>
-			<div data-ng-show="plate.length == 0" class="text-info">
-				<strong>You have no items on your plate. Head to the menu to add items.</strong>
+			<div data-ng-show="plate.length == 0 && !success" class="text-center text-info">
+				<p>You have no items on your plate. Head over to the menu to add items.</p>
 			</div>
 	</div>
 
