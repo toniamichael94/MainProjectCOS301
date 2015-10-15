@@ -22,6 +22,10 @@ module.exports = function(app) {
 
 	app.route('/users/superuserSetCanteenName').post(users.setCanteenName);
 	app.route('/users/superuserSetThemeName').post(users.setThemeName);
+   // app.route('/users/superuserSetContactInfo').post(users.setContactInfo);
+    app.route('/users/superuserSetContactInfo1').post(users.setContactInfo1);
+    app.route('/users/superuserSetContactInfo2').post(users.setContactInfo2);
+    app.route('/users/superuserSetContactInfo3').post(users.setContactInfo3);
 	app.route('/config/theme').post(users.getTheme);
 	app.route('/users/superuserUploadImage').post(users.uploadImage);
 	app.route('/users/superuserGetAuditTypes').get(users.getAuditTypes);
