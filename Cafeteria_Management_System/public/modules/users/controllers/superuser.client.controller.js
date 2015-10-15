@@ -251,6 +251,26 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
         });
 
         };
+        //getContactInfo
+        $scope.getContactInfo2 = function(){
+            $http.get('/users/superuserGetContactInfo2').success(function(response){
+                console.log("response.val"+response.val);
+                $scope.success2 = response.val;
+            }).error(function(response){
+                console.log(response.message);
+            });
+
+        };
+        //getContactInfo
+        $scope.getContactInfo3 = function(){
+            $http.get('/users/superuserGetContactInfo3').success(function(response){
+                console.log("response.val"+response.val);
+                $scope.success3 = response.val;
+            }).error(function(response){
+                console.log(response.message);
+            });
+
+        };
 		//Delete Carousel Image
 		$scope.deleteCarouselImage = function(isValid){
 			console.log('deleteing image');

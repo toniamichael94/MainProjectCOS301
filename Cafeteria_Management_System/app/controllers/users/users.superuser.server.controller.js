@@ -449,7 +449,7 @@ exports.setContactInfo1 = function(req, res){ console.log('cont name ' + req.bod
     });
 };
     exports.setContactInfo2 = function(req, res){ console.log('cont name ' + req.body.value);
-    Config.update({name: 'Contact Name'}, {value: req.body.value}, function(err, numAffected){
+    Config.update({name: 'Contact Number'}, {value: req.body.value}, function(err, numAffected){
         console.log("in server funct"+ req.body.value);
         if(err) return res.status(400).send({
             message: errorHandler.getErrorMessage(err)
@@ -474,7 +474,7 @@ exports.setContactInfo1 = function(req, res){ console.log('cont name ' + req.bod
     });
     };
 exports.setContactInfo3 = function(req, res){ console.log('cont name ' + req.body.value);
-    Config.update({name: 'Contact email'}, {value: req.body.value}, function(err, numAffected){
+    Config.update({name: 'Contact Email'}, {value: req.body.value}, function(err, numAffected){
         console.log("in server funct"+ req.body.value);
         if(err) return res.status(400).send({
             message: errorHandler.getErrorMessage(err)
@@ -482,7 +482,7 @@ exports.setContactInfo3 = function(req, res){ console.log('cont name ' + req.bod
         else if (numAffected < 1){  console.log("in if statement funct"+ req.body.value);
 
             var config3 = new Config();
-            config3.name = 'Contact number';
+            config3.name = 'Contact Email';
             config3.value = req.body.value;
 
             config3.save(function(err){
@@ -681,23 +681,31 @@ exports.getTheme = function(req,res){
         }
     });
 };
-/*
 exports.getContactInfo = function(req, res) {
-    console.log("helllloooooooooooooooooooooo tooooooooooooooooonnnnnnnnnnnniiiiaaa");
-    Config.findOne({name: 'Contact name'}, function (err, row) {
+    Config.findOne({name: 'Contact Name'}, function (err, row) {
         if (err) {
             return res.status(400).send({
                 message: errorHandler.getErrorMessage(err)
             });
         } else {
-            return  res.status(200).send({message: row.value});
+            return  res.status(200).json({val: row.value});
         }
     });
 };
-*/
-exports.getContactInfo = function(req, res) {
-    console.log("helllloooooooooooooooooooooo tooooooooooooooooonnnnnnnnnnnniiiiaaa");
-    Config.findOne({name: 'Contact Name'}, function (err, row) {
+exports.getContactInfo2 = function(req, res) {
+    Config.findOne({name: 'Contact Number'}, function (err, row) {
+        if (err) {
+            return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+        } else {
+            return  res.status(200).json({val: row.value});
+        }
+    });
+};
+
+exports.getContactInfo3 = function(req, res) {
+    Config.findOne({name: 'Contact Email'}, function (err, row) {
         if (err) {
             return res.status(400).send({
                 message: errorHandler.getErrorMessage(err)

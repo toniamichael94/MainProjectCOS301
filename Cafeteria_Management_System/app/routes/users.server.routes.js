@@ -27,6 +27,8 @@ module.exports = function(app) {
     app.route('/users/superuserSetContactInfo2').post(users.setContactInfo2);
     app.route('/users/superuserSetContactInfo3').post(users.setContactInfo3);
     app.route('/users/superuserGetContactInfo').get(users.getContactInfo);
+    app.route('/users/superuserGetContactInfo2').get(users.getContactInfo2);
+    app.route('/users/superuserGetContactInfo3').get(users.getContactInfo3);
 	app.route('/config/theme').post(users.getTheme);
 	app.route('/users/superuserUploadImage').post(users.uploadImage);
 	app.route('/users/superuserGetAuditTypes').get(users.getAuditTypes);
