@@ -215,6 +215,12 @@ $scope.toggleCollapsibleMenu = function() {
 	$scope.alert28 = {type: 'warning', msg: 'Page help: This field allows the superuser to change the colour scheme for the system'};
 	$scope.alert29 = {type: 'warning', msg: 'Page help: '};
 	$scope.alert30 = {type: 'warning', msg: 'Page help: To search for an menu category, type in the name of the category and the option to edit will appear'};
+  	$scope.alert31 = {type: 'warning', msg: 'Page help: This page will give you the statistics of the menu items, the sold items and the most popular items'};
+  	$scope.alert32 = {type: 'warning', msg: 'Page help: This allows user to search for statistics for the menu items sold in a given period of time'};
+  	$scope.alert33 = {type: 'warning', msg: 'Page help: This allows user to view the most popular menu items sold by the cafeteria'};
+  	$scope.alert34 = {type: 'warning', msg: 'Page help: This page will give the user the statistics for the used inventory'};
+  	$scope.alert35 = {type: 'warning', msg: 'Page help: This allows the user to select amount of inventory used in a given period of time'};
+  	};
   
 //close alert will take alert box away
 $scope.closeAlert = function(index) {
