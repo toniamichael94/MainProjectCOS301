@@ -193,6 +193,23 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
                 }
 		};
 
+        //Set contact information
+        $scope.setContactInfo = function(isValid){
+            console.log('SETTTTTTTT CONTACT INFOOOOOOOOOOOOO CLIENT');
+            if(isValid){
+                $scope.success = $scope.error = null;
+                $scope.successTwo = $scope.errorTwo = null;
+
+                var reqObj = {contactName: $scope.contactName, contactNumber: $scope.contactNumber, contactEmail: $scope.contactEmail};
+                //console.log($scope.canteenName);
+                $http.post('users/superuserSetContactInfo', reqObj).success(function (response) {
+                    $scope.successSeven = response.message;
+                }).error(function (response) {
+                    $scope.errorSeven= response.message;
+                });
+            }
+        };
+
         //Set theme name
         $scope.setThemeName = function(){
                 console.log('THEME CLIENT');
