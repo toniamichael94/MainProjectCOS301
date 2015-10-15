@@ -425,25 +425,76 @@ exports.setCanteenName = function(req, res){
  * Set contact info
  * Last Edited by {Antonia Michael}
  */
-exports.setCanteenName = function(req, res){
-    Config.update({name: 'Canteen name'}, {value: req.body.value}, function(err, numAffected){
+exports.setContactInfo1 = function(req, res){ console.log('cont name ' + req.body.value);
+    Config.update({name: 'Contact Name'}, {value: req.body.value}, function(err, numAffected){
+        console.log("in server funct"+ req.body.value);
         if(err) return res.status(400).send({
             message: errorHandler.getErrorMessage(err)
         });
-        else if (numAffected < 1){
+        else if (numAffected < 1){  console.log("in if statement funct"+ req.body.value);
             var config = new Config();
-            config.name = 'Canteen name';
+            config.name = 'Contact Name';
             config.value = req.body.value;
 
             config.save(function(err){
                 if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
-                res.status(200).send({message: 'Canteen name has been successfully changed.'});
+                res.status(200).send({message: 'Contact name has been successfully changed.'});
             });
         }
         else{
-            var dat = 'The canteen name has been changed to ' + req.body.value;
+            var dat = 'The contact name has been changed to ' + req.body.value;
             audit('Branding settings change', dat);
-            res.status(200).send({message: 'Canteen name has been successfully changed.'});
+            res.status(200).send({message: 'Contact info has been successfully changed.'});
+        }
+    });
+};
+    exports.setContactInfo2 = function(req, res){ console.log('cont name ' + req.body.value);
+    Config.update({name: 'Contact Name'}, {value: req.body.value}, function(err, numAffected){
+        console.log("in server funct"+ req.body.value);
+        if(err) return res.status(400).send({
+            message: errorHandler.getErrorMessage(err)
+        });
+        else if (numAffected < 1){  console.log("in if statement funct"+ req.body.value);
+
+            var config2 = new Config();
+             config2.name = 'Contact Number';
+             config2.value = req.body.value;
+
+             config2.save(function(err){
+             if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
+             res.status(200).send({message: 'Contact info has been successfully changed.'});
+             });
+
+        }
+        else{
+            var dat = 'The contact number has been changed to ' + req.body.value;
+            audit('Branding settings change', dat);
+            res.status(200).send({message: 'Contact name has been successfully changed.'});
+        }
+    });
+    };
+exports.setContactInfo3 = function(req, res){ console.log('cont name ' + req.body.value);
+    Config.update({name: 'Contact email'}, {value: req.body.value}, function(err, numAffected){
+        console.log("in server funct"+ req.body.value);
+        if(err) return res.status(400).send({
+            message: errorHandler.getErrorMessage(err)
+        });
+        else if (numAffected < 1){  console.log("in if statement funct"+ req.body.value);
+
+            var config3 = new Config();
+            config3.name = 'Contact number';
+            config3.value = req.body.value;
+
+            config3.save(function(err){
+                if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
+                res.status(200).send({message: 'Contact info has been successfully changed.'});
+            });
+
+        }
+        else{
+            var dat = 'The contact email has been changed to ' + req.body.value;
+            audit('Branding settings change', dat);
+            res.status(200).send({message: 'Contact name has been successfully changed.'});
         }
     });
 };
