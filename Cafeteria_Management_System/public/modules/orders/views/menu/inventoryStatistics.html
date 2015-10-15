@@ -1,17 +1,9 @@
 <section class="row">
-	<!--ALERT BOX FOR HELP-->
-		<script type="text/ng-template" id="alert.html">
-			<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-				<div ng-transclude></div>
-			</div>
-		</script>
 
-		<div  data-ng-controller="InventoryController">
-			<h4>Inventory Statistics<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
-				<hr>
-				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alerts[1].msg}}</alert>
+		<div>
+			<h4>Inventory Statistics<h4>
 		</div>
- <!--END ALERT BOX -->
+
 
 	<!--Inventory items used over time-->
 	<div class="list-group clearfix">
@@ -24,7 +16,7 @@
 					</div>
 			</script>
 
-			<div  data-ng-controller="InventoryController">
+			<div  data-ng-controller="MenuItemsController">
 				<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button>
 				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert3.msg}}</alert>
 			</div>
@@ -53,69 +45,4 @@
   </div>
 
 	</div>
-
-	<section class="row">
-		<!--ALERT BOX FOR HELP-->
-			<script type="text/ng-template" id="alert.html">
-				<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-					<div ng-transclude></div>
-				</div>
-			</script>
-
-	 <!--END ALERT BOX -->
-
-		<!--Inventory items used over time-->
-		<div class="list-group clearfix">
-		<!--Inventory items used over time-->
-		<div class="list-group clearfix">
-		<a href="#" class="list-group-item disabled">Display the amount of the inventory items used</a>
-			<div class="list-group-item clearfix">
-				<!--Alert box -->
-				<script type="text/ng-template" id="alert.html">
-						<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-							<div ng-transclude></div>
-						</div>
-				</script>
-
-				<div  data-ng-controller="InventoryController">
-					<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button>
-					<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert3.msg}}</alert>
-				</div>
-					<!--Alert box end-->
-				<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2"  data-ng-controller="InventoryController">
-					<form name="monthlyReportForm" data-ng-submit="monthlyReport(monthlyReportForm.$valid)" class="signin form-horizontal" autocomplete="off">
-						<fieldset>
-							<div class="form-group">
-								<label for="timePeriod">Month</label>
-								<select data-ng-model = 'month' class="form-control" required/>
-										<option  value = 1>January</option>
-										<option  value = 2>February</option>
-										<option  value = 3>March</option>
-										<option  value = 4>April</option>
-										<option  value = 5>May</option>
-										<option  value = 6>June</option>
-										<option  value = 7>July</option>
-										<option  value = 8>August</option>
-										<option  value = 9>September</option>
-										<option  value = 10>October</option>
-										<option  value = 11>November</option>
-										<option  value = 12>December</option>
-								</select><br>
-								<label for="year">Year</label>
-								<input type = "number" class="form-control" min=0 data-ng-model = "year" required/>
-							</div>  <div class=" text-center form-group">
-								<button type = "submit" style="width:200px" class = "btn btn-large btn-primary">Submit</button>
-								<!-- Show error message or sucess message for adding a menu category--></div>
-								<div data-ng-show="success" class="text-center text-success">
-									<strong>Report successfully generated.</strong>
-								</div>
-								<div data-ng-show="error" class="text-center text-danger">
-									<strong data-ng-bind="error"></strong>
-								</div>
-						</fieldset>
-					</form>
-
-		  </div>
-	  </div>
-
-		</div>
+</section>

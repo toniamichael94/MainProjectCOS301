@@ -26,6 +26,7 @@ module.exports = function(app) {
 	app.route('/users/superuserUploadImage').post(users.uploadImage);
 	app.route('/users/superuserGetAuditTypes').get(users.getAuditTypes);
 	app.route('/users/superuserGetAudits').post(users.getAudits);
+	app.route('/users.superuserDeleteImage').post(users.deleteImage);
 	
     //loading employees from db
     app.route('/loadEmployees').get(users.loadEmployees);

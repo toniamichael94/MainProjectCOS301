@@ -557,17 +557,40 @@ exports.uploadImage = function(req, res){
 		if(error){
 			return res.status(400).send({message: errorHandler.getErrorMessage(error)});
 		}
-		fs.rename(files.upload.path, './public/modules/core/img/brand/logo.png', function(err){
+		//console.log(files);
+		//res.redirect('/');
+		var imageName = 'carousel-' + fields.carouselImageNum + '.png';
+		fs.rename(files.upload.path, './public/modules/core/img/brand/' + imageName, function(err){
 			if(err){
 				console.log(errorHandler.getErrorMessage(err));
 				fs.unlink('./public/modules/core/img/brand/logo.png');
-				fs.rename(files.upload.path, './public/modules/core/img/brand/logo.png');
+				fs.rename(files.upload.path, './public/modules/core/img/brand/' + imageName);
 			}
-			res.redirect('/');
+			var capName = 'Carousel-caption' + fields.carouselImageNum;
+			Config.update({name: capName}, {value: fields.crouselImageCaption}, function(err, numAffected){
+				if(err) return res.status(400).send({message: 'Caption not set'});
+				if(numAffected < 1){
+					var config = new Config();
+					config.name = capName;
+					config.value = fields.crouselImageCaption;
+					config.save(function(err){
+						if(err) return res.status(400).send({message: 'Caption not set'});
+						res.redirect('/');
+					});
+				}
+				else
+					return res.redirect('/');
+			});
 			var dat = 'The main image has been changed';
 			audit('Branding settings change', dat);
 		});
 	});
+};
+
+
+exports.deleteImage = function(req, res){
+	console.log(req.body.image);
+	res.status(200).send({message: 'Image deleted'});
 };
 
 /*

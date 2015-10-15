@@ -17,7 +17,7 @@
 			<div class="list-group-item clearfix" ng-repeat="item in plate">
 				<h4><b><p class ="text-warning">{{item.itemName}} : R {{item.price}} </p> </b></h4>
                     <span style="float:right;" >
-        <button type="button" class="btn btn-primary" data-ng-click="removeFromPlate(item.itemName)"> Remove </button> </span>
+				<button type="button" class="btn btn-primary" data-ng-click="removeFromPlate(item.itemName)"> Remove </button> </span>
 
                 <p> Quantity <input type='number'  data-ng-model='item.quantity' data-ng-change='quantityChange(item.itemName)' name='{{item.itemName}}' min=1 max=5 /></p>
 
@@ -27,21 +27,24 @@
                 </p>
 			</div>
 			<div>
-				<h4></h3><span style="float: right">Total: {{orderTotal}} </span></h4>
+				</h3><h4><span style="float: right" data-ng-show="plate.length > 0">Total: {{orderTotal}} </span></h4>
 			</div>
-			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2"  data-ng-controller="MenuItemsController">
+			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2"  data-ng-controller="MenuItemsController" data-ng-show="plate.length > 0 || success">
 				<!--p> Placed order </p> <input class = "form-control" type = number min = 0> <input type = "checkbox" checked = true-->
-                <div class="text-center form-group">
+                <div class="text-center form-group" data-ng-show="!success">
 				<button class = "btn btn-large btn-primary" data-ng-click='pOrder()'> Place order </button>
-			</div>
+				</div>
 
-			<div data-ng-show="success" class="text-center text-success">
-				<strong>{{success}}</strong>
+				<div data-ng-show="success" class="text-center text-success">
+					<strong>{{success}}</strong>
+				</div>
+				<div data-ng-show="error" class="text-center text-danger">
+					<strong data-ng-bind="error">{{error}}</strong>
+				</div>
 			</div>
-			<div data-ng-show="error" class="text-center text-danger">
-				<strong data-ng-bind="error">{{error}}</strong>
+			<div data-ng-show="plate.length == 0 && !success" class="text-center text-info">
+				<p>You have no items on your plate. Head over to the menu to add items.</p>
 			</div>
-		</div>
 	</div>
 
 
