@@ -225,6 +225,8 @@ $scope.toggleCollapsibleMenu = function() {
   	$scope.alert38 = {type: 'warning', msg: 'Page help: This page allows you as the cashier to view people\'s orders and to process them accordingly'};
   	$scope.alert39 = {type: 'warning', msg: 'Page help: This allows you as the finance manager to generate the invoice for a user with the given employee ID for a given period of time'};
   	$scope.alert40 = {type: 'warning', msg: 'Page help: This allows you as the finance manager to generate the total amount spent for all the users for a given period of time'};
+  	$scope.alert41 = {type: 'warning', msg: 'Page help: This allows you to view the statistics of the menu items in graph format'};
+  	$scope.alert42 = {type: 'warning', msg: 'Page help: This allows you to view the statistics of the most popular items in graph format'};
   	};
   
 //close alert will take alert box away
