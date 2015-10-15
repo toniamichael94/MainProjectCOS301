@@ -13,7 +13,7 @@ angular.module('core').controller('HomeController', ['$scope', '$animate','Authe
 		 $scope.noWrapSlides = false;
 		 var slides = $scope.slides = [];
 
-		 //this is for the courosel on the
+		 /*this is for the courosel on the
 		 $scope.addSlide = function() {
 			 var newWidth = 600 + slides.length + 1;
 
@@ -26,7 +26,13 @@ angular.module('core').controller('HomeController', ['$scope', '$animate','Authe
 		 for (var i=0; i<4; i++) {
 			 $scope.addSlide();
 		 }
-
+		*/
+		for(var i=1; i <=4;i++){
+			slides.push({
+				image: 'modules/core/img/brand/carousel-'+i+'.png',
+				text: 'asdfsa'
+			});
+		}
 
 	}
 ]);

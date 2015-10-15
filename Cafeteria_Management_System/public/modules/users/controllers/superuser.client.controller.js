@@ -209,6 +209,16 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
                     console.log('error ' + response.message);
                 });
         };
+		
+		//Delete Carousel Image
+		$scope.deleteCarouselImage = function(isValid){
+			console.log('deleteing image');
+			$http.post('/users/superuserDeleteImage', {image: $scope.imageToDelete}).success(function(response){
+				$scope.success = response.messge;
+			}).error(function(response){
+				$scope.error = response.message;
+			})
+		}
 
         $scope.checkUser = function(){
             if((!$scope.user) || ($scope.user && (Authentication.user.roles[0] !== 'superuser' || Authentication.user.roles[0] !== 'superuser')))
