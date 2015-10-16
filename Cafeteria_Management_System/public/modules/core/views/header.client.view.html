@@ -40,6 +40,13 @@
 				</a>
 			</li>
 		</ul>
+        <ul class="nav navbar-nav">
+            <li >
+                <a href="/#!/settings/contactUs" >
+                    <span class="glyphicon glyphicon-earphone"> Contact Us </span>
+                </a>
+            </li>
+        </ul>
 		<ul class="nav navbar-nav navbar-right" data-ng-hide="authentication.user">
 			<li ui-route="/signup" ng-class="{active: $uiRoute}">
 				<a href="/#!/signup"><span class="glyphicon glyphicon-pencil"></span>Sign Up</a>
@@ -56,7 +63,7 @@
 				</a>
 				<ul class="dropdown-menu" >
                     <li>
-                        <a href="/#!/notifications" ng-click="readMessage()""> <span class="glyphicon glyphicon-envelope"></span> Notifications ({{newMessages}})</a>
+                        <a href="/#!/notifications" ng-click="readMessage()"> <span class="glyphicon glyphicon-envelope"></span> Notifications ({{newMessages}})</a>
                     </li>
 					<li data-ng-show="authentication.user.provider === 'local'">
 						<a href="/#!/settings/profileView">View Profile</a>
@@ -119,12 +126,6 @@
 				</ul>
 			</li>
 		</ul>
-        <ul class="nav navbar-nav">
-            <li >
-                <a href="/#!/contactUs" data-ng-controller="MenuItemsController" ng-click="dynamicFilter()">
-                    <span class="glyphicon glyphicon-earphone"> Contact Us </span>
-                </a>
-            </li>
-        </ul>
+
 	</nav>
 </div>

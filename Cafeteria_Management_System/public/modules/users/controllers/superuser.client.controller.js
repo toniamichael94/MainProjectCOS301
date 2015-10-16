@@ -5,7 +5,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 		$scope.user = Authentication.user;
 
 		// If user is not signed in then redirect back home
-		if (!$scope.user) $location.path('/');
+	//	if (!$scope.user) $location.path('/');
 
 		// Assign a role to user - as the super user
 		$scope.assignRoles = function(isValid) {
@@ -241,19 +241,22 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
                     console.log('error ' + response.message);
                 });
         };
-        //getContactInfo
+        /**
+         * Created by tonia on 2015/10/16.
+         */
+            //getContactInfo
         $scope.getContactInfo = function(){
-            $http.get('/users/superuserGetContactInfo').success(function(response){
+            $http.get('users/superuserGetContactInfo').success(function(response){
                 console.log("response.val"+response.val);
-            $scope.success = response.val;
-        }).error(function(response){
-            console.log(response.message);
-        });
+                $scope.success = response.val;
+            }).error(function(response){
+                console.log(response.message);
+            });
 
         };
-        //getContactInfo
+//getContactInfo
         $scope.getContactInfo2 = function(){
-            $http.get('/users/superuserGetContactInfo2').success(function(response){
+            $http.get('users/superuserGetContactInfo2').success(function(response){
                 console.log("response.val"+response.val);
                 $scope.success2 = response.val;
             }).error(function(response){
@@ -261,9 +264,9 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
             });
 
         };
-        //getContactInfo
+//getContactInfo
         $scope.getContactInfo3 = function(){
-            $http.get('/users/superuserGetContactInfo3').success(function(response){
+            $http.get('users/superuserGetContactInfo3').success(function(response){
                 console.log("response.val"+response.val);
                 $scope.success3 = response.val;
             }).error(function(response){

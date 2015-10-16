@@ -19,8 +19,8 @@ angular.module('core').controller('HeaderController', ['$scope', '$rootScope', '
 		});
 
         var stop;
-		/*$scope.loadNotifications = function(){
-			console.log($scope.authentication.user);
+		$scope.loadNotifications = function(){
+			/*console.log($scope.authentication.user);
 			if($scope.authentication.user){
 				console.log('hello2');
 				 if ( angular.isDefined(stop) ) return;
@@ -38,8 +38,8 @@ angular.module('core').controller('HeaderController', ['$scope', '$rootScope', '
 					console.log('should be: ' + $scope.newMessages);
 					//$scope.newMessages = 1;
 				}, 5000);
-			}
-		};*/
+			}*/
+		};
 		
 		$scope.stopLoad = function() {
           if (angular.isDefined(stop)) {
