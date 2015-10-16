@@ -1,0 +1,39 @@
+<section data-ng-controller="superuserController" >
+
+
+				<!--Alert box -->
+				<script type="text/ng-template" id="alert.html">
+						<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+							<div ng-transclude></div>
+						</div>
+				</script>
+
+				<div  data-ng-controller="MenuItemsController">
+					<h4>Contact Us <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button></h4><hr>
+					<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert29.msg}}</alert>
+				</div>
+    <div class="col-xs-offset-2 col-xs-8 ">
+        <div class="signin form-horizontal">
+    <div class="list-group-item" > <label align="center">Canteen's Contact Details: </label>
+        <table align="center" class="table table-bordered table-striped table-condensed">
+            <thead>
+            </thead>
+            <tbody>
+            <tr>
+                <td><b>Contact Person: </b></td>
+                <td data-ng-init="getContactInfo()" > {{success}}</td>
+            </tr>
+            <tr>
+                <td><b>Number:</b></td>
+                <td data-ng-init="getContactInfo2()" >  {{success2}}</td> </h5><br>
+            </tr>
+            <tr>
+                <td><b>Email address:</b></td>
+                <td data-ng-init="getContactInfo3()" >{{success3}}</td> </h5><br>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+</section>
