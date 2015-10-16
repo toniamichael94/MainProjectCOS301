@@ -565,6 +565,17 @@ exports.uploadImage = function(req, res){
 
 exports.deleteImage = function(req, res){
 	console.log(req.body.image);
+	var cap = 'Carousel-caption' + req.body.imageNum;
+	var imagePath = 'public/modules/core/img/brand/carousel-' + req.body.imageNum; + '.png';
+	var defaultImage = 'public/modules/core/img/brand/default-' + req.body.imageNum + '.png';
+	var capChanged = 0;
+	
+	Config.update({name: cap}, {value: ''}, function(err, numAffected){
+		if(err || numAffected < 1) capChanged = 1;
+		fse.copy(defaultImage,imagePath, function(err){
+			if(err) return res.status(200).send({message: 'Image not deleted.'});
+		});
+	});
 	res.status(200).send({message: 'Image deleted'});
 };
 
