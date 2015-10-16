@@ -9,6 +9,7 @@ var _ = require('lodash'),
 	passport = require('passport'),
 	User = mongoose.model('User'),
 	Audit = mongoose.model('Audit'),
+	Notifications = mongoose.model('Notifications'),
 	Config = mongoose.model('Config'),
 	Order = mongoose.model('Order'),
     formidable = require('formidable'),
@@ -298,7 +299,7 @@ exports.removeEmployee = function(req, res) {
 * Last Edited by {Semaka Malapane}
 */
 //Helper function to notify all users of CMS about system limit change
-/*function sendMessage(newLimit){
+function sendMessage(newLimit){
 	User.findOne({}, function(err, user){
 		users.forEach(function(user){
 			if(err){
@@ -310,9 +311,9 @@ exports.removeEmployee = function(req, res) {
 			};
 			mailOptions.to = user.username;
 			mailOptions.text = '<p> Dear ' + user.displayName + ',<br> <br> ' +
-										'Please note the system limit for the Cafeteria Management System has been changed to R' + newLimit + '. <br>'+
-										'Please go to edit profile if you\'d like to adjust your limit.<br> <br>'+
-										'The CMS Team <br> </p>';
+						'Please note the system limit for the Cafeteria Management System has been changed to R' + newLimit + '. <br>'+
+						'Please go to edit profile if you\'d like to adjust your limit.<br> <br>'+
+						'The CMS Team <br> </p>';
 			var notification = new Notifications({
 				username: mailOptions.to,
 				subject: mailOptions.subject,
@@ -328,8 +329,42 @@ exports.removeEmployee = function(req, res) {
 			});
 		});
 	});
-}*/
+}
 
+/*
+  * Helper function to email user about order
+  * Last Edited by: Semaka Malapane
+  */
+ /*function sendMessage(newLimit){
+    User.findOne({username: uname}, function(err, user){
+        if(err){
+                console.log(err);
+                return;
+        }		
+        var mailOptions = {
+                subject: 'Your Order Is Ready'
+        };
+        mailOptions.to = user.username;
+        mailOptions.text = '<p> Dear ' + user.displayName + ',<br> <br> ' +
+				'Please note the system limit for the Cafeteria Management System has been changed to R' + newLimit + '. <br>'+
+				'Please go to edit profile if you\'d like to adjust your limit.<br> <br>'+
+				'The CMS Team <br> </p>';
+        var notification = new Notifications({
+                username: mailOptions.to,
+                subject: mailOptions.subject,
+                message: mailOptions.text
+        });
+
+        notification.save(function(err) {
+                if(err) {
+                        console.log('ERROR!!!!!!!!!!');
+                        console.log(notification);
+                        return;
+                }
+                console.log('Notification has been created');
+        });
+    });
+ }*/
 /*
 * Set System Wide Limit
 * Last Edited by {Rendani Dau}
@@ -389,7 +424,7 @@ exports.setSystemWideLimit = function(req, res){
 				var dat = 'The system wide limit has been changed to R' + req.body.value;
 				audit('Admin settings change', dat);
 				sendEmail(req.body.value);
-				//sendMessage(req.body.value);
+				sendMessage(req.body.value);
 			});
 		}
 	});
