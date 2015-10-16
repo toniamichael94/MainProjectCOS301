@@ -635,7 +635,7 @@ exports.uploadImage = function(req, res){
 		fs.rename(files.upload.path, './public/modules/core/img/brand/' + imageName, function(err){
 			if(err){
 				console.log(errorHandler.getErrorMessage(err));
-				fs.unlink('./public/modules/core/img/brand/logo.png');
+				fs.unlink('./public/modules/core/img/brand/' + imageName);
 				fs.rename(files.upload.path, './public/modules/core/img/brand/' + imageName);
 			}
 			var capName = 'Carousel-caption' + fields.carouselImageNum;
@@ -662,18 +662,19 @@ exports.uploadImage = function(req, res){
 
 exports.deleteImage = function(req, res){
 	console.log(req.body.image);
-	var cap = 'Carousel-caption' + req.body.imageNum;
-	var imagePath = 'public/modules/core/img/brand/carousel-' + req.body.imageNum; + '.png';
-	var defaultImage = 'public/modules/core/img/brand/default-' + req.body.imageNum + '.png';
+	var cap = 'Carousel-caption' + req.body.image;
+	var imagePath = 'public/modules/core/img/brand/carousel-' + req.body.image + '.png';
+	var defaultImage = 'public/modules/core/img/brand/default-' + req.body.image + '.png';
 	var capChanged = 0;
 	
 	Config.update({name: cap}, {value: ''}, function(err, numAffected){
 		if(err || numAffected < 1) capChanged = 1;
-		fse.copy(defaultImage,imagePath, function(err){
-			if(err) return res.status(200).send({message: 'Image not deleted.'});
+		fse.copy(defaultImage,imagePath,{replace: true}, function(err){
+			if(err){ console.log(err); return res.status(400).send({message: 'Image not deleted.'});}
+		res.status(200).send({message: 'Image deleted'});
 		});
 	});
-	res.status(200).send({message: 'Image deleted'});
+	
 };
 
 /*

@@ -993,6 +993,9 @@ $scope.searchBarDynamic = function(row){
 
 //generating the graph data for menu item statistics
 		$scope.generateReport = function(){
+			var date = new Date($scope.endDateReport);
+			date.setHours(23,59,59);
+			
 			$http.post('orders/generateReport',{start: $scope.startDateReport, end: $scope.endDateReport},{responseType:'JSON'}).success(function(response){
 				var  containerData = [];
 
