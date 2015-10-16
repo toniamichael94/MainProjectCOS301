@@ -274,6 +274,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
             });
 
         };
+
 		//Delete Carousel Image
 		$scope.deleteCarouselImage = function(isValid){
 			console.log('deleteing image');
