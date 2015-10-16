@@ -109,7 +109,7 @@ As specified in the project proposal document from Resolve, the cafeteria is cur
 \subsection{How the aforementioned problems will be alleviated by the CMS}
 The Cafeteria Management System will provide a means to accept payments from employees, at the canteen, using their employee access cards or access card numbers, with an amount being deducted from their salary at the end of the month.  The option of cash payments ,however, will not be discarded. At the end of each month, the bill for the month will be sent to either payroll, to the employee, or to both. This option is thus configurable from the user's profile. The employee can also set a spending limit for each month. There will also be a system wide limit that users cannot exceed.
 \\
-The system will predict which inventory items needs to be bought for the next week in order to avoid the "out of stock" situation described above. The system will also enforce that the cafeteria manager 
+The system will predict which inventory items needs to be bought for the next week in order to avoid the "out of stock" situation described above. The system will also enforce that when the cafeteria manager adds meal items to the menu, he adds inventory items for each menu item. This is done so that each time a menu item requires an inventory item, the quantity of the inventory item will decrement until it reaches zero and is marked as "Out of Stock" on the menu. This is done so that when the user is ordering food, he/she can clearly see which items are not in stock and hence does not need to find this out at the canteen.
 \\
 %%---------------------------------- SYSTEM OVERVIEW -----------------------------------------
 \section{System Overview}
@@ -240,8 +240,8 @@ Once the user has clicked the "Sign Up" option on the navigation pane, the user 
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/signUp.PNG}
-    \caption{Sign Up - red circled button should be clicked to sign up} 
+    \includegraphics[width=1.0\textwidth]{screenshots/signUp.png}
+    \caption{Sign Up - as indicated by the grey box on the page} 
 \end{figure}
 
 When the button is clicked, the CMS will direct the user to the signup page where the user can fill out all the details. Once the user have completed the form, the user will click submit and if the form is correctly filled in , the user will be notified upon success and will be signed up for the system. They will hence be redirected to the home page. The user will then use the password created and employee ID to log in to the system. If the information entered is not valid, a thorough error message will be displayed indicating what the problem is so that the user can rectify it.
@@ -267,14 +267,14 @@ To sign in, the user must click on the 'Sign In' tab on the navigation bar.
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{screenshots/signIn.png}
-    \caption{Sign In - red circled button should be clicked to sign in} 
+    \caption{Sign In - as indicated by the grey box on the page} 
 \end{figure}
 
 Once the user clicks on the sign in tab, the CMS should direct to the sign in page :
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/signIn.png}
+    \includegraphics[width=1.0\textwidth]{screenshots/signInPage.png}
     \caption{Sign In page - Type the appropriate information in the textboxes and click submit to sign in} 
 \end{figure}
   
@@ -317,7 +317,7 @@ The Navigation pane will be displayed as follows if the user has not logged in:
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/HomePage.PNG}
+    \includegraphics[width=1.0\textwidth]{screenshots/HomePage.png}
     \caption{Home Page - user not logged in } 
 \end{figure}
 
@@ -342,7 +342,7 @@ The user will now view a drop down menu with various options displayed on it. Th
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/HomePage2.PNG}
+    \includegraphics[width=1.0\textwidth]{screenshots/HomePage2.png}
     \caption{Home Page - user not logged in } 
 \end{figure}
 
@@ -462,7 +462,13 @@ The user is presented with a form where the user will be asked to enter their ol
 \end{figure}
 
 \subsection{Superuser: The "Administrative Settings" Page} 
-At the top of the page there is a section labelled assign roles, where different admin roles will be assigned to different users. The super user simply has to type in an employee ID and select a role from the dropdown menu below. There is a section underneath that where the superuser can change the user ID of an employee. Self explanatory text boxes are provided for the superuser to fill in and the submit button will save the changes, unless an error occurs.  This page also consists of a section labelled "Change system limit" and it is here where the superuser can alter the limit of the system, i.e. the maximum value that a user can set their daily spending limits to. Hence a textbox is provided for the super user to type the new limit and save it.
+At the top of the page there is a section labelled assign roles, where different admin roles will be assigned to different users. The super user simply has to type in an employee ID and select a role from the dropdown menu below. There is a section underneath that where the superuser can change the user ID of an employee. Self explanatory text boxes are provided for the superuser to fill in and the submit button will save the changes, unless an error occurs.  This page also consists of a section labelled "Change system limit" and it is here where the superuser can alter the limit of the system, i.e. the maximum value that a user can set their daily spending limits to. Hence a textbox is provided for the super user to type the new limit and save it.  The superuser can also remove an employee from the system.
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/superUserMenu.png}
+    \caption{The dropdown menu indicating the functionality that the superuser has access to} 
+\end{figure}
 
 \begin{figure}[H]
   \centering
@@ -488,39 +494,62 @@ At the top of the page there is a section labelled assign roles, where different
     \caption{The admin page - superuser can set the monthly spending limit for the users} 
 \end{figure}
 
+\subsection{Superuser: The "Audits" Page} 
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{screenshots/auditsAll.png}
-    \caption{The admin page - superuser can view the audit trail for all actions performed in the system for a specified period. } 
+    \caption{The audit page - superuser can view the audit trail for all actions performed in the system for a specified period. } 
 \end{figure}
 
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{screenshots/Menu_001.png}
-    \caption{The admin page - the dropdown menu for the field to select audit details contains the following actions, more specifically all the main actions a user can perform in the system} 
+    \caption{The audit page - the dropdown menu for the field to select audit details contains the following actions, more specifically all the main actions a user can perform in the system} 
 \end{figure}
 
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{screenshots/auditRole.png}
-    \caption{The admin page - if the superuser selects one of the options, the audit trail is limited to that option} 
+    \caption{The audit page - if the superuser selects one of the options, the audit trail is limited to that option} 
 \end{figure}
 
 \subsection{Superuser: The "Branding Settings" Page} 
-There are two sections on this page. One where the user can change the canteen name, by merely typing in a new name over the old name in the allocated textbox, and another where the superuser can upload a new cover photo for the system. The superuser can also configure the colour scheme for the system.
+There are two sections on this page. One where the user can change the canteen name, by merely typing in a new name over the old name in the allocated textbox, and another where the superuser can add and remove carousel images for the cover image slides on the home page. The superuser can also configure the colour scheme for the system. The superuser can also add the contact details for the canteen that will be displayed on the contacts page
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/canteenName.png}
+    \caption{The branding settings page - superuser can change the canteen name}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/setTheme1.png}
+    \caption{The branding settings page - superuser can change the canteen name}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/setTheme2.png}
+    \caption{The branding settings page - the colour scheme of the system has now changed}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/addContactInfo.png}
+    \caption{The branding settings page - the contact information can be added in the appropriate boxes}
+\end{figure}
 
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{screenshots/coverImage.png}
-    \caption{The admin settings page - superuser can change the cover photo} 
+    \caption{The branding settings page - superuser can add/remove the images in the carousel} 
 \end{figure}
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/canteenName.png}
-    \caption{The admin settings page - superuser can change the canteen name}
+    \includegraphics[width=1.0\textwidth]{screenshots/coverImage.png}
+    \caption{The page will redirect to the carousel after an image has been added to a carousel slide and the new image will be displayed as follows} 
 \end{figure}
-
 \subsection{Cafeteria Manager: The "Manage Inventory" Page}
 This page is available to the cafeteria manager under the dropdown menu on the navigation pane. This is where the cafeteria manager adds inventory items to be used when an actual meal is stored in the menu in order to keep track of stock to note when a specific meal item is out of stock. These inventory items can be deleted, updated and searched for. 
 
