@@ -136,7 +136,7 @@
                     </div>
                 </form>
             </div>
-        </div>
+        </div><br/>
         <!--&lt;!&ndash; upload branding image &ndash;&gt;-->
     
 	<a href="#" class="list-group-item disabled">
@@ -158,6 +158,7 @@
 			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 				<form name="imageUploadForm" action="/users/superuserUploadImage" enctype="multipart/form-data" method="post" class="signinform-horizontal">
 					<fieldset>
+					<div class="form-group">
 					<label> Select Slide: </label>
 					<select name="carouselImageNum" id="carouselImageNum" class="form-control" required="true">
 						<option value="1">Carousel slide 1</option>
@@ -167,6 +168,7 @@
 					</select>
 					<label> Caption: </label><input type="text" name="crouselImageCaption" id="carouselImageCaption" class="form-control"/>
 					<label>Choose image: </label><input type="file" name="upload" id="upload" class="form-control"/> <br/>
+					</div>
 					<button type="submit" style="width:220px" class="btn btn-primary">Upload</button>
 					</fieldset>
 				</form>
