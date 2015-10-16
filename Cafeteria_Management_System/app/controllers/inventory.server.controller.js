@@ -194,6 +194,10 @@ exports.decreaseInventory = function(req,res)
 	Reporting
 	*/
 
+	exports.inventoryReport = function(req,res){
+		console.log('in inventory report');
+	};
+
 	exports.monthlyReport = function(req,res){
 		console.log('monthlyReport');
 		//Calcualte the start and end date

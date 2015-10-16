@@ -46,40 +46,23 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 		*/
 
 		//Montly report of inventory items used
-		$scope.monthlyReport = function()
+		$scope.inventoryReport = function()
 		{
-				$scope.error = '';
+				console.log('hello');
+		  	$scope.error = '';
 				$scope.success = '';
 				var valid = true;
-				if($scope.month === undefined)
+				if($scope.startDate === undefined || $scope.endDate === undefined)
 				{
-					$scope.error = 'Plase enter month';
+					$scope.error = 'Plase enter a date.';
 					valid = false;
-				}
-
-
-				if($scope.year.toString().length !== 4)
-				{
-						$scope.error = 'Please provide a valid year.';
-						valid = false;
 				}
 
 				if(valid)
 				{
-					$http.post('orders/monthlyReport',{month: $scope.month, year: $scope.year},{responseType:'arraybuffer'}).success(function(response){
+					$http.post('orders/inventoryReport',{startDate: $scope.startDate, endDate: $scope.endDate},{responseType:'JSON'}).success(function(response){
 
 
-					 var file = new Blob([response], {type: 'application/pdf'});
-						var fileURL = URL.createObjectURL(file);
-
-						var fileName = 'test.pdf';
-						var a = document.createElement('a');
-						document.body.appendChild(a);
-						a.setAttribute('style', 'display: none');
-
-						a.href =  fileURL;
-										a.download = fileName;
-										a.click();
 
 					}).error(function(response){
 						console.log(response);
