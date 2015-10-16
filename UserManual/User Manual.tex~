@@ -47,13 +47,13 @@
  \hline
  \textbf{Document Title} & User Manual \\
  \hline
- \textbf{Document Identification}  & Document 0.0.7  \\
+ \textbf{Document Identification}  & Document 0.0.8  \\
  \hline
  \textbf{Author}  & Rendani Dau, Isabel Nel, Elana Kuun, Semaka Malapane, Antonia Michael \\
  \hline
- \textbf{Version} & 0.0.7 \\
+ \textbf{Version} & 0.0.8 \\
  \hline
- \textbf{Document Status} & Seventh Version - edited according to feedback, edited cashier page/ images, added reporting and dynamic categories and updated older images\\
+ \textbf{Document Status} & Eighth Version - edited entire document with changes and added new pages for reporting and graphs\\
  \hline
  \end{tabu}
 
@@ -82,6 +82,9 @@
  \hline 
  & & & \\
  0.0.7& 9 October &  Seventh draft containing  & Rendani Dau, \\ & & added audit, notifications, & Elana Kuun, \\ & & statistics, & Semaka Malapane, \\ & &  and themes &  Antonia Michael \\ & & & Isabel Nel \\   [1ex]  
+ \hline 
+ & & & \\
+ 0.0.8& 16 October &  Eighth draft containing  & Rendani Dau, \\ & & edits and additions to & Elana Kuun, \\ & & the document, & Semaka Malapane, \\ & &  document &  Antonia Michael \\ & & & Isabel Nel \\   [1ex]  
 \hline
  \end{tabular}
 \end{table}

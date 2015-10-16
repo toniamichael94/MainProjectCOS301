@@ -19,13 +19,13 @@
 \contentsline {subsection}{\numberline {8.2}The "Menu" Page}{17}{subsection.0.8.2}
 \contentsline {subsection}{\numberline {8.3}The "On my plate" Page}{20}{subsection.0.8.3}
 \contentsline {subsection}{\numberline {8.4}The "Edit Profile" Page}{22}{subsection.0.8.4}
-\contentsline {subsection}{\numberline {8.5}The "Profile" Page}{23}{subsection.0.8.5}
-\contentsline {subsection}{\numberline {8.6}The "Change Password" Page}{24}{subsection.0.8.6}
-\contentsline {subsection}{\numberline {8.7}Superuser: The "Administrative Settings" Page}{25}{subsection.0.8.7}
-\contentsline {subsection}{\numberline {8.8}Superuser: The "Branding Settings" Page}{30}{subsection.0.8.8}
-\contentsline {subsection}{\numberline {8.9}Cafeteria Manager: The "Manage Inventory" Page}{31}{subsection.0.8.9}
-\contentsline {subsection}{\numberline {8.10}Cafeteria Manager: The "Manage Menu" Page}{33}{subsection.0.8.10}
-\contentsline {subsection}{\numberline {8.11}Cashier: The "Process Orders" Page}{37}{subsection.0.8.11}
-\contentsline {subsection}{\numberline {8.12}Financial Manager: The "View Employee Bills" Page}{40}{subsection.0.8.12}
-\contentsline {section}{\numberline {9}Troubleshooting}{42}{section.0.9}
-\contentsline {subsection}{\numberline {9.1}Problems with setting up the system}{42}{subsection.0.9.1}
+\contentsline {subsection}{\numberline {8.5}The "Profile" Page}{22}{subsection.0.8.5}
+\contentsline {subsection}{\numberline {8.6}The "Change Password" Page}{23}{subsection.0.8.6}
+\contentsline {subsection}{\numberline {8.7}Superuser: The "Administrative Settings" Page}{24}{subsection.0.8.7}
+\contentsline {subsection}{\numberline {8.8}Superuser: The "Branding Settings" Page}{29}{subsection.0.8.8}
+\contentsline {subsection}{\numberline {8.9}Cafeteria Manager: The "Manage Inventory" Page}{30}{subsection.0.8.9}
+\contentsline {subsection}{\numberline {8.10}Cafeteria Manager: The "Manage Menu" Page}{32}{subsection.0.8.10}
+\contentsline {subsection}{\numberline {8.11}Cashier: The "Process Orders" Page}{36}{subsection.0.8.11}
+\contentsline {subsection}{\numberline {8.12}Financial Manager: The "View Employee Bills" Page}{39}{subsection.0.8.12}
+\contentsline {section}{\numberline {9}Troubleshooting}{41}{section.0.9}
+\contentsline {subsection}{\numberline {9.1}Problems with setting up the system}{41}{subsection.0.9.1}
