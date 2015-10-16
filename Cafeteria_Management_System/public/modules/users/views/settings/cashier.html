@@ -24,7 +24,7 @@
 	<div data-ng-init="getOrders(); checkUser()" >
 		<div class="list-group-item clearfix " ng-repeat="order in orderNums track by $index">
 			<b>   <div class="text-center ">
-				<span  class="text-success ">Order number: {{order.orderNumber}} </span>  
+				<span  class="text-success ">Order number: {{order.orderNumber}}</span>  
 			</b>
 			<p > Employee ID: {{order.username}} </p> </div>
 			<div class="list-group-item clearfix" ng-repeat="item in order.items"> 
@@ -39,8 +39,8 @@
 				</div>
 			<!--button style="width:200px" type="button" class="btn btn-primary" data-ng-click="markAsCollected(order.username)"> Order collected </button> </span-->
 			<button style="width:200px" type="button" class="btn btn-primary" data-ng-click="markAsPaid(order)"> Employee paid  </button></span>
-			<button style="width:200px" type="button" class="btn btn-success" data-ng-click="ready(order.username,order.orderNumber)" data-ng-hide="(order.status === 'ready')"> Order Ready </button>
-			<!--button style="width:200px" type="button" class="btn btn-success" data-ng-click="markAsReady(order.username,order.orderNumber,order.created)" data-ng-hide="(order.status === 'ready')"> Order Ready </button-->
+			<!--button style="width:200px" type="button" class="btn btn-success" data-ng-click="ready(order.username,order.orderNumber,order.created)" data-ng-hide="(order.status === 'ready')"> Order Ready </button-->
+			<button style="width:200px" type="button" class="btn btn-success" data-ng-click="markAsReady(order.username,order.orderNumber,order.created)" data-ng-hide="(order.status === 'ready')"> Order Ready </button>
 			</div>
 		</div>
 	</div>
