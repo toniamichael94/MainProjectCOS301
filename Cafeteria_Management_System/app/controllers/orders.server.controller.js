@@ -289,15 +289,16 @@ exports.markAsCollected = function(req, res){
 * Last edited by {Semaka Malapane}
 */
  exports.getNrNotifications = function(req, res){
+	 console.log('asdasdasdadasdasdasdasdsadadasd');
 	console.log('current user ' + req.user.username);
 	Notifications.count({$and: [{username: req.user.username}, {status: 'unread'}]}, function(err, num){
 		if(err){
-                    console.log('errrrroorrrr ');
-                    return res.status(400).send({
-			message: errorHandler.getErrorMessage(err)
+            console.log('errrrroorrrr ');
+            return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
                     });
-                }
-                console.log('num' + num);
+        }
+        console.log('num' + num);
                 
 		res.status(200).send({message: num});
 	});

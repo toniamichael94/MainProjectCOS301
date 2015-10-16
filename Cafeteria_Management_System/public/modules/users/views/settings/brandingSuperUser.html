@@ -116,14 +116,18 @@
             <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
                 <form name="contactInfoForm" data-ng-submit="setContactInfo(contactInfoForm.$valid)" class="signin form-horizontal" autocomplete="off">
                     <fieldset>
-                        <label> Contact Information </label>
+
                         <div class="text-center form-group"><br>
-                                <input type="text" id="contactName" name="contactName" data-ng-model="contactName" class="form-control" min = 0>
+													<label> Contact person name </label>
+                            <input type="text" id="contactName" name="contactName" data-ng-model="contactName" class="form-control" placeholder="contact name" min = 0>
                             <br>
-                            <input type="text" id="contactNumber" name="contactNumber" data-ng-model="contactNumber" class="form-control" min = 0>
+													<label> Contact number </label>
+                            <input type="text" id="contactNumber" name="contactNumber" data-ng-model="contactNumber" class="form-control" placeholder="contact number" min = 0>
                             <br>
-                            <input type="email"  id="contactEmail" name="contactEmail" data-ng-model="contactEmail" class="form-control" min = 0>
+													<label> Contact e-mail address </label>
+                            <input type="email"  id="contactEmail" name="contactEmail" data-ng-model="contactEmail" class="form-control"  placeholder="contact e-mail" min = 0>
                             <br>
+
                             <button type="submit"  style="width:220px"s class="btn btn-large btn-primary">Add contact Details</button>
                             <br>
                         </div>
@@ -138,7 +142,7 @@
             </div>
         </div><br/>
         <!--&lt;!&ndash; upload branding image &ndash;&gt;-->
-    
+
 	<a href="#" class="list-group-item disabled">
 		Manage Carousel Images
 	</a>
@@ -179,7 +183,7 @@
 			  <h4>Delete Image <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
 			  <alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert20.msg}}</alert>
 			</div>
-			
+
 			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 				<form name="deleteCarouselImageForm" data-ng-submit="deleteCarouselImage(deleteCarouselImageForm.$valid)" >
 					<fieldset>
@@ -198,7 +202,7 @@
 					</div>
 					</fieldset>
 				</form>
-			
+
 			</div>
 		</div>
 	</div>
