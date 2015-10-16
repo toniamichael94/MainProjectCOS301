@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.23)  25 SEP 2015 21:25
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.23)  16 OCT 2015 22:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -344,162 +344,167 @@ LaTeX Warning: Float too large for page by 36.516pt on input line 78.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 95--100
+Underfull \hbox (badness 10000) in paragraph at lines 95--101
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--101
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 106--108
+Underfull \hbox (badness 10000) in paragraph at lines 107--109
 
  []
 
 [4]
-Overfull \hbox (46.1163pt too wide) in paragraph at lines 112--113
+Overfull \hbox (46.1163pt too wide) in paragraph at lines 113--114
 \OT1/cmr/m/n/12 func-tions in-side au-then-ti-ca-tion.client.controller.js and 
 the su-pe-ruser.client.controller.js
  []
 
 
-Overfull \hbox (64.2851pt too wide) in paragraph at lines 112--113
+Overfull \hbox (64.2851pt too wide) in paragraph at lines 113--114
 \OT1/cmr/m/n/12 file. The reg-is-ter/ signup func-tion-al-ity also re-sides in 
 the au-then-ti-ca-tion.client.controller.js
  []
 
 
-Overfull \hbox (65.46056pt too wide) in paragraph at lines 114--115
+Overfull \hbox (65.46056pt too wide) in paragraph at lines 115--116
 \OT1/cmr/m/n/12 set-Sys-temWide-Limit(), and set-Can-teen-Name() lo-cated in th
 e su-pe-ruser.client.controller.js
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 152--158
+Underfull \hbox (badness 10000) in paragraph at lines 153--159
 
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 164--168
+Underfull \hbox (badness 10000) in paragraph at lines 165--169
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 169--174
+Underfull \hbox (badness 10000) in paragraph at lines 170--175
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 175--179
+Underfull \hbox (badness 10000) in paragraph at lines 176--180
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 181--186
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 187--194
+Underfull \hbox (badness 10000) in paragraph at lines 182--187
 
  []
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 195--200
+Underfull \hbox (badness 10000) in paragraph at lines 188--195
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 201--205
+Underfull \hbox (badness 10000) in paragraph at lines 196--201
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 206--211
+Underfull \hbox (badness 10000) in paragraph at lines 202--206
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 212--217
+Underfull \hbox (badness 10000) in paragraph at lines 207--212
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 218--222
+Underfull \hbox (badness 10000) in paragraph at lines 213--218
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 223--228
+Underfull \hbox (badness 10000) in paragraph at lines 219--223
 
  []
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 230--234
+Underfull \hbox (badness 10000) in paragraph at lines 224--229
 
  []
 
 
-Overfull \hbox (37.69038pt too wide) in paragraph at lines 235--235
+Underfull \hbox (badness 10000) in paragraph at lines 231--235
+
+ []
+
+
+Overfull \hbox (37.69038pt too wide) in paragraph at lines 236--236
 [][]\OT1/cmr/bx/n/12 Place or-der Mod-ule - or-ders.client.controller.js, cashi
 er.client.controller.js
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 238--243
+Underfull \hbox (badness 10000) in paragraph at lines 239--244
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 244--255
+Underfull \hbox (badness 10000) in paragraph at lines 245--256
 
  []
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 256--261
+Underfull \hbox (badness 10000) in paragraph at lines 257--262
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 267--278
+Underfull \hbox (badness 10000) in paragraph at lines 268--279
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 280--290
+Underfull \hbox (badness 10000) in paragraph at lines 281--291
 
  []
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 293--305
+Underfull \hbox (badness 10000) in paragraph at lines 294--306
 
  []
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 307--312
+Underfull \hbox (badness 10000) in paragraph at lines 308--313
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 327.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 328.
 [12] [13]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 327.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 328.
  (./Testing.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 327.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 327.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 328.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 328.
 Package rerunfilecheck Info: File `Testing.out' has not changed.
 (rerunfilecheck)             Checksum: CA328F005CAEB1C0673A0DE82242A748;1004.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 327.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 328.
  ) 
 Here is how much of TeX's memory you used:
  6977 strings out of 495028
  106256 string characters out of 6181497
- 200168 words of memory out of 5000000
+ 201168 words of memory out of 5000000
  10108 multiletter control sequences out of 15000+600000
  9714 words of font info for 34 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 36i,13n,38p,745b,406s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,13n,38p,742b,406s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on Testing.pdf (14 pages, 209248 bytes).
+Output written on Testing.pdf (14 pages, 209728 bytes).
 PDF statistics:
  179 PDF objects out of 1000 (max. 8388607)
  156 compressed objects within 2 object streams
