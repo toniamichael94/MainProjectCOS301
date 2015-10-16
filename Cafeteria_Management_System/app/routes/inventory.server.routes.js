@@ -17,6 +17,7 @@ module.exports = function(app) {
 
 		//Reporting
 		app.route('/orders/monthlyReport').post(inventory.monthlyReport);
+		app.route('/orders/inventoryReport').post(inventory.inventoryReport);
 
 
 	//update inventory quantity

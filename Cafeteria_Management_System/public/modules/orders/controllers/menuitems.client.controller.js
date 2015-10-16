@@ -185,15 +185,15 @@ $scope.toggleCollapsibleMenu = function() {
 };
 
 	/*Alert Messages for help page*/
-	$scope.alert1 = {type: 'warning', msg: 'Page help: To order a menu item click the add to plate botton and then click the on my plate button to confirm your order. To navigate between menu categories - use the navigation bar and click on the appropriate button (Menu contains all the menu catagories)'};
-	$scope.alert2 = {type: 'warning', msg: 'Page help: This page contains all the settings to add menu items and menu catagories to the menu page.'};
-	$scope.alert3 = {type: 'warning', msg: 'Page help: Type in a menu catagory to add to your menu. (a menu catagory will appear in the menu navigation bar on the menu page and menu items can be placed under a menu catagory)' };
+	$scope.alert1 = {type: 'warning', msg: 'Page help: To order a menu item click the add to plate button and then click the on my plate button to confirm your order. To navigate between menu categories - use the navigation bar and click on the appropriate button (Menu contains all the menu catagories)'};
+	$scope.alert2 = {type: 'warning', msg: 'Page help: This page contains all the settings to add menu items and menu categories to the menu page.'};
+	$scope.alert3 = {type: 'warning', msg: 'Page help: Type in a menu category to add to your menu. (a menu category will appear in the menu navigation bar on the menu page and menu items can be placed under a menu category)' };
 	$scope.alert4 = {type: 'warning', msg: 'Page help: This section will add a menu item to the menu page. NOTE - you need to have ingredients (wich is stored as inventory) - this can be added by clicking on your name in the navigation bar and choosing the manage inventory setting which will take you to a page to add inventory' };
 	$scope.alert5 =	{type: 'warning', msg: 'Page help: To search for a menu item, simply type in the name and click search' };
-	$scope.alert6 = {type: 'warning', msg: 'Page help: Manage inventory page will allow you to add inventory, remove and update inventory' };
+	$scope.alert6 = {type: 'warning', msg: 'Page help: Manage inventory page will allow you to add, remove and update inventory items' };
 	$scope.alert7 = {type: 'warning', msg: 'Page help: Add the name of the ingredient you want to add, together with the amount of the ingredient you are adding and the unit the ingredient is messured in the respective boxes below' };
 	$scope.alert8 = {type: 'warning', msg: 'Page help: To search for an inventory item, type in the name of the item and the option to edit will appear' };
-	$scope.alert9 =	{type: 'warning', msg: 'Page help: First click on display inventory and then edit the inventory as needed.' };
+	$scope.alert9 =	{type: 'warning', msg: 'Page help: First click on display inventory to see all the inventory items and then edit the quantity of the inventory item as needed.' };
 	$scope.alert10 = {type: 'warning', msg: 'Page help: This page shows the orders you clicked, to remove a order click remove to increase the quantity of your order use the arrows in the textbox, to add more items to your order, go to the menu page and click add toplate on the appropriate button associated with the menu item you want.Preferences can be gives for example no tamato or extra sause.' };
 	$scope.alert11 = {type: 'warning', msg: 'Page help: To edit your profile click on your name in the top navigation bar and then click on edit profile which will direct you to a page to edit your profile settings'};
 	$scope.alert12 = {type: 'warning', msg: 'Page help: To edit your profile simply edit the text boxes and or check boxes end then click save profile'};
@@ -208,13 +208,27 @@ $scope.toggleCollapsibleMenu = function() {
 	$scope.alert21 = {type: 'warning', msg: 'Page help: Tis is the login page - you need to be registered to log in, if you are not registered navigate to the sighnup button on the navigation bar on the right and click on it and follow the regestration instructions. If you have forgotten your password click on forgot password link and an e-mail with your password will be send to you.'};
 	$scope.alert22 = {type: 'warning', msg: 'Page help: Tis This is the sign up page, if you are not yet registered then you need to fill in your details below and then click the sighn up button. If youare registered navigate to the sighn in button that can be found on the navigation bar and log into your account'};
 	$scope.alert23 = {type: 'warning', msg: 'Page help: This page will help you reset your password, type in your username and an e-mail will be sent to the e-mail account that is associated with your username'};
-	$scope.alert24 = {type: 'warning', msg: 'Page help: '};
+	$scope.alert24 = {type: 'warning', msg: 'Page help: This page gives you details about your order - e.g. if it is ready for collection - and any other changes that might take place in the system.'};
 	$scope.alert25 = {type: 'warning', msg: 'Page help: WELCOME! these buttons will help you navigate through this website, whenever you do not know what to do click on the button that looks like this one you just clicked and help will be right there! To start have a look at our menu page that can be found by clicking on the button that says Menu in the top navigation bar ;-)'};
 	$scope.alert26 = {type: 'warning', msg: 'Page help: This page will display logs of all actions performed in the system.'};
 	$scope.alert27 = {type: 'warning', msg: 'Page help: This page will generate invoices for the specified user'};
-	$scope.alert29= {type: 'warning', msg: 'Page help: '};
-  $scope.alert28 = {type: 'warning', msg: 'Page help: This field allows the superuser to change the colour scheme for the system'};
-
+	$scope.alert28 = {type: 'warning', msg: 'Page help: This field allows the superuser to change the colour scheme for the system'};
+	$scope.alert29 = {type: 'warning', msg: 'Page help: This page shows you how to contact the Cafeteria Management and find out how everything works or to lodge complaints or maybe even give compliments.'};
+	$scope.alert30 = {type: 'warning', msg: 'Page help: To search for an menu category, type in the name of the category and the option to edit will appear'};
+  	$scope.alert31 = {type: 'warning', msg: 'Page help: This page will give you the statistics of the menu items, the sold items and the most popular items'};
+  	$scope.alert32 = {type: 'warning', msg: 'Page help: This allows user to search for statistics for the menu items sold in a given period of time'};
+  	$scope.alert33 = {type: 'warning', msg: 'Page help: This allows user to view the most popular menu items sold by the cafeteria'};
+  	$scope.alert34 = {type: 'warning', msg: 'Page help: This page will give the user the statistics for the used inventory'};
+  	$scope.alert35 = {type: 'warning', msg: 'Page help: This allows the you as the cafeteria manager to select amount of inventory used in a given period of time'};
+  	$scope.alert36 = {type: 'warning', msg: 'Page help: This page shows you the details of all the orders you made for the current month in tabular form'};
+  	$scope.alert37 = {type: 'warning', msg: 'Page help: This page shows you the details of all the orders you made for the current month in graph form'};
+  	$scope.alert38 = {type: 'warning', msg: 'Page help: This page allows you as the cashier to view people\'s orders and to process them accordingly'};
+  	$scope.alert39 = {type: 'warning', msg: 'Page help: This allows you as the finance manager to generate the invoice for a user with the given employee ID for a given period of time'};
+  	$scope.alert40 = {type: 'warning', msg: 'Page help: This allows you as the finance manager to generate the total amount spent for all the users for a given period of time'};
+  	$scope.alert41 = {type: 'warning', msg: 'Page help: This allows you to view the statistics of the menu items in graph format'};
+  	$scope.alert42 = {type: 'warning', msg: 'Page help: This allows you to view the statistics of the most popular items in graph format'};
+  	};
+  
 //close alert will take alert box away
 $scope.closeAlert = function(index) {
 			$scope.alertUser = false;

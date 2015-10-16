@@ -193,9 +193,41 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
                 }
 		};
 
+        //Set contact information
+        $scope.setContactInfo = function(isValid){
+            console.log('SETTTTTTTT CONTACT INFOOOOOOOOOOOOO CLIENT'+$scope.contactName+$scope.contactNumber+$scope.contactEmail);
+            if(isValid){
+                $scope.success = $scope.error = null;
+
+                var reqObj =   {name:'Contact Name',value: $scope.contactName};
+                $http.post('users/superuserSetContactInfo1', reqObj).success(function (response) {
+                    $scope.successSeven = response.message;
+                }).error(function (response) {
+                    $scope.errorSeven= response.message;
+                });
+
+                var reqObj2 = {name:'Contact Number',value: $scope.contactNumber};
+                $http.post('users/superuserSetContactInfo2', reqObj2).success(function (response) {
+                    $scope.successSeven = response.message;
+                }).error(function (response) {
+                    $scope.errorSeven= response.message;
+                });
+
+                var reqObj3 = {name:'Contact Email',value: $scope.contactEmail};
+                $http.post('users/superuserSetContactInfo3', reqObj3).success(function (response) {
+                    $scope.successSeven = response.message;
+                }).error(function (response) {
+                    $scope.errorSeven= response.message;
+                });
+                //var req2 ={name:'Contact Number',value: $scope.contactNumber};
+                //$http.post('users/superuserSetContactInfo', reqObj);
+                //var req3 ={name:'Contact Email',value: $scope.contactEmail};
+                //$http.post('users/superuserSetContactInfo', reqObj);
+            }
+        };
+
         //Set theme name
         $scope.setThemeName = function(){
-                console.log('THEME CLIENT');
                 $scope.successFive = $scope.errorFive = null;
 
                 var reqObj = {name: 'Theme name', value: $scope.themeName};
@@ -209,7 +241,36 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
                     console.log('error ' + response.message);
                 });
         };
-		
+        //getContactInfo
+        $scope.getContactInfo = function(){
+            $http.get('/users/superuserGetContactInfo').success(function(response){
+                console.log("response.val"+response.val);
+            $scope.success = response.val;
+        }).error(function(response){
+            console.log(response.message);
+        });
+
+        };
+        //getContactInfo
+        $scope.getContactInfo2 = function(){
+            $http.get('/users/superuserGetContactInfo2').success(function(response){
+                console.log("response.val"+response.val);
+                $scope.success2 = response.val;
+            }).error(function(response){
+                console.log(response.message);
+            });
+
+        };
+        //getContactInfo
+        $scope.getContactInfo3 = function(){
+            $http.get('/users/superuserGetContactInfo3').success(function(response){
+                console.log("response.val"+response.val);
+                $scope.success3 = response.val;
+            }).error(function(response){
+                console.log(response.message);
+            });
+
+        };
 		//Delete Carousel Image
 		$scope.deleteCarouselImage = function(isValid){
 			console.log('deleteing image');

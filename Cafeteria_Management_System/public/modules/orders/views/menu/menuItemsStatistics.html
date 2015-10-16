@@ -9,7 +9,7 @@
 		<div  data-ng-controller="MenuItemsController">
 			<h4>Menu Statistics<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
 				<hr>
-				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alerts[1].msg}}</alert>
+				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert31.msg}}</alert>
 		</div>
  <!--END ALERT BOX -->
 
@@ -26,7 +26,7 @@
 
 		 <div  data-ng-controller="MenuItemsController">
 			 <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button>
-			 <alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert3.msg}}</alert>
+			 <alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert32.msg}}</alert>
 		 </div>
 			 <!--Alert box end-->
 		 <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2"  data-ng-controller="MenuItemsController">
@@ -67,7 +67,7 @@
 
 			<div  data-ng-controller="MenuItemsController">
 				<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button>
-				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert3.msg}}</alert>
+				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert33.msg}}</alert>
 			</div>
 				<!--Alert box end-->
 			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2"  data-ng-controller="MenuItemsController">
@@ -96,61 +96,3 @@
   </div>
 
 	</div>
-
-<!--Selected items-->
-
-<div class="list-group clearfix">
-<a href="#" class="list-group-item disabled">Compare menu items bought over time</a>
-	<div class="list-group-item clearfix">
-		<!--Alert box -->
-		<script type="text/ng-template" id="alert.html">
-				<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-					<div ng-transclude></div>
-				</div>
-		</script>
-
-		<div  data-ng-controller="MenuItemsController">
-			<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button>
-			<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert3.msg}}</alert>
-		</div>
-			<!--Alert box end-->
-		<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2"  data-ng-controller="MenuItemsController">
-			<form name="popularReportForm" data-ng-submit="generateSoldReport()" class="signin form-horizontal" autocomplete="off">
-				<fieldset>
-					<div class="form-group">
-						<label for="menuItems" ng-init = "loadAllMenuItems()">Menu items</label>
-
-						<div data-ng-model = 'menuItems[$index]'>
-						<select data-ng-model = 'soldItem' class="form-control"/>
-								<option  data-ng-repeat="item in menuItems">{{item.itemName}}</option>
-						</select><br>
-						<button style="width:200px" class = "btn btn-large btn-primary" data-ng-click = "addSoldItem()">Add item</button>
-					</div>
-
-					<label>Added items</label>
-					<select data-ng-model = 'removeItem' class="form-control">
-							<option  data-ng-repeat="item in soldItems" value = {{item}}>{{item}}</option>
-					</select><br>
-					<button style="width:200px" class = "btn btn-large btn-primary" data-ng-click = "removeSoldItem()">Remove item</button>
-					<br>
-
-						<label for="startDate"> From: </label>
-						<input type="date" id="startDate" name="startDate" class="form-control" data-ng-model="startDateSold"/>
-						<label for="endDate"> To: </label>
-						<input type="date" id="endDate" name="endDate" class="form-control" data-ng-model="endDateSold"/>
-					</div>  <div class=" text-center form-group">
-						<button type = "submit" style="width:200px" class = "btn btn-large btn-primary">Submit</button>
-						<!-- Show error or sucess message--></div>
-						<div data-ng-show="success" class="text-center text-success">
-							<strong>Report successfully generated.</strong>
-						</div>
-						<div data-ng-show="error" class="text-center text-danger">
-							<strong data-ng-bind="error"></strong>
-						</div>
-				</fieldset>
-			</form>
-
-	</div>
-</div>
-
-</div>
