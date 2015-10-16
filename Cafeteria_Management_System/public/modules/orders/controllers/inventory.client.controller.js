@@ -44,8 +44,6 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 		/*
 		Reporting
 		*/
-
-		//Montly report of inventory items used
 		$scope.inventoryReport = function()
 		{
 				console.log('hello');

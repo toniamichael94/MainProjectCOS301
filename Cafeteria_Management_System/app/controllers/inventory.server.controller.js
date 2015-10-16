@@ -198,48 +198,6 @@ exports.decreaseInventory = function(req,res)
 		console.log('in inventory report');
 	};
 
-	exports.monthlyReport = function(req,res){
-		console.log('monthlyReport');
-		//Calcualte the start and end date
-		var start = req.body.year.toString().concat('-');
-		start = start.concat(req.body.month+'-01');
-
-		var endMonth;
-		if(parseInt(req.body.month) < 12)
-				endMonth = parseInt(req.body.month)+1;
-		else if(parseInt(req.body.month) === 12)
-					endMonth = 1;
-
-		var end = req.body.year.toString().concat('-');
-		end = end.concat(endMonth+'-01');
-
-		var date = new Date();
-		console.log(date);
-		date = new Date(new Date().setDate(new Date().getDate()-30));
-		date = new Date(date);
-		console.log(date);
-
-		//Find all the orders for the specified month
-		Order.find({created: {$gte: start, $lt: end}}, function(err, orders){
-			if(err) return res.status(400).send({message: 'Could not generate report!'});
-
-			var sample = fs.readFileSync(path.resolve(__dirname, '../reportTemplates/popular_Items_Template.html'), 'utf8');
-			jsreport.render({
-				template:{ content: sample,
-				//	helpers: 'function mult(a,b){ return a*b; }',//'function total(order){return 10;}'],
-					engine: 'handlebars'},
-				data: {
-					title: 'Popular items',
-					items:itemData
-				}
-			}).then(function(out) {
-				//if(err) return res.status(400).send({message: 'Could not render report!'})
-				console.log('in render function');
-				out.stream.pipe(res);
-			});
-		});
-	};
-
  /* Update inventory
  * Last Edited by {Semaka Malapane and Tonia Michael}
  */
