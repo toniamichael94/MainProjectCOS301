@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('core').controller('HeaderController', ['$scope', '$rootScope', '$http', '$location', '$cookies','Authentication', 'Menus',
-	function($scope, $rootScope,$http, $location, $cookies, Authentication, Menus) {
+angular.module('core').controller('HeaderController', ['$scope', '$rootScope', '$http', '$location', '$cookies','$interval', 'Authentication', 'Menus',
+	function($scope, $rootScope,$http, $location, $cookies, $interval, Authentication, Menus) {
 		$scope.authentication = Authentication;
 		$scope.isCollapsed = false;
 		$scope.menu = Menus.getMenu('topbar');
@@ -18,22 +18,42 @@ angular.module('core').controller('HeaderController', ['$scope', '$rootScope', '
 				$scope.onMyPlateNum = 0;
 		});
 
-                $rootScope.$on('newMess',  function(){
-			console.log('NEW MESSAGE SENT THROUGH');
-			    $http.post('/orders/getNrNotifications').success(function(response){
-				console.log('Notification ' + response.message);
-				 $scope.newMessages = response.message;
-			    }).error(function(response){
-				console.log('Error getting number of notifications');
-				$scope.newMessages = response.message;
-				console.log(response.message);
-				//$scope.error = response.message;
-			    });
-			console.log('should be: ' + $scope.newMessages);
-			 //$scope.newMessages = 1;
-		});
-
-                $rootScope.$on('messRead',  function(){
+        var stop;
+		/*$scope.loadNotifications = function(){
+			console.log($scope.authentication.user);
+			if($scope.authentication.user){
+				console.log('hello2');
+				 if ( angular.isDefined(stop) ) return;
+				var stop = $interval(function(){
+					console.log('NEW MESSAGE SENT THROUGH');
+						$http.get('/orders/getNrNotifications').success(function(response){
+						console.log('Notification ' + response.message);
+						$scope.newMessages = response.message;
+					}).error(function(response){
+						console.log('Error getting number of notifications');
+						$scope.newMessages = response.message;
+						console.log(response.message);
+						//$scope.error = response.message;
+					});
+					console.log('should be: ' + $scope.newMessages);
+					//$scope.newMessages = 1;
+				}, 5000);
+			}
+		};*/
+		
+		$scope.stopLoad = function() {
+          if (angular.isDefined(stop)) {
+            $interval.cancel(stop);
+            stop = undefined;
+          }
+        };
+		
+		$scope.$on('$destroy', function() {
+          // Make sure that the interval is destroyed too
+          $scope.stopLoad();
+        });
+		
+		$rootScope.$on('messRead',  function(){
                     $scope.newMessages = 0;
 		});
 

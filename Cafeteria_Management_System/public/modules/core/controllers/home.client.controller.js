@@ -9,7 +9,7 @@ angular.module('core').controller('HomeController', ['$scope', '$animate', '$htt
 		//Disable animate for carousel
 		$animate.enabled(false);
 		
-		$scope.myInterval = 2000;
+		$scope.myInterval = 5000;
 		 $scope.noWrapSlides = false;
 		 var slides = $scope.slides = [];
 
