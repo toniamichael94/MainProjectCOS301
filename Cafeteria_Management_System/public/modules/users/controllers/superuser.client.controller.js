@@ -142,7 +142,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
                 var reqObj = {name: 'System wide limit', value: $scope.limit};
                 //$scope.r = $window.confirm("Are you sure?");
 
-                bootbox.alert('Hello world!');
+                //bootbox.alert('Hello world!');
                 if($scope.r === true) {
                     //console.log($scope.limit);
                     $http.post('users/superuserSetSystemWideLimit', reqObj).success(function (response) {
