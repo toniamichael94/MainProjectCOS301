@@ -45,125 +45,99 @@ var _ = require('lodash'),
    * @param {Object} req
    * @param {Object} res
    */
-exports.assignRoles = function(req, res) {
-	if(req.body.role === 'admin'){
-		User.find({roles: 'admin'}, function(err, items) {
-		    if(items.length > 0 ){
-		        User.update({username: items[0].username}, {roles: ['user']}, function(err1, numAffected1){
-		        });
-		    }
-		    else {
-		        res.status(400).send({message: 'Did not change Admin!'});
-		    }
-		});
-	}
-	User.update({username: req.body.userID}, {roles: [req.body.role]}, function(err, numAffected){
-		if(err) return res.status(400).send({
-			message: errorHandler.getErrorMessage(err)
-		});
-		else if (numAffected < 1){
-			res.status(400).send({message: 'No such employee ID!'});
-		}
-		else if(req.body.role === 'superuser'){
-			User.update({username: req.user.username}, {roles: ['user']}, function(err, numAffected){
-				if(err) return res.status(400).send({
-					message: errorHandler.getErrorMessage(err)
-				});
-				else if (numAffected < 1){
-					res.status(400).send({message: 'Did not change superuser!'});
-				}
-				else{
-					res.status(200).send({message: 'SU Changed'});
-				}
-			});
-		}
-		else{
-			res.status(200).send({message: 'Role has been successfully assigned.'});
-		}
+	 exports.assignRoles = function(req, res) {
+	 	if(req.body.role === 'admin'){
+	 		User.find({roles: 'admin'}, function(err, items) {
+	 		    if(items.length > 0 ){
+	 		        User.update({username: items[0].username}, {roles: ['user']}, function(err1, numAffected1){
+	 		        });
+	 		    }
+	 		    else {
+	 		        res.status(400).send({message: 'Did not change Admin!'});
+	 		    }
+	 		});
+	 	}
+	 	User.update({username: req.body.userID}, {roles: [req.body.role]}, function(err, numAffected){
+	 		if(err) return res.status(400).send({
+	 			message: errorHandler.getErrorMessage(err)
+	 		});
+	 		else if (numAffected < 1){
+	 			res.status(400).send({message: 'No such employee ID!'});
+	 		}
+	 		else if(req.body.role === 'superuser'){
+	 			User.update({username: req.user.username}, {roles: ['user']}, function(err, numAffected){
+	 				if(err) return res.status(400).send({
+	 					message: errorHandler.getErrorMessage(err)
+	 				});
+	 				else if (numAffected < 1){
+	 					res.status(400).send({message: 'Did not change superuser!'});
+	 				}
+	 				else{
+	 					res.status(200).send({message: 'SU Changed'});
+	 				}
+	 			});
+	 		}
+	 		else{
+	 			res.status(200).send({message: 'Role has been successfully assigned.'});
+	 		}
+	 		var dat = req.body.role + ' role has been assigned to ' + req.body.userID + ' by Superuser';
+	 		audit('Role change', dat);
+	 	});
+	 };
 
-		var dat = req.body.role + ' role has been assigned to ' + req.body.userID + ' by Superuser';
-		audit('Role change', dat);
-	});
-};
+	 /**
+	 * Set roles by the Admin user
+	 * This function is used to assign roles to different users which will then be used to determine the functionality the
+	 * user has access to
+	 * Last edited by {Isabel Nel}
+	 * @param {Object} req
+	 * @param {Object} res
+	 */
+	 exports.assignRolesAdminRole = function(req, res) {
+	 	var userName = req.body.userID;
+	 	var role = req.body.role;
+	 	var error;
 
-/**
-* Set roles by the Admin user
-* This function is used to assign roles to different users which will then be used to determine the functionality the
-* user has access to
-* Last edited by {Isabel Nel}
-* @param {Object} req
-* @param {Object} res
-*/
-exports.assignRolesAdminRole = function(req, res) {
-	var userName = req.body.userID;
-	var role = req.body.role;
-	var error;
+	 	if(req.body.role === 'superuser'){
+	 		User.find({roles: 'superuser'}, function(err, items) {
+	 		        if(items.length > 0){
+	 		            User.update({username: items[0].username}, {roles: ['user']}, function(err1, numAffected1){
+	 		            });
+	 		        }
+	 		        else {
+	 		              res.status(400).send({message: 'Did not change Admin!'});
+	 		        }
+	 		});
+	         }
+	 	User.update({username: req.body.userID}, {roles: [req.body.role]}, function(err, numAffected){
+	 		if(err) return res.status(400).send({
+	 			message: errorHandler.getErrorMessage(err)
+	 		});
+	 		else if (numAffected < 1){
+	 			res.status(400).send({message: 'No such Employee ID!'});
+	 		}
+	             	else if(req.body.role === 'admin'){
+	 	                User.update({username: req.user.username}, {roles: ['user']}, function(err, numAffected){
+	 	                    if(err) return res.status(400).send({
+	 	                        message: errorHandler.getErrorMessage(err)
+	 	                    });
+	 	                    else if (numAffected < 1){
+	 	                        res.status(400).send({message: 'Did not change Admin!'});
+	 	                    }
+	 	                    else{
+	 	                        res.status(200).send({message: 'Admin Changed'});
+	 	                    }
+	 	                });
+	             	}
+	 		else{
+	 			res.status(200).send({message: 'Role has been successfully assigned.'});
+	 		}
 
-	if(req.body.role === 'superuser'){
-		User.find({roles: 'superuser'}, function(err, items) {
-		        if(items.length > 0){
-		            User.update({username: items[0].username}, {roles: ['user']}, function(err1, numAffected1){
-		            });
-		        }
-		        else {
-		              res.status(400).send({message: 'Did not change Admin!'});
-		        }
-		});
-  }
+	 		var dat = req.body.role + ' role has been assigned to ' + req.body.userID + ' by Admin user';
+	 		audit('Role change', dat);
+	 	});
+	 };
 
-		User.update({username: req.body.userID}, {roles: [req.body.role]}, function(err, numAffected){
-			if(err) return res.status(400).send({
-				message: errorHandler.getErrorMessage(err)
-			});
-			else if (numAffected < 1){
-				res.status(400).send({message: 'No such Employee ID!'});
-			}
-            else if(req.body.role === 'admin'){
-
-                User.update({username: req.user.username}, {roles: ['user']}, function(err, numAffected){
-                    if(err) return res.status(400).send({
-                        message: errorHandler.getErrorMessage(err)
-                    });
-                    else if (numAffected < 1){
-                        res.status(400).send({message: 'Did not change Admin!'});
-                    }
-                    else{
-                        res.status(200).send({message: 'Admin Changed'});
-                    }
-                });
-            }
-			else{
-				res.status(200).send({message: 'Role has been successfully assigned.'});
-			}
-
-
-			var dat = req.body.role + ' role has been assigned to ' + req.body.userID + ' by Admin user';
-			audit('Role change', dat);
-		});
-		else if (numAffected < 1){
-			res.status(400).send({message: 'No such Employee ID!'});
-		}
-            	else if(req.body.role === 'admin'){
-	                User.update({username: req.user.username}, {roles: ['user']}, function(err, numAffected){
-	                    if(err) return res.status(400).send({
-	                        message: errorHandler.getErrorMessage(err)
-	                    });
-	                    else if (numAffected < 1){
-	                        res.status(400).send({message: 'Did not change Admin!'});
-	                    }
-	                    else{
-	                        res.status(200).send({message: 'Admin Changed'});
-	                    }
-	                });
-            	}
-		else{
-			res.status(200).send({message: 'Role has been successfully assigned.'});
-		}
-
-		var dat = req.body.role + ' role has been assigned to ' + req.body.userID + ' by Admin user';
-		audit('Role change', dat);
-	});
-};
 
 /**
  * Change Employee ID
