@@ -104,6 +104,9 @@
 					<input type="date" id="startDateTwo" name="startDateTwo" class="form-control" data-ng-model="startDateTwo"/>
 					<label for="endDateTwo"> To: </label>
 					<input type="date" id="endDateTwo" name="endDateTwo" class="form-control" data-ng-model="endDateTwo"/>
+                    <label>Format:</label><br/>
+                    <input type="radio" data-ng-model="reportFormat" value="csv" > CSV File </input>
+                    <input type="radio" data-ng-model="reportFormat" value="pdf" > PDF File </input>
 				</div>
                 <div class="text-center form-group">
                     <button type="submit" class="btn btn-large btn-primary">Generate Report</button>
