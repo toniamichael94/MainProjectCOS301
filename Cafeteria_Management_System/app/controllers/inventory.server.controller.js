@@ -28,7 +28,8 @@ function audit(type, data){
 */
 exports.loadInventoryItems = function(req, res){
 
-	Inventory.find({}, function(err, items) {
+Inventory.find({ $query: {}, $orderby: { productName : 1 } },  function(err, items) {
+
 		 var itemMap = {};
 
 		 items.forEach(function(item) {
@@ -38,7 +39,7 @@ exports.loadInventoryItems = function(req, res){
 		else {
 			res.status(200).send({message: itemMap});
 		}
-	 });
+	});
 
 };
 /**
