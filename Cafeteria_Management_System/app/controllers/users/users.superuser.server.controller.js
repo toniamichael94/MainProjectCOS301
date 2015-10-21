@@ -46,18 +46,17 @@ var _ = require('lodash'),
    * @param {Object} res
    */
 exports.assignRoles = function(req, res) {
-
-    if(req.body.role === 'admin'){
-        User.find({roles: 'admin'}, function(err, items) {
-            if(items.length > 0 ){
-                User.update({username: items[0].username}, {roles: ['user']}, function(err1, numAffected1){
-                });
-            }
-            else {
-                res.status(400).send({message: 'Did not change Admin!'});
-            }
-        });
-    }
+	if(req.body.role === 'admin'){
+		User.find({roles: 'admin'}, function(err, items) {
+		    if(items.length > 0 ){
+		        User.update({username: items[0].username}, {roles: ['user']}, function(err1, numAffected1){
+		        });
+		    }
+		    else {
+		        res.status(400).send({message: 'Did not change Admin!'});
+		    }
+		});
+	}
 	User.update({username: req.body.userID}, {roles: [req.body.role]}, function(err, numAffected){
 		if(err) return res.status(400).send({
 			message: errorHandler.getErrorMessage(err)
@@ -148,39 +147,36 @@ exports.assignRolesAdminRole = function(req, res) {
  * @return {String} returns a string with a message whether the change was successful or not
  */
 exports.changeEmployeeID = function(req, res) {
-    if(req.body.newUserID) {
-        User.update({username: [req.body.currentUserID]}, {username: req.body.newUserID}, function (err, numAffected) {
-		if (err) return res.status(400).send({
-			message: errorHandler.getErrorMessage(err)
-		});
-		else if (numAffected < 1) {
-			return res.status(400).send({message: 'No such employee ID!'});
-		}
-		else {
-			var dat = 'EmployeeID changed from ' + req.body.currentUserID + ' to ' + req.body.newUserID;
-			audit('EmployeeID change', dat);
-			Order.update({username: [req.body.currentUserID]}, {username: req.body.newUserID}, {multi: true }, function (err, numAffected) {
-			    console.log('current user id ' + req.body.currentUserID);
-			    console.log('new user id ' + req.body.newUserID);
-			    if (err) return res.status(400).send({
-			        message: errorHandler.getErrorMessage(err)
-			    });
-			    else if (numAffected < 1) {
-			        res.status(400).send({message: 'Employee has no orders placed - EmployeeID updated in user database!'});
-			    }
+	if(req.body.newUserID) {
+		User.update({username: [req.body.currentUserID]}, {username: req.body.newUserID}, function (err, numAffected) {
+			if (err) return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
 			});
-			return res.status(200).send({message: 'Employee ID has been successfully changed.'});
-		}
-        });
-    }
-    else
-    {
-        res.status(400).send({message: 'The new employee id field cannot be empty!'});
-    }
+			else if (numAffected < 1) {
+				return res.status(400).send({message: 'No such employee ID!'});
+			}
+			else {
+				var dat = 'EmployeeID changed from ' + req.body.currentUserID + ' to ' + req.body.newUserID;
+				audit('EmployeeID change', dat);
+				Order.update({username: [req.body.currentUserID]}, {username: req.body.newUserID}, {multi: true }, function (err, numAffected) {
+					if (err) return res.status(400).send({
+						message: errorHandler.getErrorMessage(err)
+					});
+					else if (numAffected < 1) {
+						res.status(400).send({message: 'Employee has no orders placed - EmployeeID updated in user database!'});
+					}
+				});
+				return res.status(200).send({message: 'Employee ID has been successfully changed.'});
+			}
+		});
+	}
+	else{
+		res.status(400).send({message: 'The new employee id field cannot be empty!'});
+	}
 };
 
 /**
- * Audits
+ * Get audits
  * This function is used to get the audits of the system for the actions the user specifies 
  * Last Edited by {Rendani Dau}
  * @param {Object} req
@@ -201,6 +197,14 @@ exports.getAudits = function(req, res){
 		});
 };
 
+/**
+ * Get audit types
+ * This function is used to get the audit types of the system 
+ * Last Edited by {Rendani Dau}
+ * @param {Object} req
+ * @param {Object} res
+ * @return {String} returns a the different audit types
+ */
 exports.getAuditTypes = function(req, res){
 	Audit.find().distinct('event', function(err, result){
 		if(err) return res.status(400).send({message: 'Could not get audit types'});
@@ -641,9 +645,12 @@ exports.setThemeName = function(req, res) {
 	});
 };
 
-/*
- * Upload main image for branding
+/**
+ * Upload image
+ * This function is used to upload an image to the carousel on the homepage
  * Last Edited by {Rendani Dau}
+ * @param {Object} req
+ * @param {Object} res
  */
 exports.uploadImage = function(req, res){
 	var form = new formidable.IncomingForm();
@@ -688,7 +695,6 @@ exports.uploadImage = function(req, res){
  * @return {String} returns a string saying whether the image is deleted or not
  */
 exports.deleteImage = function(req, res){
-	console.log(req.body.image);
 	var cap = 'Carousel-caption' + req.body.image;
 	var imagePath = 'public/modules/core/img/brand/carousel-' + req.body.image + '.png';
 	var defaultImage = 'public/modules/core/img/brand/default-' + req.body.image + '.png';
