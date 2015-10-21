@@ -142,7 +142,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
                 var reqObj = {name: 'System wide limit', value: $scope.limit};
                 //$scope.r = $window.confirm("Are you sure?");
 
-                bootbox.alert('Hello world!');
+                //bootbox.alert('Hello world!');
                 if($scope.r === true) {
                     //console.log($scope.limit);
                     $http.post('users/superuserSetSystemWideLimit', reqObj).success(function (response) {
@@ -327,7 +327,8 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 		$scope.current_auditType;
 		$scope.curent_toDate;
 		$scope.curent_fromDate;
-		
+		$scope.noResults = false;
+
 		//Arrays for dates
 		var days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 		var months = ['Jan','Feb','Mar','Apr','May','Jun','July','Aug','Sep','Oct','Nov','Dec'];
@@ -338,7 +339,11 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 				toDate.setHours(23,59,59);
 
 				$http.post('/users/superuserGetAudits', {type: $scope.current_auditType, from:$scope.current_fromDate, to: toDate}).success(function(response){
-					$scope.audits = response.message;
+                    $scope.audits = response.message;
+                    $scope.noResults = false;
+                    if($scope.audits.length === 0){
+                        $scope.noResults = true;
+                    }
 					//Set Readable Date for table
 					for(var audit in $scope.audits){
 					var temp = new Date($scope.audits[audit].date);

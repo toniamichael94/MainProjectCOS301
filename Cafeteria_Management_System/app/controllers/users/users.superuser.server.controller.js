@@ -17,6 +17,14 @@ var _ = require('lodash'),
 	nodemailer = require('nodemailer'),
   fs = require('fs'),
   fse = require('fs-extra');
+
+  /**
+   * audit
+   * This function is used to create logs of all actions and add them to the Audit database
+   * Last edited by {Rendani Dau}
+   * @param {Object} _type
+   * @param {Object} data
+   */
  function audit(_type, data){
 	var _audit = {
 		event: _type,
@@ -29,23 +37,26 @@ var _ = require('lodash'),
 		}
 	});
 }
-  /*
+
+  /**
    * Assign Roles
+   * This function is used to assign roles to different users which will then be used to determine the functionality the
+   * user has access to
+   * @param {Object} req
+   * @param {Object} res
    */
 exports.assignRoles = function(req, res) {
-
-    if(req.body.role === 'admin'){
-        User.find({roles: 'admin'}, function(err, items) {
-            if(items.length > 0 ){
-                User.update({username: items[0].username}, {roles: ['user']}, function(err1, numAffected1){
-                });
-            }
-            else {
-                res.status(400).send({message: 'Did not change Admin!'});
-            }
-        });
-    }
-
+	if(req.body.role === 'admin'){
+		User.find({roles: 'admin'}, function(err, items) {
+		    if(items.length > 0 ){
+		        User.update({username: items[0].username}, {roles: ['user']}, function(err1, numAffected1){
+		        });
+		    }
+		    else {
+		        res.status(400).send({message: 'Did not change Admin!'});
+		    }
+		});
+	}
 	User.update({username: req.body.userID}, {roles: [req.body.role]}, function(err, numAffected){
 		if(err) return res.status(400).send({
 			message: errorHandler.getErrorMessage(err)
@@ -70,33 +81,35 @@ exports.assignRoles = function(req, res) {
 			res.status(200).send({message: 'Role has been successfully assigned.'});
 		}
 
-
 		var dat = req.body.role + ' role has been assigned to ' + req.body.userID + ' by Superuser';
 		audit('Role change', dat);
 	});
 };
 
-
-/*
+/**
 * Set roles by the Admin user
+* This function is used to assign roles to different users which will then be used to determine the functionality the
+* user has access to
+* Last edited by {Isabel Nel}
+* @param {Object} req
+* @param {Object} res
 */
-
 exports.assignRolesAdminRole = function(req, res) {
 	var userName = req.body.userID;
 	var role = req.body.role;
 	var error;
 
-		if(req.body.role === 'superuser'){
-			User.find({roles: 'superuser'}, function(err, items) {
-                if(items.length > 0){
-                    User.update({username: items[0].username}, {roles: ['user']}, function(err1, numAffected1){
-                    });
-                }
-                else {
-                      res.status(400).send({message: 'Did not change Admin!'});
-                }
-			});
-        }
+	if(req.body.role === 'superuser'){
+		User.find({roles: 'superuser'}, function(err, items) {
+		        if(items.length > 0){
+		            User.update({username: items[0].username}, {roles: ['user']}, function(err1, numAffected1){
+		            });
+		        }
+		        else {
+		              res.status(400).send({message: 'Did not change Admin!'});
+		        }
+		});
+  }
 
 		User.update({username: req.body.userID}, {roles: [req.body.role]}, function(err, numAffected){
 			if(err) return res.status(400).send({
@@ -127,57 +140,76 @@ exports.assignRolesAdminRole = function(req, res) {
 			var dat = req.body.role + ' role has been assigned to ' + req.body.userID + ' by Admin user';
 			audit('Role change', dat);
 		});
+		else if (numAffected < 1){
+			res.status(400).send({message: 'No such Employee ID!'});
+		}
+            	else if(req.body.role === 'admin'){
+	                User.update({username: req.user.username}, {roles: ['user']}, function(err, numAffected){
+	                    if(err) return res.status(400).send({
+	                        message: errorHandler.getErrorMessage(err)
+	                    });
+	                    else if (numAffected < 1){
+	                        res.status(400).send({message: 'Did not change Admin!'});
+	                    }
+	                    else{
+	                        res.status(200).send({message: 'Admin Changed'});
+	                    }
+	                });
+            	}
+		else{
+			res.status(200).send({message: 'Role has been successfully assigned.'});
+		}
+
+		var dat = req.body.role + ' role has been assigned to ' + req.body.userID + ' by Admin user';
+		audit('Role change', dat);
+	});
 };
 
-
-/*
+/**
  * Change Employee ID
+ * This function is used to change the employee's current employee ID
  * Last Edited by {Semaka Malapane and Tonia Michael}
+ * @param {Object} req
+ * @param {Object} res
+ * @return {String} returns a string with a message whether the change was successful or not
  */
 exports.changeEmployeeID = function(req, res) {
-    if(req.body.newUserID) {
-        User.update({username: [req.body.currentUserID]}, {username: req.body.newUserID}, function (err, numAffected) {
-            console.log('current user id ' + req.body.currentUserID);
-            console.log('new user id ' + req.body.newUserID);
-            if (err) return res.status(400).send({
-                message: errorHandler.getErrorMessage(err)
-            });
-            else if (numAffected < 1) {
-                return res.status(400).send({message: 'No such employee ID!'});
-            }
-            else {
+	if(req.body.newUserID) {
+		User.update({username: [req.body.currentUserID]}, {username: req.body.newUserID}, function (err, numAffected) {
+			if (err) return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
+			});
+			else if (numAffected < 1) {
+				return res.status(400).send({message: 'No such employee ID!'});
+			}
+			else {
 				var dat = 'EmployeeID changed from ' + req.body.currentUserID + ' to ' + req.body.newUserID;
 
 				audit('EmployeeID change', dat);
-
-                Order.update({username: [req.body.currentUserID]}, {username: req.body.newUserID}, {multi: true }, function (err, numAffected) {
-                    console.log('current user id ' + req.body.currentUserID);
-                    console.log('new user id ' + req.body.newUserID);
-                    if (err) return res.status(400).send({
-                        message: errorHandler.getErrorMessage(err)
-                    });
-                    else if (numAffected < 1) {
-                        res.status(400).send({message: 'Employee has no orders placed - EmployeeID updated in user database!'});
-                    }
-                    /*else {
-                        //var dat = 'EmployeeID changed from ' + req.body.currentUserID + ' to ' + req.body.newUserID;
-
-                        //audit('EmployeeID change', dat);
-                        res.status(200).send({message: 'Employee ID has been successfully changed.'});
-                    }*/
-                });
-                return res.status(200).send({message: 'Employee ID has been successfully changed.'});
-            }
-        });
-    }
-    else
-    {
-        res.status(400).send({message: 'The new employee id field cannot be empty!'});
-    }
+				Order.update({username: [req.body.currentUserID]}, {username: req.body.newUserID}, {multi: true }, function (err, numAffected) {
+					if (err) return res.status(400).send({
+						message: errorHandler.getErrorMessage(err)
+					});
+					else if (numAffected < 1) {
+						res.status(400).send({message: 'Employee has no orders placed - EmployeeID updated in user database!'});
+					}
+				});
+				return res.status(200).send({message: 'Employee ID has been successfully changed.'});
+			}
+		});
+	}
+	else{
+		res.status(400).send({message: 'The new employee id field cannot be empty!'});
+	}
 };
 
-/*
- * Audits
+/**
+ * Get audits
+ * This function is used to get the audits of the system for the actions the user specifies
+ * Last Edited by {Rendani Dau}
+ * @param {Object} req
+ * @param {Object} res
+ * @return {String} returns a string with a message whether the change was successful or not
  */
 exports.getAudits = function(req, res){
 	if(req.body.type === 'all'){
@@ -193,6 +225,14 @@ exports.getAudits = function(req, res){
 		});
 };
 
+/**
+ * Get audit types
+ * This function is used to get the audit types of the system
+ * Last Edited by {Rendani Dau}
+ * @param {Object} req
+ * @param {Object} res
+ * @return {String} returns a the different audit types
+ */
 exports.getAuditTypes = function(req, res){
 	Audit.find().distinct('event', function(err, result){
 		if(err) return res.status(400).send({message: 'Could not get audit types'});
@@ -201,9 +241,13 @@ exports.getAuditTypes = function(req, res){
 	});
 };
 
-/*
+/**
  * Remove Employee
+ * This function is used to remove an employee from the database
  * Last Edited by {Semaka Malapane and Tonia Michael}
+ * @param {Object} req
+ * @param {Object} res
+ * @return {String} returns a string with a message whether the removal was successful or not
  */
 exports.removeEmployee = function(req, res) {
   if(req.body.userID) {
@@ -225,9 +269,6 @@ exports.removeEmployee = function(req, res) {
                     else if (numAffected < 1) {
                         res.status(400).send({message: 'Employee has no orders placed but has been removed in the user database!'});
                     }
-                    /*else {
-                        res.status(200).send({message: 'Employee has been successfully removed.'});
-                    }*/
                 });
                 return res.status(200).send({message: 'Employee has been successfully removed.'});
             }
@@ -294,11 +335,12 @@ exports.removeEmployee = function(req, res) {
     }
 };*/
 
-/*
+/**
 * Set System Wide Limit
+* Helper function to notify all users of CMS about system limit change
 * Last Edited by {Semaka Malapane}
+* @param {Integer} newLimit
 */
-//Helper function to notify all users of CMS about system limit change
 function sendMessage(newLimit){
 	User.findOne({}, function(err, user){
 		users.forEach(function(user){
@@ -366,10 +408,12 @@ function sendMessage(newLimit){
     });
  }*/
 /*
+
 * Set System Wide Limit
+* Helper function to mail all users of CMS
 * Last Edited by {Rendani Dau}
+* @param {Integer} newLimit
 */
-//Helper function to mail all users of CMS
 function sendEmail(newLimit){
 	User.find({}, function(err, users){
 		var smtpTransport = nodemailer.createTransport(configs.mailer.options);
@@ -381,9 +425,10 @@ function sendEmail(newLimit){
 			};
 			mailOptions.to = user.email;
 			mailOptions.text = 'Dear ' + user.displayName + ',\n\n' +
-									'Please note the system limit for the Cafeteria Management System has been changed to R' + newLimit + '\n'+
-									'Please visit CMS if you\'d like to adjust your limit.\n\n'+
-									'The CMS Team';
+
+						'Please note the system limit for the Cafeteria Management System has been changed to R' + newLimit + '\n'+
+						'Please visit CMS if you\'d like to adjust your limit.\n\n'+
+						'The CMS Team';
 			smtpTransport.sendMail(mailOptions, function(err){
 				if(err) console.log('Email not sent' + err);
 			});
@@ -391,6 +436,13 @@ function sendEmail(newLimit){
 	});
 }
 
+/**
+* Set System Wide Limit
+* The function sets the limit or resets it to the new limit specified
+* Last Edited by {Rendani Dau}
+* @param {Object} req
+* @param {Object} res
+*/
 exports.setSystemWideLimit = function(req, res){
 	Config.update({name: 'System wide limit'}, {value: req.body.value}, function(err, numAffected){
 		if(err) return res.status(400).send({
@@ -405,14 +457,14 @@ exports.setSystemWideLimit = function(req, res){
 				if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
 
 				User.update({limit: { $gt: req.body.value }}, {limit: req.body.value}, { multi: true }, function(err, numAffected){
-				if(err)
-					res.status(200).send({message: 'Limit has been successfully changed. No users updated!'});
-				else
-					res.status(200).send({message: 'Limit has been successfully changed. ' + numAffected + ' users have been updated'});
-				var dat = 'The system wide limit has been changed to ' + req.body.value;
-				audit('Admin settings change', dat);
-				sendEmail(req.body.value);
-			});
+					if(err)
+						res.status(200).send({message: 'Limit has been successfully changed. No users updated!'});
+					else
+						res.status(200).send({message: 'Limit has been successfully changed. ' + numAffected + ' users have been updated'});
+					var dat = 'The system wide limit has been changed to ' + req.body.value;
+					audit('Admin settings change', dat);
+					sendEmail(req.body.value);
+				});
 			});
 		}
 		else{
@@ -430,9 +482,13 @@ exports.setSystemWideLimit = function(req, res){
 	});
 };
 
-/*
+/**
 * Set Canteen Name
+* This function changes the canteen name to the specified name
 * Last Edited by {Rendani Dau}
+* @param {Object} req
+* @param {Object} res
+* @return {String} returns a string saying whether the name change was successful or not
 */
 exports.setCanteenName = function(req, res){
 	Config.update({name: 'Canteen name'}, {value: req.body.value}, function(err, numAffected){
@@ -456,9 +512,14 @@ exports.setCanteenName = function(req, res){
 		}
 	});
 };
-/*
- * Set contact info
+
+/**
+ * Set contact name
+ * This function sets the conact name of the canteen to the given name
  * Last Edited by {Antonia Michael}
+ * @param {Object} req
+ * @param {Object} res
+ * @return {String} returns a string stating whether the change was successful or not
  */
 exports.setContactInfo1 = function(req, res){
     if(req.body.value===null)
@@ -467,12 +528,10 @@ exports.setContactInfo1 = function(req, res){
     }
     else {
         Config.update({name: 'Contact Name'}, {value: req.body.value}, function (err, numAffected) {
-            console.log("in server funct" + req.body.value);
             if (err) return res.status(400).send({
                 message: errorHandler.getErrorMessage(err)
             });
             else if (numAffected < 1) {
-                console.log("in if statement funct" + req.body.value);
                 var config = new Config();
                 config.name = 'Contact Name';
                 config.value = req.body.value;
@@ -490,52 +549,67 @@ exports.setContactInfo1 = function(req, res){
         });
     }
 };
-    exports.setContactInfo2 = function(req, res){
-        if(req.body.value===null)
-        {
-            req.body.value='No number added';
-        }
-        else {
-            Config.update({name: 'Contact Number'}, {value: req.body.value}, function (err, numAffected) {
-                console.log("in server funct" + req.body.value);
-                if (err) return res.status(400).send({
-                    message: errorHandler.getErrorMessage(err)
-                });
-                else if (numAffected < 1) {
-                    console.log("in if statement funct" + req.body.value);
 
-                    var config2 = new Config();
-                    config2.name = 'Contact Number';
-                    config2.value = req.body.value;
+/**
+ * Set contact number
+ * This function sets the conact number of the canteen to the given number
+ * Last Edited by {Antonia Michael}
+ * @param {Object} req
+ * @param {Object} res
+ * @return {String} returns a string stating whether the change was successful or not
+ */
+exports.setContactInfo2 = function(req, res){
+	if(req.body.value===null)
+	{
+	    req.body.value='No number added';
+	}
+	else {
+	    Config.update({name: 'Contact Number'}, {value: req.body.value}, function (err, numAffected) {
+	        console.log("in server funct" + req.body.value);
+	        if (err) return res.status(400).send({
+	            message: errorHandler.getErrorMessage(err)
+	        });
+	        else if (numAffected < 1) {
+	            console.log("in if statement funct" + req.body.value);
 
-                    config2.save(function (err) {
-                        if (err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
-                        res.status(200).send({message: 'Contact info has been successfully changed.'});
-                    });
+	            var config2 = new Config();
+	            config2.name = 'Contact Number';
+	            config2.value = req.body.value;
 
-                }
-                else {
-                    var dat = 'The contact number has been changed to ' + req.body.value;
-                    audit('Branding settings change', dat);
-                    res.status(200).send({message: 'Contact name has been successfully changed.'});
-                }
-            });
-        }
-    };
+	            config2.save(function (err) {
+	                if (err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
+	                res.status(200).send({message: 'Contact info has been successfully changed.'});
+	            });
+
+	        }
+	        else {
+	            var dat = 'The contact number has been changed to ' + req.body.value;
+	            audit('Branding settings change', dat);
+	            res.status(200).send({message: 'Contact name has been successfully changed.'});
+	        }
+	    });
+	}
+};
+
+/**
+ * Set contact email
+ * This function sets the conact email of the canteen to the given email
+ * Last Edited by {Antonia Michael}
+ * @param {Object} req
+ * @param {Object} res
+ * @return {String} returns a string stating whether the change was successful or not
+ */
 exports.setContactInfo3 = function(req, res){
     if(req.body.value===null)
     {
-        req.body.value='No number added';
+        req.body.value='No email added';
     }
     else {
         Config.update({name: 'Contact Email'}, {value: req.body.value}, function (err, numAffected) {
-            console.log("in server funct" + req.body.value);
             if (err) return res.status(400).send({
                 message: errorHandler.getErrorMessage(err)
             });
             else if (numAffected < 1) {
-                console.log("in if statement funct" + req.body.value);
-
                 var config3 = new Config();
                 config3.name = 'Contact Email';
                 config3.value = req.body.value;
@@ -554,118 +628,100 @@ exports.setContactInfo3 = function(req, res){
         });
     }
 };
-/*
- * Set Theme  Name
+
+/**
+ * Set Theme name
+ * This function sets the theme of the canteen to the chosen theme (changes the colour of the canteen)
+ * Last Edited by {Antonia Michael}
+ * @param {Object} req
+ * @param {Object} res
+ * @return {String} returns a string stating whether the change was successful or not
  */
 exports.setThemeName = function(req, res) {
-    console.log('Theme name2 ' + req.body.value);
-    var name = req.body.value;
+	var name = req.body.value;
+	//find old value to check what current colour is
+	Config.findOne({name: 'Theme name'}, function (err, row) {
+		if (err) {
+			return res.status(400).send({
+			message: errorHandler.getErrorMessage(err)
+			});
+		}
+		else{
+			if(row===null){
+				row={
+				    value:'orange'
+				}
+			}
+			if (name === 'green' ){ //users.css is orange, currently using red!!!!!!!!!!!!!!!!!!!!!!
+				fse.copy('public/modules/users/css/greenUsers.txt', 'public/modules/users/css/users.css', function (err) {
+				    if (err) console.log('ERROR: ' + err);
+				    else console.log('Changed:'  );
+				});
+				//public/modules/orders/css/orders.css
+				fse.copy('public/modules/orders/css/greenOrders.txt', 'public/modules/orders/css/orders.css', function (err) {
+				    if (err) console.log('ERROR: ' + err);
+				    else console.log('Changed:'  );
+				});
+			}
+			else if (name === 'orange' ){ //users.css is orange, currently using red!!!!!!!!!!!!!!!!!!!!!!
+				fse.copy('public/modules/users/css/orangeUsers.txt', 'public/modules/users/css/users.css', function (err) {
+				    if (err) console.log('ERROR: ' + err);
+				    else console.log('Changed:'  );
+				});
+				//public/modules/orders/css/orders.css
+				fse.copy('public/modules/orders/css/orangeOrders.txt', 'public/modules/orders/css/orders.css', function (err) {
+				    if (err) console.log('ERROR: ' + err);
+				    else console.log('Changed:'  );
+				});
+			}
+			else if (name === 'red'){
+				fse.copy('public/modules/users/css/redUsers.txt', 'public/modules/users/css/users.css', function (err) {
+				    if (err) console.log('ERROR: ' + err);else console.log('Changed:'  );
+				});
+				//public/modules/orders/css/orders.css
+				fse.copy('public/modules/orders/css/redOrders.txt', 'public/modules/orders/css/orders.css', function (err) {
+				    if (err) console.log('ERROR: ' + err);
+				    else console.log('Changed:'  );
+				});
+			}
+			else{
+				console.log('ERROR' );
+			}
+		}
+		Config.update({name: 'Theme name'}, {value: req.body.value}, function(err, numAffected){
+			if(err) return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
+			});
+			else if (numAffected < 1){
+				var config = new Config();
+				config.name = 'Theme name';
+				config.value = req.body.value;
 
-    //find old value to check what current colour is
-   Config.findOne({name: 'Theme name'}, function (err, row) {
-        if (err) {
-            return res.status(400).send({
-                message: errorHandler.getErrorMessage(err)
-            });
-        }
-        else
-        {    if(row===null)
-            {
-                row={
-                    value:'orange'
-                }
-            }
-            if (name === 'green' )
-            { //users.css is orange, currently using red!!!!!!!!!!!!!!!!!!!!!!
-                console.log('You want orange, curently users.css contains red ' );
-                fse.copy('public/modules/users/css/greenUsers.txt', 'public/modules/users/css/users.css', function (err) {
-                    if (err) console.log('ERROR: ' + err);
-                    else console.log('Changed:'  );
-                });
-                //public/modules/orders/css/orders.css
-                fse.copy('public/modules/orders/css/greenOrders.txt', 'public/modules/orders/css/orders.css', function (err) {
-                    if (err) console.log('ERROR: ' + err);
-                    else console.log('Changed:'  );
-                });
-            }
-            else if (name === 'orange' )
-            { //users.css is orange, currently using red!!!!!!!!!!!!!!!!!!!!!!
-                console.log('You want orange, curently users.css contains red ' );
-                fse.copy('public/modules/users/css/orangeUsers.txt', 'public/modules/users/css/users.css', function (err) {
-                    if (err) console.log('ERROR: ' + err);
-                    else console.log('Changed:'  );
-                });
-                //public/modules/orders/css/orders.css
-                fse.copy('public/modules/orders/css/orangeOrders.txt', 'public/modules/orders/css/orders.css', function (err) {
-                    if (err) console.log('ERROR: ' + err);
-                    else console.log('Changed:'  );
-                });
-            }
-            else if (name === 'red')
-            {
-                console.log('You want red, curently its orange ' );
-                fse.copy('public/modules/users/css/redUsers.txt', 'public/modules/users/css/users.css', function (err) {
-                    if (err) console.log('ERROR: ' + err);else console.log('Changed:'  );
-                });
-                //public/modules/orders/css/orders.css
-                fse.copy('public/modules/orders/css/redOrders.txt', 'public/modules/orders/css/orders.css', function (err) {
-                    if (err) console.log('ERROR: ' + err);
-                    else console.log('Changed:'  );
-                });
-            }
-            else
-            {
-                console.log('ERROR' );
-            }
-            /*else(name === 'default' && row.value==='green')
-             {
-                 console.log('You want red, curently its orange ' );
-                 fs.rename('public/modules/users/css/users.css', 'public/modules/users/css/greenUsers.txt', function (err) {
-                     if (err) console.log('ERROR: ' + err);else console.log('Changed:'  );
-                 });
-                 fs.rename('public/modules/orders/css/orders.css', 'public/modules/orders/css/greenOrders.txt', function (err) {
-                     if (err) console.log('ERROR: ' + err);
-                     else console.log('Changed:'  );
-                 });
-             }*/
-        }
-       Config.update({name: 'Theme name'}, {value: req.body.value}, function(err, numAffected){
-           if(err) return res.status(400).send({
-               message: errorHandler.getErrorMessage(err)
-           });
-           else if (numAffected < 1){
-               var config = new Config();
-               config.name = 'Theme name';
-               config.value = req.body.value;
-
-               config.save(function(err){
-                   if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
-                   return res.status(200).send({message: 'Theme has been successfully changed.'});
-               });
-           }
-           else{
-               return res.status(200).send({message: 'Theme has been successfully changed.'});
-           }
-       });
-       //return res.status(200).send({message: name});
-    });
+				config.save(function(err){
+				   if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
+				   return res.status(200).send({message: 'Theme has been successfully changed.'});
+				});
+			}
+			else{
+				return res.status(200).send({message: 'Theme has been successfully changed.'});
+			}
+		});
+	});
 };
 
-/*
- * Upload main image for branding
+/**
+ * Upload image
+ * This function is used to upload an image to the carousel on the homepage
  * Last Edited by {Rendani Dau}
+ * @param {Object} req
+ * @param {Object} res
  */
 exports.uploadImage = function(req, res){
 	var form = new formidable.IncomingForm();
-	console.log('About to parse image');
-    //console.log(req);
 	form.parse(req, function(error, fields, files){
-		console.log('image parsed');
 		if(error){
 			return res.status(400).send({message: errorHandler.getErrorMessage(error)});
 		}
-		//console.log(files);
-		//res.redirect('/');
 		var imageName = 'carousel-' + fields.carouselImageNum + '.png';
 		fs.rename(files.upload.path, './public/modules/core/img/brand/' + imageName, function(err){
 			if(err){
@@ -694,9 +750,15 @@ exports.uploadImage = function(req, res){
 	});
 };
 
-
+/**
+ * Delete image
+ * This function deletes an image from the carousel and removes the caption and sets it to the default image
+ * Last Edited by {Antonia Michael}
+ * @param {Object} req
+ * @param {Object} res
+ * @return {String} returns a string saying whether the image is deleted or not
+ */
 exports.deleteImage = function(req, res){
-	console.log(req.body.image);
 	var cap = 'Carousel-caption' + req.body.image;
 	var imagePath = 'public/modules/core/img/brand/carousel-' + req.body.image + '.png';
 	var defaultImage = 'public/modules/core/img/brand/default-' + req.body.image + '.png';
@@ -710,9 +772,10 @@ exports.deleteImage = function(req, res){
 		});
 	});
 
+
 };
 
-/*
+/**
  * Loading the employees from the database
  */
 exports.loadEmployees = function(req, res){
@@ -722,12 +785,11 @@ exports.loadEmployees = function(req, res){
 						var itemMap = {};
 						employees.forEach(function(employees) {
 							if((employees.username.localeCompare(superuserEmployee[0].username) === 0) || (employees.username.localeCompare(adminuserEmployee[0].username) === 0)){
-
+								// do nothing since we do not want to add their usernames in the available list of names
 							}else{
 								itemMap[employees._id] = employees;
 							//	console.log(employees.username);
 							}
-
 								//console.log(employees.username);
 						});
 						if(err || !itemMap) return res.status(400).send({message: 'Employees not found' });
@@ -740,77 +802,82 @@ exports.loadEmployees = function(req, res){
 			});
 
 		});
-
 };
 
 /**
- * Get the theme
- * Last edited by {Semaka Malapane and Antonia Michael}
+ * Get contact name
+ * This function gets the conact number of the canteen to display on the html page
+ * Last Edited by {Antonia Michael}
+ * @param {Object} req
+ * @param {Object} res
+ * @return {Object} returns a json object of the contact number
  */
-exports.getTheme = function(req,res){
-    console.log(req);
-    Config.findOne({name: 'Theme name'}, function (err, row) {
-        if (err) {
-            return res.status(400).send({
-                message: errorHandler.getErrorMessage(err)
-            });
-        } else {
-            return  res.status(200).send({message: row.value});
-        }
-    });
-};
 exports.getContactInfo = function(req, res) {
-
-    Config.findOne({name: 'Contact Name'}, function (err, row) {
-        if(row===null)
-        {
-            row={
-                value:'No name added'
-            }
-        }
-        if (err) {
-            return res.status(400).send({
-                message: errorHandler.getErrorMessage(err)
-            });
-        } else {
-            return  res.status(200).json({val: row.value});
-        }
-    });
+	Config.findOne({name: 'Contact Name'}, function (err, row) {
+		if(row===null)
+		{
+		    row={
+		        value:'No name added'
+		    }
+		}
+		if (err) {
+		    return res.status(400).send({
+		        message: errorHandler.getErrorMessage(err)
+		    });
+		} else {
+		    return  res.status(200).json({val: row.value});
+		}
+	});
 };
+
+/**
+ * Get contact number
+ * This function gets the conact number of the canteen to display it on the html
+ * Last Edited by {Antonia Michael}
+ * @param {Object} req
+ * @param {Object} res
+ * @return {Object} returns a json object of the contact number
+ */
 exports.getContactInfo2 = function(req, res) {
-
-    Config.findOne({name: 'Contact Number'}, function (err, row) {
-        if(row===null)
-        {
-            row={
-                value:'No number added'
-            }
-        }
-        if (err) {
-            return res.status(400).send({
-                message: errorHandler.getErrorMessage(err)
-            });
-        } else {
-            return  res.status(200).json({val: row.value});
-        }
-    });
+	Config.findOne({name: 'Contact Number'}, function (err, row) {
+		if(row===null)
+		{
+		    row={
+		        value:'No number added'
+		    }
+		}
+		if (err) {
+		    return res.status(400).send({
+		        message: errorHandler.getErrorMessage(err)
+		    });
+		} else {
+		    return  res.status(200).json({val: row.value});
+		}
+	});
 };
 
+/**
+ * Get contact email
+ * This function gets the conact email of the canteen to display it on the html
+ * Last Edited by {Antonia Michael}
+ * @param {Object} req
+ * @param {Object} res
+ * @return {Object} returns a json object of the contact email
+ */
 exports.getContactInfo3 = function(req, res) {
-
-    Config.findOne({name: 'Contact Email'}, function (err, row) {
-        if(row===null)
-        {
-            row={
-                value:'No name added'
-            }
-        }
-        if (err) {
-            return res.status(400).send({
-                message: errorHandler.getErrorMessage(err)
-            });
-        } else {
-            return  res.status(200).json({val: row.value});
-        }
-    });
+	Config.findOne({name: 'Contact Email'}, function (err, row) {
+		if(row===null)
+		{
+		    row={
+		        value:'No name added'
+		    }
+		}
+		if (err) {
+		    return res.status(400).send({
+		        message: errorHandler.getErrorMessage(err)
+		    });
+		} else {
+		    return  res.status(200).json({val: row.value});
+		}
+	});
 };

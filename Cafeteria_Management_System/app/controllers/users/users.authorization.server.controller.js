@@ -9,6 +9,10 @@ var _ = require('lodash'),
 
 /**
  * User middleware
+ * @param {Object} req
+ * @param {Object} res
+ * @param {Object} next
+ * @param {Object} id
  */
 exports.userByID = function(req, res, next, id) {
 	User.findOne({
@@ -23,6 +27,9 @@ exports.userByID = function(req, res, next, id) {
 
 /**
  * Require login routing middleware
+ * @param {Object} req
+ * @param {Object} res
+ * @param {Object} next
  */
 exports.requiresLogin = function(req, res, next) {
 	if (!req.isAuthenticated()) {
@@ -36,6 +43,8 @@ exports.requiresLogin = function(req, res, next) {
 
 /**
  * User authorizations routing middleware
+ * @param {Object} roles
+ * @return {Object} - returns whether the user is authorized or not
  */
 exports.hasAuthorization = function(roles) {
 	var _this = this;
