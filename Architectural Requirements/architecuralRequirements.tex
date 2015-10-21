@@ -36,13 +36,13 @@
  \hline
  \textbf{Document Title} & Architectural Specification Document \\
  \hline
- \textbf{Document Identification}  & Document 0.0.4 \\
+ \textbf{Document Identification}  & Document 0.0.5 \\
  \hline
  \textbf{Author}  & Rendani Dau, Isabel Nel, Elana Kuun, Semaka Malapane, Antonia Michael \\
  \hline
- \textbf{Version} & 0.0.4\\
+ \textbf{Version} & 0.0.5\\
  \hline
- \textbf{Document Status} & Fourth Version - contains updated architectural requirements \\
+ \textbf{Document Status} & Fifth Version - contains updated architectural requirements \\
  \hline
  \end{tabu}
 
@@ -56,9 +56,11 @@
  \hline\hline
  0.0.2 & 30 July 2015 & Second draft & Rendani Dau, \\ & & contains edited & Isabel Nel, \\ & & architectural & Elana Kuun, \\ & & requirements & Semaka Malapane, \\ & & & Antonia Michael \\   [1ex] 
  \hline\hline
- 0.0.2 & 25 August 2015 & Third draft & Rendani Dau, \\ & & contains edited & Isabel Nel, \\ & & architectural & Elana Kuun, \\ & & requirements & Semaka Malapane, \\ & & & Antonia Michael \\   [1ex] 
+ 0.0.3 & 25 August 2015 & Third draft & Rendani Dau, \\ & & contains edited & Isabel Nel, \\ & & architectural & Elana Kuun, \\ & & requirements & Semaka Malapane, \\ & & & Antonia Michael \\   [1ex] 
  \hline\hline
- 0.0.2 & 24 September 2015 & Fourth draft & Rendani Dau, \\ & & contains edited & Isabel Nel, \\ & & architectural & Elana Kuun, \\ & & requirements & Semaka Malapane, \\ & & & Antonia Michael \\   [1ex] 
+ 0.0.4 & 24 September 2015 & Fourth draft & Rendani Dau, \\ & & contains edited & Isabel Nel, \\ & & architectural & Elana Kuun, \\ & & requirements & Semaka Malapane, \\ & & & Antonia Michael \\   [1ex] 
+ \hline\hline
+ 0.0.5 & 21 October 2015 & Fifth draft & Rendani Dau, \\ & & contains edited & Isabel Nel, \\ & & architectural & Elana Kuun, \\ & & requirements & Semaka Malapane, \\ & & & Antonia Michael \\   [1ex] 
  \hline
  \end{tabular}
 \end{table}
@@ -116,6 +118,34 @@ requirements, and architectural constraints. These points will be thoroughly dis
 %% ---------------------------------  QUALITY REQUIREMENTS -------------------------------------
 \section{Quality Requirements: Core}
 
+
+%%-------------USABILITY------------------
+\subsection{Usability}
+
+ \subsubsection{Reasons for usability as a quality requirement}
+ \begin{itemize}
+ \item Usability involves measuring users' performance with regard to the use of a software system. The users of the cafeteria management system will have different technological skill levels, therefore the system has to be user friendly in all aspects and it should not be hard for new users to become familiarized with the system.
+\item It is one of the most important quality requirements within our system because the purpose of the system is to provide the utmost convenience for all the employees so each user should find it very easy to navigate and achieve the core goal of the system i.e. placing an order such that this becomes the preferable choice over standing in the canteen queue.
+
+ \end{itemize}
+ \subsubsection{Strategies to achieve this quality requirement}
+ \begin{itemize}
+ \item Various goals of usability requirements are firstly, that the interface is intuitive, i.e. easy to navigate and understand, that the buttons and icons are self explanatory for the primary users.
+ \item The interface must also not be a cluttered, frustrating and overwhelming one. 
+ \item Ease of learning is also an important goal. Users who are unfamiliar with the system, but who have used similar systems in the past, should find the system easy to work with.
+ \item The system must also be task efficient, i.e. if users access this space regularly, long tedious processes and other admin must be avoided.
+\item Also, the colour schemes, functionality and interactiveness of the interface and system must contribute to this task efficiency. 
+\item Different usability tests can be conducted such as handing out paper prototypes of different interface designs, and questionnaires getting feedback from the sample of people that were consulted in the survey. Problems with the different interfaces can be picked up during the usability testing phase, as indicated by the sample of users consulted, such that the final product will be much more user friendly. \url{(http://www.usability.gov/what-and-why/usability-evaluation.html)}
+
+ \end{itemize}
+ \subsubsection{Patterns to achieve these strategies}
+ \begin{itemize}
+ \item MVC
+ \item Layering
+\end{itemize}
+MVC is a suitable pattern because the user will only need to interact with the front end interface, rather than dealing with the technical aspects of the back-end system. Another reason for this is that the developers allocated to working on the View will have the sole focus of making it usable.
+Layering can be used within the subsections of MVC, i.e. the Control and Model layer can be layered to further divide concerns and allow different people to work on those layers.
+
 %%--------------SECURITY------------------
 \subsection{Security}
 
@@ -140,32 +170,6 @@ requirements, and architectural constraints. These points will be thoroughly dis
 Layering can enforce security due to separation into layers, in which different users have different levels of access to the layers, depending on their roles in the system
 
 Layering can be used within the subsections of MVC, i.e. the Control and Model layer can be layered to further divide concerns and restrict different users' access on those layers, providing tighter security.
-
-%%-------------USABILITY------------------
-\subsection{Usability}
-
- \subsubsection{Reasons for usability as a quality requirement}
- \begin{itemize}
- \item Usability involves measuring users' performance with regard to the use of a software system. The users of the cafeteria management system will have different technological skill levels, therefore the system has to be user friendly in all aspects and it should not be hard for new users to become familiarized with the system.
-
- \end{itemize}
- \subsubsection{Strategies to achieve this quality requirement}
- \begin{itemize}
- \item Various goals of usability requirements are firstly, that the interface is intuitive, i.e. easy to navigate and understand, that the buttons and icons are self explanatory for the primary users.
- \item The interface must also not be a cluttered, frustrating and overwhelming one. 
- \item Ease of learning is also an important goal. Users who are unfamiliar with the system, but who have used similar systems in the past, should find the system easy to work with.
- \item The system must also be task efficient, i.e. if users access this space regularly, long tedious processes and other admin must be avoided.
-\item Also, the colour schemes, functionality and interactiveness of the interface and system must contribute to this task efficiency. 
-\item Different usability tests can be conducted such as handing out paper prototypes of different interface designs, and questionnaires getting feedback from the sample of people that were consulted in the survey. Problems with the different interfaces can be picked up during the usability testing phase, as indicated by the sample of users consulted, such that the final product will be much more user friendly. \url{(http://www.usability.gov/what-and-why/usability-evaluation.html)}
-
- \end{itemize}
- \subsubsection{Patterns to achieve these strategies}
- \begin{itemize}
- \item MVC
- \item Layering
-\end{itemize}
-MVC is a suitable pattern because the user will only need to interact with the front end interface, rather than dealing with the technical aspects of the back-end system. Another reason for this is that the developers allocated to working on the View will have the sole focus of making it usable.
-Layering can be used within the subsections of MVC, i.e. the Control and Model layer can be layered to further divide concerns and allow different people to work on those layers.
 
 
 %%-------------RELIABILITY------------------

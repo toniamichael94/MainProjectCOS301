@@ -1,0 +1,167 @@
+Usability 
+Usability involves measuring users' performance with regard to the use of a software system. The users of the cafeteria management system will have different technological skill levels, therefore the system has to be user friendly in all aspects and it should not be hard for new users to become familiarized with the system.
+
+It is one of the most important quality requirements within our system because the purpose of the system is to provide the utmost convenience for all the employees so each user should find it very easy to navigate and achieve the core goal of the system i.e. placing an order such that this becomes the preferable choice over standing in the canteen queue.
+
+The following are the ways in which the CMS system meets the requirement Usability:
+
+Usability Test conducted - implemented changes to system as required by the participants of the usability test- see documentation
+Similar layout on each page making 
+Logically placed tabs e.g. in the Nav bar and dropdown menu
+To ensure system is easily learnable and memorable
+Intuitive as stated by the participants in the usability test (e.g. add to plate button is very visible and the meaning is clear)
+Names and graphical images/favicons on each tab to make the tab meaning clear
+Are you sure alert box for important actions e.g. removing a user from the system
+Help popovers for each action 
+Loading Bar, “Please wait” message and confirmation messages
+Audit trail easily obtainable on superuser page - makes tracing logs much easier
+Emails sent out as well as notifications within the system so that the message (order ready) has a greater chance in reaching the end user
+Clear, concise and easy to use user manual 
+Design specification created with details of each function in the javascript files’ protocol such that the system is also usable from a programmer’s perspective
+
+Maintainability
+Dynamic addition and removal of pages e.g. the menu category pages
+Dynamically populated dropdown menus
+Canteen name, theme colours, carousel images configurable by super user
+Menu items, inventory items, menu images and categories added dynamically by cafeteria manager
+Removal of employees/ changing of employee IDs dynamically done by superuser
+Completely decoupled code due
+package.json, bower.json, headers of client controllers
+Dependency injection
+Inside the server controllers libraries are required at the top of the files
+In the client controllers the names of required modules are placed in the header so that these only need to be added and changed in one place adding the aforementioned dependency injection
+Modularization - use of npm, package.json, bower.json and creating modules for each main use case of system 
+Design specification specifying EXACTLY what each function achieves and its parameters
+In code documentation - indicating @params, @return
+Audit trail on super user page to trace all actions carried out on the system
+
+Integrability 
+Export invoice to Microsoft Excel format and PDF
+Integrated with AngularUI for carousel functionality 
+Integrated with libraries such as JS Report and libraries to provide graphs
+Design specification specifying EXACTLY what each function achieves and its parameters
+In code documentation - indicating @params, @return
+
+Reasons for choice of technology
+Mongo DB 
+Not limited to a particular schema hence different data types can be stored in one collection e.g. our Config table consisting of system limit as well as canteen name
+Easily integratable in commonly used languages like Java
+No expensive joins required which is crucial for our system because NodeJS in itself already runs on only one thread so server should not be overloaded with expensive joins
+Group members decision to learn how non relational databases can compare to relational ones, to be able to make more informed decisions that one might face in industry
+Express Server - provides a means for dependency injection and decoupling of code
+Highly modularized system - npm used for packaging, again to support decoupling
+Libraries placed inside package.json and bower.json for dependency injection 
+Inside the server controllers libraries are required at the top of the files
+In the client controllers the names of required modules are placed in the header so that these only need to be added and changed in one place adding the aforementioned dependency injection
+Angular and bootstrap - to add dynamic functionality and impressive GUI features i.e. the image carousel on the home page 
+NodeJS works well with the aforementioned technologies and is part of the MEAN stack
+Software Engineering 
+
+Followed an agile approach and used Scrum to accomplish this
+ Agile Method: Scrum
+Identify and prioritize requirements for system 
+Identify top task priorities for current sprint (e.g. phase 1)
+At the end of each sprint - Scrum meeting where Scrum master finds out 
+the tasks each member has done since the previous sprint
+the tasks each member wants to achieve for the next sprint 
+any challenges faced
+Sprint Iterations included:
+Log issues for each sprint milestone
+Implementation 
+Tests
+Documentation update
+Client consultation meeting at end of sprint
+Scrum meeting
+Comprehensive documentation
+Functional Requirements
+Architectural Requirements  
+Design Specification 
+Testing documentation
+User Manual
+Usability Test Report
+Burndown chart to show progress of sprints and milestones - Burndown.io
+Git Issues and milestones to keep track of tasks needing to be done in the sprints
+Scrumboard linking to Git issues displaying tasks, where the team members would be able to move their allocated tasks to in progress and ready when necessary
+Documents made in code i.e. stating @params, @return
+Design specification to elaborate on the uses of the functions, the header and the parameters taken in
+Audit trail available from the super user page
+Git .gource to indicate work done for each sprint by the group members 
+Heavy use of software engineering principles and procedures 
+Decoupling via package.json, bower.json, headers of client controllers
+Dependency injection
+ Inside the server controllers libraries are required at the top of the files
+In the client controllers the names of required modules are placed in the header so that these only need to be added and changed in one place adding the aforementioned dependency injection
+Modularization - use of npm, package.json, bower.json and creating modules for each main use case of system 
+
+
+Security 
+Check user functions to ensure that only authorized users who are required to view that page gain access to it. Any other user is redirected to the home page
+Are you sure alerts for crucial system actions i.e. removing a user from the system
+Error message on sign up page states “Incorrect username or password” hence not disclosing exactly which one is incorrect 
+Audit trail can be viewed on the super user page to be able to trace all actions performed on the system
+The finance manager is the only other user who can view a user’s spending history
+
+Architecture
+Refer to Architectural Requirement document
+Main architectural quality requirements    
+Usability  
+Security
+Reliability
+Auditability
+Maintainability
+Format of Architectural Requirement document is 
+Architectural Responsibilities
+Differentiating between the core, important and nice to have requirements
+Reasons for choice of quality requirement
+Strategies to achieve this quality requirement
+Pattern to achieve these strategies
+Human Access Channels
+System Access Channels
+
+
+Main Features of the system 
+Adding inventory items, menu items, menu categories and menu images
+Generate invoice of monthly bill for specified period
+View audit trail for different actions performed on the system for a certain period
+Purely dynamic functionality e.g. dynamic addition of menu category pages
+Statistics to display most popular items/ most ordered items 
+
+Problems that exist currently within the canteen:
+1.) Canteen runs out of stock and does not notify users of this.
+2.) The cafeteria is currently cash only and does not accept bank cards or electronic payments.
+
+Solutions offered by system
+1.) Statistics provided by system – i.e. most popular menu and stock items so that the cafeteria
+manager can be aware of what items shock constantly be in stock. A report of the meny items sold
+can also viewed. Graphs can also be viewed for the amount of inventory items used for
+customizable periods of time.
+2.) The system allows users to have the options of paying on credit or using cash. If the user pays
+with credit the user can further configure whether the bill will be sent to finance or to his/her
+personal email account. If he/she selects to have the bill sent to finance, the amount be deducted
+from the user's salary.
+
+Functionality of the system 
+1.) Add to plate, place order and receive notifications by email and on the notifications page stating
+whether the order is still pending or ready.
+2.)Cafeteria Manager can add menu categories, menu items, inventory items and menu images
+hence a very dynamic menu system is created.
+3.) Statistical information – cafeteria manager can:
+- generate report of menu items sold
+-Display most popular menu items
+-Display the amount of the inventory items used
+4.) All users can view their own spending history
+5.) Finance manager can generate invoice of orders placed and the total for a customizable period of
+time
+6.) Auditing features – super user can view and trace all actions performed on the system.
+7.) Super user can configure maximum user spending limit.
+8.) Cashier can process transactions by marking orders as ready and as “paid”
+9.) Admin features – super user can assign roles to employees (i.e. the roles of finance manager,
+cafeteria manager, cashier and user), remove employees from the system, change employee Ids, set
+the system maximum spending limit,
+10.) Branding features – change canteen name, colour scheme of the system, contact information,
+picture carousel on home page
+11.) Help alerts on each page – to add extra information regarding various actions that can be
+performed on the different pages.12.) Other: forgot password, change password, edit profile, sign up, sign in
+
+
+

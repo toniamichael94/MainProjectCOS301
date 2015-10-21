@@ -11,6 +11,7 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 		$scope.allInventory = {inventoryProduct:[],inventoryQuantity:[]};
 		$scope.addFormFieldInventory = function() {
 			$http.get('/loadInventoryItems').success(function(response) {
+				console.log(response);
 			$scope.inventoryItems = response.message;
 			var itemsArray = [];
 			var counter = 0;

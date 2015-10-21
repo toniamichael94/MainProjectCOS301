@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.23)  16 OCT 2015 22:40
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.23)  21 OCT 2015 12:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -335,129 +335,129 @@ l.33 \break
             [1
 
 ] [2]
-Underfull \hbox (badness 10000) in paragraph at lines 84--89
+Underfull \hbox (badness 10000) in paragraph at lines 86--91
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 84--89
+Underfull \hbox (badness 10000) in paragraph at lines 86--91
 
  []
 
 [3]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 97.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 99.
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 97.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 99.
  [4] [5] [6]
 [7] [8] [9] [10] [11]
-Underfull \hbox (badness 10000) in paragraph at lines 292--293
+Underfull \hbox (badness 10000) in paragraph at lines 296--297
 
  []
 
 [12] [13]
-Underfull \hbox (badness 10000) in paragraph at lines 320--321
+Underfull \hbox (badness 10000) in paragraph at lines 324--325
 
  []
 
 [14] [15] [16] [17]
-Underfull \hbox (badness 10000) in paragraph at lines 420--422
+Underfull \hbox (badness 10000) in paragraph at lines 424--426
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 420--422
+Underfull \hbox (badness 10000) in paragraph at lines 424--426
 
  []
 
 [18]
-Overfull \hbox (88.94902pt too wide) in paragraph at lines 426--427
+Overfull \hbox (88.94902pt too wide) in paragraph at lines 430--431
 []\OT1/cmr/m/it/12 Basic MVC Ar-chi-tec-ture\OT1/cmr/m/n/12 . [On-line]. Avail-
 able: <http://www.tutorialspoint.com/struts[]2/ 
  []
 
 
-Overfull \hbox (91.99637pt too wide) in paragraph at lines 428--429
+Overfull \hbox (91.99637pt too wide) in paragraph at lines 432--433
 []\OT1/cmr/m/n/12 Beal, V. n.d. \OT1/cmr/m/it/12 Linux Server\OT1/cmr/m/n/12 . 
 [On-line]. Avail-able: <http://www.webopedia.com/TERM/L/ 
  []
 
 
-Overfull \hbox (37.60107pt too wide) in paragraph at lines 430--431
+Overfull \hbox (37.60107pt too wide) in paragraph at lines 434--435
 \OT1/cmr/m/it/12 How To Con-vince Your Man-age-ment\OT1/cmr/m/n/12 . [On-line].
  Avail-able: <http://www.adam-
  []
 
 
-Overfull \hbox (10.92834pt too wide) in paragraph at lines 434--436
+Overfull \hbox (10.92834pt too wide) in paragraph at lines 438--440
 \OT1/cmr/m/it/12 sums for er-ror de-tec-tion \OT1/cmr/m/n/12 [On-line]. Avail-a
 ble: <http://noahdavids.org/self-
  []
 
 
-Overfull \hbox (30.25624pt too wide) in paragraph at lines 437--438
+Overfull \hbox (30.25624pt too wide) in paragraph at lines 441--442
 []\OT1/cmr/m/it/12 Git --loval-branding-on-the-cheap\OT1/cmr/m/n/12 . [On-line]
 . Avail-able: <http://git-scm.com/>
  []
 
 
-Overfull \hbox (94.06361pt too wide) in paragraph at lines 439--440
+Overfull \hbox (94.06361pt too wide) in paragraph at lines 443--444
 []\OT1/cmr/m/it/12 JavaServer Faces Tech-nol-ogy\OT1/cmr/m/n/12 . [On-line]. Av
 ail-able: <http://www.oracle.com/technetwork/ 
  []
 
 
-Overfull \hbox (1.51955pt too wide) in paragraph at lines 442--443
+Overfull \hbox (1.51955pt too wide) in paragraph at lines 446--447
 \OT1/cmr/m/n/12 Avail-able: <http://tools.ietf.org/html/rfc2554> [Ac-cessed 9 M
 arch 2015] 
  []
 
 
-Overfull \hbox (26.24667pt too wide) in paragraph at lines 444--445
+Overfull \hbox (26.24667pt too wide) in paragraph at lines 448--449
 []\OT1/cmr/m/it/12 Securing FTP us-ing SSH \OT1/cmr/m/n/12 [On-line]. Avail-abl
 e: <http://nurdletech.com/linux-
  []
 
 
-Overfull \hbox (35.3744pt too wide) in paragraph at lines 446--447
+Overfull \hbox (35.3744pt too wide) in paragraph at lines 450--451
 []\OT1/cmr/m/it/12 PostgreSQL: About\OT1/cmr/m/n/12 . [On-line]. Avail-able: <h
 ttp://www.postgresql.org/about/>
  []
 
 
-Overfull \hbox (84.7852pt too wide) in paragraph at lines 448--449
+Overfull \hbox (84.7852pt too wide) in paragraph at lines 452--453
 []\OT1/cmr/m/it/12 Software En-gi-neer-ing\OT1/cmr/m/n/12 . [On-line]. Avail-ab
 le: <http://sesolution.blogspot.com/p/software-
  []
 
 
-Overfull \hbox (91.88899pt too wide) in paragraph at lines 450--451
+Overfull \hbox (91.88899pt too wide) in paragraph at lines 454--455
 \OT1/cmr/m/n/12 Pre-to-ria: Pre-to-ria. Avail-able: <http://www.cs.up.ac.za/mod
 ules/courses/download.php? 
  []
 
 [19]
-Overfull \hbox (91.88899pt too wide) in paragraph at lines 452--453
+Overfull \hbox (91.88899pt too wide) in paragraph at lines 456--457
 \OT1/cmr/m/n/12 Pre-to-ria: Pre-to-ria. Avail-able: <http://www.cs.up.ac.za/mod
 ules/courses/download.php? 
  []
 
 
-Overfull \hbox (95.61394pt too wide) in paragraph at lines 454--455
+Overfull \hbox (95.61394pt too wide) in paragraph at lines 458--459
 \OT1/cmr/m/n/12 [On-line]. Avail-able: <http://blogs.msdn.com/b/sqlexpress/arch
 ive/2010/04/21/database-
  []
 
 
-Overfull \hbox (10.73195pt too wide) in paragraph at lines 454--455
+Overfull \hbox (10.73195pt too wide) in paragraph at lines 458--459
 \OT1/cmr/m/n/12 size-limit-increased-to-10gb-in-sql-server-2008-r2-express.aspx
 > [Ac-cessed
  []
 
 
-Overfull \hbox (57.60278pt too wide) in paragraph at lines 456--457
+Overfull \hbox (57.60278pt too wide) in paragraph at lines 460--461
 []\OT1/cmr/m/it/12 Usability Eval-u-a-tion Ba-sics\OT1/cmr/m/n/12 . [On-line]. 
 Avail-able: <http://www.usability.gov/what-
  []
@@ -465,32 +465,39 @@ Avail-able: <http://www.usability.gov/what-
 Missing character: There is no Ã in font cmr12!
 Missing character: There is no ¤ in font cmr12!
 
-Overfull \hbox (3.22925pt too wide) in paragraph at lines 458--459
+Overfull \hbox (3.22925pt too wide) in paragraph at lines 462--463
 \OT1/cmr/m/n/12 ee-jee-and-not-j2ee-instead-of-spring-in-new-enterprise-java-pr
 ojects-in-
  []
 
 
-Overfull \hbox (29.40155pt too wide) in paragraph at lines 460--461
+Overfull \hbox (29.40155pt too wide) in paragraph at lines 464--465
 []\OT1/cmr/m/it/12 Welcome to Apache Maven\OT1/cmr/m/n/12 . [On-line]. Avail-ab
 le: <http://maven.apache.org/>
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 469.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 473.
 [20]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 469.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 473.
  (./architecuralRequirements.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 469.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 469.
-Package rerunfilecheck Info: File `architecuralRequirements.out' has not change
-d.
-(rerunfilecheck)             Checksum: BD9D6AA127BBF6528D3B51C4BE56722C;1421.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 469.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 473.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 473.
+
+
+Package rerunfilecheck Warning: File `architecuralRequirements.out' has changed
+.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `architecuralRequirements.out':
+(rerunfilecheck)             Before: BD9D6AA127BBF6528D3B51C4BE56722C;1421
+(rerunfilecheck)             After:  B14786266237B4E19F5562091BC61AE4;1421.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 473.
  ) 
 Here is how much of TeX's memory you used:
  7044 strings out of 495028
  107391 string characters out of 6181497
- 193305 words of memory out of 5000000
+ 194305 words of memory out of 5000000
  10133 multiletter control sequences out of 15000+600000
  10230 words of font info for 36 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -502,7 +509,7 @@ e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on architecuralRequirements.pdf (21 pages, 264276 bytes).
+Output written on architecuralRequirements.pdf (21 pages, 264590 bytes).
 PDF statistics:
  293 PDF objects out of 1000 (max. 8388607)
  259 compressed objects within 3 object streams
