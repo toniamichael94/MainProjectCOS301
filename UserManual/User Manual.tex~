@@ -245,7 +245,7 @@ Once the user has clicked the "Sign Up" option on the navigation pane, the user 
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/signUp.png}
+    \includegraphics[width=1.0\textwidth]{screenshots/sign/signUp.png}
     \caption{Sign Up - as indicated by the grey box on the page} 
 \end{figure}
 
@@ -253,7 +253,7 @@ When the button is clicked, the CMS will direct the user to the signup page wher
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/signUpPage.PNG}
+    \includegraphics[width=1.0\textwidth]{screenshots/sign/signUpPage.png}
     \caption{Sign Up Page - details to be filled in - all fields are required} 
 \end{figure}
 
@@ -271,7 +271,7 @@ To sign in, the user must click on the 'Sign In' tab on the navigation bar.
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/signIn.png}
+    \includegraphics[width=1.0\textwidth]{screenshots/sign/signIn.png}
     \caption{Sign In - as indicated by the grey box on the page} 
 \end{figure}
 
@@ -279,7 +279,7 @@ Once the user clicks on the sign in tab, the CMS should direct to the sign in pa
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/signInPage.png}
+    \includegraphics[width=1.0\textwidth]{screenshots/sign/signInPage.png}
     \caption{Sign In page - Type the appropriate information in the textboxes and click submit to sign in} 
 \end{figure}
   
@@ -322,7 +322,7 @@ The Navigation pane will be displayed as follows if the user has not logged in:
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/HomePage.png}
+    \includegraphics[width=1.0\textwidth]{screenshots/sign/homepage.png}
     \caption{Home Page - user has not logged in } 
 \end{figure}
 
@@ -348,7 +348,7 @@ Once the user has logged on, the options that will be available on the navigatio
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/HomePage2.png}
+    \includegraphics[width=1.0\textwidth]{screenshots/homepage2.png}
     \caption{Home Page - user has logged in } 
 \end{figure}
 
@@ -667,13 +667,7 @@ The purpose of this page is to allow the cafeteria manager to keep tabs on which
   \centering
     \includegraphics[width=1.0\textwidth]{screenshots/menuStats25.png}
     \caption{The Menu Items Statistics page - the generated graph will be displayed as follows, grouping menu items by the menu categories}
-\end{figure}
-
-begin{figure}[H]
-  \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/menuStats25.png}
-    \caption{When the category bar is clicked, a new graph will be displayed indicating the different menu items within that category}
-\end{figure}
+\end{figure} 
  
 \begin{figure}[H]
   \centering
