@@ -17,6 +17,14 @@ var _ = require('lodash'),
 	nodemailer = require('nodemailer'),
   fs = require('fs'),
   fse = require('fs-extra');
+  
+  /**
+   * audit
+   * This function is used to create logs of all actions and add them to the Audit database
+   * Last edited by {Rendani Dau}
+   * @param {Object} _type
+   * @param {Object} data
+   */
  function audit(_type, data){
 	var _audit = {
 		event: _type,
@@ -29,8 +37,13 @@ var _ = require('lodash'),
 		}
 	});
 }
-  /*
+
+  /**
    * Assign Roles
+   * This function is used to assign roles to different users which will then be used to determine the functionality the
+   * user has access to
+   * @param {Object} req
+   * @param {Object} res
    */
 exports.assignRoles = function(req, res) {
 
@@ -45,7 +58,6 @@ exports.assignRoles = function(req, res) {
             }
         });
     }
-
 	User.update({username: req.body.userID}, {roles: [req.body.role]}, function(err, numAffected){
 		if(err) return res.status(400).send({
 			message: errorHandler.getErrorMessage(err)
@@ -69,105 +81,96 @@ exports.assignRoles = function(req, res) {
 		else{
 			res.status(200).send({message: 'Role has been successfully assigned.'});
 		}
-		
-		
 		var dat = req.body.role + ' role has been assigned to ' + req.body.userID + ' by Superuser';
 		audit('Role change', dat);
 	});
 };
 
-
-/*
+/**
 * Set roles by the Admin user
+* This function is used to assign roles to different users which will then be used to determine the functionality the
+* user has access to
+* Last edited by {Isabel Nel}
+* @param {Object} req
+* @param {Object} res
 */
-
 exports.assignRolesAdminRole = function(req, res) {
 	var userName = req.body.userID;
 	var role = req.body.role;
 	var error;
 
-		if(req.body.role === 'superuser'){
-			User.find({roles: 'superuser'}, function(err, items) {
-                if(items.length > 0){
-                    User.update({username: items[0].username}, {roles: ['user']}, function(err1, numAffected1){
-                    });
-                }
-                else {
-                      res.status(400).send({message: 'Did not change Admin!'});
-                }
-			});
-        }
-
-		User.update({username: req.body.userID}, {roles: [req.body.role]}, function(err, numAffected){
-			if(err) return res.status(400).send({
-				message: errorHandler.getErrorMessage(err)
-			});
-			else if (numAffected < 1){
-				res.status(400).send({message: 'No such Employee ID!'});
-			}
-            else if(req.body.role === 'admin'){
-
-                User.update({username: req.user.username}, {roles: ['user']}, function(err, numAffected){
-                    if(err) return res.status(400).send({
-                        message: errorHandler.getErrorMessage(err)
-                    });
-                    else if (numAffected < 1){
-                        res.status(400).send({message: 'Did not change Admin!'});
-                    }
-                    else{
-                        res.status(200).send({message: 'Admin Changed'});
-                    }
-                });
-            }
-			else{
-				res.status(200).send({message: 'Role has been successfully assigned.'});
-			}
-			
-			
-			var dat = req.body.role + ' role has been assigned to ' + req.body.userID + ' by Admin user';
-			audit('Role change', dat);
+	if(req.body.role === 'superuser'){
+		User.find({roles: 'superuser'}, function(err, items) {
+		        if(items.length > 0){
+		            User.update({username: items[0].username}, {roles: ['user']}, function(err1, numAffected1){
+		            });
+		        }
+		        else {
+		              res.status(400).send({message: 'Did not change Admin!'});
+		        }
 		});
+        }
+	User.update({username: req.body.userID}, {roles: [req.body.role]}, function(err, numAffected){
+		if(err) return res.status(400).send({
+			message: errorHandler.getErrorMessage(err)
+		});
+		else if (numAffected < 1){
+			res.status(400).send({message: 'No such Employee ID!'});
+		}
+            	else if(req.body.role === 'admin'){
+	                User.update({username: req.user.username}, {roles: ['user']}, function(err, numAffected){
+	                    if(err) return res.status(400).send({
+	                        message: errorHandler.getErrorMessage(err)
+	                    });
+	                    else if (numAffected < 1){
+	                        res.status(400).send({message: 'Did not change Admin!'});
+	                    }
+	                    else{
+	                        res.status(200).send({message: 'Admin Changed'});
+	                    }
+	                });
+            	}
+		else{
+			res.status(200).send({message: 'Role has been successfully assigned.'});
+		}
+		
+		var dat = req.body.role + ' role has been assigned to ' + req.body.userID + ' by Admin user';
+		audit('Role change', dat);
+	});
 };
 
-
-/*
+/**
  * Change Employee ID
+ * This function is used to change the employee's current employee ID 
  * Last Edited by {Semaka Malapane and Tonia Michael}
+ * @param {Object} req
+ * @param {Object} res
+ * @return {String} returns a string with a message whether the change was successful or not
  */
 exports.changeEmployeeID = function(req, res) {
     if(req.body.newUserID) {
         User.update({username: [req.body.currentUserID]}, {username: req.body.newUserID}, function (err, numAffected) {
-            console.log('current user id ' + req.body.currentUserID);
-            console.log('new user id ' + req.body.newUserID);
-            if (err) return res.status(400).send({
-                message: errorHandler.getErrorMessage(err)
-            });
-            else if (numAffected < 1) {
-                return res.status(400).send({message: 'No such employee ID!'});
-            }
-            else {
-				var dat = 'EmployeeID changed from ' + req.body.currentUserID + ' to ' + req.body.newUserID;
-				
-				audit('EmployeeID change', dat);
-
-                Order.update({username: [req.body.currentUserID]}, {username: req.body.newUserID}, {multi: true }, function (err, numAffected) {
-                    console.log('current user id ' + req.body.currentUserID);
-                    console.log('new user id ' + req.body.newUserID);
-                    if (err) return res.status(400).send({
-                        message: errorHandler.getErrorMessage(err)
-                    });
-                    else if (numAffected < 1) {
-                        res.status(400).send({message: 'Employee has no orders placed - EmployeeID updated in user database!'});
-                    }
-                    /*else {
-                        //var dat = 'EmployeeID changed from ' + req.body.currentUserID + ' to ' + req.body.newUserID;
-
-                        //audit('EmployeeID change', dat);
-                        res.status(200).send({message: 'Employee ID has been successfully changed.'});
-                    }*/
-                });
-                return res.status(200).send({message: 'Employee ID has been successfully changed.'});
-            }
+		if (err) return res.status(400).send({
+			message: errorHandler.getErrorMessage(err)
+		});
+		else if (numAffected < 1) {
+			return res.status(400).send({message: 'No such employee ID!'});
+		}
+		else {
+			var dat = 'EmployeeID changed from ' + req.body.currentUserID + ' to ' + req.body.newUserID;
+			audit('EmployeeID change', dat);
+			Order.update({username: [req.body.currentUserID]}, {username: req.body.newUserID}, {multi: true }, function (err, numAffected) {
+			    console.log('current user id ' + req.body.currentUserID);
+			    console.log('new user id ' + req.body.newUserID);
+			    if (err) return res.status(400).send({
+			        message: errorHandler.getErrorMessage(err)
+			    });
+			    else if (numAffected < 1) {
+			        res.status(400).send({message: 'Employee has no orders placed - EmployeeID updated in user database!'});
+			    }
+			});
+			return res.status(200).send({message: 'Employee ID has been successfully changed.'});
+		}
         });
     }
     else
@@ -176,8 +179,13 @@ exports.changeEmployeeID = function(req, res) {
     }
 };
 
-/*
+/**
  * Audits
+ * This function is used to get the audits of the system for the actions the user specifies 
+ * Last Edited by {Rendani Dau}
+ * @param {Object} req
+ * @param {Object} res
+ * @return {String} returns a string with a message whether the change was successful or not
  */
 exports.getAudits = function(req, res){
 	if(req.body.type === 'all'){
@@ -201,9 +209,13 @@ exports.getAuditTypes = function(req, res){
 	});
 };
 
-/*
+/**
  * Remove Employee
+ * This function is used to remove an employee from the database 
  * Last Edited by {Semaka Malapane and Tonia Michael}
+ * @param {Object} req
+ * @param {Object} res
+ * @return {String} returns a string with a message whether the removal was successful or not
  */
 exports.removeEmployee = function(req, res) {
   if(req.body.userID) {
@@ -225,9 +237,6 @@ exports.removeEmployee = function(req, res) {
                     else if (numAffected < 1) {
                         res.status(400).send({message: 'Employee has no orders placed but has been removed in the user database!'});
                     }
-                    /*else {
-                        res.status(200).send({message: 'Employee has been successfully removed.'});
-                    }*/
                 });
                 return res.status(200).send({message: 'Employee has been successfully removed.'});
             }
@@ -294,11 +303,12 @@ exports.removeEmployee = function(req, res) {
     }
 };*/
 
-/*
+/**
 * Set System Wide Limit
+* Helper function to notify all users of CMS about system limit change
 * Last Edited by {Semaka Malapane}
+* @param {Integer} newLimit
 */
-//Helper function to notify all users of CMS about system limit change
 function sendMessage(newLimit){
 	User.findOne({}, function(err, user){
 		users.forEach(function(user){
@@ -331,45 +341,12 @@ function sendMessage(newLimit){
 	});
 }
 
-/*
-  * Helper function to email user about order
-  * Last Edited by: Semaka Malapane
-  */
- /*function sendMessage(newLimit){
-    User.findOne({username: uname}, function(err, user){
-        if(err){
-                console.log(err);
-                return;
-        }		
-        var mailOptions = {
-                subject: 'Your Order Is Ready'
-        };
-        mailOptions.to = user.username;
-        mailOptions.text = '<p> Dear ' + user.displayName + ',<br> <br> ' +
-				'Please note the system limit for the Cafeteria Management System has been changed to R' + newLimit + '. <br>'+
-				'Please go to edit profile if you\'d like to adjust your limit.<br> <br>'+
-				'The CMS Team <br> </p>';
-        var notification = new Notifications({
-                username: mailOptions.to,
-                subject: mailOptions.subject,
-                message: mailOptions.text
-        });
-
-        notification.save(function(err) {
-                if(err) {
-                        console.log('ERROR!!!!!!!!!!');
-                        console.log(notification);
-                        return;
-                }
-                console.log('Notification has been created');
-        });
-    });
- }*/
-/*
+/**
 * Set System Wide Limit
+* Helper function to mail all users of CMS
 * Last Edited by {Rendani Dau}
+* @param {Integer} newLimit
 */
-//Helper function to mail all users of CMS
 function sendEmail(newLimit){
 	User.find({}, function(err, users){
 		var smtpTransport = nodemailer.createTransport(configs.mailer.options);
@@ -381,9 +358,9 @@ function sendEmail(newLimit){
 			};
 			mailOptions.to = user.email;
 			mailOptions.text = 'Dear ' + user.displayName + ',\n\n' +
-									'Please note the system limit for the Cafeteria Management System has been changed to R' + newLimit + '\n'+
-									'Please visit CMS if you\'d like to adjust your limit.\n\n'+
-									'The CMS Team';
+						'Please note the system limit for the Cafeteria Management System has been changed to R' + newLimit + '\n'+
+						'Please visit CMS if you\'d like to adjust your limit.\n\n'+
+						'The CMS Team';
 			smtpTransport.sendMail(mailOptions, function(err){ 
 				if(err) console.log('Email not sent' + err); 
 			});
@@ -391,6 +368,13 @@ function sendEmail(newLimit){
 	});
 }
 
+/**
+* Set System Wide Limit
+* Helper function to mail all users of CMS
+* Last Edited by {Rendani Dau}
+* @param {Object} req
+* @param {Object} res
+*/
 exports.setSystemWideLimit = function(req, res){
 	Config.update({name: 'System wide limit'}, {value: req.body.value}, function(err, numAffected){
 		if(err) return res.status(400).send({
@@ -405,14 +389,14 @@ exports.setSystemWideLimit = function(req, res){
 				if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
 				
 				User.update({limit: { $gt: req.body.value }}, {limit: req.body.value}, { multi: true }, function(err, numAffected){
-				if(err)
-					res.status(200).send({message: 'Limit has been successfully changed. No users updated!'});
-				else
-					res.status(200).send({message: 'Limit has been successfully changed. ' + numAffected + ' users have been updated'});
-				var dat = 'The system wide limit has been changed to ' + req.body.value;
-				audit('Admin settings change', dat);
-				sendEmail(req.body.value);
-			});
+					if(err)
+						res.status(200).send({message: 'Limit has been successfully changed. No users updated!'});
+					else
+						res.status(200).send({message: 'Limit has been successfully changed. ' + numAffected + ' users have been updated'});
+					var dat = 'The system wide limit has been changed to ' + req.body.value;
+					audit('Admin settings change', dat);
+					sendEmail(req.body.value);
+				});
 			});
 		}
 		else{
