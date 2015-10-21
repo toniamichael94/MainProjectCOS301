@@ -23,7 +23,7 @@ var _ = require('lodash'),
 		details: JSON.stringify(data)
 	};
 	Audit.create(_audit, function(err){
-		if(err){ 
+		if(err){
 			console.log('Audit not created for ' + _type);
 			console.log(errorHandler.getErrorMessage(err));
 		}
@@ -69,8 +69,8 @@ exports.assignRoles = function(req, res) {
 		else{
 			res.status(200).send({message: 'Role has been successfully assigned.'});
 		}
-		
-		
+
+
 		var dat = req.body.role + ' role has been assigned to ' + req.body.userID + ' by Superuser';
 		audit('Role change', dat);
 	});
@@ -122,8 +122,8 @@ exports.assignRolesAdminRole = function(req, res) {
 			else{
 				res.status(200).send({message: 'Role has been successfully assigned.'});
 			}
-			
-			
+
+
 			var dat = req.body.role + ' role has been assigned to ' + req.body.userID + ' by Admin user';
 			audit('Role change', dat);
 		});
@@ -147,7 +147,7 @@ exports.changeEmployeeID = function(req, res) {
             }
             else {
 				var dat = 'EmployeeID changed from ' + req.body.currentUserID + ' to ' + req.body.newUserID;
-				
+
 				audit('EmployeeID change', dat);
 
                 Order.update({username: [req.body.currentUserID]}, {username: req.body.newUserID}, {multi: true }, function (err, numAffected) {
@@ -196,7 +196,7 @@ exports.getAudits = function(req, res){
 exports.getAuditTypes = function(req, res){
 	Audit.find().distinct('event', function(err, result){
 		if(err) return res.status(400).send({message: 'Could not get audit types'});
-		
+
 		return res.status(200).send({message: result});
 	});
 };
@@ -340,7 +340,7 @@ function sendMessage(newLimit){
         if(err){
                 console.log(err);
                 return;
-        }		
+        }
         var mailOptions = {
                 subject: 'Your Order Is Ready'
         };
@@ -374,7 +374,7 @@ function sendEmail(newLimit){
 	User.find({}, function(err, users){
 		var smtpTransport = nodemailer.createTransport(configs.mailer.options);
 		users.forEach(function(user){
-			
+
 			var mailOptions = {
 				from: configs.mailer.from,
 				subject: 'System Wide Spending Limit Updated'
@@ -384,8 +384,8 @@ function sendEmail(newLimit){
 									'Please note the system limit for the Cafeteria Management System has been changed to R' + newLimit + '\n'+
 									'Please visit CMS if you\'d like to adjust your limit.\n\n'+
 									'The CMS Team';
-			smtpTransport.sendMail(mailOptions, function(err){ 
-				if(err) console.log('Email not sent' + err); 
+			smtpTransport.sendMail(mailOptions, function(err){
+				if(err) console.log('Email not sent' + err);
 			});
 		});
 	});
@@ -403,7 +403,7 @@ exports.setSystemWideLimit = function(req, res){
 
 			config.save(function(err){
 				if(err) return res.status(400).send({message: errorHandler.getErrorMessage(err)});
-				
+
 				User.update({limit: { $gt: req.body.value }}, {limit: req.body.value}, { multi: true }, function(err, numAffected){
 				if(err)
 					res.status(200).send({message: 'Limit has been successfully changed. No users updated!'});
@@ -701,7 +701,7 @@ exports.deleteImage = function(req, res){
 	var imagePath = 'public/modules/core/img/brand/carousel-' + req.body.image + '.png';
 	var defaultImage = 'public/modules/core/img/brand/default-' + req.body.image + '.png';
 	var capChanged = 0;
-	
+
 	Config.update({name: cap}, {value: ''}, function(err, numAffected){
 		if(err || numAffected < 1) capChanged = 1;
 		fse.copy(defaultImage,imagePath,{replace: true}, function(err){
@@ -709,28 +709,38 @@ exports.deleteImage = function(req, res){
 		res.status(200).send({message: 'Image deleted'});
 		});
 	});
-	
+
 };
 
 /*
  * Loading the employees from the database
  */
 exports.loadEmployees = function(req, res){
+		User.find({roles: 'superuser'}, function (error, superuserEmployee){
+			User.find({roles: 'admin'}, function(error2, adminuserEmployee){
+				User.find({}, function(err, employees) {
+						var itemMap = {};
+						employees.forEach(function(employees) {
+							if((employees.username.localeCompare(superuserEmployee[0].username) === 0) || (employees.username.localeCompare(adminuserEmployee[0].username) === 0)){
 
-    User.find({}, function(err, employees) {
-        var itemMap = {};
-        employees.forEach(function(employees) {
-            itemMap[employees._id] = employees;
-            console.log(employees.username);
-            //console.log(employees.username);
-        });
-        if(err || !itemMap) return res.status(400).send({message: 'Employees not found' });
-        else {
-            console.log('LOAD');
-            //console.log(employees);
-            res.status(200).send({message: itemMap});
-        }
-    });
+							}else{
+								itemMap[employees._id] = employees;
+							//	console.log(employees.username);
+							}
+
+								//console.log(employees.username);
+						});
+						if(err || !itemMap) return res.status(400).send({message: 'Employees not found' });
+						else {
+								//console.log('LOAD');
+								//console.log(employees);
+								res.status(200).send({message: itemMap});
+						}
+				});
+			});
+
+		});
+
 };
 
 /**
