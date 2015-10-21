@@ -55,7 +55,6 @@ var notification, notification2;
 		});
 		
 		it('should be able to show an error when trying to save without subject', function(done) {
-			notification2.username = 'aUser';
 			notification2.subject = '';
 			return notification2.save(function(err) {
 				should.exist(err);
@@ -64,7 +63,6 @@ var notification, notification2;
 		});
 		
 		it('should be able to show an error when trying to save without message', function(done) {
-			notification2.subject = 'aSubject';
 			notification2.message = '';
 			return notification2.save(function(err) {
 				should.exist(err);
@@ -73,7 +71,6 @@ var notification, notification2;
 		});
 		
 		it('should be able to show an error when trying to save with incorrect status', function(done) {
-			notification2.message = 'a Message';
 			notification2.status = 'a Status';
 			return notification2.save(function(err) {
 				should.exist(err);

@@ -106,7 +106,13 @@ describe('User Model Unit Tests:', function() {
             });
         });
 	});
-
+	
+	describe('Method update', function(){
+		it('should be able to update the user without problems', function(done){
+			User.update({username: 'username'}, {limit: 2000}, done);
+		});
+	});
+	
 	after(function(done) {
 		User.remove().exec();
 		done();
