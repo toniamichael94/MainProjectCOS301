@@ -30,10 +30,7 @@
 	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 		<form name="userForm" data-ng-submit="signup()" class="signin form-horizontal" novalidate autocomplete="off">
 			<fieldset>
-				<div class="form-group">
-					<label for="username">Employee ID</label>
-					<input type="text" id="username" name="username" class="form-control" data-ng-model="credentials.username" placeholder="Employee ID">
-				</div>
+
 				<div class="form-group">
 					<label for="firstName">First Name</label>
 					<input type="text" required id="firstName" name="firstName" class="form-control" data-ng-model="credentials.firstName" placeholder="First Name">
@@ -63,6 +60,10 @@
 					<label for="limit">Spending limit (ZAR)  </label>
                     <b><p class="text-center text-info" data-ng-init="getSystemLimit()">Current maximum spending limit: {{success}}</p></b>
                     <input type="number" id="limit" name="limit" class="form-control" data-ng-model="credentials.limit" min = 0>
+				</div>
+				<div class="form-group">
+					<label for="username">Employee ID</label>
+					<input type="text" id="username" name="username" class="form-control" data-ng-model="credentials.username" placeholder="Employee ID">
 				</div>
 
 				<div class="form-group">
