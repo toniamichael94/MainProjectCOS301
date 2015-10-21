@@ -162,7 +162,7 @@
 
 
 						<div class = "form-group" ng-init="showCat=true; loadMenuCategories()">
-						<label data-ng-click="showCat=false;">No show</label>
+						<label data-ng-click="showCat=false;"></label>
 							<label for="itemCategory" ng-click="showCat=true; loadMenuCategories()">Category</label>
 							<div data-ng-hide="showCat==false" data-ng-show="showCat==true">
 								<select id ="itemCategory" name ="itemCategory" class = "form-control" data-ng-model ="menuItem.itemCategory" >
