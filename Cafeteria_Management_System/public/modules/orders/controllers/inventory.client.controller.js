@@ -46,7 +46,6 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 		*/
 		$scope.inventoryReport = function()
 		{
-				console.log('hello');
 		  	$scope.error = '';
 				$scope.success = '';
 				var valid = true;
@@ -58,9 +57,11 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 
 				if(valid)
 				{
-					$http.post('orders/inventoryReport',{startDate: $scope.startDate, endDate: $scope.endDate},{responseType:'JSON'}).success(function(response){
+					$http.post('orders/inventoryReport',{startDate: $scope.startDate, endDate: $scope.endDate}).success(function(response){
 
+						$scope.getItems(response);
 
+						console.log('back');
 
 					}).error(function(response){
 						console.log(response);
@@ -69,6 +70,24 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 				}
 		};
 
+		$scope.getItems=function(response)
+		{
+			for(var j in response.message)
+				$scope.findItems(response.message[j].itemName, response.message[j].quantity);
+
+		};
+
+		$scope.findItems = function(item, quantity)
+		{
+			console.log('in find items');
+
+			$http.post('/orders/searchMenuItem', {itemName: item}).success(function(response){
+				console.log('Searched items:'+response.menuItem.itemName);
+
+			}).error(function(response){
+				console.log(response);
+			});
+		};
 		/*
 		Update the quantity of an inventory item
 		*/

@@ -3,6 +3,7 @@
 module.exports = function(app) {
 	var users = require('../../app/controllers/users.server.controller');
 	var inventory = require('../../app/controllers/inventory.server.controller');
+		var menuItems = require('../../app/controllers/menuItems.server.controller');
 
 	//loadinginventory items from db
 	app.route('/loadInventoryItems').get(inventory.loadInventoryItems);
@@ -17,6 +18,7 @@ module.exports = function(app) {
 
 		//Reporting
 		app.route('/orders/inventoryReport').post(inventory.inventoryReport);
+		app.route('/orders/searchMenuItem').post(menuItems.searchMenu);
 
 
 	//update inventory quantity

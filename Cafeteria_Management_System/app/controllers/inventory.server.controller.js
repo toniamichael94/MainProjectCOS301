@@ -195,8 +195,63 @@ exports.decreaseInventory = function(req,res)
 	*/
 
 	exports.inventoryReport = function(req,res){
-		console.log('in inventory report');
-	};
+		Order.find({created: {$gt: req.body.startDate, $lt: req.body.endDate}}, function(err, orders){
+			if(err) return res.status(400).send({message: 'Could not generate report!'});
+
+			exports.getItems(orders);
+
+			if(err){
+				return res.status(400).send({message: 'Could not find orders for the specified time.'});
+			}else{
+				return res.status(200).send({message: orders});
+			}
+
+		});
+		};
+
+		exports.getItems = function(orders)
+		{
+			var item = [];
+			var c = 0;
+			for(var order in orders)
+			{
+				item.push(exports.searchItem(orders[order].itemName, orders[order].quantity));
+				//item.push(c);
+				console.log("c:"+c);
+			}
+			console.log('end');
+
+		};
+
+exports.searchItem=function(order, quantity){
+	MenuItem.findOne({itemName: order}, function(err, item){
+		if(err){ return -1;}
+		else{
+				console.log("ITEM:"+item.itemName+" Quantity:"+quantity);
+				var ingredients = [];
+				var quantities = [];
+				var counter = 0;
+
+				console.log('here');
+				for(var i in item.ingredients.ingredients)
+					{
+						var total = item.ingredients.quantities[i] * quantity;
+						ingredients[counter] = item.ingredients.ingredients[i];
+						quantities[counter] = total;
+						counter ++;
+						console.log('in for');
+					}
+
+					console.log('here2')
+					var inventoryItems = new Object();
+					inventoryItems.ingredients = ingredients;
+					inventoryItems.quantity = quantities;
+					console.log("Before return:"+inventoryItems);
+					return inventoryItems;
+		}
+
+			});
+		};
 
  /* Update inventory
  * Last Edited by {Semaka Malapane and Tonia Michael}
