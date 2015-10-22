@@ -111,10 +111,16 @@ var menuItem, menuItem2;
 				done();
 			});
 		});
-		
-		after(function(done) {
-			MenuItem.remove().exec();
-			done();
+	});
+	
+	describe('Method update', function(){
+		it('should be able to update the menu item without problems', function(done){
+			MenuItem.update({itemName: 'Tramezzini'}, {price: 35}, done);
 		});
+	});
+		
+	after(function(done) {
+		MenuItem.remove().exec();
+		done();
 	});
 });
