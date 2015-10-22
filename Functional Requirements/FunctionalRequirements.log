@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.23)  25 SEP 2015 17:29
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.23)  16 OCT 2015 22:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -351,28 +351,33 @@ Overfull \vbox (6.51607pt too high) has occurred while \output is active []
 
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 98--103
+Underfull \hbox (badness 10000) in paragraph at lines 98--104
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--104
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 104--105
+Underfull \hbox (badness 10000) in paragraph at lines 105--106
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 112.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 113.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 112.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 113.
  [5] [6]
 <../images/CMSUseCase.png, id=135, 977.6525pt x 710.655pt>
 File: ../images/CMSUseCase.png Graphic file (type png)
 
 <use ../images/CMSUseCase.png>
-Package pdftex.def Info: ../images/CMSUseCase.png used on input line 166.
+Package pdftex.def Info: ../images/CMSUseCase.png used on input line 167.
 (pdftex.def)             Requested size: 390.0pt x 283.4979pt.
  [7]
 <../images/AuthenticationUseCaseDiagram.png, id=140, 977.6525pt x 710.655pt>
@@ -380,7 +385,7 @@ File: ../images/AuthenticationUseCaseDiagram.png Graphic file (type png)
 
 <use ../images/AuthenticationUseCaseDiagram.png>
 Package pdftex.def Info: ../images/AuthenticationUseCaseDiagram.png used on inp
-ut line 179.
+ut line 180.
 (pdftex.def)             Requested size: 390.0pt x 283.4979pt.
  [8 <../images/CMSUseCase.png (PNG copy)>]
 <../images/ForgotPasswordActivity.png, id=146, 539.01375pt x 520.94624pt>
@@ -388,14 +393,14 @@ File: ../images/ForgotPasswordActivity.png Graphic file (type png)
 
 <use ../images/ForgotPasswordActivity.png>
 Package pdftex.def Info: ../images/ForgotPasswordActivity.png used on input lin
-e 189.
+e 190.
 (pdftex.def)             Requested size: 390.0pt x 376.93312pt.
 
 <../images/ForgotPassword.png, id=147, 985.6825pt x 738.76pt>
 File: ../images/ForgotPassword.png Graphic file (type png)
 
 <use ../images/ForgotPassword.png>
-Package pdftex.def Info: ../images/ForgotPassword.png used on input line 194.
+Package pdftex.def Info: ../images/ForgotPassword.png used on input line 195.
 (pdftex.def)             Requested size: 390.0pt x 292.29735pt.
  [9 <../images/AuthenticationUseCaseDiagram.png (PNG copy)>] [10 <../images/For
 gotPasswordActivity.png (PNG copy)>]
@@ -404,7 +409,7 @@ File: ../images/ValidateUserPassActivity.png Graphic file (type png)
 
 <use ../images/ValidateUserPassActivity.png>
 Package pdftex.def Info: ../images/ValidateUserPassActivity.png used on input l
-ine 202.
+ine 203.
 (pdftex.def)             Requested size: 390.0pt x 392.14812pt.
 
 <../images/validateUserCredentials.png, id=161, 1009.7725pt x 710.655pt>
@@ -412,7 +417,7 @@ File: ../images/validateUserCredentials.png Graphic file (type png)
 
 <use ../images/validateUserCredentials.png>
 Package pdftex.def Info: ../images/validateUserCredentials.png used on input li
-ne 207.
+ne 208.
 (pdftex.def)             Requested size: 390.0pt x 274.47594pt.
  [11 <../images/ForgotPassword.png (PNG copy)>] [12 <../images/ValidateUserPass
 Activity.png (PNG copy)>]
@@ -421,7 +426,7 @@ File: ../Diagrams/Register/registerUseCase.png Graphic file (type png)
 
 <use ../Diagrams/Register/registerUseCase.png>
 Package pdftex.def Info: ../Diagrams/Register/registerUseCase.png used on input
- line 215.
+ line 216.
 (pdftex.def)             Requested size: 390.0pt x 236.66588pt.
  [13 <../images/validateUserCredentials.png (PNG copy)>]
 <../Diagrams/Register/ActivityDiagrams/setEmail1.png, id=181, 822.07124pt x 498
@@ -430,7 +435,7 @@ File: ../Diagrams/Register/ActivityDiagrams/setEmail1.png Graphic file (type pn
 g)
  <use ../Diagrams/Register/ActivityDiagrams/setEmail1.png>
 Package pdftex.def Info: ../Diagrams/Register/ActivityDiagrams/setEmail1.png us
-ed on input line 222.
+ed on input line 223.
 (pdftex.def)             Requested size: 390.0pt x 236.66588pt.
 
 <../Diagrams/Register/ServiceContractsRegister/setEmailServiceContract.png, id=
@@ -440,7 +445,7 @@ File: ../Diagrams/Register/ServiceContractsRegister/setEmailServiceContract.png
 
 <use ../Diagrams/Register/ServiceContractsRegister/setEmailServiceContract.png>
 Package pdftex.def Info: ../Diagrams/Register/ServiceContractsRegister/setEmail
-ServiceContract.png used on input line 227.
+ServiceContract.png used on input line 228.
 (pdftex.def)             Requested size: 390.0pt x 268.09433pt.
 [14 <../Diagrams/Register/registerUseCase.png (PNG copy)>]
 <../Diagrams/Register/ActivityDiagrams/setPassword1.png, id=189, 836.12375pt x 
@@ -449,7 +454,7 @@ File: ../Diagrams/Register/ActivityDiagrams/setPassword1.png Graphic file (type
  png)
  <use ../Diagrams/Register/ActivityDiagrams/setPassword1.png>
 Package pdftex.def Info: ../Diagrams/Register/ActivityDiagrams/setPassword1.png
- used on input line 235.
+ used on input line 236.
 (pdftex.def)             Requested size: 390.0pt x 232.69238pt.
 
 [15 <../Diagrams/Register/ActivityDiagrams/setEmail1.png (PNG copy)> <../Diagra
@@ -462,7 +467,7 @@ ct.png Graphic file (type png)
 <use ../Diagrams/Register/ServiceContractsRegister/changePasswordServiceContrac
 t.png>
 Package pdftex.def Info: ../Diagrams/Register/ServiceContractsRegister/changePa
-sswordServiceContract.png used on input line 240.
+sswordServiceContract.png used on input line 241.
 (pdftex.def)             Requested size: 390.0pt x 210.15367pt.
  [16 <../Diagrams/Register/ActivityDiagrams/setPassword1.png (PNG copy)>]
 <../Diagrams/Register/ActivityDiagrams/setLimit.png, id=203, 822.07124pt x 498.
@@ -471,7 +476,7 @@ File: ../Diagrams/Register/ActivityDiagrams/setLimit.png Graphic file (type png
 )
  <use ../Diagrams/Register/ActivityDiagrams/setLimit.png>
 Package pdftex.def Info: ../Diagrams/Register/ActivityDiagrams/setLimit.png use
-d on input line 248.
+d on input line 249.
 (pdftex.def)             Requested size: 390.0pt x 236.66588pt.
 
 <../Diagrams/Register/ServiceContractsRegister/setLimit.png, id=204, 955.57pt x
@@ -480,7 +485,7 @@ File: ../Diagrams/Register/ServiceContractsRegister/setLimit.png Graphic file (
 type png)
  <use ../Diagrams/Register/ServiceContractsRegister/setLimit.png>
 Package pdftex.def Info: ../Diagrams/Register/ServiceContractsRegister/setLimit
-.png used on input line 253.
+.png used on input line 254.
 (pdftex.def)             Requested size: 390.0pt x 210.15367pt.
 
 [17 <../Diagrams/Register/ServiceContractsRegister/changePasswordServiceContrac
@@ -492,7 +497,7 @@ File: ../Diagrams/Register/ActivityDiagrams/setEmployeeID1.png Graphic file (ty
 pe png)
  <use ../Diagrams/Register/ActivityDiagrams/setEmployeeID1.png>
 Package pdftex.def Info: ../Diagrams/Register/ActivityDiagrams/setEmployeeID1.p
-ng used on input line 261.
+ng used on input line 262.
 (pdftex.def)             Requested size: 390.0pt x 236.66588pt.
 
 <../Diagrams/Register/ServiceContractsRegister/setEmployeeIDServiceContract.png
@@ -503,7 +508,7 @@ t.png Graphic file (type png)
 <use ../Diagrams/Register/ServiceContractsRegister/setEmployeeIDServiceContract
 .png>
 Package pdftex.def Info: ../Diagrams/Register/ServiceContractsRegister/setEmplo
-yeeIDServiceContract.png used on input line 266.
+yeeIDServiceContract.png used on input line 267.
 (pdftex.def)             Requested size: 390.0pt x 210.15367pt.
  [18 <../Diagrams/Register/ServiceContractsRegister/setLimit.png (PNG copy)>]
 <../Diagrams/Register/ActivityDiagrams/setFinancialPreferences1.png, id=221, 82
@@ -513,7 +518,7 @@ c file (type png)
 
 <use ../Diagrams/Register/ActivityDiagrams/setFinancialPreferences1.png>
 Package pdftex.def Info: ../Diagrams/Register/ActivityDiagrams/setFinancialPref
-erences1.png used on input line 274.
+erences1.png used on input line 275.
 (pdftex.def)             Requested size: 390.0pt x 236.66588pt.
 
 [19 <../Diagrams/Register/ActivityDiagrams/setEmployeeID1.png (PNG copy)> <../D
@@ -527,7 +532,7 @@ iceContract.png Graphic file (type png)
 <use ../Diagrams/Register/ServiceContractsRegister/setFinancialPreferencesServi
 ceContract.png>
 Package pdftex.def Info: ../Diagrams/Register/ServiceContractsRegister/setFinan
-cialPreferencesServiceContract.png used on input line 279.
+cialPreferencesServiceContract.png used on input line 280.
 (pdftex.def)             Requested size: 390.0pt x 218.65504pt.
  [20 <../Diagrams/Register/ActivityDiagrams/setFinancialPreferences1.png (PNG c
 opy)> <../Diagrams/Register/ServiceContractsRegister/setFinancialPreferencesSer
@@ -536,7 +541,7 @@ viceContract.png (PNG copy)>]
 File: ../images/MenuUseCase.jpg Graphic file (type jpg)
 
 <use ../images/MenuUseCase.jpg>
-Package pdftex.def Info: ../images/MenuUseCase.jpg used on input line 290.
+Package pdftex.def Info: ../images/MenuUseCase.jpg used on input line 291.
 (pdftex.def)             Requested size: 390.0pt x 225.50461pt.
 
 <../images/AddMenuItemActivity.jpg, id=237, 893.3375pt x 516.93124pt>
@@ -544,14 +549,14 @@ File: ../images/AddMenuItemActivity.jpg Graphic file (type jpg)
 
 <use ../images/AddMenuItemActivity.jpg>
 Package pdftex.def Info: ../images/AddMenuItemActivity.jpg used on input line 2
-98.
+99.
 (pdftex.def)             Requested size: 390.0pt x 225.6757pt.
 
 <../images/AddMenuItemSC.jpg, id=238, 866.23625pt x 500.87125pt>
 File: ../images/AddMenuItemSC.jpg Graphic file (type jpg)
 
 <use ../images/AddMenuItemSC.jpg>
-Package pdftex.def Info: ../images/AddMenuItemSC.jpg used on input line 303.
+Package pdftex.def Info: ../images/AddMenuItemSC.jpg used on input line 304.
 (pdftex.def)             Requested size: 390.0pt x 225.50461pt.
  [21 <../images/MenuUseCase.jpg>]
 <../images/DeleteMenuItemActivity.jpg, id=245, 879.285pt x 500.87125pt>
@@ -559,14 +564,14 @@ File: ../images/DeleteMenuItemActivity.jpg Graphic file (type jpg)
 
 <use ../images/DeleteMenuItemActivity.jpg>
 Package pdftex.def Info: ../images/DeleteMenuItemActivity.jpg used on input lin
-e 311.
+e 312.
 (pdftex.def)             Requested size: 390.0pt x 222.15712pt.
  [22 <../images/AddMenuItemActivity.jpg> <../images/AddMenuItemSC.jpg>]
 <../images/DeleteMenuItemSC.jpg, id=253, 933.4875pt x 500.87125pt>
 File: ../images/DeleteMenuItemSC.jpg Graphic file (type jpg)
 
 <use ../images/DeleteMenuItemSC.jpg>
-Package pdftex.def Info: ../images/DeleteMenuItemSC.jpg used on input line 316.
+Package pdftex.def Info: ../images/DeleteMenuItemSC.jpg used on input line 317.
 
 (pdftex.def)             Requested size: 390.0pt x 209.25629pt.
 
@@ -575,14 +580,14 @@ File: ../images/SearchMenuItemActivity.jpg Graphic file (type jpg)
 
 <use ../images/SearchMenuItemActivity.jpg>
 Package pdftex.def Info: ../images/SearchMenuItemActivity.jpg used on input lin
-e 324.
+e 325.
 (pdftex.def)             Requested size: 390.0pt x 225.50461pt.
  [23 <../images/DeleteMenuItemActivity.jpg> <../images/DeleteMenuItemSC.jpg>]
 <../images/SearchMenuItemSC.jpg, id=261, 910.40125pt x 500.87125pt>
 File: ../images/SearchMenuItemSC.jpg Graphic file (type jpg)
 
 <use ../images/SearchMenuItemSC.jpg>
-Package pdftex.def Info: ../images/SearchMenuItemSC.jpg used on input line 329.
+Package pdftex.def Info: ../images/SearchMenuItemSC.jpg used on input line 330.
 
 (pdftex.def)             Requested size: 390.0pt x 214.56795pt.
  [24 <../images/SearchMenuItemActivity.jpg>] <../images/UpdateMenuItemActivity.
@@ -591,14 +596,14 @@ File: ../images/UpdateMenuItemActivity.jpg Graphic file (type jpg)
 
 <use ../images/UpdateMenuItemActivity.jpg>
 Package pdftex.def Info: ../images/UpdateMenuItemActivity.jpg used on input lin
-e 337.
+e 338.
 (pdftex.def)             Requested size: 390.0pt x 225.50461pt.
 
 <../images/UpdateMenuItemSC.jpg, id=270, 898.35625pt x 500.87125pt>
 File: ../images/UpdateMenuItemSC.jpg Graphic file (type jpg)
 
 <use ../images/UpdateMenuItemSC.jpg>
-Package pdftex.def Info: ../images/UpdateMenuItemSC.jpg used on input line 342.
+Package pdftex.def Info: ../images/UpdateMenuItemSC.jpg used on input line 343.
 
 (pdftex.def)             Requested size: 390.0pt x 217.44159pt.
  [25 <../images/SearchMenuItemSC.jpg>]
@@ -607,7 +612,7 @@ Package pdftex.def Info: ../images/UpdateMenuItemSC.jpg used on input line 342.
 File: ../images/PlaceOrderUseCase.jpg Graphic file (type jpg)
 
 <use ../images/PlaceOrderUseCase.jpg>
-Package pdftex.def Info: ../images/PlaceOrderUseCase.jpg used on input line 353
+Package pdftex.def Info: ../images/PlaceOrderUseCase.jpg used on input line 354
 .
 (pdftex.def)             Requested size: 390.0pt x 283.4979pt.
 
@@ -616,7 +621,7 @@ File: ../images/checkProductAvailability.png Graphic file (type png)
 
 <use ../images/checkProductAvailability.png>
 Package pdftex.def Info: ../images/checkProductAvailability.png used on input l
-ine 361.
+ine 362.
 (pdftex.def)             Requested size: 390.0pt x 232.32156pt.
  [27 <../images/PlaceOrderUseCase.jpg>]
 <../images/checkProductAvailabilitySC.jpg, id=291, 975.645pt x 557.08125pt>
@@ -624,7 +629,7 @@ File: ../images/checkProductAvailabilitySC.jpg Graphic file (type jpg)
 
 <use ../images/checkProductAvailabilitySC.jpg>
 Package pdftex.def Info: ../images/checkProductAvailabilitySC.jpg used on input
- line 367.
+ line 368.
 (pdftex.def)             Requested size: 390.0pt x 222.68405pt.
 
 <../images/markAsReadyActivity.png, id=292, 982.67125pt x 710.655pt>
@@ -632,7 +637,7 @@ File: ../images/markAsReadyActivity.png Graphic file (type png)
 
 <use ../images/markAsReadyActivity.png>
 Package pdftex.def Info: ../images/markAsReadyActivity.png used on input line 3
-75.
+76.
 (pdftex.def)             Requested size: 390.0pt x 282.04485pt.
  [28 <../images/checkProductAvailability.png (PNG copy)> <../images/checkProduc
 tAvailabilitySC.jpg>]
@@ -640,15 +645,15 @@ tAvailabilitySC.jpg>]
 File: ../images/markAsReadySC.png Graphic file (type png)
 
 <use ../images/markAsReadySC.png>
-Package pdftex.def Info: ../images/markAsReadySC.png used on input line 381.
+Package pdftex.def Info: ../images/markAsReadySC.png used on input line 382.
 (pdftex.def)             Requested size: 390.0pt x 283.4979pt.
  [29 <../images/markAsReadyActivity.png (PNG copy)>] <../images/AddToPlateActiv
 ity.jpg, id=307, 915.42pt x 515.9275pt>
 File: ../images/AddToPlateActivity.jpg Graphic file (type jpg)
 
 <use ../images/AddToPlateActivity.jpg>
-Package pdftex.def Info: ../images/AddToPlateActivity.jpg used on input line 38
-9.
+Package pdftex.def Info: ../images/AddToPlateActivity.jpg used on input line 39
+0.
 (pdftex.def)             Requested size: 390.0pt x 219.79767pt.
 
 <../images/addToPlateServicee.jpg, id=308, 860.21375pt x 457.71pt>
@@ -656,7 +661,7 @@ File: ../images/addToPlateServicee.jpg Graphic file (type jpg)
 
 <use ../images/addToPlateServicee.jpg>
 Package pdftex.def Info: ../images/addToPlateServicee.jpg used on input line 39
-4.
+5.
 (pdftex.def)             Requested size: 390.0pt x 207.51807pt.
  [30 <../images/markAsReadySC.png (PNG copy)>] <../images/MarkAsCollectedActivi
 ty.png, id=316, 977.6525pt x 710.655pt>
@@ -664,10 +669,10 @@ File: ../images/MarkAsCollectedActivity.png Graphic file (type png)
 
 <use ../images/MarkAsCollectedActivity.png>
 Package pdftex.def Info: ../images/MarkAsCollectedActivity.png used on input li
-ne 402.
+ne 403.
 (pdftex.def)             Requested size: 390.0pt x 283.4979pt.
 
-Overfull \hbox (10.55371pt too wide) in paragraph at lines 399--404
+Overfull \hbox (10.55371pt too wide) in paragraph at lines 400--405
 \OT1/cmr/m/n/12 The ser-vice con-tract and ac-tiv-ity di-a-gram for markAs-Col-
 lected fol-low. markAs-
  []
@@ -677,7 +682,7 @@ lected fol-low. markAs-
 File: ../images/MarkAsCollectedSC.png Graphic file (type png)
 
 <use ../images/MarkAsCollectedSC.png>
-Package pdftex.def Info: ../images/MarkAsCollectedSC.png used on input line 408
+Package pdftex.def Info: ../images/MarkAsCollectedSC.png used on input line 409
 .
 (pdftex.def)             Requested size: 390.0pt x 283.4979pt.
  [32 <../images/MarkAsCollectedActivity.png (PNG copy)>]
@@ -686,14 +691,14 @@ File: ../images/CheckLimitActivity.jpg Graphic file (type jpg)
 
 <use ../images/CheckLimitActivity.jpg>
 Package pdftex.def Info: ../images/CheckLimitActivity.jpg used on input line 41
-7.
+8.
 (pdftex.def)             Requested size: 390.0pt x 225.50461pt.
  [33 <../images/MarkAsCollectedSC.png (PNG copy)>] <../images/CheckLimitSC.jpg,
  id=337, 985.6825pt x 710.655pt>
 File: ../images/CheckLimitSC.jpg Graphic file (type jpg)
 
 <use ../images/CheckLimitSC.jpg>
-Package pdftex.def Info: ../images/CheckLimitSC.jpg used on input line 423.
+Package pdftex.def Info: ../images/CheckLimitSC.jpg used on input line 424.
 (pdftex.def)             Requested size: 390.0pt x 281.17735pt.
 
 <../images/EmployeePaidActivity.jpg, id=338, 866.23625pt x 500.87125pt>
@@ -701,21 +706,21 @@ File: ../images/EmployeePaidActivity.jpg Graphic file (type jpg)
 
 <use ../images/EmployeePaidActivity.jpg>
 Package pdftex.def Info: ../images/EmployeePaidActivity.jpg used on input line 
-431.
+432.
 (pdftex.def)             Requested size: 390.0pt x 225.50461pt.
  [34 <../images/CheckLimitActivity.jpg> <../images/CheckLimitSC.jpg>]
 <../images/EmployeePaidSC.jpg, id=345, 977.6525pt x 710.655pt>
 File: ../images/EmployeePaidSC.jpg Graphic file (type jpg)
 
 <use ../images/EmployeePaidSC.jpg>
-Package pdftex.def Info: ../images/EmployeePaidSC.jpg used on input line 437.
+Package pdftex.def Info: ../images/EmployeePaidSC.jpg used on input line 438.
 (pdftex.def)             Requested size: 390.0pt x 283.4979pt.
  [35 <../images/EmployeePaidActivity.jpg>]
 <../images/InventoryUseCase.jpg, id=352, 876.27374pt x 532.99126pt>
 File: ../images/InventoryUseCase.jpg Graphic file (type jpg)
 
 <use ../images/InventoryUseCase.jpg>
-Package pdftex.def Info: ../images/InventoryUseCase.jpg used on input line 448.
+Package pdftex.def Info: ../images/InventoryUseCase.jpg used on input line 449.
 
 (pdftex.def)             Requested size: 390.0pt x 237.21696pt.
  [36 <../images/EmployeePaidSC.jpg>]
@@ -724,14 +729,14 @@ File: ../images/AddActivityDiagram.jpg Graphic file (type jpg)
 
 <use ../images/AddActivityDiagram.jpg>
 Package pdftex.def Info: ../images/AddActivityDiagram.jpg used on input line 45
-6.
+7.
 (pdftex.def)             Requested size: 390.0pt x 209.25629pt.
  [37 <../images/InventoryUseCase.jpg>]
 <../images/AddInventorySC.jpg, id=366, 896.34875pt x 500.87125pt>
 File: ../images/AddInventorySC.jpg Graphic file (type jpg)
 
 <use ../images/AddInventorySC.jpg>
-Package pdftex.def Info: ../images/AddInventorySC.jpg used on input line 462.
+Package pdftex.def Info: ../images/AddInventorySC.jpg used on input line 463.
 (pdftex.def)             Requested size: 390.0pt x 217.92308pt.
 
 <../images/SearchActivityDiagram.jpg, id=367, 893.3375pt x 500.87125pt>
@@ -739,14 +744,14 @@ File: ../images/SearchActivityDiagram.jpg Graphic file (type jpg)
 
 <use ../images/SearchActivityDiagram.jpg>
 Package pdftex.def Info: ../images/SearchActivityDiagram.jpg used on input line
- 470.
+ 471.
 (pdftex.def)             Requested size: 390.0pt x 218.66441pt.
  [38 <../images/AddActivityDiagram.jpg> <../images/AddInventorySC.jpg>]
 <../images/SearchInventorySC.jpg, id=375, 931.48pt x 500.87125pt>
 File: ../images/SearchInventorySC.jpg Graphic file (type jpg)
 
 <use ../images/SearchInventorySC.jpg>
-Package pdftex.def Info: ../images/SearchInventorySC.jpg used on input line 476
+Package pdftex.def Info: ../images/SearchInventorySC.jpg used on input line 477
 .
 (pdftex.def)             Requested size: 390.0pt x 209.70721pt.
 
@@ -755,14 +760,14 @@ File: ../images/DeleteActivityDiagram.jpg Graphic file (type jpg)
 
 <use ../images/DeleteActivityDiagram.jpg>
 Package pdftex.def Info: ../images/DeleteActivityDiagram.jpg used on input line
- 484.
+ 485.
 (pdftex.def)             Requested size: 390.0pt x 227.42717pt.
  [39 <../images/SearchActivityDiagram.jpg> <../images/SearchInventorySC.jpg>]
 <../images/DeleteInventorySC.jpg, id=383, 933.4875pt x 500.87125pt>
 File: ../images/DeleteInventorySC.jpg Graphic file (type jpg)
 
 <use ../images/DeleteInventorySC.jpg>
-Package pdftex.def Info: ../images/DeleteInventorySC.jpg used on input line 490
+Package pdftex.def Info: ../images/DeleteInventorySC.jpg used on input line 491
 .
 (pdftex.def)             Requested size: 390.0pt x 209.25629pt.
  [40 <../images/DeleteActivityDiagram.jpg>] <../images/UpdateActivityDiagram.jp
@@ -771,14 +776,14 @@ File: ../images/UpdateActivityDiagram.jpg Graphic file (type jpg)
 
 <use ../images/UpdateActivityDiagram.jpg>
 Package pdftex.def Info: ../images/UpdateActivityDiagram.jpg used on input line
- 498.
+ 499.
 (pdftex.def)             Requested size: 390.0pt x 225.24475pt.
  [41 <../images/DeleteInventorySC.jpg>] <../images/UpdateInventorySC.jpg, id=39
 7, 978.65625pt x 500.87125pt>
 File: ../images/UpdateInventorySC.jpg Graphic file (type jpg)
 
 <use ../images/UpdateInventorySC.jpg>
-Package pdftex.def Info: ../images/UpdateInventorySC.jpg used on input line 504
+Package pdftex.def Info: ../images/UpdateInventorySC.jpg used on input line 505
 .
 (pdftex.def)             Requested size: 390.0pt x 199.6036pt.
  [42 <../images/UpdateActivityDiagram.jpg> <../images/UpdateInventorySC.jpg>]
@@ -788,7 +793,7 @@ File: ../Diagrams/ManageProfile/manageProfileUseCase.png Graphic file (type png
 )
  <use ../Diagrams/ManageProfile/manageProfileUseCase.png>
 Package pdftex.def Info: ../Diagrams/ManageProfile/manageProfileUseCase.png use
-d on input line 514.
+d on input line 515.
 (pdftex.def)             Requested size: 390.0pt x 214.89935pt.
 
 <../Diagrams/ManageProfile/ActivityDiagrams/setFinancialPreferences1.png, id=40
@@ -798,7 +803,7 @@ raphic file (type png)
 
 <use ../Diagrams/ManageProfile/ActivityDiagrams/setFinancialPreferences1.png>
 Package pdftex.def Info: ../Diagrams/ManageProfile/ActivityDiagrams/setFinancia
-lPreferences1.png used on input line 522.
+lPreferences1.png used on input line 523.
 (pdftex.def)             Requested size: 390.0pt x 236.66588pt.
 
 [43 <../Diagrams/ManageProfile/manageProfileUseCase.png (PNG copy)>]
@@ -810,7 +815,7 @@ iceContract.png Graphic file (type png)
 <use ../Diagrams/ManageProfile/serviceContracts/changeFinancialPreferencesServi
 ceContract.png>
 Package pdftex.def Info: ../Diagrams/ManageProfile/serviceContracts/changeFinan
-cialPreferencesServiceContract.png used on input line 528.
+cialPreferencesServiceContract.png used on input line 529.
 (pdftex.def)             Requested size: 390.0pt x 210.15367pt.
 
 <../Diagrams/ManageProfile/ActivityDiagrams/setPassword1.png, id=414, 836.12375
@@ -820,10 +825,10 @@ File: ../Diagrams/ManageProfile/ActivityDiagrams/setPassword1.png Graphic file
 
 <use ../Diagrams/ManageProfile/ActivityDiagrams/setPassword1.png>
 Package pdftex.def Info: ../Diagrams/ManageProfile/ActivityDiagrams/setPassword
-1.png used on input line 536.
+1.png used on input line 537.
 (pdftex.def)             Requested size: 390.0pt x 232.69238pt.
 
-Overfull \hbox (23.74387pt too wide) in paragraph at lines 533--538
+Overfull \hbox (23.74387pt too wide) in paragraph at lines 534--539
 \OT1/cmr/m/n/12 The ser-vice con-tract and ac-tiv-ity di-a-gram for changePass-
 word fol-low. changePass-
  []
@@ -839,7 +844,7 @@ png Graphic file (type png)
 <use ../Diagrams/ManageProfile/serviceContracts/changePasswordServiceContract.p
 ng>
 Package pdftex.def Info: ../Diagrams/ManageProfile/serviceContracts/changePassw
-ordServiceContract.png used on input line 542.
+ordServiceContract.png used on input line 543.
 (pdftex.def)             Requested size: 390.0pt x 210.15367pt.
 
 <../Diagrams/ManageProfile/ActivityDiagrams/setEmail1.png, id=423, 822.07124pt 
@@ -848,10 +853,10 @@ File: ../Diagrams/ManageProfile/ActivityDiagrams/setEmail1.png Graphic file (ty
 pe png)
  <use ../Diagrams/ManageProfile/ActivityDiagrams/setEmail1.png>
 Package pdftex.def Info: ../Diagrams/ManageProfile/ActivityDiagrams/setEmail1.p
-ng used on input line 550.
+ng used on input line 551.
 (pdftex.def)             Requested size: 390.0pt x 236.66588pt.
 
-Overfull \hbox (9.44818pt too wide) in paragraph at lines 547--552
+Overfull \hbox (9.44818pt too wide) in paragraph at lines 548--553
 \OT1/cmr/m/n/12 The ser-vice con-tract and ac-tiv-ity di-a-gram for changeEmail
  fol-low. changeEmail
  []
@@ -866,7 +871,7 @@ File: ../Diagrams/ManageProfile/serviceContracts/changeEmailServiceContract.png
 
 <use ../Diagrams/ManageProfile/serviceContracts/changeEmailServiceContract.png>
 Package pdftex.def Info: ../Diagrams/ManageProfile/serviceContracts/changeEmail
-ServiceContract.png used on input line 556.
+ServiceContract.png used on input line 557.
 (pdftex.def)             Requested size: 390.0pt x 218.65504pt.
 [46 <../Diagrams/ManageProfile/ActivityDiagrams/setEmail1.png (PNG copy)>]
 <../Diagrams/ManageProfile/ActivityDiagrams/setLimit.png, id=437, 822.07124pt x
@@ -875,7 +880,7 @@ File: ../Diagrams/ManageProfile/ActivityDiagrams/setLimit.png Graphic file (typ
 e png)
  <use ../Diagrams/ManageProfile/ActivityDiagrams/setLimit.png>
 Package pdftex.def Info: ../Diagrams/ManageProfile/ActivityDiagrams/setLimit.pn
-g used on input line 564.
+g used on input line 565.
 (pdftex.def)             Requested size: 390.0pt x 236.66588pt.
 
 [47 <../Diagrams/ManageProfile/serviceContracts/changeEmailServiceContract.png 
@@ -887,7 +892,7 @@ File: ../Diagrams/ManageProfile/serviceContracts/changeLimitServiceContract.png
 
 <use ../Diagrams/ManageProfile/serviceContracts/changeLimitServiceContract.png>
 Package pdftex.def Info: ../Diagrams/ManageProfile/serviceContracts/changeLimit
-ServiceContract.png used on input line 570.
+ServiceContract.png used on input line 571.
 (pdftex.def)             Requested size: 390.0pt x 210.15367pt.
 [48 <../Diagrams/ManageProfile/ActivityDiagrams/setLimit.png (PNG copy)> <../Di
 agrams/ManageProfile/serviceContracts/changeLimitServiceContract.png (PNG copy)
@@ -895,7 +900,7 @@ agrams/ManageProfile/serviceContracts/changeLimitServiceContract.png (PNG copy)
 File: ../images/ManageSystem.jpg Graphic file (type jpg)
 
 <use ../images/ManageSystem.jpg>
-Package pdftex.def Info: ../images/ManageSystem.jpg used on input line 581.
+Package pdftex.def Info: ../images/ManageSystem.jpg used on input line 582.
 (pdftex.def)             Requested size: 390.0pt x 265.88431pt.
 
 <../images/assignRolesActivityDiagram.png, id=454, 832.10875pt x 530.98375pt>
@@ -903,7 +908,7 @@ File: ../images/assignRolesActivityDiagram.png Graphic file (type png)
 
 <use ../images/assignRolesActivityDiagram.png>
 Package pdftex.def Info: ../images/assignRolesActivityDiagram.png used on input
- line 589.
+ line 590.
 (pdftex.def)             Requested size: 390.0pt x 248.8656pt.
  [49 <../images/ManageSystem.jpg>] <../images/assignRolesServiceContract.png, i
 d=461, 837.1275pt x 498.86375pt>
@@ -911,7 +916,7 @@ File: ../images/assignRolesServiceContract.png Graphic file (type png)
 
 <use ../images/assignRolesServiceContract.png>
 Package pdftex.def Info: ../images/assignRolesServiceContract.png used on input
- line 595.
+ line 596.
 (pdftex.def)             Requested size: 390.0pt x 232.40314pt.
 
 <../images/changeEmployeeIDActivityDiagram.png, id=462, 1062.97125pt x 652.4375
@@ -919,7 +924,7 @@ pt>
 File: ../images/changeEmployeeIDActivityDiagram.png Graphic file (type png)
  <use ../images/changeEmployeeIDActivityDiagram.png>
 Package pdftex.def Info: ../images/changeEmployeeIDActivityDiagram.png used on 
-input line 603.
+input line 604.
 (pdftex.def)             Requested size: 390.0pt x 239.37715pt.
  [50 <../images/assignRolesActivityDiagram.png (PNG copy)> <../images/assignRol
 esServiceContract.png (PNG copy)>] <../images/changeEmployeeIdSC.png, id=469, 1
@@ -927,8 +932,8 @@ esServiceContract.png (PNG copy)>] <../images/changeEmployeeIdSC.png, id=469, 1
 File: ../images/changeEmployeeIdSC.png Graphic file (type png)
 
 <use ../images/changeEmployeeIdSC.png>
-Package pdftex.def Info: ../images/changeEmployeeIdSC.png used on input line 60
-9.
+Package pdftex.def Info: ../images/changeEmployeeIdSC.png used on input line 61
+0.
 (pdftex.def)             Requested size: 390.0pt x 231.64328pt.
  [51 <../images/changeEmployeeIDActivityDiagram.png (PNG copy)>]
 <../images/setSystemWideLimit.png, id=476, 844.15375pt x 498.86375pt>
@@ -936,7 +941,7 @@ File: ../images/setSystemWideLimit.png Graphic file (type png)
 
 <use ../images/setSystemWideLimit.png>
 Package pdftex.def Info: ../images/setSystemWideLimit.png used on input line 61
-7.
+8.
 (pdftex.def)             Requested size: 390.0pt x 230.47728pt.
  [52 <../images/changeEmployeeIdSC.png (PNG copy)>]
 <../images/setSystemWideLimitServiceContract.png, id=483, 844.15375pt x 498.863
@@ -944,7 +949,7 @@ Package pdftex.def Info: ../images/setSystemWideLimit.png used on input line 61
 File: ../images/setSystemWideLimitServiceContract.png Graphic file (type png)
  <use ../images/setSystemWideLimitServiceContract.png>
 Package pdftex.def Info: ../images/setSystemWideLimitServiceContract.png used o
-n input line 623.
+n input line 624.
 (pdftex.def)             Requested size: 390.0pt x 230.47728pt.
 
 <../images/SetCanteenNameActivity.png, id=484, 895.345pt x 667.49374pt>
@@ -952,7 +957,7 @@ File: ../images/SetCanteenNameActivity.png Graphic file (type png)
 
 <use ../images/SetCanteenNameActivity.png>
 Package pdftex.def Info: ../images/SetCanteenNameActivity.png used on input lin
-e 631.
+e 632.
 (pdftex.def)             Requested size: 390.0pt x 290.75465pt.
  [53 <../images/setSystemWideLimit.png (PNG copy)> <../images/setSystemWideLimi
 tServiceContract.png (PNG copy)>]
@@ -961,7 +966,7 @@ File: ../images/SetCanteenServiceContract.png Graphic file (type png)
 
 <use ../images/SetCanteenServiceContract.png>
 Package pdftex.def Info: ../images/SetCanteenServiceContract.png used on input 
-line 637.
+line 638.
 (pdftex.def)             Requested size: 390.0pt x 283.4979pt.
  [54 <../images/SetCanteenNameActivity.png (PNG copy)>]
 <../images/UploadImageActivityDiagram.jpg, id=499, 854.19125pt x 557.08125pt>
@@ -969,14 +974,14 @@ File: ../images/UploadImageActivityDiagram.jpg Graphic file (type jpg)
 
 <use ../images/UploadImageActivityDiagram.jpg>
 Package pdftex.def Info: ../images/UploadImageActivityDiagram.jpg used on input
- line 645.
+ line 646.
 (pdftex.def)             Requested size: 390.0pt x 254.3479pt.
  [55 <../images/SetCanteenServiceContract.png (PNG copy)>]
 <../images/UploadImageSC.jpg, id=506, 854.19125pt x 557.08125pt>
 File: ../images/UploadImageSC.jpg Graphic file (type jpg)
 
 <use ../images/UploadImageSC.jpg>
-Package pdftex.def Info: ../images/UploadImageSC.jpg used on input line 651.
+Package pdftex.def Info: ../images/UploadImageSC.jpg used on input line 652.
 (pdftex.def)             Requested size: 390.0pt x 254.3479pt.
  [56 <../images/UploadImageActivityDiagram.jpg> <../images/UploadImageSC.jpg>]
 <../images/ReportingUseCaseDiagram.jpg, id=513, 576.1525pt x 553.06625pt>
@@ -984,7 +989,7 @@ File: ../images/ReportingUseCaseDiagram.jpg Graphic file (type jpg)
 
 <use ../images/ReportingUseCaseDiagram.jpg>
 Package pdftex.def Info: ../images/ReportingUseCaseDiagram.jpg used on input li
-ne 664.
+ne 665.
 (pdftex.def)             Requested size: 390.0pt x 374.3838pt.
 
 <../images/generateStatisticsAcivity.jpg, id=514, 612.2875pt x 520.94624pt>
@@ -992,15 +997,15 @@ File: ../images/generateStatisticsAcivity.jpg Graphic file (type jpg)
 
 <use ../images/generateStatisticsAcivity.jpg>
 Package pdftex.def Info: ../images/generateStatisticsAcivity.jpg used on input 
-line 674.
+line 675.
 (pdftex.def)             Requested size: 390.0pt x 331.81467pt.
  [57 <../images/ReportingUseCaseDiagram.jpg>]
 <../images/generateStatistics.jpg, id=520, 740.7675pt x 520.94624pt>
 File: ../images/generateStatistics.jpg Graphic file (type jpg)
 
 <use ../images/generateStatistics.jpg>
-Package pdftex.def Info: ../images/generateStatistics.jpg used on input line 67
-9.
+Package pdftex.def Info: ../images/generateStatistics.jpg used on input line 68
+0.
 (pdftex.def)             Requested size: 390.0pt x 274.27193pt.
  [58 <../images/generateStatisticsAcivity.jpg>]
 <../images/sendNotificationsActivity.jpg, id=527, 612.2875pt x 520.94624pt>
@@ -1008,14 +1013,14 @@ File: ../images/sendNotificationsActivity.jpg Graphic file (type jpg)
 
 <use ../images/sendNotificationsActivity.jpg>
 Package pdftex.def Info: ../images/sendNotificationsActivity.jpg used on input 
-line 688.
+line 689.
 (pdftex.def)             Requested size: 390.0pt x 331.81467pt.
 
 <../images/sendNotifications.jpg, id=528, 694.595pt x 520.94624pt>
 File: ../images/sendNotifications.jpg Graphic file (type jpg)
 
 <use ../images/sendNotifications.jpg>
-Package pdftex.def Info: ../images/sendNotifications.jpg used on input line 693
+Package pdftex.def Info: ../images/sendNotifications.jpg used on input line 694
 .
 (pdftex.def)             Requested size: 390.0pt x 292.50691pt.
  [59 <../images/generateStatistics.jpg>]
@@ -1025,14 +1030,14 @@ File: ../images/viewHistoryActivity.jpg Graphic file (type jpg)
 
 <use ../images/viewHistoryActivity.jpg>
 Package pdftex.def Info: ../images/viewHistoryActivity.jpg used on input line 7
-02.
+03.
 (pdftex.def)             Requested size: 390.0pt x 331.81467pt.
 
 <../images/viewHistory.jpg, id=542, 612.2875pt x 520.94624pt>
 File: ../images/viewHistory.jpg Graphic file (type jpg)
 
 <use ../images/viewHistory.jpg>
-Package pdftex.def Info: ../images/viewHistory.jpg used on input line 707.
+Package pdftex.def Info: ../images/viewHistory.jpg used on input line 708.
 (pdftex.def)             Requested size: 390.0pt x 331.81467pt.
  [61 <../images/sendNotifications.jpg>] [62 <../images/viewHistoryActivity.jpg>
 ]
@@ -1041,27 +1046,27 @@ File: ../images/viewUserBillActivity.jpg Graphic file (type jpg)
 
 <use ../images/viewUserBillActivity.jpg>
 Package pdftex.def Info: ../images/viewUserBillActivity.jpg used on input line 
-716.
+717.
 (pdftex.def)             Requested size: 390.0pt x 316.27438pt.
 
 <../images/viewUserBill.jpg, id=555, 651.43375pt x 520.94624pt>
 File: ../images/viewUserBill.jpg Graphic file (type jpg)
 
 <use ../images/viewUserBill.jpg>
-Package pdftex.def Info: ../images/viewUserBill.jpg used on input line 721.
+Package pdftex.def Info: ../images/viewUserBill.jpg used on input line 722.
 (pdftex.def)             Requested size: 390.0pt x 311.88655pt.
  [63 <../images/viewHistory.jpg>] [64 <../images/viewUserBillActivity.jpg>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 728.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 729.
  [65 <../images/viewUserBill.jpg>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 728.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 729.
 
 (./FunctionalRequirements.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 728.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 728.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 729.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 729.
 Package rerunfilecheck Info: File `FunctionalRequirements.out' has not changed.
 
 (rerunfilecheck)             Checksum: E6B7DB45CDD669259E19BC51681CEEA9;1300.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 728.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 729.
  ) 
 Here is how much of TeX's memory you used:
  7547 strings out of 495028
@@ -1070,13 +1075,13 @@ Here is how much of TeX's memory you used:
  10439 multiletter control sequences out of 15000+600000
  9714 words of font info for 34 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 36i,13n,38p,760b,403s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,13n,38p,757b,403s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on FunctionalRequirements.pdf (66 pages, 4141865 bytes).
+Output written on FunctionalRequirements.pdf (66 pages, 4142236 bytes).
 PDF statistics:
  636 PDF objects out of 1000 (max. 8388607)
  480 compressed objects within 5 object streams

@@ -6,8 +6,8 @@
 \BOOKMARK [1][-]{section.0.4}{Architecture Requirements}{}% 6
 \BOOKMARK [1][-]{section.0.5}{Architectural Responsibilities}{}% 7
 \BOOKMARK [1][-]{section.0.6}{Quality Requirements: Core}{}% 8
-\BOOKMARK [2][-]{subsection.0.6.1}{Security}{section.0.6}% 9
-\BOOKMARK [2][-]{subsection.0.6.2}{Usability}{section.0.6}% 10
+\BOOKMARK [2][-]{subsection.0.6.1}{Usability}{section.0.6}% 9
+\BOOKMARK [2][-]{subsection.0.6.2}{Security}{section.0.6}% 10
 \BOOKMARK [2][-]{subsection.0.6.3}{Reliability}{section.0.6}% 11
 \BOOKMARK [2][-]{subsection.0.6.4}{Auditability}{section.0.6}% 12
 \BOOKMARK [2][-]{subsection.0.6.5}{Maintainability}{section.0.6}% 13

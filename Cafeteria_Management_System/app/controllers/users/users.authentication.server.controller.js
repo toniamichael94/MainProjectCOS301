@@ -1,5 +1,16 @@
 'use strict';
-/**
+
+/*
+Authentication server controller - serverside controller for the authentication in the user module
+Authors: T-RISE (COS 301 team 2015)
+             		Antonia Michael (13014171)
+                Isabel Nel (13070305)
+							  Elana Kuun (12029522)
+								Rendani Dau (13381467)
+								Semaka Malapane (13081129)
+*/
+
+/*
  * Module dependencies.
  */
 var _ = require('lodash'),
@@ -8,10 +19,14 @@ var _ = require('lodash'),
     passport = require('passport'),
     User = mongoose.model('User'),
     Config = mongoose.model('Config');
+
 /**
  * Signup
  * Last edited by {Rendani Dau}
  * added check to see if limit is less than system wide limit
+ * @param {Object} req - the contents of the html it is linked with
+ * @param {Object} res
+ * @return {Object} res - on successful completion returns json object
  */
 exports.signup = function (req, res) {
 // For security measurement we remove the roles from the req.body object
@@ -81,14 +96,18 @@ exports.signup = function (req, res) {
         }
     });
 };
-//load the canteen name
+
+/**
+ * checkSuperUser
+ * Last edited by {Isabel Nel}
+ * load the canteen name
+ * Checks if the system has a SuperUser if the system doesn't it creates a default SuperUser
+ */
 exports.checkSuperUser = function () {
     var error;
     User.find({roles: 'superuser'}, function (error, model) {
 //put code to process the results here
-// console.log('models');
         var v = model;
-// console.log(v);
         if (model.length < 1) {
             console.log('NO USER FOUND - create default super user ');
             var superUser = new User({
@@ -121,7 +140,7 @@ exports.checkSuperUser = function () {
             config.save(function (err) {
             });
             superUser.save(function (err, superUser) {
-                if (err) error.superUser = err;//return console.error(err);
+                if (err) error.superUser = err;
                 console.dir(superUser);
             });
             adminUser.save(function (err, adminUser) {
@@ -150,7 +169,7 @@ exports.checkSuperUser = function () {
 //set default system wyde limit
             });
             adminUser.save(function (err, superUser) {
-                if (err) //error.superUser = err; return console.error(err);
+                if (err)
                     console.dir(superUser);
             });
         } else {
@@ -180,15 +199,21 @@ exports.signin = function (req, res, next) {
         }
     })(req, res, next);
 };
+
 /**
  * Signout
+ * @param {Object} req
+ * @param {Object} res
  */
 exports.signout = function (req, res) {
     req.logout();
     res.redirect('/');
 };
+
 /**
  * OAuth callback
+ * @param {Object} strategy
+ * @return {Object} on successful completion returns a res object that redirects to the appropriate page
  */
 exports.oauthCallback = function (strategy) {
     return function (req, res, next) {
@@ -205,8 +230,13 @@ exports.oauthCallback = function (strategy) {
         })(req, res, next);
     };
 };
+
 /**
  * Helper function to save or update a OAuth user profile
+ * @param {Object} req
+ * @param {Object} providerUserProfile
+ * @param {Object} done
+ * @return {Object} on successful completion returns the saved object
  */
 exports.saveOAuthUserProfile = function (req, providerUserProfile, done) {
     if (!req.user) {
@@ -272,8 +302,13 @@ exports.saveOAuthUserProfile = function (req, providerUserProfile, done) {
         }
     }
 };
+
 /**
  * Remove OAuth provider
+ * @param {Object} req
+ * @param {Object} res
+ * @param {} next
+ * @return {Object} - on successful completion return json object
  */
 exports.removeOAuthProvider = function (req, res, next) {
     var user = req.user;

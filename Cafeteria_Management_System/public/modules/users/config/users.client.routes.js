@@ -37,6 +37,10 @@ angular.module('users').config(['$stateProvider',
 			url: '/signin',
 			templateUrl: 'modules/users/views/authentication/signin.client.view.html'
 		}).
+        state('contactUs', {
+            url: '/settings/contactUs',
+            templateUrl: 'modules/users/views/settings/contactUs.html'
+        }).
 		state('forgot', {
 			url: '/password/forgot',
 			templateUrl: 'modules/users/views/password/forgot-password.client.view.html'
@@ -88,10 +92,6 @@ angular.module('users').config(['$stateProvider',
         state('cashier', {
             url: '/cashier',
             templateUrl: 'modules/users/views/settings/cashier.html'
-        }).
-        state('contactUs', {
-            url: '/contactUs',
-            templateUrl: 'modules/users/views/settings/contactUs.html'
         }).
         state('finance', {
             url: '/finance',

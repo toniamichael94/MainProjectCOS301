@@ -8,54 +8,6 @@ angular.module('users').controller('FinanceController', ['$scope', '$http', '$lo
         // If user is not signed in then redirect back home
         if (!$scope.authentication) $location.path('/');
 
-
-        // Search a user profile
-        /*$scope.searchEmployee = function(isValid) {
-            if(isValid){
-                $scope.success = $scope.error = null;
-
-                var reqObj = {username: $scope.username};
-                    $http.post('/orders/getUserOrders', reqObj).success(function(response){
-                        $scope.orders = response.message;
-                    }).error(function(response){
-                        $scope.error = response.message;
-                    });
-            }
-        };*/
-
-      /*
-        $scope.getUserOrders = function(){
-            var reqObj = {username: $scope.username};
-            var orders = new Array();
-            $http.post('/orders/getUserOrders', reqObj).success(function(response){
-                console.log(response.message);
-                if(response.message.length < 1){
-                    $scope.success = false;
-                    $scope.error = true;//response.message;
-                    $scope.error = "That user has no orders";//response.message;
-                }
-                else{
-                    $scope.error = false;
-                    $scope.success = true;
-                    for(var i = 0; i < response.message.length; i++){
-                        orders[i] = response.message[i];
-                    }
-                    $scope.success = orders;
-                    console.log(orders);
-
-
-                }
-                //console.log('success2' + response.message);
-
-                //$scope.success = response.message;
-            }).error(function(response){
-                //console.log('error' + response.message);
-                $scope.success = false;
-                $scope.error = true;//response.message;
-                $scope.error = "could not get orders";//response.message;
-            });
-        };*/
-
 		$scope.generateReport = function(){
 			$scope.error = $scope.success = null;
 			if($scope.username === '' || $scope.startDate === '' || $scope.endDate === '')
@@ -103,12 +55,14 @@ angular.module('users').controller('FinanceController', ['$scope', '$http', '$lo
             });
         };
 
+        $scope.reportFormat = 'csv';
 		$scope.generateReportAll = function(){
-			$http.post('users/finance/generateReportAll',{start: $scope.startDateTwo, end: $scope.endDateTwo},{responseType:'arraybuffer'}).success(function(response){
-				var file = new Blob([response], {type: 'application/pdf'});
+			$http.post('users/finance/generateReportAll',{start: $scope.startDateTwo, end: $scope.endDateTwo, format: $scope.reportFormat},{responseType:'arraybuffer'}).success(function(response){
+				var format = $scope.reportFormat;
+                var file = new Blob([response], {type: 'application/' + $scope.reportFormat});
 				var fileURL = URL.createObjectURL(file);
 
-				var fileName = 'report.pdf';
+				var fileName = 'report.' + $scope.reportFormat;
 				var a = document.createElement('a');
 				document.body.appendChild(a);
 				a.setAttribute('style', 'display: none');

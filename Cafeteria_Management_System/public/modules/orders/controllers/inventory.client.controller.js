@@ -1,9 +1,11 @@
 'use strict';
 
 // Inventory controller
-angular.module('inventory').controller('InventoryController', ['$scope', '$http', '$stateParams', '$location', 'Authentication', 'Inventory',
-	function($scope, $http, $stateParams, $location, Authentication, Inventory) {
+angular.module('inventory').controller('InventoryController', ['$scope', '$http', '$stateParams', '$location', '$cookies', 'Authentication', 'Inventory',
+	function($scope, $http, $stateParams, $location, $cookies, Authentication, Inventory) {
 		$scope.authentication = Authentication;
+		$scope.container1DataI = []; // inventory items stats data
+		$scope.container1Data1I = [];
 
 		/*
 			Dynamically add fields to the inventory page to update the quantity.
@@ -11,6 +13,7 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 		$scope.allInventory = {inventoryProduct:[],inventoryQuantity:[]};
 		$scope.addFormFieldInventory = function() {
 			$http.get('/loadInventoryItems').success(function(response) {
+				console.log(response);
 			$scope.inventoryItems = response.message;
 			var itemsArray = [];
 			var counter = 0;
@@ -44,6 +47,43 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 		/*
 		Reporting
 		*/
+
+		$scope.InventoryItemsGraphPage = function(){
+
+			$scope.container1Data1I[0] = {
+				name: '',
+				y: 0,
+				drilldown:''
+			};
+
+			$cookies.container1Data1I = JSON.stringify($scope.container1Data1I);
+			$scope.container1Data1I = JSON.parse($cookies.container1Data1I);
+		};
+
+		// if no such cookies exist create them
+		if(!$cookies.container1Data1I){
+			$scope.InventoryItemsGraphPage();
+		}
+
+		/*Container to create graph for container 1 - menu item stats*/
+			 $('#container1').highcharts({
+					 chart: { type: 'column' },
+					 title: { text: 'Inventory Items Statistics'},
+					 xAxis: { type: 'category' },
+					 legend: { enabled: false },
+					 plotOptions: { series: { borderWidth: 0,
+						  											dataLabels: {enabled: true}
+							 										}
+					 							},
+					 series: [{
+							 name: 'Categories',
+							 colorByPoint: true,
+							 data: JSON.parse($cookies.container1Data1I)
+					 }]
+		});
+
+
+		//Montly report of inventory items used
 		$scope.inventoryReport = function()
 		{
 		  	$scope.error = '';
@@ -66,7 +106,7 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 					}).error(function(response){
 						console.log(response);
 					});
-
+						$location.path('/inventoryStats');
 				}
 		};
 

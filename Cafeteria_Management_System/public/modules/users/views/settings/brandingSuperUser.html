@@ -1,163 +1,169 @@
 <!--
-*   Assign Roles - Superuser
-*   - This document contains the Assign roles functionality that is only accessable by the superUser
-*
-*   Authors: T-RISE (COS 301 team 2015)
+***Branding settings page***
+   - This document contains the functionality to change the current user's password
+
+  Authors: T-RISE (COS 301 team 2015)
              		Antonia Michael (13014171)
                 Isabel Nel (13070305)
 							  Elana Kuun (12029522)
 								Rendani Dau (13381467)
-								Semaka Malapane (13081129)
-*
--->
+								Semaka Malapane (13081129) -->
+
+<!-- This page is mainly controlled by the super user controller in client side unless indicated otherwise-->
 <section class="row" data-ng-controller="superuserController">
 
-  <!--ALERT BOX FOR HELP-->
-			<script type="text/ng-template" id="alert.html">
-					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-						<div ng-transclude></div>
-					</div>
-			</script>
+  <!--Alert box for help for the main brainding page-->
+	<script type="text/ng-template" id="alert.html">
+		<div class="alert" role="alert">
+			<div ng-transclude></div>
+		</div>
+	</script>
 
-			<div  data-ng-controller="MenuItemsController">
-				<h4> Branding settings <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
-        <hr>
-				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert18.msg}}</alert>
-			</div>
-	<!--END ALERT BOX -->
+	<div  data-ng-controller="MenuItemsController">
+		<h4> Branding settings <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4><hr>
+		<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert18.msg}}</alert>
+	</div>
+	<!--end of the alert box for the main brandning page -->
 
   <!-- Display branding settings section -->
-    <div class="list-group clearfix">
-        <a href="#" class="list-group-item disabled">
-            Branding settings
-        </a>
-        <!--&lt;!&ndash; set canteen name &ndash;&gt;-->
-        <div class="list-group-item clearfix">
-
-          <!--ALERT BOX FOR HELP-->
-        			<script type="text/ng-template" id="alert.html">
-        					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-        						<div ng-transclude></div>
-        					</div>
-        			</script>
-
-        			<div  data-ng-controller="MenuItemsController">
-        				<h4> Set canteen name<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
-        				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert19.msg}}</alert>
-        			</div>
-
-            <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
-                <form name="setCanteenNameForm" data-ng-submit="setCanteenName(setCanteenNameForm.$valid)" class="signin form-horizontal" autocomplete="off">
-                    <fieldset>
-                        <div class="form-group">
-                            <label for="canteenName">Set Canteen name</label>
-                            <input type="text" id="canteenName" name="canteenName" data-ng-model="canteenName" class="form-control" min = 0>
-                        </div>
-                        <div class="text-center form-group">
-                            <button type="submit"  style="width:220px" class="btn btn-large btn-primary" onclick= "location.reload(true)">Set Canteen Name</button>
-                        </div>
-                        <div data-ng-show="successThree" class="text-center text-success">
-                            <strong>{{successThree}}</strong>
-                        </div>
-                        <div data-ng-show="errorThree" class="text-center text-danger">
-                            <strong data-ng-bind="errorThree">{{errorThree}}</strong>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
+  <div class="list-group clearfix">
+  	<a href="#" class="list-group-item disabled"> Branding settings </a>
+    <div class="list-group-item clearfix">
+    	<!--alert box for help with the set canteen name setting-->
+      <script type="text/ng-template" id="alert.html">
+      	<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+        	<div ng-transclude></div>
         </div>
-        <!--theme stuff-->
-        <div class="list-group-item clearfix">
-        <div  data-ng-controller="MenuItemsController">
-            <h4> Set theme name<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
-            <alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert28.msg}}</alert>
-        </div>
-            <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
-                <form name="setThemeForm" data-ng-submit="setThemeName()" class="signin form-horizontal" autocomplete="off">
-                    <fieldset>
-                        <div class="form-group">
-                            <label for="themeName">Set theme name</label>
-                            <select id="themeName" name="themeName" class="form-control" data-ng-model="themeName">
-                                <option value='orange'>orange</option>
-                                <option value='red'>red</option>
-                                <option value='green'>green</option>
-
-                            </select>    </div>
-                        <div class="text-center form-group">
-                            <button type="submit"  style="width:220px" class="btn btn-large btn-primary" onclick= "location.reload(true)">Set Theme Name</button>
-                        </div>
-                        <div data-ng-show="successFive" class="text-center text-success">
-                            <strong>{{successFive}}</strong>
-                        </div>
-                        <div data-ng-show="errorFive" class="text-center text-danger">
-                            <strong data-ng-bind="errorFive">{{errorFive}}</strong>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
-
-        </div>
-        <div class="list-group-item clearfix">
-
-            <!--ALERT BOX FOR HELP-->
-            <script type="text/ng-template" id="alert.html">
-                <div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-                    <div ng-transclude></div>
-                </div>
-            </script>
-
-            <div  data-ng-controller="MenuItemsController">
-                <h4> Set canteen contact information<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
-                <!--alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert20.msg}}</alert-->
-            </div>
-            <!--END ALERT BOX -->
-
-
-            <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
-                <form name="contactInfoForm" data-ng-submit="setContactInfo(contactInfoForm.$valid)" class="signin form-horizontal" autocomplete="off">
-                    <fieldset>
-                        <label> Contact Information </label>
-                        <div class="text-center form-group"><br>
-                                <input type="text" id="contactName" name="contactName" data-ng-model="contactName" class="form-control" min = 0>
-                            <br>
-                            <input type="text" id="contactNumber" name="contactNumber" data-ng-model="contactNumber" class="form-control" min = 0>
-                            <br>
-                            <input type="email"  id="contactEmail" name="contactEmail" data-ng-model="contactEmail" class="form-control" min = 0>
-                            <br>
-                            <button type="submit"  style="width:220px"s class="btn btn-large btn-primary">Add contact Details</button>
-                            <br>
-                        </div>
-                    </fieldset>
-                    <div data-ng-show="successSeven" class="text-center text-success">
-                        <strong>{{successSeven}}</strong>
-                    </div>
-                    <div data-ng-show="errorSeven" class="text-center text-danger">
-                        <strong data-ng-bind="errorSeven">{{errorSeven}}</strong>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <!--&lt;!&ndash; upload branding image &ndash;&gt;-->
-    
-	<a href="#" class="list-group-item disabled">
-		Manage Carousel Images
-	</a>
-		<div class="list-group-item clearfix">
-		<!--ALERT BOX FOR HELP-->
-			<script type="text/ng-template" id="alert.html">
-				<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-				  <div ng-transclude></div>
-				</div>
-			</script>
+      </script>
 
 			<div  data-ng-controller="MenuItemsController">
-			  <h4>Upload Image <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
-			  <alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert20.msg}}</alert>
-			</div>
-		<!--END ALERT BOX -->
+				<h4> Set canteen name<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
+        <alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert19.msg}}</alert>
+      </div>
+			<!-- end of alert box for the change canteen name settings -->
+
 			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
-				<form name="imageUploadForm" action="/users/superuserUploadImage" enctype="multipart/form-data" method="post" class="signinform-horizontal">
-					<fieldset>
+      	<form name="setCanteenNameForm" data-ng-submit="setCanteenName(setCanteenNameForm.$valid)" class="signin form-horizontal" autocomplete="off">
+        	<fieldset>
+          <div class="form-group">
+          	<label for="canteenName">Set Canteen name</label>
+            <input type="text" id="canteenName" name="canteenName" data-ng-model="canteenName" class="form-control" min = 0>
+          </div>
+          <div class="text-center form-group">
+          	<button type="submit"  style="width:220px" class="btn btn-large btn-primary" onclick= "location.reload(true)">Set Canteen Name</button>
+          </div>
+          <div data-ng-show="successThree" class="text-center text-success">
+          	<strong>{{successThree}}</strong>
+          </div>
+          <div data-ng-show="errorThree" class="text-center text-danger">
+          	<strong data-ng-bind="errorThree">{{errorThree}}</strong>
+					</div>
+          </fieldset>
+        </form>
+		   </div>
+     	</div>
+		<!-- end of changing canteen name settings -->
+
+		<!--Change theme settings-->
+    <div class="list-group-item clearfix">
+			<!-- Help box for change theme setting -->
+    	<div  data-ng-controller="MenuItemsController">
+      	<h4> Set theme name<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
+        <alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert28.msg}}</alert>
+      </div>
+			<!-- end of help button for the changing theme settings -->
+
+      <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
+      	<form name="setThemeForm" data-ng-submit="setThemeName()" class="signin form-horizontal" autocomplete="off">
+          <fieldset>
+          <div class="form-group">
+          	<label for="themeName">Set theme name</label>
+            <select id="themeName" name="themeName" class="form-control" data-ng-model="themeName">
+            	<option value='orange'>orange</option>
+              <option value='red'>red</option>
+              <option value='green'>green</option>
+            </select>
+					</div>
+          <div class="text-center form-group">
+          	<button type="submit"  style="width:220px" class="btn btn-large btn-primary" onclick= "location.reload(true)">Set Theme Name</button>
+          </div>
+          <div data-ng-show="successFive" class="text-center text-success">
+          	<strong>{{successFive}}</strong>
+          </div>
+          <div data-ng-show="errorFive" class="text-center text-danger">
+          	<strong data-ng-bind="errorFive">{{errorFive}}</strong>
+          </div>
+        </fieldset>
+       </form>
+		  </div>
+    </div>
+		<!-- end of setting theme setting -->
+
+		<!-- setting canteen contact information settings -->
+		<div class="list-group-item clearfix">
+
+    <!--alert box for help on the setting canteen contact information-->
+    <script type="text/ng-template" id="alert.html">
+    	<div class="alert"  role="alert">
+      	<div ng-transclude></div>
+      </div>
+    </script>
+
+    <div  data-ng-controller="MenuItemsController">
+    	<h4> Set canteen contact information<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
+      <alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert45.msg}}</alert-->
+    </div>
+  	<!--end of alert box for ading canteen contact information -->
+
+		<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
+    	<form name="contactInfoForm" data-ng-submit="setContactInfo(contactInfoForm.$valid)" class="signin form-horizontal" autocomplete="off">
+      	<fieldset>
+          <div class="  form-group"><br>
+						<label> Contact person name </label>
+            <input type="text" id="contactName" name="contactName" data-ng-model="contactName" class="form-control" placeholder="contact name" min = 0>
+            <br>
+						<label> Contact number </label>
+            <input type="text" id="contactNumber" name="contactNumber" data-ng-model="contactNumber" class="form-control" placeholder="contact number" min = 0>
+            <br>
+						<label> Contact e-mail address </label>
+            <input type="email"  id="contactEmail" name="contactEmail" data-ng-model="contactEmail" class="form-control"  placeholder="contact e-mail" min = 0>
+            <br>
+            <button type="submit"  style="width:220px"s class="btn btn-large btn-primary">Add contact Details</button>
+            <br>
+          </div>
+        </fieldset>
+        <div data-ng-show="successSeven" class="text-center text-success">
+          <strong>{{successSeven}}</strong>
+        </div>
+        <div data-ng-show="errorSeven" class="text-center text-danger">
+        	<strong data-ng-bind="errorSeven">{{errorSeven}}</strong>
+        </div>
+      </form>
+     </div>
+    </div>
+		<br/>
+		<!-- end of branding settings -->
+
+		<!-- Carousel home page settings -->
+		<a href="#" class="list-group-item disabled"> Manage Carousel Images </a>
+		<div class="list-group-item clearfix">
+		<!--alert box for help of the upload images for the carousel on home page-->
+		<script type="text/ng-template" id="alert.html">
+			<div class="alert" role="alert">
+				<div ng-transclude></div>
+			</div>
+		</script>
+
+		<div  data-ng-controller="MenuItemsController">
+		  <h4>Upload Image <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
+		  <alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert46.msg}}</alert>
+		</div>
+		<!--end  of the alert box for help on uploading an image -->
+
+		<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
+			<form name="imageUploadForm" action="/users/superuserUploadImage" enctype="multipart/form-data" method="post" class="signinform-horizontal">
+				<fieldset>
+				<div class="form-group">
 					<label> Select Slide: </label>
 					<select name="carouselImageNum" id="carouselImageNum" class="form-control" required="true">
 						<option value="1">Carousel slide 1</option>
@@ -167,37 +173,44 @@
 					</select>
 					<label> Caption: </label><input type="text" name="crouselImageCaption" id="carouselImageCaption" class="form-control"/>
 					<label>Choose image: </label><input type="file" name="upload" id="upload" class="form-control"/> <br/>
-					<button type="submit" style="width:220px" class="btn btn-primary">Upload</button>
-					</fieldset>
-				</form>
-			</div>
+				</div>
+				<button type="submit" style="width:220px" class="btn btn-primary">Upload</button>
+				</fieldset>
+			</form>
+		 </div>
 		</div>
-		<div class="list-group-item clearfix">
-			<div  data-ng-controller="MenuItemsController">
-			  <h4>Delete Image <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
-			  <alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert20.msg}}</alert>
-			</div>
-			
-			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
-				<form name="deleteCarouselImageForm" data-ng-submit="deleteCarouselImage(deleteCarouselImageForm.$valid)" >
-					<fieldset>
-					<select name="carouselImageNum" id="carouselImageNum" class="form-control" required="true" data-ng-model="imageToDelete">
-						<option value="1">Carousel slide 1</option>
-						<option value="2">Carousel slide 2</option>
-						<option value="3">Carousel slide 3</option>
-						<option value="4">Carousel slide 4</option>
-					</select> <br/>
-					<button type="submit" style="width:220px" class="btn btn-primary">Delete</button>
-					<div data-ng-show="success" class="text-center text-success">
-						<strong>{{success}}</strong>
-					</div>
-					<div data-ng-show="error" class="text-center text-danger">
-						<strong data-ng-bind="error">{{error}}</strong>
-					</div>
-					</fieldset>
-				</form>
-			
-			</div>
+	<!-- end of uploading image setting -->
+
+	<!-- setting dor deleting an image -->
+	<div class="list-group-item clearfix">
+		<!-- alert box for help on deleting an image -->
+		<div  data-ng-controller="MenuItemsController">
+		 <h4>Delete Image <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
+		 <alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert47.msg}}</alert>
+	  </div>
+
+		<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
+			<form name="deleteCarouselImageForm" data-ng-submit="deleteCarouselImage(deleteCarouselImageForm.$valid)" >
+				<fieldset>
+				<select name="carouselImageNum" id="carouselImageNum" class="form-control" required="true" data-ng-model="imageToDelete">
+					<option value="1">Carousel slide 1</option>
+					<option value="2">Carousel slide 2</option>
+					<option value="3">Carousel slide 3</option>
+					<option value="4">Carousel slide 4</option>
+				</select> <br/>
+				<button type="submit" style="width:220px" class="btn btn-primary">Delete</button>
+				<div data-ng-show="success" class="text-center text-success">
+					<strong>{{success}}</strong>
+				</div>
+				<div data-ng-show="error" class="text-center text-danger">
+					<strong data-ng-bind="error">{{error}}</strong>
+				</div>
+				</fieldset>
+			</form>
 		</div>
-	</div>
+ 	</div>
+ </div>
+<!-- end of the deleting a slide functionality -->
+
 </section>
+<!-- end of the branding settings page -->

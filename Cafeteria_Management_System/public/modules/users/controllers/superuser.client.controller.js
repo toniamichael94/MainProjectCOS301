@@ -5,61 +5,86 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 		$scope.user = Authentication.user;
 
 		// If user is not signed in then redirect back home
-		if (!$scope.user) $location.path('/');
+	//	if (!$scope.user) $location.path('/');
 
 		// Assign a role to user - as the super user
 		$scope.assignRoles = function(isValid) {
 		  if (isValid) {
-			//	BootstrapDialog.confirm('Hi Apple, are you sure?');
+
+			BootstrapDialog.confirm({
+            title: 'WARNING',
+            message: 'Changin a role will change the users acces to certain features of the system. Are you sure you want to continue? ',
+            type: BootstrapDialog.TYPE_DANGER,
+            closable: false, // <-- Default value is false
+            draggable: true, // <-- Default value is false
+            btnCancelLabel: 'Cancel', // <-- Default value is 'Cancel',
+            btnOKLabel: 'Continue', // <-- Default value is 'OK',
+						callback: function(result) {
+                // result will be true if button was click, while it will be false if users close the dialog directly.
+                if(result) {
+									$http.post('/users/superuserAssignRoles', reqObj).success(function (response) {
+											if (response.message === 'SU Changed') {
+													$window.location.href = '/';
+											}
+
+											// If successful show success message and clear form
+											$scope.success = response.message;
+											$scope.emp_id = $scope.role = null;
+
+
+									}).error(function (response) {
+											$scope.error = response.message;
+									});
+                }else {
+                      $scope.emp_id = $scope.role = null;
+                }
+            }
+        });
+
 			$scope.success = $scope.error = null;
 			var reqObj = {userID: $scope.emp_id, role: $scope.role};
-              $scope.r = $window.confirm('Are you sure?');
 
-              if($scope.r === true) {
-                  $http.post('/users/superuserAssignRoles', reqObj).success(function (response) {
-                      if (response.message === 'SU Changed') {
-                          $window.location.href = '/';
-                      }
-
-                      // If successful show success message and clear form
-                      $scope.success = response.message;
-                      $scope.emp_id = $scope.role = null;
-
-
-                  }).error(function (response) {
-                      $scope.error = response.message;
-                  });
-              }
-              else{
-                  $scope.emp_id = $scope.role = null;
-              }
 			}
-		  };
+	};
 
 			//assign Roles - as an admin user role
 			$scope.assignRolesAdminRole = function(isValid) {
 				if (isValid) {
+					BootstrapDialog.confirm({
+		            title: 'WARNING',
+		            message: 'Changin a role will change the users acces to certain features of the system. Are you sure you want to continue? ',
+		            type: BootstrapDialog.TYPE_DANGER,
+		            closable: false, // <-- Default value is false
+		            draggable: true, // <-- Default value is false
+		            btnCancelLabel: 'Cancel', // <-- Default value is 'Cancel',
+		            btnOKLabel: 'Continue', // <-- Default value is 'OK',
+								callback: function(result) {
+		                // result will be true if button was click, while it will be false if users close the dialog directly.
+		                if(result) {
+											$http.post('/users/superuserAssignRoles', reqObj).success(function (response) {
+													if (response.message === 'SU Changed') {
+															$window.location.href = '/';
+													}
+
+													// If successful show success message and clear form
+													$scope.success = response.message;
+													$scope.emp_id = $scope.role = null;
+
+
+											}).error(function (response) {
+													$scope.error = response.message;
+											});
+		                }else {
+		                      $scope.emp_id = $scope.role = null;
+		                }
+		            }
+		        });
+
 				$scope.success = $scope.error = null;
 				var reqObj = {userID: $scope.emp_id, role: $scope.role};
-                $scope.r = $window.confirm('Are you sure?');
 
-                if($scope.r === true) {
-                    $http.post('/users/adminUserAssignRoles', reqObj).success(function (response) {
-                        if (response.message === 'Admin Changed') {
-                            $window.location.href = '/';
-                        }
-                        else {
-                            // If successful show success message and clear form
-                            $scope.success = response.message;
-                            $scope.emp_id = $scope.role = null;
-                        }
-                    }).error(function (response) {
-                        $scope.error = response.message;
-                    });
-                }
-                else{
-                    $scope.emp_id = $scope.role = null;
-                }
+
+                
 				}
 				};
 
@@ -142,7 +167,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
                 var reqObj = {name: 'System wide limit', value: $scope.limit};
                 //$scope.r = $window.confirm("Are you sure?");
 
-                bootbox.alert('Hello world!');
+                //bootbox.alert('Hello world!');
                 if($scope.r === true) {
                     //console.log($scope.limit);
                     $http.post('users/superuserSetSystemWideLimit', reqObj).success(function (response) {
@@ -241,19 +266,22 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
                     console.log('error ' + response.message);
                 });
         };
-        //getContactInfo
+        /**
+         * Created by tonia on 2015/10/16.
+         */
+            //getContactInfo
         $scope.getContactInfo = function(){
-            $http.get('/users/superuserGetContactInfo').success(function(response){
+            $http.get('users/superuserGetContactInfo').success(function(response){
                 console.log("response.val"+response.val);
-            $scope.success = response.val;
-        }).error(function(response){
-            console.log(response.message);
-        });
+                $scope.success = response.val;
+            }).error(function(response){
+                console.log(response.message);
+            });
 
         };
-        //getContactInfo
+//getContactInfo
         $scope.getContactInfo2 = function(){
-            $http.get('/users/superuserGetContactInfo2').success(function(response){
+            $http.get('users/superuserGetContactInfo2').success(function(response){
                 console.log("response.val"+response.val);
                 $scope.success2 = response.val;
             }).error(function(response){
@@ -261,9 +289,9 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
             });
 
         };
-        //getContactInfo
+//getContactInfo
         $scope.getContactInfo3 = function(){
-            $http.get('/users/superuserGetContactInfo3').success(function(response){
+            $http.get('users/superuserGetContactInfo3').success(function(response){
                 console.log("response.val"+response.val);
                 $scope.success3 = response.val;
             }).error(function(response){
@@ -271,6 +299,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
             });
 
         };
+
 		//Delete Carousel Image
 		$scope.deleteCarouselImage = function(isValid){
 			console.log('deleteing image');
@@ -323,18 +352,23 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 		$scope.current_auditType;
 		$scope.curent_toDate;
 		$scope.curent_fromDate;
-		
+		$scope.noResults = false;
+
 		//Arrays for dates
 		var days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 		var months = ['Jan','Feb','Mar','Apr','May','Jun','July','Aug','Sep','Oct','Nov','Dec'];
-		
+
 		$scope.getAudits = function(isValid){
 			if(isValid){
 				var toDate = new Date($scope.current_toDate);
 				toDate.setHours(23,59,59);
 
 				$http.post('/users/superuserGetAudits', {type: $scope.current_auditType, from:$scope.current_fromDate, to: toDate}).success(function(response){
-					$scope.audits = response.message;
+                    $scope.audits = response.message;
+                    $scope.noResults = false;
+                    if($scope.audits.length === 0){
+                        $scope.noResults = true;
+                    }
 					//Set Readable Date for table
 					for(var audit in $scope.audits){
 					var temp = new Date($scope.audits[audit].date);

@@ -66,10 +66,16 @@ var config, config2;
 				done();
 			});
 		});
-		
-		after(function(done) {
-			Config.remove().exec();
-			done();
+	});
+	
+	describe('Method update', function(){
+		it('should be able to update a config without problems', function(done){
+			Config.update({name: 'Sytem wide limit'}, {value: 5000}, done);
 		});
+	});
+	
+	after(function(done) {
+		Config.remove().exec();
+		done();
 	});
 });

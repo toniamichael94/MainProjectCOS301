@@ -14,8 +14,10 @@
  <!--END ALERT BOX -->
 
 	<div class="list-group clearfix"  data-ng-controller="MenuItemsController">
+
 		<a href="#" class="list-group-item disabled">Add menu category</a>
 		<div class="list-group-item clearfix">
+				<h4> Add menu category </h4>
 			<!--Alert box -->
 			<script type="text/ng-template" id="alert.html">
 					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
@@ -32,7 +34,7 @@
 				<form name="addMenuCatagoryForm" data-ng-submit="createMenuCatagory(addMenuCatagoryForm.$valid)" class="signin form-horizontal" autocomplete="off">
 					<fieldset>
 						<div class="form-group">
-							<label for="menuCatagory">Menu category name</label>
+							
 							<input type="text" id="menuItemAdd" name="menuItemAdd" class="form-control" data-ng-model="categoryName" placeholder="Menu Category Name">
 						</div>  <div class=" text-center form-group">
 							<button type = "submit" style="width:200px" class = "btn btn-large btn-primary">Add</button>
@@ -103,7 +105,7 @@
                                 <button type = "submit" style="width:200px" class = "btn btn-large btn-primary" ng-click="showme=false"> Update</button>
                             </div>
                         </form>
-												
+
 												<!--Delete a menu category-->
 											 <form class="signin form-horizontal">
 												 <div class = "text-center form-group">
@@ -162,7 +164,7 @@
 
 
 						<div class = "form-group" ng-init="showCat=true; loadMenuCategories()">
-						<label data-ng-click="showCat=false;">No show</label>
+						<label data-ng-click="showCat=false;"></label>
 							<label for="itemCategory" ng-click="showCat=true; loadMenuCategories()">Category</label>
 							<div data-ng-hide="showCat==false" data-ng-show="showCat==true">
 								<select id ="itemCategory" name ="itemCategory" class = "form-control" data-ng-model ="menuItem.itemCategory" >

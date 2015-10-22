@@ -47,13 +47,13 @@
  \hline
  \textbf{Document Title} & User Manual \\
  \hline
- \textbf{Document Identification}  & Document 0.0.7  \\
+ \textbf{Document Identification}  & Document 0.0.8  \\
  \hline
  \textbf{Author}  & Rendani Dau, Isabel Nel, Elana Kuun, Semaka Malapane, Antonia Michael \\
  \hline
- \textbf{Version} & 0.0.7 \\
+ \textbf{Version} & 0.0.8 \\
  \hline
- \textbf{Document Status} & Seventh Version - edited according to feedback, edited cashier page/ images, added reporting and dynamic categories and updated older images\\
+ \textbf{Document Status} & Eighth Version - edited entire document with changes and added new pages for reporting and graphs\\
  \hline
  \end{tabu}
 
@@ -82,6 +82,9 @@
  \hline 
  & & & \\
  0.0.7& 9 October &  Seventh draft containing  & Rendani Dau, \\ & & added audit, notifications, & Elana Kuun, \\ & & statistics, & Semaka Malapane, \\ & &  and themes &  Antonia Michael \\ & & & Isabel Nel \\   [1ex]  
+ \hline 
+ & & & \\
+ 0.0.8& 16 October &  Eighth draft containing  & Rendani Dau, \\ & & edits and additions to & Elana Kuun, \\ & & the document, & Semaka Malapane, \\ & &  document &  Antonia Michael \\ & & & Isabel Nel \\   [1ex]  
 \hline
  \end{tabular}
 \end{table}
@@ -106,7 +109,7 @@ As specified in the project proposal document from Resolve, the cafeteria is cur
 \subsection{How the aforementioned problems will be alleviated by the CMS}
 The Cafeteria Management System will provide a means to accept payments from employees, at the canteen, using their employee access cards or access card numbers, with an amount being deducted from their salary at the end of the month.  The option of cash payments ,however, will not be discarded. At the end of each month, the bill for the month will be sent to either payroll, to the employee, or to both. This option is thus configurable from the user's profile. The employee can also set a spending limit for each month. There will also be a system wide limit that users cannot exceed.
 \\
-The system will predict which inventory items needs to be bought for the next week in order to avoid the "out of stock" situation described above. The system will also enforce that the cafeteria manager 
+The system will predict which inventory items needs to be bought for the next week in order to avoid the "out of stock" situation described above. The system will also enforce that when the cafeteria manager adds meal items to the menu, he adds inventory items for each menu item. This is done so that each time a menu item requires an inventory item, the quantity of the inventory item will decrement until it reaches zero and is marked as "Out of Stock" on the menu. This is done so that when the user is ordering food, he/she can clearly see which items are not in stock and hence does not need to find this out at the canteen.
 \\
 %%---------------------------------- SYSTEM OVERVIEW -----------------------------------------
 \section{System Overview}
@@ -114,9 +117,14 @@ The Cafeteria Management System is a system designed to assist users to order fo
 
 %%--------------------------------------SYSTEM CONFIGURATION ----------------------------------------
 \section{System Configuration}
-The system requires a Windows/Unix based host to run the server. This host must have the associated technologies installed (the installation of these technologies will be discussed below). The host must be connected to the internet in order to allow any required dependencies to be installed and set up for the operating system environment. The configuration of the server requires an active email account to facilitate communication between the system and end users. \\ 
+The system requires a Windows/Unix based host to run the server. This host must have the associated technologies installed (the installation of these technologies will be discussed below). The host must be connected to the internet in order to allow any required dependencies to be installed and set up for the operating system environment. The configuration of the server requires an active email account to facilitate communication between the system and end users. 
+End users will only require a PC equipped with a web browser such as Mozilla, Chrome or Internet Explorer, as well as an active internet connection.  
+The types of data that will communicated and stored will be data of the NoSQL database MongoDB. The menu items that the cafeteria manager will add to the menu will be stored in the database, to be communicated/displayed on the menu page. The inventory items that these menu items entail will be stored too. The categories that can be added to the menu by the cafeteria manager will also be stored in the database in order to populate the navigation bar, the actual dynamic pages and various other places in which these are displayed. The cafeteria manager is the only user who is able to retrieve the menu and inventory data, in order to edit or delete it. The other users will just be able to view the menu data on the menu page. 
 \\
-End users will only require a PC equipped with a web browser such as Mozilla, Chrome or Internet Explorer, as well as an active internet connection. The types of data that will communicated and stored will be data of the NoSQL database MongoDB. The menu items that the cafeteria manager will add to the menu as well as images thereof, will be stored in the database, to be communicated/displayed on the menu page. The inventory items that these menu items entail will be stored too. The categories that can be added to the menu by the cafeteria manager will also be stored in the database in order to populate the navigation bar, the actual dynamic pages and various other places in which these are displayed. The cafeteria manager is the only user who is able to retrieve the menu and inventory data, in order to edit or delete it. The other users will just be able to view the menu data on the menu page. The user's sign up informtation will also be stored and will be communicated on the profile page of the user. Each user will only have access to their own information. The superuser, however, will be able to search for users and update their IDs or delete them from the system. The branding information such as the cover image, the theme, and the canteen name will also be  stored to be communicated on various pages. The superuser is the only user who be able to edit and add this information. Other settings that the superuser can configure, such as the system limit and the roles of the users will be stored and used for determining the privileges associated with the various roles and the checks done on the users' personal spending limits. The superuser will also have access to the audit trail of all actions performed on the system. The finance manager will have access to the order history of each user in order to view their bills and invoices. The cashier will also have access to the orders placed in order to process them i.e. mark an order as ready and as completed. All the crucial information such as the order history and other changes made will be stored in an auditing table.
+The user's sign up information will also be stored and will be communicated on the profile page of the user. Each user will only have access to their own information. The superuser, however, will be able to search for users and update their IDs or delete them from the system.
+\\
+
+ The branding information such as the cover carousel images, the theme, the contact information and the canteen name will also be stored to be communicated on various pages. The superuser is the only user who be able to edit and add this information. Other settings that the superuser can configure, are the system limit and the roles of the users will be stored and used for determining the privileges associated with the various roles and the checks done on the users' personal spending limits. The superuser will also have access to the audit trail of all actions performed on the system. The finance manager will have access to the order history of each user in order to view their bills and invoices. The cashier will also have access to the orders placed in order to process them i.e. mark an order as ready and as completed. All the crucial information such as the order history and other changes made will be stored in an auditing table. Each user will have access to their personal spending history as well as a notifications page, populated with "Order pending" and "Order ready" notifications.
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{screenshots/ServerClients.png}
@@ -237,15 +245,15 @@ Once the user has clicked the "Sign Up" option on the navigation pane, the user 
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/signUp.PNG}
-    \caption{Sign Up - red circled button should be clicked to sign up} 
+    \includegraphics[width=1.0\textwidth]{screenshots/sign/signUp.png}
+    \caption{Sign Up - as indicated by the grey box on the page} 
 \end{figure}
 
 When the button is clicked, the CMS will direct the user to the signup page where the user can fill out all the details. Once the user have completed the form, the user will click submit and if the form is correctly filled in , the user will be notified upon success and will be signed up for the system. They will hence be redirected to the home page. The user will then use the password created and employee ID to log in to the system. If the information entered is not valid, a thorough error message will be displayed indicating what the problem is so that the user can rectify it.
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/signUpPage.PNG}
+    \includegraphics[width=1.0\textwidth]{screenshots/sign/signUpPage.png}
     \caption{Sign Up Page - details to be filled in - all fields are required} 
 \end{figure}
 
@@ -263,15 +271,15 @@ To sign in, the user must click on the 'Sign In' tab on the navigation bar.
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/signIn.png}
-    \caption{Sign In - red circled button should be clicked to sign in} 
+    \includegraphics[width=1.0\textwidth]{screenshots/sign/signIn.png}
+    \caption{Sign In - as indicated by the grey box on the page} 
 \end{figure}
 
 Once the user clicks on the sign in tab, the CMS should direct to the sign in page :
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/signIn.png}
+    \includegraphics[width=1.0\textwidth]{screenshots/sign/signInPage.png}
     \caption{Sign In page - Type the appropriate information in the textboxes and click submit to sign in} 
 \end{figure}
   
@@ -309,23 +317,24 @@ The rest of the functionality will be described in the section below in detail  
 
 %%------------------------NAVIGATION PANE USER  NOT LOGGED ON ----------------------
 \subsubsection{The Navigation pane - once the user is not  logged on}
-On the home page, the name of the canteen is displayed. The user will also see that the navigation pane is located at the top of the screen. The actions available on the pane are "Sign in", "Sign up", "Menu" and "On your plate". 
+On the home page, the name of the canteen is displayed. There is a navigation pane located at the top of the screen. The options available on the pane are "Sign in", "Sign up", "Menu" and "On your plate" and "Contact Us". 
 The Navigation pane will be displayed as follows if the user has not logged in:
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/HomePage.PNG}
-    \caption{Home Page - user not logged in } 
+    \includegraphics[width=1.0\textwidth]{screenshots/sign/homepage.png}
+    \caption{Home Page - user has not logged in } 
 \end{figure}
 
-The numbers in the images are described below:
-
+%%The numbers in the images are described below: -- CAN NUMBERS BE ADDED TO THE NEW SCREENSHOT?
+The options on the navigation pane are described below:
 \begin{enumerate}
-\item The Home button - when clicking on this button it will always redirect to the home page
-\item The Menu button - this button will direct user to the menu page
-\item The on my plate button - this button will direct user to an orders page showing items you have currently ordered and the bill total
-\item The Sign Up button - this button will direct to the signup page where a new account can be created
-\item The Sign In button - this button will direct to a page where the user can signin and log into his/her account
+\item Home -  when clicked, one will be redirected to the home page
+\item Menu - when clicked, this will direct user to the menu page
+\item On my plate -  when clicked, the user will be to an orders page showing items you have currently ordered and the bill total
+\item Contact Us - when clicked, it directs the user to a page that contains the contact details of the canteen 
+\item Sign Up - this button will direct to the signup page where a new account can be created
+\item Sign In - this button will direct to a page where the user can signin and log into his/her account
 \end{enumerate}
 
 The user cannot proceed to order food if the user has not signed up and logged in. Hence, the first step a new user should take is signing up/ registering with the system. 
@@ -335,48 +344,76 @@ If a user has not signed in, the user will still be allowed, however, to view th
 
 %%------------------------NAVIGATION PANE USER LOGGED ON  ----------------------
 \subsubsection{The Navigation pane - once the user has logged on}
-The user will now view a drop down menu with various options displayed on it. The following options will be displayed if the user is a normal user: "Edit Profile", "Profile", "Sign out". These pages will be discussed below.
+Once the user has logged on, the options that will be available on the navigation pane are  "Menu", "On your plate", "Contact Us" and a dropdown menu labelled with the users name and surname. Various options are displayed on this dropdown menu depending on the type of the user. If the user is a normal user the following items will be displayed on the dropdown, "Notifications", "View Profile","Edit Profile", "My History","Change Password", "Sign out". These pages will be discussed below.
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/HomePage2.PNG}
-    \caption{Home Page - user not logged in } 
+    \includegraphics[width=1.0\textwidth]{screenshots/sign/homepage2.png}
+    \caption{Home Page - user has logged in } 
 \end{figure}
 
 
-When a user is logged in as a normal user he/she will have the following view of the navigation pane as the above image.\\ below we describe what each of those buttons will do: \\
+When a user is logged in as a normal user he/she will view of the navigation pane as indicated in the figure above.\\ below we describe the purpose of each of those options: \\
 
 \begin{enumerate}
-\item The Home button - when clicking on this button it will always redirect to the home page
-\item The Menu button - this button will redirect to the menu page
-\item The on my plate button - this button will redirect to an orders page showing items you have currently ordered and the bill total
-\item The User button - this button will display the user's name and when clicked, will launch a dropdown menu with different options depending on what the role of the user is - the example used is just a normal user with the basic options. These are described below:
-\item View Profile - this will redirect to the profile page of the respective user.
-\item Edit Profile - this will redirect to the edit profile page where a user can change his/her current details and save it onto the CMS
-\item Change Password - this will redirect to the change password page where a user can change his/her current password
+\item Home -  when clicked, one will be redirected to the home page
+\item Menu - when clicked, this will direct user to the menu page
+\item On my plate -  when clicked, the user will be to an orders page showing items you have currently ordered and the bill total
+\item Contact Us - when clicked, it directs the user to a page that contains the contact details of the canteen 
+\item The dropdown menu - when clicked, this will launch a dropdown menu with different options depending on the type of user - the example used is just a standard user with the basic options. These are described below:
+\item Notifications -  when clicked, this will redirect the user to a page that displays various system notifications. A number next to the "Notifications" label on the dropdown menu will indicate the number of new unread notifications that have been sent to the user.
+\item View Profile - when clicked, this will redirect to the profile page of the respective user.
+\item Edit Profile - when clicked, this will redirect to the edit profile page where a user can change his/her current details and save it onto the CMS
+\item My History - when clicked the user will be directed to page where the user can view a tabular and graphical version of their spending history for the month.
+\item Change Password - when clicked, this will redirect to the change password page where a user can change his/her current password
 \item Sign Out  - this will sign a user out of the CMS and redirect the user to the home page
 \end{enumerate}
 
 \textbf{Normal User}\\
-A normal user will only have the options in the dropdown menu as displayed in the image above. If the user obtains another role, there will be extra settings displaying in the dropdown menu.\\
+A normal user will only have the options in the dropdown menu as displayed in the image above. If the user obtains another role, there will be extra settings displaying in the dropdown menu. \\
 
 \textbf{Superuser or Admin User}\\
-If the user is a superuser or an admin user the options "Admin Settings" and "Branding Settings" will also be displayed in the dropdown menu. The superuser and the admin user will hence be in control of assigning roles, changing employee ID's, setting the system wide spending limit, changing the canteen name and the cover image of the canteen.  \\
+If the user is a superuser or an admin user the options "Admin Settings", "Audits" and "Branding Settings" will also be displayed in the dropdown menu. The superuser and the admin user will be in charge of assigning roles, changing employee ID's, removing employees, setting the system wide spending limit, changing the canteen name, theme and the carousel images of the canteen.  \\
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/superUserMenu.png}
+    \caption{The dropdown menu as per the superuser page} 
+\end{figure}
+
 
 \textbf{Cafeteria Manager}\\
-If the user is a cafeteria manager, the options "Manage Menu Items" and "Manage Inventory" will be displayed. Manage Inventory is where the stock additions and removals are kept track of. Manage Menu Items  is where the different menu meal items will be logged.\\
+If the user is a cafeteria manager, the options "Manage Menu", "Manage Inventory", "Menu items statistics", "Inventory statistics" will be displayed. Manage Inventory is where the stock additions and removals are kept track of. Manage Menu Items  is where the different menu meal items will be logged. The statistics pages will display graphical representations of the most popular items and of the items sold\\
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/cafeteriaMenu.png}
+    \caption{The dropdown menu as per the cafeteria page} 
+\end{figure}
 
 \textbf{Finance}\\
-If user is a financial manager, the option "Finance" will be displayed. The financial manager will be able to search for employees and view their bills, to keep track of these.\\
+If user is a financial manager, the option "View Employee Bills" will be displayed. The financial manager will be able to search for employees and view their bills for a configurable period of time.\\
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/financeMenu.png}
+    \caption{The dropdown menu as per the cafeteria page} 
+\end{figure}
 
 \textbf{Cashier}\\
-If the user is a cashier, the options "Placed Orders" will be displayed and it is here where the transactions will occur, such as marking whether orders are ready, and paid for. The cashier will also send notifications to the user, when the food is ready for the user to collect. 
+If the user is a cashier, the options "Process Orders" will be displayed and it is here where the transactions will occur, such as marking whether orders are ready, and paid for. When the "Order ready" is clicked, notifications are sent to the user via email and via the notifications page, alerting the user that his/her order is ready for collection. 
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/cashierMenu.png}
+    \caption{The dropdown menu as per the cafeteria page} 
+\end{figure}
 
 %%------------------------MENU PAGE----------------------
 \subsection{The "Menu" Page} 
 This is where the user will be able to view the menu items and their prices. An item can be added to the user's plate by simply clicking the 'Add to Plate' button alongside each item. These can then be viewed on the 'On my Plate' page.
 If a menu item is not in stock it will be written in red on the menu item that it is "out of stock " and there will be no  option to click the add to plate button since that item will not be available. 
 \\
+The image button displayed in each menu item field can be clicked to view images of the different menu items, as uploaded by the superuser.
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{screenshots/beforePasta.png}
@@ -422,6 +459,16 @@ This page serves to indicate the current meal items that the user has on their p
     \caption{One can remove orders as well as specify preferences by clicking in the indicated areas} 
 \end{figure}
 
+\subsection{The "Notifications" Page} 
+When the user places an order, the user will recieve a notification informing the user that their order has indeed been placed. In addition, when a user places an order, the order is sent through to the cashier's page at the cafeteria. When the cashier is notified at the canteen that an order is ready for collection, the cashier will mark this order as ready and this will send a notification to the notification page.
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/notifications.png}
+    \caption{The notifications page -  consists of order pending and order ready notifications} 
+\end{figure}
+
+
 %%----------------------EDIT PROFILE PAGE ----------------------
 \subsection{The "Edit Profile" Page} 
 The user will be presented with a similar form to that which they signed up with, however, the details that the user entered in the signup form will be present in these textboxes. The user can proceed to edit these here. Clicking the submit button will indicate whether changes have been saved or if errors have been made and how the user can correct these.
@@ -457,10 +504,10 @@ The user is presented with a form where the user will be asked to enter their ol
     \includegraphics[width=1.0\textwidth]{screenshots/changePassDontMatch.png}
     \caption{Can change password on this page - validation message will be displayed indicating if change was successful or not} 
 \end{figure}
-
+%%-----------------------superuser admin ----------------------
 \subsection{Superuser: The "Administrative Settings" Page} 
-At the top of the page there is a section labelled assign roles, where different admin roles will be assigned to different users. The super user simply has to type in an employee ID and select a role from the dropdown menu below. There is a section underneath that where the superuser can change the user ID of an employee. Self explanatory text boxes are provided for the superuser to fill in and the submit button will save the changes, unless an error occurs.  This page also consists of a section labelled "Change system limit" and it is here where the superuser can alter the limit of the system, i.e. the maximum value that a user can set their daily spending limits to. Hence a textbox is provided for the super user to type the new limit and save it.
-
+At the top of the page there is a section labelled assign roles, where different admin roles will be assigned to different users. The super user simply has to type in an employee ID and select a role from the dropdown menu below. There is a section underneath that where the superuser can change the user ID of an employee. Self explanatory text boxes are provided for the superuser to fill in and the submit button will save the changes, unless an error occurs.  This page also consists of a section labelled "Change system limit" and it is here where the superuser can alter the limit of the system, i.e. the maximum value that a user can set their daily spending limits to. Hence a textbox is provided for the super user to type the new limit and save it.  The superuser can also remove an employee from the system.
+ 
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{screenshots/assignRole.png}
@@ -484,39 +531,65 @@ At the top of the page there is a section labelled assign roles, where different
     \includegraphics[width=1.0\textwidth]{screenshots/setLimit.png}
     \caption{The admin page - superuser can set the monthly spending limit for the users} 
 \end{figure}
-
+%%-----------------------superuser audits----------------------
+\subsection{Superuser: The "Audits" Page} 
+On this page, the superuser will be able to generate a thorough audit trail to trace all actions performed in the system for a specified period. There is a dropdown menu where the superuser can customize the search results to only view an audit for a particular type of action performed in the system.
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{screenshots/auditsAll.png}
-    \caption{The admin page - superuser can view the audit trail for all actions performed in the system for a specified period. } 
+    \caption{The audit page - superuser can view the audit trail for all actions performed in the system for a specified period. } 
 \end{figure}
 
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{screenshots/Menu_001.png}
-    \caption{The admin page - the dropdown menu for the field to select audit details contains the following actions, more specifically all the main actions a user can perform in the system} 
+    \caption{The audit page - the dropdown menu for the field to select audit details contains the following actions, more specifically all the main actions a user can perform in the system} 
 \end{figure}
 
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{screenshots/auditRole.png}
-    \caption{The admin page - if the superuser selects one of the options, the audit trail is limited to that option} 
+    \caption{The audit page - if the superuser selects one of the options, the audit trail is limited to that option} 
+\end{figure}
+%%-----------------------branding settings superuser----------------------
+\subsection{Superuser: The "Branding Settings" Page} 
+There are two sections on this page. One where the user can change the canteen name, by merely typing in a new name over the old name in the allocated textbox, and another where the superuser can add and remove carousel images for the cover image slides on the home page. The superuser can also configure the colour scheme for the system. The superuser can also add the contact details for the canteen that will be displayed on the contacts page
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/canteenName.png}
+    \caption{The branding settings page - superuser can change the canteen name}
 \end{figure}
 
-\subsection{Superuser: The "Branding Settings" Page} 
-There are two sections on this page. One where the user can change the canteen name, by merely typing in a new name over the old name in the allocated textbox, and another where the superuser can upload a new cover photo for the system. The superuser can also configure the colour scheme for the system.
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/setTheme1.png}
+    \caption{The branding settings page - superuser can change the canteen name}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/setTheme2.png}
+    \caption{The branding settings page - the colour scheme of the system has now changed}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/addContactInfo.png}
+    \caption{The branding settings page - the contact information can be added in the appropriate boxes}
+\end{figure}
 
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{screenshots/coverImage.png}
-    \caption{The admin settings page - superuser can change the cover photo} 
+    \caption{The branding settings page - superuser can add/remove the images in the carousel} 
 \end{figure}
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{screenshots/canteenName.png}
-    \caption{The admin settings page - superuser can change the canteen name}
+    \includegraphics[width=1.0\textwidth]{screenshots/coverImage.png}
+    \caption{The page will redirect to the carousel after an image has been added to a carousel slide and the new image will be displayed as follows} 
 \end{figure}
+%%-----------------------caf man - manage inventory----------------------
 
 \subsection{Cafeteria Manager: The "Manage Inventory" Page}
 This page is available to the cafeteria manager under the dropdown menu on the navigation pane. This is where the cafeteria manager adds inventory items to be used when an actual meal is stored in the menu in order to keep track of stock to note when a specific meal item is out of stock. These inventory items can be deleted, updated and searched for. 
@@ -532,9 +605,9 @@ This page is available to the cafeteria manager under the dropdown menu on the n
     \includegraphics[width=1.0\textwidth]{screenshots/updateInv.png}
     \caption{The manage inventory page - Cafeteria Manager can update and delete inventory items}
 \end{figure}
-
+%%-----------------------Caf man manage menu----------------------
 \subsection{Cafeteria Manager: The "Manage Menu" Page}
-This is the page where the cafeteria manager adds menu items so that these can be displayed on the menu page found under the menu tab. The items can also be updated, deleted and searched for. The cafeteria manager can also add categories to the dynamic menu page.
+This is the page where the cafeteria manager adds menu items so that these can be displayed on the menu page found under the menu tab. The items can also be updated, deleted and searched for. The cafeteria manager can also add categories to the dynamic menu page. The cafeteria manager can also add images for each menu item to be displayed on the menu page.
 
 \begin{figure}[H]
   \centering
@@ -545,7 +618,7 @@ This is the page where the cafeteria manager adds menu items so that these can b
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{screenshots/searchMenuItem.png}
-    \caption{The manage menu page - Cafeteria Manager can search for menu items}
+    \caption{The manage menu page - Cafeteria Manager can search for menu items and proceed to update, delete or upload an image for the menu item to be displayed on the menu}
 \end{figure}
 
 \begin{figure}[H]
@@ -575,6 +648,53 @@ This is the page where the cafeteria manager adds menu items so that these can b
     \includegraphics[width=1.0\textwidth]{screenshots/afterPasta.png}
     \caption{The menu page - the added category is now displayed on the navigation pane}
 \end{figure}
+\subsection{Cafeteria Manager: The "Menu items statistics" Page}
+The purpose of this page is to allow the cafeteria manager to keep tabs on which menu items are most popular and to keep track of which menu items are being purchased during specific periods of time. This is to alleviate the problem of the canteen frequently running out stock.
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/menuStats1.png}
+    \caption{The Menu Items Statistics page - the cafeteria manager can generate a graph to view menu items sold for a specific period of time}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/menuStats2.png}
+    \caption{The Menu Items Statistics page - the generated graph will be displayed as follows, grouping menu items by the menu categories}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/menuStats25.png}
+    \caption{The Menu Items Statistics page - the generated graph will be displayed as follows, grouping menu items by the menu categories}
+\end{figure} 
+ 
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/menuStats3.png}
+    \caption{The Menu Items Statistics page - the cafeteria manager can generate a graph to view a specific number of the most popular menu items for a specific period of time}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/menuStats4.png}
+    \caption{The Menu Items Statistics page -the generated graph will be displayed as follows, grouping the most popular items by category}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/menuStats4.png}
+    \caption{The Menu Items Statistics page -the generated graph will be displayed as follows, displaying the most popular items in descending order}
+\end{figure}
+
+\subsection{Cafeteria Manager: The "Inventory statistics" Page}
+The purpose of this page is to allow the cafeteria manager to keep track of which inventory items are being purchased during specific periods of time. This is to alleviate the problem of the canteen frequently running out stock.
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/invStats1.png}
+    \caption{The Inventory Statistics page - the cafeteria manager can generate a graph to view the inventory items used for a specific period of time }
+\end{figure}
 
 \subsection{Cashier: The "Process Orders" Page}
 This page is for use by the cashier. Orders that are "open" will be displayed on the page. Orders can be marked as ready, paid or collected. When the order is marked as ready, the button will disappear and the employee will be sent an email informing them to come collect their order. When the "Employee Paid" button is clicked, the cashier will choose whether it was a cash or credit purchase and the amount will be deducted accordingly from the user's account.
@@ -601,7 +721,7 @@ This page is for use by the cashier. Orders that are "open" will be displayed on
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{screenshots/empPaid.png}
-    \caption{The process orders page - The order will be removed from the page when the cashier clicks the "Employee paid" button. Order 3 - The hotdog is now removed from the page due to this}
+    \caption{The process orders page - The order will be removed from the page when the cashier clicks the "Employee paid" button. Order 7 - The cheese salad is now removed from the page due to this}
 \end{figure}
 
 \subsection{Financial Manager: The "View Employee Bills" Page}

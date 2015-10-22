@@ -77,10 +77,16 @@ var inventory, inventory2;
 				done();
 			});
 		});
-		
-		after(function(done) {
-			Inventory.remove().exec();
-			done();
+	});
+	
+	describe('Method update', function(){
+		it('should be able to update inventory without problems', function(done){
+			Inventory.update({productName: 'carrots'}, {quantity: 10}, done);
 		});
+	});
+	
+	after(function(done) {
+		Inventory.remove().exec();
+		done();
 	});
 });

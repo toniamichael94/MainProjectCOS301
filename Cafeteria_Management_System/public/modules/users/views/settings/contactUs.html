@@ -1,0 +1,55 @@
+<!--
+***Contact Us Page***
+   - This document contains the information to display the contact details of the canteen
+
+  Authors: T-RISE (COS 301 team 2015)
+             		Antonia Michael (13014171)
+                Isabel Nel (13070305)
+							  Elana Kuun (12029522)
+								Rendani Dau (13381467)
+								Semaka Malapane (13081129) -->
+
+<!-- This section is mainly controlled by the super user controller unless indicated otherwise-->
+<section data-ng-controller="superuserController" >
+
+	<!--Alert box for the contact page  -->
+	<script type="text/ng-template" id="alert.html">
+		<div class="alert"  role="alert">
+			<div ng-transclude></div>
+		</div>
+	</script>
+
+	<div data-ng-controller="MenuItemsController">
+		<h4>Contact Us <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button></h4><hr>
+		<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert29.msg}}</alert>
+	</div>
+	<!--end of alert box for contacts page-->
+
+<!-- Contacts page table -->
+	<div class="col-xs-offset-2 col-xs-8 ">
+  	<div class="signin form-horizontal">
+    	<div class="list-group-item" > <label align="center">Canteen's Contact Details: </label>
+        <table align="center" class="table table-bordered table-striped table-condensed">
+            <thead> </thead>
+            <tbody>
+	            <tr>
+	              <td><b>Contact Person: </b></td>
+	              <td data-ng-init="getContactInfo()" > {{success}}</td>
+	            </tr>
+	            <tr>
+	              <td><b>Number:</b></td>
+	              <td data-ng-init="getContactInfo2()" >  {{success2}}</td> </h5><br>
+	            </tr>
+	            <tr>
+	              <td><b>Email address:</b></td>
+	              <td data-ng-init="getContactInfo3()" >{{success3}}</td> </h5><br>
+	            </tr>
+            </tbody>
+        </table>
+      </div>
+		</div>
+	</div>
+<!-- end of contacts page table -->
+
+</section>
+<!-- End of contacts page -->

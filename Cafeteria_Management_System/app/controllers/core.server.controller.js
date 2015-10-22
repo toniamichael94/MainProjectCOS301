@@ -19,25 +19,29 @@ exports.index = function(req, res) {
 	});
 };
 
+/**
+ * Load Canteen info
+ * The function is used to get the canteen name from the database and display it everywhere it shoud
+ * @param {Object} req
+ * @param {Object} res
+ */
 exports.loadCanteenInfo = function(req, res) {
-console.log('in server');
 	Config.findOne({name: 'Canteen name' }, function(err, canteenName){
-
 		if(err || !canteenName) return res.status(400).send({message: 'canteen name not found' });
 		else {
 			res.status(200).send({message: canteenName});
-			//var v = canteenName; // testing
-			//console.log(v); // testing
 		}
-
 	});
-
-	//console.log(canteenName);
 };
 
+/**
+ * Load captions
+ * The function is used to get the image captions from the database and display them with their corresponding images
+ * @param {Object} req
+ * @param {Object} res
+ */
 exports.loadCaptions = function(req, res){
 	Config.find({$or: [{name: 'Carousel-caption1'},{name: 'Carousel-caption2'},{name: 'Carousel-caption3'},{name: 'Carousel-caption4'}]}, function(err, captions){
-		console.log(captions);
 		res.status(200).send({message: captions});
 	});
 };

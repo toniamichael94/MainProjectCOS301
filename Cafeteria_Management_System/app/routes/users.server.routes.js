@@ -29,15 +29,15 @@ module.exports = function(app) {
     app.route('/users/superuserGetContactInfo').get(users.getContactInfo);
     app.route('/users/superuserGetContactInfo2').get(users.getContactInfo2);
     app.route('/users/superuserGetContactInfo3').get(users.getContactInfo3);
-	app.route('/config/theme').post(users.getTheme);
+	//app.route('/config/theme').post(users.getTheme);
 	app.route('/users/superuserUploadImage').post(users.uploadImage);
 	app.route('/users/superuserGetAuditTypes').get(users.getAuditTypes);
 	app.route('/users/superuserGetAudits').post(users.getAudits);
-	app.route('/users.superuserDeleteImage').post(users.deleteImage);
-	
+	app.route('/users/superuserDeleteImage').post(users.deleteImage);
+
     //loading employees from db
     app.route('/loadEmployees').get(users.loadEmployees);
-	
+
 	//Setting up finance API
 	app.route('/users/finance/generateReportUser').post(users.generateReportUser);
 	app.route('/users/finance/generateReportAll').post(users.generateReportAll);
