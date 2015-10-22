@@ -228,6 +228,7 @@ $scope.toggleCollapsibleMenu = function() {
   $scope.alert41 = {type: 'warning', msg: 'Page help: This allows you to view the statistics of the menu items in graph format - the graph first displays all menu category=ies, to see statistics on each individual item in a category click on the a category bar and enjoy the results!'};
   $scope.alert42 = {type: 'warning', msg: 'Page help: This allows you to view the statistics of the most popular items in graph format'};
 	$scope.alert43 = {type: 'warning', msg: 'Page help: To change your password type in your current password in the first box and your new desired password in the second box and then confirm your new password in the third box and click on the SAVE PASSWORD button '};
+	$scope.alert44 = {type: 'warning', msg: 'Page help: This page shows the stock of the inventory left'};
 
 
 //close alert will take alert box away
