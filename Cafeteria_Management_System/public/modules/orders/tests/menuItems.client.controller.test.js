@@ -131,11 +131,22 @@
 		
 		it('$scope.loadMenuItems() should load menu items', function() {
 			 //Test expected GET request
-            $httpBackend.expectGET('/loadMenuItems').respond(200, {'message':[{itemName: 'item 1', itemInStock: true},{itemName: 'item 2', itemInStock: false}]});
+			 scope.checkStock = function(menuItem){};
+            $httpBackend.expectGET('/loadMenuItems').respond(200, {'message':[{itemName: 'item 1', itemInStock: true, created: "2015-10-06T08:22:40.251Z", description: "desc 1",
+													ingredients: {ingredients: ["milk"],quantities:[0]},price: 15}]});
 			
 			scope.loadMenuItems();
-
+			$httpBackend.flush();
             expect(scope.menuItems).not.toBe(null);
+        });
+		
+		it('$scope.loadMenuItems() should NOT load menu items', function() {
+             //Test expected GET request
+            $httpBackend.expectGET('/loadMenuItems').respond(400, {'message': 'Error loading menu items'});
+
+            scope.loadMenuItems();
+			$httpBackend.flush();
+            expect(scope.menuItems).toEqual('Error loading menu Items');
         });
 		
         it('$scope.createMenuCatagory() should create category', function() {
@@ -148,6 +159,7 @@
 
             expect(scope.success).toEqual('Category added to the menu.');
         });
+		
         it('$scope.createMenuCatagory() should not create category', function() {
             //Test expected POST request
             scope.name = {
@@ -162,27 +174,35 @@
 
             expect(scope.error).toEqual('The category already exists ');
         });
-
-
-/*
-        it('$scope.loadMenuItems() should NOT load menu items', function() {
-             //Test expected GET request
-            $httpBackend.expectGET('/loadMenuItems').respond(400, {'message': 'Error loading menu items'});
-
-            scope.loadMenuItems();
-
-            expect(scope.menuItems).toEqual('Error loading menu Items');
+		
+		it('$scope.loadMenuCategories() should load menu categories', function() {
+			 //Test expected GET request
+            $httpBackend.expectGET('/loadMenuCategories').respond(200, {'message':['cat 1','cat 2']});
+			
+			scope.loadMenuCategories();
+			$httpBackend.flush();
+			
+            expect(scope.menuCategory).not.toBe(null);
         });
+		
+		it('$scope.loadMenuCategories() should NOT load menu categories', function() {
+             //Test expected GET request
+            $httpBackend.expectGET('/loadMenuCategories').respond(400, {'message': 'Error loading categories'});
 
-
-
+            scope.loadMenuCategories();
+			
+			$httpBackend.flush();
+            expect(scope.menuItems).toEqual('Error loading categories');
+        });
+		
         it('$scope.deleteMenuItem() should delete menu item', function() {
              //Test expected POST request
 			$httpBackend.expectPOST('/orders/deleteMenuItem',{itemName: 'mock search'}).respond(200, {'message': 'Item deleted'});
             scope.menuNameSearch = 'mock search';
             scope.deleteMenuItem();
-
-            expect(scope.successMessage).toEqual('Item deleted');
+			$httpBackend.flush();
+            
+			expect(scope.successMessage).toEqual('Item deleted');
         });
 
         it('$scope.deleteMenuItem() should NOT delete menu item', function() {
@@ -190,15 +210,19 @@
             $httpBackend.expectPOST('/orders/deleteMenuItem').respond(400, {'message': 'Item could not be deleted'});
             scope.menuNameSearch = 'mock search';
             scope.deleteMenuItem('');
-
+			
+			$httpBackend.flush();
+			
             expect(scope.errorMessage).toEqual('Item could not be deleted');
         });
-/*
-        it('$scope.addToPlate() should add menu item to plate', function() {
-            scope.addToPlate();
 
-            expect($cookies.plate).;
-        });*/
+        it('$scope.addToPlate() should add menu item to plate', function() {
+            scope.menuItems = [{itemName: 'top deck', itemInStock: true, created: "2015-10-06T08:22:40.251Z", description: "desc 1",
+													ingredients: {ingredients: ["milk"],quantities:[0]},price: 15}]
+			scope.addToPlate('top deck');
+
+            expect($cookies.plate).not.toBe(null);
+        });
 		
 	});
 }());
