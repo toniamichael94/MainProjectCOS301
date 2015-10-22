@@ -1,81 +1,80 @@
 <!--
-*   Assign Roles - Superuser
-*   - This document contains the Assign roles functionality that is only accessable by the superUser
-*
-*   Authors: T-RISE (COS 301 team 2015)
-             		Antonia Michael (13014171)
-					Isabel Nel (13070305)
-					Elana Kuun (12029522)
-					Rendani Dau (13381467)
-					Semaka Malapane (13081129)
-*
--->
-<section class="row" data-ng-controller="superuserController">
-	 <!--ALERT BOX FOR HELP-->
-			<script type="text/ng-template" id="alert.html">
-					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-						<div ng-transclude></div>
-					</div>
-			</script>
+***Audits page***
+   - This document contains the needed html to display the audit details of the whole CMS system
 
-			<div  data-ng-controller="MenuItemsController">
-				<h4> Audits <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
-        <hr>
-				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert26.msg}}</alert>
-			</div>
-	<!--END ALERT BOX -->
-	 <div class="list-group clearfix">
-        <a href="#" class="list-group-item disabled">
-            Audits
-        </a>
-	<div data-ng-init="getAuditTypes()" class="">
-                <form name="getAuditsForm" data-ng-submit="getAudits(getAuditsForm.$valid)" class="signin form-horizontal" autocomplete="off">
-				<fieldset>
-                        <div class="row">
-							<div class="col-xs-offset-2 col-xs-8 col-md-offset-2 col-md-2">
-                            <label for="type">Audit details for:</label>
-							<select id='type' data-ng-model='current_auditType' class="form-control" required="true">
-								<option ng-repeat="type in auditTypes" value="{{type}}"> {{type}}</option>
-							</select>
-							</div>
-							<div class="col-xs-offset-2 col-xs-8 col-md-offset-0 col-md-2">
-							<label for="current_fromDate">From: </label><input type="date" placeholder="dd/mm/yyyy" name="current_fromDate" data-ng-model="current_fromDate" class="form-control" required="true"/>
-							</div>
-							<div class="col-xs-offset-2 col-xs-8 col-md-offset-0 col-md-2">
-							<label for="current_toDate">To: </label><input type="date" placeholder="dd/mm/yyyy"  name="current_toDate" data-ng-model="current_toDate" class="form-control" required="true"/>
-							</div><br/>
-							<div class="col-xs-offset-2 col-xs-8 col-md-offset-0 col-md-2">
-							<button type="submit" class="btn btn-primary">Get Audits</button>
-							</div>
+  Authors: T-RISE (COS 301 team 2015)
+             		Antonia Michael (13014171)
+                Isabel Nel (13070305)
+							  Elana Kuun (12029522)
+								Rendani Dau (13381467)
+								Semaka Malapane (13081129) -->
+
+<!-- This section is mainly controlled by the super user controller  unless indicated otherwise-->
+<section class="row" data-ng-controller="superuserController">
+
+	<!--alert box for help of the page to generate an audit report-->
+	<script type="text/ng-template" id="alert.html">
+		<div class="alert" role="alert">
+			<div ng-transclude></div>
+		</div>
+	</script>
+
+	<div data-ng-controller="MenuItemsController">
+		<h4> Audits <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>   <hr>
+		<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert26.msg}}</alert>
+	</div>
+	<!--end of the alert box for the audits page -->
+
+	<div class="list-group clearfix">
+  	<a href="#" class="list-group-item disabled"> Audits </a>
+			<div data-ng-init="getAuditTypes()" class="">
+      	<form name="getAuditsForm" data-ng-submit="getAudits(getAuditsForm.$valid)" class="signin form-horizontal" autocomplete="off">
+					<fieldset>
+          <div class="row">
+						<div class="col-xs-offset-2 col-xs-8 col-md-offset-2 col-md-2">
+            	<label for="type">Audit details for:</label>
+								<select id='type' data-ng-model='current_auditType' class="form-control" required="true">
+									<option ng-repeat="type in auditTypes" value="{{type}}"> {{type}}</option>
+								</select>
 						</div>
-						
-                        
-                        <div data-ng-show="success" class="text-center text-success">
-                            <strong>{{success}}</strong>
-                        </div>
-                        <div data-ng-show="errorThree" class="text-center text-danger">
-                            <strong data-ng-bind="errorThree">{{error}}</strong>
-                        </div>
-                    </fieldset>
-                </form>
+						<div class="col-xs-offset-2 col-xs-8 col-md-offset-0 col-md-2">
+							<label for="current_fromDate">From: </label><input type="date" placeholder="dd/mm/yyyy" name="current_fromDate" data-ng-model="current_fromDate" class="form-control" required="true"/>
+						</div>
+						<div class="col-xs-offset-2 col-xs-8 col-md-offset-0 col-md-2">
+							<label for="current_toDate">To: </label><input type="date" placeholder="dd/mm/yyyy"  name="current_toDate" data-ng-model="current_toDate" class="form-control" required="true"/>
+						</div><br/>
+						<div class="col-xs-offset-2 col-xs-8 col-md-offset-0 col-md-2">
+							<button type="submit" class="btn btn-primary">Get Audits</button>
+						</div>
+					</div>
+
+        	<div data-ng-show="success" class="text-center text-success">
+          	<strong>{{success}}</strong>
+          </div>
+          <div data-ng-show="errorThree" class="text-center text-danger">
+          	<strong data-ng-bind="errorThree">{{error}}</strong>
+          </div>
+        </fieldset>
+      </form>
+		</div>
+	 </div>
+
+	 <div class="list-group clearfix" data-ng-hide="audits.length === 0">
+	 	<a href="#" class="list-group-item disabled"> Results </a>
+			<table class="table table-striped">
+				<thead>
+					<th> Date </th> <th> Event </th> <th> Details </th>
+				</thead>
+				<tbody>
+					<tr data-ng-repeat="audit in audits">
+					<td class="col-md-2"> {{audit.date}}</td> <td> {{audit.event}}</td> <td> {{audit.details}}</td>
+					</tr>
+				</tbody>
+			</table>
 	</div>
-	</div>
-	<div class="list-group clearfix" data-ng-hide="audits.length === 0">
-		<a href="#" class="list-group-item disabled">
-            Results
-        </a>
-		<table class="table table-striped">
-			<thead>
-			<th> Date </th> <th> Event </th> <th> Details </th>
-			</thead>
-			<tbody>
-			<tr data-ng-repeat="audit in audits">
-			<td class="col-md-2"> {{audit.date}}</td> <td> {{audit.event}}</td> <td> {{audit.details}}</td> 
-			</tr>
-			</tbody>
-		</table>
-	</div>
-    <div class="list-group clearfix" data-ng-show="noResults">
-        <p class="text-center text-info">No audits found for selected date</p>
-    </div>
+  <div class="list-group clearfix" data-ng-show="noResults">
+  	<p class="text-center text-info">No audits found for selected date</p>
+  </div>
+
 </section>
+<!-- end of audits page-->
