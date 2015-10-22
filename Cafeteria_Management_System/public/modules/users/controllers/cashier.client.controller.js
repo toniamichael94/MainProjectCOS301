@@ -41,35 +41,6 @@ angular.module('users').controller('cashierController', ['$scope','$rootScope', 
 			});
 		};
 
-     /*   $scope.markAsCollected = function(username, itemName,orderNumber){
-            console.log(username  + ' ' +itemName + orderNumber);
-
-            $http.post('orders/markAsCollected',{uname : username, orderNum: orderNumber,item : itemName}).success(function(response){
-
-                var currOrder = -1, currentCount = -1;
-
-                var j = 0;
-                while(j < $scope.orders.length){
-                        currOrder = $scope.orders[j].orderNumber;
-                        $scope.orderNums.push();
-                        currentCount++;
-                        var arrObj = {orderNum: 0, username: '', items: [], status: '', paymentMethod: ''};
-                        arrObj.orderNumber = $scope.orders[j].orderNumber;
-                        arrObj.username = $scope.orders[j].username;
-                        arrObj.status = $scope.orders[j].status;
-                        $scope.orderNums[currentCount] = arrObj;
-                        console.log('status ' + arrObj.status);
-                        while(j < $scope.orders.length && currOrder == $scope.orders[j].orderNumber){
-                                $scope.orderNums[currentCount].items.push($scope.orders[j]);
-                                j++;
-                        }
-                }
-            }).error(function(response){
-                console.log('error' + response.message);
-                $scope.error=response.message;
-            });
-        };
-*/
         $scope.markAsReady = function(_username, _orderNumber, _created){
             $scope.success = $scope.error = null;
 			//console.log(_username + ' ' + _orderNumber + ' ' + _created);

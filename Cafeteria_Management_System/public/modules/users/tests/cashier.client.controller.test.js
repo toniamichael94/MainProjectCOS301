@@ -54,12 +54,12 @@
 
         it('$scope.markAsReady() should mark order as ready', function() {
             // Test expected GET request
-            $httpBackend.expectPOST('orders/markAsReady',{username : 'tonia', orderNumber : 7}).respond(200, {'message': 'order marked as ready'});
+            $httpBackend.expectPOST('orders/markAsReady',{username : 'tonia', orderNumber : 7, created: '2015/08/01'}).respond(200, {'message': 'order marked as ready'});
 			
 			//Prevent refresh function from crashing test
 			$window.location.reload = function(bool) {};
 			
-            scope.markAsReady('tonia',7);
+            scope.markAsReady('tonia',7,'2015/08/01');
             $httpBackend.flush();
 
             // Test scope value
@@ -73,29 +73,6 @@
             // Test scope value
             expect(scope.success).toBe(null);
         });
-
-  /*    Should be deleted as we dont use markAsCollected anymore  
-		it('$scope.markAsCollected() should  mark the order as collected successfully', function() {
-            // Test expected GET request
-            $httpBackend.expectPOST('orders/markAsCollected',{"uname":"tonia","orderNumber":"7","item":"spinach tart"}).respond(200, {'message': 'Order collected'});
-
-            scope.markAsCollected('tonia','spinach tart','7');
-            $httpBackend.flush();
-
-            // Test scope value
-            // expect(scope.success).toEqual('Order collected');
-        });
-
-        it('$scope.markAsCollected() should not mark the order as collected successfully', function() {
-            // Test expected GET request
-            $httpBackend.expectPOST('orders/markAsCollected',{"uname":"tonia"}).respond(400, {'message': 'Order not collected'});
-
-            scope.markAsCollected('tonia');
-            $httpBackend.flush();
-
-            // Test scope value
-            // expect(scope.success).toEqual('Order collected');
-        });*/
 
        it('$scope.markAsPaid() should  mark the order as paid successfully', function() {
             // Test expected GET request
@@ -141,6 +118,28 @@
 
             // Test scope value
             expect(scope.error).toEqual({"status":"closed"});
+        });
+		
+		it('$scope.getUserNotifications() should get a list of notifications', function() {
+            // Test expected GET request
+            $httpBackend.expectPOST('/orders/getUserNotifications').respond(200, {'message': ['notificationA','notificationB','notifictionC']});
+
+            scope.getUserNotifications();
+            $httpBackend.flush();
+
+            // Test scope value
+            expect(scope.userNotifications).not.toBe(null);
+        });
+		
+		it('$scope.getUserNotifications() should display error if couldnt get notifications', function() {
+            // Test expected GET request
+            $httpBackend.expectPOST('/orders/getUserNotifications').respond(400, {'message': 'error getting notifications'});
+
+            scope.getUserNotifications();
+            $httpBackend.flush();
+
+            // Test scope value
+            expect(scope.error).toEqual('error getting notifications');
         });
     });
 }());

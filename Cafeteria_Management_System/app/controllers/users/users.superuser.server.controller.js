@@ -165,7 +165,7 @@ exports.changeEmployeeID = function(req, res) {
 						message: errorHandler.getErrorMessage(err)
 					});
 					else if (numAffected < 1) {
-						res.status(400).send({message: 'Employee has no orders placed - EmployeeID updated in user database!'});
+						return res.status(200).send({message: 'Employee has no orders placed - EmployeeID updated in user database!'});
 					}
 				});
 				return res.status(200).send({message: 'Employee ID has been successfully changed.'});
