@@ -186,7 +186,7 @@ $scope.toggleCollapsibleMenu = function() {
 
 	/*Alert Messages for help page*/
 	$scope.alert1 = {type: 'warning', msg: 'Page help: To order a menu item click the add to plate button and then click the on my plate button to confirm your order. To navigate between menu categories - use the navigation bar and click on the appropriate button (Menu contains all the menu categories)'};
-	$scope.alert2 = {type: 'warning', msg: 'Page help: This page contains all the settings to add menu items and menu categories to the menu page.'};
+	$scope.alert2 = {type: 'warning', msg: 'Page help: This page contains all the settings to add menu items and menu categories to the menu page. This page also allows you to edit menu items and menu categories by searching them under their respective headings'};
 	$scope.alert3 = {type: 'warning', msg: 'Page help: Type in a menu category to add to your menu. (a menu category will appear in the menu navigation bar on the menu page and menu items can be placed under a menu category)' };
 	$scope.alert4 = {type: 'warning', msg: 'Page help: This section will add a menu item to the menu page. NOTE - you need to have ingredients (stored as inventory) stored in your database to be able to add menu items - this can be added by clicking on your name in the navigation bar and choosing the manage inventory page'};
 	$scope.alert5 =	{type: 'warning', msg: 'Page help: To search for a menu item, simply type in the name of the item in the search textbox and click search'};
@@ -196,7 +196,7 @@ $scope.toggleCollapsibleMenu = function() {
 	$scope.alert9 =	{type: 'warning', msg: 'Page help: First click on display inventory to see all the inventory items and then edit the quantity of the inventory item as needed.'};
 	$scope.alert10 = {type: 'warning', msg: 'Page help: This page shows the orders on your plate. To remove an order click remove and to increase the quantity of your order use the arrows in the textbox. You can type in how you prefer your meal to be prepared in the preferences box.' };
 	$scope.alert11 = {type: 'warning', msg: 'Page help: To edit your profile click on your name in the top navigation bar and then click on edit profile which will direct you to a page to edit your profile settings'};
-	$scope.alert12 = {type: 'warning', msg: 'Page help: To edit your profile simply edit the text boxes and/or check boxes and then click save profile to save your changes'};
+	$scope.alert12 = {type: 'warning', msg: 'Page help: To edit your profile simply edit the text boxes and/or check boxes and then click SAVE PROFILE to save your changes'};
 	$scope.alert13 = {type: 'warning', msg: 'Page help: This page is only accesible to the Super User and Admin User. Here you can edit all the admin settings of the system that deal with the users.'};
 	$scope.alert14 = {type: 'warning', msg: 'Page help: You can only assign a role to an existing user by typing in the user\'s employee ID and selecting their new role.'};
 	$scope.alert15 = {type: 'warning', msg: 'Page help: You can change an employee id can be changed by typing in the current employee id and then typing the new employee id in the respective text boxes and then click on change employee id button.'};
@@ -215,19 +215,20 @@ $scope.toggleCollapsibleMenu = function() {
 	$scope.alert28 = {type: 'warning', msg: 'Page help: This field allows the superuser to change the colour scheme for the system'};
 	$scope.alert29 = {type: 'warning', msg: 'Page help: This page shows you how to contact the Cafeteria Management and find out how everything works or to lodge complaints or maybe even give compliments.'};
 	$scope.alert30 = {type: 'warning', msg: 'Page help: To search for an menu category, type in the name of the category and the option to edit will appear'};
-  	$scope.alert31 = {type: 'warning', msg: 'Page help: This page will give you the statistics of the menu items, the sold items and the most popular items'};
-  	$scope.alert32 = {type: 'warning', msg: 'Page help: This allows user to search for statistics for the menu items sold in a given period of time'};
-  	$scope.alert33 = {type: 'warning', msg: 'Page help: This allows user to view the most popular menu items sold by the cafeteria'};
-  	$scope.alert34 = {type: 'warning', msg: 'Page help: This page will give the user the statistics for the used inventory'};
-  	$scope.alert35 = {type: 'warning', msg: 'Page help: This allows the you as the cafeteria manager to select amount of inventory used in a given period of time'};
-  	$scope.alert36 = {type: 'warning', msg: 'Page help: This page shows you the details of all the orders you made for the current month in tabular form'};
-  	$scope.alert37 = {type: 'warning', msg: 'Page help: This page shows you the details of all the orders you made for the current month in graph form'};
-  	$scope.alert38 = {type: 'warning', msg: 'Page help: This page allows you as the cashier to view people\'s orders and to process them accordingly'};
-  	$scope.alert39 = {type: 'warning', msg: 'Page help: This allows you as the finance manager to generate the invoice for a user with the given employee ID for a given period of time'};
-  	$scope.alert40 = {type: 'warning', msg: 'Page help: This allows you as the finance manager to generate the total amount spent for all the users for a given period of time'};
-  	$scope.alert41 = {type: 'warning', msg: 'Page help: This allows you to view the statistics of the menu items in graph format'};
-  	$scope.alert42 = {type: 'warning', msg: 'Page help: This allows you to view the statistics of the most popular items in graph format'};
-		
+  $scope.alert31 = {type: 'warning', msg: 'Page help: This page will give you the statistics of the menu items, the sold items and the most popular items'};
+  $scope.alert32 = {type: 'warning', msg: 'Page help: This allows user to search for statistics for the menu items sold in a given period of time'};
+  $scope.alert33 = {type: 'warning', msg: 'Page help: This allows user to view the most popular menu items sold by the cafeteria'};
+  $scope.alert34 = {type: 'warning', msg: 'Page help: This page will give the user the statistics for the used inventory'};
+  $scope.alert35 = {type: 'warning', msg: 'Page help: This allows the you as the cafeteria manager to select amount of inventory used in a given period of time'};
+  $scope.alert36 = {type: 'warning', msg: 'Page help: This page shows you the details of all the orders you made for the current month in tabular form - if no data is available then you have not places any orders yet this month. To view it visually click on the VISUAL REPRESENTATION button.'};
+  $scope.alert37 = {type: 'warning', msg: 'Page help: This page shows you the details of all the orders you made for the current month in graph form - the first page shows your orders per category - click on a category to see individual items you ordered in that category'};
+  $scope.alert38 = {type: 'warning', msg: 'Page help: This page allows you as the cashier to view people\'s orders and to process them accordingly'};
+  $scope.alert39 = {type: 'warning', msg: 'Page help: This allows you as the finance manager to generate the invoice for a user with the given employee ID for a given period of time'};
+  $scope.alert40 = {type: 'warning', msg: 'Page help: This allows you as the finance manager to generate the total amount spent for all the users for a given period of time'};
+  $scope.alert41 = {type: 'warning', msg: 'Page help: This allows you to view the statistics of the menu items in graph format - the graph first displays all menu category=ies, to see statistics on each individual item in a category click on the a category bar and enjoy the results!'};
+  $scope.alert42 = {type: 'warning', msg: 'Page help: This allows you to view the statistics of the most popular items in graph format'};
+	$scope.alert43 = {type: 'warning', msg: 'Page help: To change your password type in your current password in the first box and your new desired password in the second box and then confirm your new password in the third box and click on the SAVE PASSWORD button '};
+
 
 //close alert will take alert box away
 $scope.closeAlert = function(index) {
