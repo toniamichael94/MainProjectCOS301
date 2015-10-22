@@ -97,7 +97,7 @@ var menuItemsModule = angular.module('menuItems').controller('MenuItemsControlle
 	if($cookies.navClicked){
 		$scope.navClicked = JSON.parse($cookies.navClicked);
 	};
-		
+
 // helper function to graphs initiating values and cookies
 $scope.MenuItemsGraphPage = function(){
 
@@ -230,6 +230,10 @@ $scope.toggleCollapsibleMenu = function() {
   $scope.alert42 = {type: 'warning', msg: 'Page help: This allows you to view the statistics of the most popular items in graph format'};
 	$scope.alert43 = {type: 'warning', msg: 'Page help: To change your password type in your current password in the first box and your new desired password in the second box and then confirm your new password in the third box and click on the SAVE PASSWORD button '};
 	$scope.alert44 = {type: 'warning', msg: 'Page help: This page shows the stock of the inventory left'};
+	$scope.alert45 = {type: 'warning', msg: 'Page help: This setting will set the information on the contact Us page so fill in all the information and click the ADD CONTACT DETAILS button and then when sucessfully saved navigate to the Contact Us page to view the results'};
+	$scope.alert46 = {type: 'warning', msg: 'Page help: This setting will allow you to upload images for the carousel on the home page for the canteen - first select which slide you want to upliad the image for then fill in a caption for the image (it is text that will be displayed with the image) then choose an image to upload and then click the UPLOAD button'};
+	$scope.alert47 = {type: 'warning', msg: 'Page help: To delete an image from the carousel select which slide you want to delete and then click the DELETE button then navigate to the home page to see the results'};
+
 
 //close alert will take alert box away
 $scope.closeAlert = function(index) {
