@@ -1,5 +1,16 @@
 'use strict';
-/**
+
+/*
+Authentication server controller - serverside controller for the authentication in the user module
+Authors: T-RISE (COS 301 team 2015)
+             		Antonia Michael (13014171)
+                Isabel Nel (13070305)
+							  Elana Kuun (12029522)
+								Rendani Dau (13381467)
+								Semaka Malapane (13081129)
+*/
+
+/*
  * Module dependencies.
  */
 var _ = require('lodash'),
@@ -8,7 +19,7 @@ var _ = require('lodash'),
     passport = require('passport'),
     User = mongoose.model('User'),
     Config = mongoose.model('Config');
-    
+
 /**
  * Signup
  * Last edited by {Rendani Dau}
@@ -92,7 +103,6 @@ exports.signup = function (req, res) {
  * load the canteen name
  * Checks if the system has a SuperUser if the system doesn't it creates a default SuperUser
  */
-
 exports.checkSuperUser = function () {
     var error;
     User.find({roles: 'superuser'}, function (error, model) {
@@ -159,7 +169,7 @@ exports.checkSuperUser = function () {
 //set default system wyde limit
             });
             adminUser.save(function (err, superUser) {
-                if (err) 
+                if (err)
                     console.dir(superUser);
             });
         } else {

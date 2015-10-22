@@ -141,7 +141,7 @@ angular.module('orders').controller('OrdersController', ['$scope', '$rootScope',
 				//$rootScope.$broadcast('plateUpdated');
 			}
 		};
-
+ 
 		$scope.newMessage = function(){
 	            $rootScope.$broadcast('newMess');
 	        };

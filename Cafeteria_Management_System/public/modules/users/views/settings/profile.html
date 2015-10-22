@@ -1,61 +1,58 @@
 <!--
-*   profile Page
-*   - This document contains the profile page the whole CMS
-*
-*   Authors: T-RISE (COS 301 team 2015)
+***profile Page***
+   - This document contains the profile page for the whole CMS
+	 - all the user-spesific information is contained in this page.
+
+  Authors: T-RISE (COS 301 team 2015)
              		Antonia Michael (13014171)
                 Isabel Nel (13070305)
 							  Elana Kuun (12029522)
 								Rendani Dau (13381467)
 								Semaka Malapane (13081129)
-*
--->
 
+-->
+<!-- This section is mostly controlled by the settings controler in client side- unless the div spesifies otherwise -->
 <section ng-init="checkUser()" sclass="row" data-ng-controller="SettingsController">
 
-	<!--ALERT BOX FOR HELP-->
-			<script type="text/ng-template" id="alert.html">
-					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-						<div ng-transclude></div>
-					</div> 
-			</script>
-
-			<div  data-ng-controller="MenuItemsController">
-				<h4>Profile<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
-				<hr>
-				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert11.msg}}</alert>
+<!--ALERT BOX FOR HELP -  main help button for the page-->
+		<script type="text/ng-template" id="alert.html">
+			<div class="alert" role="alert">
+				<div ng-transclude></div>
 			</div>
- <!--END ALERT BOX -->
+		</script>
 
-
+	<!-- This div contains the header for this page with the alert buton -->
+		<div  data-ng-controller="MenuItemsController">
+			<h4> Profile <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4><hr>
+			<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert11.msg}}</alert>
+		</div>
+<!--END ALERT BOX and header -->
 
 
 <!-- Displaying the user information -->
 <div class="list-group" data-ng-controller="HeaderController">
-	<a href="#" class="list-group-item disabled">
-    Profile Information
-  </a>
-	<!-- First name and Last name -->
+	<a href="#" class="list-group-item disabled"> Profile Information </a>
+	<!-- Display the First name and Last name of the user -->
 	<div class="list-group-item">
-  	<h4 align="left"> <span data-ng-bind="authentication.user.displayName"></span> </h4> <br>
+  	<h4 align="left"> <span data-ng-bind="authentication.user.displayName"> </span> </h4> <br>
 	</div>
-	<!-- user name -->
+	<!-- Display the user name of the current user -->
 	<div class="list-group-item">
 		<h4> Employee ID: </h4> <h5 align="left"> <span data-ng-bind="authentication.user.username"></span> </h5><br>
 	</div>
-	<!-- e-mail adderss: -->
+	<!-- Display the e-mail adderss of the current user -->
 	<div class="list-group-item">
 		<h4> E-mail address: </h4> <h5 align="left"> <span data-ng-bind="authentication.user.displayEmail"></span> </h5><br>
   </div>
-	<!-- monthly bill e-mail adderss: -->
+	<!--Display where the  monthly bill  via e-mail adderss will go to  -->
 	<div class="list-group-item">
 		<h4> Monthly bill will go to: </h4> <h5 align="left"> <span data-ng-bind="authentication.user.displayRecipientEmailOption"></span> </h5><br>
 	</div>
-	<!-- Limit: -->
+	<!--Diaplay the credit Limit  set by the user -->
 	<div class="list-group-item">
 		<h4> Spending limit per month: </h4> <h5 align="left"> R <span data-ng-bind="authentication.user.limit"></span> </h5><br>
 	</div>
-	<!-- Limit: -->
+	<!-- Display the available credit limit of the user -->
 	<div class="list-group-item">
 		<h4> Available balance for month: </h4> <h5 align="left"> R <span data-ng-bind="authentication.user.limit - authentication.user.currentBalance"></span> </h5><br>
 	</div>
@@ -63,32 +60,32 @@
 		<!-- The type will only show on a specific role thet is assigned to the user
 				- The purpose of the type is to help the super user when they need to remove a certain username with a certain role
 				  in future functionality this could be usefull - if deemed unusefull we can  easily remove it without effecting
-					the functionality of the Profile page
-		-->
-			<!-- Normal user -->
-			<div data-ng-show="authentication.user.roles[0] === 'user'" class="list-group-item">
-				<h4> Profile type: </h4> <h5 align="left">Employee</h5><br>
-			</div>
-			<!-- Super User -->
-			<div data-ng-show="authentication.user.roles[0] === 'superuser'" class="list-group-item">
-				<h4> Profile type: </h4> <h5 align="left">Administration (SuperUser)</h5><br>
-			</div>
-			<!--finance user -->
-			<div data-ng-show="authentication.user.roles[0] === 'finance'" class="list-group-item">
-				<h4> Profile type: </h4> <h5 align="left">Finance Department</h5><br>
-			</div>
-			<!--Cafeteria Manager user -->
-			<div data-ng-show="authentication.user.roles[0] === 'cafeteriaManager'" class="list-group-item">
-				<h4> Profile type: </h4> <h5 align="left">Cafeteria Manager</h5><br>
-			</div>
-			<!--Casheir -->
-			<div data-ng-show="authentication.user.roles[0] === 'cashier'" class="list-group-item">
-				<h4> Profile type: </h4> <h5 align="left">Cashier</h5><br>
-			</div>
-			<!--Casheir -->
-			<div data-ng-show="authentication.user.roles[0] === 'admin'" class="list-group-item">
-				<h4> Profile type: </h4> <h5 align="left">Administration (Admin)</h5><br>
-			</div>
-
+					the functionality of the Profile page -->
+	<!-- Normal user -->
+	<div data-ng-show="authentication.user.roles[0] === 'user'" class="list-group-item">
+		<h4> Profile type: </h4> <h5 align="left">Employee</h5><br>
+	</div>
+	<!-- Super User -->
+	<div data-ng-show="authentication.user.roles[0] === 'superuser'" class="list-group-item">
+		<h4> Profile type: </h4> <h5 align="left">Administration (SuperUser)</h5><br>
+	</div>
+	<!--finance user -->
+	<div data-ng-show="authentication.user.roles[0] === 'finance'" class="list-group-item">
+		<h4> Profile type: </h4> <h5 align="left">Finance Department</h5><br>
+	</div>
+	<!--Cafeteria Manager user -->
+	<div data-ng-show="authentication.user.roles[0] === 'cafeteriaManager'" class="list-group-item">
+		<h4> Profile type: </h4> <h5 align="left">Cafeteria Manager</h5><br>
+	</div>
+	<!--Casheir -->
+	<div data-ng-show="authentication.user.roles[0] === 'cashier'" class="list-group-item">
+		<h4> Profile type: </h4> <h5 align="left">Cashier</h5><br>
+	</div>
+	<!--Casheir -->
+	<div data-ng-show="authentication.user.roles[0] === 'admin'" class="list-group-item">
+		<h4> Profile type: </h4> <h5 align="left">Administration (Admin)</h5><br>
+	</div>
  </div>
 </section>
+
+<!-- End of the Profile page -->
