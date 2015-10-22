@@ -26,6 +26,7 @@
 			</div>
  <!--END ALERT BOX -->
 
+
 	<div class="list-group clearfix">
 		<a href="#" class="list-group-item disabled">
 			Admin settings
@@ -51,8 +52,10 @@
 			</div>
 	<!--END ALERT BOX -->
 
+
+
 	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
-	<form name="userForm" data-ng-submit="assignRoles(userForm.$valid)"  class="signin form-horizontal" autocomplete="on">
+	<form name="userForm" data-ng-submit="assignRoles(userForm.$valid)" confirm="Are you sure, {{name}}?"  confirm-settings="{size: 'sm'}" class="signin form-horizontal" autocomplete="on">
 		<fieldset>
 			<div class="form-group">
 				<label for="emp_id">Employee ID</label>
@@ -75,7 +78,7 @@
 				</select>
 			</div>
 			<div class="text-center form-group">
-				<button type="submit" style="width:220px" class="btn btn-large btn-primary" ><!--onclick="confirm('Are you sure?');"-->Set Role</button>
+				<button type="submit" style="width:220px" class="btn btn-large btn-primary" confirm="Are you sure, {{name}}?"  confirm-settings="{size: 'sm'}"><!--onclick="confirm('Are you sure?');"-->Set Role</button>
 			</div>
 			<div data-ng-show="success" class="text-center text-success">
 				<strong>{{success}}</strong>

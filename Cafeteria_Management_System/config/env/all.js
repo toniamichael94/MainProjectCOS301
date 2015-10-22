@@ -15,7 +15,8 @@ module.exports = {
 			css: [
 				'public/lib/bootstrap/dist/css/bootstrap.css',
 				'public/lib/bootstrap/dist/css/bootstrap-theme.css',
-				'public/lib/angular-loading-bar/build/loading-bar.css'
+				'public/lib/angular-loading-bar/build/loading-bar.css',
+				'public/lib/bootstrap3-dialog/dist/css/bootstrap-dialog.min.css'
 			],
 			js: [
 				'public/lib/angular/angular.js',
@@ -30,7 +31,9 @@ module.exports = {
 				'public/lib/bootstrap/dist/js/bootstrap.js',
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
 				'public/lib/ng-bootstrap-alerts/dist/index.min.js',
-				'public/lib/angular-loading-bar/build/loading-bar.js'
+				'public/lib/angular-loading-bar/build/loading-bar.js',
+				'public/lib/bootstrap3-dialog/dist/js/bootstrap-dialog.min.js'
+
 			]
 		},
 		css: [
