@@ -210,7 +210,7 @@ $scope.toggleCollapsibleMenu = function() {
 	$scope.alert23 = {type: 'warning', msg: 'Page help: This page will help you reset your password, type in your username and an e-mail will be sent to the e-mail account that is associated with your employee ID'};
 	$scope.alert24 = {type: 'warning', msg: 'Page help: This page gives you details about your order - e.g. if it is ready for collection - and any other changes that might take place in the system.'};
 	$scope.alert25 = {type: 'warning', msg: 'Page help: WELCOME! These buttons will help you navigate through this website, whenever you do not know what to do click on the button that looks like this one you just clicked and help will be right there! To start have a look at our menu page that can be found by clicking on the button that says Menu in the top navigation bar ;-)'};
-	$scope.alert26 = {type: 'warning', msg: 'Page help: This page will display logs of all actions performed in the system.'};
+	$scope.alert26 = {type: 'warning', msg: 'Page help: This page will display logs of all actions performed in the system - choose what type of audit you would like and the data range and then click the GET AUDITS button and the logs will be displayed.'};
 	$scope.alert27 = {type: 'warning', msg: 'Page help: This page will generate invoices for the specified user'};
 	$scope.alert28 = {type: 'warning', msg: 'Page help: This field allows the superuser to change the colour scheme for the system'};
 	$scope.alert29 = {type: 'warning', msg: 'Page help: This page shows you how to contact the Cafeteria Management and find out how everything works or to lodge complaints or maybe even give compliments.'};
@@ -227,7 +227,7 @@ $scope.toggleCollapsibleMenu = function() {
   	$scope.alert40 = {type: 'warning', msg: 'Page help: This allows you as the finance manager to generate the total amount spent for all the users for a given period of time'};
   	$scope.alert41 = {type: 'warning', msg: 'Page help: This allows you to view the statistics of the menu items in graph format'};
   	$scope.alert42 = {type: 'warning', msg: 'Page help: This allows you to view the statistics of the most popular items in graph format'};
-  	};
+		
 
 //close alert will take alert box away
 $scope.closeAlert = function(index) {

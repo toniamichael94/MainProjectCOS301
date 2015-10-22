@@ -50,27 +50,41 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 			//assign Roles - as an admin user role
 			$scope.assignRolesAdminRole = function(isValid) {
 				if (isValid) {
+					BootstrapDialog.confirm({
+		            title: 'WARNING',
+		            message: 'Changin a role will change the users acces to certain features of the system. Are you sure you want to continue? ',
+		            type: BootstrapDialog.TYPE_DANGER,
+		            closable: false, // <-- Default value is false
+		            draggable: true, // <-- Default value is false
+		            btnCancelLabel: 'Cancel', // <-- Default value is 'Cancel',
+		            btnOKLabel: 'Continue', // <-- Default value is 'OK',
+								callback: function(result) {
+		                // result will be true if button was click, while it will be false if users close the dialog directly.
+		                if(result) {
+											$http.post('/users/superuserAssignRoles', reqObj).success(function (response) {
+													if (response.message === 'SU Changed') {
+															$window.location.href = '/';
+													}
+
+													// If successful show success message and clear form
+													$scope.success = response.message;
+													$scope.emp_id = $scope.role = null;
+
+
+											}).error(function (response) {
+													$scope.error = response.message;
+											});
+		                }else {
+		                      $scope.emp_id = $scope.role = null;
+		                }
+		            }
+		        });
+
 				$scope.success = $scope.error = null;
 				var reqObj = {userID: $scope.emp_id, role: $scope.role};
-                $scope.r = $window.confirm('Are you sure?');
 
-                if($scope.r === true) {
-                    $http.post('/users/adminUserAssignRoles', reqObj).success(function (response) {
-                        if (response.message === 'Admin Changed') {
-                            $window.location.href = '/';
-                        }
-                        else {
-                            // If successful show success message and clear form
-                            $scope.success = response.message;
-                            $scope.emp_id = $scope.role = null;
-                        }
-                    }).error(function (response) {
-                        $scope.error = response.message;
-                    });
-                }
-                else{
-                    $scope.emp_id = $scope.role = null;
-                }
+
+                
 				}
 				};
 
