@@ -1,124 +1,122 @@
-
 <!--
-*   profile Page - Finance -- should be able to view monthly bill
-*   - This document contains the profile page the whole CMS
-*
-*   Authors: T-RISE (COS 301 team 2015)
+***Finance Page***
+   - This document contains the functionality needed to generate a csv file to see all users bills or
+	   to generate pdf bills for respective users
+
+  Authors: T-RISE (COS 301 team 2015)
              		Antonia Michael (13014171)
                 Isabel Nel (13070305)
 							  Elana Kuun (12029522)
 								Rendani Dau (13381467)
-								Semaka Malapane (13081129)
-*
--->
+								Semaka Malapane (13081129) -->
 
+<!-- This section is mainly controlled by the finance controller on client side unless indicated otherwise-->
 <section ng-init="checkUser()" class="row" data-ng-controller="FinanceController">
 
-
-	<!--ALERT BOX FOR HELP-->
-			<script type="text/ng-template" id="alert.html">
-					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-						<div ng-transclude></div>
-					</div>
-			</script>
-
-			<div  data-ng-controller="MenuItemsController">
-				<h4>View Employee Bills<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
-				<hr>
-				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert27.msg}}</alert>
-			</div>
- <!--END ALERT BOX -->
-    <div class="list-group clearfix">
-        <a href="#" class="list-group-item disabled">
-            Generate User Invoice
-        </a>
-  <div class="list-group-item clearfix">
-  	<!--ALERT BOX FOR HELP-->
+	<!--ALERT BOX FOR HELP for the main page and the header of the page-->
 	<script type="text/ng-template" id="alert.html">
-		<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+		<div class="alert" role="alert">
 			<div ng-transclude></div>
 		</div>
 	</script>
 
+<!--Generating individual bills -->
 	<div  data-ng-controller="MenuItemsController">
-		<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button>
-		<hr>
-		<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert39.msg}}</alert>
-	</div>
- 	<!--END ALERT BOX -->
-      <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
+		<h4>View Employee Bills<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4><hr>
+		<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert27.msg}}</alert>
+  </div>
+ <!--END ALERT BOX and of the page header-->
 
-        <form name="userForm" data-ng-submit="generateReport()" class="signin form-horizontal" autocomplete="on">
-            <fieldset>
+<div class="list-group clearfix">
+	<a href="#" class="list-group-item disabled"> Generate User Invoice </a>
+  <div class="list-group-item clearfix">
+  	<!--ALERT BOX FOR HELP for generating a user invoice-->
+		<script type="text/ng-template" id="alert.html">
+			<div class="alert" role="alert">
+				<div ng-transclude></div>
+			</div>
+		</script>
 
-                <div class="form-group">
-                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                    <label for="username">Employee Id</label>
-                    <div ng-init="loadEmployees()" >
-                        <select id="username" name="username" class="form-control" data-ng-model='username'/>
-                        <option ng-repeat="employee in employees" value="{{employee.username}}"> {{employee.username}}</option>
-                        </select><br>
-                    </div>
+		<div data-ng-controller="MenuItemsController">
+			<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button>
+			<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert39.msg}}</alert>
+		</div>
+ 		<!--END ALERT BOX for generating a report -->
+
+    <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
+    	<form name="userForm" data-ng-submit="generateReport()" class="signin form-horizontal" autocomplete="on">
+      	<fieldset>
+        <div class="form-group">
+          <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+          <label for="username">Employee Id</label>
+          <div ng-init="loadEmployees()" >
+            <select id="username" name="username" class="form-control" data-ng-model='username'/>
+            	<option ng-repeat="employee in employees" value="{{employee.username}}"> {{employee.username}}</option>
+            </select><br>
+          </div>
 					<label for="startDate"> From: </label>
 					<input type="date" id="startDate"  name="startDate" placeholder="yyyy/mm/dd"  class="form-control" data-ng-model="startDate"/>
 					<label for="endDate"> To: </label>
 					<input type="date" id="endDate" name="endDate" placeholder="yyyy/mm/dd"  class="form-control" data-ng-model="endDate"/>
-				</div>
-                <div class="text-center form-group">
-                    <button type="submit" class="btn btn-large btn-primary">Generate</button>
-                </div>
-                <div data-ng-show="success" data-ng-bind="success" class="text-center text-success">
-                    <strong data-ng-bind="success"></strong>
-                </div>
-                <div data-ng-show="error" class="text-center text-danger">
-                    <strong data-ng-bind="error"></strong>
-                </div>
-            </fieldset>
-        </form>
-</div>
-   </div>
-   </div>
-               <a href="#" class="list-group-item disabled">
-                   Generate Spending Report
-               </a>
-           <div class="list-group-item clearfix">
-   	<!--ALERT BOX FOR HELP-->
-	<script type="text/ng-template" id="alert.html">
-		<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-			<div ng-transclude></div>
-		</div>
-	</script>
-
-	<div  data-ng-controller="MenuItemsController">
-		<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button>
-		<hr>
-		<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert40.msg}}</alert>
+			</div>
+      <div class="text-center form-group">
+      	<button type="submit" class="btn btn-large btn-primary">Generate</button>
+      </div>
+      <div data-ng-show="success" data-ng-bind="success" class="text-center text-success">
+      	<strong data-ng-bind="success"></strong>
+      </div>
+      <div data-ng-show="error" class="text-center text-danger">
+      	<strong data-ng-bind="error"></strong>
+      </div>
+    </fieldset>
+  </form>
 	</div>
- 	<!--END ALERT BOX -->
-   <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
+ </div>
+</div>
+<!-- end of generating individual bills -->
 
-        <form name="userForm" data-ng-submit="generateReportAll(userForm.$valid)" class="signin form-horizontal" autocomplete="on">
-            <fieldset>
+<!--Generating a spening report for all users -->
+	<a href="#" class="list-group-item disabled"> Generate Spending Report </a>
+		<div class="list-group-item clearfix">
+   	<!--ALERT BOX FOR HELP for generating a spending report -->
+			<script type="text/ng-template" id="alert.html">
+				<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+					<div ng-transclude></div>
+				</div>
+			</script>
+
+			<div  data-ng-controller="MenuItemsController">
+				<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button>
+				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert40.msg}}</alert>
+		 </div>
+	 	<!--END ALERT BOX for generating spendning report  -->
+
+   <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
+  	<form name="userForm" data-ng-submit="generateReportAll(userForm.$valid)" class="signin form-horizontal" autocomplete="on">
+      <fieldset>
 				<div class="form-group">
 					<label for="startDateTwo"> From: </label>
 					<input type="date" id="startDateTwo" name="startDateTwo" class="form-control" data-ng-model="startDateTwo"/>
 					<label for="endDateTwo"> To: </label>
 					<input type="date" id="endDateTwo" name="endDateTwo" class="form-control" data-ng-model="endDateTwo"/>
-                    <label>Format:</label><br/>
-                    <input type="radio" data-ng-model="reportFormat" value="csv" > CSV File </input>
-                    <input type="radio" data-ng-model="reportFormat" value="pdf" > PDF File </input>
+          <label>Format:</label><br/>
+          <input type="radio" data-ng-model="reportFormat" value="csv" > CSV File </input>
+          <input type="radio" data-ng-model="reportFormat" value="pdf" > PDF File </input>
 				</div>
-                <div class="text-center form-group">
-                    <button type="submit" class="btn btn-large btn-primary">Generate Report</button>
-                </div>
-                <div data-ng-show="successTwo" data-ng-bind="success" class="text-center text-success">
-                    <strong data-ng-bind="successTwo"></strong>
-                </div>
-                <div data-ng-show="errorTwo" class="text-center text-danger">
-                    <strong data-ng-bind="errorTwo"></strong>
-                </div>
-            </fieldset>
-        </form>
+        <div class="text-center form-group">
+          <button type="submit" class="btn btn-large btn-primary">Generate Report</button>
+        </div>
+        <div data-ng-show="successTwo" data-ng-bind="success" class="text-center text-success">
+          <strong data-ng-bind="successTwo"></strong>
+        </div>
+        <div data-ng-show="errorTwo" class="text-center text-danger">
+          <strong data-ng-bind="errorTwo"></strong>
+        </div>
+      </fieldset>
+    </form>
    </div>
-</div>
+	</div>
+<!-- end of generating spending report -->
+
 </section>
+<!-- End of finance page -->
