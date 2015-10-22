@@ -196,50 +196,63 @@ exports.decreaseInventory = function(req,res)
 	*/
 
 	exports.inventoryReport = function(req,res){
-		console.log('in inventory report');
-	};
-
-	exports.monthlyReport = function(req,res){
-		console.log('monthlyReport');
-		//Calcualte the start and end date
-		var start = req.body.year.toString().concat('-');
-		start = start.concat(req.body.month+'-01');
-
-		var endMonth;
-		if(parseInt(req.body.month) < 12)
-				endMonth = parseInt(req.body.month)+1;
-		else if(parseInt(req.body.month) === 12)
-					endMonth = 1;
-
-		var end = req.body.year.toString().concat('-');
-		end = end.concat(endMonth+'-01');
-
-		var date = new Date();
-		console.log(date);
-		date = new Date(new Date().setDate(new Date().getDate()-30));
-		date = new Date(date);
-		console.log(date);
-
-		//Find all the orders for the specified month
-		Order.find({created: {$gte: start, $lt: end}}, function(err, orders){
+		Order.find({created: {$gt: req.body.startDate, $lt: req.body.endDate}}, function(err, orders){
 			if(err) return res.status(400).send({message: 'Could not generate report!'});
 
-			var sample = fs.readFileSync(path.resolve(__dirname, '../reportTemplates/popular_Items_Template.html'), 'utf8');
-			jsreport.render({
-				template:{ content: sample,
-				//	helpers: 'function mult(a,b){ return a*b; }',//'function total(order){return 10;}'],
-					engine: 'handlebars'},
-				data: {
-					title: 'Popular items',
-					items:itemData
-				}
-			}).then(function(out) {
-				//if(err) return res.status(400).send({message: 'Could not render report!'})
-				console.log('in render function');
-				out.stream.pipe(res);
-			});
+			exports.getItems(orders);
+
+			if(err){
+				return res.status(400).send({message: 'Could not find orders for the specified time.'});
+			}else{
+				return res.status(200).send({message: orders});
+			}
+
 		});
-	};
+		};
+
+		exports.getItems = function(orders)
+		{
+			var item = [];
+			var c = 0;
+			for(var order in orders)
+			{
+				item.push(exports.searchItem(orders[order].itemName, orders[order].quantity));
+				//item.push(c);
+				console.log("c:"+c);
+			}
+			console.log('end');
+
+		};
+
+exports.searchItem=function(order, quantity){
+	MenuItem.findOne({itemName: order}, function(err, item){
+		if(err){ return -1;}
+		else{
+				console.log("ITEM:"+item.itemName+" Quantity:"+quantity);
+				var ingredients = [];
+				var quantities = [];
+				var counter = 0;
+
+				console.log('here');
+				for(var i in item.ingredients.ingredients)
+					{
+						var total = item.ingredients.quantities[i] * quantity;
+						ingredients[counter] = item.ingredients.ingredients[i];
+						quantities[counter] = total;
+						counter ++;
+						console.log('in for');
+					}
+
+					console.log('here2')
+					var inventoryItems = new Object();
+					inventoryItems.ingredients = ingredients;
+					inventoryItems.quantity = quantities;
+					console.log("Before return:"+inventoryItems);
+					return inventoryItems;
+		}
+
+			});
+		};
 
  /* Update inventory
  * Last Edited by {Semaka Malapane and Tonia Michael}
