@@ -1,71 +1,73 @@
-
 <!--
-*   profile Page - Finance -- should be able to view monthly bill
-*   - This document contains the profile page the whole CMS
-*
-*   Authors: T-RISE (COS 301 team 2015)
+***History Page***
+   - This document contains the history page for ech respective user it will
+	   display all the orders they have placed during the current month.
+
+  Authors: T-RISE (COS 301 team 2015)
              		Antonia Michael (13014171)
                 Isabel Nel (13070305)
 							  Elana Kuun (12029522)
 								Rendani Dau (13381467)
-								Semaka Malapane (13081129)
-*
--->
+								Semaka Malapane (13081129) -->
 
+<!-- This section is mainly controlled by the settings controller on the client side unless the respective div indicated otherwise-->
 <section class="row" data-ng-controller="SettingsController">
-	<!--ALERT BOX FOR HELP-->
-		<script type="text/ng-template" id="alert.html">
-				<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-					<div ng-transclude></div>
-				</div>
-		</script>
 
-		<div  data-ng-controller="MenuItemsController">
-			<h4>History<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
-			<hr>
-			<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert36.msg}}</alert>
+	<!--ALERT BOX FOR HELP for the main page and the header-->
+	<script type="text/ng-template" id="alert.html">
+		<div class="alert" role="alert">
+	  	<div ng-transclude></div>
 		</div>
- <!--END ALERT BOX -->
-<!-- Displaying the user information -->
-<div data-ng-show="itemHistory.length > 0" class="text-center text-info">
-<button type="button" class="btn btn-large btn-primary" ng-click="visualHistory()">Visual Representation</button>
-<br> <br>
-</div>
-<div class="list-group" data-ng-init="getUserHistory()">
+	</script>
 
+	<div  data-ng-controller="MenuItemsController">
+		<h4>History<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>			<hr>
+		<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert36.msg}}</alert>
+	</div>
+ <!--END ALERT BOX and end of the header -->
 
-	<a href="#" class="list-group-item disabled">
-		Current Month History
-	</a>
-	<div data-ng-show="itemHistory.length > 0" collapse="isCollapsed">
-		<table class="table table-bordered table-striped table-condensed">
-			<thead>
-				<th> Date </th>
-				<th> Order Number </th>
-				<th> Item </th>
-				<th> Price </th>
-				<th> Quantity </th>
-				<th> Sub-total </th>
-			</thead>
-			<tbody>
-			<tr data-ng-repeat="item in itemHistory">
-				<td> {{item.date}} </td>
-				<td> {{item.orderNumber}} </td>
-				<td> {{item.itemName}} </td>
-				<td> R{{item.price}} </td>
-				<td> {{item.quantity}} </td>
-				<td> R{{item.quantity * item.price}}</td>
-			</tr>
-			<tr>
-				<td colspan="5" class="text-right text-info info">Total spent this Month: </td>
-				<td>R{{total}}</td>
-			</tr>
-			</tbody>
-		</table>
-		<p>{{$scope.error}}</p>
+	<!-- Displaying the user information -->
+	<div data-ng-show="itemHistory.length > 0" class="text-center text-info">
+		<!-- This button will redirect to a page showing the visual representation of the history page -->
+		<button type="button" class="btn btn-large btn-primary" ng-click="visualHistory()">Visual Representation</button>
+		<br><br>
+ 	</div>
+
+ 	<!-- Beginig of the history table -->
+	<div class="list-group" data-ng-init="getUserHistory()">
+		<a href="#" class="list-group-item disabled"> Current Month History	</a>
+		<div data-ng-show="itemHistory.length > 0" collapse="isCollapsed">
+			<table class="table table-bordered table-striped table-condensed">
+				<thead>
+					<th> Date </th>
+					<th> Order Number </th>
+					<th> Item </th>
+					<th> Price </th>
+					<th> Quantity </th>
+					<th> Sub-total </th>
+				</thead>
+				<tbody>
+					<tr data-ng-repeat="item in itemHistory">
+						<td> {{item.date}} </td>
+						<td> {{item.orderNumber}} </td>
+						<td> {{item.itemName}} </td>
+						<td> R{{item.price}} </td>
+						<td> {{item.quantity}} </td>
+						<td> R{{item.quantity * item.price}}</td>
+					</tr>
+					<tr>
+						<td colspan="5" class="text-right text-info info">Total spent this Month: </td>
+						<td>R{{total}}</td>
+					</tr>
+				</tbody>
+			</table>
+			<p>{{$scope.error}}</p>
+		</div>
+		<!-- this will only display if the user has bot plased any orders in the current month -->
+		<div data-ng-show="itemHistory.length === 0" class="text-center text-info">
+			<p>You have made no purchases this month. Head over to the menu to place an order.</p>
+		</div>
 	</div>
-	<div data-ng-show="itemHistory.length === 0" class="text-center text-info">
-		<p>You have made no purchases this month. Head over to the menu to place an order.</p>
-	</div>
-</div>
 </section>
+
+<!-- This is the end of the history page -->

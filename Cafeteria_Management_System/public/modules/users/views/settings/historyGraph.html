@@ -1,21 +1,36 @@
+<!--
+***History Graph Page***
+   - This document contains the necessary html to display the respective user's history in graphical format
+
+  Authors: T-RISE (COS 301 team 2015)
+             		Antonia Michael (13014171)
+                Isabel Nel (13070305)
+							  Elana Kuun (12029522)
+								Rendani Dau (13381467)
+								Semaka Malapane (13081129) -->
+
+<!-- This section is mainly controlled by the settings controller unless indicated otherwise -->
 <section class="row" data-ng-controller="SettingsController">
 
+  <!-- Libraries to help with the visual representation of the user history -->
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <script src="https://code.highcharts.com/modules/drilldown.js"></script>
 
 	<!--ALERT BOX FOR HELP-->
-		<script type="text/ng-template" id="alert.html">
-				<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-					<div ng-transclude></div>
-				</div>
-		</script>
+  <script type="text/ng-template" id="alert.html">
+    <div class="alert" role="alert">
+	     <div ng-transclude></div>
+    </div>
+  </script>
 
-		<div  data-ng-controller="MenuItemsController">
-			<h4>Visual History<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
-			<hr>
-			<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert37.msg}}</alert>
-		</div>
+	<div  data-ng-controller="MenuItemsController">
+		<h4>Visual History<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>		<hr>
+		<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert37.msg}}</alert>
+	</div>
+  <!-- END ALERT BOX and header -->
 
+  <!-- this will display the graph -->
+  <div id="container1" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
-    <div id="container1" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 </section>
+<!-- End of the history graph page -->
