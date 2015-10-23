@@ -6,6 +6,7 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 		$scope.authentication = Authentication;
 		$scope.container1DataI = []; // inventory items stats data
 		$scope.container1Data1I = [];
+		$scope.reportData1 = [];
 
 		/*
 			Dynamically add fields to the inventory page to update the quantity.
@@ -99,7 +100,7 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 				{
 					$http.post('orders/inventoryReport',{startDate: $scope.startDate, endDate: $scope.endDate}).success(function(response){
 
-
+							console.log(response);
 							for(var j in response.message)
 								$scope.findItems(response.message[j].itemName, response.message[j].quantity);
 
@@ -112,12 +113,39 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 				}
 		};
 
+
 		$scope.findItems = function(item, quantity)
 		{
 			console.log('in find items');
 
 			$http.post('/orders/searchMenuItem', {itemName: item}).success(function(response){
+				console.log('----');
+				console.log(response);
 				console.log('Searched items:'+response.menuItem.itemName);
+
+				for(var i = 0; i < response.menuItem.ingredients.ingredients.length; i++){
+					if($scope.reportData1[response.menuItem.ingredients.ingredients[i]]){
+							$scope.reportData1[response.menuItem.ingredients.ingredients[i]].y = 	$scope.reportData1[response.menuItem.ingredients.ingredients[i]].y + response.menuItem.ingredients.quantities[i];
+					}else{
+						var objectData =  {
+							name: response.menuItem.ingredients.ingredients[i],
+							y: response.menuItem.ingredients.quantities[i],
+							drilldown: response.menuItem.ingredients.ingredients[i]
+						};
+						$scope.reportData1[response.menuItem.ingredients.ingredients[i]] = objectData;
+					}
+				}
+			console.log($scope.reportData1);
+
+			var count = 0;
+			for(var item  in 	$scope.reportData1 ){
+				$scope.container1Data1I[count] = $scope.reportData1[item];
+				count++;
+			}
+
+			$cookies.container1Data1I = JSON.stringify($scope.container1Data1I);
+			$scope.container1Data1I = JSON.parse($cookies.container1Data1I);
+			console.log($scope.container1Data1I);
 
 			}).error(function(response){
 				console.log(response);
