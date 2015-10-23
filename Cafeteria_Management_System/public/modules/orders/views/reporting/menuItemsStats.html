@@ -1,24 +1,37 @@
+<!--
+***Menu Items Statistics page ***
+    - This page contains the HTML neccessary to display the menu items stats graph
+
+  Authors: T-RISE (COS 301 team 2015)
+             		Antonia Michael (13014171)
+                Isabel Nel (13070305)
+							  Elana Kuun (12029522)
+								Rendani Dau (13381467)
+								Semaka Malapane (13081129) -->
+
+<!-- This section is mainly controlled by the Orders controller in client side unless indcated otherwise -->
 <section data-ng-controller="OrdersController" >
 
+  <!-- imported libraries to help with the displaying of the graohs -->
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <script src="https://code.highcharts.com/modules/drilldown.js"></script>
 
-				<!--Alert box -->
-				<script type="text/ng-template" id="alert.html">
-						<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-							<div ng-transclude></div>
-						</div>
-				</script>
+  <!--Alert box for help on the menu items stats graph page -->
+	<script type="text/ng-template" id="alert.html">
+		<div class="alert" role="alert">
+ 		 <div ng-transclude></div>
+		</div>
+	</script>
 
-				<div  data-ng-controller="MenuItemsController">
-					<h4>Menu Item Statistics <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button></h4><hr>
-					<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert41.msg}}</alert>
-				</div>
+	<div  data-ng-controller="MenuItemsController">
+	   <h4>Menu Item Statistics <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button></h4><hr>
+		 <alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert41.msg}}</alert>
+  </div>
+  <!--end of aler5t box for help on the menu items stats graph page-->
 
-        <!-- END ALERT BOX-->
-
-
-      <div id="container1" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-
+  <!-- Info to display graph -->
+  <div id="container1" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+  <!-- end of info to display graph -->
 
 </section>
+<!-- end of the menu items stats  graph page -->

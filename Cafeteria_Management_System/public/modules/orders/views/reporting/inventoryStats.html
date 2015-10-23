@@ -1,24 +1,37 @@
+<!--
+***Inventory Statistics page ***
+    - This page contains the HTML neccessary to display tinventory Statistics
+
+  Authors: T-RISE (COS 301 team 2015)
+             		Antonia Michael (13014171)
+                Isabel Nel (13070305)
+							  Elana Kuun (12029522)
+								Rendani Dau (13381467)
+								Semaka Malapane (13081129) -->
+
+<!-- This section is mainly controlled by the inventory controller in client side, unless indicated otherwise -->
 <section data-ng-controller="InventoryController" >
 
+  <!-- imported libraries to help with the displaying of the graphs -->
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <script src="https://code.highcharts.com/modules/drilldown.js"></script>
 
-				<!--Alert box -->
-				<script type="text/ng-template" id="alert.html">
-						<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-							<div ng-transclude></div>
-						</div>
-				</script>
+  <!--Alert box to help on the inventory Statistics page -->
+	<script type="text/ng-template" id="alert.html">
+    <div class="alert" role="alert">
+		  <div ng-transclude></div>
+		</div>
+	</script>
 
-				<div  data-ng-controller="MenuItemsController">
-					<h4>Menu Item Statistics <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button></h4><hr>
-					<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert44.msg}}</alert>
-				</div>
+	<div  data-ng-controller="MenuItemsController">
+	   <h4>Menu Item Statistics <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button></h4><hr>
+		 <alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert44.msg}}</alert>
+	</div>
+  <!-- End of the alert box for help on the inventory stats page-->
 
-        <!-- END ALERT BOX-->
-
-
-      <div data-ng-controller="InventoryController"  id="container1" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-
+  <!-- Start of information to display graph -->
+  <div data-ng-controller="InventoryController"  id="container1" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+  <!-- end of information to diaplay graph -->
 
 </section>
+<!-- end of the inventory statistics page -->
