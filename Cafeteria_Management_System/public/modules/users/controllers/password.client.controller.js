@@ -1,5 +1,7 @@
 'use strict';
-
+/*
+    Controller: Password Client controller
+ */
 angular.module('users').controller('PasswordController', ['$scope', '$stateParams', '$http', '$location', 'Authentication',
 	function($scope, $stateParams, $http, $location, Authentication) {
 		$scope.authentication = Authentication;
@@ -8,6 +10,12 @@ angular.module('users').controller('PasswordController', ['$scope', '$stateParam
 		if ($scope.authentication.user) $location.path('/');
 
 		// Submit forgotten password account id
+
+        /*
+         Function name: Ask for password reset
+         @params: n/a
+         @return: n/a
+         */
 		$scope.askForPasswordReset = function() {
 			$scope.success = $scope.error = $scope.loading = null;
 
@@ -33,7 +41,11 @@ angular.module('users').controller('PasswordController', ['$scope', '$stateParam
 			});
 		};
 
-		// Change user password
+        /*
+         Function name: Reset User Password
+         @params: n/a
+         @return: n/a
+         */
 		$scope.resetUserPassword = function() {
 			$scope.success = $scope.error = null;
 

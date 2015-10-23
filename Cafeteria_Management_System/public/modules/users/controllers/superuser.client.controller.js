@@ -1,13 +1,16 @@
 'use strict';
-
+/*
+Controller: Superuser client controller
+ */
 angular.module('users').controller('superuserController', ['$scope', '$http', '$location', '$window', 'Users', 'Authentication',
 	function($scope, $http, $location, $window, Users, Authentication) {
 		$scope.user = Authentication.user;
 
-		// If user is not signed in then redirect back home
-	//	if (!$scope.user) $location.path('/');
-
-		// Assign a role to user - as the super user
+        /*
+        Function name: Assign Roles
+        @params: Boolean isValid
+        @return: n/a
+         */
 		$scope.assignRoles = function(isValid) {
 		  if (isValid) {
 
@@ -46,7 +49,11 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 
 			}
 	};
-
+            /*
+             Function name: Assign Roles Admin Roles
+             @params: Boolean isValid
+             @return: n/a
+             */
 			//assign Roles - as an admin user role
 			$scope.assignRolesAdminRole = function(isValid) {
 				if (isValid) {
@@ -88,8 +95,11 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 				}
 				};
 
-        //Change user's employee ID
-		//$scope.currentEmp_id;
+        /*
+         Function name:  Change Employee ID
+         @params: Boolean isValid
+         @return: n/a
+         */
         $scope.changeEmployeeID = function(isValid) {
             if (isValid) {
 				console.log($scope.currentEmp_id);
@@ -113,7 +123,11 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
             }
         };
 
-        //Remove user from the database
+        /*
+         Function name:  Remove Employee
+         @params: Boolean isValid
+         @return: n/a
+         */
         $scope.removeEmployee = function(isValid) {
             if (isValid) {
                 $scope.successFour = $scope.errorFour = null;
@@ -135,7 +149,11 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
             }
         };
 
-            // Search a user profile
+        /*
+         Function name:  Search Employee
+         @params: Boolean isValid
+         @return: n/a
+         */
         $scope.searchEmployee = function(isValid) {
             if(isValid){
                 $scope.success = $scope.error = null;
@@ -149,7 +167,11 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
             }
         };
 
-        //filter employee ID
+        /*
+         Function name:  Search EmployeeID
+         @params: Boolean isValid
+         @return: n/a
+         */
         $scope.searchEmployeeID = function(row) {
             //Filter Menu items for search bar
                 var empID = $scope.currentEmp_id.toLowerCase();
@@ -158,7 +180,11 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
                 }
         };
 
-        //Set system limit
+        /*
+         Function name: Set system Wide Limit
+         @params: Boolean isValid
+         @return: n/a
+         */
 		$scope.setSystemWideLimit = function(isValid){
             if(isValid){
                 $scope.success = $scope.error = null;
@@ -180,28 +206,13 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
                     $scope.limit = null;
                 }
             }
-            /*if(isValid){
-				$scope.success = $scope.error = null;
-				$scope.successTwo = $scope.errorTwo = null;
-
-				var reqObj = {name: 'System wide limit', value: $scope.limit};
-                $scope.r = $window.confirm("Are you sure?");
-
-                if($scope.r === true) {
-                    //console.log($scope.limit);
-                    $http.post('users/superuserSetSystemWideLimit', reqObj).success(function (response) {
-                        $scope.successTwo = response.message;
-                    }).error(function (response) {
-                        $scope.errorTwo = response.message;
-                    });
-                }
-                else{
-                    $scope.limit = null;
-                }
-			}*/
 		};
 
-		//Set canteen name
+        /*
+         Function name:  Set canteen name
+         @params: Boolean isValid
+         @return: n/a
+         */
 		$scope.setCanteenName = function(isValid){
             console.log('Name CLIENT');
 			if(isValid){
@@ -218,7 +229,11 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
                 }
 		};
 
-        //Set contact information
+        /*
+         Function name:  Set Contact Info
+         @params: Boolean isValid
+         @return: n/a
+         */
         $scope.setContactInfo = function(isValid){
             console.log('SETTTTTTTT CONTACT INFOOOOOOOOOOOOO CLIENT'+$scope.contactName+$scope.contactNumber+$scope.contactEmail);
             if(isValid){
@@ -244,14 +259,14 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
                 }).error(function (response) {
                     $scope.errorSeven= response.message;
                 });
-                //var req2 ={name:'Contact Number',value: $scope.contactNumber};
-                //$http.post('users/superuserSetContactInfo', reqObj);
-                //var req3 ={name:'Contact Email',value: $scope.contactEmail};
-                //$http.post('users/superuserSetContactInfo', reqObj);
             }
         };
 
-        //Set theme name
+        /*
+         Function name:  Set Theme Name
+         @params: n/a
+         @return: n/a
+         */
         $scope.setThemeName = function(){
                 $scope.successFive = $scope.errorFive = null;
 
@@ -269,7 +284,11 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
         /**
          * Created by tonia on 2015/10/16.
          */
-            //getContactInfo
+        /*
+         Function name: Get Contact Info
+         @params: n/a
+         @return: n/a
+         */
         $scope.getContactInfo = function(){
             $http.get('users/superuserGetContactInfo').success(function(response){
                 console.log("response.val"+response.val);
@@ -279,7 +298,11 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
             });
 
         };
-//getContactInfo
+        /*
+         Function name: Get Contact Info 2
+         @params: n/a
+         @return: n/a
+         */
         $scope.getContactInfo2 = function(){
             $http.get('users/superuserGetContactInfo2').success(function(response){
                 console.log("response.val"+response.val);
@@ -289,7 +312,11 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
             });
 
         };
-//getContactInfo
+        /*
+         Function name: Get Contact Info3
+         @params: n/a
+         @return: n/a
+         */
         $scope.getContactInfo3 = function(){
             $http.get('users/superuserGetContactInfo3').success(function(response){
                 console.log("response.val"+response.val);
@@ -300,7 +327,11 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 
         };
 
-		//Delete Carousel Image
+        /*
+         Function name: Delete Carousel Image
+         @params: Boolean isValid
+         @return: n/a
+         */
 		$scope.deleteCarouselImage = function(isValid){
 			console.log('deleteing image');
 			$http.post('/users/superuserDeleteImage', {image: $scope.imageToDelete}).success(function(response){
@@ -310,15 +341,31 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 			})
 		}
 
+        /*
+         Function name: Check User
+         @params: n/a
+         @return: n/a
+         */
         $scope.checkUser = function(){
             if((!$scope.user) || ($scope.user && (Authentication.user.roles[0] !== 'superuser' || Authentication.user.roles[0] !== 'superuser')))
                 $location.path('/');
         };
 
+        /*
+         Function name: Check A User
+         @params: n/a
+         @return: n/a
+         */
         $scope.checkAUser = function(){
             if(($scope.user && Authentication.user.roles[0] !== 'admin') || ($scope.user && Authentication.user.roles[0] !== 'admin') || (!$scope.user))
                 $location.path('/');
         };
+
+        /*
+         Function name: Load Employees
+         @params: n/a
+         @return: n/a
+         */
         // Loading the items from the inventory to display in the add ingredients of the menu items being added
         $scope.loadEmployees = function(){
             $http.get('/loadEmployees').success(function(response) {
@@ -336,6 +383,12 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
                 $scope.employees = 'Error loading employees';
             });
         };
+
+        /*
+         Function name: Audit Types
+         @params: n/a
+         @return: n/a
+         */
 		//Load audit type
 		$scope.auditTypes = [];
 		$scope.getAuditTypes = function(){
@@ -358,6 +411,11 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 		var days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 		var months = ['Jan','Feb','Mar','Apr','May','Jun','July','Aug','Sep','Oct','Nov','Dec'];
 
+        /*
+         Function name: Audit Types
+         @params: Boolean isValid
+         @return: n/a
+         */
 		$scope.getAudits = function(isValid){
 			if(isValid){
 				var toDate = new Date($scope.current_toDate);
