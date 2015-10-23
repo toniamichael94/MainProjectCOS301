@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.23)  16 OCT 2015 22:39
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.23)  23 OCT 2015 20:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -333,169 +333,205 @@ l.32 \break
             [1
 
 ]
-Overfull \hbox (96.94179pt too wide) in paragraph at lines 52--78
+Overfull \hbox (96.94179pt too wide) in paragraph at lines 52--82
  [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 36.516pt on input line 78.
+LaTeX Warning: Float too large for page by 143.58257pt on input line 82.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 95--101
+Underfull \hbox (badness 10000) in paragraph at lines 99--105
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 95--101
+Underfull \hbox (badness 10000) in paragraph at lines 99--105
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 107--109
+Underfull \hbox (badness 10000) in paragraph at lines 111--113
 
  []
 
 [4]
-Overfull \hbox (46.1163pt too wide) in paragraph at lines 113--114
+Overfull \hbox (46.1163pt too wide) in paragraph at lines 117--118
 \OT1/cmr/m/n/12 func-tions in-side au-then-ti-ca-tion.client.controller.js and 
 the su-pe-ruser.client.controller.js
  []
 
 
-Overfull \hbox (64.2851pt too wide) in paragraph at lines 113--114
+Overfull \hbox (64.2851pt too wide) in paragraph at lines 117--118
 \OT1/cmr/m/n/12 file. The reg-is-ter/ signup func-tion-al-ity also re-sides in 
 the au-then-ti-ca-tion.client.controller.js
  []
 
 
-Overfull \hbox (65.46056pt too wide) in paragraph at lines 115--116
+Overfull \hbox (65.46056pt too wide) in paragraph at lines 119--120
 \OT1/cmr/m/n/12 set-Sys-temWide-Limit(), and set-Can-teen-Name() lo-cated in th
 e su-pe-ruser.client.controller.js
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 153--159
+Underfull \hbox (badness 10000) in paragraph at lines 157--163
 
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 165--169
+Underfull \hbox (badness 10000) in paragraph at lines 169--173
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 170--175
+Underfull \hbox (badness 10000) in paragraph at lines 174--179
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 176--180
+Underfull \hbox (badness 10000) in paragraph at lines 180--184
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 182--187
+Underfull \hbox (badness 10000) in paragraph at lines 186--191
 
  []
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 188--195
+Underfull \hbox (badness 10000) in paragraph at lines 192--199
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 196--201
+Underfull \hbox (badness 10000) in paragraph at lines 200--205
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 202--206
+Underfull \hbox (badness 10000) in paragraph at lines 206--210
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 207--212
+Underfull \hbox (badness 10000) in paragraph at lines 211--216
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 213--218
+Underfull \hbox (badness 10000) in paragraph at lines 217--222
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 219--223
+Underfull \hbox (badness 10000) in paragraph at lines 223--227
 
  []
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 224--229
+Underfull \hbox (badness 10000) in paragraph at lines 228--233
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 231--235
+Underfull \hbox (badness 10000) in paragraph at lines 235--239
 
  []
 
 
-Overfull \hbox (37.69038pt too wide) in paragraph at lines 236--236
+Overfull \hbox (37.69038pt too wide) in paragraph at lines 240--240
 [][]\OT1/cmr/bx/n/12 Place or-der Mod-ule - or-ders.client.controller.js, cashi
 er.client.controller.js
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 239--244
+Underfull \hbox (badness 10000) in paragraph at lines 243--248
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 245--256
+Underfull \hbox (badness 10000) in paragraph at lines 249--260
 
  []
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 257--262
+Underfull \hbox (badness 10000) in paragraph at lines 261--266
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 268--279
+Overfull \hbox (51.59958pt too wide) in paragraph at lines 273--285
+[]\OT1/cmr/m/n/12 user.server.model.js The tests for this file can be found in 
+user.server.model.test.js.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 273--285
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 281--291
-
+Overfull \hbox (48.46628pt too wide) in paragraph at lines 286--298
+[]\OT1/cmr/m/n/12 test.server.routes.js The tests for this file can be found in
+ test.server.routes.test.js.
  []
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 294--306
+Underfull \hbox (badness 10000) in paragraph at lines 302--313
+
+ []
+
+
+Overfull \hbox (56.94397pt too wide) in paragraph at lines 317--330
+[]\OT1/cmr/m/n/12 menuItem.server.model.js The tests can be found in me-nu-Item
+.server.model.test.js. 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 317--330
 
  []
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 308--313
+Overfull \hbox (57.67035pt too wide) in paragraph at lines 334--344
+[]\OT1/cmr/m/n/12 orders.server.controller.js The tests can be found in no-ti-f
+i-ca-tion.server.model.test.js 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 334--344
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 328.
-[12] [13]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 328.
+
+Overfull \hbox (47.68295pt too wide) in paragraph at lines 348--354
+[]\OT1/cmr/m/n/12 test.server.model.js The tests for this file can be found in 
+test.server.model.test.js.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 348--354
+
+ []
+
+[12]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 357.
+ [13] [14]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 357.
  (./Testing.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 328.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 328.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 357.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 357.
 Package rerunfilecheck Info: File `Testing.out' has not changed.
 (rerunfilecheck)             Checksum: CA328F005CAEB1C0673A0DE82242A748;1004.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 328.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 357.
  ) 
 Here is how much of TeX's memory you used:
- 6977 strings out of 495028
- 106256 string characters out of 6181497
- 201168 words of memory out of 5000000
+ 6984 strings out of 495028
+ 106299 string characters out of 6181497
+ 203168 words of memory out of 5000000
  10108 multiletter control sequences out of 15000+600000
  9714 words of font info for 34 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -504,10 +540,10 @@ Here is how much of TeX's memory you used:
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on Testing.pdf (14 pages, 209728 bytes).
+Output written on Testing.pdf (15 pages, 211023 bytes).
 PDF statistics:
- 179 PDF objects out of 1000 (max. 8388607)
- 156 compressed objects within 2 object streams
- 43 named destinations out of 1000 (max. 500000)
+ 190 PDF objects out of 1000 (max. 8388607)
+ 166 compressed objects within 2 object streams
+ 50 named destinations out of 1000 (max. 500000)
  110 words of extra memory for PDF output out of 10000 (max. 10000000)
 
