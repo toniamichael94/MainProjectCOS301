@@ -1,23 +1,35 @@
-<section ng-init="checkCMUser()" class="row" data-ng-controller="MenuItemsController">
-	<!--ALERT BOX FOR HELP-->
-			<script type="text/ng-template" id="alert.html">
-					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-						<div ng-transclude></div>
-					</div>
-			</script>
+<!--
+***Manage menu page***
+    - This page contains all the functionality regarding adding, removing and editing menu items
 
-			<div  data-ng-controller="MenuItemsController">
-				<h4>Manage Menu<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
-				<hr>
-				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert2.msg}}</alert>
-			</div>
- <!--END ALERT BOX -->
+  Authors: T-RISE (COS 301 team 2015)
+             		Antonia Michael (13014171)
+                Isabel Nel (13070305)
+							  Elana Kuun (12029522)
+								Rendani Dau (13381467)
+								Semaka Malapane (13081129) -->
+
+<!-- This sectio is mainly controlled by the menu items controller in the client side unless indicated otherwise-->
+<section ng-init="checkCMUser()" class="row" data-ng-controller="MenuItemsController">
+
+	<!--Alert box for help on the main page for manage menu items-->
+	<script type="text/ng-template" id="alert.html">
+		<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+			<div ng-transclude></div>
+		</div>
+	</script>
+
+	<div  data-ng-controller="MenuItemsController">
+		<h4>Manage Menu<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4><hr>
+		<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert2.msg}}</alert>
+	</div>
+ <!--End of the aletr box for help on the main mnage menu items page -->
 
 	<div class="list-group clearfix"  data-ng-controller="MenuItemsController">
-
+		<!-- Start of adding a menu item -->
 		<a href="#" class="list-group-item disabled">Add menu category</a>
 		<div class="list-group-item clearfix">
-				<h4> Add menu category </h4>
+			<h4> Add menu category </h4>
 			<!--Alert box -->
 			<script type="text/ng-template" id="alert.html">
 					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
@@ -29,120 +41,113 @@
 				<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button>
 				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert3.msg}}</alert>
 			</div>
-				<!--Alert box end-->
+			<!--Alert box end-->
+
 			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2"  data-ng-controller="MenuItemsController">
 				<form name="addMenuCatagoryForm" data-ng-submit="createMenuCatagory(addMenuCatagoryForm.$valid)" class="signin form-horizontal" autocomplete="off">
 					<fieldset>
 						<div class="form-group">
-							
 							<input type="text" id="menuItemAdd" name="menuItemAdd" class="form-control" data-ng-model="categoryName" placeholder="Menu Category Name">
 						</div>  <div class=" text-center form-group">
-							<button type = "submit" style="width:200px" class = "btn btn-large btn-primary">Add</button>
-							<!-- Show error message or sucess message for adding a menu category--></div>
-							<div data-ng-show="success" class="text-center text-success">
-								<strong>Item added successfully.</strong>
-							</div>
-							<div data-ng-show="error" class="text-center text-danger">
-								<strong data-ng-bind="error"></strong>
-							</div>
+						<button type = "submit" style="width:200px" class = "btn btn-large btn-primary">Add</button>
+						<!-- Show error message or sucess message for adding a menu category--></div>
+						<div data-ng-show="success" class="text-center text-success">
+							<strong>Item added successfully.</strong>
+						</div>
+						<div data-ng-show="error" class="text-center text-danger">
+							<strong data-ng-bind="error"></strong>
+						</div>
 					</fieldset>
 				</form>
-
-	  </div>
-  </div>
-  <br>
+	  	</div>
+  	</div>
+  	<br>
+		<!-- end of adding a menu item functionality
 
 	<!--Search delete and update a menu category-->
 	<div class="list-group clearfix">
 		<a href="#" class="list-group-item disabled">Search menu category</a>
 		<div class="list-group-item clearfix">
 			<h4> Search category </h4>
-			<!--Alert box -->
+			<!--Alert box for hrlp on updateing and deleting a amenu item -->
 			<script type="text/ng-template" id="alert.html">
-					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-						<div ng-transclude></div>
-					</div>
+				<div class="alert"  role="alert">
+					<div ng-transclude></div>
+				</div>
 			</script>
 
 			<div  data-ng-controller="MenuItemsController">
 				<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button>
 				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert30.msg}}</alert>
 			</div>
-				<!--Alert box end-->
+			<!--Alert box end -->
 			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2" data-ng-controller = "MenuItemsController">
 				<form name="searchMenuCategoryForm" data-ng-submit="searchMenuCategory(searchMenuCategoryForm.$valid)" class="signin form-horizontal" autocomplete="off">
-
 					<!--Search for a category-->
 					<div class = "form-group">
 						<input type="text" id="categoryNameSearchID" name ="categoryNameSearch" class = "form-control" data-ng-model="categoryNameSearch" placeholder="Category name" required>
 					</div>
-
 					<div class = "text-center form-group">
 						<button type = "submit" style="width:200px" class = "btn btn-large btn-primary">Search</button>
 					</div>
-    </form>
-
-				<!--Delete or update if category found-->
-				<!--Update the category -->
-				<div ng-show="successFind" class="text-center">
-					<form name="updateMenuCategoryForm" data-ng-submit="updateMenuCategory(updateMenuCategoryForm.$valid)" class="signin form-horizontal" autocomplete="off">
-                            <h4>Update category</h4>
-
-														<!--Category fields to update-->
-                            <div class="form-group">
-                                <label for="updateCategory">Category name</label>
-                                <input type="text" id="categoryNameID" name="categoryName" class="form-control" data-ng-model="newCategoryName">
-                            </div>
-
-														<div class="form-group">
-															<label for ="categoryActive">Active or inactive</label>
-															<select id ="categoryActiveID" name ="categoryActive" class = "form-control" data-ng-model ="categoryActive" >
-																<option value="true">Active</option>
-																<option value="false">Inactive</option>
-															</select>
-														</div>
-                            <div class = "text-center form-group">
-                                <button type = "submit" style="width:200px" class = "btn btn-large btn-primary" ng-click="showme=false"> Update</button>
-                            </div>
-                        </form>
-
-												<!--Delete a menu category-->
-											 <form class="signin form-horizontal">
-												 <div class = "text-center form-group">
-												 	<button type = "submit" class = "btn btn-large btn-primary" style="width:200px" data-ng-hide="showme" ng-click = "deleteMenuCategory();" >Delete</button>
-												</div>
-											</form>
+    	</form>
+			<!--Delete or update if category found-->
+			<!--Update the category -->
+			<div ng-show="successFind" class="text-center">
+				<form name="updateMenuCategoryForm" data-ng-submit="updateMenuCategory(updateMenuCategoryForm.$valid)" class="signin form-horizontal" autocomplete="off">
+        	<h4>Update category</h4>
+					<!--Category fields to update-->
+          <div class="form-group">
+          	<label for="updateCategory">Category name</label>
+            <input type="text" id="categoryNameID" name="categoryName" class="form-control" data-ng-model="newCategoryName">
+          </div>
+					<div class="form-group">
+						<label for ="categoryActive">Active or inactive</label>
+						<select id ="categoryActiveID" name ="categoryActive" class = "form-control" data-ng-model ="categoryActive" >
+							<option value="true">Active</option>
+							<option value="false">Inactive</option>
+						</select>
+					</div>
+          <div class = "text-center form-group">
+          	<button type = "submit" style="width:200px" class = "btn btn-large btn-primary" ng-click="showme=false"> Update</button>
+          </div>
+        </form>
+				<!--Delete a menu category-->
+			 <form class="signin form-horizontal">
+			 	<div class = "text-center form-group">
+					<button type = "submit" class = "btn btn-large btn-primary" style="width:200px" data-ng-hide="showme" ng-click = "deleteMenuCategory();" >Delete</button>
+				</div>
+			</form>
 		</div>
-
-					<!--Error/Success message for delete/update-->
-					<div data-ng-show="errorMessage" class="text-center text-danger">
-						<strong data-ng-bind="errorMessage"></strong>
-                    </div>
-                    <div data-ng-show="successMessage" class="text-center text-success">
-						<strong data-ng-bind="successMessage"></strong>
-                    </div>
-			</div>
-		</div>
+		<!--Error/Success message for delete/update-->
+		<div data-ng-show="errorMessage" class="text-center text-danger">
+			<strong data-ng-bind="errorMessage"></strong>
+    </div>
+    <div data-ng-show="successMessage" class="text-center text-success">
+			<strong data-ng-bind="successMessage"></strong>
+    </div>
+	 </div>
 	</div>
-	<!--End of search delete and update-->
+ </div>
+<!--End of search delete and update-->
 
 	<!--Add an item to the menu-->
 	<div class="list-group clearfix">
 		<a href="#" class="list-group-item disabled">Add product to menu</a>
 		<div class="list-group-item clearfix">
 			<h4> Add menu item </h4>
-			<!--Alert box -->
+			<!--Alert box for help on adding a new item  -->
 			<script type="text/ng-template" id="alert.html">
-					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-						<div ng-transclude></div>
-					</div>
+				<div class="alert"  role="alert">
+					<div ng-transclude></div>
+				</div>
 			</script>
-
 			<div  data-ng-controller="MenuItemsController">
 				<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button>
 				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert4.msg}}</alert>
 			</div>
-				<!--Alert box end-->
+			<!--Alert box end-->
+
 			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2"  data-ng-controller="MenuItemsController">
 				<form ng-init = "addFormField()" name="addMenuItemForm" data-ng-submit="createMenuItem(addMenuItemForm.$valid)" class="signin form-horizontal" autocomplete="off">
 					<fieldset>
@@ -150,21 +155,16 @@
 							<label for="itemName">Menu item name</label>
 							<input type="text" id="menuItemAdd" name="menuItemAdd" class="form-control" data-ng-model="menuItem.itemNameAdd" placeholder="Item Name">
 						</div>
-
 						<div class="form-group">
 							<label for="itemDescription">Description</label>
 							<input type="text" id="itemDescription" name="itemDescription" class="form-control" data-ng-model="menuItem.itemDescription" placeholder="Description">
 						</div>
-
 						<div class="form-group">
 							<label for="itemPrice">Price</label>
 							<input type="number" min = 0 id="itemPrice"  step="any"  name="itemPrice" class="form-control" data-ng-model="menuItem.itemPrice" placeholder="Price">
 						</div>
-
-
-
 						<div class = "form-group" ng-init="showCat=true; loadMenuCategories()">
-						<label data-ng-click="showCat=false;"></label>
+							<label data-ng-click="showCat=false;"></label>
 							<label for="itemCategory" ng-click="showCat=true; loadMenuCategories()">Category</label>
 							<div data-ng-hide="showCat==false" data-ng-show="showCat==true">
 								<select id ="itemCategory" name ="itemCategory" class = "form-control" data-ng-model ="menuItem.itemCategory" >
@@ -172,47 +172,33 @@
 								</select>
 							</div>
 						</div>
-
-
-
-				<!-- Dynamically add ingredients -->
-				<label>Ingredients</label>
-					<div ng-init="loadInventoryItems()" data-ng-controller="InventoryController" ng-repeat = "ingredient in ingredients.ingredients track by $index" >
-
+						<!-- Dynamically add ingredients -->
+						<label>Ingredients</label>
+						<div ng-init="loadInventoryItems()" data-ng-controller="InventoryController" ng-repeat = "ingredient in ingredients.ingredients track by $index" >
 							<select  class="form-control" ng-model = 'ingredients.ingredients[$index]'/>
 									<option  ng-repeat="item in inventoryItems" >{{item.productName}} ({{item.unit[0]}})</option>
 							</select><br>
 							<input class="form-control" placeholder ="Quantity"  type = "number" min =0 ng-model = 'ingredients.quantities[$index]'/>
-                        <div class="text-center form-group"><a class = "btn" ng-click = "removeIngredientOption($index); removeOption = true">Remove</a>
+              <div class="text-center form-group">
+								<a class = "btn" ng-click = "removeIngredientOption($index); removeOption = true">Remove</a>
+							</div>
 						</div>
-
-					</div>
-
-					<!--Dynamically add ingredients button-->
-                        <div class="text-center form-group">	<a ng-click="addFormField()"  style="width:200px" class = "btn btn-large btn-primary">Add ingredients</a>
-				<br> </div>
+						<!--Dynamically add ingredients button-->
+            <div class="text-center form-group">
+							<a ng-click="addFormField()"  style="width:200px" class = "btn btn-large btn-primary">Add ingredients</a>
+							<br>
+						</div>
 						<div class="text-center form-group">
 							<button type="submit" style="width:200px" class="btn btn-large btn-primary">Save</button>
 						</div>
-										<!--<p>Ingredient</p>
-
-						<pre>{{ ingredients | json }}</pre>-->
-
-						<!--Error/Success message-->
 						<div data-ng-show="success" class="text-center text-success">
 							<strong>Item added successfully.</strong>
 						</div>
 						<div data-ng-show="error" class="text-center text-danger">
 							<strong data-ng-bind="error"></strong>
 						</div>
-
-
 					</fieldset>
 				</form>
-<div>
-
-
-    </div>
 			</div>
 		</div>
 	</div>
@@ -222,124 +208,112 @@
 		<a href="#" class="list-group-item disabled">Search menu item</a>
 			<div class="list-group-item clearfix">
 				<h4> Search menu item </h4>
-				<!--Alert box -->
+				<!--Alert box for hrlp on updating a  menu item  -->
 				<script type="text/ng-template" id="alert.html">
-						<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-							<div ng-transclude></div>
-						</div>
+					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+						<div ng-transclude></div>
+					</div>
 				</script>
-
-				   <div   data-ng-controller="MenuItemsController">
+		   	<div   data-ng-controller="MenuItemsController">
 					<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button>
 					<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert5.msg}}</alert>
 				</div>
-					<!--Alert box end-->
-                <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2"  data-ng-controller="MenuItemsController">
+				<!--Alert box end-->
+
+				<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2"  data-ng-controller="MenuItemsController">
 					<form name="searchMenuItemsForm" data-ng-submit="searchMenu(searchMenuItemsForm.$valid)"  class="text-center form-group signin form-horizontal"  autocomplete="off">
 				   <div class = "form-group text-center ">
 							<input type="text" id="menuItemNameSearch" style="width:200px" name ="menuItemNameSearch" class = "form-control " data-ng-model="menuNameSearch" placeholder="Item name">
-                            </div>
-                        <div class = "form-group text-center">
-                            <button type = "submit" style="width:200px" class = "btn btn-large btn-primary">Search</button>
-                       </div>
-                    </form>
-
-			   <!-- ********************Upload image if item is found*******************-->
+            </div>
+            <div class = "form-group text-center">
+              <button type = "submit" style="width:200px" class = "btn btn-large btn-primary">Search</button>
+            </div>
+          </form>
+					<!-- ********************Upload image if item is found*******************-->
 			    <form name="uploadImageForm" action="/orders/uploadImage" enctype="multipart/form-data" method="post" class="signin form-horizontal" autocomplete="off">
-				    <fieldset>  <div class="text-center form-group" data-ng-show="successFind"><br>
-				      <input type="file" id="upload" name="upload"   data-ng-hide="showme" data-ng-model="upload" class="form-control"/> <br>
-					  <input type="text" id="itemName" name="itemName" style="display: none" data-ng-model="foundItem.itemName" />
-				        <button type="submit" style="width:200px"  data-ng-hide="showme" class="btn btn-large btn-primary">Upload Image</button> <br>
-				      </div>
+				    <fieldset>
+							<div class="text-center form-group" data-ng-show="successFind"><br>
+					    	<input type="file" id="upload" name="upload"   data-ng-hide="showme" data-ng-model="upload" class="form-control"/> <br>
+						  	<input type="text" id="itemName" name="itemName" style="display: none" data-ng-model="foundItem.itemName" />
+					      <button type="submit" style="width:200px"  data-ng-hide="showme" class="btn btn-large btn-primary">Upload Image</button> <br>
+				    	</div>
 				    </fieldset>
 			    </form>
-
 					<!--Delete or update if item is found-->
-                    <form  class="text-center form-group signin form-horizontal">
-					<div  class = " text-center form-group" data-ng-show="successFind">
-						<button class = "btn btn-large btn-primary" style="width:200px" ng-click="showme=true; loadIngredients()" data-ng-hide="showme">Update</button>
-                      </div>
-					<div  class = " text-center form-group" data-ng-show="successFind">
-						<button class = "btn btn-large btn-primary"  style="width:200px" data-ng-hide="showme" ng-click = "deleteMenuItem()">Delete</button>
-                        </div></form>
+          <form  class="text-center form-group signin form-horizontal">
+						<div  class = " text-center form-group" data-ng-show="successFind">
+							<button class = "btn btn-large btn-primary" style="width:200px" ng-click="showme=true; loadIngredients()" data-ng-hide="showme">Update</button>
+            </div>
+						<div  class = " text-center form-group" data-ng-show="successFind">
+							<button class = "btn btn-large btn-primary"  style="width:200px" data-ng-hide="showme" ng-click = "deleteMenuItem()">Delete</button>
+            </div>
+					</form>
 					<!--Show if update -->
 					<div ng-show="showme" class="text-center text-success">
-                        <form name="updateMenuItemForm" data-ng-submit="updateMenuItem(updateMenuItemForm.$valid)" class="text-center form-group signin form-horizontal" autocomplete="off">
-                            <h4>Update item</h4>
-                            <div class="form-group">
-                                <label for="itemName">Item Name</label>
-                                <input type="text" id="itemName" name="itemName" style="width:200px"  class="form-control" data-ng-model="updateItemName">
-                            </div>
-
+          	<form name="updateMenuItemForm" data-ng-submit="updateMenuItem(updateMenuItemForm.$valid)" class="text-center form-group signin form-horizontal" autocomplete="off">
+            	<h4>Update item</h4>
+              <div class="form-group">
+              	<label for="itemName">Item Name</label>
+                <input type="text" id="itemName" name="itemName" style="width:200px"  class="form-control" data-ng-model="updateItemName">
+              </div>
 							<div class="form-group">
-                                <label for="itemUpdatePrice">Price</label>
-                                <input type="text" id="itemUpdatePrice"  step='any'  style="width:200px"  name="itemUpdatePrice" class="form-control" data-ng-model="updateItemPrice">
-                            </div>
-
+              	<label for="itemUpdatePrice">Price</label>
+                <input type="text" id="itemUpdatePrice"  step='any'  style="width:200px"  name="itemUpdatePrice" class="form-control" data-ng-model="updateItemPrice">
+              </div>
 							<div class="form-group">
-                                <label for="itemUpdateDescription">Description</label>
-                                <input type="text" id="itemUpdateDescription" style="width:200px"  name="itemUpdateDescription" class="form-control" data-ng-model="updateItemDescription">
-                            </div>
-
+              	<label for="itemUpdateDescription">Description</label>
+                <input type="text" id="itemUpdateDescription" style="width:200px"  name="itemUpdateDescription" class="form-control" data-ng-model="updateItemDescription">
+              </div>
 							<div class = "form-group" ng-init="loadMenuCategories()">
-								<label for="itemCategory">Category</label>
+							 	<label for="itemCategory">Category</label>
 								<select  id ="itemCategory" name ="itemCategory" class = "form-control" data-ng-model ="menuItem.itemCategory" data-ng-bind ="menuItem.itemCategory"  >
-								<option  ng-repeat="item in menuCatagory" value={{item.name}}>{{item.name}}</option>
+									<option  ng-repeat="item in menuCatagory" value={{item.name}}>{{item.name}}</option>
 								</select>
 							</div>
-
-
 							<div    class="text-center form-group signin form-horizontal">
 								<label>Ingredients</label>
 								<div ng-repeat = "ingredient in loadedIngredients.ingredients track by $index" >
 									<label ng-bind = 'loadedIngredients.ingredients[$index]'>{{loadedIngredients.ingredients}}</label>
 									<input class="form-control" style="width:200px"  type = "number" min =0 ng-model = 'loadedIngredients.quantities[$index]'/>
-
 									<a class = "btn" ng-click = "removeIngredient($index); removed = true" ng-hide="removed" ng-show="!removed">Remove</a>
 									<a class = "btn" ng-click = "undoRemoveIngredient($index); removed=false" ng-show="removed">Undo remove</a>
-
 									<br>
 								</div>
-							</div></form>
-
-						<!--Add more ingredients to item--><form class="text-center form-group signin form-horizontal">
-						<h4>Add more ingredients </h4>
-						<div class="text-center form-group signin form-horizontal" ng-init="loadInventoryItems()" data-ng-controller="InventoryController" ng-repeat = "ingredient in addedUpdateIngredients.ingredients track by $index" >
-							<!--<label ng-bind = 'addedUpdateIngredients.ingredients[$index]'>{{addedUpdateIngredients.ingredients}}</label>-->
-							<select  class="form-control form-horizontal text-center" style="width:200px"  ng-model = 'addedUpdateIngredients.ingredients[$index]'/>
-									<option  ng-repeat="item in inventoryItems" >{{item.productName}} ({{item.unit[0]}})</option>
-							</select><br>
-							<input class="form-control" style="width:200px"  placeholder ="Quantity"  type = "number" min =0 ng-model = 'addedUpdateIngredients.quantities[$index]'/>
-							<a class = "btn" ng-click = "removeIngredientOptionUpdate($index); removeOption = true">Remove</a>
-							<br>
-						</div></form>
-                        <form class="text-center form-group   form-horizontal">
-						<a ng-click="addMoreIngredientsUpdate()" style="width:200px"class = "text-center form-group form-horizontal btn btn-large btn-primary">More ingredients</a>
-                         <div></div><br>
-                            <div  class="text-center form-group signin form-horizontal" >
-                                <!--<button type = "submit" class = "btn btn-large btn-primary" onclick= "location.reload(true)" ng-click = "upadateMenuItem()"> Update</button>-->
-                                <button type = "submit" style="width:200px" class = "btn btn-large btn-primary" ng-click = "updateMenuItem();"> Update</button>
-                                </div></form>
 							</div>
-
-                        </form>
-
-					<!--<p>IaddedUpdateIngredients</p>
-
-						<pre>{{ addedUpdateIngredients | json }}</pre>-->
-
-						<!--<p>loadedIngredients</p>
-
-						<pre>{{loadedIngredients | json }}</pre>
-					<!--Success or Error message-->
-						 <div data-ng-show="successMessage" class="text-center text-success">
-                            <strong data-ng-bind="successMessage"></strong>
-                        </div>
-                        <div data-ng-show="errorMessage" class="text-center text-danger">
-                            <strong data-ng-bind="errorMessage"></strong>
-                        </div>
-</div>
-				</div>
+						</form>
+						<!--Add more ingredients to item-->
+						<form class="text-center form-group signin form-horizontal">
+							<h4>Add more ingredients </h4>
+							<div class="text-center form-group signin form-horizontal" ng-init="loadInventoryItems()" data-ng-controller="InventoryController" ng-repeat = "ingredient in addedUpdateIngredients.ingredients track by $index" >
+							<!--<label ng-bind = 'addedUpdateIngredients.ingredients[$index]'>{{addedUpdateIngredients.ingredients}}</label>-->
+								<select  class="form-control form-horizontal text-center" style="width:200px"  ng-model = 'addedUpdateIngredients.ingredients[$index]'/>
+										<option  ng-repeat="item in inventoryItems" >{{item.productName}} ({{item.unit[0]}})</option>
+								</select><br>
+								<input class="form-control" style="width:200px"  placeholder ="Quantity"  type = "number" min =0 ng-model = 'addedUpdateIngredients.quantities[$index]'/>
+								<a class = "btn" ng-click = "removeIngredientOptionUpdate($index); removeOption = true">Remove</a>
+								<br>
+							</div>
+						</form>
+            <form class="text-center form-group   form-horizontal">
+							<a ng-click="addMoreIngredientsUpdate()" style="width:200px"class = "text-center form-group form-horizontal btn btn-large btn-primary">More ingredients</a>
+              <div></div><br>
+              <div  class="text-center form-group signin form-horizontal" >
+              	<!--<button type = "submit" class = "btn btn-large btn-primary" onclick= "location.reload(true)" ng-click = "upadateMenuItem()"> Update</button>-->
+              	<button type = "submit" style="width:200px" class = "btn btn-large btn-primary" ng-click = "updateMenuItem();"> Update</button>
+              </div>
+						</form>
+					</div>
+        </form>
+			  <!--Success or Error message-->
+				<div data-ng-show="successMessage" class="text-center text-success">
+        	<strong data-ng-bind="successMessage"></strong>
+        </div>
+        <div data-ng-show="errorMessage" class="text-center text-danger">
+        	<strong data-ng-bind="errorMessage"></strong>
+        </div>
 			</div>
+		 </div>
+		</div>
 	</div>
 </section>
+<!-- end of the manage cafeteria page -->
