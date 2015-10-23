@@ -1,34 +1,47 @@
+<!--
+***Menu Items Statistics page***
+    - This page contains the functionality needed to generate a menu items Statistics
+			graph
+
+  Authors: T-RISE (COS 301 team 2015)
+             		Antonia Michael (13014171)
+                Isabel Nel (13070305)
+							  Elana Kuun (12029522)
+								Rendani Dau (13381467)
+								Semaka Malapane (13081129) -->
+
 <section class="row">
-	<!--ALERT BOX FOR HELP-->
-		<script type="text/ng-template" id="alert.html">
-			<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+
+	<!--alert box for help on generating a menu items stats report for the main page -->
+	<script type="text/ng-template" id="alert.html">
+		<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+			<div ng-transclude></div>
+		</div>
+	</script>
+
+	<div  data-ng-controller="MenuItemsController">
+		<h4>Menu Statistics<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
+			<hr>
+		<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert31.msg}}</alert>
+	</div>
+ <!--end of alert box for help on the main page of the menu items stats page-->
+
+ <!-- start of form to generate Main report-->
+ <div class="list-group clearfix">
+ 	<a href="#" class="list-group-item disabled">Display menu items sold</a>
+	 <div class="list-group-item clearfix">
+		 <!--Alert box for help on generating a report for all menu items -->
+		 <script type="text/ng-template" id="alert.html">
+		 	<div class="alert" role="alert">
 				<div ng-transclude></div>
 			</div>
-		</script>
-
-		<div  data-ng-controller="MenuItemsController">
-			<h4>Menu Statistics<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
-				<hr>
-				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert31.msg}}</alert>
-		</div>
- <!--END ALERT BOX -->
-
-<!--Main report-->
- <div class="list-group clearfix">
- <a href="#" class="list-group-item disabled">Display menu items sold</a>
-	 <div class="list-group-item clearfix">
-		 <!--Alert box -->
-		 <script type="text/ng-template" id="alert.html">
-				 <div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-					 <div ng-transclude></div>
-				 </div>
 		 </script>
 
 		 <div  data-ng-controller="MenuItemsController">
 			 <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button>
 			 <alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert32.msg}}</alert>
 		 </div>
-			 <!--Alert box end-->
+		 <!--Alert box end for help on generating a report of all menu items-->
 		 <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2"  data-ng-controller="MenuItemsController">
 			 <form name="reportForm" data-ng-submit="generateReport()" class="signin form-horizontal" autocomplete="off">
 				 <fieldset>
@@ -38,38 +51,37 @@
 						 <label for="endDate"> To: </label>
 						 <input type="date" id="endDate" name="endDate" class="form-control" data-ng-model="endDateReport"/>
 					 </div>  <div class=" text-center form-group">
-						 <button type = "submit" style="width:200px" class = "btn btn-large btn-primary" ng-click="MenuItemsGraphPage()">Submit</button>
-						 <!-- Show error message or sucess message for generating report--></div>
-						 <div data-ng-show="success" class="text-center text-success">
-							 <strong>Report successfully generated.</strong>
-						 </div>
-						 <div data-ng-show="error" class="text-center text-danger">
-							 <strong data-ng-bind="error"></strong>
-						 </div>
+					 <button type = "submit" style="width:200px" class = "btn btn-large btn-primary" ng-click="MenuItemsGraphPage()">Submit</button>
+					 <!-- Show error message or sucess message for generating report--></div>
+					 <div data-ng-show="success" class="text-center text-success">
+					 	<strong>Report successfully generated.</strong>
+					 </div>
+					 <div data-ng-show="error" class="text-center text-danger">
+					 	<strong data-ng-bind="error"></strong>
+					 </div>
 				 </fieldset>
 			 </form>
-
+	 		</div>
+ 		</div>
 	 </div>
- </div>
+	 <!-- end of form to generate report of all menu items -->
 
- </div>
-
-	<!--Most popular items-->
+	<!-- Start of generating report for the Most popular items-->
 	<div class="list-group clearfix">
-	<a href="#" class="list-group-item disabled">Display most popular menu items</a>
+		<a href="#" class="list-group-item disabled">Display most popular menu items</a>
 		<div class="list-group-item clearfix">
-			<!--Alert box -->
+			<!--Alert box for help for generating a report of the most popular items -->
 			<script type="text/ng-template" id="alert.html">
-					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-						<div ng-transclude></div>
-					</div>
+				<div class="alert"  role="alert">
+					<div ng-transclude></div>
+				</div>
 			</script>
 
 			<div  data-ng-controller="MenuItemsController">
 				<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button>
 				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert33.msg}}</alert>
 			</div>
-				<!--Alert box end-->
+			<!--Alert box end for hrlp on generating a report of the most popular items-->
 			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2"  data-ng-controller="MenuItemsController">
 				<form name="popularReportForm" data-ng-submit="generatePopularReport()" class="signin form-horizontal" autocomplete="off">
 					<fieldset>
@@ -81,18 +93,20 @@
 							<label for="endDate"> To: </label>
 							<input type="date" id="endDate" name="endDate" class="form-control" data-ng-model="endDate"/>
 						</div>  <div class=" text-center form-group">
-							<button type = "submit" style="width:200px" class = "btn btn-large btn-primary">Submit</button>
-							<!-- Show error message or sucess message for generating report--></div>
-							<div data-ng-show="success" class="text-center text-success">
-								<strong>Report successfully generated.</strong>
-							</div>
-							<div data-ng-show="error" class="text-center text-danger">
-								<strong data-ng-bind="error"></strong>
-							</div>
+						<button type = "submit" style="width:200px" class = "btn btn-large btn-primary">Submit</button>
+						<!-- Show error message or sucess message for generating report--></div>
+						<div data-ng-show="success" class="text-center text-success">
+							<strong>Report successfully generated.</strong>
+						</div>
+						<div data-ng-show="error" class="text-center text-danger">
+							<strong data-ng-bind="error"></strong>
+						</div>
 					</fieldset>
 				</form>
-
-	  </div>
-  </div>
-
+	  	</div>
+  	</div>
 	</div>
+	<!-- end of generaing most popular report -->
+
+</section>
+<!-- end of menu items statistics page-->

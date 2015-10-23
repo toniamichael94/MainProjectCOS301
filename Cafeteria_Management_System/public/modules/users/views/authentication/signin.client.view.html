@@ -1,32 +1,31 @@
 <!--
-*   Sign in
-*   - This document contains the sign in page of the CMS
-*
-*   Authors: T-RISE (COS 301 team 2015)
+***Sign in page ***
+   - This document contains the form to allow the user to log into the CMS with the beckend doing the neccessary authentication
+
+  Authors: T-RISE (COS 301 team 2015)
              		Antonia Michael (13014171)
                 Isabel Nel (13070305)
 							  Elana Kuun (12029522)
 								Rendani Dau (13381467)
-								Semaka Malapane (13081129)
-*
--->
+								Semaka Malapane (13081129) -->
 
+<!-- This section is mainly controlled by the Authentication controller, unless indicated otherwise-->
 <section class="row" data-ng-controller="AuthenticationController">
 
-	<!--ALERT BOX FOR HELP-->
-			<script type="text/ng-template" id="alert.html">
-					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-						<div ng-transclude></div>
-					</div>
-			</script>
+	<!--alert box for help on the sighn in page-->
+	<script type="text/ng-template" id="alert.html">
+		<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+	 		<div ng-transclude></div>
+		</div>
+	</script>
 
-			<div  data-ng-controller="MenuItemsController">
-				<h4> Sign in <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
-				<hr>
-				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert21.msg}}</alert>
-			</div>
-	<!--END ALERT BOX -->
+	<div  data-ng-controller="MenuItemsController">
+		<h4> Sign in <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4><hr>
+		<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert21.msg}}</alert>
+  </div>
+	<!--end of alert box for help on the sighn in page -->
 
+	<!-- start on the form to sighn in -->
 	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 		<form data-ng-submit="signin()" class="signin form-horizontal" autocomplete="off">
 			<fieldset>
@@ -52,4 +51,6 @@
 			</fieldset>
 		</form>
 	</div>
+	<!-- end of the form to sign in -->
 </section>
+<!-- end of sign in page -->
