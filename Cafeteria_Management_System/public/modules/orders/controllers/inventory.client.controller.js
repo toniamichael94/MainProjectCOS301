@@ -116,9 +116,9 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 					for(var i = 0; i < response.menuItem.ingredients.ingredients.length; i++){
 						if($scope.reportData1[response.menuItem.ingredients.ingredients[i]]){
 							$scope.reportData1[response.menuItem.ingredients.ingredients[i]].y = 	$scope.reportData1[response.menuItem.ingredients.ingredients[i]].y + response.menuItem.ingredients.quantities[i];
-							
+
 					}else{
-						response.menuItem.ingredients.quantities[i]*quantity;
+						response.menuItem.ingredients.quantities[i] = response.menuItem.ingredients.quantities[i]*quantity;
 						var objectData =  {
 							name: response.menuItem.ingredients.ingredients[i],
 							y: response.menuItem.ingredients.quantities[i],
@@ -136,6 +136,7 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 
 			$cookies.container1Data1I = JSON.stringify($scope.container1Data1I);
 			$scope.container1Data1I = JSON.parse($cookies.container1Data1I);
+			$route.reload;
 
 			}).error(function(response){
 				console.log(response);
