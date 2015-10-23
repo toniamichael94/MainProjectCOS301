@@ -127,6 +127,7 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 					if($scope.reportData1[response.menuItem.ingredients.ingredients[i]]){
 							$scope.reportData1[response.menuItem.ingredients.ingredients[i]].y = 	$scope.reportData1[response.menuItem.ingredients.ingredients[i]].y + response.menuItem.ingredients.quantities[i];
 					}else{
+						response.menuItem.ingredients.quantities[i]*quantity;
 						var objectData =  {
 							name: response.menuItem.ingredients.ingredients[i],
 							y: response.menuItem.ingredients.quantities[i],
