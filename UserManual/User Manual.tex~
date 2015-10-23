@@ -53,7 +53,7 @@
  \hline
  \textbf{Version} & 0.0.9 \\
  \hline
- \textbf{Document Status} & Eighth Version - edited entire document with changes and notifications\\
+ \textbf{Document Status} & Eighth Version - edited entire document with changes, notifications and new finance page updates\\
  \hline
  \end{tabu}
 
@@ -474,13 +474,13 @@ When the user places an order, the user will recieve a notification informing th
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{screenshots/not2.png}
-    \caption{The notifications page -  } 
+    \caption{The notifications page -  The new notification is displayed on the notifications page, accessible via the dropdown menu on the navigation bar} 
 \end{figure}
 
 \begin{figure}[H]
   \centering
     \includegraphics[width=1.0\textwidth]{screenshots/not3.png}
-    \caption{The notifications page -  consists of order pending and order ready notifications} 
+    \caption{The dropdown menu - once a notification has been read the number of notifications will decrease as seen by the (0) on the drop down menu } 
 \end{figure}
 
 %%----------------------EDIT PROFILE PAGE ----------------------
@@ -739,7 +739,7 @@ This page is for use by the cashier. Orders that are "open" will be displayed on
 \end{figure}
 
 \subsection{Financial Manager: The "View Employee Bills" Page}
-There is a field labelled "Employee Id" and it is in here where a user will type in the employee ID of the employee whose bill the finance manager would like to view. The date ranges can also be selected here.
+This page allows the finance manager to generate invoices for each user as well as a spending report consisting of the spending totals for all the users. To generate a user invoice, there is a field labelled "Employee Id" and it is in here where a user will type in the employee ID of the employee whose bill the finance manager would like to view. The date ranges can also be selected here. To generate a spending report the finance manager must select the date ranges and select whether he/she would like the document to be generated as a pdf or a CSV file/ Excel file.
 
 \begin{figure}[H]
   \centering
@@ -759,6 +759,23 @@ There is a field labelled "Employee Id" and it is in here where a user will type
     \caption{The View Employee Bills Page - Once the "Display Bill" button is clicked, the pdf will be dowloaded and the invoice will look as shown.}
 \end{figure}
 
+begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/bill4.png}
+    \caption{The View Employee Bills Page - Once the "Display Bill" button is clicked, the pdf will be dowloaded and the invoice will look as shown.}
+\end{figure}
+
+begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/bill5.png}
+    \caption{The View Employee Bills Page - Once the "Display Bill" button is clicked, the pdf will be dowloaded and the invoice will look as shown.}
+\end{figure}
+
+begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{screenshots/bill6.png}
+    \caption{The View Employee Bills Page - Once the "Display Bill" button is clicked, the pdf will be dowloaded and the invoice will look as shown.}
+\end{figure}
 
 \section{Troubleshooting}
 \subsection{Problems with setting up the system}
