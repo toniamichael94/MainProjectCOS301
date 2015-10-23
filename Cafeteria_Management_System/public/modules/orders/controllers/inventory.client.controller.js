@@ -99,7 +99,9 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 				{
 					$http.post('orders/inventoryReport',{startDate: $scope.startDate, endDate: $scope.endDate}).success(function(response){
 
-						$scope.getItems(response);
+
+							for(var j in response.message)
+								$scope.findItems(response.message[j].itemName, response.message[j].quantity);
 
 						console.log('back');
 
@@ -108,13 +110,6 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 					});
 						$location.path('/inventoryStats');
 				}
-		};
-
-		$scope.getItems=function(response)
-		{
-			for(var j in response.message)
-				$scope.findItems(response.message[j].itemName, response.message[j].quantity);
-
 		};
 
 		$scope.findItems = function(item, quantity)
