@@ -1,40 +1,52 @@
+<!--
+***View Orders (On my Plate) page***
+    - This page contains the information containing the user spesific order
+		  and the functionality for the user to alter their order and then  place their order
+
+  Authors: T-RISE (COS 301 team 2015)
+             		Antonia Michael (13014171)
+                Isabel Nel (13070305)
+							  Elana Kuun (12029522)
+								Rendani Dau (13381467)
+								Semaka Malapane (13081129) -->
+
+<!-- This section is mainly controlled by the orders controller in the client side, unless indicated otherwise -->
 <section data-ng-controller="OrdersController" >
-				<!--Alert box -->
-				<script type="text/ng-template" id="alert.html">
-						<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-							<div ng-transclude></div>
-						</div>
-				</script>
 
-				<div  data-ng-controller="MenuItemsController">
-					<h4>On My plate <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button></h4><hr>
-					<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert10.msg}}</alert>
-				</div>
+	<!--Alert box for help on the place orders page -->
+	<script type="text/ng-template" id="alert.html">
+		<div class="alert" role="alert">
+			<div ng-transclude></div>
+		</div>
+	</script>
 
+	<div  data-ng-controller="MenuItemsController">
+		<h4>On My plate <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button></h4><hr>
+		<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert10.msg}}</alert>
+	</div>
 
-		<a href="#" class="list-group-item disabled">Review and confirm your order</a>
+	<!-- start of the place order form -->
+	<a href="#" class="list-group-item disabled">Review and confirm your order</a>
 		<div class="list-group-item clearfix">
 			<div class="list-group-item clearfix" ng-repeat="item in plate">
 				<h4><b><p class ="text-warning">{{item.itemName}} : R {{item.price}} </p> </b></h4>
-                    <span style="float:right;" >
-				<button type="button" class="btn btn-primary" data-ng-click="removeFromPlate(item.itemName)"> Remove </button> </span>
-
-                <p> Quantity <input type='number'  data-ng-model='item.quantity' data-ng-change='quantityChange(item.itemName)' name='{{item.itemName}}' min=1 max=5 /></p>
-
-
-                <p> Preferences
-                    <textarea type="text" id="preferences" name="preferences" class="form-control" data-ng-model="item.preferences" data-ng-change="prefChange()" placeholder="type order preferences here..."></textarea>
-                </p>
+        <span style="float:right;" >
+					<button type="button" class="btn btn-primary" data-ng-click="removeFromPlate(item.itemName)"> Remove </button>
+				</span>
+        <p>
+					Quantity <input type='number'  data-ng-model='item.quantity' data-ng-change='quantityChange(item.itemName)' name='{{item.itemName}}' min=1 max=5 />
+				</p>
+        <p> Preferences
+        	<textarea type="text" id="preferences" name="preferences" class="form-control" data-ng-model="item.preferences" data-ng-change="prefChange()" placeholder="type order preferences here..."></textarea>
+        </p>
 			</div>
 			<div>
 				</h3><h4><span style="float: right" data-ng-show="plate.length > 0">Total: {{orderTotal}} </span></h4>
 			</div>
 			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2"  data-ng-controller="MenuItemsController" data-ng-show="plate.length > 0 || success">
-				<!--p> Placed order </p> <input class = "form-control" type = number min = 0> <input type = "checkbox" checked = true-->
-                <div class="text-center form-group" data-ng-show="!success">
-				<button class = "btn btn-large btn-primary" data-ng-click='pOrder()'> Place order </button>
+      	<div class="text-center form-group" data-ng-show="!success">
+					<button class = "btn btn-large btn-primary" data-ng-click='pOrder()'> Place order </button>
 				</div>
-
 				<div data-ng-show="success" class="text-center text-success">
 					<strong>{{success}}</strong>
 				</div>
@@ -46,10 +58,6 @@
 				<p>You have no items on your plate. Head over to the menu to add items.</p>
 			</div>
 	</div>
-
-
-
-
-
-
+<!-- end of the place orders form -->
 </section>
+<!-- end of the place orders page-->

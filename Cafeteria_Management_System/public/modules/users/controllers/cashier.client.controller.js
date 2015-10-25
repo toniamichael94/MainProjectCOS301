@@ -1,13 +1,19 @@
 'use strict';
-
-// Cashier controller
+/*
+    Controller: Cashier client controller
+ */
 angular.module('users').controller('cashierController', ['$scope','$rootScope', '$http', '$stateParams', '$location', '$window', 'Authentication',
 	function($scope, $rootScope,$http, $stateParams, $location, $window, Authentication) {
 		$scope.authentication = Authentication;
 		
 		$scope.orderNums = [];
         	$scope.notifications = [];
-		
+
+        /*
+         Function name: Get Orders
+         @params: n/a
+         @return: n/a
+         */
 		$scope.getOrders = function(){
 			$http.post('/orders/getOrderList').success(function(response){
 				console.log(response.message);
@@ -41,6 +47,11 @@ angular.module('users').controller('cashierController', ['$scope','$rootScope', 
 			});
 		};
 
+        /*
+         Function name: Mark as Ready
+         @params: JSONObject _username, JSONObject _orderNumber, JSONObject _created
+         @return: n/a
+         */
         $scope.markAsReady = function(_username, _orderNumber, _created){
             $scope.success = $scope.error = null;
 			//console.log(_username + ' ' + _orderNumber + ' ' + _created);
@@ -60,6 +71,11 @@ angular.module('users').controller('cashierController', ['$scope','$rootScope', 
             }); 
         };
 
+        /*
+         Function name: Get User notifications
+         @params: n/a
+         @return: n/a
+         */
         $scope.getUserNotifications = function() {
             $scope.success = $scope.error = null;
 
@@ -96,6 +112,11 @@ angular.module('users').controller('cashierController', ['$scope','$rootScope', 
             });
         }
 
+        /*
+         Function name: Mark as Paid
+         @params: JSONObject order
+         @return: null
+         */
         $scope.markAsPaid = function(order){
 			$scope.success = $scope.error = null;
 			if(order.paymentMethod === ''){
@@ -111,45 +132,39 @@ angular.module('users').controller('cashierController', ['$scope','$rootScope', 
             });
         };
 
+        /*
+         Function name: New message
+         @params: n/a
+         @return: n/a
+         */
         $scope.newMessage = function(){
             $rootScope.$broadcast('newMess');
         };
-        
+
+        /*
+         Function name: Ready
+         @params: JSONObject _username, JSONObject _orderNumber
+         @return: n/a
+         */
         $scope.ready = function(_username, _orderNumber){
             $scope.markAsReady(_username, _orderNumber);
-            //$scope.newMessage(); 
         };
-        
+
+        /*
+         Function name: read Message
+         @params: n/a
+         @return: n/a
+         */
         $scope.readMessage = function(){
             $rootScope.$broadcast('messRead');
         };
 
-    /*   $scope.markAsCollected = function(username, itemName,orderNumber){
-           console.log(username  + ' ' +itemName + orderNumber);
-
-           $http.post('orders/markAsCollected',{uname : username, orderNum: orderNumber,item : itemName}).success(function(response){
-
-           }).error(function(response){
-
-           }); location.reload(true);
-       };
-   */
-      /* $scope.markAsPaid = function(order){
-            $scope.success = $scope.error = null;
-            if(order.paymentMethod === ''){
-                alert('Please select a payment method');
-                return;
-            }
-
-            $http.post('orders/markAsPaid',{username : order.username, orderNumber: order.orderNumber, method: order.paymentMethod }).success(function(response){
-                $scope.success = response.message;
-                $window.location.reload(true);
-            }).error(function(response){
-                alert(response.message);
-           });
-       };*/
-
-       $scope.checkUser = function(){
+        /*
+         Function name: Check User
+         @params: n/a
+         @return: n/a
+         */
+         $scope.checkUser = function(){
             if((Authentication.user && Authentication.user.roles[0] !== 'cashier') || (!Authentication.user))
                 $location.path('/');
        };

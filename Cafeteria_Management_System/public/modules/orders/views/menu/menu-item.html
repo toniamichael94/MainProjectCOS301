@@ -1,33 +1,42 @@
+<!--
+***Menu- item page***
+    - This page will display all the menu itens available in the canteen's database according to a spesific category
 
+  Authors: T-RISE (COS 301 team 2015)
+             		Antonia Michael (13014171)
+                Isabel Nel (13070305)
+							  Elana Kuun (12029522)
+								Rendani Dau (13381467)
+								Semaka Malapane (13081129) -->
+
+<!-- This page is mainly controlled by the Menu Items controller in client side, unless indicated otherwise -->
 <section data-ng-controller="MenuItemsController" >
 
-  <!--ALERT BOX FOR HELP-->
-      <script type="text/ng-template" id="alert.html">
-          <div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-            <div ng-transclude></div>
-          </div>
-      </script>
+  <!--Alert box for help on the menu page per category-->
+  <script type="text/ng-template" id="alert.html">
+    <div class="alert" role="alert">
+      <div ng-transclude></div>
+    </div>
+  </script>
 
-      <div  data-ng-controller="MenuItemsController">
-        <h4>Menu<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
-        <hr>
+  <div  data-ng-controller="MenuItemsController">
+    <h4>Menu<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4><hr>
         <alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert1.msg}}</alert>
-      </div>
- <!--END ALERT BOX -->
+  </div>
+ <!--end of the alert bix for help on the manu items page per category-->
 
   <!-- Menu nav -->
   <div class="container " data-ng-controller="HeaderController">
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-    		<button class="navbar-toggle" type="button" data-ng-click="toggleCollapsibleMenu()">
-    			<span class="sr-only">Toggle navigation</span>
-    			<span class="icon-bar"></span>
-    			<span class="icon-bar"></span>
-    			<span class="icon-bar"></span>
-    		</button>
-
-      	<a href="/#!/menu"  class="navbar-brand" ><span class="glyphicon glyphicon-apple"></span> Menu</a>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+    		  <button class="navbar-toggle" type="button" data-ng-click="toggleCollapsibleMenu()">
+      			<span class="sr-only">Toggle navigation</span>
+      			<span class="icon-bar"></span>
+      			<span class="icon-bar"></span>
+      			<span class="icon-bar"></span>
+    		  </button>
+    	    <a href="/#!/menu"  class="navbar-brand" ><span class="glyphicon glyphicon-apple"></span> Menu</a>
       	</div>
         <!--loadMenuCategories()-->
         <div id="navbar" class="collapse navbar-collapse navbar-right" ng-init="loadMenuCategories()"collapse="!isCollapsed" role="navigation">
@@ -38,42 +47,39 @@
       </div><!--/.container-fluid -->
     </nav>
   </div>
+  <!-- end of the menu items navigation bar -->
 
-    <!--Search for a menu product-->
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
-                <h4> Search Item </h4>
-                    <form name="searchMenuForm" data-ng-submit="searchMenu(searchMenuForm.$valid)" class="signin form-horizontal" autocomplete="off">
-                        <div class = "form-group">
-                            <input type="text" id="menuNameSearch" name ="menuNameSearch" class = "form-control" data-ng-model="menuNameSearch" placeholder="Meal Name">
-                        </div>
-
-                    </form>
+  <!--Search for a menu product-->
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
+      <h4> Search Item </h4>
+      <form name="searchMenuForm" data-ng-submit="searchMenu(searchMenuForm.$valid)" class="signin form-horizontal" autocomplete="off">
+        <div class = "form-group">
+          <input type="text" id="menuNameSearch" name ="menuNameSearch" class = "form-control" data-ng-model="menuNameSearch" placeholder="Meal Name">
         </div>
+      </form>
     </div>
+  </div>
 
-    <!-- NEW DIV for SEARCH-->
-    <div class="list-group clearfix" ng-show ="menuNameSearch" ng-keypress = "(menuNameSearch !== null )">
-        <a href="#" class="list-group-item disabled">
-            <h4> <b>Search Results:</b>  </h4>
-        </a>
-        <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:searchBar"><h3>
-            {{item.itemName}}  <span style="float:right;" > R {{item.price}} <button type="button" class="btn btn-primary" data-ng-show="item.stock" data-ng-click="addToPlate(item.itemName)"> Add to plate </button></span> </h3> <br> <h5> {{item.description}} </h5>
-
-		</div>
+  <!-- NEW DIV for SEARCH-->
+  <div class="list-group clearfix" ng-show ="menuNameSearch" ng-keypress = "(menuNameSearch !== null )">
+    <a href="#" class="list-group-item disabled">
+    <h4> <b>Search Results:</b>  </h4>
+    </a>
+    <div class="list-group-item clearfix" ng-repeat="item in menuItems | filter:searchBar"><h3>
+      {{item.itemName}}  <span style="float:right;" > R {{item.price}} <button type="button" class="btn btn-primary" data-ng-show="item.stock" data-ng-click="addToPlate(item.itemName)"> Add to plate </button></span> </h3> <br> <h5> {{item.description}} </h5>
     </div>
-
+  </div>
 
   <!-- DYNAMIC filter: -->
   <div class="list-group clearfix" >
-
-      <a href="" class="list-group-item heading"><h4> {{selectedCategory}}</h4></a>
-      <div class="list-group-item clearfix" ng-repeat ="item in menuItems"  ><h3>
-          {{item.itemName}}  <span style="float:right;" > R {{item.price}} <button type="button" class="btn btn-primary" data-ng-show="item.stock" data-ng-click="addToPlate(item.itemName)"> Add to plate </button></span>  </h3> <br> <h5> {{item.description}}
-            <form>
-                <span data-ng-show="!item.stock" style="color:red"><h3>Not in stock </h3></span>
-            </form></h5>
-      </div>
-
+    <a href="" class="list-group-item heading"><h4> {{selectedCategory}}</h4></a>
+    <div class="list-group-item clearfix" ng-repeat ="item in menuItems"  ><h3>
+      {{item.itemName}}  <span style="float:right;" > R {{item.price}} <button type="button" class="btn btn-primary" data-ng-show="item.stock" data-ng-click="addToPlate(item.itemName)"> Add to plate </button></span>  </h3> <br> <h5> {{item.description}}
+      <form>
+        <span data-ng-show="!item.stock" style="color:red"><h3>Not in stock </h3></span>
+      </form></h5>
     </div>
+  </div>
 </section>
+<!-- end of menu items per category page -->

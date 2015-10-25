@@ -19,17 +19,17 @@
 \contentsline {subsection}{\numberline {8.2}The "Menu" Page}{21}{subsection.0.8.2}
 \contentsline {subsection}{\numberline {8.3}The "On my plate" Page}{24}{subsection.0.8.3}
 \contentsline {subsection}{\numberline {8.4}The "Notifications" Page}{26}{subsection.0.8.4}
-\contentsline {subsection}{\numberline {8.5}The "Edit Profile" Page}{26}{subsection.0.8.5}
-\contentsline {subsection}{\numberline {8.6}The "Profile" Page}{27}{subsection.0.8.6}
-\contentsline {subsection}{\numberline {8.7}The "Change Password" Page}{28}{subsection.0.8.7}
-\contentsline {subsection}{\numberline {8.8}Superuser: The "Administrative Settings" Page}{29}{subsection.0.8.8}
-\contentsline {subsection}{\numberline {8.9}Superuser: The "Audits" Page}{32}{subsection.0.8.9}
-\contentsline {subsection}{\numberline {8.10}Superuser: The "Branding Settings" Page}{34}{subsection.0.8.10}
-\contentsline {subsection}{\numberline {8.11}Cafeteria Manager: The "Manage Inventory" Page}{38}{subsection.0.8.11}
-\contentsline {subsection}{\numberline {8.12}Cafeteria Manager: The "Manage Menu" Page}{39}{subsection.0.8.12}
-\contentsline {subsection}{\numberline {8.13}Cafeteria Manager: The "Menu items statistics" Page}{43}{subsection.0.8.13}
-\contentsline {subsection}{\numberline {8.14}Cafeteria Manager: The "Inventory statistics" Page}{47}{subsection.0.8.14}
-\contentsline {subsection}{\numberline {8.15}Cashier: The "Process Orders" Page}{47}{subsection.0.8.15}
-\contentsline {subsection}{\numberline {8.16}Financial Manager: The "View Employee Bills" Page}{50}{subsection.0.8.16}
-\contentsline {section}{\numberline {9}Troubleshooting}{52}{section.0.9}
-\contentsline {subsection}{\numberline {9.1}Problems with setting up the system}{52}{subsection.0.9.1}
+\contentsline {subsection}{\numberline {8.5}The "Edit Profile" Page}{28}{subsection.0.8.5}
+\contentsline {subsection}{\numberline {8.6}The "Profile" Page}{28}{subsection.0.8.6}
+\contentsline {subsection}{\numberline {8.7}The "Change Password" Page}{29}{subsection.0.8.7}
+\contentsline {subsection}{\numberline {8.8}Superuser: The "Administrative Settings" Page}{30}{subsection.0.8.8}
+\contentsline {subsection}{\numberline {8.9}Superuser: The "Audits" Page}{33}{subsection.0.8.9}
+\contentsline {subsection}{\numberline {8.10}Superuser: The "Branding Settings" Page}{35}{subsection.0.8.10}
+\contentsline {subsection}{\numberline {8.11}Cafeteria Manager: The "Manage Inventory" Page}{39}{subsection.0.8.11}
+\contentsline {subsection}{\numberline {8.12}Cafeteria Manager: The "Manage Menu" Page}{40}{subsection.0.8.12}
+\contentsline {subsection}{\numberline {8.13}Cafeteria Manager: The "Menu items statistics" Page}{44}{subsection.0.8.13}
+\contentsline {subsection}{\numberline {8.14}Cafeteria Manager: The "Inventory statistics" Page}{48}{subsection.0.8.14}
+\contentsline {subsection}{\numberline {8.15}Cashier: The "Process Orders" Page}{48}{subsection.0.8.15}
+\contentsline {subsection}{\numberline {8.16}Financial Manager: The "View Employee Bills" Page}{51}{subsection.0.8.16}
+\contentsline {section}{\numberline {9}Troubleshooting}{54}{section.0.9}
+\contentsline {subsection}{\numberline {9.1}Problems with setting up the system}{54}{subsection.0.9.1}

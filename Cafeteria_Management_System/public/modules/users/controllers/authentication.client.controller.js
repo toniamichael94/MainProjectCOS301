@@ -1,17 +1,23 @@
 'use strict';
-
+/*
+ Controller: Authentication client controller
+ */
 angular.module('users').controller('AuthenticationController', ['$scope', '$http', '$location', '$cookies', 'Authentication',
 	function($scope, $http, $location, $cookies, Authentication) {
 		$scope.authentication = Authentication;
 		// If user is signed in then redirect back home
 		if ($scope.authentication.user) $location.path('/');
 
+        /*
+         Function name: Sign up
+         @params: n/a
+         @return: n/a
+         */
 		$scope.signup = function() {
 
 				$http.post('/auth/signup', $scope.credentials).success(function(response) {
 					// If successful we assign the response to the global user model
 					$scope.authentication.user = response;
-
 					// And redirect to the index page
 					$location.path('/');
 				}).error(function(response) {
@@ -19,7 +25,11 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 				});
 		};
 
-        //Get system wide limit
+        /*
+         Function name: Get System Limit
+         @params: n/a
+         @return: n/a
+         */
         $scope.getSystemLimit = function(){
             $http.get('/users/getSystemLimit').success(function(response){
                 angular.element(document.querySelector('#limit')).attr('max', parseInt(response.val));
@@ -28,19 +38,8 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
                 console.log(response.message);
             });
         };
-/*
-        $scope.loadSystemLimit = function(){
-            $http.get('/users/getSystemLimit').success(function(response) {
-                // If successful show success message and clear form
-                $scope.limit = response.message.value;
 
-            }).error(function(response) {
-                $scope.limit = 'error';
-            });
-        };
-*/
 		$scope.signin = function() {
-			//console.log('checking for superUser role');
 			$http.post('/auth/checkSuperUser');
 			$http.post('/auth/signin', $scope.credentials).success(function(response) {
 				// If successful we assign the response to the global user model
@@ -56,19 +55,6 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 				}
 				else
 					$location.path('/');
-              /*  }
-                else if(roles[0]==='superuser'){
-                    $location.path('/superuser');
-                }
-                else if(roles[0]==='cafeteriaManager'){
-                    $location.path('/cafeteriaManager');
-                }
-                else if(roles[0]==='cashier'){
-                    $location.path('/cashier');
-                }
-                else if(roles[0]==='finance'){
-                    $location.path('/finance');
-                }*/
 			}).error(function(response) {
 				$scope.error = response.message;
 			});

@@ -1,36 +1,34 @@
 <!--
-*   Sign up Page
-*   - This document contains the sign up or Register of the whole CMS
-*
-*   Authors: T-RISE (COS 301 team 2015)
+***Sign Up page***
+   - This document contains the form needed to sign up to become a user on the CMS
+
+  Authors: T-RISE (COS 301 team 2015)
              		Antonia Michael (13014171)
                 Isabel Nel (13070305)
 							  Elana Kuun (12029522)
 								Rendani Dau (13381467)
-								Semaka Malapane (13081129)
-*
--->
+								Semaka Malapane (13081129) -->
 
+<!-- This section is mainly controlled by the authentication controller on client side unless indicated otherwise -->
 <section class="row" data-ng-controller="AuthenticationController">
 
-	<!--ALERT BOX FOR HELP-->
-			<script type="text/ng-template" id="alert.html">
-					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-						<div ng-transclude></div>
-					</div>
-			</script>
+	<!--alert box for help on the sign up page-->
+	<script type="text/ng-template" id="alert.html">
+		<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+			<div ng-transclude></div>
+		</div>
+	</script>
 
-			<div  data-ng-controller="MenuItemsController">
-				<h4> Sign Up <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
-				<hr>
-				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert22.msg}}</alert>
-			</div>
-	<!--END ALERT BOX -->
+	<div  data-ng-controller="MenuItemsController">
+		<h4> Sign Up <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4><hr>
+		<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert22.msg}}</alert>
+	</div>
+	<!--end of alert box for help on the sign up page -->
 
+	<!-- Start of the sign up page form -->
 	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 		<form name="userForm" data-ng-submit="signup()" class="signin form-horizontal" novalidate autocomplete="off">
 			<fieldset>
-
 				<div class="form-group">
 					<label for="firstName">First Name</label>
 					<input type="text" required id="firstName" name="firstName" class="form-control" data-ng-model="credentials.firstName" placeholder="First Name">
@@ -43,37 +41,34 @@
 					<label for="email">Email</label>
 					<input type="email" id="email" name="email" class="form-control" data-ng-model="credentials.email" placeholder="Email">
 				</div>
-                <div class="form-group">
-                    <label>Send monthly bill to:</label>
-                    <div class="checkbox">
-                        <label>
-
-                            <input type="checkbox" id="recipientEmailAddress1" name="recipientEmailAddress" data-ng-model="credentials.recipientEmailAddress1"> Finance
-                        </label>
-                        <label>
-                            <input type="checkbox" id="recipientEmailAddress2" name="recipientEmailAddress"  data-ng-model="credentials.recipientEmailAddress2" > My email address
-
-                        </label>
-                    </div>
-                </div>
+        <div class="form-group">
+        	<label>Send monthly bill to:</label>
+          <div class="checkbox">
+          	<label>
+            	<input type="checkbox" id="recipientEmailAddress1" name="recipientEmailAddress" data-ng-model="credentials.recipientEmailAddress1"> Finance
+            </label>
+            <label>
+            	<input type="checkbox" id="recipientEmailAddress2" name="recipientEmailAddress"  data-ng-model="credentials.recipientEmailAddress2" > My email address
+            </label>
+          </div>
+        </div>
 				<div class="form-group">
 					<label for="limit">Spending limit (ZAR)  </label>
-                    <b><p class="text-center text-info" data-ng-init="getSystemLimit()">Current maximum spending limit: {{success}}</p></b>
-                    <input type="number" id="limit" name="limit" class="form-control" data-ng-model="credentials.limit" min = 0>
+          	<b><p class="text-center text-info" data-ng-init="getSystemLimit()">Current maximum spending limit: {{success}}</p></b>
+            <input type="number" id="limit" name="limit" class="form-control" data-ng-model="credentials.limit" min = 0>
 				</div>
 				<div class="form-group">
 					<label for="username">Employee ID</label>
 					<input type="text" id="username" name="username" class="form-control" data-ng-model="credentials.username" placeholder="Employee ID">
 				</div>
-
 				<div class="form-group">
 					<label for="password">Password</label>
 					<input type="password" id="password" name="password" class="form-control" data-ng-model="credentials.password" placeholder="Password">
 				</div>
-                <div class="form-group">
-                    <label for="confirmPassword">Confirm Password</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" data-ng-model="credentials.confirmPassword" placeholder="Confirm Password">
-                </div>
+        <div class="form-group">
+        	<label for="confirmPassword">Confirm Password</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" data-ng-model="credentials.confirmPassword" placeholder="Confirm Password">
+        </div>
 					<div data-ng-show="error" class="text-center text-danger">
 					<strong data-ng-bind="error"></strong>
 				</div>
@@ -82,8 +77,9 @@
 					<button type="submit" class="btn btn-large btn-primary">Sign up</button>&nbsp; or&nbsp;
 					<a href="/#!/signin" class="show-signup">Sign in</a>
 				</div>
-
 			</fieldset>
 		</form>
 	</div>
+	<!-- end of the form for the sign up page -->
 </section>
+<!-- end of te sign up page -->

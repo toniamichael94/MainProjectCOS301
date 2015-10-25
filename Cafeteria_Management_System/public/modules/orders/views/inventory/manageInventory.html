@@ -1,37 +1,48 @@
+<!--
+***Manage Inventory page***
+    - This page contains the functionality needed to add, remove and edit the inventory
+
+  Authors: T-RISE (COS 301 team 2015)
+             		Antonia Michael (13014171)
+                Isabel Nel (13070305)
+							  Elana Kuun (12029522)
+								Rendani Dau (13381467)
+								Semaka Malapane (13081129) -->
+
+<!-- This section is mainly controlled by the  Inventory Controller on the client side, unless indicated otherwise -->
 <section ng-init="checkCMUser()" class="row" data-ng-controller="InventoryController" ng-init="hideInventory=true">
 
-	<!--Alert box -->
+	<!--Alert box for help on the main manage inventory page-->
 	<script type="text/ng-template" id="alert.html">
-			<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-				<div ng-transclude></div>
-			</div>
+		<div class="alert" role="alert">
+			<div ng-transclude></div>
+		</div>
 	</script>
 
 	<div  data-ng-controller="MenuItemsController">
-			<h4> Inventory <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button></h4>
-				<hr>
+		<h4> Inventory <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button></h4><hr>
 		<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert6.msg}}</alert>
 	</div>
-		<!--Alert box end-->
+	<!--end of the Alert box for help on the main manage inventory page-->
 
-
-
-		<div class="list-group clearfix">
+	<div class="list-group clearfix">
+		<!-- Start of the add inventory item functionality -->
 		<a href="#" class="list-group-item disabled">Add inventory item</a>
 		<div class="list-group-item clearfix">
 			<h4> Add inventory item</h4>
-			<!--Alert box -->
+			<!--Alert box  for help on the add inventory item functionality-->
 			<script type="text/ng-template" id="alert.html">
-					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-						<div ng-transclude></div>
-					</div>
+				<div class="alert" role="alert">
+					<div ng-transclude></div>
+				</div>
 			</script>
 
 			<div  data-ng-controller="MenuItemsController">
 				<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button>
 				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert7.msg}}</alert>
 			</div>
-				<!--Alert box end-->
+			<!--Alert box end for help on the add inventory item functionality-->
+
 			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 				<!--Add an inventory item-->
 				<form name="addInventoryItemForm" data-ng-submit="create(addInventoryItemForm.$valid)" class="signin form-horizontal" autocomplete="off">
@@ -40,28 +51,24 @@
 							<label for="itemAddName">Inventory item name</label>
 							<input type="text" id="itemAddName" name="itemAddName"class="form-control" data-ng-model="inventory.itemName" placeholder="Item Name">
 						</div>
-
 						<div class="form-group">
 							<label for="itemQuantity">Quantity</label>
 							<input type="number" min = 0 id="itemQuantity"  step="any"  name="itemQuantity" class="form-control" data-ng-model="inventory.quantity" placeholder="Quantity">
 						</div>
-
-                        <div class="form-group">
-                            <label for="itemUnit">Unit</label>
-                            <select id="itemUnit" placeholder = "units" name="itemUnit" class="form-control" data-ng-model="inventory.unit">
-                                <option value='g'>grams</option>
-                                <option value='mg'>milligrams</option>
-                                <option value='kg'>kilograms</option>
-                                <option value='ml'>millilitres</option>
-                                <option value='l'>litre</option>
-                                <option value='units'>units</option>
-                            </select>
-                        </div>
-
+            <div class="form-group">
+            	<label for="itemUnit">Unit</label>
+              <select id="itemUnit" placeholder = "units" name="itemUnit" class="form-control" data-ng-model="inventory.unit">
+              	<option value='g'>grams</option>
+                <option value='mg'>milligrams</option>
+                <option value='kg'>kilograms</option>
+                <option value='ml'>millilitres</option>
+                <option value='l'>litre</option>
+                <option value='units'>units</option>
+              </select>
+            </div>
 						<div class="text-center form-group">
 							<button type="submit" style="width:200px" class="btn btn-large btn-primary">Add</button>
 						</div>
-
 						<!--Error/Success message-->
 						<div data-ng-show="success" class="text-center text-success">
 							<strong data-ng-bind="success">Action completed successfully.</strong>
@@ -74,135 +81,127 @@
 			</div>
 		</div>
 	</div>
-
+	<!-- end of add inventory item functionality -->
 
 	<!--Search and update inventory item-->
 	<div class="list-group clearfix">
 		<a href="#" class="list-group-item disabled">Search inventory item</a>
 		<div class="list-group-item clearfix">
 			<h4> Search inventory item </h4>
-			<!--Alert box -->
+			<!--Alert box for help on updating an inventory item-->
 			<script type="text/ng-template" id="alert.html">
-					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-						<div ng-transclude></div>
-					</div>
+				<div class="alert" role="alert">
+					<div ng-transclude></div>
+				</div>
 			</script>
 
 			<div  data-ng-controller="MenuItemsController">
 				<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button>
 				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert8.msg}}</alert>
 			</div>
-				<!--Alert box end-->
-			<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
+			<!--Alert box end for help on updating an invebtory item-->
+		  <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 				<form name="searchInventoryForm" data-ng-submit="searchInventory(searchInventoryForm.$valid)" class="signin form-horizontal" autocomplete="off">
 					<!--Search for a menu item-->
-
 					<div class = "form-group">
 						<input type="text" id="itemNameSearch" name ="itemNameSearch" class = "form-control" data-ng-model="itemNameSearch" placeholder="Item Name">
 					</div>
-
 					<div class = "text-center form-group">
 						<button type = "submit" style="width:200px" class = "btn btn-large btn-primary">Search</button>
 					</div>
-                	</form>
-
+			  </form>
 				<!--Delete or update if item found-->
 				<!--Update the item -->
 				<div ng-show="successFind" class="text-center">
 					<form name="updateInventoryForm" data-ng-submit="updateInventory(updateInventoryForm.$valid)" class="signin form-horizontal" autocomplete="off">
-                            <h4>Update inventory item</h4>
-
-							<!--Fields to update-->
-
-                            <div class="form-group">
-                                <label for="itemName">Inventory item name</label>
-                                <input type="text" id="itemName" name="itemName" class="form-control" data-ng-model="itemUpdateName">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="Quantity">Quantity</label>
-                                <input type="number" min =0 id="Quantity" step='any' name="Quantity" class="form-control" data-ng-model="updateQuantity" placeholder="Quantity">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="Unit">Unit</label>
-                                <select id="Unit" name="Unit" class="form-control" data-ng-model="updateUnit">
-                                    <option value='g'>grams</option>
-                                    <option value='mg'>milligrams</option>
-                                    <option value='kg'>kilograms</option>
-                                    <option value='ml'>millilitres</option>
-                                    <option value='l'>litre</option>
-                                    <option value='units'>units</option>
-                                </select>
-                            </div>
-                            <div class = "text-center form-group">
-                                <button type = "submit" style="width:200px" class = "btn btn-large btn-primary" ng-click="showme=false"> Update</button>
-                            </div>
-                        </form> <form class="signin form-horizontal"><div class = "text-center form-group">
-			<button type = "submit" class = "btn btn-large btn-primary" style="width:200px" data-ng-hide="showme" ng-click = "hideInventory=true; deleteInventoryItem()" >Delete</button>
-            </div> </form>
-		</div>
-
-					<!--Error/Success message for delete/update-->
-					<div data-ng-show="errorMessage" class="text-center text-danger">
-						<strong data-ng-bind="errorMessage"></strong>
-                    </div>
-                    <div data-ng-show="successMessage" class="text-center text-success">
-						<strong data-ng-bind="successMessage"></strong>
-                    </div>
+            <h4>Update inventory item</h4>
+						<!--Fields to update-->
+            <div class="form-group">
+            	<label for="itemName">Inventory item name</label>
+              <input type="text" id="itemName" name="itemName" class="form-control" data-ng-model="itemUpdateName">
+            </div>
+						<div class="form-group">
+            	<label for="Quantity">Quantity</label>
+              <input type="number" min =0 id="Quantity" step='any' name="Quantity" class="form-control" data-ng-model="updateQuantity" placeholder="Quantity">
+            </div>
+            <div class="form-group">
+            	<label for="Unit">Unit</label>
+              <select id="Unit" name="Unit" class="form-control" data-ng-model="updateUnit">
+              	<option value='g'>grams</option>
+                <option value='mg'>milligrams</option>
+                <option value='kg'>kilograms</option>
+                <option value='ml'>millilitres</option>
+                <option value='l'>litre</option>
+                <option value='units'>units</option>
+              </select>
+            </div>
+            <div class = "text-center form-group">
+            	<button type = "submit" style="width:200px" class = "btn btn-large btn-primary" ng-click="showme=false"> Update</button>
+            </div>
+          </form>
+					<form class="signin form-horizontal">
+						<div class = "text-center form-group">
+							<button type = "submit" class = "btn btn-large btn-primary" style="width:200px" data-ng-hide="showme" ng-click = "hideInventory=true; deleteInventoryItem()" >Delete</button>
+						</div>
+					</form>
+				</div>
+  			<!--Error/Success message for delete/update-->
+	  		<div data-ng-show="errorMessage" class="text-center text-danger">
+					<strong data-ng-bind="errorMessage"></strong>
+        </div>
+        <div data-ng-show="successMessage" class="text-center text-success">
+					<strong data-ng-bind="successMessage"></strong>
+        </div>
 			</div>
 		</div>
 	</div>
+	<!-- end of updating inventory item functionality -->
 
-		<!---Edit quantity of items-->
+	<!---Edit quantity of items-->
 	<div class="list-group clearfix" >
 		<a href="#" class="list-group-item disabled">Inventory Quantity</a>
-			<div   class="list-group-item clearfix">
-				<h4> Edit quantity of items </h4>
-				<!--Alert box -->
+		<div   class="list-group-item clearfix">
+			<h4> Edit quantity of items </h4>
+				<!--Alert box for help on editing an inventory item -->
 				<script type="text/ng-template" id="alert.html">
-						<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-							<div ng-transclude></div>
-						</div>
+					<div class="alert" role="alert">
+						<div ng-transclude></div>
+					</div>
 				</script>
 
 				<div  data-ng-controller="MenuItemsController">
 					<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button>
 					<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert9.msg}}</alert>
 				</div>
-					<!--Alert box end-->
+				<!--Alert box end for help on upfating an inventory item-->
 				<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
 					<div>
 						<!--Error/Success message for updating the quantity of the ingredients-->
-					<div data-ng-show="message" class="text-center text-success">
-						<strong data-ng-bind="message"></strong>
-                    </div>
-						<form data-ng-show ="showInventory" ng-hide="
-						"  class="signin form-horizontal" autocomplete="off">
-							<fieldset> <div class = "text-center form-group">
-							<button data-ng-click = "updateInventoryQuantity()" style="width:200px" class = "btn btn-large btn-primary" ng-show="showInventory" data-ng-hide="hideInventory">Save</button>
-							</div>
-								<div  data-ng-repeat = "invenProduct in allInventory.inventoryProduct track by $index" >
+						<div data-ng-show="message" class="text-center text-success">
+							<strong data-ng-bind="message"></strong>
+            </div>
+						<form data-ng-show ="showInventory" ng-hide=""  class="signin form-horizontal" autocomplete="off">
+							<fieldset>
+								 <div class = "text-center form-group">
+									 <button data-ng-click = "updateInventoryQuantity()" style="width:200px" class = "btn btn-large btn-primary" ng-show="showInventory" data-ng-hide="hideInventory">Save</button>
+								 </div>
+								 <div  data-ng-repeat = "invenProduct in allInventory.inventoryProduct track by $index" >
 									<label data-ng-bind = 'allInventory.inventoryProduct[$index]'>{{invenProduct.productName}}</label>
 									<input class="form-control"  step='any' type = "number" min =0 data-ng-model = 'allInventory.inventoryQuantity[$index]'/>
 									<br>
 								</div>
-
-								<!--<p>allInventory</p>
-								<pre>{{ allInventory | json }}</pre>
-
-								<p>PQuantity</p>
-								<pre>{{ previousQuantity | json }}</pre>-->
-                            <p></p>
 							</fieldset>
 						</form>
-                        <form class="signin form-horizontal">
-						<!--Dynamically show inventory items to edit quantity-->
-                        <div class = "text-center form-group">	<button   style="width:200px" ng-hide="displayed" data-ng-show="hideInventory" data-ng-click="addFormFieldInventory(); showInventory = true" class = "btn btn-large btn-primary">Display inventory</button>
-						</div></form>
+            <form class="signin form-horizontal">
+							<!--Dynamically show inventory items to edit quantity-->
+            	<div class = "text-center form-group">	<button   style="width:200px" ng-hide="displayed" data-ng-show="hideInventory" data-ng-click="addFormFieldInventory(); showInventory = true" class = "btn btn-large btn-primary">Display inventory</button>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
+			<!-- end of updating inventory item -->
 	</div>
 
 </section>
+<!-- end of manage inventory items page -->

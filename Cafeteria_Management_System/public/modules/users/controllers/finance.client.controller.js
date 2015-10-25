@@ -1,5 +1,7 @@
 'use strict';
-
+/*
+ Controller: Finance client controller
+ */
 angular.module('users').controller('FinanceController', ['$scope', '$http', '$location', '$stateParams', 'Authentication',
     function($scope, $http, $location, $stateParams, Authentication) {
         //$scope.user = Authentication.user;
@@ -8,6 +10,11 @@ angular.module('users').controller('FinanceController', ['$scope', '$http', '$lo
         // If user is not signed in then redirect back home
         if (!$scope.authentication) $location.path('/');
 
+        /*
+         Function name: Generate Report
+         @params: n/a
+         @return: n/a
+         */
 		$scope.generateReport = function(){
 			$scope.error = $scope.success = null;
 			if($scope.username === '' || $scope.startDate === '' || $scope.endDate === '')
@@ -38,6 +45,11 @@ angular.module('users').controller('FinanceController', ['$scope', '$http', '$lo
 			});
 		};
 
+        /*
+         Function name: Load Employees
+         @params: n/a
+         @return: n/a
+         */
         $scope.loadEmployees = function(){
             $http.get('/loadEmployees').success(function(response) {
                 $scope.employees = response.message;
@@ -55,6 +67,11 @@ angular.module('users').controller('FinanceController', ['$scope', '$http', '$lo
             });
         };
 
+        /*
+         Function name: Generate Report All
+         @params: n/a
+         @return: n/a
+         */
         $scope.reportFormat = 'csv';
 		$scope.generateReportAll = function(){
 			$http.post('users/finance/generateReportAll',{start: $scope.startDateTwo, end: $scope.endDateTwo, format: $scope.reportFormat},{responseType:'arraybuffer'}).success(function(response){
@@ -77,6 +94,11 @@ angular.module('users').controller('FinanceController', ['$scope', '$http', '$lo
 			});
 		};
 
+        /*
+         Function name: Check User
+         @params: n/a
+         @return: n/a
+         */
         $scope.checkUser = function(){
             if((!Authentication.user) || (Authentication.user && Authentication.user.roles[0] !== 'finance')){
                 $location.path('/');

@@ -1,82 +1,77 @@
 <!--
-*   Assign Roles - Superuser
-*   - This document contains the Assign roles functionality that is only accessable by the superUser and the Admin user
-*
-*   Authors: T-RISE (COS 301 team 2015)
-          Antonia Michael (13014171)
-					Isabel Nel (13070305)
-					Elana Kuun (12029522)
-					Rendani Dau (13381467)
-					Semaka Malapane (13081129)
-*
--->
+***Admin settings page***
+   - This document contains all the administrative settings regarding roles and users and other administrative privelages
 
+  Authors: T-RISE (COS 301 team 2015)
+             		Antonia Michael (13014171)
+                Isabel Nel (13070305)
+							  Elana Kuun (12029522)
+								Rendani Dau (13381467)
+								Semaka Malapane (13081129) -->
+
+<!-- This page is mainly controlled by the superUser coontroller unless indicated otherwise -->
 <section class="row" data-ng-controller="superuserController">
 
-	<!--ALERT BOX FOR HELP-->
-			<script type="text/ng-template" id="alert.html">
-					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-						<div ng-transclude></div>
-					</div>
-			</script>
+	<!--Alert box for help for the main administrative page-->
+	<script type="text/ng-template" id="alert.html">
+		<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+			<div ng-transclude></div>
+		</div>
+	</script>
 
-			<div  data-ng-controller="MenuItemsController">
-					<h4> Administrative settings <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
-					<hr>
-					<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert13.msg}}</alert>
-			</div>
- <!--END ALERT BOX -->
+	<div  data-ng-controller="MenuItemsController">
+		<h4> Administrative settings <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4><hr>
+		<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert13.msg}}</alert>
+	</div>
+ <!--end of the alert box fo the administrative settings page -->
+
  <!--Start of the Administrative settings-->
-	<div class="list-group clearfix">
-		<a href="#" class="list-group-item disabled">	Admin settings </a>
+ <div class="list-group clearfix">
+	 <a href="#" class="list-group-item disabled">	Admin settings </a>
 
-<!--Display assign roles section -->
-	<div class="list-group-item clearfix">
-
-	<!--ALERT BOX FOR HELP-->
-			<script type="text/ng-template" id="alert.html">
-					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-						<div ng-transclude></div>
-					</div>
-			</script>
-
-			<div  data-ng-controller="MenuItemsController">
-				<h4> Assign Roles <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
-				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert14.msg}}</alert>
+	 	<!--Display assign roles section -->
+		<div class="list-group-item clearfix">
+		<!--alert box fpr help on assigning roles-->
+		<script type="text/ng-template" id="alert.html">
+			<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+				<div ng-transclude></div>
 			</div>
-	<!--END ALERT BOX -->
+		</script>
 
+		<div  data-ng-controller="MenuItemsController">
+			<h4> Assign Roles <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
+			<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert14.msg}}</alert>
+		</div>
+		<!--end of alert box help for assigning roles  -->
 
-
-	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
-		<form name="userForm" data-ng-submit="assignRoles(userForm.$valid)"  class="signin form-horizontal" autocomplete="on">
-			<fieldset>
-				<div class="form-group">
-					<label for="emp_id">Employee ID</label>
+		<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
+			<form name="userForm" data-ng-submit="assignRoles(userForm.$valid)"  class="signin form-horizontal" autocomplete="on">
+				<fieldset>
+					<div class="form-group">
+						<label for="emp_id">Employee ID</label>
             <div ng-init="loadEmployees()" >
-                <select id="emp_id" name="emp_id" class="form-control" data-ng-model='emp_id'/>
-                	<option ng-repeat="employee in employees" value="{{employee.username}}"> {{employee.username}}</option>
-                </select>
+            	<select id="emp_id" name="emp_id" class="form-control" data-ng-model='emp_id'/>
+              	<option ng-repeat="employee in employees" value="{{employee.username}}"> {{employee.username}}</option>
+							</select>
             </div>
-			</div>
-
-			<div class="form-group">
-					<label for="role">Role</label>
-					<select id="role" name="role" class="form-control" data-ng-model="role">
-						<option value='admin'>Admin</option>
-						<option value='cafeteriaManager'>Cafeteria Manager</option>
-						<option value='cashier'>Cashier</option>
-						<option value='finance'>Finance</option>
-	          <option value='superuser'>SuperUser</option>
-	          <option value='user'>User</option>
-			  	</select>
-		</div>
-		<div class="text-center form-group">
-				<button type="submit" style="width:220px" class="btn btn-large btn-primary"> Set Role </button>
-		</div>
-		<div data-ng-show="success" class="text-center text-success">
-			<strong>{{success}}</strong>
-  	</div>
+					</div>
+					<div class="form-group">
+						<label for="role">Role</label>
+						<select id="role" name="role" class="form-control" data-ng-model="role">
+							<option value='admin'>Admin</option>
+							<option value='cafeteriaManager'>Cafeteria Manager</option>
+							<option value='cashier'>Cashier</option>
+							<option value='finance'>Finance</option>
+		          <option value='superuser'>SuperUser</option>
+		          <option value='user'>User</option>
+			  		</select>
+				</div>
+				<div class="text-center form-group">
+					<button type="submit" style="width:220px" class="btn btn-large btn-primary"> Set Role </button>
+			 </div>
+			 <div data-ng-show="success" class="text-center text-success">
+				 <strong>{{success}}</strong>
+  		</div>
 			<div data-ng-show="error" class="text-center text-danger">
 				<strong data-ng-bind="error">{{error}}</strong>
 			</div>
@@ -84,135 +79,130 @@
   </form>
  </div>
 </div>
+<!-- end of assigning roles fnctionality -->
 
-
-
-
-
-<!-- change employee ID-->
+<!-- change employee ID functionality-->
 <div class="list-group-item clearfix">
+	<!--alert box to help on changing an employee ID-->
+	<script type="text/ng-template" id="alert.html">
+		<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+			<div ng-transclude></div>
+		</div>
+	</script>
 
-	<!--ALERT BOX FOR HELP-->
-			<script type="text/ng-template" id="alert.html">
-					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-						<div ng-transclude></div>
-					</div>
-			</script>
+	<div  data-ng-controller="MenuItemsController">
+		<h4> Change employee ID <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
+		<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert15.msg}}</alert>
+	</div>
+	<!--end of alert box on help for changing employee id -->
 
-			<div  data-ng-controller="MenuItemsController">
-				<h4> Change employee ID <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
-				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert15.msg}}</alert>
-			</div>
-	<!--END ALERT BOX -->
+  <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
+  	<form name="userForm" data-ng-submit="changeEmployeeID(userForm.$valid)" class="signin form-horizontal" autocomplete="on">
+      <fieldset>
+      <div class="form-group" >
+        <label>Current Employee ID </label>
+        <div ng-init="loadEmployees()" >
+        	<select id="currentEmp_id" name="currentEmp_id" class="form-control" data-ng-model='currentEmp_id'/>
+          	<option ng-repeat="employee in employees" value="{{employee.username}}"> {{employee.username}}</option>
+					</select>
+        </div>
+      </div>
+      <div class="form-group">
+      	<label for="newEmp_id">New Employee ID</label>
+        <input type="text" id="newEmp_id" name="newEmp_id" class="form-control" data-ng-model="newEmp_id" placeholder="New Employee ID">
+      </div>
+      <div class="text-center form-group">
+      	<button type="submit"  style="width:220px" class="btn btn-large btn-primary">Change Employee ID</button>
+      </div>
+      <div data-ng-show="successOne" class="text-center text-success">
+      	<strong>{{successOne}}</strong>
+      </div>
+      <div data-ng-show="errorOne" class="text-center text-danger">
+      	<strong data-ng-bind="errorOne">{{errorOne}}</strong>
+      </div>
+    </fieldset>
+   </form>
+  </div>
+ </div>
+<!-- end of changing employee functionality -->
 
-    <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
-        <form name="userForm" data-ng-submit="changeEmployeeID(userForm.$valid)" class="signin form-horizontal" autocomplete="on">
-            <fieldset>
-                <div class="form-group" >
-                    <label>Current Employee ID </label>
-                    <div ng-init="loadEmployees()" >
-                    <select id="currentEmp_id" name="currentEmp_id" class="form-control" data-ng-model='currentEmp_id'/>
-                        <option ng-repeat="employee in employees" value="{{employee.username}}"> {{employee.username}}</option>
-                    </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="newEmp_id">New Employee ID</label>
-                    <input type="text" id="newEmp_id" name="newEmp_id" class="form-control" data-ng-model="newEmp_id" placeholder="New Employee ID">
-                </div>
-                <div class="text-center form-group">
-                    <button type="submit"  style="width:220px" class="btn btn-large btn-primary">Change Employee ID</button>
-                </div>
-                <div data-ng-show="successOne" class="text-center text-success">
-                    <strong>{{successOne}}</strong>
-                </div>
-                <div data-ng-show="errorOne" class="text-center text-danger">
-                    <strong data-ng-bind="errorOne">{{errorOne}}</strong>
-                </div>
-            </fieldset>
-        </form>
-    </div>
-</div>
-
-<!-- remove employee -->
+<!-- remove employee  functionality -->
 <div class="list-group-item clearfix">
+	<!--alert box to help the removing of an emplyee functionalit -->
+	<script type="text/ng-template" id="alert.html">
+		<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+			<div ng-transclude></div>
+		</div>
+	</script>
 
-	<!--ALERT BOX FOR HELP-->
-			<script type="text/ng-template" id="alert.html">
-					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-						<div ng-transclude></div>
-					</div>
-			</script>
+	<div  data-ng-controller="MenuItemsController">
+		<h4> Remove employee <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
+		<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert16.msg}}</alert>
+	</div>
+	<!--end of alert box functionality on helping with deleting an employee-->
 
-			<div  data-ng-controller="MenuItemsController">
-				<h4> Remove employee <button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
-				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert16.msg}}</alert>
+  <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
+    <form name="userForm" data-ng-submit="removeEmployee(userForm.$valid)" class="signin form-horizontal" autocomplete="on">
+      <fieldset>
+      <div class="form-group" >
+        <label for="empId">Employee ID</label>
+      	<div ng-init="loadEmployees()" >
+        	<select id="empId" name="empId" class="form-control" data-ng-model='empId'/>
+          	<option ng-repeat="employee in employees" value="{{employee.username}}"> {{employee.username}}</option>
+          </select>
+        </div>
 			</div>
-	<!--END ALERT BOX -->
+      <div class="text-center form-group">
+      	<button type="submit"  style="width:220px" class="btn btn-large btn-primary">Remove Employee</button>
+      </div>
+      <div data-ng-show="successFour" class="text-center text-success">
+      	<strong>{{successFour}}</strong>
+      </div>
+      <div data-ng-show="errorFour" class="text-center text-danger">
+      	<strong data-ng-bind="errorFour">{{errorFour}}</strong>
+      </div>
+		</fieldset>
+   </form>
+  </div>
+ </div>
 
-    <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
-        <form name="userForm" data-ng-submit="removeEmployee(userForm.$valid)" class="signin form-horizontal" autocomplete="on">
-            <fieldset>
-                <div class="form-group" >
-                    <label for="empId">Employee ID</label>
-                    <div ng-init="loadEmployees()" >
-                        <select id="empId" name="empId" class="form-control" data-ng-model='empId'/>
-                        <option ng-repeat="employee in employees" value="{{employee.username}}"> {{employee.username}}</option>
-                        </select>
-                    </div>
-
-                </div>
-                <div class="text-center form-group">
-                    <button type="submit"  style="width:220px" class="btn btn-large btn-primary">Remove Employee</button>
-                </div>
-                <div data-ng-show="successFour" class="text-center text-success">
-                    <strong>{{successFour}}</strong>
-                </div>
-                <div data-ng-show="errorFour" class="text-center text-danger">
-                    <strong data-ng-bind="errorFour">{{errorFour}}</strong>
-                </div>
-            </fieldset>
-        </form>
-    </div>
-</div>
-
+<!-- start of setting system wyde limit functionality -->
 <div class="list-group-item clearfix">
+	<!--Alert box to help with setting the system wyde linit functinality-->
+	<script type="text/ng-template" id="alert.html">
+		<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+			<div ng-transclude></div>
+		</div>
+	</script>
 
-	<!--ALERT BOX FOR HELP-->
-			<script type="text/ng-template" id="alert.html">
-					<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-						<div ng-transclude></div>
-					</div>
-			</script>
+	<div  data-ng-controller="MenuItemsController">
+		<h4> Set system wide spending limit (ZAR)<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
+		<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert17.msg}}</alert>
+	</div>
+	<!--end of alert box helping with setting the system wyde limit -->
 
-			<div  data-ng-controller="MenuItemsController">
-				<h4> Set system wide spending limit (ZAR)<button id="alertUser" type="button" class='btn btn-default' ng-click="helpAlert()" style="float: right;"> ?</button> </h4>
-				<alert ng-show="alertUser == true"  type="warning" close="closeAlert($index)">{{alert17.msg}}</alert>
-			</div>
-	<!--END ALERT BOX -->
-
-    <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
-			<form name="setLimitForm"  style="width:220px" data-ng-submit="setSystemWideLimit(userForm.$valid)" class="signin form-horizontal" autocomplete="off">
-				<fieldset>
-							<div class="form-group">
-								<label for="limit">Set System wide spending limit (ZAR)</label>
-								<input type="number" id="limit"  name="limit" data-ng-model="limit" class="form-control" min = 0>
-							</div>
-							<div class="text-center form-group">
-								<button type="submit" class="btn btn-large btn-primary">Set spending limit</button>
-							</div>
-							<div data-ng-show="successTwo" class="text-center text-success">
-								<strong>{{successTwo}}</strong>
-							</div>
-							<div data-ng-show="errorTwo" class="text-center text-danger">
-								<strong data-ng-bind="errorTwo">{{errorTwo}}</strong>
-							</div>
+  <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
+		<form name="setLimitForm"  style="width:220px" data-ng-submit="setSystemWideLimit(userForm.$valid)" class="signin form-horizontal" autocomplete="off">
+			<fieldset>
+				<div class="form-group">
+					<label for="limit">Set System wide spending limit (ZAR)</label>
+					<input type="number" id="limit"  name="limit" data-ng-model="limit" class="form-control" min = 0>
+				</div>
+				<div class="text-center form-group">
+					<button type="submit" class="btn btn-large btn-primary">Set spending limit</button>
+				</div>
+				<div data-ng-show="successTwo" class="text-center text-success">
+					<strong>{{successTwo}}</strong>
+				</div>
+				<div data-ng-show="errorTwo" class="text-center text-danger">
+					<strong data-ng-bind="errorTwo">{{errorTwo}}</strong>
+				</div>
 			</fieldset>
 		</form>
    </div>
   </div>
-
-
-  </div>
+<!-- end of system wyde limit functionality -->
  </div>
+ <!--end of administrative settings-->
 </section>
+<!-- end of administrative settings page -->

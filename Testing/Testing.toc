@@ -17,8 +17,8 @@
 \contentsline {subsubsection}{ Reporting module- finance.client.controller.js}{9}{section*.7}
 \contentsline {subsubsection}{Place order Module - orders.client.controller.js, cashier.client.controller.js , finance.client.controller.js}{9}{section*.8}
 \contentsline {subsection}{\numberline {4.7}Tests conducted/ Test coverage - Server Side}{10}{subsection.0.4.7}
-\contentsline {subsubsection}{Authentication Module - user.server.model.js}{10}{section*.9}
-\contentsline {subsubsection}{Manage Inventory Module - inventory.server.model.js}{11}{section*.10}
-\contentsline {subsubsection}{Place Orders Module - menuItem.server.model.js}{11}{section*.11}
-\contentsline {subsubsection}{Database Storage Test - test.server.model.js}{12}{section*.12}
-\contentsline {subsubsection}{ Authentication module- test.server.routes.js}{12}{section*.13}
+\contentsline {subsubsection}{Authentication Module }{10}{section*.9}
+\contentsline {subsubsection}{Manage Inventory Module }{11}{section*.10}
+\contentsline {subsubsection}{Manage Cafeteria Module }{11}{section*.11}
+\contentsline {subsubsection}{Place Orders Module}{12}{section*.12}
+\contentsline {subsubsection}{Database Storage Test }{13}{section*.13}
