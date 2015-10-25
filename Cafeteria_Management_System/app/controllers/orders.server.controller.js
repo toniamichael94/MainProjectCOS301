@@ -272,7 +272,7 @@ exports.markAsCollected = function(req, res){
  //Get orders with a POST request
  exports.getUserNotifications = function(req, res){
     console.log('current user ' + req.user.username);
-    Notifications.find( {username: req.user.username}, function(err, notifications){
+    Notifications.find( {username: req.user.username}).sort('-date').find(function(err, notifications){
         if(err) return res.status(400).send({
                 message: errorHandler.getErrorMessage(err)
         });

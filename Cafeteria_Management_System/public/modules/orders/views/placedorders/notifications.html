@@ -22,7 +22,7 @@
 
   <!-- Start of the notifications list -->
   <div data-ng-init="getUserNotifications()" >
-    <div class="list-group-item clearfix " ng-repeat="notification in notifications track by $index">
+    <div class="list-group-item clearfix " ng-repeat="notification in notifications track by $index" style="border-left-width: 8px; border-left-color: {{notification.color}}">
       <div class="text-center ">
         <h4><b><p class="text-warning"> Subject : {{notification.subject}}</p></b></h4>
         Date : {{notification.date}}  <br>

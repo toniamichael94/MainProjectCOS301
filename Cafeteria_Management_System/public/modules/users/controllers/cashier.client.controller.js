@@ -90,6 +90,12 @@ angular.module('users').controller('cashierController', ['$scope','$rootScope', 
 				var days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 				var months = ['Jan','Feb','Mar','Apr','May','Jun','July','Aug','Sep','Oct','Nov','Dec'];
 				for(var j = 0; j < $scope.notifications.length; j++){
+					if($scope.notifications[j].status === 'read'){
+						$scope.notifications[j].color = 'green';
+					}
+					else{
+						$scope.notifications[j].color = 'red';
+					}
 					//Set Date to readable format
 					var temp = new Date($scope.notifications[j].date);
 					$scope.notifications[j].date = days[temp.getDay()] + ' ' + months[temp.getMonth()] + ' ' + temp.getDate() + ', ' + temp.getFullYear() + ' ' +
