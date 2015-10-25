@@ -42,8 +42,10 @@ exports.generateReportUser = function(req, res){
 			var days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 			var months = ['Jan','Feb','Mar','Apr','May','Jun','July','Aug','Sep','Oct','Nov','Dec'];
 			
-			today = days[today.getDay()] + ' ' + months[today.getMonth()] + ' ' + today.getDate() + ', ' + today.getFullYear() + ' ' +
-															today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+			today = days[today.getDay()] + ' ' + months[today.getMonth()] + ' ' + today.getDate() + ', ' + today.getFullYear();
+			var temp = new Date(req.body.end);
+			var toDate = temp.getFullYear() + '-' + (temp.getMonth()+1) + '-' + temp.getDate();
+			
 			var total = 0; 
 			for(var j = 0; j < orders.length; j++)
 			{
@@ -66,7 +68,7 @@ exports.generateReportUser = function(req, res){
 					date: today,
 					to: { name: user.displayName, mail: user.email},
 					start: req.body.start,
-					end: req.body.end,
+					end: toDate,
 					items: orders,
 					total: total
 				}
@@ -86,7 +88,10 @@ exports.generateReportUser = function(req, res){
  * @param {Object} res
  */
 exports.generateReportAll = function(req, res){
-	Order.aggregate([{ $group: {_id: '$username', total: {$sum: {$multiply: ['$price', '$quantity']}}}}
+	var start = new Date(req.body.start);
+	var end = new Date(req.body.end);
+	end.setHours(23,59,59);
+	Order.aggregate([{$match: {created: {$gt: start, $lt: end}}},{ $group: {_id: '$username', total: {$sum: {$multiply: ['$price', '$quantity']}}}}
 	], function(err, docs){
         if(req.body.format === 'csv') {
             //Send CSV report
@@ -94,7 +99,7 @@ exports.generateReportAll = function(req, res){
             writer.writeStream.on('close', function () {
                 res.status(200).sendFile(path.join(__dirname, '../../temp', 'report.csv'));
             });
-            writer.writeRecord(['User', 'Total']);
+            writer.writeRecord(['User', 'Total (ZAR)']);
             for (var i = 0; i < docs.length; i++) {
                 var arr = [];
                 arr[0] = docs[i]._id;

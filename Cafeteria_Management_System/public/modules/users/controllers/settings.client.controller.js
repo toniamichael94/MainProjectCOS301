@@ -225,7 +225,7 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
                 $scope.total = 0;
                 for (var item in $scope.itemHistory) {
                     var temp = new Date($scope.itemHistory[item].created);
-                    $scope.itemHistory[item].date = days[temp.getDay()] + ' ' + months[temp.getMonth()] + ' ' + temp.getDay() + ', ' + temp.getFullYear() + ' ' +
+                    $scope.itemHistory[item].date = days[temp.getDay()] + ' ' + months[temp.getMonth()] + ' ' + temp.getDate() + ', ' + temp.getFullYear() + ' ' +
                     temp.getHours() + ':' + temp.getMinutes() + ':' + temp.getSeconds();
                     $scope.total += $scope.itemHistory[item].price * $scope.itemHistory[item].quantity;
                 }

@@ -22,10 +22,10 @@ angular.module('users').controller('FinanceController', ['$scope', '$http', '$lo
 				$scope.error = 'Please fill in all fields';
 				return;
 			}
-			var toDate = new Date($scope.current_toDate);
+			var toDate = new Date($scope.endDate);
 			toDate.setHours(23,59,59);
 
-			$http.post('users/finance/generateReportUser',{username: $scope.username, start: $scope.startDate, end: $scope.endDate},{responseType:'arraybuffer'}).success(function(response){
+			$http.post('users/finance/generateReportUser',{username: $scope.username, start: $scope.startDate, end: toDate},{responseType:'arraybuffer'}).success(function(response){
 
 				var file = new Blob([response], {type: 'application/pdf'});
 				var fileURL = URL.createObjectURL(file);
