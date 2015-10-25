@@ -42,13 +42,13 @@ exports.generateReportUser = function(req, res){
 			var days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 			var months = ['Jan','Feb','Mar','Apr','May','Jun','July','Aug','Sep','Oct','Nov','Dec'];
 			
-			today = days[today.getDay()] + ' ' + months[today.getMonth()] + ' ' + today.getDay() + ', ' + today.getFullYear() + ' ' +
+			today = days[today.getDay()] + ' ' + months[today.getMonth()] + ' ' + today.getDate() + ', ' + today.getFullYear() + ' ' +
 															today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
 			var total = 0; 
 			for(var j = 0; j < orders.length; j++)
 			{
 				var temp = new Date(orders[j].created);
-				var date = days[temp.getDay()] + ' ' + months[temp.getMonth()] + ' ' + temp.getDay() + ', ' + temp.getFullYear() + ' ' +
+				var date = days[temp.getDay()] + ' ' + months[temp.getMonth()] + ' ' + temp.getDate() + ', ' + temp.getFullYear() + ' ' +
 															temp.getHours() + ':' + temp.getMinutes() + ':' + temp.getSeconds();
 				orders[j] = orders[j].toObject();
 				orders[j].newDate = date;
@@ -78,10 +78,6 @@ exports.generateReportUser = function(req, res){
 	});
 };
 
-
-var generateReportCSV = function(data, res){
-
-};
 /**
  * GenerateReportAll
  * The function generates a report for all the users(only gives the total of what the user spent)
@@ -121,7 +117,7 @@ exports.generateReportAll = function(req, res){
              var days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
              var months = ['Jan','Feb','Mar','Apr','May','Jun','July','Aug','Sep','Oct','Nov','Dec'];
 
-             var _date = days[today.getDay()] + ' ' + months[today.getMonth()] + ' ' + today.getDay() + ', ' + today.getFullYear();
+             var _date = days[today.getDay()] + ' ' + months[today.getMonth()] + ' ' + today.getDate() + ', ' + today.getFullYear();
 
              jsreport.render({
              template:{ content: sample,

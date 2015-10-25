@@ -430,7 +430,7 @@ angular.module('users').controller('superuserController', ['$scope', '$http', '$
 					//Set Readable Date for table
 					for(var audit in $scope.audits){
 					var temp = new Date($scope.audits[audit].date);
-					$scope.audits[audit].date = days[temp.getDay()] + ' ' + months[temp.getMonth()] + ' ' + temp.getDay() + ', ' + temp.getFullYear() + ' ' +
+					$scope.audits[audit].date = days[temp.getDay()] + ' ' + months[temp.getMonth()] + ' ' + temp.getDate() + ', ' + temp.getFullYear() + ' ' +
 															temp.getHours() + ':' + temp.getMinutes() + ':' + temp.getSeconds();
 					}
 				}).error(function(response){

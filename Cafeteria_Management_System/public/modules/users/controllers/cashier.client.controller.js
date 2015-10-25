@@ -81,11 +81,22 @@ angular.module('users').controller('cashierController', ['$scope','$rootScope', 
 
             $http.post('/orders/getUserNotifications').success(function (response) {
                 console.log("Notification " + response.message);
-                $scope.userNotification = response.message;
+                $scope.notifications = response.message;
 
                 //var currNotification = -1;
                 var currentCount = -1;
-
+				
+				//Arrays for dates
+				var days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+				var months = ['Jan','Feb','Mar','Apr','May','Jun','July','Aug','Sep','Oct','Nov','Dec'];
+				for(var j = 0; j < $scope.notifications.length; j++){
+					//Set Date to readable format
+					var temp = new Date($scope.notifications[j].date);
+					$scope.notifications[j].date = days[temp.getDay()] + ' ' + months[temp.getMonth()] + ' ' + temp.getDate() + ', ' + temp.getFullYear() + ' ' +
+															temp.getHours() + ':' + temp.getMinutes() + ':' + temp.getSeconds();
+				}
+				
+				/*
                 var j = 0;
                 while (j < $scope.userNotification.length) {
                     //currNotification = $scope.userNotification[j].orderNumber;
@@ -95,7 +106,14 @@ angular.module('users').controller('cashierController', ['$scope','$rootScope', 
                     arrObj.username = $scope.userNotification[j].username;
                     arrObj.subject = $scope.userNotification[j].subject;
                     arrObj.message = $scope.userNotification[j].message;
-                    arrObj.date = $scope.userNotification[j].date;
+                    
+					//arrObj.date = $scope.userNotification[j].date;
+					//Set Date to readable format
+					var temp = new Date($scope.userNotification[j].date);
+					arrObj.date = days[temp.getDay()] + ' ' + months[temp.getMonth()] + ' ' + temp.getDay() + ', ' + temp.getFullYear() + ' ' +
+															temp.getHours() + ':' + temp.getMinutes() + ':' + temp.getSeconds();
+					
+					
                     $scope.userNotification[currentCount] = arrObj;
                     //console.log('status ' + arrObj.status);
                     console.log(currentCount);
@@ -105,7 +123,7 @@ angular.module('users').controller('cashierController', ['$scope','$rootScope', 
                         j++;
                     }
                 }
-                $scope.success = null;//response.message;
+                $scope.success = null;//response.message;*/
             }).error(function (response) {
                 console.log('Error getting notifications');
                 $scope.error = response.message;
