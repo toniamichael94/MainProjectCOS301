@@ -74,6 +74,13 @@ angular.module('users').controller('FinanceController', ['$scope', '$http', '$lo
          */
         $scope.reportFormat = 'csv';
 		$scope.generateReportAll = function(){
+			$scope.errorTwo = $scope.successTwo = null;
+			if($scope.startDateTwo === '' || $scope.endDateTwo === '')
+			{
+				$scope.errorTwo = 'Please fill in all fields';
+				return;
+			}
+			
 			$http.post('users/finance/generateReportAll',{start: $scope.startDateTwo, end: $scope.endDateTwo, format: $scope.reportFormat},{responseType:'arraybuffer'}).success(function(response){
 				var format = $scope.reportFormat;
                 var file = new Blob([response], {type: 'application/' + $scope.reportFormat});
