@@ -75,7 +75,7 @@ function audit(_type, data){
 					message: errorHandler.getErrorMessage(err)
 				});
 				audit('Create order', order);
-				sendCreateMessage(req.user.username, order.orderNumber);
+				sendCreateMessage(req.user.username, order[0].orderNumber);
 				res.status(200).send({message: 'Order has been made'});
 			});
 		});
@@ -96,7 +96,7 @@ function audit(_type, data){
                 subject: 'Your Order Has Been Placed'
         };
         mailOptions.to = user.username;
-        mailOptions.text = 'Dear ' + user.displayName + ',\n\n' +
+		mailOptions.text = 'Dear ' + user.displayName + ',\n\n' +
                                                         'Your order with order number ' + orderNum +  ' has been placed.\n'+
                                                         'You will be notified when your order is ready.\n\n'+
                                                         'The CMS Team';
