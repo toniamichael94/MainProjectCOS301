@@ -218,7 +218,7 @@
 
         it('$scope.addToPlate() should add menu item to plate', function() {
             scope.menuItems = [{itemName: 'top deck', itemInStock: true, created: "2015-10-06T08:22:40.251Z", description: "desc 1",
-													ingredients: {ingredients: ["milk"],quantities:[0]},price: 15}]
+													ingredients: {ingredients: ["milk"],quantities:[0]},price: 15}];
 			scope.addToPlate('top deck');
 
             expect($cookies.plate).not.toBe(null);

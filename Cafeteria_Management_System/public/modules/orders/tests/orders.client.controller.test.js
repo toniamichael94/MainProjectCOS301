@@ -64,37 +64,31 @@
 			// Test scope value
             expect($cookies.plate).toEqual(JSON.stringify([{itemName: 'burger'},{itemName: 'Pie'}]));
 		});
-/*
+
 		it('$scope.placeOrder() should place order', function() {
 			//Test expected POST request
-			$httpBackend.expectPOST('/orders/placeOrder',{plate : { itemName: ''}, paymentMeth: 'credit' }).respond(400, {'message': 'Order has not been made'});
-
-			scope.plate = [{itemName: 'sandwhich'}];
-			scope.paymentMethod = 'cash';
+			//Place Order uses 2 requests, one to place the order, the other to decrease the ingredients
+			$httpBackend.expectPOST('/orders/placeOrder',{plate : [{itemName: 'sandwhich', username: 'aUser', quantity: 1, ingredients: ['cheese (slices)'], quantities: [1]}], paymentMeth: 'credit' }).respond(200, {'message': 'Order has been made'});
+			$httpBackend.expectPOST('/orders/decreaseInventory', {productName: 'cheese', quantity: -1}).respond(200, {'message':'Dcreased inventory'});
 			
+			scope.plate = [{itemName: 'sandwhich', username: 'aUser', quantity: 1, ingredients: ['cheese (slices)'], quantities: [1]}];
+			scope.paymentMethod = 'credit';
+			scope.authentication.user = {username: 'aUser', limit: 1000};
 			
             scope.placeOrder();
             $httpBackend.flush();
 
-            expect(scope.success).toEqual('Order has not been made');
+            expect(scope.success).toEqual('Order has been made');
         });
-/*
-    it('$scope.placeOrder() should place order', function() {
-    //Test expected POST request
 
-    $httpBackend.expectPOST('/orders/placeOrder',{plate : { itemName: 'Feta salad',
-    price: 30,
-    quantity: 1,
-    username: '12345'}, paymentMeth: 'credit' }).respond(200, {'message': 'Order has been made'});
+		it('$scope.placeOrder() should not place order if user is not signed in', function() {
+			scope.authentication.user = null;
+			//Create spy to spy on the location.path function, which redirects when user is not signed in
+			spyOn($location, 'path');
+			scope.placeOrder();
 
-    scope.placeOrder();
-    $httpBackend.flush();
-
-    expect(scope.success).toEqual('Order has been made');
-    });
-
-*/
-
+			expect($location.path).toHaveBeenCalledWith('/signin');
+		});
 
     });
 }());

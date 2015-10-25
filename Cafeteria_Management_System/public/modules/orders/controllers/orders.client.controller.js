@@ -44,16 +44,16 @@ angular.module('orders').controller('OrdersController', ['$scope', '$rootScope',
 		$scope.placeOrder = function(){
 			$scope.error = $scope.success = '';
 			if($scope.plate){
-				if(Authentication.user){
-					if((Authentication.user.limit - Authentication.user.currentBalance) < $scope.orderTotal){
-						var avail = Authentication.user.limit - Authentication.user.currentBalance;
+				if($scope.authentication.user){
+					if(($scope.authentication.user.limit - $scope.authentication.user.currentBalance) < $scope.orderTotal){
+						var avail = $scope.authentication.user.limit - $scope.authentication.user.currentBalance;
 						var choice = $window.confirm('You do not have enough credit to make purchase. Available credit: R' + avail + '. Place order with cash payment instead?');
 
 						if(choice === false)
 							return;
 					}
 					for(var i = 0; i < $scope.plate.length; i++){
-						$scope.plate[i].username = Authentication.user.username;
+						$scope.plate[i].username = $scope.authentication.user.username;
 					}
 					$scope.success = $scope.error = null;
 					var order = {
@@ -99,14 +99,14 @@ angular.module('orders').controller('OrdersController', ['$scope', '$rootScope',
 						{
 							var reqObj = {productName:ingredients[j], quantity:quantities[j]};
 							$http.post('/orders/decreaseInventory',reqObj).success(function(response){
-							if(!error)
-							{
+							//if(!error)
+							//{
 								console.log('Decreased inventory item.');
-							}
+							//}
 							}).error(function(response){
 								console.log('Error.'+response.message);
-								error = true;
-								});
+								//error = true;
+							});
 						}//end for
 
 						$scope.subTotal();
