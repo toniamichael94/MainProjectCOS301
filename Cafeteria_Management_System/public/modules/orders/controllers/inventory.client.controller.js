@@ -98,12 +98,14 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 
 				if(valid)
 				{
+					delete $cookies.container1Data1I;
 					$http.post('orders/inventoryReport',{startDate: $scope.startDate, endDate: $scope.endDate}).success(function(response){
 							for(var j in response.message)
 								$scope.findItems(response.message[j].itemName, response.message[j].quantity);
 					}).error(function(response){
 						console.log(response);
 					});
+						window.location.reload();
 						$location.path('/inventoryStats');
 				}
 		};
@@ -111,11 +113,12 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 
 		$scope.findItems = function(item, quantity)
 		{
+
 			$http.post('/orders/searchMenuItem', {itemName: item}).success(function(response){
 
 					for(var i = 0; i < response.menuItem.ingredients.ingredients.length; i++){
 						if($scope.reportData1[response.menuItem.ingredients.ingredients[i]]){
-							$scope.reportData1[response.menuItem.ingredients.ingredients[i]].y = 	$scope.reportData1[response.menuItem.ingredients.ingredients[i]].y + response.menuItem.ingredients.quantities[i];
+							$scope.reportData1[response.menuItem.ingredients.ingredients[i]].y = 	$scope.reportData1[response.menuItem.ingredients.ingredients[i]].y + response.menuItem.ingredients.quantities[i]*quantity;
 
 					}else{
 						response.menuItem.ingredients.quantities[i] = response.menuItem.ingredients.quantities[i]*quantity;
