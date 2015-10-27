@@ -98,7 +98,7 @@ angular.module('inventory').controller('InventoryController', ['$scope', '$http'
 
 				if(valid)
 				{
-					delete $cookies.container1Data1I;
+					//delete $cookies.container1Data1I;
 					$http.post('orders/inventoryReport',{startDate: $scope.startDate, endDate: $scope.endDate}).success(function(response){
 							for(var j in response.message)
 								$scope.findItems(response.message[j].itemName, response.message[j].quantity);
