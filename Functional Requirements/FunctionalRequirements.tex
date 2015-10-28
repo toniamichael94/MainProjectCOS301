@@ -668,18 +668,49 @@ In addition, the reporting module also encompasses notifications that are sent t
 
 Another crutial part of the authentication module is to verify if a user may have access to certain pages given his/her role which will also contribute to the security of the data stored on our system and to control which user has access to which functionality.
 
-\subsubsection{Generate Statistics }
-The service contract and activity diagram for generateStatistics follow. generateStatistics falls under the use case for Reporting (refer to page ??? - figure ??? to view this use case diagram). Here, the cafeteria manager can generate statistics to see which inventory items are used most and which menu items are more popular to ensure that they can utilise their inventory items to the max and make more of the liked products for maximum profit.
+\subsubsection{Inventory Report }
+The service contract and activity diagram for inventoryReport follow. inventoryReport falls under the use case for Reporting (refer to page ??? - figure ??? to view this use case diagram). Here, the cafeteria manager can generate statistics to see which inventory items are used most. This information can be used to predict which itmes should be bought more often and when. 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{../images/generateStatisticsAcivity.jpg}
-    \caption{The activity diagram for generateStatistics} 
+    \includegraphics[width=1.0\textwidth]{../images/inventoryReportActivityDiagram.png}
+    \caption{The activity diagram for inventoryReport} 
 \end{figure}
 \begin{figure}[H]
   \centering
-    \includegraphics[width=1.0\textwidth]{../images/generateStatistics.jpg}
-    \caption{The service contract for generateStatistics} 
+    \includegraphics[width=1.0\textwidth]{../images/inventoryReportServiceContract.png}
+    \caption{The service contract for inventoryReport} 
 \end{figure}
+
+\subsubsection{Generate Report}
+Generate report generates a graph that displays how many menu items were sold in each category and how many of a specific menu item was orederd, all during a specific time period. Refer to page ??? - figure ?? to view the use case diagram).
+\begin{figure}[H]
+ \centering
+  \includegraphics[width=1.0\textwidth]{../images/generateReportActivityDiagram.png}
+    \caption{The activity diagram for generateReport}
+    \end{figure}
+    
+    \begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/generateReportServiceContract.png}
+    \caption{The service contract for generateReport} 
+\end{figure}
+
+\subsubsection{Generate Popular Report}
+Generate popular report generates a graph that displays a specific number of menu items that were ordered the most over a specified time. Refer to page ??? - figure ?? to view the use case diagram).
+\begin{figure}[H]
+ \centering
+  \includegraphics[width=1.0\textwidth]{../images/generatePopularReportActivityDiagram.png}
+    \caption{The activity diagram for generatePopularReport}
+    \end{figure}
+    
+    \begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/generatPopularReportServiceContract.png}
+    \caption{The service contract for generatePopularReport} 
+\end{figure}
+
+    
+      
 
 \subsubsection{Send Notifications}
 The service contract and activity diagram for sendNotifications follow. sendNotifications falls under the use case for Reporting (refer to page ??? - figure ??? to view this use case diagram). Here, when an order is ready, the cashier can let the client know their order is ready by sending them a notification (via email or on their profile).
