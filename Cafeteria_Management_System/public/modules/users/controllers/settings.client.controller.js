@@ -295,7 +295,7 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
         $scope.visualHistory = function () {
             $location.path('/settings/historyGraph');
         };
-        // Should this be taken out {Lana}
+      
         $scope.loadEmployees = function () {
             $http.get('/loadEmployees').success(function (response) {
                 $scope.employees = response.message;
