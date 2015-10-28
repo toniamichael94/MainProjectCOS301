@@ -1,55 +1,58 @@
-\contentsline {section}{\numberline {1}Introduction}{4}{section.0.1}
-\contentsline {section}{\numberline {2}Vision}{4}{section.0.2}
-\contentsline {section}{\numberline {3}Background}{4}{section.0.3}
-\contentsline {subsection}{\numberline {3.1}The current situation/ problems the client currently experience}{4}{subsection.0.3.1}
-\contentsline {subsection}{\numberline {3.2}How the aforementioned problems will be alleviated by the CMS}{5}{subsection.0.3.2}
-\contentsline {section}{\numberline {4}Functional Requirements and Application Design}{5}{section.0.4}
-\contentsline {subsection}{\numberline {4.1}Use Cases }{5}{subsection.0.4.1}
-\contentsline {subsection}{\numberline {4.2}Use Case Prioritization}{6}{subsection.0.4.2}
-\contentsline {subsubsection}{Critical}{6}{section*.3}
-\contentsline {subsubsection}{Important}{6}{section*.4}
-\contentsline {section}{\numberline {5}Modular System}{7}{section.0.5}
-\contentsline {subsection}{\numberline {5.1}High level use case diagram of the CMS}{8}{subsection.0.5.1}
-\contentsline {subsection}{\numberline {5.2}Authentication Module}{8}{subsection.0.5.2}
-\contentsline {subsubsection}{Forgot Password }{9}{section*.7}
-\contentsline {subsubsection}{Validate User credentials }{11}{section*.10}
-\contentsline {subsubsection}{Register }{13}{section*.13}
-\contentsline {subsubsection}{Set email}{14}{section*.15}
-\contentsline {subsubsection}{Set Password}{16}{section*.18}
-\contentsline {subsubsection}{Set Limit}{17}{section*.21}
-\contentsline {subsubsection}{Set Employee ID }{18}{section*.24}
-\contentsline {subsubsection}{Set Financial Preferences }{19}{section*.27}
-\contentsline {subsection}{\numberline {5.3}Manage Cafeteria Module}{21}{subsection.0.5.3}
-\contentsline {subsubsection}{addMenuItem}{21}{section*.31}
-\contentsline {subsubsection}{deleteMenuItem}{22}{section*.34}
-\contentsline {subsubsection}{searchMenuItem}{24}{section*.37}
-\contentsline {subsubsection}{updateMenuItem}{25}{section*.40}
-\contentsline {subsection}{\numberline {5.4}Place Orders Module}{26}{subsection.0.5.4}
-\contentsline {subsubsection}{CheckProductAvailability}{27}{section*.44}
-\contentsline {subsubsection}{markAsReady}{29}{section*.47}
-\contentsline {subsubsection}{addToPlate }{30}{section*.50}
-\contentsline {subsubsection}{markAsCollected}{31}{section*.53}
-\contentsline {subsubsection}{checkLimit}{33}{section*.56}
-\contentsline {subsubsection}{employeePaid}{35}{section*.59}
-\contentsline {subsection}{\numberline {5.5}Manage Inventory Module}{36}{subsection.0.5.5}
-\contentsline {subsubsection}{addInventory}{37}{section*.63}
-\contentsline {subsubsection}{searchInventory}{38}{section*.66}
-\contentsline {subsubsection}{deleteInventory}{40}{section*.69}
-\contentsline {subsubsection}{updateInventory}{41}{section*.72}
-\contentsline {subsection}{\numberline {5.6}Manage Profile Module}{42}{subsection.0.5.6}
-\contentsline {subsubsection}{setFinancialPreferences}{43}{section*.76}
-\contentsline {subsubsection}{changePassword}{44}{section*.79}
-\contentsline {subsubsection}{changeEmail}{46}{section*.82}
-\contentsline {subsubsection}{changeLimit}{47}{section*.85}
+\contentsline {section}{\numberline {1}Introduction}{3}{section.0.1}
+\contentsline {section}{\numberline {2}Vision}{3}{section.0.2}
+\contentsline {section}{\numberline {3}Background}{3}{section.0.3}
+\contentsline {subsection}{\numberline {3.1}The current situation/ problems the client currently experience}{3}{subsection.0.3.1}
+\contentsline {subsection}{\numberline {3.2}How the aforementioned problems will be alleviated by the CMS}{4}{subsection.0.3.2}
+\contentsline {section}{\numberline {4}Functional Requirements and Application Design}{4}{section.0.4}
+\contentsline {subsection}{\numberline {4.1}Use Cases }{4}{subsection.0.4.1}
+\contentsline {subsection}{\numberline {4.2}Use Case Prioritization}{5}{subsection.0.4.2}
+\contentsline {subsubsection}{Critical}{5}{section*.3}
+\contentsline {subsubsection}{Important}{5}{section*.4}
+\contentsline {section}{\numberline {5}Modular System}{6}{section.0.5}
+\contentsline {subsection}{\numberline {5.1}High level use case diagram of the CMS}{7}{subsection.0.5.1}
+\contentsline {subsection}{\numberline {5.2}Authentication Module}{7}{subsection.0.5.2}
+\contentsline {subsubsection}{Forgot Password }{8}{section*.7}
+\contentsline {subsubsection}{Validate User credentials }{10}{section*.10}
+\contentsline {subsubsection}{Register }{12}{section*.13}
+\contentsline {subsubsection}{Set email}{13}{section*.15}
+\contentsline {subsubsection}{Set Password}{15}{section*.18}
+\contentsline {subsubsection}{Set Limit}{16}{section*.21}
+\contentsline {subsubsection}{Set Employee ID }{17}{section*.24}
+\contentsline {subsubsection}{Set Financial Preferences }{18}{section*.27}
+\contentsline {subsection}{\numberline {5.3}Manage Cafeteria Module}{20}{subsection.0.5.3}
+\contentsline {subsubsection}{addMenuItem}{20}{section*.31}
+\contentsline {subsubsection}{deleteMenuItem}{21}{section*.34}
+\contentsline {subsubsection}{searchMenuItem}{23}{section*.37}
+\contentsline {subsubsection}{updateMenuItem}{24}{section*.40}
+\contentsline {subsection}{\numberline {5.4}Place Orders Module}{25}{subsection.0.5.4}
+\contentsline {subsubsection}{CheckProductAvailability}{26}{section*.44}
+\contentsline {subsubsection}{markAsReady}{28}{section*.47}
+\contentsline {subsubsection}{addToPlate }{29}{section*.50}
+\contentsline {subsubsection}{markAsCollected}{30}{section*.53}
+\contentsline {subsubsection}{checkLimit}{32}{section*.56}
+\contentsline {subsubsection}{employeePaid}{34}{section*.59}
+\contentsline {subsection}{\numberline {5.5}Manage Inventory Module}{35}{subsection.0.5.5}
+\contentsline {subsubsection}{addInventory}{36}{section*.63}
+\contentsline {subsubsection}{searchInventory}{37}{section*.66}
+\contentsline {subsubsection}{deleteInventory}{39}{section*.69}
+\contentsline {subsubsection}{updateInventory}{40}{section*.72}
+\contentsline {subsection}{\numberline {5.6}Manage Profile Module}{41}{subsection.0.5.6}
+\contentsline {subsubsection}{setFinancialPreferences}{42}{section*.76}
+\contentsline {subsubsection}{viewHistory}{43}{section*.79}
+\contentsline {subsubsection}{changePassword}{45}{section*.82}
+\contentsline {subsubsection}{changeEmail}{46}{section*.85}
+\contentsline {subsubsection}{changeLimit}{47}{section*.88}
 \contentsline {subsection}{\numberline {5.7}Manage System Module}{48}{subsection.0.5.7}
-\contentsline {subsubsection}{assignRoles}{49}{section*.89}
-\contentsline {subsubsection}{changeEmployeeID}{51}{section*.92}
-\contentsline {subsubsection}{setSystemWideLimit}{52}{section*.95}
-\contentsline {subsubsection}{setCanteenName}{54}{section*.98}
-\contentsline {subsubsection}{uploadImage}{55}{section*.101}
+\contentsline {subsubsection}{assignRoles}{49}{section*.92}
+\contentsline {subsubsection}{changeEmployeeID}{51}{section*.95}
+\contentsline {subsubsection}{setSystemWideLimit}{52}{section*.98}
+\contentsline {subsubsection}{setCanteenName}{54}{section*.101}
+\contentsline {subsubsection}{uploadImage}{55}{section*.104}
 \contentsline {subsection}{\numberline {5.8}Reporting Module}{57}{subsection.0.5.8}
-\contentsline {subsubsection}{Generate Statistics }{58}{section*.105}
-\contentsline {subsubsection}{Send Notifications}{59}{section*.108}
-\contentsline {subsubsection}{View History }{61}{section*.111}
-\contentsline {subsubsection}{View User Bill }{63}{section*.114}
-\contentsline {section}{\numberline {6}Comment}{65}{section.0.6}
+\contentsline {subsubsection}{Inventory Report }{57}{section*.108}
+\contentsline {subsubsection}{Generate Report}{58}{section*.111}
+\contentsline {subsubsection}{Generate Popular Report}{60}{section*.114}
+\contentsline {subsubsection}{Send Notifications}{61}{section*.117}
+\contentsline {subsubsection}{View History }{62}{section*.120}
+\contentsline {subsubsection}{View User Bill }{64}{section*.123}
+\contentsline {section}{\numberline {6}Comment}{66}{section.0.6}
