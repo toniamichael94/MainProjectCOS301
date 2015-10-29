@@ -105,13 +105,13 @@ The system will predict which inventory items needs to be bought for the next we
 \section{Test Plan}
 
 \subsection{Introduction}
-The scope of the testing: This document will be used be the Team T-RISE to elaborate and substantiate the unit tests conducted for the various use cases/ modules of the Resolve Cafeteria Management System. Unit tests using mocks and Integration tests using actual data from the system have been conducted and will be explained in the document below. Tests for the server side functionality as well as the client side functionality were executed.
+The scope of the testing: This document will be used by the Team T-RISE to elaborate and substantiate the unit tests conducted for the various use cases/ modules of the Resolve Cafeteria Management System. Unit tests using mocks and Integration tests using actual data from the system have been conducted and will be explained in the document below. Tests for the server side functionality as well as the client side functionality were executed.
 
 \subsection{Technologies used for testing}
-Testing was done during the construction of the various functions to ensure that the code is working at all times, and that only fully working functions are used in other functions going forward. PhantomJS was used to run the Mocha, Karma and Jasmine tests automatically, hence the tests for the different files could be run consecutively without being manually executed separately. The reason the testing frameworks were used was due to the simple set up that it required and due to its compatibility with PhantomJs. In addition the syntax of these was simple and intuitive.  Karma in particular is the official Angular Js test runner, hence it was used. Mocha, is based on node.js and hence was used for this reason. 
+Testing was done during the construction of the various functions to ensure that the code is working at all times, and that only fully working functions are used in other functions going forward. PhantomJS was used to run the Mocha, Karma and Jasmine tests automatically, hence the tests for the different files could be run consecutively without being manually executed separately. The reason the testing frameworks were used was due to the simple set up that it required and due to its compatibility with PhantomJs. In addition the syntax of these was simple and intuitive.  Karma in particular is the official AngularJS test runner, hence it was used. Mocha, is based on node.js and hence was used for this reason. 
 \\
 \subsection{How to run the unit tests}
-To execute the tests one must first ensure that the Mongo database is running. After this, one opens a separate terminal inside the Cafeteria Management System. Then sudo npm test is run which executes PhantomJs to run the tests automatically.  The output will indicate whether the tests are passing or failing as well as the different descriptions for each test. Server side and client side tests are executed.
+To execute the tests one must first ensure that the Mongo database is running. After this, one opens a separate terminal inside the Cafeteria Management System. Then npm test (sudo npm test if on a Linux machine) command is run which executes PhantomJs to run the tests automatically.  The output will indicate whether the tests are passing or failing as well as the different descriptions for each test. Server side and client side tests are executed.
 
 \subsection{Testing approach - Client Side}
 The unit tests written for the Authentication module were done to test the functions inside authentication.client.controller.js and the superuser.client.controller.js file.  The register/ signup functionality also resides in the authentication.client.controller.js file. The unit tests written for the Manage Profile module were done to test the settings.client.controller.js and the password.client.controller.js files, which contained the code to implement the manage profile module.
@@ -220,7 +220,7 @@ Post conditions : Categories have been loaded and are displayed on navigation ba
 Test Case 1: \$scope.loadMenuCategories should load categories: Pass \\
 Test Case 2: \$scope.loadMenuCategories should fail to load categories: Pass \\
 
-7.)Check Stock \\
+7.) Check Stock \\
 Pre conditions: There are menu items and inventory items saved\\
 Post conditions: The inventory needed for the menu item is either enough to be used for the quantity of items specifed or not. If not it is marked as out of stock\\
 Test Case 1: \$scope.checkStock should successfully perform a check: Pass \\  
@@ -257,12 +257,16 @@ Test Case 4: \$scope.markAsPaid() should  mark the order as paid successfully: P
 Test Case 5: \$scope.markAsPaid() should  mark the order as collected successfully: Pass \\
 Test Case 6: \$scope.getOrders() should get a list of orders where status is open: Pass \\
 Test Case 7: \$scope.getOrders() should not get a list of orders where status is closed: Pass \\
+Test Case 8: \$scope.getUserNotifications() should get a list of notifications: Pass \\
+Test Case 9: \$scope.getUserNotifications() should display error if couldnt get notifications \\
 
 \item The third set of tests can be found in finance.client.controller.test.js.\\
-Pre Conditions: The user facilitating the orders is the finance manager and is hence on the process orders page that is only accessible to the finance manager. \\ The employee ID has been entered and is valid\\
+Pre Conditions: The user facilitating the orders is the finance manager and is hence on the process orders page that is only accessible to the finance manager. \\ The employee ID has been entered and is valid if generating a bill for single employee. \\ The date ranges are valid and are in valid date format \\
 Post Conditions: The bill corresponding to the Employee ID entered is generated\\
-Test Case 1: \$scope.getUserOrders() should get users orders: Pass\\
-Test Case 2: \$scope.getUserOrders() should not get users orders: Pass \\
+Test Case 1: \$scope.loadEmployees() should load all employees: Pass\\
+Test Case 2: \$scope.loadEmployees() should show error if cant load employees: Pass\\
+Test Case 3: \$scope.generateReport() should not generate report if missing fields: Pass\\
+Test Case 4: \$scope.generateReportAll() should not generate report if missing fields: Pass \\
 
 \end{enumerate}
 
