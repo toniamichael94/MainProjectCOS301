@@ -145,34 +145,32 @@
             expect(scope.success).toEqual('This user has been found');
         });
 		
-		
-		/* Last edited by {Rendani Dau}
-		 * To be revisited
-		it('$scope.getSystemLimit() retrieve the system limit', function() {
-            // Test expected GET request
-            $httpBackend.when('POST',	'/users/search').respond(200,{
-                'message': 'This user has been found'
+		it('$scope.getUserHistory() should get the history of the employee that\'s signed in', function() {
+            // Test expected POST request
+            $httpBackend.when('POST',	'/orders/getUserOrders').respond(200,{
+                'message': [{itemName: 'coke', price: 20, quantity: 2, orderNumber: 4, created: '2015/08/01'},
+				{itemName: 'burger', price: 50, quantity: 2, orderNumber: 16, created: '2015/10/25'}]
             });
 
-            scope.searchEmployee(true);
+            scope.getUserHistory('2015/08/01', '2015/10/22');
             $httpBackend.flush();
 
             // Test scope value
-            expect(scope.success).toEqual('This user has been found');
+            expect(scope.itemHistory).not.toBe(null);
         });
 		
-		it('$scope.getSystemLimit() retrieve the system limit', function() {
-            // Test expected GET request
-            $httpBackend.when('POST',	'/users/search').respond(200,{
-                'message': 'This user has been found'
+		it('$scope.getUserHistory() should default to this month if no date provided and get history', function() {
+            // Test expected POST request
+            $httpBackend.when('POST',	'/orders/getUserOrders').respond(200,{
+                'message': [{itemName: 'coke', price: 20, quantity: 2, orderNumber: 4, created: '2015/08/01'},
+				{itemName: 'burger', price: 50, quantity: 2, orderNumber: 16, created: '2015/10/25'}]
             });
 
-            scope.searchEmployee(true);
+            scope.getUserHistory();
             $httpBackend.flush();
 
             // Test scope value
-            expect(scope.success).toEqual('This user has been found');
+            expect(scope.itemHistory).not.toBe(null);
         });
-		*/
     });
 }());

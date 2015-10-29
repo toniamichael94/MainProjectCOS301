@@ -137,8 +137,6 @@ angular.module('orders').controller('OrdersController', ['$scope', '$rootScope',
 					}
 				}
 				$window.location.reload(true);
-				//$scope.subTotal();
-				//$rootScope.$broadcast('plateUpdated');
 			}
 		};
  
