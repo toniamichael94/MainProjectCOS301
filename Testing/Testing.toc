@@ -10,15 +10,15 @@
 \contentsline {subsection}{\numberline {4.4}Testing approach - Client Side}{5}{subsection.0.4.4}
 \contentsline {subsection}{\numberline {4.5}Testing approach - Server Side}{5}{subsection.0.4.5}
 \contentsline {subsection}{\numberline {4.6}Tests conducted/ Test coverage - Client Side}{6}{subsection.0.4.6}
-\contentsline {subsubsection}{Profile Module - settings.client.controller.js}{6}{section*.3}
-\contentsline {subsubsection}{Authentication Module - authentication.client.controller.js }{6}{section*.4}
-\contentsline {subsubsection}{Manage System Module - superuser.client.controller.js }{7}{section*.5}
-\contentsline {subsubsection}{Manage Cafeteria Module - menuItems.client.controller.js }{8}{section*.6}
-\contentsline {subsubsection}{ Reporting module - finance.client.controller.js}{9}{section*.7}
-\contentsline {subsubsection}{Place order Module - orders.client.controller.js, cashier.client.controller.js , finance.client.controller.js}{10}{section*.8}
+\contentsline {subsubsection}{Profile Module - settings.client.controller.js}{6}{section*.4}
+\contentsline {subsubsection}{Authentication Module - authentication.client.controller.js }{6}{section*.5}
+\contentsline {subsubsection}{Manage System Module - superuser.client.controller.js }{7}{section*.6}
+\contentsline {subsubsection}{Manage Cafeteria Module - menuItems.client.controller.js }{8}{section*.7}
+\contentsline {subsubsection}{ Reporting module - finance.client.controller.js}{9}{section*.8}
+\contentsline {subsubsection}{Place order Module - orders.client.controller.js, cashier.client.controller.js , finance.client.controller.js}{10}{section*.9}
 \contentsline {subsection}{\numberline {4.7}Tests conducted/ Test coverage - Server Side}{11}{subsection.0.4.7}
-\contentsline {subsubsection}{Authentication Module }{11}{section*.9}
-\contentsline {subsubsection}{Manage Inventory Module }{12}{section*.10}
-\contentsline {subsubsection}{Manage Cafeteria Module }{12}{section*.11}
-\contentsline {subsubsection}{Place Orders Module}{13}{section*.12}
-\contentsline {subsubsection}{Database Storage Test }{14}{section*.13}
+\contentsline {subsubsection}{Authentication Module }{11}{section*.10}
+\contentsline {subsubsection}{Manage Inventory Module }{12}{section*.11}
+\contentsline {subsubsection}{Manage Cafeteria Module }{12}{section*.12}
+\contentsline {subsubsection}{Place Orders Module}{13}{section*.13}
+\contentsline {subsubsection}{Database Storage Test }{14}{section*.14}
