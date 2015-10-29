@@ -19,6 +19,6 @@
 \contentsline {subsection}{\numberline {4.7}Tests conducted/ Test coverage - Server Side}{11}{subsection.0.4.7}
 \contentsline {subsubsection}{Authentication Module }{11}{section*.9}
 \contentsline {subsubsection}{Manage Inventory Module }{12}{section*.10}
-\contentsline {subsubsection}{Manage Cafeteria Module }{13}{section*.11}
+\contentsline {subsubsection}{Manage Cafeteria Module }{12}{section*.11}
 \contentsline {subsubsection}{Place Orders Module}{13}{section*.12}
 \contentsline {subsubsection}{Database Storage Test }{14}{section*.13}

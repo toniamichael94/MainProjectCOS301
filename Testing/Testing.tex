@@ -243,9 +243,11 @@ Test Case 1: \$scope.addToPlate() should add menu item to plate \\
 
 \subsubsection{ Reporting module - finance.client.controller.js}
 The tests for this file can be found in finance.client.controller.tests.js.
-Pre Conditions: User has been found, user ID exits in the database \\
-Post Conditions: Report has been downloaded in pdf format\\
-Test Case 1: \$scope.generateReport should not generate report if missing fields: Pass \\
+Pre Conditions: User has been found, user ID exits in the database if generating report for user\\
+Post Conditions: Report has been downloaded in pdf format for either specific user or all users\\
+Test Case 1: \$scope.generateReport() should not generate report if missing fields: Pass\\
+Test Case 2: \$scope.generateReportAll() should not generate report if missing fields: Pass \\
+
 
 \subsubsection{Place order Module - orders.client.controller.js, cashier.client.controller.js , finance.client.controller.js}
 \begin{enumerate}
@@ -280,9 +282,6 @@ Pre Conditions: The user facilitating the orders is the finance manager and is h
 Post Conditions: The bill corresponding to the Employee ID entered is generated\\
 Test Case 1: \$scope.loadEmployees() should load all employees: Pass\\
 Test Case 2: \$scope.loadEmployees() should show error if cant load employees: Pass\\
-Test Case 3: \$scope.generateReport() should not generate report if missing fields: Pass\\
-Test Case 4: \$scope.generateReportAll() should not generate report if missing fields: Pass \\
-
 \end{enumerate}
 
 \subsection{Tests conducted/ Test coverage - Server Side}
