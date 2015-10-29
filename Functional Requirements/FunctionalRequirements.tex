@@ -595,7 +595,7 @@ The service contract and activity diagram for changeLimit follow. changeLimit fa
 %%-----MANAGE SYSTEM MODULE-----
 \subsection{Manage System Module}
 
- The superuser will be allowed to customize various settings such as assign roles to the users, changing employee IDs, setting the maximum spending limit as well as branding settings such as setting the canteen name and changing the cover photo. The following use case diagram indicates the above mentioned functionality.
+ The superuser will be allowed to customize various settings such as assign roles to the users, changing employee IDs, setting the maximum spending limit as well as branding settings such as setting the canteen name and changing the cover photo. The super user will also be able to audit the system - see all actions performed on the system by the different users. The following use case diagram indicates the above mentioned functionality.
 
 \begin{figure}[H]
   \centering
@@ -615,6 +615,20 @@ The service contract and activity diagram for assignRoles to follow. assignRoles
 	\centering
 	\includegraphics[width=1.0\textwidth]{../images/assignRolesServiceContract.png}
 	\caption{The service contract for assign roles}
+\end{figure}
+
+\subsubsection{auditSystem}
+The service contract and activity diagram for auditSystem to follow. auditSystem falls under the use case for Manage System (refer to page   figure   to view this use case diagram). The superuser and the admin user are the only users who can access the audit of the system.  This constitutes all actions performed by the different users of the system. This is to keep a record of what actions are performed by who on the system.
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=1.0\textwidth]{../images/AuditSystemActivity.jpg}
+    \caption{The activity diagram for audit system} 
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{../images/AuditSystemSC.jpg}
+	\caption{The service contract for audit system}
 \end{figure}
 
 \subsubsection{changeEmployeeID}
