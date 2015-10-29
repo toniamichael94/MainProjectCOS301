@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.10.29)  29 OCT 2015 09:22
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.10.29)  29 OCT 2015 10:46
 entering extended mode
 **G:/main2/MainProjectCOS301/Functional*Requirements/FunctionalRequirements.tex
 
@@ -318,7 +318,7 @@ l.37 \break
             [1
 
 ]
-Overfull \hbox (96.94179pt too wide) in paragraph at lines 55--80
+Overfull \hbox (18.38287pt too wide) in paragraph at lines 55--80
  [][] 
  []
 
@@ -1078,73 +1078,74 @@ Package pdftex.def Info: ../images/generatPopularReportServiceContract.png used
  on input line 742.
 (pdftex.def)             Requested size: 390.0pt x 209.28696pt.
  [62 <G:/main2/MainProjectCOS301/images/generatePopularReportActivityDiagram.pn
-g (PNG copy)> <G:/main2/MainProjectCOS301/images/generatPopularReportServiceCon
-tract.png (PNG copy)>] <../images/sendNotificationsActivity.jpg, id=560, 612.28
-75pt x 520.94624pt>
+g (PNG copy)>]
+<../images/sendNotificationsActivity.jpg, id=559, 612.2875pt x 520.94624pt>
 File: ../images/sendNotificationsActivity.jpg Graphic file (type jpg)
 
 <use ../images/sendNotificationsActivity.jpg>
 Package pdftex.def Info: ../images/sendNotificationsActivity.jpg used on input 
-line 754.
+line 751.
 (pdftex.def)             Requested size: 390.0pt x 331.81467pt.
 
-<../images/sendNotifications.jpg, id=561, 694.595pt x 520.94624pt>
+<../images/sendNotifications.jpg, id=560, 694.595pt x 520.94624pt>
 File: ../images/sendNotifications.jpg Graphic file (type jpg)
 
 <use ../images/sendNotifications.jpg>
-Package pdftex.def Info: ../images/sendNotifications.jpg used on input line 759
+Package pdftex.def Info: ../images/sendNotifications.jpg used on input line 756
 .
 (pdftex.def)             Requested size: 390.0pt x 292.50691pt.
- [63 <G:/main2/MainProjectCOS301/images/sendNotificationsActivity.jpg>]
-<../images/viewHistoryActivity.jpg, id=568, 612.2875pt x 520.94624pt>
+ [63 <G:/main2/MainProjectCOS301/images/generatPopularReportServiceContract.png
+ (PNG copy)>] [64 <G:/main2/MainProjectCOS301/images/sendNotificationsActivity.
+jpg>]
+<../images/viewHistoryActivity.jpg, id=572, 612.2875pt x 520.94624pt>
 File: ../images/viewHistoryActivity.jpg Graphic file (type jpg)
 
 <use ../images/viewHistoryActivity.jpg>
 Package pdftex.def Info: ../images/viewHistoryActivity.jpg used on input line 7
-68.
+65.
 (pdftex.def)             Requested size: 390.0pt x 331.81467pt.
 
-<../images/viewHistory.jpg, id=569, 612.2875pt x 520.94624pt>
+<../images/viewHistory.jpg, id=573, 612.2875pt x 520.94624pt>
 File: ../images/viewHistory.jpg Graphic file (type jpg)
 
 <use ../images/viewHistory.jpg>
-Package pdftex.def Info: ../images/viewHistory.jpg used on input line 773.
+Package pdftex.def Info: ../images/viewHistory.jpg used on input line 770.
 (pdftex.def)             Requested size: 390.0pt x 331.81467pt.
- [64 <G:/main2/MainProjectCOS301/images/sendNotifications.jpg>] [65 <G:/main2/M
+ [65 <G:/main2/MainProjectCOS301/images/sendNotifications.jpg>] [66 <G:/main2/M
 ainProjectCOS301/images/viewHistoryActivity.jpg>] <../images/viewUserBillActivi
-ty.jpg, id=581, 642.4pt x 520.94624pt>
+ty.jpg, id=586, 642.4pt x 520.94624pt>
 File: ../images/viewUserBillActivity.jpg Graphic file (type jpg)
 
 <use ../images/viewUserBillActivity.jpg>
 Package pdftex.def Info: ../images/viewUserBillActivity.jpg used on input line 
-782.
+779.
 (pdftex.def)             Requested size: 390.0pt x 316.27438pt.
 
-<../images/viewUserBill.jpg, id=582, 651.43375pt x 520.94624pt>
+<../images/viewUserBill.jpg, id=587, 651.43375pt x 520.94624pt>
 File: ../images/viewUserBill.jpg Graphic file (type jpg)
 
 <use ../images/viewUserBill.jpg>
-Package pdftex.def Info: ../images/viewUserBill.jpg used on input line 787.
+Package pdftex.def Info: ../images/viewUserBill.jpg used on input line 784.
 (pdftex.def)             Requested size: 390.0pt x 311.88655pt.
- [66 <G:/main2/MainProjectCOS301/images/viewHistory.jpg>] [67 <G:/main2/MainPro
+ [67 <G:/main2/MainProjectCOS301/images/viewHistory.jpg>] [68 <G:/main2/MainPro
 jectCOS301/images/viewUserBillActivity.jpg>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 794.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 791.
 
-[68 <G:/main2/MainProjectCOS301/images/viewUserBill.jpg>] [69]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 794.
+[69 <G:/main2/MainProjectCOS301/images/viewUserBill.jpg>] [70]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 791.
 
 ("G:\main2\MainProjectCOS301\Functional Requirements\FunctionalRequirements.aux
 ")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 794.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 794.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 791.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 791.
 Package rerunfilecheck Info: File `FunctionalRequirements.out' has not changed.
 
 (rerunfilecheck)             Checksum: 3CEE26023696C8E63BEB11937099FF7F;1318.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 794.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 791.
  ) 
 Here is how much of TeX's memory you used:
- 7490 strings out of 493705
- 125406 string characters out of 3144572
+ 7491 strings out of 493705
+ 125413 string characters out of 3144572
  201751 words of memory out of 3000000
  10479 multiletter control sequences out of 15000+200000
  9714 words of font info for 34 fonts, out of 3000000 for 9000
@@ -1155,9 +1156,9 @@ ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Fil
 es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX
  2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/font
 s/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on FunctionalRequirements.pdf (70 pages, 4459552 bytes).
+Output written on FunctionalRequirements.pdf (71 pages, 4460754 bytes).
 PDF statistics:
- 669 PDF objects out of 1000 (max. 8388607)
- 216 named destinations out of 1000 (max. 500000)
+ 677 PDF objects out of 1000 (max. 8388607)
+ 217 named destinations out of 1000 (max. 500000)
  575 words of extra memory for PDF output out of 10000 (max. 10000000)
 

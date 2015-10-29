@@ -14,8 +14,8 @@
 \contentsline {subsection}{\numberline {7.3}Logging In}{13}{subsection.0.7.3}
 \contentsline {section}{\numberline {8}Using The System}{17}{section.0.8}
 \contentsline {subsection}{\numberline {8.1}The Navigation pane}{17}{subsection.0.8.1}
-\contentsline {subsubsection}{The Navigation pane - once the user is not logged on}{17}{section*.14}
-\contentsline {subsubsection}{The Navigation pane - once the user has logged on}{18}{section*.16}
+\contentsline {subsubsection}{The Navigation pane - once the user is not logged on}{17}{section*.15}
+\contentsline {subsubsection}{The Navigation pane - once the user has logged on}{18}{section*.17}
 \contentsline {subsection}{\numberline {8.2}The "Menu" Page}{22}{subsection.0.8.2}
 \contentsline {subsection}{\numberline {8.3}The "On my plate" Page}{25}{subsection.0.8.3}
 \contentsline {subsection}{\numberline {8.4}The "Notifications" Page}{27}{subsection.0.8.4}

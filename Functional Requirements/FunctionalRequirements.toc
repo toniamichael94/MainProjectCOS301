@@ -54,6 +54,6 @@
 \contentsline {subsubsection}{Generate Report}{60}{section*.114}
 \contentsline {subsubsection}{Generate Popular Report}{62}{section*.117}
 \contentsline {subsubsection}{Send Notifications}{63}{section*.120}
-\contentsline {subsubsection}{View History }{64}{section*.123}
-\contentsline {subsubsection}{View User Bill }{66}{section*.126}
-\contentsline {section}{\numberline {6}Comment}{68}{section.0.6}
+\contentsline {subsubsection}{View History }{65}{section*.123}
+\contentsline {subsubsection}{View User Bill }{67}{section*.126}
+\contentsline {section}{\numberline {6}Comment}{69}{section.0.6}
