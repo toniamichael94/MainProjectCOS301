@@ -47,9 +47,9 @@
 				 <fieldset>
 					 <div class="form-group">
 						 <label for="startDate"> From: </label>
-						 <input type="date" id="startDate" name="startDate" class="form-control" data-ng-model="startDateReport"/>
+						 <input type="date" id="startDate" name="startDate" placeholder="yyyy/mm/dd" class="form-control" data-ng-model="startDateReport"/>
 						 <label for="endDate"> To: </label>
-						 <input type="date" id="endDate" name="endDate" class="form-control" data-ng-model="endDateReport"/>
+						 <input type="date" id="endDate" name="endDate" placeholder="yyyy/mm/dd" class="form-control" data-ng-model="endDateReport"/>
 					 </div>  <div class=" text-center form-group">
 					 <button type = "submit" style="width:200px" class = "btn btn-large btn-primary" ng-click="MenuItemsGraphPage()">Submit</button>
 					 <!-- Show error message or sucess message for generating report--></div>
@@ -89,9 +89,9 @@
 							<label for = "number of items">Number of items</label>
 							<input type = "number" min=2 data-ng-model="numItems" class="form-control" value = "2">
 							<label for="startDate"> From: </label>
-							<input type="date" id="startDate" name="startDate" class="form-control" data-ng-model="startDate"/>
+							<input type="date" id="startDate" placeholder="yyyy/mm/dd"  name="startDate" class="form-control" data-ng-model="startDate"/>
 							<label for="endDate"> To: </label>
-							<input type="date" id="endDate" name="endDate" class="form-control" data-ng-model="endDate"/>
+							<input type="date" id="endDate" placeholder="yyyy/mm/dd"  name="endDate" class="form-control" data-ng-model="endDate"/>
 						</div>  <div class=" text-center form-group">
 						<button type = "submit" style="width:200px" class = "btn btn-large btn-primary">Submit</button>
 						<!-- Show error message or sucess message for generating report--></div>
