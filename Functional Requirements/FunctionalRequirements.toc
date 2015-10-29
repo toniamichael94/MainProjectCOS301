@@ -44,15 +44,16 @@
 \contentsline {subsubsection}{changeLimit}{47}{section*.88}
 \contentsline {subsection}{\numberline {5.7}Manage System Module}{48}{subsection.0.5.7}
 \contentsline {subsubsection}{assignRoles}{49}{section*.92}
-\contentsline {subsubsection}{changeEmployeeID}{51}{section*.95}
-\contentsline {subsubsection}{setSystemWideLimit}{52}{section*.98}
-\contentsline {subsubsection}{setCanteenName}{54}{section*.101}
-\contentsline {subsubsection}{uploadImage}{55}{section*.104}
-\contentsline {subsection}{\numberline {5.8}Reporting Module}{57}{subsection.0.5.8}
-\contentsline {subsubsection}{Inventory Report }{57}{section*.108}
-\contentsline {subsubsection}{Generate Report}{58}{section*.111}
-\contentsline {subsubsection}{Generate Popular Report}{60}{section*.114}
-\contentsline {subsubsection}{Send Notifications}{61}{section*.117}
-\contentsline {subsubsection}{View History }{62}{section*.120}
-\contentsline {subsubsection}{View User Bill }{64}{section*.123}
-\contentsline {section}{\numberline {6}Comment}{66}{section.0.6}
+\contentsline {subsubsection}{auditSystem}{51}{section*.95}
+\contentsline {subsubsection}{changeEmployeeID}{52}{section*.98}
+\contentsline {subsubsection}{setSystemWideLimit}{54}{section*.101}
+\contentsline {subsubsection}{setCanteenName}{55}{section*.104}
+\contentsline {subsubsection}{uploadImage}{57}{section*.107}
+\contentsline {subsection}{\numberline {5.8}Reporting Module}{59}{subsection.0.5.8}
+\contentsline {subsubsection}{Inventory Report }{59}{section*.111}
+\contentsline {subsubsection}{Generate Report}{60}{section*.114}
+\contentsline {subsubsection}{Generate Popular Report}{62}{section*.117}
+\contentsline {subsubsection}{Send Notifications}{63}{section*.120}
+\contentsline {subsubsection}{View History }{64}{section*.123}
+\contentsline {subsubsection}{View User Bill }{66}{section*.126}
+\contentsline {section}{\numberline {6}Comment}{68}{section.0.6}
